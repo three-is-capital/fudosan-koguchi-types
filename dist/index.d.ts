@@ -1,1 +1,1 @@
-export { Project, ProjectKi, Ki, Asset, AssetKi, Company, User, SBIMPUser, EAJPUser } from '@prisma/client';
+export * from '../../node_modules/.prisma/client/index';
