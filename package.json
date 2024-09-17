@@ -1,11 +1,12 @@
 {
   "name": "fudosan-koguchi-types",
   "version": "0.1.0",
-  "main": "types/index.ts",
+  "main": "types/index.d.ts",
   "files": [
     "types"
   ],
   "scripts": {
+    "copy": "copy.bat",
     "build": "tsc --declaration --emitDeclarationOnly"
   },
   "devDependencies": {
