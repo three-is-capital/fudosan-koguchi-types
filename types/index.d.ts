@@ -24,10 +24,10 @@ export type User = $Result.DefaultSelection<Prisma.$UserPayload>
  */
 export type SBIMPUser = $Result.DefaultSelection<Prisma.$SBIMPUserPayload>
 /**
- * Model EAJPUser
+ * Model EAJUser
  * 
  */
-export type EAJPUser = $Result.DefaultSelection<Prisma.$EAJPUserPayload>
+export type EAJUser = $Result.DefaultSelection<Prisma.$EAJUserPayload>
 /**
  * Model Company
  * 
@@ -58,6 +58,36 @@ export type Asset = $Result.DefaultSelection<Prisma.$AssetPayload>
  * 
  */
 export type AssetKi = $Result.DefaultSelection<Prisma.$AssetKiPayload>
+
+/**
+ * Enums
+ */
+export namespace $Enums {
+  export const UserRole: {
+  NORMAL: 'NORMAL',
+  ADMIN: 'ADMIN'
+};
+
+export type UserRole = (typeof UserRole)[keyof typeof UserRole]
+
+
+export const UserType: {
+  user: 'user',
+  sbimpUser: 'sbimpUser',
+  eajUser: 'eajUser'
+};
+
+export type UserType = (typeof UserType)[keyof typeof UserType]
+
+}
+
+export type UserRole = $Enums.UserRole
+
+export const UserRole: typeof $Enums.UserRole
+
+export type UserType = $Enums.UserType
+
+export const UserType: typeof $Enums.UserType
 
 /**
  * ##  Prisma Client ʲˢ
@@ -203,14 +233,14 @@ export class PrismaClient<
   get sBIMPUser(): Prisma.SBIMPUserDelegate<ExtArgs>;
 
   /**
-   * `prisma.eAJPUser`: Exposes CRUD operations for the **EAJPUser** model.
+   * `prisma.eAJUser`: Exposes CRUD operations for the **EAJUser** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more EAJPUsers
-    * const eAJPUsers = await prisma.eAJPUser.findMany()
+    * // Fetch zero or more EAJUsers
+    * const eAJUsers = await prisma.eAJUser.findMany()
     * ```
     */
-  get eAJPUser(): Prisma.EAJPUserDelegate<ExtArgs>;
+  get eAJUser(): Prisma.EAJUserDelegate<ExtArgs>;
 
   /**
    * `prisma.company`: Exposes CRUD operations for the **Company** model.
@@ -712,7 +742,7 @@ export namespace Prisma {
   export const ModelName: {
     User: 'User',
     SBIMPUser: 'SBIMPUser',
-    EAJPUser: 'EAJPUser',
+    EAJUser: 'EAJUser',
     Company: 'Company',
     Ki: 'Ki',
     Project: 'Project',
@@ -734,7 +764,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "user" | "sBIMPUser" | "eAJPUser" | "company" | "ki" | "project" | "projectKi" | "asset" | "assetKi"
+      modelProps: "user" | "sBIMPUser" | "eAJUser" | "company" | "ki" | "project" | "projectKi" | "asset" | "assetKi"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -878,73 +908,73 @@ export namespace Prisma {
           }
         }
       }
-      EAJPUser: {
-        payload: Prisma.$EAJPUserPayload<ExtArgs>
-        fields: Prisma.EAJPUserFieldRefs
+      EAJUser: {
+        payload: Prisma.$EAJUserPayload<ExtArgs>
+        fields: Prisma.EAJUserFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.EAJPUserFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EAJPUserPayload> | null
+            args: Prisma.EAJUserFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EAJUserPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.EAJPUserFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EAJPUserPayload>
+            args: Prisma.EAJUserFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EAJUserPayload>
           }
           findFirst: {
-            args: Prisma.EAJPUserFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EAJPUserPayload> | null
+            args: Prisma.EAJUserFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EAJUserPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.EAJPUserFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EAJPUserPayload>
+            args: Prisma.EAJUserFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EAJUserPayload>
           }
           findMany: {
-            args: Prisma.EAJPUserFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EAJPUserPayload>[]
+            args: Prisma.EAJUserFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EAJUserPayload>[]
           }
           create: {
-            args: Prisma.EAJPUserCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EAJPUserPayload>
+            args: Prisma.EAJUserCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EAJUserPayload>
           }
           createMany: {
-            args: Prisma.EAJPUserCreateManyArgs<ExtArgs>
+            args: Prisma.EAJUserCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.EAJPUserCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EAJPUserPayload>[]
+            args: Prisma.EAJUserCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EAJUserPayload>[]
           }
           delete: {
-            args: Prisma.EAJPUserDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EAJPUserPayload>
+            args: Prisma.EAJUserDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EAJUserPayload>
           }
           update: {
-            args: Prisma.EAJPUserUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EAJPUserPayload>
+            args: Prisma.EAJUserUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EAJUserPayload>
           }
           deleteMany: {
-            args: Prisma.EAJPUserDeleteManyArgs<ExtArgs>
+            args: Prisma.EAJUserDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.EAJPUserUpdateManyArgs<ExtArgs>
+            args: Prisma.EAJUserUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           upsert: {
-            args: Prisma.EAJPUserUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EAJPUserPayload>
+            args: Prisma.EAJUserUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EAJUserPayload>
           }
           aggregate: {
-            args: Prisma.EAJPUserAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateEAJPUser>
+            args: Prisma.EAJUserAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateEAJUser>
           }
           groupBy: {
-            args: Prisma.EAJPUserGroupByArgs<ExtArgs>
-            result: $Utils.Optional<EAJPUserGroupByOutputType>[]
+            args: Prisma.EAJUserGroupByArgs<ExtArgs>
+            result: $Utils.Optional<EAJUserGroupByOutputType>[]
           }
           count: {
-            args: Prisma.EAJPUserCountArgs<ExtArgs>
-            result: $Utils.Optional<EAJPUserCountAggregateOutputType> | number
+            args: Prisma.EAJUserCountArgs<ExtArgs>
+            result: $Utils.Optional<EAJUserCountAggregateOutputType> | number
           }
         }
       }
@@ -1668,6 +1698,9 @@ export namespace Prisma {
     auth_id: string | null
     email: string | null
     name: string | null
+    role: $Enums.UserRole | null
+    userType: $Enums.UserType | null
+    isDeleted: boolean | null
     createdAt: Date | null
     createdId: number | null
     createdBy: string | null
@@ -1681,6 +1714,9 @@ export namespace Prisma {
     auth_id: string | null
     email: string | null
     name: string | null
+    role: $Enums.UserRole | null
+    userType: $Enums.UserType | null
+    isDeleted: boolean | null
     createdAt: Date | null
     createdId: number | null
     createdBy: string | null
@@ -1694,6 +1730,9 @@ export namespace Prisma {
     auth_id: number
     email: number
     name: number
+    role: number
+    userType: number
+    isDeleted: number
     createdAt: number
     createdId: number
     createdBy: number
@@ -1721,6 +1760,9 @@ export namespace Prisma {
     auth_id?: true
     email?: true
     name?: true
+    role?: true
+    userType?: true
+    isDeleted?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -1734,6 +1776,9 @@ export namespace Prisma {
     auth_id?: true
     email?: true
     name?: true
+    role?: true
+    userType?: true
+    isDeleted?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -1747,6 +1792,9 @@ export namespace Prisma {
     auth_id?: true
     email?: true
     name?: true
+    role?: true
+    userType?: true
+    isDeleted?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -1844,9 +1892,12 @@ export namespace Prisma {
 
   export type UserGroupByOutputType = {
     id: number
-    auth_id: string
+    auth_id: string | null
     email: string
     name: string | null
+    role: $Enums.UserRole
+    userType: $Enums.UserType
+    isDeleted: boolean
     createdAt: Date
     createdId: number
     createdBy: string
@@ -1879,6 +1930,9 @@ export namespace Prisma {
     auth_id?: boolean
     email?: boolean
     name?: boolean
+    role?: boolean
+    userType?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -1892,6 +1946,9 @@ export namespace Prisma {
     auth_id?: boolean
     email?: boolean
     name?: boolean
+    role?: boolean
+    userType?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -1905,6 +1962,9 @@ export namespace Prisma {
     auth_id?: boolean
     email?: boolean
     name?: boolean
+    role?: boolean
+    userType?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -1919,9 +1979,12 @@ export namespace Prisma {
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      auth_id: string
+      auth_id: string | null
       email: string
       name: string | null
+      role: $Enums.UserRole
+      userType: $Enums.UserType
+      isDeleted: boolean
       createdAt: Date
       createdId: number
       createdBy: string
@@ -2325,6 +2388,9 @@ export namespace Prisma {
     readonly auth_id: FieldRef<"User", 'String'>
     readonly email: FieldRef<"User", 'String'>
     readonly name: FieldRef<"User", 'String'>
+    readonly role: FieldRef<"User", 'UserRole'>
+    readonly userType: FieldRef<"User", 'UserType'>
+    readonly isDeleted: FieldRef<"User", 'Boolean'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly createdId: FieldRef<"User", 'Int'>
     readonly createdBy: FieldRef<"User", 'String'>
@@ -2648,6 +2714,9 @@ export namespace Prisma {
     auth_id: string | null
     email: string | null
     name: string | null
+    role: $Enums.UserRole | null
+    userType: $Enums.UserType | null
+    isDeleted: boolean | null
     createdAt: Date | null
     createdId: number | null
     createdBy: string | null
@@ -2661,6 +2730,9 @@ export namespace Prisma {
     auth_id: string | null
     email: string | null
     name: string | null
+    role: $Enums.UserRole | null
+    userType: $Enums.UserType | null
+    isDeleted: boolean | null
     createdAt: Date | null
     createdId: number | null
     createdBy: string | null
@@ -2674,6 +2746,9 @@ export namespace Prisma {
     auth_id: number
     email: number
     name: number
+    role: number
+    userType: number
+    isDeleted: number
     createdAt: number
     createdId: number
     createdBy: number
@@ -2701,6 +2776,9 @@ export namespace Prisma {
     auth_id?: true
     email?: true
     name?: true
+    role?: true
+    userType?: true
+    isDeleted?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -2714,6 +2792,9 @@ export namespace Prisma {
     auth_id?: true
     email?: true
     name?: true
+    role?: true
+    userType?: true
+    isDeleted?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -2727,6 +2808,9 @@ export namespace Prisma {
     auth_id?: true
     email?: true
     name?: true
+    role?: true
+    userType?: true
+    isDeleted?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -2824,9 +2908,12 @@ export namespace Prisma {
 
   export type SBIMPUserGroupByOutputType = {
     id: number
-    auth_id: string
+    auth_id: string | null
     email: string
     name: string | null
+    role: $Enums.UserRole
+    userType: $Enums.UserType
+    isDeleted: boolean
     createdAt: Date
     createdId: number
     createdBy: string
@@ -2859,6 +2946,9 @@ export namespace Prisma {
     auth_id?: boolean
     email?: boolean
     name?: boolean
+    role?: boolean
+    userType?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -2872,6 +2962,9 @@ export namespace Prisma {
     auth_id?: boolean
     email?: boolean
     name?: boolean
+    role?: boolean
+    userType?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -2885,6 +2978,9 @@ export namespace Prisma {
     auth_id?: boolean
     email?: boolean
     name?: boolean
+    role?: boolean
+    userType?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -2899,9 +2995,12 @@ export namespace Prisma {
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      auth_id: string
+      auth_id: string | null
       email: string
       name: string | null
+      role: $Enums.UserRole
+      userType: $Enums.UserType
+      isDeleted: boolean
       createdAt: Date
       createdId: number
       createdBy: string
@@ -3305,6 +3404,9 @@ export namespace Prisma {
     readonly auth_id: FieldRef<"SBIMPUser", 'String'>
     readonly email: FieldRef<"SBIMPUser", 'String'>
     readonly name: FieldRef<"SBIMPUser", 'String'>
+    readonly role: FieldRef<"SBIMPUser", 'UserRole'>
+    readonly userType: FieldRef<"SBIMPUser", 'UserType'>
+    readonly isDeleted: FieldRef<"SBIMPUser", 'Boolean'>
     readonly createdAt: FieldRef<"SBIMPUser", 'DateTime'>
     readonly createdId: FieldRef<"SBIMPUser", 'Int'>
     readonly createdBy: FieldRef<"SBIMPUser", 'String'>
@@ -3600,34 +3702,37 @@ export namespace Prisma {
 
 
   /**
-   * Model EAJPUser
+   * Model EAJUser
    */
 
-  export type AggregateEAJPUser = {
-    _count: EAJPUserCountAggregateOutputType | null
-    _avg: EAJPUserAvgAggregateOutputType | null
-    _sum: EAJPUserSumAggregateOutputType | null
-    _min: EAJPUserMinAggregateOutputType | null
-    _max: EAJPUserMaxAggregateOutputType | null
+  export type AggregateEAJUser = {
+    _count: EAJUserCountAggregateOutputType | null
+    _avg: EAJUserAvgAggregateOutputType | null
+    _sum: EAJUserSumAggregateOutputType | null
+    _min: EAJUserMinAggregateOutputType | null
+    _max: EAJUserMaxAggregateOutputType | null
   }
 
-  export type EAJPUserAvgAggregateOutputType = {
+  export type EAJUserAvgAggregateOutputType = {
     id: number | null
     createdId: number | null
     updatedId: number | null
   }
 
-  export type EAJPUserSumAggregateOutputType = {
+  export type EAJUserSumAggregateOutputType = {
     id: number | null
     createdId: number | null
     updatedId: number | null
   }
 
-  export type EAJPUserMinAggregateOutputType = {
+  export type EAJUserMinAggregateOutputType = {
     id: number | null
     auth_id: string | null
     email: string | null
     name: string | null
+    role: $Enums.UserRole | null
+    userType: $Enums.UserType | null
+    isDeleted: boolean | null
     createdAt: Date | null
     createdId: number | null
     createdBy: string | null
@@ -3636,11 +3741,14 @@ export namespace Prisma {
     updatedBy: string | null
   }
 
-  export type EAJPUserMaxAggregateOutputType = {
+  export type EAJUserMaxAggregateOutputType = {
     id: number | null
     auth_id: string | null
     email: string | null
     name: string | null
+    role: $Enums.UserRole | null
+    userType: $Enums.UserType | null
+    isDeleted: boolean | null
     createdAt: Date | null
     createdId: number | null
     createdBy: string | null
@@ -3649,11 +3757,14 @@ export namespace Prisma {
     updatedBy: string | null
   }
 
-  export type EAJPUserCountAggregateOutputType = {
+  export type EAJUserCountAggregateOutputType = {
     id: number
     auth_id: number
     email: number
     name: number
+    role: number
+    userType: number
+    isDeleted: number
     createdAt: number
     createdId: number
     createdBy: number
@@ -3664,23 +3775,26 @@ export namespace Prisma {
   }
 
 
-  export type EAJPUserAvgAggregateInputType = {
+  export type EAJUserAvgAggregateInputType = {
     id?: true
     createdId?: true
     updatedId?: true
   }
 
-  export type EAJPUserSumAggregateInputType = {
+  export type EAJUserSumAggregateInputType = {
     id?: true
     createdId?: true
     updatedId?: true
   }
 
-  export type EAJPUserMinAggregateInputType = {
+  export type EAJUserMinAggregateInputType = {
     id?: true
     auth_id?: true
     email?: true
     name?: true
+    role?: true
+    userType?: true
+    isDeleted?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -3689,11 +3803,14 @@ export namespace Prisma {
     updatedBy?: true
   }
 
-  export type EAJPUserMaxAggregateInputType = {
+  export type EAJUserMaxAggregateInputType = {
     id?: true
     auth_id?: true
     email?: true
     name?: true
+    role?: true
+    userType?: true
+    isDeleted?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -3702,11 +3819,14 @@ export namespace Prisma {
     updatedBy?: true
   }
 
-  export type EAJPUserCountAggregateInputType = {
+  export type EAJUserCountAggregateInputType = {
     id?: true
     auth_id?: true
     email?: true
     name?: true
+    role?: true
+    userType?: true
+    isDeleted?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -3716,155 +3836,167 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type EAJPUserAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EAJUserAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which EAJPUser to aggregate.
+     * Filter which EAJUser to aggregate.
      */
-    where?: EAJPUserWhereInput
+    where?: EAJUserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of EAJPUsers to fetch.
+     * Determine the order of EAJUsers to fetch.
      */
-    orderBy?: EAJPUserOrderByWithRelationInput | EAJPUserOrderByWithRelationInput[]
+    orderBy?: EAJUserOrderByWithRelationInput | EAJUserOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: EAJPUserWhereUniqueInput
+    cursor?: EAJUserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` EAJPUsers from the position of the cursor.
+     * Take `±n` EAJUsers from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` EAJPUsers.
+     * Skip the first `n` EAJUsers.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned EAJPUsers
+     * Count returned EAJUsers
     **/
-    _count?: true | EAJPUserCountAggregateInputType
+    _count?: true | EAJUserCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: EAJPUserAvgAggregateInputType
+    _avg?: EAJUserAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: EAJPUserSumAggregateInputType
+    _sum?: EAJUserSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: EAJPUserMinAggregateInputType
+    _min?: EAJUserMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: EAJPUserMaxAggregateInputType
+    _max?: EAJUserMaxAggregateInputType
   }
 
-  export type GetEAJPUserAggregateType<T extends EAJPUserAggregateArgs> = {
-        [P in keyof T & keyof AggregateEAJPUser]: P extends '_count' | 'count'
+  export type GetEAJUserAggregateType<T extends EAJUserAggregateArgs> = {
+        [P in keyof T & keyof AggregateEAJUser]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateEAJPUser[P]>
-      : GetScalarType<T[P], AggregateEAJPUser[P]>
+        : GetScalarType<T[P], AggregateEAJUser[P]>
+      : GetScalarType<T[P], AggregateEAJUser[P]>
   }
 
 
 
 
-  export type EAJPUserGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: EAJPUserWhereInput
-    orderBy?: EAJPUserOrderByWithAggregationInput | EAJPUserOrderByWithAggregationInput[]
-    by: EAJPUserScalarFieldEnum[] | EAJPUserScalarFieldEnum
-    having?: EAJPUserScalarWhereWithAggregatesInput
+  export type EAJUserGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EAJUserWhereInput
+    orderBy?: EAJUserOrderByWithAggregationInput | EAJUserOrderByWithAggregationInput[]
+    by: EAJUserScalarFieldEnum[] | EAJUserScalarFieldEnum
+    having?: EAJUserScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: EAJPUserCountAggregateInputType | true
-    _avg?: EAJPUserAvgAggregateInputType
-    _sum?: EAJPUserSumAggregateInputType
-    _min?: EAJPUserMinAggregateInputType
-    _max?: EAJPUserMaxAggregateInputType
+    _count?: EAJUserCountAggregateInputType | true
+    _avg?: EAJUserAvgAggregateInputType
+    _sum?: EAJUserSumAggregateInputType
+    _min?: EAJUserMinAggregateInputType
+    _max?: EAJUserMaxAggregateInputType
   }
 
-  export type EAJPUserGroupByOutputType = {
+  export type EAJUserGroupByOutputType = {
     id: number
-    auth_id: string
+    auth_id: string | null
     email: string
     name: string | null
+    role: $Enums.UserRole
+    userType: $Enums.UserType
+    isDeleted: boolean
     createdAt: Date
     createdId: number
     createdBy: string
     updatedAt: Date
     updatedId: number
     updatedBy: string
-    _count: EAJPUserCountAggregateOutputType | null
-    _avg: EAJPUserAvgAggregateOutputType | null
-    _sum: EAJPUserSumAggregateOutputType | null
-    _min: EAJPUserMinAggregateOutputType | null
-    _max: EAJPUserMaxAggregateOutputType | null
+    _count: EAJUserCountAggregateOutputType | null
+    _avg: EAJUserAvgAggregateOutputType | null
+    _sum: EAJUserSumAggregateOutputType | null
+    _min: EAJUserMinAggregateOutputType | null
+    _max: EAJUserMaxAggregateOutputType | null
   }
 
-  type GetEAJPUserGroupByPayload<T extends EAJPUserGroupByArgs> = Prisma.PrismaPromise<
+  type GetEAJUserGroupByPayload<T extends EAJUserGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<EAJPUserGroupByOutputType, T['by']> &
+      PickEnumerable<EAJUserGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof EAJPUserGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof EAJUserGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], EAJPUserGroupByOutputType[P]>
-            : GetScalarType<T[P], EAJPUserGroupByOutputType[P]>
+              : GetScalarType<T[P], EAJUserGroupByOutputType[P]>
+            : GetScalarType<T[P], EAJUserGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type EAJPUserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type EAJUserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     auth_id?: boolean
     email?: boolean
     name?: boolean
+    role?: boolean
+    userType?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
     updatedAt?: boolean
     updatedId?: boolean
     updatedBy?: boolean
-  }, ExtArgs["result"]["eAJPUser"]>
+  }, ExtArgs["result"]["eAJUser"]>
 
-  export type EAJPUserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type EAJUserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     auth_id?: boolean
     email?: boolean
     name?: boolean
+    role?: boolean
+    userType?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
     updatedAt?: boolean
     updatedId?: boolean
     updatedBy?: boolean
-  }, ExtArgs["result"]["eAJPUser"]>
+  }, ExtArgs["result"]["eAJUser"]>
 
-  export type EAJPUserSelectScalar = {
+  export type EAJUserSelectScalar = {
     id?: boolean
     auth_id?: boolean
     email?: boolean
     name?: boolean
+    role?: boolean
+    userType?: boolean
+    isDeleted?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -3874,150 +4006,153 @@ export namespace Prisma {
   }
 
 
-  export type $EAJPUserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "EAJPUser"
+  export type $EAJUserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "EAJUser"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      auth_id: string
+      auth_id: string | null
       email: string
       name: string | null
+      role: $Enums.UserRole
+      userType: $Enums.UserType
+      isDeleted: boolean
       createdAt: Date
       createdId: number
       createdBy: string
       updatedAt: Date
       updatedId: number
       updatedBy: string
-    }, ExtArgs["result"]["eAJPUser"]>
+    }, ExtArgs["result"]["eAJUser"]>
     composites: {}
   }
 
-  type EAJPUserGetPayload<S extends boolean | null | undefined | EAJPUserDefaultArgs> = $Result.GetResult<Prisma.$EAJPUserPayload, S>
+  type EAJUserGetPayload<S extends boolean | null | undefined | EAJUserDefaultArgs> = $Result.GetResult<Prisma.$EAJUserPayload, S>
 
-  type EAJPUserCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<EAJPUserFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: EAJPUserCountAggregateInputType | true
+  type EAJUserCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<EAJUserFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: EAJUserCountAggregateInputType | true
     }
 
-  export interface EAJPUserDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['EAJPUser'], meta: { name: 'EAJPUser' } }
+  export interface EAJUserDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['EAJUser'], meta: { name: 'EAJUser' } }
     /**
-     * Find zero or one EAJPUser that matches the filter.
-     * @param {EAJPUserFindUniqueArgs} args - Arguments to find a EAJPUser
+     * Find zero or one EAJUser that matches the filter.
+     * @param {EAJUserFindUniqueArgs} args - Arguments to find a EAJUser
      * @example
-     * // Get one EAJPUser
-     * const eAJPUser = await prisma.eAJPUser.findUnique({
+     * // Get one EAJUser
+     * const eAJUser = await prisma.eAJUser.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends EAJPUserFindUniqueArgs>(args: SelectSubset<T, EAJPUserFindUniqueArgs<ExtArgs>>): Prisma__EAJPUserClient<$Result.GetResult<Prisma.$EAJPUserPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+    findUnique<T extends EAJUserFindUniqueArgs>(args: SelectSubset<T, EAJUserFindUniqueArgs<ExtArgs>>): Prisma__EAJUserClient<$Result.GetResult<Prisma.$EAJUserPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
 
     /**
-     * Find one EAJPUser that matches the filter or throw an error with `error.code='P2025'` 
+     * Find one EAJUser that matches the filter or throw an error with `error.code='P2025'` 
      * if no matches were found.
-     * @param {EAJPUserFindUniqueOrThrowArgs} args - Arguments to find a EAJPUser
+     * @param {EAJUserFindUniqueOrThrowArgs} args - Arguments to find a EAJUser
      * @example
-     * // Get one EAJPUser
-     * const eAJPUser = await prisma.eAJPUser.findUniqueOrThrow({
+     * // Get one EAJUser
+     * const eAJUser = await prisma.eAJUser.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends EAJPUserFindUniqueOrThrowArgs>(args: SelectSubset<T, EAJPUserFindUniqueOrThrowArgs<ExtArgs>>): Prisma__EAJPUserClient<$Result.GetResult<Prisma.$EAJPUserPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+    findUniqueOrThrow<T extends EAJUserFindUniqueOrThrowArgs>(args: SelectSubset<T, EAJUserFindUniqueOrThrowArgs<ExtArgs>>): Prisma__EAJUserClient<$Result.GetResult<Prisma.$EAJUserPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
 
     /**
-     * Find the first EAJPUser that matches the filter.
+     * Find the first EAJUser that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EAJPUserFindFirstArgs} args - Arguments to find a EAJPUser
+     * @param {EAJUserFindFirstArgs} args - Arguments to find a EAJUser
      * @example
-     * // Get one EAJPUser
-     * const eAJPUser = await prisma.eAJPUser.findFirst({
+     * // Get one EAJUser
+     * const eAJUser = await prisma.eAJUser.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends EAJPUserFindFirstArgs>(args?: SelectSubset<T, EAJPUserFindFirstArgs<ExtArgs>>): Prisma__EAJPUserClient<$Result.GetResult<Prisma.$EAJPUserPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+    findFirst<T extends EAJUserFindFirstArgs>(args?: SelectSubset<T, EAJUserFindFirstArgs<ExtArgs>>): Prisma__EAJUserClient<$Result.GetResult<Prisma.$EAJUserPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
 
     /**
-     * Find the first EAJPUser that matches the filter or
+     * Find the first EAJUser that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EAJPUserFindFirstOrThrowArgs} args - Arguments to find a EAJPUser
+     * @param {EAJUserFindFirstOrThrowArgs} args - Arguments to find a EAJUser
      * @example
-     * // Get one EAJPUser
-     * const eAJPUser = await prisma.eAJPUser.findFirstOrThrow({
+     * // Get one EAJUser
+     * const eAJUser = await prisma.eAJUser.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends EAJPUserFindFirstOrThrowArgs>(args?: SelectSubset<T, EAJPUserFindFirstOrThrowArgs<ExtArgs>>): Prisma__EAJPUserClient<$Result.GetResult<Prisma.$EAJPUserPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+    findFirstOrThrow<T extends EAJUserFindFirstOrThrowArgs>(args?: SelectSubset<T, EAJUserFindFirstOrThrowArgs<ExtArgs>>): Prisma__EAJUserClient<$Result.GetResult<Prisma.$EAJUserPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
 
     /**
-     * Find zero or more EAJPUsers that matches the filter.
+     * Find zero or more EAJUsers that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EAJPUserFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {EAJUserFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all EAJPUsers
-     * const eAJPUsers = await prisma.eAJPUser.findMany()
+     * // Get all EAJUsers
+     * const eAJUsers = await prisma.eAJUser.findMany()
      * 
-     * // Get first 10 EAJPUsers
-     * const eAJPUsers = await prisma.eAJPUser.findMany({ take: 10 })
+     * // Get first 10 EAJUsers
+     * const eAJUsers = await prisma.eAJUser.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const eAJPUserWithIdOnly = await prisma.eAJPUser.findMany({ select: { id: true } })
+     * const eAJUserWithIdOnly = await prisma.eAJUser.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends EAJPUserFindManyArgs>(args?: SelectSubset<T, EAJPUserFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EAJPUserPayload<ExtArgs>, T, "findMany">>
+    findMany<T extends EAJUserFindManyArgs>(args?: SelectSubset<T, EAJUserFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EAJUserPayload<ExtArgs>, T, "findMany">>
 
     /**
-     * Create a EAJPUser.
-     * @param {EAJPUserCreateArgs} args - Arguments to create a EAJPUser.
+     * Create a EAJUser.
+     * @param {EAJUserCreateArgs} args - Arguments to create a EAJUser.
      * @example
-     * // Create one EAJPUser
-     * const EAJPUser = await prisma.eAJPUser.create({
+     * // Create one EAJUser
+     * const EAJUser = await prisma.eAJUser.create({
      *   data: {
-     *     // ... data to create a EAJPUser
+     *     // ... data to create a EAJUser
      *   }
      * })
      * 
      */
-    create<T extends EAJPUserCreateArgs>(args: SelectSubset<T, EAJPUserCreateArgs<ExtArgs>>): Prisma__EAJPUserClient<$Result.GetResult<Prisma.$EAJPUserPayload<ExtArgs>, T, "create">, never, ExtArgs>
+    create<T extends EAJUserCreateArgs>(args: SelectSubset<T, EAJUserCreateArgs<ExtArgs>>): Prisma__EAJUserClient<$Result.GetResult<Prisma.$EAJUserPayload<ExtArgs>, T, "create">, never, ExtArgs>
 
     /**
-     * Create many EAJPUsers.
-     * @param {EAJPUserCreateManyArgs} args - Arguments to create many EAJPUsers.
+     * Create many EAJUsers.
+     * @param {EAJUserCreateManyArgs} args - Arguments to create many EAJUsers.
      * @example
-     * // Create many EAJPUsers
-     * const eAJPUser = await prisma.eAJPUser.createMany({
+     * // Create many EAJUsers
+     * const eAJUser = await prisma.eAJUser.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends EAJPUserCreateManyArgs>(args?: SelectSubset<T, EAJPUserCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends EAJUserCreateManyArgs>(args?: SelectSubset<T, EAJUserCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many EAJPUsers and returns the data saved in the database.
-     * @param {EAJPUserCreateManyAndReturnArgs} args - Arguments to create many EAJPUsers.
+     * Create many EAJUsers and returns the data saved in the database.
+     * @param {EAJUserCreateManyAndReturnArgs} args - Arguments to create many EAJUsers.
      * @example
-     * // Create many EAJPUsers
-     * const eAJPUser = await prisma.eAJPUser.createManyAndReturn({
+     * // Create many EAJUsers
+     * const eAJUser = await prisma.eAJUser.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many EAJPUsers and only return the `id`
-     * const eAJPUserWithIdOnly = await prisma.eAJPUser.createManyAndReturn({ 
+     * // Create many EAJUsers and only return the `id`
+     * const eAJUserWithIdOnly = await prisma.eAJUser.createManyAndReturn({ 
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -4027,28 +4162,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends EAJPUserCreateManyAndReturnArgs>(args?: SelectSubset<T, EAJPUserCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EAJPUserPayload<ExtArgs>, T, "createManyAndReturn">>
+    createManyAndReturn<T extends EAJUserCreateManyAndReturnArgs>(args?: SelectSubset<T, EAJUserCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EAJUserPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
-     * Delete a EAJPUser.
-     * @param {EAJPUserDeleteArgs} args - Arguments to delete one EAJPUser.
+     * Delete a EAJUser.
+     * @param {EAJUserDeleteArgs} args - Arguments to delete one EAJUser.
      * @example
-     * // Delete one EAJPUser
-     * const EAJPUser = await prisma.eAJPUser.delete({
+     * // Delete one EAJUser
+     * const EAJUser = await prisma.eAJUser.delete({
      *   where: {
-     *     // ... filter to delete one EAJPUser
+     *     // ... filter to delete one EAJUser
      *   }
      * })
      * 
      */
-    delete<T extends EAJPUserDeleteArgs>(args: SelectSubset<T, EAJPUserDeleteArgs<ExtArgs>>): Prisma__EAJPUserClient<$Result.GetResult<Prisma.$EAJPUserPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+    delete<T extends EAJUserDeleteArgs>(args: SelectSubset<T, EAJUserDeleteArgs<ExtArgs>>): Prisma__EAJUserClient<$Result.GetResult<Prisma.$EAJUserPayload<ExtArgs>, T, "delete">, never, ExtArgs>
 
     /**
-     * Update one EAJPUser.
-     * @param {EAJPUserUpdateArgs} args - Arguments to update one EAJPUser.
+     * Update one EAJUser.
+     * @param {EAJUserUpdateArgs} args - Arguments to update one EAJUser.
      * @example
-     * // Update one EAJPUser
-     * const eAJPUser = await prisma.eAJPUser.update({
+     * // Update one EAJUser
+     * const eAJUser = await prisma.eAJUser.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -4058,30 +4193,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends EAJPUserUpdateArgs>(args: SelectSubset<T, EAJPUserUpdateArgs<ExtArgs>>): Prisma__EAJPUserClient<$Result.GetResult<Prisma.$EAJPUserPayload<ExtArgs>, T, "update">, never, ExtArgs>
+    update<T extends EAJUserUpdateArgs>(args: SelectSubset<T, EAJUserUpdateArgs<ExtArgs>>): Prisma__EAJUserClient<$Result.GetResult<Prisma.$EAJUserPayload<ExtArgs>, T, "update">, never, ExtArgs>
 
     /**
-     * Delete zero or more EAJPUsers.
-     * @param {EAJPUserDeleteManyArgs} args - Arguments to filter EAJPUsers to delete.
+     * Delete zero or more EAJUsers.
+     * @param {EAJUserDeleteManyArgs} args - Arguments to filter EAJUsers to delete.
      * @example
-     * // Delete a few EAJPUsers
-     * const { count } = await prisma.eAJPUser.deleteMany({
+     * // Delete a few EAJUsers
+     * const { count } = await prisma.eAJUser.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends EAJPUserDeleteManyArgs>(args?: SelectSubset<T, EAJPUserDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends EAJUserDeleteManyArgs>(args?: SelectSubset<T, EAJUserDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more EAJPUsers.
+     * Update zero or more EAJUsers.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EAJPUserUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {EAJUserUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many EAJPUsers
-     * const eAJPUser = await prisma.eAJPUser.updateMany({
+     * // Update many EAJUsers
+     * const eAJUser = await prisma.eAJUser.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -4091,56 +4226,56 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends EAJPUserUpdateManyArgs>(args: SelectSubset<T, EAJPUserUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends EAJUserUpdateManyArgs>(args: SelectSubset<T, EAJUserUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one EAJPUser.
-     * @param {EAJPUserUpsertArgs} args - Arguments to update or create a EAJPUser.
+     * Create or update one EAJUser.
+     * @param {EAJUserUpsertArgs} args - Arguments to update or create a EAJUser.
      * @example
-     * // Update or create a EAJPUser
-     * const eAJPUser = await prisma.eAJPUser.upsert({
+     * // Update or create a EAJUser
+     * const eAJUser = await prisma.eAJUser.upsert({
      *   create: {
-     *     // ... data to create a EAJPUser
+     *     // ... data to create a EAJUser
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the EAJPUser we want to update
+     *     // ... the filter for the EAJUser we want to update
      *   }
      * })
      */
-    upsert<T extends EAJPUserUpsertArgs>(args: SelectSubset<T, EAJPUserUpsertArgs<ExtArgs>>): Prisma__EAJPUserClient<$Result.GetResult<Prisma.$EAJPUserPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+    upsert<T extends EAJUserUpsertArgs>(args: SelectSubset<T, EAJUserUpsertArgs<ExtArgs>>): Prisma__EAJUserClient<$Result.GetResult<Prisma.$EAJUserPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
 
 
     /**
-     * Count the number of EAJPUsers.
+     * Count the number of EAJUsers.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EAJPUserCountArgs} args - Arguments to filter EAJPUsers to count.
+     * @param {EAJUserCountArgs} args - Arguments to filter EAJUsers to count.
      * @example
-     * // Count the number of EAJPUsers
-     * const count = await prisma.eAJPUser.count({
+     * // Count the number of EAJUsers
+     * const count = await prisma.eAJUser.count({
      *   where: {
-     *     // ... the filter for the EAJPUsers we want to count
+     *     // ... the filter for the EAJUsers we want to count
      *   }
      * })
     **/
-    count<T extends EAJPUserCountArgs>(
-      args?: Subset<T, EAJPUserCountArgs>,
+    count<T extends EAJUserCountArgs>(
+      args?: Subset<T, EAJUserCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], EAJPUserCountAggregateOutputType>
+          : GetScalarType<T['select'], EAJUserCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a EAJPUser.
+     * Allows you to perform aggregations operations on a EAJUser.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EAJPUserAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {EAJUserAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -4160,13 +4295,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends EAJPUserAggregateArgs>(args: Subset<T, EAJPUserAggregateArgs>): Prisma.PrismaPromise<GetEAJPUserAggregateType<T>>
+    aggregate<T extends EAJUserAggregateArgs>(args: Subset<T, EAJUserAggregateArgs>): Prisma.PrismaPromise<GetEAJUserAggregateType<T>>
 
     /**
-     * Group by EAJPUser.
+     * Group by EAJUser.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EAJPUserGroupByArgs} args - Group by arguments.
+     * @param {EAJUserGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -4181,14 +4316,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends EAJPUserGroupByArgs,
+      T extends EAJUserGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: EAJPUserGroupByArgs['orderBy'] }
-        : { orderBy?: EAJPUserGroupByArgs['orderBy'] },
+        ? { orderBy: EAJUserGroupByArgs['orderBy'] }
+        : { orderBy?: EAJUserGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -4237,20 +4372,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, EAJPUserGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEAJPUserGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, EAJUserGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEAJUserGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the EAJPUser model
+   * Fields of the EAJUser model
    */
-  readonly fields: EAJPUserFieldRefs;
+  readonly fields: EAJUserFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for EAJPUser.
+   * The delegate class that acts as a "Promise-like" for EAJUser.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__EAJPUserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__EAJUserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -4278,304 +4413,307 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the EAJPUser model
+   * Fields of the EAJUser model
    */ 
-  interface EAJPUserFieldRefs {
-    readonly id: FieldRef<"EAJPUser", 'Int'>
-    readonly auth_id: FieldRef<"EAJPUser", 'String'>
-    readonly email: FieldRef<"EAJPUser", 'String'>
-    readonly name: FieldRef<"EAJPUser", 'String'>
-    readonly createdAt: FieldRef<"EAJPUser", 'DateTime'>
-    readonly createdId: FieldRef<"EAJPUser", 'Int'>
-    readonly createdBy: FieldRef<"EAJPUser", 'String'>
-    readonly updatedAt: FieldRef<"EAJPUser", 'DateTime'>
-    readonly updatedId: FieldRef<"EAJPUser", 'Int'>
-    readonly updatedBy: FieldRef<"EAJPUser", 'String'>
+  interface EAJUserFieldRefs {
+    readonly id: FieldRef<"EAJUser", 'Int'>
+    readonly auth_id: FieldRef<"EAJUser", 'String'>
+    readonly email: FieldRef<"EAJUser", 'String'>
+    readonly name: FieldRef<"EAJUser", 'String'>
+    readonly role: FieldRef<"EAJUser", 'UserRole'>
+    readonly userType: FieldRef<"EAJUser", 'UserType'>
+    readonly isDeleted: FieldRef<"EAJUser", 'Boolean'>
+    readonly createdAt: FieldRef<"EAJUser", 'DateTime'>
+    readonly createdId: FieldRef<"EAJUser", 'Int'>
+    readonly createdBy: FieldRef<"EAJUser", 'String'>
+    readonly updatedAt: FieldRef<"EAJUser", 'DateTime'>
+    readonly updatedId: FieldRef<"EAJUser", 'Int'>
+    readonly updatedBy: FieldRef<"EAJUser", 'String'>
   }
     
 
   // Custom InputTypes
   /**
-   * EAJPUser findUnique
+   * EAJUser findUnique
    */
-  export type EAJPUserFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EAJUserFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the EAJPUser
+     * Select specific fields to fetch from the EAJUser
      */
-    select?: EAJPUserSelect<ExtArgs> | null
+    select?: EAJUserSelect<ExtArgs> | null
     /**
-     * Filter, which EAJPUser to fetch.
+     * Filter, which EAJUser to fetch.
      */
-    where: EAJPUserWhereUniqueInput
+    where: EAJUserWhereUniqueInput
   }
 
   /**
-   * EAJPUser findUniqueOrThrow
+   * EAJUser findUniqueOrThrow
    */
-  export type EAJPUserFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EAJUserFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the EAJPUser
+     * Select specific fields to fetch from the EAJUser
      */
-    select?: EAJPUserSelect<ExtArgs> | null
+    select?: EAJUserSelect<ExtArgs> | null
     /**
-     * Filter, which EAJPUser to fetch.
+     * Filter, which EAJUser to fetch.
      */
-    where: EAJPUserWhereUniqueInput
+    where: EAJUserWhereUniqueInput
   }
 
   /**
-   * EAJPUser findFirst
+   * EAJUser findFirst
    */
-  export type EAJPUserFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EAJUserFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the EAJPUser
+     * Select specific fields to fetch from the EAJUser
      */
-    select?: EAJPUserSelect<ExtArgs> | null
+    select?: EAJUserSelect<ExtArgs> | null
     /**
-     * Filter, which EAJPUser to fetch.
+     * Filter, which EAJUser to fetch.
      */
-    where?: EAJPUserWhereInput
+    where?: EAJUserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of EAJPUsers to fetch.
+     * Determine the order of EAJUsers to fetch.
      */
-    orderBy?: EAJPUserOrderByWithRelationInput | EAJPUserOrderByWithRelationInput[]
+    orderBy?: EAJUserOrderByWithRelationInput | EAJUserOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for EAJPUsers.
+     * Sets the position for searching for EAJUsers.
      */
-    cursor?: EAJPUserWhereUniqueInput
+    cursor?: EAJUserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` EAJPUsers from the position of the cursor.
+     * Take `±n` EAJUsers from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` EAJPUsers.
+     * Skip the first `n` EAJUsers.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of EAJPUsers.
+     * Filter by unique combinations of EAJUsers.
      */
-    distinct?: EAJPUserScalarFieldEnum | EAJPUserScalarFieldEnum[]
+    distinct?: EAJUserScalarFieldEnum | EAJUserScalarFieldEnum[]
   }
 
   /**
-   * EAJPUser findFirstOrThrow
+   * EAJUser findFirstOrThrow
    */
-  export type EAJPUserFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EAJUserFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the EAJPUser
+     * Select specific fields to fetch from the EAJUser
      */
-    select?: EAJPUserSelect<ExtArgs> | null
+    select?: EAJUserSelect<ExtArgs> | null
     /**
-     * Filter, which EAJPUser to fetch.
+     * Filter, which EAJUser to fetch.
      */
-    where?: EAJPUserWhereInput
+    where?: EAJUserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of EAJPUsers to fetch.
+     * Determine the order of EAJUsers to fetch.
      */
-    orderBy?: EAJPUserOrderByWithRelationInput | EAJPUserOrderByWithRelationInput[]
+    orderBy?: EAJUserOrderByWithRelationInput | EAJUserOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for EAJPUsers.
+     * Sets the position for searching for EAJUsers.
      */
-    cursor?: EAJPUserWhereUniqueInput
+    cursor?: EAJUserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` EAJPUsers from the position of the cursor.
+     * Take `±n` EAJUsers from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` EAJPUsers.
+     * Skip the first `n` EAJUsers.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of EAJPUsers.
+     * Filter by unique combinations of EAJUsers.
      */
-    distinct?: EAJPUserScalarFieldEnum | EAJPUserScalarFieldEnum[]
+    distinct?: EAJUserScalarFieldEnum | EAJUserScalarFieldEnum[]
   }
 
   /**
-   * EAJPUser findMany
+   * EAJUser findMany
    */
-  export type EAJPUserFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EAJUserFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the EAJPUser
+     * Select specific fields to fetch from the EAJUser
      */
-    select?: EAJPUserSelect<ExtArgs> | null
+    select?: EAJUserSelect<ExtArgs> | null
     /**
-     * Filter, which EAJPUsers to fetch.
+     * Filter, which EAJUsers to fetch.
      */
-    where?: EAJPUserWhereInput
+    where?: EAJUserWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of EAJPUsers to fetch.
+     * Determine the order of EAJUsers to fetch.
      */
-    orderBy?: EAJPUserOrderByWithRelationInput | EAJPUserOrderByWithRelationInput[]
+    orderBy?: EAJUserOrderByWithRelationInput | EAJUserOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing EAJPUsers.
+     * Sets the position for listing EAJUsers.
      */
-    cursor?: EAJPUserWhereUniqueInput
+    cursor?: EAJUserWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` EAJPUsers from the position of the cursor.
+     * Take `±n` EAJUsers from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` EAJPUsers.
+     * Skip the first `n` EAJUsers.
      */
     skip?: number
-    distinct?: EAJPUserScalarFieldEnum | EAJPUserScalarFieldEnum[]
+    distinct?: EAJUserScalarFieldEnum | EAJUserScalarFieldEnum[]
   }
 
   /**
-   * EAJPUser create
+   * EAJUser create
    */
-  export type EAJPUserCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EAJUserCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the EAJPUser
+     * Select specific fields to fetch from the EAJUser
      */
-    select?: EAJPUserSelect<ExtArgs> | null
+    select?: EAJUserSelect<ExtArgs> | null
     /**
-     * The data needed to create a EAJPUser.
+     * The data needed to create a EAJUser.
      */
-    data: XOR<EAJPUserCreateInput, EAJPUserUncheckedCreateInput>
+    data: XOR<EAJUserCreateInput, EAJUserUncheckedCreateInput>
   }
 
   /**
-   * EAJPUser createMany
+   * EAJUser createMany
    */
-  export type EAJPUserCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EAJUserCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many EAJPUsers.
+     * The data used to create many EAJUsers.
      */
-    data: EAJPUserCreateManyInput | EAJPUserCreateManyInput[]
+    data: EAJUserCreateManyInput | EAJUserCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * EAJPUser createManyAndReturn
+   * EAJUser createManyAndReturn
    */
-  export type EAJPUserCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EAJUserCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the EAJPUser
+     * Select specific fields to fetch from the EAJUser
      */
-    select?: EAJPUserSelectCreateManyAndReturn<ExtArgs> | null
+    select?: EAJUserSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * The data used to create many EAJPUsers.
+     * The data used to create many EAJUsers.
      */
-    data: EAJPUserCreateManyInput | EAJPUserCreateManyInput[]
+    data: EAJUserCreateManyInput | EAJUserCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * EAJPUser update
+   * EAJUser update
    */
-  export type EAJPUserUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EAJUserUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the EAJPUser
+     * Select specific fields to fetch from the EAJUser
      */
-    select?: EAJPUserSelect<ExtArgs> | null
+    select?: EAJUserSelect<ExtArgs> | null
     /**
-     * The data needed to update a EAJPUser.
+     * The data needed to update a EAJUser.
      */
-    data: XOR<EAJPUserUpdateInput, EAJPUserUncheckedUpdateInput>
+    data: XOR<EAJUserUpdateInput, EAJUserUncheckedUpdateInput>
     /**
-     * Choose, which EAJPUser to update.
+     * Choose, which EAJUser to update.
      */
-    where: EAJPUserWhereUniqueInput
+    where: EAJUserWhereUniqueInput
   }
 
   /**
-   * EAJPUser updateMany
+   * EAJUser updateMany
    */
-  export type EAJPUserUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EAJUserUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update EAJPUsers.
+     * The data used to update EAJUsers.
      */
-    data: XOR<EAJPUserUpdateManyMutationInput, EAJPUserUncheckedUpdateManyInput>
+    data: XOR<EAJUserUpdateManyMutationInput, EAJUserUncheckedUpdateManyInput>
     /**
-     * Filter which EAJPUsers to update
+     * Filter which EAJUsers to update
      */
-    where?: EAJPUserWhereInput
+    where?: EAJUserWhereInput
   }
 
   /**
-   * EAJPUser upsert
+   * EAJUser upsert
    */
-  export type EAJPUserUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EAJUserUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the EAJPUser
+     * Select specific fields to fetch from the EAJUser
      */
-    select?: EAJPUserSelect<ExtArgs> | null
+    select?: EAJUserSelect<ExtArgs> | null
     /**
-     * The filter to search for the EAJPUser to update in case it exists.
+     * The filter to search for the EAJUser to update in case it exists.
      */
-    where: EAJPUserWhereUniqueInput
+    where: EAJUserWhereUniqueInput
     /**
-     * In case the EAJPUser found by the `where` argument doesn't exist, create a new EAJPUser with this data.
+     * In case the EAJUser found by the `where` argument doesn't exist, create a new EAJUser with this data.
      */
-    create: XOR<EAJPUserCreateInput, EAJPUserUncheckedCreateInput>
+    create: XOR<EAJUserCreateInput, EAJUserUncheckedCreateInput>
     /**
-     * In case the EAJPUser was found with the provided `where` argument, update it with this data.
+     * In case the EAJUser was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<EAJPUserUpdateInput, EAJPUserUncheckedUpdateInput>
+    update: XOR<EAJUserUpdateInput, EAJUserUncheckedUpdateInput>
   }
 
   /**
-   * EAJPUser delete
+   * EAJUser delete
    */
-  export type EAJPUserDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EAJUserDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the EAJPUser
+     * Select specific fields to fetch from the EAJUser
      */
-    select?: EAJPUserSelect<ExtArgs> | null
+    select?: EAJUserSelect<ExtArgs> | null
     /**
-     * Filter which EAJPUser to delete.
+     * Filter which EAJUser to delete.
      */
-    where: EAJPUserWhereUniqueInput
+    where: EAJUserWhereUniqueInput
   }
 
   /**
-   * EAJPUser deleteMany
+   * EAJUser deleteMany
    */
-  export type EAJPUserDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EAJUserDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which EAJPUsers to delete
+     * Filter which EAJUsers to delete
      */
-    where?: EAJPUserWhereInput
+    where?: EAJUserWhereInput
   }
 
   /**
-   * EAJPUser without action
+   * EAJUser without action
    */
-  export type EAJPUserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EAJUserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the EAJPUser
+     * Select specific fields to fetch from the EAJUser
      */
-    select?: EAJPUserSelect<ExtArgs> | null
+    select?: EAJUserSelect<ExtArgs> | null
   }
 
 
@@ -10983,6 +11121,9 @@ export namespace Prisma {
     auth_id: 'auth_id',
     email: 'email',
     name: 'name',
+    role: 'role',
+    userType: 'userType',
+    isDeleted: 'isDeleted',
     createdAt: 'createdAt',
     createdId: 'createdId',
     createdBy: 'createdBy',
@@ -10999,6 +11140,9 @@ export namespace Prisma {
     auth_id: 'auth_id',
     email: 'email',
     name: 'name',
+    role: 'role',
+    userType: 'userType',
+    isDeleted: 'isDeleted',
     createdAt: 'createdAt',
     createdId: 'createdId',
     createdBy: 'createdBy',
@@ -11010,11 +11154,14 @@ export namespace Prisma {
   export type SBIMPUserScalarFieldEnum = (typeof SBIMPUserScalarFieldEnum)[keyof typeof SBIMPUserScalarFieldEnum]
 
 
-  export const EAJPUserScalarFieldEnum: {
+  export const EAJUserScalarFieldEnum: {
     id: 'id',
     auth_id: 'auth_id',
     email: 'email',
     name: 'name',
+    role: 'role',
+    userType: 'userType',
+    isDeleted: 'isDeleted',
     createdAt: 'createdAt',
     createdId: 'createdId',
     createdBy: 'createdBy',
@@ -11023,7 +11170,7 @@ export namespace Prisma {
     updatedBy: 'updatedBy'
   };
 
-  export type EAJPUserScalarFieldEnum = (typeof EAJPUserScalarFieldEnum)[keyof typeof EAJPUserScalarFieldEnum]
+  export type EAJUserScalarFieldEnum = (typeof EAJUserScalarFieldEnum)[keyof typeof EAJUserScalarFieldEnum]
 
 
   export const CompanyScalarFieldEnum: {
@@ -11191,6 +11338,41 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'UserRole'
+   */
+  export type EnumUserRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UserRole'>
+    
+
+
+  /**
+   * Reference to a field of type 'UserRole[]'
+   */
+  export type ListEnumUserRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UserRole[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'UserType'
+   */
+  export type EnumUserTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UserType'>
+    
+
+
+  /**
+   * Reference to a field of type 'UserType[]'
+   */
+  export type ListEnumUserTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UserType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -11230,13 +11412,6 @@ export namespace Prisma {
    */
   export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
-
-
-  /**
-   * Reference to a field of type 'Boolean'
-   */
-  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
-    
   /**
    * Deep Input Types
    */
@@ -11247,9 +11422,12 @@ export namespace Prisma {
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
     id?: IntFilter<"User"> | number
-    auth_id?: StringFilter<"User"> | string
+    auth_id?: StringNullableFilter<"User"> | string | null
     email?: StringFilter<"User"> | string
     name?: StringNullableFilter<"User"> | string | null
+    role?: EnumUserRoleFilter<"User"> | $Enums.UserRole
+    userType?: EnumUserTypeFilter<"User"> | $Enums.UserType
+    isDeleted?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     createdId?: IntFilter<"User"> | number
     createdBy?: StringFilter<"User"> | string
@@ -11260,9 +11438,12 @@ export namespace Prisma {
 
   export type UserOrderByWithRelationInput = {
     id?: SortOrder
-    auth_id?: SortOrder
+    auth_id?: SortOrderInput | SortOrder
     email?: SortOrder
     name?: SortOrderInput | SortOrder
+    role?: SortOrder
+    userType?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -11273,25 +11454,31 @@ export namespace Prisma {
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    auth_id?: string
     email?: string
     AND?: UserWhereInput | UserWhereInput[]
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
+    auth_id?: StringNullableFilter<"User"> | string | null
     name?: StringNullableFilter<"User"> | string | null
+    role?: EnumUserRoleFilter<"User"> | $Enums.UserRole
+    userType?: EnumUserTypeFilter<"User"> | $Enums.UserType
+    isDeleted?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
     createdId?: IntFilter<"User"> | number
     createdBy?: StringFilter<"User"> | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     updatedId?: IntFilter<"User"> | number
     updatedBy?: StringFilter<"User"> | string
-  }, "id" | "auth_id" | "email">
+  }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
     id?: SortOrder
-    auth_id?: SortOrder
+    auth_id?: SortOrderInput | SortOrder
     email?: SortOrder
     name?: SortOrderInput | SortOrder
+    role?: SortOrder
+    userType?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -11310,9 +11497,12 @@ export namespace Prisma {
     OR?: UserScalarWhereWithAggregatesInput[]
     NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"User"> | number
-    auth_id?: StringWithAggregatesFilter<"User"> | string
+    auth_id?: StringNullableWithAggregatesFilter<"User"> | string | null
     email?: StringWithAggregatesFilter<"User"> | string
     name?: StringNullableWithAggregatesFilter<"User"> | string | null
+    role?: EnumUserRoleWithAggregatesFilter<"User"> | $Enums.UserRole
+    userType?: EnumUserTypeWithAggregatesFilter<"User"> | $Enums.UserType
+    isDeleted?: BoolWithAggregatesFilter<"User"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     createdId?: IntWithAggregatesFilter<"User"> | number
     createdBy?: StringWithAggregatesFilter<"User"> | string
@@ -11326,9 +11516,12 @@ export namespace Prisma {
     OR?: SBIMPUserWhereInput[]
     NOT?: SBIMPUserWhereInput | SBIMPUserWhereInput[]
     id?: IntFilter<"SBIMPUser"> | number
-    auth_id?: StringFilter<"SBIMPUser"> | string
+    auth_id?: StringNullableFilter<"SBIMPUser"> | string | null
     email?: StringFilter<"SBIMPUser"> | string
     name?: StringNullableFilter<"SBIMPUser"> | string | null
+    role?: EnumUserRoleFilter<"SBIMPUser"> | $Enums.UserRole
+    userType?: EnumUserTypeFilter<"SBIMPUser"> | $Enums.UserType
+    isDeleted?: BoolFilter<"SBIMPUser"> | boolean
     createdAt?: DateTimeFilter<"SBIMPUser"> | Date | string
     createdId?: IntFilter<"SBIMPUser"> | number
     createdBy?: StringFilter<"SBIMPUser"> | string
@@ -11339,9 +11532,12 @@ export namespace Prisma {
 
   export type SBIMPUserOrderByWithRelationInput = {
     id?: SortOrder
-    auth_id?: SortOrder
+    auth_id?: SortOrderInput | SortOrder
     email?: SortOrder
     name?: SortOrderInput | SortOrder
+    role?: SortOrder
+    userType?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -11352,25 +11548,31 @@ export namespace Prisma {
 
   export type SBIMPUserWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    auth_id?: string
     email?: string
     AND?: SBIMPUserWhereInput | SBIMPUserWhereInput[]
     OR?: SBIMPUserWhereInput[]
     NOT?: SBIMPUserWhereInput | SBIMPUserWhereInput[]
+    auth_id?: StringNullableFilter<"SBIMPUser"> | string | null
     name?: StringNullableFilter<"SBIMPUser"> | string | null
+    role?: EnumUserRoleFilter<"SBIMPUser"> | $Enums.UserRole
+    userType?: EnumUserTypeFilter<"SBIMPUser"> | $Enums.UserType
+    isDeleted?: BoolFilter<"SBIMPUser"> | boolean
     createdAt?: DateTimeFilter<"SBIMPUser"> | Date | string
     createdId?: IntFilter<"SBIMPUser"> | number
     createdBy?: StringFilter<"SBIMPUser"> | string
     updatedAt?: DateTimeFilter<"SBIMPUser"> | Date | string
     updatedId?: IntFilter<"SBIMPUser"> | number
     updatedBy?: StringFilter<"SBIMPUser"> | string
-  }, "id" | "auth_id" | "email">
+  }, "id" | "email">
 
   export type SBIMPUserOrderByWithAggregationInput = {
     id?: SortOrder
-    auth_id?: SortOrder
+    auth_id?: SortOrderInput | SortOrder
     email?: SortOrder
     name?: SortOrderInput | SortOrder
+    role?: SortOrder
+    userType?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -11389,9 +11591,12 @@ export namespace Prisma {
     OR?: SBIMPUserScalarWhereWithAggregatesInput[]
     NOT?: SBIMPUserScalarWhereWithAggregatesInput | SBIMPUserScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"SBIMPUser"> | number
-    auth_id?: StringWithAggregatesFilter<"SBIMPUser"> | string
+    auth_id?: StringNullableWithAggregatesFilter<"SBIMPUser"> | string | null
     email?: StringWithAggregatesFilter<"SBIMPUser"> | string
     name?: StringNullableWithAggregatesFilter<"SBIMPUser"> | string | null
+    role?: EnumUserRoleWithAggregatesFilter<"SBIMPUser"> | $Enums.UserRole
+    userType?: EnumUserTypeWithAggregatesFilter<"SBIMPUser"> | $Enums.UserType
+    isDeleted?: BoolWithAggregatesFilter<"SBIMPUser"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"SBIMPUser"> | Date | string
     createdId?: IntWithAggregatesFilter<"SBIMPUser"> | number
     createdBy?: StringWithAggregatesFilter<"SBIMPUser"> | string
@@ -11400,27 +11605,33 @@ export namespace Prisma {
     updatedBy?: StringWithAggregatesFilter<"SBIMPUser"> | string
   }
 
-  export type EAJPUserWhereInput = {
-    AND?: EAJPUserWhereInput | EAJPUserWhereInput[]
-    OR?: EAJPUserWhereInput[]
-    NOT?: EAJPUserWhereInput | EAJPUserWhereInput[]
-    id?: IntFilter<"EAJPUser"> | number
-    auth_id?: StringFilter<"EAJPUser"> | string
-    email?: StringFilter<"EAJPUser"> | string
-    name?: StringNullableFilter<"EAJPUser"> | string | null
-    createdAt?: DateTimeFilter<"EAJPUser"> | Date | string
-    createdId?: IntFilter<"EAJPUser"> | number
-    createdBy?: StringFilter<"EAJPUser"> | string
-    updatedAt?: DateTimeFilter<"EAJPUser"> | Date | string
-    updatedId?: IntFilter<"EAJPUser"> | number
-    updatedBy?: StringFilter<"EAJPUser"> | string
+  export type EAJUserWhereInput = {
+    AND?: EAJUserWhereInput | EAJUserWhereInput[]
+    OR?: EAJUserWhereInput[]
+    NOT?: EAJUserWhereInput | EAJUserWhereInput[]
+    id?: IntFilter<"EAJUser"> | number
+    auth_id?: StringNullableFilter<"EAJUser"> | string | null
+    email?: StringFilter<"EAJUser"> | string
+    name?: StringNullableFilter<"EAJUser"> | string | null
+    role?: EnumUserRoleFilter<"EAJUser"> | $Enums.UserRole
+    userType?: EnumUserTypeFilter<"EAJUser"> | $Enums.UserType
+    isDeleted?: BoolFilter<"EAJUser"> | boolean
+    createdAt?: DateTimeFilter<"EAJUser"> | Date | string
+    createdId?: IntFilter<"EAJUser"> | number
+    createdBy?: StringFilter<"EAJUser"> | string
+    updatedAt?: DateTimeFilter<"EAJUser"> | Date | string
+    updatedId?: IntFilter<"EAJUser"> | number
+    updatedBy?: StringFilter<"EAJUser"> | string
   }
 
-  export type EAJPUserOrderByWithRelationInput = {
+  export type EAJUserOrderByWithRelationInput = {
     id?: SortOrder
-    auth_id?: SortOrder
+    auth_id?: SortOrderInput | SortOrder
     email?: SortOrder
     name?: SortOrderInput | SortOrder
+    role?: SortOrder
+    userType?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -11429,54 +11640,63 @@ export namespace Prisma {
     updatedBy?: SortOrder
   }
 
-  export type EAJPUserWhereUniqueInput = Prisma.AtLeast<{
+  export type EAJUserWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    auth_id?: string
     email?: string
-    AND?: EAJPUserWhereInput | EAJPUserWhereInput[]
-    OR?: EAJPUserWhereInput[]
-    NOT?: EAJPUserWhereInput | EAJPUserWhereInput[]
-    name?: StringNullableFilter<"EAJPUser"> | string | null
-    createdAt?: DateTimeFilter<"EAJPUser"> | Date | string
-    createdId?: IntFilter<"EAJPUser"> | number
-    createdBy?: StringFilter<"EAJPUser"> | string
-    updatedAt?: DateTimeFilter<"EAJPUser"> | Date | string
-    updatedId?: IntFilter<"EAJPUser"> | number
-    updatedBy?: StringFilter<"EAJPUser"> | string
-  }, "id" | "auth_id" | "email">
+    AND?: EAJUserWhereInput | EAJUserWhereInput[]
+    OR?: EAJUserWhereInput[]
+    NOT?: EAJUserWhereInput | EAJUserWhereInput[]
+    auth_id?: StringNullableFilter<"EAJUser"> | string | null
+    name?: StringNullableFilter<"EAJUser"> | string | null
+    role?: EnumUserRoleFilter<"EAJUser"> | $Enums.UserRole
+    userType?: EnumUserTypeFilter<"EAJUser"> | $Enums.UserType
+    isDeleted?: BoolFilter<"EAJUser"> | boolean
+    createdAt?: DateTimeFilter<"EAJUser"> | Date | string
+    createdId?: IntFilter<"EAJUser"> | number
+    createdBy?: StringFilter<"EAJUser"> | string
+    updatedAt?: DateTimeFilter<"EAJUser"> | Date | string
+    updatedId?: IntFilter<"EAJUser"> | number
+    updatedBy?: StringFilter<"EAJUser"> | string
+  }, "id" | "email">
 
-  export type EAJPUserOrderByWithAggregationInput = {
+  export type EAJUserOrderByWithAggregationInput = {
     id?: SortOrder
-    auth_id?: SortOrder
+    auth_id?: SortOrderInput | SortOrder
     email?: SortOrder
     name?: SortOrderInput | SortOrder
+    role?: SortOrder
+    userType?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
     updatedAt?: SortOrder
     updatedId?: SortOrder
     updatedBy?: SortOrder
-    _count?: EAJPUserCountOrderByAggregateInput
-    _avg?: EAJPUserAvgOrderByAggregateInput
-    _max?: EAJPUserMaxOrderByAggregateInput
-    _min?: EAJPUserMinOrderByAggregateInput
-    _sum?: EAJPUserSumOrderByAggregateInput
+    _count?: EAJUserCountOrderByAggregateInput
+    _avg?: EAJUserAvgOrderByAggregateInput
+    _max?: EAJUserMaxOrderByAggregateInput
+    _min?: EAJUserMinOrderByAggregateInput
+    _sum?: EAJUserSumOrderByAggregateInput
   }
 
-  export type EAJPUserScalarWhereWithAggregatesInput = {
-    AND?: EAJPUserScalarWhereWithAggregatesInput | EAJPUserScalarWhereWithAggregatesInput[]
-    OR?: EAJPUserScalarWhereWithAggregatesInput[]
-    NOT?: EAJPUserScalarWhereWithAggregatesInput | EAJPUserScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"EAJPUser"> | number
-    auth_id?: StringWithAggregatesFilter<"EAJPUser"> | string
-    email?: StringWithAggregatesFilter<"EAJPUser"> | string
-    name?: StringNullableWithAggregatesFilter<"EAJPUser"> | string | null
-    createdAt?: DateTimeWithAggregatesFilter<"EAJPUser"> | Date | string
-    createdId?: IntWithAggregatesFilter<"EAJPUser"> | number
-    createdBy?: StringWithAggregatesFilter<"EAJPUser"> | string
-    updatedAt?: DateTimeWithAggregatesFilter<"EAJPUser"> | Date | string
-    updatedId?: IntWithAggregatesFilter<"EAJPUser"> | number
-    updatedBy?: StringWithAggregatesFilter<"EAJPUser"> | string
+  export type EAJUserScalarWhereWithAggregatesInput = {
+    AND?: EAJUserScalarWhereWithAggregatesInput | EAJUserScalarWhereWithAggregatesInput[]
+    OR?: EAJUserScalarWhereWithAggregatesInput[]
+    NOT?: EAJUserScalarWhereWithAggregatesInput | EAJUserScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"EAJUser"> | number
+    auth_id?: StringNullableWithAggregatesFilter<"EAJUser"> | string | null
+    email?: StringWithAggregatesFilter<"EAJUser"> | string
+    name?: StringNullableWithAggregatesFilter<"EAJUser"> | string | null
+    role?: EnumUserRoleWithAggregatesFilter<"EAJUser"> | $Enums.UserRole
+    userType?: EnumUserTypeWithAggregatesFilter<"EAJUser"> | $Enums.UserType
+    isDeleted?: BoolWithAggregatesFilter<"EAJUser"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"EAJUser"> | Date | string
+    createdId?: IntWithAggregatesFilter<"EAJUser"> | number
+    createdBy?: StringWithAggregatesFilter<"EAJUser"> | string
+    updatedAt?: DateTimeWithAggregatesFilter<"EAJUser"> | Date | string
+    updatedId?: IntWithAggregatesFilter<"EAJUser"> | number
+    updatedBy?: StringWithAggregatesFilter<"EAJUser"> | string
   }
 
   export type CompanyWhereInput = {
@@ -12040,9 +12260,12 @@ export namespace Prisma {
   }
 
   export type UserCreateInput = {
-    auth_id: string
+    auth_id?: string | null
     email: string
     name?: string | null
+    role?: $Enums.UserRole
+    userType?: $Enums.UserType
+    isDeleted?: boolean
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -12053,9 +12276,12 @@ export namespace Prisma {
 
   export type UserUncheckedCreateInput = {
     id?: number
-    auth_id: string
+    auth_id?: string | null
     email: string
     name?: string | null
+    role?: $Enums.UserRole
+    userType?: $Enums.UserType
+    isDeleted?: boolean
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -12065,9 +12291,12 @@ export namespace Prisma {
   }
 
   export type UserUpdateInput = {
-    auth_id?: StringFieldUpdateOperationsInput | string
+    auth_id?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -12078,9 +12307,12 @@ export namespace Prisma {
 
   export type UserUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    auth_id?: StringFieldUpdateOperationsInput | string
+    auth_id?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -12091,9 +12323,12 @@ export namespace Prisma {
 
   export type UserCreateManyInput = {
     id?: number
-    auth_id: string
+    auth_id?: string | null
     email: string
     name?: string | null
+    role?: $Enums.UserRole
+    userType?: $Enums.UserType
+    isDeleted?: boolean
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -12103,9 +12338,12 @@ export namespace Prisma {
   }
 
   export type UserUpdateManyMutationInput = {
-    auth_id?: StringFieldUpdateOperationsInput | string
+    auth_id?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -12116,9 +12354,12 @@ export namespace Prisma {
 
   export type UserUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    auth_id?: StringFieldUpdateOperationsInput | string
+    auth_id?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -12128,9 +12369,12 @@ export namespace Prisma {
   }
 
   export type SBIMPUserCreateInput = {
-    auth_id: string
+    auth_id?: string | null
     email: string
     name?: string | null
+    role?: $Enums.UserRole
+    userType?: $Enums.UserType
+    isDeleted?: boolean
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -12141,9 +12385,12 @@ export namespace Prisma {
 
   export type SBIMPUserUncheckedCreateInput = {
     id?: number
-    auth_id: string
+    auth_id?: string | null
     email: string
     name?: string | null
+    role?: $Enums.UserRole
+    userType?: $Enums.UserType
+    isDeleted?: boolean
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -12153,9 +12400,12 @@ export namespace Prisma {
   }
 
   export type SBIMPUserUpdateInput = {
-    auth_id?: StringFieldUpdateOperationsInput | string
+    auth_id?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -12166,9 +12416,12 @@ export namespace Prisma {
 
   export type SBIMPUserUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    auth_id?: StringFieldUpdateOperationsInput | string
+    auth_id?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -12179,9 +12432,12 @@ export namespace Prisma {
 
   export type SBIMPUserCreateManyInput = {
     id?: number
-    auth_id: string
+    auth_id?: string | null
     email: string
     name?: string | null
+    role?: $Enums.UserRole
+    userType?: $Enums.UserType
+    isDeleted?: boolean
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -12191,9 +12447,12 @@ export namespace Prisma {
   }
 
   export type SBIMPUserUpdateManyMutationInput = {
-    auth_id?: StringFieldUpdateOperationsInput | string
+    auth_id?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -12204,9 +12463,12 @@ export namespace Prisma {
 
   export type SBIMPUserUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    auth_id?: StringFieldUpdateOperationsInput | string
+    auth_id?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -12215,10 +12477,13 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
-  export type EAJPUserCreateInput = {
-    auth_id: string
+  export type EAJUserCreateInput = {
+    auth_id?: string | null
     email: string
     name?: string | null
+    role?: $Enums.UserRole
+    userType?: $Enums.UserType
+    isDeleted?: boolean
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -12227,11 +12492,14 @@ export namespace Prisma {
     updatedBy: string
   }
 
-  export type EAJPUserUncheckedCreateInput = {
+  export type EAJUserUncheckedCreateInput = {
     id?: number
-    auth_id: string
+    auth_id?: string | null
     email: string
     name?: string | null
+    role?: $Enums.UserRole
+    userType?: $Enums.UserType
+    isDeleted?: boolean
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -12240,10 +12508,13 @@ export namespace Prisma {
     updatedBy: string
   }
 
-  export type EAJPUserUpdateInput = {
-    auth_id?: StringFieldUpdateOperationsInput | string
+  export type EAJUserUpdateInput = {
+    auth_id?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -12252,11 +12523,14 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
-  export type EAJPUserUncheckedUpdateInput = {
+  export type EAJUserUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    auth_id?: StringFieldUpdateOperationsInput | string
+    auth_id?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -12265,11 +12539,14 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
-  export type EAJPUserCreateManyInput = {
+  export type EAJUserCreateManyInput = {
     id?: number
-    auth_id: string
+    auth_id?: string | null
     email: string
     name?: string | null
+    role?: $Enums.UserRole
+    userType?: $Enums.UserType
+    isDeleted?: boolean
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -12278,10 +12555,13 @@ export namespace Prisma {
     updatedBy: string
   }
 
-  export type EAJPUserUpdateManyMutationInput = {
-    auth_id?: StringFieldUpdateOperationsInput | string
+  export type EAJUserUpdateManyMutationInput = {
+    auth_id?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -12290,11 +12570,14 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
-  export type EAJPUserUncheckedUpdateManyInput = {
+  export type EAJUserUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    auth_id?: StringFieldUpdateOperationsInput | string
+    auth_id?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -12952,6 +13235,21 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -12967,19 +13265,23 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type StringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  export type EnumUserRoleFilter<$PrismaModel = never> = {
+    equals?: $Enums.UserRole | EnumUserRoleFieldRefInput<$PrismaModel>
+    in?: $Enums.UserRole[] | ListEnumUserRoleFieldRefInput<$PrismaModel>
+    notIn?: $Enums.UserRole[] | ListEnumUserRoleFieldRefInput<$PrismaModel>
+    not?: NestedEnumUserRoleFilter<$PrismaModel> | $Enums.UserRole
+  }
+
+  export type EnumUserTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.UserType | EnumUserTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumUserTypeFilter<$PrismaModel> | $Enums.UserType
+  }
+
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type DateTimeFilter<$PrismaModel = never> = {
@@ -13003,6 +13305,9 @@ export namespace Prisma {
     auth_id?: SortOrder
     email?: SortOrder
     name?: SortOrder
+    role?: SortOrder
+    userType?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -13022,6 +13327,9 @@ export namespace Prisma {
     auth_id?: SortOrder
     email?: SortOrder
     name?: SortOrder
+    role?: SortOrder
+    userType?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -13035,6 +13343,9 @@ export namespace Prisma {
     auth_id?: SortOrder
     email?: SortOrder
     name?: SortOrder
+    role?: SortOrder
+    userType?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -13065,6 +13376,24 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -13083,22 +13412,32 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
+  export type EnumUserRoleWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.UserRole | EnumUserRoleFieldRefInput<$PrismaModel>
+    in?: $Enums.UserRole[] | ListEnumUserRoleFieldRefInput<$PrismaModel>
+    notIn?: $Enums.UserRole[] | ListEnumUserRoleFieldRefInput<$PrismaModel>
+    not?: NestedEnumUserRoleWithAggregatesFilter<$PrismaModel> | $Enums.UserRole
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumUserRoleFilter<$PrismaModel>
+    _max?: NestedEnumUserRoleFilter<$PrismaModel>
+  }
+
+  export type EnumUserTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.UserType | EnumUserTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumUserTypeWithAggregatesFilter<$PrismaModel> | $Enums.UserType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumUserTypeFilter<$PrismaModel>
+    _max?: NestedEnumUserTypeFilter<$PrismaModel>
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -13120,6 +13459,9 @@ export namespace Prisma {
     auth_id?: SortOrder
     email?: SortOrder
     name?: SortOrder
+    role?: SortOrder
+    userType?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -13139,6 +13481,9 @@ export namespace Prisma {
     auth_id?: SortOrder
     email?: SortOrder
     name?: SortOrder
+    role?: SortOrder
+    userType?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -13152,6 +13497,9 @@ export namespace Prisma {
     auth_id?: SortOrder
     email?: SortOrder
     name?: SortOrder
+    role?: SortOrder
+    userType?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -13166,11 +13514,14 @@ export namespace Prisma {
     updatedId?: SortOrder
   }
 
-  export type EAJPUserCountOrderByAggregateInput = {
+  export type EAJUserCountOrderByAggregateInput = {
     id?: SortOrder
     auth_id?: SortOrder
     email?: SortOrder
     name?: SortOrder
+    role?: SortOrder
+    userType?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -13179,17 +13530,20 @@ export namespace Prisma {
     updatedBy?: SortOrder
   }
 
-  export type EAJPUserAvgOrderByAggregateInput = {
+  export type EAJUserAvgOrderByAggregateInput = {
     id?: SortOrder
     createdId?: SortOrder
     updatedId?: SortOrder
   }
 
-  export type EAJPUserMaxOrderByAggregateInput = {
+  export type EAJUserMaxOrderByAggregateInput = {
     id?: SortOrder
     auth_id?: SortOrder
     email?: SortOrder
     name?: SortOrder
+    role?: SortOrder
+    userType?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -13198,11 +13552,14 @@ export namespace Prisma {
     updatedBy?: SortOrder
   }
 
-  export type EAJPUserMinOrderByAggregateInput = {
+  export type EAJUserMinOrderByAggregateInput = {
     id?: SortOrder
     auth_id?: SortOrder
     email?: SortOrder
     name?: SortOrder
+    role?: SortOrder
+    userType?: SortOrder
+    isDeleted?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -13211,7 +13568,7 @@ export namespace Prisma {
     updatedBy?: SortOrder
   }
 
-  export type EAJPUserSumOrderByAggregateInput = {
+  export type EAJUserSumOrderByAggregateInput = {
     id?: SortOrder
     createdId?: SortOrder
     updatedId?: SortOrder
@@ -13322,11 +13679,6 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatFilter<$PrismaModel> | number
-  }
-
-  export type BoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type AssetListRelationFilter = {
@@ -13462,14 +13814,6 @@ export namespace Prisma {
     _sum?: NestedFloatFilter<$PrismaModel>
     _min?: NestedFloatFilter<$PrismaModel>
     _max?: NestedFloatFilter<$PrismaModel>
-  }
-
-  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type ProjectRelationFilter = {
@@ -13683,12 +14027,24 @@ export namespace Prisma {
     updatedId?: SortOrder
   }
 
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
 
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
+  export type EnumUserRoleFieldUpdateOperationsInput = {
+    set?: $Enums.UserRole
+  }
+
+  export type EnumUserTypeFieldUpdateOperationsInput = {
+    set?: $Enums.UserType
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
@@ -13829,10 +14185,6 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
-  }
-
-  export type BoolFieldUpdateOperationsInput = {
-    set?: boolean
   }
 
   export type ProjectKiUpdateManyWithoutProjectNestedInput = {
@@ -14014,6 +14366,20 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -14028,18 +14394,23 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  export type NestedEnumUserRoleFilter<$PrismaModel = never> = {
+    equals?: $Enums.UserRole | EnumUserRoleFieldRefInput<$PrismaModel>
+    in?: $Enums.UserRole[] | ListEnumUserRoleFieldRefInput<$PrismaModel>
+    notIn?: $Enums.UserRole[] | ListEnumUserRoleFieldRefInput<$PrismaModel>
+    not?: NestedEnumUserRoleFilter<$PrismaModel> | $Enums.UserRole
+  }
+
+  export type NestedEnumUserTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.UserType | EnumUserTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumUserTypeFilter<$PrismaModel> | $Enums.UserType
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
@@ -14080,23 +14451,6 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
-  export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[] | ListStringFieldRefInput<$PrismaModel>
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedStringFilter<$PrismaModel>
-    _max?: NestedStringFilter<$PrismaModel>
-  }
-
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -14125,6 +14479,51 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
+  export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type NestedEnumUserRoleWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.UserRole | EnumUserRoleFieldRefInput<$PrismaModel>
+    in?: $Enums.UserRole[] | ListEnumUserRoleFieldRefInput<$PrismaModel>
+    notIn?: $Enums.UserRole[] | ListEnumUserRoleFieldRefInput<$PrismaModel>
+    not?: NestedEnumUserRoleWithAggregatesFilter<$PrismaModel> | $Enums.UserRole
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumUserRoleFilter<$PrismaModel>
+    _max?: NestedEnumUserRoleFilter<$PrismaModel>
+  }
+
+  export type NestedEnumUserTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.UserType | EnumUserTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.UserType[] | ListEnumUserTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumUserTypeWithAggregatesFilter<$PrismaModel> | $Enums.UserType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumUserTypeFilter<$PrismaModel>
+    _max?: NestedEnumUserTypeFilter<$PrismaModel>
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -14148,11 +14547,6 @@ export namespace Prisma {
     gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
     gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
     not?: NestedBigIntFilter<$PrismaModel> | bigint | number
-  }
-
-  export type NestedBoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type NestedBigIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -14185,14 +14579,6 @@ export namespace Prisma {
     _sum?: NestedFloatFilter<$PrismaModel>
     _min?: NestedFloatFilter<$PrismaModel>
     _max?: NestedFloatFilter<$PrismaModel>
-  }
-
-  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type ProjectKiCreateWithoutKiInput = {
@@ -15319,9 +15705,9 @@ export namespace Prisma {
      */
     export type SBIMPUserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = SBIMPUserDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use EAJPUserDefaultArgs instead
+     * @deprecated Use EAJUserDefaultArgs instead
      */
-    export type EAJPUserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = EAJPUserDefaultArgs<ExtArgs>
+    export type EAJUserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = EAJUserDefaultArgs<ExtArgs>
     /**
      * @deprecated Use CompanyDefaultArgs instead
      */
