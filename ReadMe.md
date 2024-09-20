@@ -2,6 +2,8 @@
 
 当プロジェクトはメインの fudosan-koguchi-api 内で Prisma により生成された型情報ファイルを他のプロジェクトで使えるようにするためのプロジェクトである。新規に作る場合は、上記のプロジェクト内に作るとよい。
 
+https://github.com/three-is-capital/fudosan-koguchi-types
+
 ## Prisma の情報が変わった場合の作業手順
 
 1. 型情報をこのプロジェクト内にコピーする。
