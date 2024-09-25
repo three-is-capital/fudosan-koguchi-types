@@ -12,6 +12,8 @@ https://github.com/three-is-capital/fudosan-koguchi-types
    bun run copy
    ```
 
+1. package.json のバージョンを次の TAG に合わせて変更する
+   - ここが更新されないと、利用先で認識されない。
 1. Github に登録（Commit -> Push）
 1. Tag を切る
 
