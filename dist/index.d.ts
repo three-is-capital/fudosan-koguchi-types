@@ -58,6 +58,16 @@ export type Asset = $Result.DefaultSelection<Prisma.$AssetPayload>
  * 
  */
 export type AssetKi = $Result.DefaultSelection<Prisma.$AssetKiPayload>
+/**
+ * Model Customer
+ * 
+ */
+export type Customer = $Result.DefaultSelection<Prisma.$CustomerPayload>
+/**
+ * Model CustomerFund
+ * 
+ */
+export type CustomerFund = $Result.DefaultSelection<Prisma.$CustomerFundPayload>
 
 /**
  * Enums
@@ -79,6 +89,22 @@ export const UserType: {
 
 export type UserType = (typeof UserType)[keyof typeof UserType]
 
+
+export const CustomerType: {
+  Person: 'Person',
+  Corporate: 'Corporate'
+};
+
+export type CustomerType = (typeof CustomerType)[keyof typeof CustomerType]
+
+
+export const InheritanceType: {
+  Gift: 'Gift',
+  Inheritance: 'Inheritance'
+};
+
+export type InheritanceType = (typeof InheritanceType)[keyof typeof InheritanceType]
+
 }
 
 export type UserRole = $Enums.UserRole
@@ -88,6 +114,14 @@ export const UserRole: typeof $Enums.UserRole
 export type UserType = $Enums.UserType
 
 export const UserType: typeof $Enums.UserType
+
+export type CustomerType = $Enums.CustomerType
+
+export const CustomerType: typeof $Enums.CustomerType
+
+export type InheritanceType = $Enums.InheritanceType
+
+export const InheritanceType: typeof $Enums.InheritanceType
 
 /**
  * ##  Prisma Client ʲˢ
@@ -301,6 +335,26 @@ export class PrismaClient<
     * ```
     */
   get assetKi(): Prisma.AssetKiDelegate<ExtArgs>;
+
+  /**
+   * `prisma.customer`: Exposes CRUD operations for the **Customer** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Customers
+    * const customers = await prisma.customer.findMany()
+    * ```
+    */
+  get customer(): Prisma.CustomerDelegate<ExtArgs>;
+
+  /**
+   * `prisma.customerFund`: Exposes CRUD operations for the **CustomerFund** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more CustomerFunds
+    * const customerFunds = await prisma.customerFund.findMany()
+    * ```
+    */
+  get customerFund(): Prisma.CustomerFundDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -748,7 +802,9 @@ export namespace Prisma {
     Project: 'Project',
     ProjectKi: 'ProjectKi',
     Asset: 'Asset',
-    AssetKi: 'AssetKi'
+    AssetKi: 'AssetKi',
+    Customer: 'Customer',
+    CustomerFund: 'CustomerFund'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -764,7 +820,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "user" | "sBIMPUser" | "eAJUser" | "company" | "ki" | "project" | "projectKi" | "asset" | "assetKi"
+      modelProps: "user" | "sBIMPUser" | "eAJUser" | "company" | "ki" | "project" | "projectKi" | "asset" | "assetKi" | "customer" | "customerFund"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1398,6 +1454,146 @@ export namespace Prisma {
           }
         }
       }
+      Customer: {
+        payload: Prisma.$CustomerPayload<ExtArgs>
+        fields: Prisma.CustomerFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CustomerFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CustomerFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>
+          }
+          findFirst: {
+            args: Prisma.CustomerFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CustomerFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>
+          }
+          findMany: {
+            args: Prisma.CustomerFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>[]
+          }
+          create: {
+            args: Prisma.CustomerCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>
+          }
+          createMany: {
+            args: Prisma.CustomerCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CustomerCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>[]
+          }
+          delete: {
+            args: Prisma.CustomerDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>
+          }
+          update: {
+            args: Prisma.CustomerUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>
+          }
+          deleteMany: {
+            args: Prisma.CustomerDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CustomerUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.CustomerUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerPayload>
+          }
+          aggregate: {
+            args: Prisma.CustomerAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCustomer>
+          }
+          groupBy: {
+            args: Prisma.CustomerGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CustomerGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CustomerCountArgs<ExtArgs>
+            result: $Utils.Optional<CustomerCountAggregateOutputType> | number
+          }
+        }
+      }
+      CustomerFund: {
+        payload: Prisma.$CustomerFundPayload<ExtArgs>
+        fields: Prisma.CustomerFundFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CustomerFundFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerFundPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CustomerFundFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerFundPayload>
+          }
+          findFirst: {
+            args: Prisma.CustomerFundFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerFundPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CustomerFundFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerFundPayload>
+          }
+          findMany: {
+            args: Prisma.CustomerFundFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerFundPayload>[]
+          }
+          create: {
+            args: Prisma.CustomerFundCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerFundPayload>
+          }
+          createMany: {
+            args: Prisma.CustomerFundCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CustomerFundCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerFundPayload>[]
+          }
+          delete: {
+            args: Prisma.CustomerFundDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerFundPayload>
+          }
+          update: {
+            args: Prisma.CustomerFundUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerFundPayload>
+          }
+          deleteMany: {
+            args: Prisma.CustomerFundDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CustomerFundUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.CustomerFundUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerFundPayload>
+          }
+          aggregate: {
+            args: Prisma.CustomerFundAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCustomerFund>
+          }
+          groupBy: {
+            args: Prisma.CustomerFundGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CustomerFundGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CustomerFundCountArgs<ExtArgs>
+            result: $Utils.Optional<CustomerFundCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1635,6 +1831,37 @@ export namespace Prisma {
 
 
   /**
+   * Count Type ProjectKiCountOutputType
+   */
+
+  export type ProjectKiCountOutputType = {
+    ustomerFunds: number
+  }
+
+  export type ProjectKiCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    ustomerFunds?: boolean | ProjectKiCountOutputTypeCountUstomerFundsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ProjectKiCountOutputType without action
+   */
+  export type ProjectKiCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiCountOutputType
+     */
+    select?: ProjectKiCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ProjectKiCountOutputType without action
+   */
+  export type ProjectKiCountOutputTypeCountUstomerFundsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CustomerFundWhereInput
+  }
+
+
+  /**
    * Count Type AssetCountOutputType
    */
 
@@ -1662,6 +1889,37 @@ export namespace Prisma {
    */
   export type AssetCountOutputTypeCountAssetKiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: AssetKiWhereInput
+  }
+
+
+  /**
+   * Count Type CustomerCountOutputType
+   */
+
+  export type CustomerCountOutputType = {
+    customerFunds: number
+  }
+
+  export type CustomerCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    customerFunds?: boolean | CustomerCountOutputTypeCountCustomerFundsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * CustomerCountOutputType without action
+   */
+  export type CustomerCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerCountOutputType
+     */
+    select?: CustomerCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * CustomerCountOutputType without action
+   */
+  export type CustomerCountOutputTypeCountCustomerFundsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CustomerFundWhereInput
   }
 
 
@@ -8115,6 +8373,8 @@ export namespace Prisma {
     updatedBy?: boolean
     project?: boolean | ProjectDefaultArgs<ExtArgs>
     ki?: boolean | KiDefaultArgs<ExtArgs>
+    ustomerFunds?: boolean | ProjectKi$ustomerFundsArgs<ExtArgs>
+    _count?: boolean | ProjectKiCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["projectKi"]>
 
   export type ProjectKiSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -8154,6 +8414,8 @@ export namespace Prisma {
   export type ProjectKiInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     project?: boolean | ProjectDefaultArgs<ExtArgs>
     ki?: boolean | KiDefaultArgs<ExtArgs>
+    ustomerFunds?: boolean | ProjectKi$ustomerFundsArgs<ExtArgs>
+    _count?: boolean | ProjectKiCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ProjectKiIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     project?: boolean | ProjectDefaultArgs<ExtArgs>
@@ -8165,6 +8427,7 @@ export namespace Prisma {
     objects: {
       project: Prisma.$ProjectPayload<ExtArgs>
       ki: Prisma.$KiPayload<ExtArgs>
+      ustomerFunds: Prisma.$CustomerFundPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -8546,6 +8809,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
     ki<T extends KiDefaultArgs<ExtArgs> = {}>(args?: Subset<T, KiDefaultArgs<ExtArgs>>): Prisma__KiClient<$Result.GetResult<Prisma.$KiPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    ustomerFunds<T extends ProjectKi$ustomerFundsArgs<ExtArgs> = {}>(args?: Subset<T, ProjectKi$ustomerFundsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerFundPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8903,6 +9167,26 @@ export namespace Prisma {
      * Filter which ProjectKis to delete
      */
     where?: ProjectKiWhereInput
+  }
+
+  /**
+   * ProjectKi.ustomerFunds
+   */
+  export type ProjectKi$ustomerFundsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFund
+     */
+    select?: CustomerFundSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundInclude<ExtArgs> | null
+    where?: CustomerFundWhereInput
+    orderBy?: CustomerFundOrderByWithRelationInput | CustomerFundOrderByWithRelationInput[]
+    cursor?: CustomerFundWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CustomerFundScalarFieldEnum | CustomerFundScalarFieldEnum[]
   }
 
   /**
@@ -11103,6 +11387,2537 @@ export namespace Prisma {
 
 
   /**
+   * Model Customer
+   */
+
+  export type AggregateCustomer = {
+    _count: CustomerCountAggregateOutputType | null
+    _avg: CustomerAvgAggregateOutputType | null
+    _sum: CustomerSumAggregateOutputType | null
+    _min: CustomerMinAggregateOutputType | null
+    _max: CustomerMaxAggregateOutputType | null
+  }
+
+  export type CustomerAvgAggregateOutputType = {
+    createdId: number | null
+    updatedId: number | null
+  }
+
+  export type CustomerSumAggregateOutputType = {
+    createdId: number | null
+    updatedId: number | null
+  }
+
+  export type CustomerMinAggregateOutputType = {
+    id: string | null
+    sbimpId: string | null
+    sbimpIdHistory: string | null
+    name: string | null
+    nameFrigana: string | null
+    birthday: Date | null
+    customerType: $Enums.CustomerType | null
+    invoice: boolean | null
+    postName: string | null
+    zip: string | null
+    fullAddress: string | null
+    prefecture: string | null
+    city: string | null
+    address: string | null
+    isDeleted: boolean | null
+    createdAt: Date | null
+    createdId: number | null
+    createdBy: string | null
+    updatedAt: Date | null
+    updatedId: number | null
+    updatedBy: string | null
+  }
+
+  export type CustomerMaxAggregateOutputType = {
+    id: string | null
+    sbimpId: string | null
+    sbimpIdHistory: string | null
+    name: string | null
+    nameFrigana: string | null
+    birthday: Date | null
+    customerType: $Enums.CustomerType | null
+    invoice: boolean | null
+    postName: string | null
+    zip: string | null
+    fullAddress: string | null
+    prefecture: string | null
+    city: string | null
+    address: string | null
+    isDeleted: boolean | null
+    createdAt: Date | null
+    createdId: number | null
+    createdBy: string | null
+    updatedAt: Date | null
+    updatedId: number | null
+    updatedBy: string | null
+  }
+
+  export type CustomerCountAggregateOutputType = {
+    id: number
+    sbimpId: number
+    sbimpIdHistory: number
+    name: number
+    nameFrigana: number
+    birthday: number
+    customerType: number
+    invoice: number
+    postName: number
+    zip: number
+    fullAddress: number
+    prefecture: number
+    city: number
+    address: number
+    isDeleted: number
+    createdAt: number
+    createdId: number
+    createdBy: number
+    updatedAt: number
+    updatedId: number
+    updatedBy: number
+    _all: number
+  }
+
+
+  export type CustomerAvgAggregateInputType = {
+    createdId?: true
+    updatedId?: true
+  }
+
+  export type CustomerSumAggregateInputType = {
+    createdId?: true
+    updatedId?: true
+  }
+
+  export type CustomerMinAggregateInputType = {
+    id?: true
+    sbimpId?: true
+    sbimpIdHistory?: true
+    name?: true
+    nameFrigana?: true
+    birthday?: true
+    customerType?: true
+    invoice?: true
+    postName?: true
+    zip?: true
+    fullAddress?: true
+    prefecture?: true
+    city?: true
+    address?: true
+    isDeleted?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+  }
+
+  export type CustomerMaxAggregateInputType = {
+    id?: true
+    sbimpId?: true
+    sbimpIdHistory?: true
+    name?: true
+    nameFrigana?: true
+    birthday?: true
+    customerType?: true
+    invoice?: true
+    postName?: true
+    zip?: true
+    fullAddress?: true
+    prefecture?: true
+    city?: true
+    address?: true
+    isDeleted?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+  }
+
+  export type CustomerCountAggregateInputType = {
+    id?: true
+    sbimpId?: true
+    sbimpIdHistory?: true
+    name?: true
+    nameFrigana?: true
+    birthday?: true
+    customerType?: true
+    invoice?: true
+    postName?: true
+    zip?: true
+    fullAddress?: true
+    prefecture?: true
+    city?: true
+    address?: true
+    isDeleted?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+    _all?: true
+  }
+
+  export type CustomerAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Customer to aggregate.
+     */
+    where?: CustomerWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Customers to fetch.
+     */
+    orderBy?: CustomerOrderByWithRelationInput | CustomerOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CustomerWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Customers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Customers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Customers
+    **/
+    _count?: true | CustomerCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CustomerAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CustomerSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CustomerMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CustomerMaxAggregateInputType
+  }
+
+  export type GetCustomerAggregateType<T extends CustomerAggregateArgs> = {
+        [P in keyof T & keyof AggregateCustomer]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCustomer[P]>
+      : GetScalarType<T[P], AggregateCustomer[P]>
+  }
+
+
+
+
+  export type CustomerGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CustomerWhereInput
+    orderBy?: CustomerOrderByWithAggregationInput | CustomerOrderByWithAggregationInput[]
+    by: CustomerScalarFieldEnum[] | CustomerScalarFieldEnum
+    having?: CustomerScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CustomerCountAggregateInputType | true
+    _avg?: CustomerAvgAggregateInputType
+    _sum?: CustomerSumAggregateInputType
+    _min?: CustomerMinAggregateInputType
+    _max?: CustomerMaxAggregateInputType
+  }
+
+  export type CustomerGroupByOutputType = {
+    id: string
+    sbimpId: string
+    sbimpIdHistory: string
+    name: string
+    nameFrigana: string
+    birthday: Date | null
+    customerType: $Enums.CustomerType
+    invoice: boolean
+    postName: string
+    zip: string
+    fullAddress: string
+    prefecture: string
+    city: string
+    address: string
+    isDeleted: boolean
+    createdAt: Date
+    createdId: number
+    createdBy: string
+    updatedAt: Date
+    updatedId: number
+    updatedBy: string
+    _count: CustomerCountAggregateOutputType | null
+    _avg: CustomerAvgAggregateOutputType | null
+    _sum: CustomerSumAggregateOutputType | null
+    _min: CustomerMinAggregateOutputType | null
+    _max: CustomerMaxAggregateOutputType | null
+  }
+
+  type GetCustomerGroupByPayload<T extends CustomerGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CustomerGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CustomerGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CustomerGroupByOutputType[P]>
+            : GetScalarType<T[P], CustomerGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CustomerSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sbimpId?: boolean
+    sbimpIdHistory?: boolean
+    name?: boolean
+    nameFrigana?: boolean
+    birthday?: boolean
+    customerType?: boolean
+    invoice?: boolean
+    postName?: boolean
+    zip?: boolean
+    fullAddress?: boolean
+    prefecture?: boolean
+    city?: boolean
+    address?: boolean
+    isDeleted?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+    customerFunds?: boolean | Customer$customerFundsArgs<ExtArgs>
+    _count?: boolean | CustomerCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["customer"]>
+
+  export type CustomerSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    sbimpId?: boolean
+    sbimpIdHistory?: boolean
+    name?: boolean
+    nameFrigana?: boolean
+    birthday?: boolean
+    customerType?: boolean
+    invoice?: boolean
+    postName?: boolean
+    zip?: boolean
+    fullAddress?: boolean
+    prefecture?: boolean
+    city?: boolean
+    address?: boolean
+    isDeleted?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }, ExtArgs["result"]["customer"]>
+
+  export type CustomerSelectScalar = {
+    id?: boolean
+    sbimpId?: boolean
+    sbimpIdHistory?: boolean
+    name?: boolean
+    nameFrigana?: boolean
+    birthday?: boolean
+    customerType?: boolean
+    invoice?: boolean
+    postName?: boolean
+    zip?: boolean
+    fullAddress?: boolean
+    prefecture?: boolean
+    city?: boolean
+    address?: boolean
+    isDeleted?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }
+
+  export type CustomerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    customerFunds?: boolean | Customer$customerFundsArgs<ExtArgs>
+    _count?: boolean | CustomerCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type CustomerIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $CustomerPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Customer"
+    objects: {
+      customerFunds: Prisma.$CustomerFundPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      sbimpId: string
+      sbimpIdHistory: string
+      name: string
+      nameFrigana: string
+      birthday: Date | null
+      customerType: $Enums.CustomerType
+      invoice: boolean
+      postName: string
+      zip: string
+      fullAddress: string
+      prefecture: string
+      city: string
+      address: string
+      isDeleted: boolean
+      createdAt: Date
+      createdId: number
+      createdBy: string
+      updatedAt: Date
+      updatedId: number
+      updatedBy: string
+    }, ExtArgs["result"]["customer"]>
+    composites: {}
+  }
+
+  type CustomerGetPayload<S extends boolean | null | undefined | CustomerDefaultArgs> = $Result.GetResult<Prisma.$CustomerPayload, S>
+
+  type CustomerCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<CustomerFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: CustomerCountAggregateInputType | true
+    }
+
+  export interface CustomerDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Customer'], meta: { name: 'Customer' } }
+    /**
+     * Find zero or one Customer that matches the filter.
+     * @param {CustomerFindUniqueArgs} args - Arguments to find a Customer
+     * @example
+     * // Get one Customer
+     * const customer = await prisma.customer.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CustomerFindUniqueArgs>(args: SelectSubset<T, CustomerFindUniqueArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one Customer that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {CustomerFindUniqueOrThrowArgs} args - Arguments to find a Customer
+     * @example
+     * // Get one Customer
+     * const customer = await prisma.customer.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CustomerFindUniqueOrThrowArgs>(args: SelectSubset<T, CustomerFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first Customer that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerFindFirstArgs} args - Arguments to find a Customer
+     * @example
+     * // Get one Customer
+     * const customer = await prisma.customer.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CustomerFindFirstArgs>(args?: SelectSubset<T, CustomerFindFirstArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first Customer that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerFindFirstOrThrowArgs} args - Arguments to find a Customer
+     * @example
+     * // Get one Customer
+     * const customer = await prisma.customer.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CustomerFindFirstOrThrowArgs>(args?: SelectSubset<T, CustomerFindFirstOrThrowArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more Customers that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Customers
+     * const customers = await prisma.customer.findMany()
+     * 
+     * // Get first 10 Customers
+     * const customers = await prisma.customer.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const customerWithIdOnly = await prisma.customer.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CustomerFindManyArgs>(args?: SelectSubset<T, CustomerFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a Customer.
+     * @param {CustomerCreateArgs} args - Arguments to create a Customer.
+     * @example
+     * // Create one Customer
+     * const Customer = await prisma.customer.create({
+     *   data: {
+     *     // ... data to create a Customer
+     *   }
+     * })
+     * 
+     */
+    create<T extends CustomerCreateArgs>(args: SelectSubset<T, CustomerCreateArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many Customers.
+     * @param {CustomerCreateManyArgs} args - Arguments to create many Customers.
+     * @example
+     * // Create many Customers
+     * const customer = await prisma.customer.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CustomerCreateManyArgs>(args?: SelectSubset<T, CustomerCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Customers and returns the data saved in the database.
+     * @param {CustomerCreateManyAndReturnArgs} args - Arguments to create many Customers.
+     * @example
+     * // Create many Customers
+     * const customer = await prisma.customer.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Customers and only return the `id`
+     * const customerWithIdOnly = await prisma.customer.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CustomerCreateManyAndReturnArgs>(args?: SelectSubset<T, CustomerCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a Customer.
+     * @param {CustomerDeleteArgs} args - Arguments to delete one Customer.
+     * @example
+     * // Delete one Customer
+     * const Customer = await prisma.customer.delete({
+     *   where: {
+     *     // ... filter to delete one Customer
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CustomerDeleteArgs>(args: SelectSubset<T, CustomerDeleteArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one Customer.
+     * @param {CustomerUpdateArgs} args - Arguments to update one Customer.
+     * @example
+     * // Update one Customer
+     * const customer = await prisma.customer.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CustomerUpdateArgs>(args: SelectSubset<T, CustomerUpdateArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more Customers.
+     * @param {CustomerDeleteManyArgs} args - Arguments to filter Customers to delete.
+     * @example
+     * // Delete a few Customers
+     * const { count } = await prisma.customer.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CustomerDeleteManyArgs>(args?: SelectSubset<T, CustomerDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Customers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Customers
+     * const customer = await prisma.customer.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CustomerUpdateManyArgs>(args: SelectSubset<T, CustomerUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Customer.
+     * @param {CustomerUpsertArgs} args - Arguments to update or create a Customer.
+     * @example
+     * // Update or create a Customer
+     * const customer = await prisma.customer.upsert({
+     *   create: {
+     *     // ... data to create a Customer
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Customer we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CustomerUpsertArgs>(args: SelectSubset<T, CustomerUpsertArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of Customers.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerCountArgs} args - Arguments to filter Customers to count.
+     * @example
+     * // Count the number of Customers
+     * const count = await prisma.customer.count({
+     *   where: {
+     *     // ... the filter for the Customers we want to count
+     *   }
+     * })
+    **/
+    count<T extends CustomerCountArgs>(
+      args?: Subset<T, CustomerCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CustomerCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Customer.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CustomerAggregateArgs>(args: Subset<T, CustomerAggregateArgs>): Prisma.PrismaPromise<GetCustomerAggregateType<T>>
+
+    /**
+     * Group by Customer.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CustomerGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CustomerGroupByArgs['orderBy'] }
+        : { orderBy?: CustomerGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CustomerGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCustomerGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Customer model
+   */
+  readonly fields: CustomerFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Customer.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CustomerClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    customerFunds<T extends Customer$customerFundsArgs<ExtArgs> = {}>(args?: Subset<T, Customer$customerFundsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerFundPayload<ExtArgs>, T, "findMany"> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Customer model
+   */ 
+  interface CustomerFieldRefs {
+    readonly id: FieldRef<"Customer", 'String'>
+    readonly sbimpId: FieldRef<"Customer", 'String'>
+    readonly sbimpIdHistory: FieldRef<"Customer", 'String'>
+    readonly name: FieldRef<"Customer", 'String'>
+    readonly nameFrigana: FieldRef<"Customer", 'String'>
+    readonly birthday: FieldRef<"Customer", 'DateTime'>
+    readonly customerType: FieldRef<"Customer", 'CustomerType'>
+    readonly invoice: FieldRef<"Customer", 'Boolean'>
+    readonly postName: FieldRef<"Customer", 'String'>
+    readonly zip: FieldRef<"Customer", 'String'>
+    readonly fullAddress: FieldRef<"Customer", 'String'>
+    readonly prefecture: FieldRef<"Customer", 'String'>
+    readonly city: FieldRef<"Customer", 'String'>
+    readonly address: FieldRef<"Customer", 'String'>
+    readonly isDeleted: FieldRef<"Customer", 'Boolean'>
+    readonly createdAt: FieldRef<"Customer", 'DateTime'>
+    readonly createdId: FieldRef<"Customer", 'Int'>
+    readonly createdBy: FieldRef<"Customer", 'String'>
+    readonly updatedAt: FieldRef<"Customer", 'DateTime'>
+    readonly updatedId: FieldRef<"Customer", 'Int'>
+    readonly updatedBy: FieldRef<"Customer", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Customer findUnique
+   */
+  export type CustomerFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Customer
+     */
+    select?: CustomerSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerInclude<ExtArgs> | null
+    /**
+     * Filter, which Customer to fetch.
+     */
+    where: CustomerWhereUniqueInput
+  }
+
+  /**
+   * Customer findUniqueOrThrow
+   */
+  export type CustomerFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Customer
+     */
+    select?: CustomerSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerInclude<ExtArgs> | null
+    /**
+     * Filter, which Customer to fetch.
+     */
+    where: CustomerWhereUniqueInput
+  }
+
+  /**
+   * Customer findFirst
+   */
+  export type CustomerFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Customer
+     */
+    select?: CustomerSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerInclude<ExtArgs> | null
+    /**
+     * Filter, which Customer to fetch.
+     */
+    where?: CustomerWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Customers to fetch.
+     */
+    orderBy?: CustomerOrderByWithRelationInput | CustomerOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Customers.
+     */
+    cursor?: CustomerWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Customers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Customers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Customers.
+     */
+    distinct?: CustomerScalarFieldEnum | CustomerScalarFieldEnum[]
+  }
+
+  /**
+   * Customer findFirstOrThrow
+   */
+  export type CustomerFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Customer
+     */
+    select?: CustomerSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerInclude<ExtArgs> | null
+    /**
+     * Filter, which Customer to fetch.
+     */
+    where?: CustomerWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Customers to fetch.
+     */
+    orderBy?: CustomerOrderByWithRelationInput | CustomerOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Customers.
+     */
+    cursor?: CustomerWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Customers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Customers.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Customers.
+     */
+    distinct?: CustomerScalarFieldEnum | CustomerScalarFieldEnum[]
+  }
+
+  /**
+   * Customer findMany
+   */
+  export type CustomerFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Customer
+     */
+    select?: CustomerSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerInclude<ExtArgs> | null
+    /**
+     * Filter, which Customers to fetch.
+     */
+    where?: CustomerWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Customers to fetch.
+     */
+    orderBy?: CustomerOrderByWithRelationInput | CustomerOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Customers.
+     */
+    cursor?: CustomerWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Customers from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Customers.
+     */
+    skip?: number
+    distinct?: CustomerScalarFieldEnum | CustomerScalarFieldEnum[]
+  }
+
+  /**
+   * Customer create
+   */
+  export type CustomerCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Customer
+     */
+    select?: CustomerSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Customer.
+     */
+    data: XOR<CustomerCreateInput, CustomerUncheckedCreateInput>
+  }
+
+  /**
+   * Customer createMany
+   */
+  export type CustomerCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Customers.
+     */
+    data: CustomerCreateManyInput | CustomerCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Customer createManyAndReturn
+   */
+  export type CustomerCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Customer
+     */
+    select?: CustomerSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many Customers.
+     */
+    data: CustomerCreateManyInput | CustomerCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Customer update
+   */
+  export type CustomerUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Customer
+     */
+    select?: CustomerSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Customer.
+     */
+    data: XOR<CustomerUpdateInput, CustomerUncheckedUpdateInput>
+    /**
+     * Choose, which Customer to update.
+     */
+    where: CustomerWhereUniqueInput
+  }
+
+  /**
+   * Customer updateMany
+   */
+  export type CustomerUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Customers.
+     */
+    data: XOR<CustomerUpdateManyMutationInput, CustomerUncheckedUpdateManyInput>
+    /**
+     * Filter which Customers to update
+     */
+    where?: CustomerWhereInput
+  }
+
+  /**
+   * Customer upsert
+   */
+  export type CustomerUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Customer
+     */
+    select?: CustomerSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Customer to update in case it exists.
+     */
+    where: CustomerWhereUniqueInput
+    /**
+     * In case the Customer found by the `where` argument doesn't exist, create a new Customer with this data.
+     */
+    create: XOR<CustomerCreateInput, CustomerUncheckedCreateInput>
+    /**
+     * In case the Customer was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CustomerUpdateInput, CustomerUncheckedUpdateInput>
+  }
+
+  /**
+   * Customer delete
+   */
+  export type CustomerDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Customer
+     */
+    select?: CustomerSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerInclude<ExtArgs> | null
+    /**
+     * Filter which Customer to delete.
+     */
+    where: CustomerWhereUniqueInput
+  }
+
+  /**
+   * Customer deleteMany
+   */
+  export type CustomerDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Customers to delete
+     */
+    where?: CustomerWhereInput
+  }
+
+  /**
+   * Customer.customerFunds
+   */
+  export type Customer$customerFundsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFund
+     */
+    select?: CustomerFundSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundInclude<ExtArgs> | null
+    where?: CustomerFundWhereInput
+    orderBy?: CustomerFundOrderByWithRelationInput | CustomerFundOrderByWithRelationInput[]
+    cursor?: CustomerFundWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CustomerFundScalarFieldEnum | CustomerFundScalarFieldEnum[]
+  }
+
+  /**
+   * Customer without action
+   */
+  export type CustomerDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Customer
+     */
+    select?: CustomerSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model CustomerFund
+   */
+
+  export type AggregateCustomerFund = {
+    _count: CustomerFundCountAggregateOutputType | null
+    _avg: CustomerFundAvgAggregateOutputType | null
+    _sum: CustomerFundSumAggregateOutputType | null
+    _min: CustomerFundMinAggregateOutputType | null
+    _max: CustomerFundMaxAggregateOutputType | null
+  }
+
+  export type CustomerFundAvgAggregateOutputType = {
+    applyUnit: number | null
+    bankCode: number | null
+    bankBranchCode: number | null
+    bankAccountTypeCode: number | null
+    bunpaiThisKi: number | null
+    bunpaiYear: number | null
+    bunpaiTotal: number | null
+    otherBunpaiThisKi: number | null
+    otherBunpaiYear: number | null
+    otherBunpaiTotal: number | null
+    createdId: number | null
+    updatedId: number | null
+  }
+
+  export type CustomerFundSumAggregateOutputType = {
+    applyUnit: number | null
+    bankCode: number | null
+    bankBranchCode: number | null
+    bankAccountTypeCode: number | null
+    bunpaiThisKi: number | null
+    bunpaiYear: number | null
+    bunpaiTotal: number | null
+    otherBunpaiThisKi: number | null
+    otherBunpaiYear: number | null
+    otherBunpaiTotal: number | null
+    createdId: number | null
+    updatedId: number | null
+  }
+
+  export type CustomerFundMinAggregateOutputType = {
+    id: string | null
+    fundId: string | null
+    customerId: string | null
+    projectKiId: string | null
+    fundStatus: string | null
+    applyUnit: number | null
+    bankCode: number | null
+    bankName: string | null
+    bankBranchCode: number | null
+    bankBranchName: string | null
+    bankAccountTypeCode: number | null
+    bankAccountType: string | null
+    bankAccount: string | null
+    inheritanceType: $Enums.InheritanceType | null
+    inheritanceStatus: string | null
+    giftContractDate: Date | null
+    trustTransferDate: Date | null
+    oldBunpaiEndDate: Date | null
+    newBunpaiStartDate: Date | null
+    bunpaiThisKi: number | null
+    bunpaiYear: number | null
+    bunpaiTotal: number | null
+    otherBunpaiThisKi: number | null
+    otherBunpaiYear: number | null
+    otherBunpaiTotal: number | null
+    paymentDate: Date | null
+    holdPayment: boolean | null
+    createdAt: Date | null
+    createdId: number | null
+    createdBy: string | null
+    updatedAt: Date | null
+    updatedId: number | null
+    updatedBy: string | null
+  }
+
+  export type CustomerFundMaxAggregateOutputType = {
+    id: string | null
+    fundId: string | null
+    customerId: string | null
+    projectKiId: string | null
+    fundStatus: string | null
+    applyUnit: number | null
+    bankCode: number | null
+    bankName: string | null
+    bankBranchCode: number | null
+    bankBranchName: string | null
+    bankAccountTypeCode: number | null
+    bankAccountType: string | null
+    bankAccount: string | null
+    inheritanceType: $Enums.InheritanceType | null
+    inheritanceStatus: string | null
+    giftContractDate: Date | null
+    trustTransferDate: Date | null
+    oldBunpaiEndDate: Date | null
+    newBunpaiStartDate: Date | null
+    bunpaiThisKi: number | null
+    bunpaiYear: number | null
+    bunpaiTotal: number | null
+    otherBunpaiThisKi: number | null
+    otherBunpaiYear: number | null
+    otherBunpaiTotal: number | null
+    paymentDate: Date | null
+    holdPayment: boolean | null
+    createdAt: Date | null
+    createdId: number | null
+    createdBy: string | null
+    updatedAt: Date | null
+    updatedId: number | null
+    updatedBy: string | null
+  }
+
+  export type CustomerFundCountAggregateOutputType = {
+    id: number
+    fundId: number
+    customerId: number
+    projectKiId: number
+    fundStatus: number
+    applyUnit: number
+    bankCode: number
+    bankName: number
+    bankBranchCode: number
+    bankBranchName: number
+    bankAccountTypeCode: number
+    bankAccountType: number
+    bankAccount: number
+    inheritanceType: number
+    inheritanceStatus: number
+    giftContractDate: number
+    trustTransferDate: number
+    oldBunpaiEndDate: number
+    newBunpaiStartDate: number
+    bunpaiThisKi: number
+    bunpaiYear: number
+    bunpaiTotal: number
+    otherBunpaiThisKi: number
+    otherBunpaiYear: number
+    otherBunpaiTotal: number
+    paymentDate: number
+    holdPayment: number
+    createdAt: number
+    createdId: number
+    createdBy: number
+    updatedAt: number
+    updatedId: number
+    updatedBy: number
+    _all: number
+  }
+
+
+  export type CustomerFundAvgAggregateInputType = {
+    applyUnit?: true
+    bankCode?: true
+    bankBranchCode?: true
+    bankAccountTypeCode?: true
+    bunpaiThisKi?: true
+    bunpaiYear?: true
+    bunpaiTotal?: true
+    otherBunpaiThisKi?: true
+    otherBunpaiYear?: true
+    otherBunpaiTotal?: true
+    createdId?: true
+    updatedId?: true
+  }
+
+  export type CustomerFundSumAggregateInputType = {
+    applyUnit?: true
+    bankCode?: true
+    bankBranchCode?: true
+    bankAccountTypeCode?: true
+    bunpaiThisKi?: true
+    bunpaiYear?: true
+    bunpaiTotal?: true
+    otherBunpaiThisKi?: true
+    otherBunpaiYear?: true
+    otherBunpaiTotal?: true
+    createdId?: true
+    updatedId?: true
+  }
+
+  export type CustomerFundMinAggregateInputType = {
+    id?: true
+    fundId?: true
+    customerId?: true
+    projectKiId?: true
+    fundStatus?: true
+    applyUnit?: true
+    bankCode?: true
+    bankName?: true
+    bankBranchCode?: true
+    bankBranchName?: true
+    bankAccountTypeCode?: true
+    bankAccountType?: true
+    bankAccount?: true
+    inheritanceType?: true
+    inheritanceStatus?: true
+    giftContractDate?: true
+    trustTransferDate?: true
+    oldBunpaiEndDate?: true
+    newBunpaiStartDate?: true
+    bunpaiThisKi?: true
+    bunpaiYear?: true
+    bunpaiTotal?: true
+    otherBunpaiThisKi?: true
+    otherBunpaiYear?: true
+    otherBunpaiTotal?: true
+    paymentDate?: true
+    holdPayment?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+  }
+
+  export type CustomerFundMaxAggregateInputType = {
+    id?: true
+    fundId?: true
+    customerId?: true
+    projectKiId?: true
+    fundStatus?: true
+    applyUnit?: true
+    bankCode?: true
+    bankName?: true
+    bankBranchCode?: true
+    bankBranchName?: true
+    bankAccountTypeCode?: true
+    bankAccountType?: true
+    bankAccount?: true
+    inheritanceType?: true
+    inheritanceStatus?: true
+    giftContractDate?: true
+    trustTransferDate?: true
+    oldBunpaiEndDate?: true
+    newBunpaiStartDate?: true
+    bunpaiThisKi?: true
+    bunpaiYear?: true
+    bunpaiTotal?: true
+    otherBunpaiThisKi?: true
+    otherBunpaiYear?: true
+    otherBunpaiTotal?: true
+    paymentDate?: true
+    holdPayment?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+  }
+
+  export type CustomerFundCountAggregateInputType = {
+    id?: true
+    fundId?: true
+    customerId?: true
+    projectKiId?: true
+    fundStatus?: true
+    applyUnit?: true
+    bankCode?: true
+    bankName?: true
+    bankBranchCode?: true
+    bankBranchName?: true
+    bankAccountTypeCode?: true
+    bankAccountType?: true
+    bankAccount?: true
+    inheritanceType?: true
+    inheritanceStatus?: true
+    giftContractDate?: true
+    trustTransferDate?: true
+    oldBunpaiEndDate?: true
+    newBunpaiStartDate?: true
+    bunpaiThisKi?: true
+    bunpaiYear?: true
+    bunpaiTotal?: true
+    otherBunpaiThisKi?: true
+    otherBunpaiYear?: true
+    otherBunpaiTotal?: true
+    paymentDate?: true
+    holdPayment?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+    _all?: true
+  }
+
+  export type CustomerFundAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CustomerFund to aggregate.
+     */
+    where?: CustomerFundWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CustomerFunds to fetch.
+     */
+    orderBy?: CustomerFundOrderByWithRelationInput | CustomerFundOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CustomerFundWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CustomerFunds from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CustomerFunds.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned CustomerFunds
+    **/
+    _count?: true | CustomerFundCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CustomerFundAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CustomerFundSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CustomerFundMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CustomerFundMaxAggregateInputType
+  }
+
+  export type GetCustomerFundAggregateType<T extends CustomerFundAggregateArgs> = {
+        [P in keyof T & keyof AggregateCustomerFund]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCustomerFund[P]>
+      : GetScalarType<T[P], AggregateCustomerFund[P]>
+  }
+
+
+
+
+  export type CustomerFundGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CustomerFundWhereInput
+    orderBy?: CustomerFundOrderByWithAggregationInput | CustomerFundOrderByWithAggregationInput[]
+    by: CustomerFundScalarFieldEnum[] | CustomerFundScalarFieldEnum
+    having?: CustomerFundScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CustomerFundCountAggregateInputType | true
+    _avg?: CustomerFundAvgAggregateInputType
+    _sum?: CustomerFundSumAggregateInputType
+    _min?: CustomerFundMinAggregateInputType
+    _max?: CustomerFundMaxAggregateInputType
+  }
+
+  export type CustomerFundGroupByOutputType = {
+    id: string
+    fundId: string
+    customerId: string
+    projectKiId: string
+    fundStatus: string
+    applyUnit: number
+    bankCode: number
+    bankName: string
+    bankBranchCode: number
+    bankBranchName: string
+    bankAccountTypeCode: number
+    bankAccountType: string
+    bankAccount: string
+    inheritanceType: $Enums.InheritanceType | null
+    inheritanceStatus: string | null
+    giftContractDate: Date | null
+    trustTransferDate: Date | null
+    oldBunpaiEndDate: Date | null
+    newBunpaiStartDate: Date | null
+    bunpaiThisKi: number | null
+    bunpaiYear: number | null
+    bunpaiTotal: number | null
+    otherBunpaiThisKi: number | null
+    otherBunpaiYear: number | null
+    otherBunpaiTotal: number | null
+    paymentDate: Date | null
+    holdPayment: boolean
+    createdAt: Date
+    createdId: number
+    createdBy: string
+    updatedAt: Date
+    updatedId: number
+    updatedBy: string
+    _count: CustomerFundCountAggregateOutputType | null
+    _avg: CustomerFundAvgAggregateOutputType | null
+    _sum: CustomerFundSumAggregateOutputType | null
+    _min: CustomerFundMinAggregateOutputType | null
+    _max: CustomerFundMaxAggregateOutputType | null
+  }
+
+  type GetCustomerFundGroupByPayload<T extends CustomerFundGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CustomerFundGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CustomerFundGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CustomerFundGroupByOutputType[P]>
+            : GetScalarType<T[P], CustomerFundGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CustomerFundSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    fundId?: boolean
+    customerId?: boolean
+    projectKiId?: boolean
+    fundStatus?: boolean
+    applyUnit?: boolean
+    bankCode?: boolean
+    bankName?: boolean
+    bankBranchCode?: boolean
+    bankBranchName?: boolean
+    bankAccountTypeCode?: boolean
+    bankAccountType?: boolean
+    bankAccount?: boolean
+    inheritanceType?: boolean
+    inheritanceStatus?: boolean
+    giftContractDate?: boolean
+    trustTransferDate?: boolean
+    oldBunpaiEndDate?: boolean
+    newBunpaiStartDate?: boolean
+    bunpaiThisKi?: boolean
+    bunpaiYear?: boolean
+    bunpaiTotal?: boolean
+    otherBunpaiThisKi?: boolean
+    otherBunpaiYear?: boolean
+    otherBunpaiTotal?: boolean
+    paymentDate?: boolean
+    holdPayment?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+    customer?: boolean | CustomerDefaultArgs<ExtArgs>
+    projectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["customerFund"]>
+
+  export type CustomerFundSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    fundId?: boolean
+    customerId?: boolean
+    projectKiId?: boolean
+    fundStatus?: boolean
+    applyUnit?: boolean
+    bankCode?: boolean
+    bankName?: boolean
+    bankBranchCode?: boolean
+    bankBranchName?: boolean
+    bankAccountTypeCode?: boolean
+    bankAccountType?: boolean
+    bankAccount?: boolean
+    inheritanceType?: boolean
+    inheritanceStatus?: boolean
+    giftContractDate?: boolean
+    trustTransferDate?: boolean
+    oldBunpaiEndDate?: boolean
+    newBunpaiStartDate?: boolean
+    bunpaiThisKi?: boolean
+    bunpaiYear?: boolean
+    bunpaiTotal?: boolean
+    otherBunpaiThisKi?: boolean
+    otherBunpaiYear?: boolean
+    otherBunpaiTotal?: boolean
+    paymentDate?: boolean
+    holdPayment?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+    customer?: boolean | CustomerDefaultArgs<ExtArgs>
+    projectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["customerFund"]>
+
+  export type CustomerFundSelectScalar = {
+    id?: boolean
+    fundId?: boolean
+    customerId?: boolean
+    projectKiId?: boolean
+    fundStatus?: boolean
+    applyUnit?: boolean
+    bankCode?: boolean
+    bankName?: boolean
+    bankBranchCode?: boolean
+    bankBranchName?: boolean
+    bankAccountTypeCode?: boolean
+    bankAccountType?: boolean
+    bankAccount?: boolean
+    inheritanceType?: boolean
+    inheritanceStatus?: boolean
+    giftContractDate?: boolean
+    trustTransferDate?: boolean
+    oldBunpaiEndDate?: boolean
+    newBunpaiStartDate?: boolean
+    bunpaiThisKi?: boolean
+    bunpaiYear?: boolean
+    bunpaiTotal?: boolean
+    otherBunpaiThisKi?: boolean
+    otherBunpaiYear?: boolean
+    otherBunpaiTotal?: boolean
+    paymentDate?: boolean
+    holdPayment?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }
+
+  export type CustomerFundInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    customer?: boolean | CustomerDefaultArgs<ExtArgs>
+    projectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
+  }
+  export type CustomerFundIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    customer?: boolean | CustomerDefaultArgs<ExtArgs>
+    projectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
+  }
+
+  export type $CustomerFundPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "CustomerFund"
+    objects: {
+      customer: Prisma.$CustomerPayload<ExtArgs>
+      projectKi: Prisma.$ProjectKiPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      fundId: string
+      customerId: string
+      projectKiId: string
+      fundStatus: string
+      applyUnit: number
+      bankCode: number
+      bankName: string
+      bankBranchCode: number
+      bankBranchName: string
+      bankAccountTypeCode: number
+      bankAccountType: string
+      bankAccount: string
+      inheritanceType: $Enums.InheritanceType | null
+      inheritanceStatus: string | null
+      giftContractDate: Date | null
+      trustTransferDate: Date | null
+      oldBunpaiEndDate: Date | null
+      newBunpaiStartDate: Date | null
+      bunpaiThisKi: number | null
+      bunpaiYear: number | null
+      bunpaiTotal: number | null
+      otherBunpaiThisKi: number | null
+      otherBunpaiYear: number | null
+      otherBunpaiTotal: number | null
+      paymentDate: Date | null
+      holdPayment: boolean
+      createdAt: Date
+      createdId: number
+      createdBy: string
+      updatedAt: Date
+      updatedId: number
+      updatedBy: string
+    }, ExtArgs["result"]["customerFund"]>
+    composites: {}
+  }
+
+  type CustomerFundGetPayload<S extends boolean | null | undefined | CustomerFundDefaultArgs> = $Result.GetResult<Prisma.$CustomerFundPayload, S>
+
+  type CustomerFundCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<CustomerFundFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: CustomerFundCountAggregateInputType | true
+    }
+
+  export interface CustomerFundDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CustomerFund'], meta: { name: 'CustomerFund' } }
+    /**
+     * Find zero or one CustomerFund that matches the filter.
+     * @param {CustomerFundFindUniqueArgs} args - Arguments to find a CustomerFund
+     * @example
+     * // Get one CustomerFund
+     * const customerFund = await prisma.customerFund.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CustomerFundFindUniqueArgs>(args: SelectSubset<T, CustomerFundFindUniqueArgs<ExtArgs>>): Prisma__CustomerFundClient<$Result.GetResult<Prisma.$CustomerFundPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one CustomerFund that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {CustomerFundFindUniqueOrThrowArgs} args - Arguments to find a CustomerFund
+     * @example
+     * // Get one CustomerFund
+     * const customerFund = await prisma.customerFund.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CustomerFundFindUniqueOrThrowArgs>(args: SelectSubset<T, CustomerFundFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CustomerFundClient<$Result.GetResult<Prisma.$CustomerFundPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first CustomerFund that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerFundFindFirstArgs} args - Arguments to find a CustomerFund
+     * @example
+     * // Get one CustomerFund
+     * const customerFund = await prisma.customerFund.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CustomerFundFindFirstArgs>(args?: SelectSubset<T, CustomerFundFindFirstArgs<ExtArgs>>): Prisma__CustomerFundClient<$Result.GetResult<Prisma.$CustomerFundPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first CustomerFund that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerFundFindFirstOrThrowArgs} args - Arguments to find a CustomerFund
+     * @example
+     * // Get one CustomerFund
+     * const customerFund = await prisma.customerFund.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CustomerFundFindFirstOrThrowArgs>(args?: SelectSubset<T, CustomerFundFindFirstOrThrowArgs<ExtArgs>>): Prisma__CustomerFundClient<$Result.GetResult<Prisma.$CustomerFundPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more CustomerFunds that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerFundFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CustomerFunds
+     * const customerFunds = await prisma.customerFund.findMany()
+     * 
+     * // Get first 10 CustomerFunds
+     * const customerFunds = await prisma.customerFund.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const customerFundWithIdOnly = await prisma.customerFund.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CustomerFundFindManyArgs>(args?: SelectSubset<T, CustomerFundFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerFundPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a CustomerFund.
+     * @param {CustomerFundCreateArgs} args - Arguments to create a CustomerFund.
+     * @example
+     * // Create one CustomerFund
+     * const CustomerFund = await prisma.customerFund.create({
+     *   data: {
+     *     // ... data to create a CustomerFund
+     *   }
+     * })
+     * 
+     */
+    create<T extends CustomerFundCreateArgs>(args: SelectSubset<T, CustomerFundCreateArgs<ExtArgs>>): Prisma__CustomerFundClient<$Result.GetResult<Prisma.$CustomerFundPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many CustomerFunds.
+     * @param {CustomerFundCreateManyArgs} args - Arguments to create many CustomerFunds.
+     * @example
+     * // Create many CustomerFunds
+     * const customerFund = await prisma.customerFund.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CustomerFundCreateManyArgs>(args?: SelectSubset<T, CustomerFundCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many CustomerFunds and returns the data saved in the database.
+     * @param {CustomerFundCreateManyAndReturnArgs} args - Arguments to create many CustomerFunds.
+     * @example
+     * // Create many CustomerFunds
+     * const customerFund = await prisma.customerFund.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many CustomerFunds and only return the `id`
+     * const customerFundWithIdOnly = await prisma.customerFund.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CustomerFundCreateManyAndReturnArgs>(args?: SelectSubset<T, CustomerFundCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerFundPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a CustomerFund.
+     * @param {CustomerFundDeleteArgs} args - Arguments to delete one CustomerFund.
+     * @example
+     * // Delete one CustomerFund
+     * const CustomerFund = await prisma.customerFund.delete({
+     *   where: {
+     *     // ... filter to delete one CustomerFund
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CustomerFundDeleteArgs>(args: SelectSubset<T, CustomerFundDeleteArgs<ExtArgs>>): Prisma__CustomerFundClient<$Result.GetResult<Prisma.$CustomerFundPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one CustomerFund.
+     * @param {CustomerFundUpdateArgs} args - Arguments to update one CustomerFund.
+     * @example
+     * // Update one CustomerFund
+     * const customerFund = await prisma.customerFund.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CustomerFundUpdateArgs>(args: SelectSubset<T, CustomerFundUpdateArgs<ExtArgs>>): Prisma__CustomerFundClient<$Result.GetResult<Prisma.$CustomerFundPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more CustomerFunds.
+     * @param {CustomerFundDeleteManyArgs} args - Arguments to filter CustomerFunds to delete.
+     * @example
+     * // Delete a few CustomerFunds
+     * const { count } = await prisma.customerFund.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CustomerFundDeleteManyArgs>(args?: SelectSubset<T, CustomerFundDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CustomerFunds.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerFundUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CustomerFunds
+     * const customerFund = await prisma.customerFund.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CustomerFundUpdateManyArgs>(args: SelectSubset<T, CustomerFundUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one CustomerFund.
+     * @param {CustomerFundUpsertArgs} args - Arguments to update or create a CustomerFund.
+     * @example
+     * // Update or create a CustomerFund
+     * const customerFund = await prisma.customerFund.upsert({
+     *   create: {
+     *     // ... data to create a CustomerFund
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CustomerFund we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CustomerFundUpsertArgs>(args: SelectSubset<T, CustomerFundUpsertArgs<ExtArgs>>): Prisma__CustomerFundClient<$Result.GetResult<Prisma.$CustomerFundPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of CustomerFunds.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerFundCountArgs} args - Arguments to filter CustomerFunds to count.
+     * @example
+     * // Count the number of CustomerFunds
+     * const count = await prisma.customerFund.count({
+     *   where: {
+     *     // ... the filter for the CustomerFunds we want to count
+     *   }
+     * })
+    **/
+    count<T extends CustomerFundCountArgs>(
+      args?: Subset<T, CustomerFundCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CustomerFundCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a CustomerFund.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerFundAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CustomerFundAggregateArgs>(args: Subset<T, CustomerFundAggregateArgs>): Prisma.PrismaPromise<GetCustomerFundAggregateType<T>>
+
+    /**
+     * Group by CustomerFund.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerFundGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CustomerFundGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CustomerFundGroupByArgs['orderBy'] }
+        : { orderBy?: CustomerFundGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CustomerFundGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCustomerFundGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the CustomerFund model
+   */
+  readonly fields: CustomerFundFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for CustomerFund.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CustomerFundClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    customer<T extends CustomerDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CustomerDefaultArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    projectKi<T extends ProjectKiDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectKiDefaultArgs<ExtArgs>>): Prisma__ProjectKiClient<$Result.GetResult<Prisma.$ProjectKiPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the CustomerFund model
+   */ 
+  interface CustomerFundFieldRefs {
+    readonly id: FieldRef<"CustomerFund", 'String'>
+    readonly fundId: FieldRef<"CustomerFund", 'String'>
+    readonly customerId: FieldRef<"CustomerFund", 'String'>
+    readonly projectKiId: FieldRef<"CustomerFund", 'String'>
+    readonly fundStatus: FieldRef<"CustomerFund", 'String'>
+    readonly applyUnit: FieldRef<"CustomerFund", 'Int'>
+    readonly bankCode: FieldRef<"CustomerFund", 'Int'>
+    readonly bankName: FieldRef<"CustomerFund", 'String'>
+    readonly bankBranchCode: FieldRef<"CustomerFund", 'Int'>
+    readonly bankBranchName: FieldRef<"CustomerFund", 'String'>
+    readonly bankAccountTypeCode: FieldRef<"CustomerFund", 'Int'>
+    readonly bankAccountType: FieldRef<"CustomerFund", 'String'>
+    readonly bankAccount: FieldRef<"CustomerFund", 'String'>
+    readonly inheritanceType: FieldRef<"CustomerFund", 'InheritanceType'>
+    readonly inheritanceStatus: FieldRef<"CustomerFund", 'String'>
+    readonly giftContractDate: FieldRef<"CustomerFund", 'DateTime'>
+    readonly trustTransferDate: FieldRef<"CustomerFund", 'DateTime'>
+    readonly oldBunpaiEndDate: FieldRef<"CustomerFund", 'DateTime'>
+    readonly newBunpaiStartDate: FieldRef<"CustomerFund", 'DateTime'>
+    readonly bunpaiThisKi: FieldRef<"CustomerFund", 'Int'>
+    readonly bunpaiYear: FieldRef<"CustomerFund", 'Int'>
+    readonly bunpaiTotal: FieldRef<"CustomerFund", 'Int'>
+    readonly otherBunpaiThisKi: FieldRef<"CustomerFund", 'Int'>
+    readonly otherBunpaiYear: FieldRef<"CustomerFund", 'Int'>
+    readonly otherBunpaiTotal: FieldRef<"CustomerFund", 'Int'>
+    readonly paymentDate: FieldRef<"CustomerFund", 'DateTime'>
+    readonly holdPayment: FieldRef<"CustomerFund", 'Boolean'>
+    readonly createdAt: FieldRef<"CustomerFund", 'DateTime'>
+    readonly createdId: FieldRef<"CustomerFund", 'Int'>
+    readonly createdBy: FieldRef<"CustomerFund", 'String'>
+    readonly updatedAt: FieldRef<"CustomerFund", 'DateTime'>
+    readonly updatedId: FieldRef<"CustomerFund", 'Int'>
+    readonly updatedBy: FieldRef<"CustomerFund", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * CustomerFund findUnique
+   */
+  export type CustomerFundFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFund
+     */
+    select?: CustomerFundSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomerFund to fetch.
+     */
+    where: CustomerFundWhereUniqueInput
+  }
+
+  /**
+   * CustomerFund findUniqueOrThrow
+   */
+  export type CustomerFundFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFund
+     */
+    select?: CustomerFundSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomerFund to fetch.
+     */
+    where: CustomerFundWhereUniqueInput
+  }
+
+  /**
+   * CustomerFund findFirst
+   */
+  export type CustomerFundFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFund
+     */
+    select?: CustomerFundSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomerFund to fetch.
+     */
+    where?: CustomerFundWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CustomerFunds to fetch.
+     */
+    orderBy?: CustomerFundOrderByWithRelationInput | CustomerFundOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CustomerFunds.
+     */
+    cursor?: CustomerFundWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CustomerFunds from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CustomerFunds.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CustomerFunds.
+     */
+    distinct?: CustomerFundScalarFieldEnum | CustomerFundScalarFieldEnum[]
+  }
+
+  /**
+   * CustomerFund findFirstOrThrow
+   */
+  export type CustomerFundFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFund
+     */
+    select?: CustomerFundSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomerFund to fetch.
+     */
+    where?: CustomerFundWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CustomerFunds to fetch.
+     */
+    orderBy?: CustomerFundOrderByWithRelationInput | CustomerFundOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CustomerFunds.
+     */
+    cursor?: CustomerFundWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CustomerFunds from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CustomerFunds.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CustomerFunds.
+     */
+    distinct?: CustomerFundScalarFieldEnum | CustomerFundScalarFieldEnum[]
+  }
+
+  /**
+   * CustomerFund findMany
+   */
+  export type CustomerFundFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFund
+     */
+    select?: CustomerFundSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomerFunds to fetch.
+     */
+    where?: CustomerFundWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CustomerFunds to fetch.
+     */
+    orderBy?: CustomerFundOrderByWithRelationInput | CustomerFundOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing CustomerFunds.
+     */
+    cursor?: CustomerFundWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CustomerFunds from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CustomerFunds.
+     */
+    skip?: number
+    distinct?: CustomerFundScalarFieldEnum | CustomerFundScalarFieldEnum[]
+  }
+
+  /**
+   * CustomerFund create
+   */
+  export type CustomerFundCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFund
+     */
+    select?: CustomerFundSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundInclude<ExtArgs> | null
+    /**
+     * The data needed to create a CustomerFund.
+     */
+    data: XOR<CustomerFundCreateInput, CustomerFundUncheckedCreateInput>
+  }
+
+  /**
+   * CustomerFund createMany
+   */
+  export type CustomerFundCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CustomerFunds.
+     */
+    data: CustomerFundCreateManyInput | CustomerFundCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CustomerFund createManyAndReturn
+   */
+  export type CustomerFundCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFund
+     */
+    select?: CustomerFundSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many CustomerFunds.
+     */
+    data: CustomerFundCreateManyInput | CustomerFundCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CustomerFund update
+   */
+  export type CustomerFundUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFund
+     */
+    select?: CustomerFundSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundInclude<ExtArgs> | null
+    /**
+     * The data needed to update a CustomerFund.
+     */
+    data: XOR<CustomerFundUpdateInput, CustomerFundUncheckedUpdateInput>
+    /**
+     * Choose, which CustomerFund to update.
+     */
+    where: CustomerFundWhereUniqueInput
+  }
+
+  /**
+   * CustomerFund updateMany
+   */
+  export type CustomerFundUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update CustomerFunds.
+     */
+    data: XOR<CustomerFundUpdateManyMutationInput, CustomerFundUncheckedUpdateManyInput>
+    /**
+     * Filter which CustomerFunds to update
+     */
+    where?: CustomerFundWhereInput
+  }
+
+  /**
+   * CustomerFund upsert
+   */
+  export type CustomerFundUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFund
+     */
+    select?: CustomerFundSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundInclude<ExtArgs> | null
+    /**
+     * The filter to search for the CustomerFund to update in case it exists.
+     */
+    where: CustomerFundWhereUniqueInput
+    /**
+     * In case the CustomerFund found by the `where` argument doesn't exist, create a new CustomerFund with this data.
+     */
+    create: XOR<CustomerFundCreateInput, CustomerFundUncheckedCreateInput>
+    /**
+     * In case the CustomerFund was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CustomerFundUpdateInput, CustomerFundUncheckedUpdateInput>
+  }
+
+  /**
+   * CustomerFund delete
+   */
+  export type CustomerFundDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFund
+     */
+    select?: CustomerFundSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundInclude<ExtArgs> | null
+    /**
+     * Filter which CustomerFund to delete.
+     */
+    where: CustomerFundWhereUniqueInput
+  }
+
+  /**
+   * CustomerFund deleteMany
+   */
+  export type CustomerFundDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CustomerFunds to delete
+     */
+    where?: CustomerFundWhereInput
+  }
+
+  /**
+   * CustomerFund without action
+   */
+  export type CustomerFundDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFund
+     */
+    select?: CustomerFundSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -11280,6 +14095,72 @@ export namespace Prisma {
   export type AssetKiScalarFieldEnum = (typeof AssetKiScalarFieldEnum)[keyof typeof AssetKiScalarFieldEnum]
 
 
+  export const CustomerScalarFieldEnum: {
+    id: 'id',
+    sbimpId: 'sbimpId',
+    sbimpIdHistory: 'sbimpIdHistory',
+    name: 'name',
+    nameFrigana: 'nameFrigana',
+    birthday: 'birthday',
+    customerType: 'customerType',
+    invoice: 'invoice',
+    postName: 'postName',
+    zip: 'zip',
+    fullAddress: 'fullAddress',
+    prefecture: 'prefecture',
+    city: 'city',
+    address: 'address',
+    isDeleted: 'isDeleted',
+    createdAt: 'createdAt',
+    createdId: 'createdId',
+    createdBy: 'createdBy',
+    updatedAt: 'updatedAt',
+    updatedId: 'updatedId',
+    updatedBy: 'updatedBy'
+  };
+
+  export type CustomerScalarFieldEnum = (typeof CustomerScalarFieldEnum)[keyof typeof CustomerScalarFieldEnum]
+
+
+  export const CustomerFundScalarFieldEnum: {
+    id: 'id',
+    fundId: 'fundId',
+    customerId: 'customerId',
+    projectKiId: 'projectKiId',
+    fundStatus: 'fundStatus',
+    applyUnit: 'applyUnit',
+    bankCode: 'bankCode',
+    bankName: 'bankName',
+    bankBranchCode: 'bankBranchCode',
+    bankBranchName: 'bankBranchName',
+    bankAccountTypeCode: 'bankAccountTypeCode',
+    bankAccountType: 'bankAccountType',
+    bankAccount: 'bankAccount',
+    inheritanceType: 'inheritanceType',
+    inheritanceStatus: 'inheritanceStatus',
+    giftContractDate: 'giftContractDate',
+    trustTransferDate: 'trustTransferDate',
+    oldBunpaiEndDate: 'oldBunpaiEndDate',
+    newBunpaiStartDate: 'newBunpaiStartDate',
+    bunpaiThisKi: 'bunpaiThisKi',
+    bunpaiYear: 'bunpaiYear',
+    bunpaiTotal: 'bunpaiTotal',
+    otherBunpaiThisKi: 'otherBunpaiThisKi',
+    otherBunpaiYear: 'otherBunpaiYear',
+    otherBunpaiTotal: 'otherBunpaiTotal',
+    paymentDate: 'paymentDate',
+    holdPayment: 'holdPayment',
+    createdAt: 'createdAt',
+    createdId: 'createdId',
+    createdBy: 'createdBy',
+    updatedAt: 'updatedAt',
+    updatedId: 'updatedId',
+    updatedBy: 'updatedBy'
+  };
+
+  export type CustomerFundScalarFieldEnum = (typeof CustomerFundScalarFieldEnum)[keyof typeof CustomerFundScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -11411,6 +14292,34 @@ export namespace Prisma {
    * Reference to a field of type 'Float[]'
    */
   export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'CustomerType'
+   */
+  export type EnumCustomerTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CustomerType'>
+    
+
+
+  /**
+   * Reference to a field of type 'CustomerType[]'
+   */
+  export type ListEnumCustomerTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CustomerType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'InheritanceType'
+   */
+  export type EnumInheritanceTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InheritanceType'>
+    
+
+
+  /**
+   * Reference to a field of type 'InheritanceType[]'
+   */
+  export type ListEnumInheritanceTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InheritanceType[]'>
     
   /**
    * Deep Input Types
@@ -11970,6 +14879,7 @@ export namespace Prisma {
     updatedBy?: StringFilter<"ProjectKi"> | string
     project?: XOR<ProjectRelationFilter, ProjectWhereInput>
     ki?: XOR<KiRelationFilter, KiWhereInput>
+    ustomerFunds?: CustomerFundListRelationFilter
   }
 
   export type ProjectKiOrderByWithRelationInput = {
@@ -11988,6 +14898,7 @@ export namespace Prisma {
     updatedBy?: SortOrder
     project?: ProjectOrderByWithRelationInput
     ki?: KiOrderByWithRelationInput
+    ustomerFunds?: CustomerFundOrderByRelationAggregateInput
   }
 
   export type ProjectKiWhereUniqueInput = Prisma.AtLeast<{
@@ -12011,6 +14922,7 @@ export namespace Prisma {
     updatedBy?: StringFilter<"ProjectKi"> | string
     project?: XOR<ProjectRelationFilter, ProjectWhereInput>
     ki?: XOR<KiRelationFilter, KiWhereInput>
+    ustomerFunds?: CustomerFundListRelationFilter
   }, "id" | "project_ki_identifier" | "project_prj_ki_identifier">
 
   export type ProjectKiOrderByWithAggregationInput = {
@@ -12257,6 +15169,344 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"AssetKi"> | Date | string
     updatedId?: IntWithAggregatesFilter<"AssetKi"> | number
     updatedBy?: StringWithAggregatesFilter<"AssetKi"> | string
+  }
+
+  export type CustomerWhereInput = {
+    AND?: CustomerWhereInput | CustomerWhereInput[]
+    OR?: CustomerWhereInput[]
+    NOT?: CustomerWhereInput | CustomerWhereInput[]
+    id?: StringFilter<"Customer"> | string
+    sbimpId?: StringFilter<"Customer"> | string
+    sbimpIdHistory?: StringFilter<"Customer"> | string
+    name?: StringFilter<"Customer"> | string
+    nameFrigana?: StringFilter<"Customer"> | string
+    birthday?: DateTimeNullableFilter<"Customer"> | Date | string | null
+    customerType?: EnumCustomerTypeFilter<"Customer"> | $Enums.CustomerType
+    invoice?: BoolFilter<"Customer"> | boolean
+    postName?: StringFilter<"Customer"> | string
+    zip?: StringFilter<"Customer"> | string
+    fullAddress?: StringFilter<"Customer"> | string
+    prefecture?: StringFilter<"Customer"> | string
+    city?: StringFilter<"Customer"> | string
+    address?: StringFilter<"Customer"> | string
+    isDeleted?: BoolFilter<"Customer"> | boolean
+    createdAt?: DateTimeFilter<"Customer"> | Date | string
+    createdId?: IntFilter<"Customer"> | number
+    createdBy?: StringFilter<"Customer"> | string
+    updatedAt?: DateTimeFilter<"Customer"> | Date | string
+    updatedId?: IntFilter<"Customer"> | number
+    updatedBy?: StringFilter<"Customer"> | string
+    customerFunds?: CustomerFundListRelationFilter
+  }
+
+  export type CustomerOrderByWithRelationInput = {
+    id?: SortOrder
+    sbimpId?: SortOrder
+    sbimpIdHistory?: SortOrder
+    name?: SortOrder
+    nameFrigana?: SortOrder
+    birthday?: SortOrderInput | SortOrder
+    customerType?: SortOrder
+    invoice?: SortOrder
+    postName?: SortOrder
+    zip?: SortOrder
+    fullAddress?: SortOrder
+    prefecture?: SortOrder
+    city?: SortOrder
+    address?: SortOrder
+    isDeleted?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+    customerFunds?: CustomerFundOrderByRelationAggregateInput
+  }
+
+  export type CustomerWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    sbimpId?: string
+    AND?: CustomerWhereInput | CustomerWhereInput[]
+    OR?: CustomerWhereInput[]
+    NOT?: CustomerWhereInput | CustomerWhereInput[]
+    sbimpIdHistory?: StringFilter<"Customer"> | string
+    name?: StringFilter<"Customer"> | string
+    nameFrigana?: StringFilter<"Customer"> | string
+    birthday?: DateTimeNullableFilter<"Customer"> | Date | string | null
+    customerType?: EnumCustomerTypeFilter<"Customer"> | $Enums.CustomerType
+    invoice?: BoolFilter<"Customer"> | boolean
+    postName?: StringFilter<"Customer"> | string
+    zip?: StringFilter<"Customer"> | string
+    fullAddress?: StringFilter<"Customer"> | string
+    prefecture?: StringFilter<"Customer"> | string
+    city?: StringFilter<"Customer"> | string
+    address?: StringFilter<"Customer"> | string
+    isDeleted?: BoolFilter<"Customer"> | boolean
+    createdAt?: DateTimeFilter<"Customer"> | Date | string
+    createdId?: IntFilter<"Customer"> | number
+    createdBy?: StringFilter<"Customer"> | string
+    updatedAt?: DateTimeFilter<"Customer"> | Date | string
+    updatedId?: IntFilter<"Customer"> | number
+    updatedBy?: StringFilter<"Customer"> | string
+    customerFunds?: CustomerFundListRelationFilter
+  }, "id" | "sbimpId">
+
+  export type CustomerOrderByWithAggregationInput = {
+    id?: SortOrder
+    sbimpId?: SortOrder
+    sbimpIdHistory?: SortOrder
+    name?: SortOrder
+    nameFrigana?: SortOrder
+    birthday?: SortOrderInput | SortOrder
+    customerType?: SortOrder
+    invoice?: SortOrder
+    postName?: SortOrder
+    zip?: SortOrder
+    fullAddress?: SortOrder
+    prefecture?: SortOrder
+    city?: SortOrder
+    address?: SortOrder
+    isDeleted?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+    _count?: CustomerCountOrderByAggregateInput
+    _avg?: CustomerAvgOrderByAggregateInput
+    _max?: CustomerMaxOrderByAggregateInput
+    _min?: CustomerMinOrderByAggregateInput
+    _sum?: CustomerSumOrderByAggregateInput
+  }
+
+  export type CustomerScalarWhereWithAggregatesInput = {
+    AND?: CustomerScalarWhereWithAggregatesInput | CustomerScalarWhereWithAggregatesInput[]
+    OR?: CustomerScalarWhereWithAggregatesInput[]
+    NOT?: CustomerScalarWhereWithAggregatesInput | CustomerScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Customer"> | string
+    sbimpId?: StringWithAggregatesFilter<"Customer"> | string
+    sbimpIdHistory?: StringWithAggregatesFilter<"Customer"> | string
+    name?: StringWithAggregatesFilter<"Customer"> | string
+    nameFrigana?: StringWithAggregatesFilter<"Customer"> | string
+    birthday?: DateTimeNullableWithAggregatesFilter<"Customer"> | Date | string | null
+    customerType?: EnumCustomerTypeWithAggregatesFilter<"Customer"> | $Enums.CustomerType
+    invoice?: BoolWithAggregatesFilter<"Customer"> | boolean
+    postName?: StringWithAggregatesFilter<"Customer"> | string
+    zip?: StringWithAggregatesFilter<"Customer"> | string
+    fullAddress?: StringWithAggregatesFilter<"Customer"> | string
+    prefecture?: StringWithAggregatesFilter<"Customer"> | string
+    city?: StringWithAggregatesFilter<"Customer"> | string
+    address?: StringWithAggregatesFilter<"Customer"> | string
+    isDeleted?: BoolWithAggregatesFilter<"Customer"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"Customer"> | Date | string
+    createdId?: IntWithAggregatesFilter<"Customer"> | number
+    createdBy?: StringWithAggregatesFilter<"Customer"> | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Customer"> | Date | string
+    updatedId?: IntWithAggregatesFilter<"Customer"> | number
+    updatedBy?: StringWithAggregatesFilter<"Customer"> | string
+  }
+
+  export type CustomerFundWhereInput = {
+    AND?: CustomerFundWhereInput | CustomerFundWhereInput[]
+    OR?: CustomerFundWhereInput[]
+    NOT?: CustomerFundWhereInput | CustomerFundWhereInput[]
+    id?: StringFilter<"CustomerFund"> | string
+    fundId?: StringFilter<"CustomerFund"> | string
+    customerId?: StringFilter<"CustomerFund"> | string
+    projectKiId?: StringFilter<"CustomerFund"> | string
+    fundStatus?: StringFilter<"CustomerFund"> | string
+    applyUnit?: IntFilter<"CustomerFund"> | number
+    bankCode?: IntFilter<"CustomerFund"> | number
+    bankName?: StringFilter<"CustomerFund"> | string
+    bankBranchCode?: IntFilter<"CustomerFund"> | number
+    bankBranchName?: StringFilter<"CustomerFund"> | string
+    bankAccountTypeCode?: IntFilter<"CustomerFund"> | number
+    bankAccountType?: StringFilter<"CustomerFund"> | string
+    bankAccount?: StringFilter<"CustomerFund"> | string
+    inheritanceType?: EnumInheritanceTypeNullableFilter<"CustomerFund"> | $Enums.InheritanceType | null
+    inheritanceStatus?: StringNullableFilter<"CustomerFund"> | string | null
+    giftContractDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
+    trustTransferDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
+    oldBunpaiEndDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
+    newBunpaiStartDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
+    bunpaiThisKi?: IntNullableFilter<"CustomerFund"> | number | null
+    bunpaiYear?: IntNullableFilter<"CustomerFund"> | number | null
+    bunpaiTotal?: IntNullableFilter<"CustomerFund"> | number | null
+    otherBunpaiThisKi?: IntNullableFilter<"CustomerFund"> | number | null
+    otherBunpaiYear?: IntNullableFilter<"CustomerFund"> | number | null
+    otherBunpaiTotal?: IntNullableFilter<"CustomerFund"> | number | null
+    paymentDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
+    holdPayment?: BoolFilter<"CustomerFund"> | boolean
+    createdAt?: DateTimeFilter<"CustomerFund"> | Date | string
+    createdId?: IntFilter<"CustomerFund"> | number
+    createdBy?: StringFilter<"CustomerFund"> | string
+    updatedAt?: DateTimeFilter<"CustomerFund"> | Date | string
+    updatedId?: IntFilter<"CustomerFund"> | number
+    updatedBy?: StringFilter<"CustomerFund"> | string
+    customer?: XOR<CustomerRelationFilter, CustomerWhereInput>
+    projectKi?: XOR<ProjectKiRelationFilter, ProjectKiWhereInput>
+  }
+
+  export type CustomerFundOrderByWithRelationInput = {
+    id?: SortOrder
+    fundId?: SortOrder
+    customerId?: SortOrder
+    projectKiId?: SortOrder
+    fundStatus?: SortOrder
+    applyUnit?: SortOrder
+    bankCode?: SortOrder
+    bankName?: SortOrder
+    bankBranchCode?: SortOrder
+    bankBranchName?: SortOrder
+    bankAccountTypeCode?: SortOrder
+    bankAccountType?: SortOrder
+    bankAccount?: SortOrder
+    inheritanceType?: SortOrderInput | SortOrder
+    inheritanceStatus?: SortOrderInput | SortOrder
+    giftContractDate?: SortOrderInput | SortOrder
+    trustTransferDate?: SortOrderInput | SortOrder
+    oldBunpaiEndDate?: SortOrderInput | SortOrder
+    newBunpaiStartDate?: SortOrderInput | SortOrder
+    bunpaiThisKi?: SortOrderInput | SortOrder
+    bunpaiYear?: SortOrderInput | SortOrder
+    bunpaiTotal?: SortOrderInput | SortOrder
+    otherBunpaiThisKi?: SortOrderInput | SortOrder
+    otherBunpaiYear?: SortOrderInput | SortOrder
+    otherBunpaiTotal?: SortOrderInput | SortOrder
+    paymentDate?: SortOrderInput | SortOrder
+    holdPayment?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+    customer?: CustomerOrderByWithRelationInput
+    projectKi?: ProjectKiOrderByWithRelationInput
+  }
+
+  export type CustomerFundWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    fund_projectKi_identifier?: CustomerFundFund_projectKi_identifierCompoundUniqueInput
+    AND?: CustomerFundWhereInput | CustomerFundWhereInput[]
+    OR?: CustomerFundWhereInput[]
+    NOT?: CustomerFundWhereInput | CustomerFundWhereInput[]
+    fundId?: StringFilter<"CustomerFund"> | string
+    customerId?: StringFilter<"CustomerFund"> | string
+    projectKiId?: StringFilter<"CustomerFund"> | string
+    fundStatus?: StringFilter<"CustomerFund"> | string
+    applyUnit?: IntFilter<"CustomerFund"> | number
+    bankCode?: IntFilter<"CustomerFund"> | number
+    bankName?: StringFilter<"CustomerFund"> | string
+    bankBranchCode?: IntFilter<"CustomerFund"> | number
+    bankBranchName?: StringFilter<"CustomerFund"> | string
+    bankAccountTypeCode?: IntFilter<"CustomerFund"> | number
+    bankAccountType?: StringFilter<"CustomerFund"> | string
+    bankAccount?: StringFilter<"CustomerFund"> | string
+    inheritanceType?: EnumInheritanceTypeNullableFilter<"CustomerFund"> | $Enums.InheritanceType | null
+    inheritanceStatus?: StringNullableFilter<"CustomerFund"> | string | null
+    giftContractDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
+    trustTransferDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
+    oldBunpaiEndDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
+    newBunpaiStartDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
+    bunpaiThisKi?: IntNullableFilter<"CustomerFund"> | number | null
+    bunpaiYear?: IntNullableFilter<"CustomerFund"> | number | null
+    bunpaiTotal?: IntNullableFilter<"CustomerFund"> | number | null
+    otherBunpaiThisKi?: IntNullableFilter<"CustomerFund"> | number | null
+    otherBunpaiYear?: IntNullableFilter<"CustomerFund"> | number | null
+    otherBunpaiTotal?: IntNullableFilter<"CustomerFund"> | number | null
+    paymentDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
+    holdPayment?: BoolFilter<"CustomerFund"> | boolean
+    createdAt?: DateTimeFilter<"CustomerFund"> | Date | string
+    createdId?: IntFilter<"CustomerFund"> | number
+    createdBy?: StringFilter<"CustomerFund"> | string
+    updatedAt?: DateTimeFilter<"CustomerFund"> | Date | string
+    updatedId?: IntFilter<"CustomerFund"> | number
+    updatedBy?: StringFilter<"CustomerFund"> | string
+    customer?: XOR<CustomerRelationFilter, CustomerWhereInput>
+    projectKi?: XOR<ProjectKiRelationFilter, ProjectKiWhereInput>
+  }, "id" | "fund_projectKi_identifier">
+
+  export type CustomerFundOrderByWithAggregationInput = {
+    id?: SortOrder
+    fundId?: SortOrder
+    customerId?: SortOrder
+    projectKiId?: SortOrder
+    fundStatus?: SortOrder
+    applyUnit?: SortOrder
+    bankCode?: SortOrder
+    bankName?: SortOrder
+    bankBranchCode?: SortOrder
+    bankBranchName?: SortOrder
+    bankAccountTypeCode?: SortOrder
+    bankAccountType?: SortOrder
+    bankAccount?: SortOrder
+    inheritanceType?: SortOrderInput | SortOrder
+    inheritanceStatus?: SortOrderInput | SortOrder
+    giftContractDate?: SortOrderInput | SortOrder
+    trustTransferDate?: SortOrderInput | SortOrder
+    oldBunpaiEndDate?: SortOrderInput | SortOrder
+    newBunpaiStartDate?: SortOrderInput | SortOrder
+    bunpaiThisKi?: SortOrderInput | SortOrder
+    bunpaiYear?: SortOrderInput | SortOrder
+    bunpaiTotal?: SortOrderInput | SortOrder
+    otherBunpaiThisKi?: SortOrderInput | SortOrder
+    otherBunpaiYear?: SortOrderInput | SortOrder
+    otherBunpaiTotal?: SortOrderInput | SortOrder
+    paymentDate?: SortOrderInput | SortOrder
+    holdPayment?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+    _count?: CustomerFundCountOrderByAggregateInput
+    _avg?: CustomerFundAvgOrderByAggregateInput
+    _max?: CustomerFundMaxOrderByAggregateInput
+    _min?: CustomerFundMinOrderByAggregateInput
+    _sum?: CustomerFundSumOrderByAggregateInput
+  }
+
+  export type CustomerFundScalarWhereWithAggregatesInput = {
+    AND?: CustomerFundScalarWhereWithAggregatesInput | CustomerFundScalarWhereWithAggregatesInput[]
+    OR?: CustomerFundScalarWhereWithAggregatesInput[]
+    NOT?: CustomerFundScalarWhereWithAggregatesInput | CustomerFundScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"CustomerFund"> | string
+    fundId?: StringWithAggregatesFilter<"CustomerFund"> | string
+    customerId?: StringWithAggregatesFilter<"CustomerFund"> | string
+    projectKiId?: StringWithAggregatesFilter<"CustomerFund"> | string
+    fundStatus?: StringWithAggregatesFilter<"CustomerFund"> | string
+    applyUnit?: IntWithAggregatesFilter<"CustomerFund"> | number
+    bankCode?: IntWithAggregatesFilter<"CustomerFund"> | number
+    bankName?: StringWithAggregatesFilter<"CustomerFund"> | string
+    bankBranchCode?: IntWithAggregatesFilter<"CustomerFund"> | number
+    bankBranchName?: StringWithAggregatesFilter<"CustomerFund"> | string
+    bankAccountTypeCode?: IntWithAggregatesFilter<"CustomerFund"> | number
+    bankAccountType?: StringWithAggregatesFilter<"CustomerFund"> | string
+    bankAccount?: StringWithAggregatesFilter<"CustomerFund"> | string
+    inheritanceType?: EnumInheritanceTypeNullableWithAggregatesFilter<"CustomerFund"> | $Enums.InheritanceType | null
+    inheritanceStatus?: StringNullableWithAggregatesFilter<"CustomerFund"> | string | null
+    giftContractDate?: DateTimeNullableWithAggregatesFilter<"CustomerFund"> | Date | string | null
+    trustTransferDate?: DateTimeNullableWithAggregatesFilter<"CustomerFund"> | Date | string | null
+    oldBunpaiEndDate?: DateTimeNullableWithAggregatesFilter<"CustomerFund"> | Date | string | null
+    newBunpaiStartDate?: DateTimeNullableWithAggregatesFilter<"CustomerFund"> | Date | string | null
+    bunpaiThisKi?: IntNullableWithAggregatesFilter<"CustomerFund"> | number | null
+    bunpaiYear?: IntNullableWithAggregatesFilter<"CustomerFund"> | number | null
+    bunpaiTotal?: IntNullableWithAggregatesFilter<"CustomerFund"> | number | null
+    otherBunpaiThisKi?: IntNullableWithAggregatesFilter<"CustomerFund"> | number | null
+    otherBunpaiYear?: IntNullableWithAggregatesFilter<"CustomerFund"> | number | null
+    otherBunpaiTotal?: IntNullableWithAggregatesFilter<"CustomerFund"> | number | null
+    paymentDate?: DateTimeNullableWithAggregatesFilter<"CustomerFund"> | Date | string | null
+    holdPayment?: BoolWithAggregatesFilter<"CustomerFund"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"CustomerFund"> | Date | string
+    createdId?: IntWithAggregatesFilter<"CustomerFund"> | number
+    createdBy?: StringWithAggregatesFilter<"CustomerFund"> | string
+    updatedAt?: DateTimeWithAggregatesFilter<"CustomerFund"> | Date | string
+    updatedId?: IntWithAggregatesFilter<"CustomerFund"> | number
+    updatedBy?: StringWithAggregatesFilter<"CustomerFund"> | string
   }
 
   export type UserCreateInput = {
@@ -12896,6 +16146,7 @@ export namespace Prisma {
     updatedBy: string
     project: ProjectCreateNestedOneWithoutProjectKiesInput
     ki: KiCreateNestedOneWithoutProjectKisInput
+    ustomerFunds?: CustomerFundCreateNestedManyWithoutProjectKiInput
   }
 
   export type ProjectKiUncheckedCreateInput = {
@@ -12912,6 +16163,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
+    ustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutProjectKiInput
   }
 
   export type ProjectKiUpdateInput = {
@@ -12928,6 +16180,7 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
     project?: ProjectUpdateOneRequiredWithoutProjectKiesNestedInput
     ki?: KiUpdateOneRequiredWithoutProjectKisNestedInput
+    ustomerFunds?: CustomerFundUpdateManyWithoutProjectKiNestedInput
   }
 
   export type ProjectKiUncheckedUpdateInput = {
@@ -12944,6 +16197,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
+    ustomerFunds?: CustomerFundUncheckedUpdateManyWithoutProjectKiNestedInput
   }
 
   export type ProjectKiCreateManyInput = {
@@ -13216,6 +16470,428 @@ export namespace Prisma {
     photo2?: StringFieldUpdateOperationsInput | string
     photo3?: StringFieldUpdateOperationsInput | string
     photo4?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: IntFieldUpdateOperationsInput | number
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CustomerCreateInput = {
+    id?: string
+    sbimpId: string
+    sbimpIdHistory: string
+    name: string
+    nameFrigana: string
+    birthday?: Date | string | null
+    customerType?: $Enums.CustomerType
+    invoice?: boolean
+    postName: string
+    zip: string
+    fullAddress: string
+    prefecture: string
+    city: string
+    address: string
+    isDeleted?: boolean
+    createdAt?: Date | string
+    createdId: number
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: number
+    updatedBy: string
+    customerFunds?: CustomerFundCreateNestedManyWithoutCustomerInput
+  }
+
+  export type CustomerUncheckedCreateInput = {
+    id?: string
+    sbimpId: string
+    sbimpIdHistory: string
+    name: string
+    nameFrigana: string
+    birthday?: Date | string | null
+    customerType?: $Enums.CustomerType
+    invoice?: boolean
+    postName: string
+    zip: string
+    fullAddress: string
+    prefecture: string
+    city: string
+    address: string
+    isDeleted?: boolean
+    createdAt?: Date | string
+    createdId: number
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: number
+    updatedBy: string
+    customerFunds?: CustomerFundUncheckedCreateNestedManyWithoutCustomerInput
+  }
+
+  export type CustomerUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: StringFieldUpdateOperationsInput | string
+    sbimpIdHistory?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    nameFrigana?: StringFieldUpdateOperationsInput | string
+    birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
+    invoice?: BoolFieldUpdateOperationsInput | boolean
+    postName?: StringFieldUpdateOperationsInput | string
+    zip?: StringFieldUpdateOperationsInput | string
+    fullAddress?: StringFieldUpdateOperationsInput | string
+    prefecture?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: IntFieldUpdateOperationsInput | number
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    customerFunds?: CustomerFundUpdateManyWithoutCustomerNestedInput
+  }
+
+  export type CustomerUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: StringFieldUpdateOperationsInput | string
+    sbimpIdHistory?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    nameFrigana?: StringFieldUpdateOperationsInput | string
+    birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
+    invoice?: BoolFieldUpdateOperationsInput | boolean
+    postName?: StringFieldUpdateOperationsInput | string
+    zip?: StringFieldUpdateOperationsInput | string
+    fullAddress?: StringFieldUpdateOperationsInput | string
+    prefecture?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: IntFieldUpdateOperationsInput | number
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    customerFunds?: CustomerFundUncheckedUpdateManyWithoutCustomerNestedInput
+  }
+
+  export type CustomerCreateManyInput = {
+    id?: string
+    sbimpId: string
+    sbimpIdHistory: string
+    name: string
+    nameFrigana: string
+    birthday?: Date | string | null
+    customerType?: $Enums.CustomerType
+    invoice?: boolean
+    postName: string
+    zip: string
+    fullAddress: string
+    prefecture: string
+    city: string
+    address: string
+    isDeleted?: boolean
+    createdAt?: Date | string
+    createdId: number
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: number
+    updatedBy: string
+  }
+
+  export type CustomerUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: StringFieldUpdateOperationsInput | string
+    sbimpIdHistory?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    nameFrigana?: StringFieldUpdateOperationsInput | string
+    birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
+    invoice?: BoolFieldUpdateOperationsInput | boolean
+    postName?: StringFieldUpdateOperationsInput | string
+    zip?: StringFieldUpdateOperationsInput | string
+    fullAddress?: StringFieldUpdateOperationsInput | string
+    prefecture?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: IntFieldUpdateOperationsInput | number
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CustomerUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: StringFieldUpdateOperationsInput | string
+    sbimpIdHistory?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    nameFrigana?: StringFieldUpdateOperationsInput | string
+    birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
+    invoice?: BoolFieldUpdateOperationsInput | boolean
+    postName?: StringFieldUpdateOperationsInput | string
+    zip?: StringFieldUpdateOperationsInput | string
+    fullAddress?: StringFieldUpdateOperationsInput | string
+    prefecture?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: IntFieldUpdateOperationsInput | number
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CustomerFundCreateInput = {
+    id?: string
+    fundId: string
+    fundStatus: string
+    applyUnit: number
+    bankCode: number
+    bankName: string
+    bankBranchCode: number
+    bankBranchName: string
+    bankAccountTypeCode: number
+    bankAccountType: string
+    bankAccount: string
+    inheritanceType?: $Enums.InheritanceType | null
+    inheritanceStatus?: string | null
+    giftContractDate?: Date | string | null
+    trustTransferDate?: Date | string | null
+    oldBunpaiEndDate?: Date | string | null
+    newBunpaiStartDate?: Date | string | null
+    bunpaiThisKi?: number | null
+    bunpaiYear?: number | null
+    bunpaiTotal?: number | null
+    otherBunpaiThisKi?: number | null
+    otherBunpaiYear?: number | null
+    otherBunpaiTotal?: number | null
+    paymentDate?: Date | string | null
+    holdPayment?: boolean
+    createdAt?: Date | string
+    createdId: number
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: number
+    updatedBy: string
+    customer: CustomerCreateNestedOneWithoutCustomerFundsInput
+    projectKi: ProjectKiCreateNestedOneWithoutUstomerFundsInput
+  }
+
+  export type CustomerFundUncheckedCreateInput = {
+    id?: string
+    fundId: string
+    customerId: string
+    projectKiId: string
+    fundStatus: string
+    applyUnit: number
+    bankCode: number
+    bankName: string
+    bankBranchCode: number
+    bankBranchName: string
+    bankAccountTypeCode: number
+    bankAccountType: string
+    bankAccount: string
+    inheritanceType?: $Enums.InheritanceType | null
+    inheritanceStatus?: string | null
+    giftContractDate?: Date | string | null
+    trustTransferDate?: Date | string | null
+    oldBunpaiEndDate?: Date | string | null
+    newBunpaiStartDate?: Date | string | null
+    bunpaiThisKi?: number | null
+    bunpaiYear?: number | null
+    bunpaiTotal?: number | null
+    otherBunpaiThisKi?: number | null
+    otherBunpaiYear?: number | null
+    otherBunpaiTotal?: number | null
+    paymentDate?: Date | string | null
+    holdPayment?: boolean
+    createdAt?: Date | string
+    createdId: number
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: number
+    updatedBy: string
+  }
+
+  export type CustomerFundUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fundId?: StringFieldUpdateOperationsInput | string
+    fundStatus?: StringFieldUpdateOperationsInput | string
+    applyUnit?: IntFieldUpdateOperationsInput | number
+    bankCode?: IntFieldUpdateOperationsInput | number
+    bankName?: StringFieldUpdateOperationsInput | string
+    bankBranchCode?: IntFieldUpdateOperationsInput | number
+    bankBranchName?: StringFieldUpdateOperationsInput | string
+    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
+    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: IntFieldUpdateOperationsInput | number
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    customer?: CustomerUpdateOneRequiredWithoutCustomerFundsNestedInput
+    projectKi?: ProjectKiUpdateOneRequiredWithoutUstomerFundsNestedInput
+  }
+
+  export type CustomerFundUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fundId?: StringFieldUpdateOperationsInput | string
+    customerId?: StringFieldUpdateOperationsInput | string
+    projectKiId?: StringFieldUpdateOperationsInput | string
+    fundStatus?: StringFieldUpdateOperationsInput | string
+    applyUnit?: IntFieldUpdateOperationsInput | number
+    bankCode?: IntFieldUpdateOperationsInput | number
+    bankName?: StringFieldUpdateOperationsInput | string
+    bankBranchCode?: IntFieldUpdateOperationsInput | number
+    bankBranchName?: StringFieldUpdateOperationsInput | string
+    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
+    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: IntFieldUpdateOperationsInput | number
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CustomerFundCreateManyInput = {
+    id?: string
+    fundId: string
+    customerId: string
+    projectKiId: string
+    fundStatus: string
+    applyUnit: number
+    bankCode: number
+    bankName: string
+    bankBranchCode: number
+    bankBranchName: string
+    bankAccountTypeCode: number
+    bankAccountType: string
+    bankAccount: string
+    inheritanceType?: $Enums.InheritanceType | null
+    inheritanceStatus?: string | null
+    giftContractDate?: Date | string | null
+    trustTransferDate?: Date | string | null
+    oldBunpaiEndDate?: Date | string | null
+    newBunpaiStartDate?: Date | string | null
+    bunpaiThisKi?: number | null
+    bunpaiYear?: number | null
+    bunpaiTotal?: number | null
+    otherBunpaiThisKi?: number | null
+    otherBunpaiYear?: number | null
+    otherBunpaiTotal?: number | null
+    paymentDate?: Date | string | null
+    holdPayment?: boolean
+    createdAt?: Date | string
+    createdId: number
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: number
+    updatedBy: string
+  }
+
+  export type CustomerFundUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fundId?: StringFieldUpdateOperationsInput | string
+    fundStatus?: StringFieldUpdateOperationsInput | string
+    applyUnit?: IntFieldUpdateOperationsInput | number
+    bankCode?: IntFieldUpdateOperationsInput | number
+    bankName?: StringFieldUpdateOperationsInput | string
+    bankBranchCode?: IntFieldUpdateOperationsInput | number
+    bankBranchName?: StringFieldUpdateOperationsInput | string
+    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
+    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: IntFieldUpdateOperationsInput | number
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CustomerFundUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fundId?: StringFieldUpdateOperationsInput | string
+    customerId?: StringFieldUpdateOperationsInput | string
+    projectKiId?: StringFieldUpdateOperationsInput | string
+    fundStatus?: StringFieldUpdateOperationsInput | string
+    applyUnit?: IntFieldUpdateOperationsInput | number
+    bankCode?: IntFieldUpdateOperationsInput | number
+    bankName?: StringFieldUpdateOperationsInput | string
+    bankBranchCode?: IntFieldUpdateOperationsInput | number
+    bankBranchName?: StringFieldUpdateOperationsInput | string
+    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
+    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdPayment?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -13826,6 +17502,16 @@ export namespace Prisma {
     isNot?: KiWhereInput
   }
 
+  export type CustomerFundListRelationFilter = {
+    every?: CustomerFundWhereInput
+    some?: CustomerFundWhereInput
+    none?: CustomerFundWhereInput
+  }
+
+  export type CustomerFundOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type ProjectKiProject_ki_identifierCompoundUniqueInput = {
     projectId: string
     kiId: string
@@ -14025,6 +17711,327 @@ export namespace Prisma {
     projectKi?: SortOrder
     createdId?: SortOrder
     updatedId?: SortOrder
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type EnumCustomerTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.CustomerType | EnumCustomerTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.CustomerType[] | ListEnumCustomerTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CustomerType[] | ListEnumCustomerTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumCustomerTypeFilter<$PrismaModel> | $Enums.CustomerType
+  }
+
+  export type CustomerCountOrderByAggregateInput = {
+    id?: SortOrder
+    sbimpId?: SortOrder
+    sbimpIdHistory?: SortOrder
+    name?: SortOrder
+    nameFrigana?: SortOrder
+    birthday?: SortOrder
+    customerType?: SortOrder
+    invoice?: SortOrder
+    postName?: SortOrder
+    zip?: SortOrder
+    fullAddress?: SortOrder
+    prefecture?: SortOrder
+    city?: SortOrder
+    address?: SortOrder
+    isDeleted?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type CustomerAvgOrderByAggregateInput = {
+    createdId?: SortOrder
+    updatedId?: SortOrder
+  }
+
+  export type CustomerMaxOrderByAggregateInput = {
+    id?: SortOrder
+    sbimpId?: SortOrder
+    sbimpIdHistory?: SortOrder
+    name?: SortOrder
+    nameFrigana?: SortOrder
+    birthday?: SortOrder
+    customerType?: SortOrder
+    invoice?: SortOrder
+    postName?: SortOrder
+    zip?: SortOrder
+    fullAddress?: SortOrder
+    prefecture?: SortOrder
+    city?: SortOrder
+    address?: SortOrder
+    isDeleted?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type CustomerMinOrderByAggregateInput = {
+    id?: SortOrder
+    sbimpId?: SortOrder
+    sbimpIdHistory?: SortOrder
+    name?: SortOrder
+    nameFrigana?: SortOrder
+    birthday?: SortOrder
+    customerType?: SortOrder
+    invoice?: SortOrder
+    postName?: SortOrder
+    zip?: SortOrder
+    fullAddress?: SortOrder
+    prefecture?: SortOrder
+    city?: SortOrder
+    address?: SortOrder
+    isDeleted?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type CustomerSumOrderByAggregateInput = {
+    createdId?: SortOrder
+    updatedId?: SortOrder
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type EnumCustomerTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CustomerType | EnumCustomerTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.CustomerType[] | ListEnumCustomerTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CustomerType[] | ListEnumCustomerTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumCustomerTypeWithAggregatesFilter<$PrismaModel> | $Enums.CustomerType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCustomerTypeFilter<$PrismaModel>
+    _max?: NestedEnumCustomerTypeFilter<$PrismaModel>
+  }
+
+  export type EnumInheritanceTypeNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.InheritanceType | EnumInheritanceTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.InheritanceType[] | ListEnumInheritanceTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.InheritanceType[] | ListEnumInheritanceTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumInheritanceTypeNullableFilter<$PrismaModel> | $Enums.InheritanceType | null
+  }
+
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type CustomerRelationFilter = {
+    is?: CustomerWhereInput
+    isNot?: CustomerWhereInput
+  }
+
+  export type ProjectKiRelationFilter = {
+    is?: ProjectKiWhereInput
+    isNot?: ProjectKiWhereInput
+  }
+
+  export type CustomerFundFund_projectKi_identifierCompoundUniqueInput = {
+    fundId: string
+    projectKiId: string
+  }
+
+  export type CustomerFundCountOrderByAggregateInput = {
+    id?: SortOrder
+    fundId?: SortOrder
+    customerId?: SortOrder
+    projectKiId?: SortOrder
+    fundStatus?: SortOrder
+    applyUnit?: SortOrder
+    bankCode?: SortOrder
+    bankName?: SortOrder
+    bankBranchCode?: SortOrder
+    bankBranchName?: SortOrder
+    bankAccountTypeCode?: SortOrder
+    bankAccountType?: SortOrder
+    bankAccount?: SortOrder
+    inheritanceType?: SortOrder
+    inheritanceStatus?: SortOrder
+    giftContractDate?: SortOrder
+    trustTransferDate?: SortOrder
+    oldBunpaiEndDate?: SortOrder
+    newBunpaiStartDate?: SortOrder
+    bunpaiThisKi?: SortOrder
+    bunpaiYear?: SortOrder
+    bunpaiTotal?: SortOrder
+    otherBunpaiThisKi?: SortOrder
+    otherBunpaiYear?: SortOrder
+    otherBunpaiTotal?: SortOrder
+    paymentDate?: SortOrder
+    holdPayment?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type CustomerFundAvgOrderByAggregateInput = {
+    applyUnit?: SortOrder
+    bankCode?: SortOrder
+    bankBranchCode?: SortOrder
+    bankAccountTypeCode?: SortOrder
+    bunpaiThisKi?: SortOrder
+    bunpaiYear?: SortOrder
+    bunpaiTotal?: SortOrder
+    otherBunpaiThisKi?: SortOrder
+    otherBunpaiYear?: SortOrder
+    otherBunpaiTotal?: SortOrder
+    createdId?: SortOrder
+    updatedId?: SortOrder
+  }
+
+  export type CustomerFundMaxOrderByAggregateInput = {
+    id?: SortOrder
+    fundId?: SortOrder
+    customerId?: SortOrder
+    projectKiId?: SortOrder
+    fundStatus?: SortOrder
+    applyUnit?: SortOrder
+    bankCode?: SortOrder
+    bankName?: SortOrder
+    bankBranchCode?: SortOrder
+    bankBranchName?: SortOrder
+    bankAccountTypeCode?: SortOrder
+    bankAccountType?: SortOrder
+    bankAccount?: SortOrder
+    inheritanceType?: SortOrder
+    inheritanceStatus?: SortOrder
+    giftContractDate?: SortOrder
+    trustTransferDate?: SortOrder
+    oldBunpaiEndDate?: SortOrder
+    newBunpaiStartDate?: SortOrder
+    bunpaiThisKi?: SortOrder
+    bunpaiYear?: SortOrder
+    bunpaiTotal?: SortOrder
+    otherBunpaiThisKi?: SortOrder
+    otherBunpaiYear?: SortOrder
+    otherBunpaiTotal?: SortOrder
+    paymentDate?: SortOrder
+    holdPayment?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type CustomerFundMinOrderByAggregateInput = {
+    id?: SortOrder
+    fundId?: SortOrder
+    customerId?: SortOrder
+    projectKiId?: SortOrder
+    fundStatus?: SortOrder
+    applyUnit?: SortOrder
+    bankCode?: SortOrder
+    bankName?: SortOrder
+    bankBranchCode?: SortOrder
+    bankBranchName?: SortOrder
+    bankAccountTypeCode?: SortOrder
+    bankAccountType?: SortOrder
+    bankAccount?: SortOrder
+    inheritanceType?: SortOrder
+    inheritanceStatus?: SortOrder
+    giftContractDate?: SortOrder
+    trustTransferDate?: SortOrder
+    oldBunpaiEndDate?: SortOrder
+    newBunpaiStartDate?: SortOrder
+    bunpaiThisKi?: SortOrder
+    bunpaiYear?: SortOrder
+    bunpaiTotal?: SortOrder
+    otherBunpaiThisKi?: SortOrder
+    otherBunpaiYear?: SortOrder
+    otherBunpaiTotal?: SortOrder
+    paymentDate?: SortOrder
+    holdPayment?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type CustomerFundSumOrderByAggregateInput = {
+    applyUnit?: SortOrder
+    bankCode?: SortOrder
+    bankBranchCode?: SortOrder
+    bankAccountTypeCode?: SortOrder
+    bunpaiThisKi?: SortOrder
+    bunpaiYear?: SortOrder
+    bunpaiTotal?: SortOrder
+    otherBunpaiThisKi?: SortOrder
+    otherBunpaiYear?: SortOrder
+    otherBunpaiTotal?: SortOrder
+    createdId?: SortOrder
+    updatedId?: SortOrder
+  }
+
+  export type EnumInheritanceTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.InheritanceType | EnumInheritanceTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.InheritanceType[] | ListEnumInheritanceTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.InheritanceType[] | ListEnumInheritanceTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumInheritanceTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.InheritanceType | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumInheritanceTypeNullableFilter<$PrismaModel>
+    _max?: NestedEnumInheritanceTypeNullableFilter<$PrismaModel>
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type NullableStringFieldUpdateOperationsInput = {
@@ -14255,6 +18262,20 @@ export namespace Prisma {
     connect?: KiWhereUniqueInput
   }
 
+  export type CustomerFundCreateNestedManyWithoutProjectKiInput = {
+    create?: XOR<CustomerFundCreateWithoutProjectKiInput, CustomerFundUncheckedCreateWithoutProjectKiInput> | CustomerFundCreateWithoutProjectKiInput[] | CustomerFundUncheckedCreateWithoutProjectKiInput[]
+    connectOrCreate?: CustomerFundCreateOrConnectWithoutProjectKiInput | CustomerFundCreateOrConnectWithoutProjectKiInput[]
+    createMany?: CustomerFundCreateManyProjectKiInputEnvelope
+    connect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+  }
+
+  export type CustomerFundUncheckedCreateNestedManyWithoutProjectKiInput = {
+    create?: XOR<CustomerFundCreateWithoutProjectKiInput, CustomerFundUncheckedCreateWithoutProjectKiInput> | CustomerFundCreateWithoutProjectKiInput[] | CustomerFundUncheckedCreateWithoutProjectKiInput[]
+    connectOrCreate?: CustomerFundCreateOrConnectWithoutProjectKiInput | CustomerFundCreateOrConnectWithoutProjectKiInput[]
+    createMany?: CustomerFundCreateManyProjectKiInputEnvelope
+    connect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+  }
+
   export type ProjectUpdateOneRequiredWithoutProjectKiesNestedInput = {
     create?: XOR<ProjectCreateWithoutProjectKiesInput, ProjectUncheckedCreateWithoutProjectKiesInput>
     connectOrCreate?: ProjectCreateOrConnectWithoutProjectKiesInput
@@ -14269,6 +18290,34 @@ export namespace Prisma {
     upsert?: KiUpsertWithoutProjectKisInput
     connect?: KiWhereUniqueInput
     update?: XOR<XOR<KiUpdateToOneWithWhereWithoutProjectKisInput, KiUpdateWithoutProjectKisInput>, KiUncheckedUpdateWithoutProjectKisInput>
+  }
+
+  export type CustomerFundUpdateManyWithoutProjectKiNestedInput = {
+    create?: XOR<CustomerFundCreateWithoutProjectKiInput, CustomerFundUncheckedCreateWithoutProjectKiInput> | CustomerFundCreateWithoutProjectKiInput[] | CustomerFundUncheckedCreateWithoutProjectKiInput[]
+    connectOrCreate?: CustomerFundCreateOrConnectWithoutProjectKiInput | CustomerFundCreateOrConnectWithoutProjectKiInput[]
+    upsert?: CustomerFundUpsertWithWhereUniqueWithoutProjectKiInput | CustomerFundUpsertWithWhereUniqueWithoutProjectKiInput[]
+    createMany?: CustomerFundCreateManyProjectKiInputEnvelope
+    set?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+    disconnect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+    delete?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+    connect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+    update?: CustomerFundUpdateWithWhereUniqueWithoutProjectKiInput | CustomerFundUpdateWithWhereUniqueWithoutProjectKiInput[]
+    updateMany?: CustomerFundUpdateManyWithWhereWithoutProjectKiInput | CustomerFundUpdateManyWithWhereWithoutProjectKiInput[]
+    deleteMany?: CustomerFundScalarWhereInput | CustomerFundScalarWhereInput[]
+  }
+
+  export type CustomerFundUncheckedUpdateManyWithoutProjectKiNestedInput = {
+    create?: XOR<CustomerFundCreateWithoutProjectKiInput, CustomerFundUncheckedCreateWithoutProjectKiInput> | CustomerFundCreateWithoutProjectKiInput[] | CustomerFundUncheckedCreateWithoutProjectKiInput[]
+    connectOrCreate?: CustomerFundCreateOrConnectWithoutProjectKiInput | CustomerFundCreateOrConnectWithoutProjectKiInput[]
+    upsert?: CustomerFundUpsertWithWhereUniqueWithoutProjectKiInput | CustomerFundUpsertWithWhereUniqueWithoutProjectKiInput[]
+    createMany?: CustomerFundCreateManyProjectKiInputEnvelope
+    set?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+    disconnect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+    delete?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+    connect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+    update?: CustomerFundUpdateWithWhereUniqueWithoutProjectKiInput | CustomerFundUpdateWithWhereUniqueWithoutProjectKiInput[]
+    updateMany?: CustomerFundUpdateManyWithWhereWithoutProjectKiInput | CustomerFundUpdateManyWithWhereWithoutProjectKiInput[]
+    deleteMany?: CustomerFundScalarWhereInput | CustomerFundScalarWhereInput[]
   }
 
   export type ProjectCreateNestedOneWithoutAssetsInput = {
@@ -14353,6 +18402,96 @@ export namespace Prisma {
     upsert?: KiUpsertWithoutAssetKisInput
     connect?: KiWhereUniqueInput
     update?: XOR<XOR<KiUpdateToOneWithWhereWithoutAssetKisInput, KiUpdateWithoutAssetKisInput>, KiUncheckedUpdateWithoutAssetKisInput>
+  }
+
+  export type CustomerFundCreateNestedManyWithoutCustomerInput = {
+    create?: XOR<CustomerFundCreateWithoutCustomerInput, CustomerFundUncheckedCreateWithoutCustomerInput> | CustomerFundCreateWithoutCustomerInput[] | CustomerFundUncheckedCreateWithoutCustomerInput[]
+    connectOrCreate?: CustomerFundCreateOrConnectWithoutCustomerInput | CustomerFundCreateOrConnectWithoutCustomerInput[]
+    createMany?: CustomerFundCreateManyCustomerInputEnvelope
+    connect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+  }
+
+  export type CustomerFundUncheckedCreateNestedManyWithoutCustomerInput = {
+    create?: XOR<CustomerFundCreateWithoutCustomerInput, CustomerFundUncheckedCreateWithoutCustomerInput> | CustomerFundCreateWithoutCustomerInput[] | CustomerFundUncheckedCreateWithoutCustomerInput[]
+    connectOrCreate?: CustomerFundCreateOrConnectWithoutCustomerInput | CustomerFundCreateOrConnectWithoutCustomerInput[]
+    createMany?: CustomerFundCreateManyCustomerInputEnvelope
+    connect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
+  export type EnumCustomerTypeFieldUpdateOperationsInput = {
+    set?: $Enums.CustomerType
+  }
+
+  export type CustomerFundUpdateManyWithoutCustomerNestedInput = {
+    create?: XOR<CustomerFundCreateWithoutCustomerInput, CustomerFundUncheckedCreateWithoutCustomerInput> | CustomerFundCreateWithoutCustomerInput[] | CustomerFundUncheckedCreateWithoutCustomerInput[]
+    connectOrCreate?: CustomerFundCreateOrConnectWithoutCustomerInput | CustomerFundCreateOrConnectWithoutCustomerInput[]
+    upsert?: CustomerFundUpsertWithWhereUniqueWithoutCustomerInput | CustomerFundUpsertWithWhereUniqueWithoutCustomerInput[]
+    createMany?: CustomerFundCreateManyCustomerInputEnvelope
+    set?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+    disconnect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+    delete?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+    connect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+    update?: CustomerFundUpdateWithWhereUniqueWithoutCustomerInput | CustomerFundUpdateWithWhereUniqueWithoutCustomerInput[]
+    updateMany?: CustomerFundUpdateManyWithWhereWithoutCustomerInput | CustomerFundUpdateManyWithWhereWithoutCustomerInput[]
+    deleteMany?: CustomerFundScalarWhereInput | CustomerFundScalarWhereInput[]
+  }
+
+  export type CustomerFundUncheckedUpdateManyWithoutCustomerNestedInput = {
+    create?: XOR<CustomerFundCreateWithoutCustomerInput, CustomerFundUncheckedCreateWithoutCustomerInput> | CustomerFundCreateWithoutCustomerInput[] | CustomerFundUncheckedCreateWithoutCustomerInput[]
+    connectOrCreate?: CustomerFundCreateOrConnectWithoutCustomerInput | CustomerFundCreateOrConnectWithoutCustomerInput[]
+    upsert?: CustomerFundUpsertWithWhereUniqueWithoutCustomerInput | CustomerFundUpsertWithWhereUniqueWithoutCustomerInput[]
+    createMany?: CustomerFundCreateManyCustomerInputEnvelope
+    set?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+    disconnect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+    delete?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+    connect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+    update?: CustomerFundUpdateWithWhereUniqueWithoutCustomerInput | CustomerFundUpdateWithWhereUniqueWithoutCustomerInput[]
+    updateMany?: CustomerFundUpdateManyWithWhereWithoutCustomerInput | CustomerFundUpdateManyWithWhereWithoutCustomerInput[]
+    deleteMany?: CustomerFundScalarWhereInput | CustomerFundScalarWhereInput[]
+  }
+
+  export type CustomerCreateNestedOneWithoutCustomerFundsInput = {
+    create?: XOR<CustomerCreateWithoutCustomerFundsInput, CustomerUncheckedCreateWithoutCustomerFundsInput>
+    connectOrCreate?: CustomerCreateOrConnectWithoutCustomerFundsInput
+    connect?: CustomerWhereUniqueInput
+  }
+
+  export type ProjectKiCreateNestedOneWithoutUstomerFundsInput = {
+    create?: XOR<ProjectKiCreateWithoutUstomerFundsInput, ProjectKiUncheckedCreateWithoutUstomerFundsInput>
+    connectOrCreate?: ProjectKiCreateOrConnectWithoutUstomerFundsInput
+    connect?: ProjectKiWhereUniqueInput
+  }
+
+  export type NullableEnumInheritanceTypeFieldUpdateOperationsInput = {
+    set?: $Enums.InheritanceType | null
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type CustomerUpdateOneRequiredWithoutCustomerFundsNestedInput = {
+    create?: XOR<CustomerCreateWithoutCustomerFundsInput, CustomerUncheckedCreateWithoutCustomerFundsInput>
+    connectOrCreate?: CustomerCreateOrConnectWithoutCustomerFundsInput
+    upsert?: CustomerUpsertWithoutCustomerFundsInput
+    connect?: CustomerWhereUniqueInput
+    update?: XOR<XOR<CustomerUpdateToOneWithWhereWithoutCustomerFundsInput, CustomerUpdateWithoutCustomerFundsInput>, CustomerUncheckedUpdateWithoutCustomerFundsInput>
+  }
+
+  export type ProjectKiUpdateOneRequiredWithoutUstomerFundsNestedInput = {
+    create?: XOR<ProjectKiCreateWithoutUstomerFundsInput, ProjectKiUncheckedCreateWithoutUstomerFundsInput>
+    connectOrCreate?: ProjectKiCreateOrConnectWithoutUstomerFundsInput
+    upsert?: ProjectKiUpsertWithoutUstomerFundsInput
+    connect?: ProjectKiWhereUniqueInput
+    update?: XOR<XOR<ProjectKiUpdateToOneWithWhereWithoutUstomerFundsInput, ProjectKiUpdateWithoutUstomerFundsInput>, ProjectKiUncheckedUpdateWithoutUstomerFundsInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -14581,6 +18720,92 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedEnumCustomerTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.CustomerType | EnumCustomerTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.CustomerType[] | ListEnumCustomerTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CustomerType[] | ListEnumCustomerTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumCustomerTypeFilter<$PrismaModel> | $Enums.CustomerType
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedEnumCustomerTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CustomerType | EnumCustomerTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.CustomerType[] | ListEnumCustomerTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CustomerType[] | ListEnumCustomerTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumCustomerTypeWithAggregatesFilter<$PrismaModel> | $Enums.CustomerType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCustomerTypeFilter<$PrismaModel>
+    _max?: NestedEnumCustomerTypeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumInheritanceTypeNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.InheritanceType | EnumInheritanceTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.InheritanceType[] | ListEnumInheritanceTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.InheritanceType[] | ListEnumInheritanceTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumInheritanceTypeNullableFilter<$PrismaModel> | $Enums.InheritanceType | null
+  }
+
+  export type NestedEnumInheritanceTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.InheritanceType | EnumInheritanceTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.InheritanceType[] | ListEnumInheritanceTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.InheritanceType[] | ListEnumInheritanceTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumInheritanceTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.InheritanceType | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumInheritanceTypeNullableFilter<$PrismaModel>
+    _max?: NestedEnumInheritanceTypeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type ProjectKiCreateWithoutKiInput = {
     id?: string
     projectKi: number
@@ -14594,6 +18819,7 @@ export namespace Prisma {
     updatedId: number
     updatedBy: string
     project: ProjectCreateNestedOneWithoutProjectKiesInput
+    ustomerFunds?: CustomerFundCreateNestedManyWithoutProjectKiInput
   }
 
   export type ProjectKiUncheckedCreateWithoutKiInput = {
@@ -14609,6 +18835,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
+    ustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutProjectKiInput
   }
 
   export type ProjectKiCreateOrConnectWithoutKiInput = {
@@ -14753,6 +18980,7 @@ export namespace Prisma {
     updatedId: number
     updatedBy: string
     ki: KiCreateNestedOneWithoutProjectKisInput
+    ustomerFunds?: CustomerFundCreateNestedManyWithoutProjectKiInput
   }
 
   export type ProjectKiUncheckedCreateWithoutProjectInput = {
@@ -14768,6 +18996,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
+    ustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutProjectKiInput
   }
 
   export type ProjectKiCreateOrConnectWithoutProjectInput = {
@@ -14951,6 +19180,86 @@ export namespace Prisma {
     create: XOR<KiCreateWithoutProjectKisInput, KiUncheckedCreateWithoutProjectKisInput>
   }
 
+  export type CustomerFundCreateWithoutProjectKiInput = {
+    id?: string
+    fundId: string
+    fundStatus: string
+    applyUnit: number
+    bankCode: number
+    bankName: string
+    bankBranchCode: number
+    bankBranchName: string
+    bankAccountTypeCode: number
+    bankAccountType: string
+    bankAccount: string
+    inheritanceType?: $Enums.InheritanceType | null
+    inheritanceStatus?: string | null
+    giftContractDate?: Date | string | null
+    trustTransferDate?: Date | string | null
+    oldBunpaiEndDate?: Date | string | null
+    newBunpaiStartDate?: Date | string | null
+    bunpaiThisKi?: number | null
+    bunpaiYear?: number | null
+    bunpaiTotal?: number | null
+    otherBunpaiThisKi?: number | null
+    otherBunpaiYear?: number | null
+    otherBunpaiTotal?: number | null
+    paymentDate?: Date | string | null
+    holdPayment?: boolean
+    createdAt?: Date | string
+    createdId: number
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: number
+    updatedBy: string
+    customer: CustomerCreateNestedOneWithoutCustomerFundsInput
+  }
+
+  export type CustomerFundUncheckedCreateWithoutProjectKiInput = {
+    id?: string
+    fundId: string
+    customerId: string
+    fundStatus: string
+    applyUnit: number
+    bankCode: number
+    bankName: string
+    bankBranchCode: number
+    bankBranchName: string
+    bankAccountTypeCode: number
+    bankAccountType: string
+    bankAccount: string
+    inheritanceType?: $Enums.InheritanceType | null
+    inheritanceStatus?: string | null
+    giftContractDate?: Date | string | null
+    trustTransferDate?: Date | string | null
+    oldBunpaiEndDate?: Date | string | null
+    newBunpaiStartDate?: Date | string | null
+    bunpaiThisKi?: number | null
+    bunpaiYear?: number | null
+    bunpaiTotal?: number | null
+    otherBunpaiThisKi?: number | null
+    otherBunpaiYear?: number | null
+    otherBunpaiTotal?: number | null
+    paymentDate?: Date | string | null
+    holdPayment?: boolean
+    createdAt?: Date | string
+    createdId: number
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: number
+    updatedBy: string
+  }
+
+  export type CustomerFundCreateOrConnectWithoutProjectKiInput = {
+    where: CustomerFundWhereUniqueInput
+    create: XOR<CustomerFundCreateWithoutProjectKiInput, CustomerFundUncheckedCreateWithoutProjectKiInput>
+  }
+
+  export type CustomerFundCreateManyProjectKiInputEnvelope = {
+    data: CustomerFundCreateManyProjectKiInput | CustomerFundCreateManyProjectKiInput[]
+    skipDuplicates?: boolean
+  }
+
   export type ProjectUpsertWithoutProjectKiesInput = {
     update: XOR<ProjectUpdateWithoutProjectKiesInput, ProjectUncheckedUpdateWithoutProjectKiesInput>
     create: XOR<ProjectCreateWithoutProjectKiesInput, ProjectUncheckedCreateWithoutProjectKiesInput>
@@ -15045,6 +19354,61 @@ export namespace Prisma {
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
     assetKis?: AssetKiUncheckedUpdateManyWithoutKiNestedInput
+  }
+
+  export type CustomerFundUpsertWithWhereUniqueWithoutProjectKiInput = {
+    where: CustomerFundWhereUniqueInput
+    update: XOR<CustomerFundUpdateWithoutProjectKiInput, CustomerFundUncheckedUpdateWithoutProjectKiInput>
+    create: XOR<CustomerFundCreateWithoutProjectKiInput, CustomerFundUncheckedCreateWithoutProjectKiInput>
+  }
+
+  export type CustomerFundUpdateWithWhereUniqueWithoutProjectKiInput = {
+    where: CustomerFundWhereUniqueInput
+    data: XOR<CustomerFundUpdateWithoutProjectKiInput, CustomerFundUncheckedUpdateWithoutProjectKiInput>
+  }
+
+  export type CustomerFundUpdateManyWithWhereWithoutProjectKiInput = {
+    where: CustomerFundScalarWhereInput
+    data: XOR<CustomerFundUpdateManyMutationInput, CustomerFundUncheckedUpdateManyWithoutProjectKiInput>
+  }
+
+  export type CustomerFundScalarWhereInput = {
+    AND?: CustomerFundScalarWhereInput | CustomerFundScalarWhereInput[]
+    OR?: CustomerFundScalarWhereInput[]
+    NOT?: CustomerFundScalarWhereInput | CustomerFundScalarWhereInput[]
+    id?: StringFilter<"CustomerFund"> | string
+    fundId?: StringFilter<"CustomerFund"> | string
+    customerId?: StringFilter<"CustomerFund"> | string
+    projectKiId?: StringFilter<"CustomerFund"> | string
+    fundStatus?: StringFilter<"CustomerFund"> | string
+    applyUnit?: IntFilter<"CustomerFund"> | number
+    bankCode?: IntFilter<"CustomerFund"> | number
+    bankName?: StringFilter<"CustomerFund"> | string
+    bankBranchCode?: IntFilter<"CustomerFund"> | number
+    bankBranchName?: StringFilter<"CustomerFund"> | string
+    bankAccountTypeCode?: IntFilter<"CustomerFund"> | number
+    bankAccountType?: StringFilter<"CustomerFund"> | string
+    bankAccount?: StringFilter<"CustomerFund"> | string
+    inheritanceType?: EnumInheritanceTypeNullableFilter<"CustomerFund"> | $Enums.InheritanceType | null
+    inheritanceStatus?: StringNullableFilter<"CustomerFund"> | string | null
+    giftContractDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
+    trustTransferDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
+    oldBunpaiEndDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
+    newBunpaiStartDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
+    bunpaiThisKi?: IntNullableFilter<"CustomerFund"> | number | null
+    bunpaiYear?: IntNullableFilter<"CustomerFund"> | number | null
+    bunpaiTotal?: IntNullableFilter<"CustomerFund"> | number | null
+    otherBunpaiThisKi?: IntNullableFilter<"CustomerFund"> | number | null
+    otherBunpaiYear?: IntNullableFilter<"CustomerFund"> | number | null
+    otherBunpaiTotal?: IntNullableFilter<"CustomerFund"> | number | null
+    paymentDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
+    holdPayment?: BoolFilter<"CustomerFund"> | boolean
+    createdAt?: DateTimeFilter<"CustomerFund"> | Date | string
+    createdId?: IntFilter<"CustomerFund"> | number
+    createdBy?: StringFilter<"CustomerFund"> | string
+    updatedAt?: DateTimeFilter<"CustomerFund"> | Date | string
+    updatedId?: IntFilter<"CustomerFund"> | number
+    updatedBy?: StringFilter<"CustomerFund"> | string
   }
 
   export type ProjectCreateWithoutAssetsInput = {
@@ -15361,6 +19725,294 @@ export namespace Prisma {
     projectKis?: ProjectKiUncheckedUpdateManyWithoutKiNestedInput
   }
 
+  export type CustomerFundCreateWithoutCustomerInput = {
+    id?: string
+    fundId: string
+    fundStatus: string
+    applyUnit: number
+    bankCode: number
+    bankName: string
+    bankBranchCode: number
+    bankBranchName: string
+    bankAccountTypeCode: number
+    bankAccountType: string
+    bankAccount: string
+    inheritanceType?: $Enums.InheritanceType | null
+    inheritanceStatus?: string | null
+    giftContractDate?: Date | string | null
+    trustTransferDate?: Date | string | null
+    oldBunpaiEndDate?: Date | string | null
+    newBunpaiStartDate?: Date | string | null
+    bunpaiThisKi?: number | null
+    bunpaiYear?: number | null
+    bunpaiTotal?: number | null
+    otherBunpaiThisKi?: number | null
+    otherBunpaiYear?: number | null
+    otherBunpaiTotal?: number | null
+    paymentDate?: Date | string | null
+    holdPayment?: boolean
+    createdAt?: Date | string
+    createdId: number
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: number
+    updatedBy: string
+    projectKi: ProjectKiCreateNestedOneWithoutUstomerFundsInput
+  }
+
+  export type CustomerFundUncheckedCreateWithoutCustomerInput = {
+    id?: string
+    fundId: string
+    projectKiId: string
+    fundStatus: string
+    applyUnit: number
+    bankCode: number
+    bankName: string
+    bankBranchCode: number
+    bankBranchName: string
+    bankAccountTypeCode: number
+    bankAccountType: string
+    bankAccount: string
+    inheritanceType?: $Enums.InheritanceType | null
+    inheritanceStatus?: string | null
+    giftContractDate?: Date | string | null
+    trustTransferDate?: Date | string | null
+    oldBunpaiEndDate?: Date | string | null
+    newBunpaiStartDate?: Date | string | null
+    bunpaiThisKi?: number | null
+    bunpaiYear?: number | null
+    bunpaiTotal?: number | null
+    otherBunpaiThisKi?: number | null
+    otherBunpaiYear?: number | null
+    otherBunpaiTotal?: number | null
+    paymentDate?: Date | string | null
+    holdPayment?: boolean
+    createdAt?: Date | string
+    createdId: number
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: number
+    updatedBy: string
+  }
+
+  export type CustomerFundCreateOrConnectWithoutCustomerInput = {
+    where: CustomerFundWhereUniqueInput
+    create: XOR<CustomerFundCreateWithoutCustomerInput, CustomerFundUncheckedCreateWithoutCustomerInput>
+  }
+
+  export type CustomerFundCreateManyCustomerInputEnvelope = {
+    data: CustomerFundCreateManyCustomerInput | CustomerFundCreateManyCustomerInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CustomerFundUpsertWithWhereUniqueWithoutCustomerInput = {
+    where: CustomerFundWhereUniqueInput
+    update: XOR<CustomerFundUpdateWithoutCustomerInput, CustomerFundUncheckedUpdateWithoutCustomerInput>
+    create: XOR<CustomerFundCreateWithoutCustomerInput, CustomerFundUncheckedCreateWithoutCustomerInput>
+  }
+
+  export type CustomerFundUpdateWithWhereUniqueWithoutCustomerInput = {
+    where: CustomerFundWhereUniqueInput
+    data: XOR<CustomerFundUpdateWithoutCustomerInput, CustomerFundUncheckedUpdateWithoutCustomerInput>
+  }
+
+  export type CustomerFundUpdateManyWithWhereWithoutCustomerInput = {
+    where: CustomerFundScalarWhereInput
+    data: XOR<CustomerFundUpdateManyMutationInput, CustomerFundUncheckedUpdateManyWithoutCustomerInput>
+  }
+
+  export type CustomerCreateWithoutCustomerFundsInput = {
+    id?: string
+    sbimpId: string
+    sbimpIdHistory: string
+    name: string
+    nameFrigana: string
+    birthday?: Date | string | null
+    customerType?: $Enums.CustomerType
+    invoice?: boolean
+    postName: string
+    zip: string
+    fullAddress: string
+    prefecture: string
+    city: string
+    address: string
+    isDeleted?: boolean
+    createdAt?: Date | string
+    createdId: number
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: number
+    updatedBy: string
+  }
+
+  export type CustomerUncheckedCreateWithoutCustomerFundsInput = {
+    id?: string
+    sbimpId: string
+    sbimpIdHistory: string
+    name: string
+    nameFrigana: string
+    birthday?: Date | string | null
+    customerType?: $Enums.CustomerType
+    invoice?: boolean
+    postName: string
+    zip: string
+    fullAddress: string
+    prefecture: string
+    city: string
+    address: string
+    isDeleted?: boolean
+    createdAt?: Date | string
+    createdId: number
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: number
+    updatedBy: string
+  }
+
+  export type CustomerCreateOrConnectWithoutCustomerFundsInput = {
+    where: CustomerWhereUniqueInput
+    create: XOR<CustomerCreateWithoutCustomerFundsInput, CustomerUncheckedCreateWithoutCustomerFundsInput>
+  }
+
+  export type ProjectKiCreateWithoutUstomerFundsInput = {
+    id?: string
+    projectKi: number
+    paymentDate: Date | string
+    reportDate: Date | string
+    topic: string
+    createdAt?: Date | string
+    createdId: number
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: number
+    updatedBy: string
+    project: ProjectCreateNestedOneWithoutProjectKiesInput
+    ki: KiCreateNestedOneWithoutProjectKisInput
+  }
+
+  export type ProjectKiUncheckedCreateWithoutUstomerFundsInput = {
+    id?: string
+    projectId: string
+    kiId: string
+    projectKi: number
+    paymentDate: Date | string
+    reportDate: Date | string
+    topic: string
+    createdAt?: Date | string
+    createdId: number
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: number
+    updatedBy: string
+  }
+
+  export type ProjectKiCreateOrConnectWithoutUstomerFundsInput = {
+    where: ProjectKiWhereUniqueInput
+    create: XOR<ProjectKiCreateWithoutUstomerFundsInput, ProjectKiUncheckedCreateWithoutUstomerFundsInput>
+  }
+
+  export type CustomerUpsertWithoutCustomerFundsInput = {
+    update: XOR<CustomerUpdateWithoutCustomerFundsInput, CustomerUncheckedUpdateWithoutCustomerFundsInput>
+    create: XOR<CustomerCreateWithoutCustomerFundsInput, CustomerUncheckedCreateWithoutCustomerFundsInput>
+    where?: CustomerWhereInput
+  }
+
+  export type CustomerUpdateToOneWithWhereWithoutCustomerFundsInput = {
+    where?: CustomerWhereInput
+    data: XOR<CustomerUpdateWithoutCustomerFundsInput, CustomerUncheckedUpdateWithoutCustomerFundsInput>
+  }
+
+  export type CustomerUpdateWithoutCustomerFundsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: StringFieldUpdateOperationsInput | string
+    sbimpIdHistory?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    nameFrigana?: StringFieldUpdateOperationsInput | string
+    birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
+    invoice?: BoolFieldUpdateOperationsInput | boolean
+    postName?: StringFieldUpdateOperationsInput | string
+    zip?: StringFieldUpdateOperationsInput | string
+    fullAddress?: StringFieldUpdateOperationsInput | string
+    prefecture?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: IntFieldUpdateOperationsInput | number
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CustomerUncheckedUpdateWithoutCustomerFundsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: StringFieldUpdateOperationsInput | string
+    sbimpIdHistory?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    nameFrigana?: StringFieldUpdateOperationsInput | string
+    birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
+    invoice?: BoolFieldUpdateOperationsInput | boolean
+    postName?: StringFieldUpdateOperationsInput | string
+    zip?: StringFieldUpdateOperationsInput | string
+    fullAddress?: StringFieldUpdateOperationsInput | string
+    prefecture?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: IntFieldUpdateOperationsInput | number
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectKiUpsertWithoutUstomerFundsInput = {
+    update: XOR<ProjectKiUpdateWithoutUstomerFundsInput, ProjectKiUncheckedUpdateWithoutUstomerFundsInput>
+    create: XOR<ProjectKiCreateWithoutUstomerFundsInput, ProjectKiUncheckedCreateWithoutUstomerFundsInput>
+    where?: ProjectKiWhereInput
+  }
+
+  export type ProjectKiUpdateToOneWithWhereWithoutUstomerFundsInput = {
+    where?: ProjectKiWhereInput
+    data: XOR<ProjectKiUpdateWithoutUstomerFundsInput, ProjectKiUncheckedUpdateWithoutUstomerFundsInput>
+  }
+
+  export type ProjectKiUpdateWithoutUstomerFundsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectKi?: IntFieldUpdateOperationsInput | number
+    paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    topic?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: IntFieldUpdateOperationsInput | number
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    project?: ProjectUpdateOneRequiredWithoutProjectKiesNestedInput
+    ki?: KiUpdateOneRequiredWithoutProjectKisNestedInput
+  }
+
+  export type ProjectKiUncheckedUpdateWithoutUstomerFundsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    projectKi?: IntFieldUpdateOperationsInput | number
+    paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    topic?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: IntFieldUpdateOperationsInput | number
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
   export type ProjectKiCreateManyKiInput = {
     id?: string
     projectId: string
@@ -15407,6 +20059,7 @@ export namespace Prisma {
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
     project?: ProjectUpdateOneRequiredWithoutProjectKiesNestedInput
+    ustomerFunds?: CustomerFundUpdateManyWithoutProjectKiNestedInput
   }
 
   export type ProjectKiUncheckedUpdateWithoutKiInput = {
@@ -15422,6 +20075,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
+    ustomerFunds?: CustomerFundUncheckedUpdateManyWithoutProjectKiNestedInput
   }
 
   export type ProjectKiUncheckedUpdateManyWithoutKiInput = {
@@ -15534,6 +20188,7 @@ export namespace Prisma {
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
     ki?: KiUpdateOneRequiredWithoutProjectKisNestedInput
+    ustomerFunds?: CustomerFundUpdateManyWithoutProjectKiNestedInput
   }
 
   export type ProjectKiUncheckedUpdateWithoutProjectInput = {
@@ -15549,6 +20204,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
+    ustomerFunds?: CustomerFundUncheckedUpdateManyWithoutProjectKiNestedInput
   }
 
   export type ProjectKiUncheckedUpdateManyWithoutProjectInput = {
@@ -15599,6 +20255,146 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     registeredAddress?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: IntFieldUpdateOperationsInput | number
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CustomerFundCreateManyProjectKiInput = {
+    id?: string
+    fundId: string
+    customerId: string
+    fundStatus: string
+    applyUnit: number
+    bankCode: number
+    bankName: string
+    bankBranchCode: number
+    bankBranchName: string
+    bankAccountTypeCode: number
+    bankAccountType: string
+    bankAccount: string
+    inheritanceType?: $Enums.InheritanceType | null
+    inheritanceStatus?: string | null
+    giftContractDate?: Date | string | null
+    trustTransferDate?: Date | string | null
+    oldBunpaiEndDate?: Date | string | null
+    newBunpaiStartDate?: Date | string | null
+    bunpaiThisKi?: number | null
+    bunpaiYear?: number | null
+    bunpaiTotal?: number | null
+    otherBunpaiThisKi?: number | null
+    otherBunpaiYear?: number | null
+    otherBunpaiTotal?: number | null
+    paymentDate?: Date | string | null
+    holdPayment?: boolean
+    createdAt?: Date | string
+    createdId: number
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: number
+    updatedBy: string
+  }
+
+  export type CustomerFundUpdateWithoutProjectKiInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fundId?: StringFieldUpdateOperationsInput | string
+    fundStatus?: StringFieldUpdateOperationsInput | string
+    applyUnit?: IntFieldUpdateOperationsInput | number
+    bankCode?: IntFieldUpdateOperationsInput | number
+    bankName?: StringFieldUpdateOperationsInput | string
+    bankBranchCode?: IntFieldUpdateOperationsInput | number
+    bankBranchName?: StringFieldUpdateOperationsInput | string
+    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
+    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: IntFieldUpdateOperationsInput | number
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    customer?: CustomerUpdateOneRequiredWithoutCustomerFundsNestedInput
+  }
+
+  export type CustomerFundUncheckedUpdateWithoutProjectKiInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fundId?: StringFieldUpdateOperationsInput | string
+    customerId?: StringFieldUpdateOperationsInput | string
+    fundStatus?: StringFieldUpdateOperationsInput | string
+    applyUnit?: IntFieldUpdateOperationsInput | number
+    bankCode?: IntFieldUpdateOperationsInput | number
+    bankName?: StringFieldUpdateOperationsInput | string
+    bankBranchCode?: IntFieldUpdateOperationsInput | number
+    bankBranchName?: StringFieldUpdateOperationsInput | string
+    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
+    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: IntFieldUpdateOperationsInput | number
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CustomerFundUncheckedUpdateManyWithoutProjectKiInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fundId?: StringFieldUpdateOperationsInput | string
+    customerId?: StringFieldUpdateOperationsInput | string
+    fundStatus?: StringFieldUpdateOperationsInput | string
+    applyUnit?: IntFieldUpdateOperationsInput | number
+    bankCode?: IntFieldUpdateOperationsInput | number
+    bankName?: StringFieldUpdateOperationsInput | string
+    bankBranchCode?: IntFieldUpdateOperationsInput | number
+    bankBranchName?: StringFieldUpdateOperationsInput | string
+    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
+    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdPayment?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -15679,6 +20475,146 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
+  export type CustomerFundCreateManyCustomerInput = {
+    id?: string
+    fundId: string
+    projectKiId: string
+    fundStatus: string
+    applyUnit: number
+    bankCode: number
+    bankName: string
+    bankBranchCode: number
+    bankBranchName: string
+    bankAccountTypeCode: number
+    bankAccountType: string
+    bankAccount: string
+    inheritanceType?: $Enums.InheritanceType | null
+    inheritanceStatus?: string | null
+    giftContractDate?: Date | string | null
+    trustTransferDate?: Date | string | null
+    oldBunpaiEndDate?: Date | string | null
+    newBunpaiStartDate?: Date | string | null
+    bunpaiThisKi?: number | null
+    bunpaiYear?: number | null
+    bunpaiTotal?: number | null
+    otherBunpaiThisKi?: number | null
+    otherBunpaiYear?: number | null
+    otherBunpaiTotal?: number | null
+    paymentDate?: Date | string | null
+    holdPayment?: boolean
+    createdAt?: Date | string
+    createdId: number
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: number
+    updatedBy: string
+  }
+
+  export type CustomerFundUpdateWithoutCustomerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fundId?: StringFieldUpdateOperationsInput | string
+    fundStatus?: StringFieldUpdateOperationsInput | string
+    applyUnit?: IntFieldUpdateOperationsInput | number
+    bankCode?: IntFieldUpdateOperationsInput | number
+    bankName?: StringFieldUpdateOperationsInput | string
+    bankBranchCode?: IntFieldUpdateOperationsInput | number
+    bankBranchName?: StringFieldUpdateOperationsInput | string
+    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
+    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: IntFieldUpdateOperationsInput | number
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    projectKi?: ProjectKiUpdateOneRequiredWithoutUstomerFundsNestedInput
+  }
+
+  export type CustomerFundUncheckedUpdateWithoutCustomerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fundId?: StringFieldUpdateOperationsInput | string
+    projectKiId?: StringFieldUpdateOperationsInput | string
+    fundStatus?: StringFieldUpdateOperationsInput | string
+    applyUnit?: IntFieldUpdateOperationsInput | number
+    bankCode?: IntFieldUpdateOperationsInput | number
+    bankName?: StringFieldUpdateOperationsInput | string
+    bankBranchCode?: IntFieldUpdateOperationsInput | number
+    bankBranchName?: StringFieldUpdateOperationsInput | string
+    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
+    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: IntFieldUpdateOperationsInput | number
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CustomerFundUncheckedUpdateManyWithoutCustomerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fundId?: StringFieldUpdateOperationsInput | string
+    projectKiId?: StringFieldUpdateOperationsInput | string
+    fundStatus?: StringFieldUpdateOperationsInput | string
+    applyUnit?: IntFieldUpdateOperationsInput | number
+    bankCode?: IntFieldUpdateOperationsInput | number
+    bankName?: StringFieldUpdateOperationsInput | string
+    bankBranchCode?: IntFieldUpdateOperationsInput | number
+    bankBranchName?: StringFieldUpdateOperationsInput | string
+    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
+    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: IntFieldUpdateOperationsInput | number
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
 
 
   /**
@@ -15693,9 +20629,17 @@ export namespace Prisma {
      */
     export type ProjectCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ProjectCountOutputTypeDefaultArgs<ExtArgs>
     /**
+     * @deprecated Use ProjectKiCountOutputTypeDefaultArgs instead
+     */
+    export type ProjectKiCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ProjectKiCountOutputTypeDefaultArgs<ExtArgs>
+    /**
      * @deprecated Use AssetCountOutputTypeDefaultArgs instead
      */
     export type AssetCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = AssetCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use CustomerCountOutputTypeDefaultArgs instead
+     */
+    export type CustomerCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = CustomerCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use UserDefaultArgs instead
      */
@@ -15732,6 +20676,14 @@ export namespace Prisma {
      * @deprecated Use AssetKiDefaultArgs instead
      */
     export type AssetKiArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = AssetKiDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use CustomerDefaultArgs instead
+     */
+    export type CustomerArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = CustomerDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use CustomerFundDefaultArgs instead
+     */
+    export type CustomerFundArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = CustomerFundDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany
