@@ -68,23 +68,33 @@ export type Customer = $Result.DefaultSelection<Prisma.$CustomerPayload>
  * 
  */
 export type CustomerFund = $Result.DefaultSelection<Prisma.$CustomerFundPayload>
+/**
+ * Model Template
+ * 
+ */
+export type Template = $Result.DefaultSelection<Prisma.$TemplatePayload>
+/**
+ * Model TemplateHistory
+ * 
+ */
+export type TemplateHistory = $Result.DefaultSelection<Prisma.$TemplateHistoryPayload>
 
 /**
  * Enums
  */
 export namespace $Enums {
   export const UserRole: {
-  NORMAL: 'NORMAL',
-  ADMIN: 'ADMIN'
+  Normal: 'Normal',
+  Admin: 'Admin'
 };
 
 export type UserRole = (typeof UserRole)[keyof typeof UserRole]
 
 
 export const UserType: {
-  user: 'user',
-  sbimpUser: 'sbimpUser',
-  eajUser: 'eajUser'
+  User: 'User',
+  SbimpUser: 'SbimpUser',
+  EajUser: 'EajUser'
 };
 
 export type UserType = (typeof UserType)[keyof typeof UserType]
@@ -105,6 +115,28 @@ export const InheritanceType: {
 
 export type InheritanceType = (typeof InheritanceType)[keyof typeof InheritanceType]
 
+
+export const ExtType: {
+  Xlsx: 'Xlsx',
+  Docx: 'Docx'
+};
+
+export type ExtType = (typeof ExtType)[keyof typeof ExtType]
+
+
+export const TemplateType: {
+  Bunpai: 'Bunpai',
+  ReportA: 'ReportA',
+  ReportB: 'ReportB',
+  ReportC: 'ReportC',
+  Ref: 'Ref',
+  YieldTrend: 'YieldTrend',
+  BunpaiInstruction: 'BunpaiInstruction',
+  CustomerList: 'CustomerList'
+};
+
+export type TemplateType = (typeof TemplateType)[keyof typeof TemplateType]
+
 }
 
 export type UserRole = $Enums.UserRole
@@ -122,6 +154,14 @@ export const CustomerType: typeof $Enums.CustomerType
 export type InheritanceType = $Enums.InheritanceType
 
 export const InheritanceType: typeof $Enums.InheritanceType
+
+export type ExtType = $Enums.ExtType
+
+export const ExtType: typeof $Enums.ExtType
+
+export type TemplateType = $Enums.TemplateType
+
+export const TemplateType: typeof $Enums.TemplateType
 
 /**
  * ##  Prisma Client ʲˢ
@@ -355,6 +395,26 @@ export class PrismaClient<
     * ```
     */
   get customerFund(): Prisma.CustomerFundDelegate<ExtArgs>;
+
+  /**
+   * `prisma.template`: Exposes CRUD operations for the **Template** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Templates
+    * const templates = await prisma.template.findMany()
+    * ```
+    */
+  get template(): Prisma.TemplateDelegate<ExtArgs>;
+
+  /**
+   * `prisma.templateHistory`: Exposes CRUD operations for the **TemplateHistory** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TemplateHistories
+    * const templateHistories = await prisma.templateHistory.findMany()
+    * ```
+    */
+  get templateHistory(): Prisma.TemplateHistoryDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -804,7 +864,9 @@ export namespace Prisma {
     Asset: 'Asset',
     AssetKi: 'AssetKi',
     Customer: 'Customer',
-    CustomerFund: 'CustomerFund'
+    CustomerFund: 'CustomerFund',
+    Template: 'Template',
+    TemplateHistory: 'TemplateHistory'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -820,7 +882,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "user" | "sBIMPUser" | "eAJUser" | "company" | "ki" | "project" | "projectKi" | "asset" | "assetKi" | "customer" | "customerFund"
+      modelProps: "user" | "sBIMPUser" | "eAJUser" | "company" | "ki" | "project" | "projectKi" | "asset" | "assetKi" | "customer" | "customerFund" | "template" | "templateHistory"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1594,6 +1656,146 @@ export namespace Prisma {
           }
         }
       }
+      Template: {
+        payload: Prisma.$TemplatePayload<ExtArgs>
+        fields: Prisma.TemplateFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TemplateFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplatePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TemplateFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplatePayload>
+          }
+          findFirst: {
+            args: Prisma.TemplateFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplatePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TemplateFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplatePayload>
+          }
+          findMany: {
+            args: Prisma.TemplateFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplatePayload>[]
+          }
+          create: {
+            args: Prisma.TemplateCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplatePayload>
+          }
+          createMany: {
+            args: Prisma.TemplateCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.TemplateCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplatePayload>[]
+          }
+          delete: {
+            args: Prisma.TemplateDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplatePayload>
+          }
+          update: {
+            args: Prisma.TemplateUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplatePayload>
+          }
+          deleteMany: {
+            args: Prisma.TemplateDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TemplateUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.TemplateUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplatePayload>
+          }
+          aggregate: {
+            args: Prisma.TemplateAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTemplate>
+          }
+          groupBy: {
+            args: Prisma.TemplateGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TemplateGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TemplateCountArgs<ExtArgs>
+            result: $Utils.Optional<TemplateCountAggregateOutputType> | number
+          }
+        }
+      }
+      TemplateHistory: {
+        payload: Prisma.$TemplateHistoryPayload<ExtArgs>
+        fields: Prisma.TemplateHistoryFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TemplateHistoryFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplateHistoryPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TemplateHistoryFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplateHistoryPayload>
+          }
+          findFirst: {
+            args: Prisma.TemplateHistoryFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplateHistoryPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TemplateHistoryFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplateHistoryPayload>
+          }
+          findMany: {
+            args: Prisma.TemplateHistoryFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplateHistoryPayload>[]
+          }
+          create: {
+            args: Prisma.TemplateHistoryCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplateHistoryPayload>
+          }
+          createMany: {
+            args: Prisma.TemplateHistoryCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.TemplateHistoryCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplateHistoryPayload>[]
+          }
+          delete: {
+            args: Prisma.TemplateHistoryDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplateHistoryPayload>
+          }
+          update: {
+            args: Prisma.TemplateHistoryUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplateHistoryPayload>
+          }
+          deleteMany: {
+            args: Prisma.TemplateHistoryDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TemplateHistoryUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.TemplateHistoryUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TemplateHistoryPayload>
+          }
+          aggregate: {
+            args: Prisma.TemplateHistoryAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTemplateHistory>
+          }
+          groupBy: {
+            args: Prisma.TemplateHistoryGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TemplateHistoryGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TemplateHistoryCountArgs<ExtArgs>
+            result: $Utils.Optional<TemplateHistoryCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1755,13 +1957,13 @@ export namespace Prisma {
    */
 
   export type KiCountOutputType = {
-    projectKis: number
-    assetKis: number
+    ProjectKis: number
+    AssetKis: number
   }
 
   export type KiCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    projectKis?: boolean | KiCountOutputTypeCountProjectKisArgs
-    assetKis?: boolean | KiCountOutputTypeCountAssetKisArgs
+    ProjectKis?: boolean | KiCountOutputTypeCountProjectKisArgs
+    AssetKis?: boolean | KiCountOutputTypeCountAssetKisArgs
   }
 
   // Custom InputTypes
@@ -1795,13 +1997,13 @@ export namespace Prisma {
    */
 
   export type ProjectCountOutputType = {
-    projectKies: number
-    assets: number
+    ProjectKis: number
+    Assets: number
   }
 
   export type ProjectCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    projectKies?: boolean | ProjectCountOutputTypeCountProjectKiesArgs
-    assets?: boolean | ProjectCountOutputTypeCountAssetsArgs
+    ProjectKis?: boolean | ProjectCountOutputTypeCountProjectKisArgs
+    Assets?: boolean | ProjectCountOutputTypeCountAssetsArgs
   }
 
   // Custom InputTypes
@@ -1818,7 +2020,7 @@ export namespace Prisma {
   /**
    * ProjectCountOutputType without action
    */
-  export type ProjectCountOutputTypeCountProjectKiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProjectCountOutputTypeCountProjectKisArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ProjectKiWhereInput
   }
 
@@ -1866,11 +2068,11 @@ export namespace Prisma {
    */
 
   export type AssetCountOutputType = {
-    assetKies: number
+    AssetKis: number
   }
 
   export type AssetCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    assetKies?: boolean | AssetCountOutputTypeCountAssetKiesArgs
+    AssetKis?: boolean | AssetCountOutputTypeCountAssetKisArgs
   }
 
   // Custom InputTypes
@@ -1887,7 +2089,7 @@ export namespace Prisma {
   /**
    * AssetCountOutputType without action
    */
-  export type AssetCountOutputTypeCountAssetKiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AssetCountOutputTypeCountAssetKisArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: AssetKiWhereInput
   }
 
@@ -1897,11 +2099,11 @@ export namespace Prisma {
    */
 
   export type CustomerCountOutputType = {
-    customerFunds: number
+    CustomerFunds: number
   }
 
   export type CustomerCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    customerFunds?: boolean | CustomerCountOutputTypeCountCustomerFundsArgs
+    CustomerFunds?: boolean | CustomerCountOutputTypeCountCustomerFundsArgs
   }
 
   // Custom InputTypes
@@ -6059,8 +6261,8 @@ export namespace Prisma {
     updatedAt?: boolean
     updatedId?: boolean
     updatedBy?: boolean
-    projectKis?: boolean | Ki$projectKisArgs<ExtArgs>
-    assetKis?: boolean | Ki$assetKisArgs<ExtArgs>
+    ProjectKis?: boolean | Ki$ProjectKisArgs<ExtArgs>
+    AssetKis?: boolean | Ki$AssetKisArgs<ExtArgs>
     _count?: boolean | KiCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["ki"]>
 
@@ -6089,8 +6291,8 @@ export namespace Prisma {
   }
 
   export type KiInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    projectKis?: boolean | Ki$projectKisArgs<ExtArgs>
-    assetKis?: boolean | Ki$assetKisArgs<ExtArgs>
+    ProjectKis?: boolean | Ki$ProjectKisArgs<ExtArgs>
+    AssetKis?: boolean | Ki$AssetKisArgs<ExtArgs>
     _count?: boolean | KiCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type KiIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -6098,8 +6300,8 @@ export namespace Prisma {
   export type $KiPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Ki"
     objects: {
-      projectKis: Prisma.$ProjectKiPayload<ExtArgs>[]
-      assetKis: Prisma.$AssetKiPayload<ExtArgs>[]
+      ProjectKis: Prisma.$ProjectKiPayload<ExtArgs>[]
+      AssetKis: Prisma.$AssetKiPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -6475,8 +6677,8 @@ export namespace Prisma {
    */
   export interface Prisma__KiClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    projectKis<T extends Ki$projectKisArgs<ExtArgs> = {}>(args?: Subset<T, Ki$projectKisArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectKiPayload<ExtArgs>, T, "findMany"> | Null>
-    assetKis<T extends Ki$assetKisArgs<ExtArgs> = {}>(args?: Subset<T, Ki$assetKisArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AssetKiPayload<ExtArgs>, T, "findMany"> | Null>
+    ProjectKis<T extends Ki$ProjectKisArgs<ExtArgs> = {}>(args?: Subset<T, Ki$ProjectKisArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectKiPayload<ExtArgs>, T, "findMany"> | Null>
+    AssetKis<T extends Ki$AssetKisArgs<ExtArgs> = {}>(args?: Subset<T, Ki$AssetKisArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AssetKiPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6829,9 +7031,9 @@ export namespace Prisma {
   }
 
   /**
-   * Ki.projectKis
+   * Ki.ProjectKis
    */
-  export type Ki$projectKisArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Ki$ProjectKisArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the ProjectKi
      */
@@ -6849,9 +7051,9 @@ export namespace Prisma {
   }
 
   /**
-   * Ki.assetKis
+   * Ki.AssetKis
    */
-  export type Ki$assetKisArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Ki$AssetKisArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the AssetKi
      */
@@ -7233,8 +7435,8 @@ export namespace Prisma {
     updatedAt?: boolean
     updatedId?: boolean
     updatedBy?: boolean
-    projectKies?: boolean | Project$projectKiesArgs<ExtArgs>
-    assets?: boolean | Project$assetsArgs<ExtArgs>
+    ProjectKis?: boolean | Project$ProjectKisArgs<ExtArgs>
+    Assets?: boolean | Project$AssetsArgs<ExtArgs>
     _count?: boolean | ProjectCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["project"]>
 
@@ -7285,8 +7487,8 @@ export namespace Prisma {
   }
 
   export type ProjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    projectKies?: boolean | Project$projectKiesArgs<ExtArgs>
-    assets?: boolean | Project$assetsArgs<ExtArgs>
+    ProjectKis?: boolean | Project$ProjectKisArgs<ExtArgs>
+    Assets?: boolean | Project$AssetsArgs<ExtArgs>
     _count?: boolean | ProjectCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ProjectIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -7294,8 +7496,8 @@ export namespace Prisma {
   export type $ProjectPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Project"
     objects: {
-      projectKies: Prisma.$ProjectKiPayload<ExtArgs>[]
-      assets: Prisma.$AssetPayload<ExtArgs>[]
+      ProjectKis: Prisma.$ProjectKiPayload<ExtArgs>[]
+      Assets: Prisma.$AssetPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -7682,8 +7884,8 @@ export namespace Prisma {
    */
   export interface Prisma__ProjectClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    projectKies<T extends Project$projectKiesArgs<ExtArgs> = {}>(args?: Subset<T, Project$projectKiesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectKiPayload<ExtArgs>, T, "findMany"> | Null>
-    assets<T extends Project$assetsArgs<ExtArgs> = {}>(args?: Subset<T, Project$assetsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AssetPayload<ExtArgs>, T, "findMany"> | Null>
+    ProjectKis<T extends Project$ProjectKisArgs<ExtArgs> = {}>(args?: Subset<T, Project$ProjectKisArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectKiPayload<ExtArgs>, T, "findMany"> | Null>
+    Assets<T extends Project$AssetsArgs<ExtArgs> = {}>(args?: Subset<T, Project$AssetsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AssetPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8047,9 +8249,9 @@ export namespace Prisma {
   }
 
   /**
-   * Project.projectKies
+   * Project.ProjectKis
    */
-  export type Project$projectKiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Project$ProjectKisArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the ProjectKi
      */
@@ -8067,9 +8269,9 @@ export namespace Prisma {
   }
 
   /**
-   * Project.assets
+   * Project.Assets
    */
-  export type Project$assetsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Project$AssetsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the Asset
      */
@@ -8371,8 +8573,8 @@ export namespace Prisma {
     updatedAt?: boolean
     updatedId?: boolean
     updatedBy?: boolean
-    project?: boolean | ProjectDefaultArgs<ExtArgs>
-    ki?: boolean | KiDefaultArgs<ExtArgs>
+    Project?: boolean | ProjectDefaultArgs<ExtArgs>
+    Ki?: boolean | KiDefaultArgs<ExtArgs>
     ustomerFunds?: boolean | ProjectKi$ustomerFundsArgs<ExtArgs>
     _count?: boolean | ProjectKiCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["projectKi"]>
@@ -8391,8 +8593,8 @@ export namespace Prisma {
     updatedAt?: boolean
     updatedId?: boolean
     updatedBy?: boolean
-    project?: boolean | ProjectDefaultArgs<ExtArgs>
-    ki?: boolean | KiDefaultArgs<ExtArgs>
+    Project?: boolean | ProjectDefaultArgs<ExtArgs>
+    Ki?: boolean | KiDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["projectKi"]>
 
   export type ProjectKiSelectScalar = {
@@ -8412,21 +8614,21 @@ export namespace Prisma {
   }
 
   export type ProjectKiInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    project?: boolean | ProjectDefaultArgs<ExtArgs>
-    ki?: boolean | KiDefaultArgs<ExtArgs>
+    Project?: boolean | ProjectDefaultArgs<ExtArgs>
+    Ki?: boolean | KiDefaultArgs<ExtArgs>
     ustomerFunds?: boolean | ProjectKi$ustomerFundsArgs<ExtArgs>
     _count?: boolean | ProjectKiCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ProjectKiIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    project?: boolean | ProjectDefaultArgs<ExtArgs>
-    ki?: boolean | KiDefaultArgs<ExtArgs>
+    Project?: boolean | ProjectDefaultArgs<ExtArgs>
+    Ki?: boolean | KiDefaultArgs<ExtArgs>
   }
 
   export type $ProjectKiPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "ProjectKi"
     objects: {
-      project: Prisma.$ProjectPayload<ExtArgs>
-      ki: Prisma.$KiPayload<ExtArgs>
+      Project: Prisma.$ProjectPayload<ExtArgs>
+      Ki: Prisma.$KiPayload<ExtArgs>
       ustomerFunds: Prisma.$CustomerFundPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -8807,8 +9009,8 @@ export namespace Prisma {
    */
   export interface Prisma__ProjectKiClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
-    ki<T extends KiDefaultArgs<ExtArgs> = {}>(args?: Subset<T, KiDefaultArgs<ExtArgs>>): Prisma__KiClient<$Result.GetResult<Prisma.$KiPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    Project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    Ki<T extends KiDefaultArgs<ExtArgs> = {}>(args?: Subset<T, KiDefaultArgs<ExtArgs>>): Prisma__KiClient<$Result.GetResult<Prisma.$KiPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
     ustomerFunds<T extends ProjectKi$ustomerFundsArgs<ExtArgs> = {}>(args?: Subset<T, ProjectKi$ustomerFundsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerFundPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -9454,8 +9656,8 @@ export namespace Prisma {
     updatedAt?: boolean
     updatedId?: boolean
     updatedBy?: boolean
-    project?: boolean | ProjectDefaultArgs<ExtArgs>
-    assetKies?: boolean | Asset$assetKiesArgs<ExtArgs>
+    Project?: boolean | ProjectDefaultArgs<ExtArgs>
+    AssetKis?: boolean | Asset$AssetKisArgs<ExtArgs>
     _count?: boolean | AssetCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["asset"]>
 
@@ -9471,7 +9673,7 @@ export namespace Prisma {
     updatedAt?: boolean
     updatedId?: boolean
     updatedBy?: boolean
-    project?: boolean | ProjectDefaultArgs<ExtArgs>
+    Project?: boolean | ProjectDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["asset"]>
 
   export type AssetSelectScalar = {
@@ -9489,19 +9691,19 @@ export namespace Prisma {
   }
 
   export type AssetInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    project?: boolean | ProjectDefaultArgs<ExtArgs>
-    assetKies?: boolean | Asset$assetKiesArgs<ExtArgs>
+    Project?: boolean | ProjectDefaultArgs<ExtArgs>
+    AssetKis?: boolean | Asset$AssetKisArgs<ExtArgs>
     _count?: boolean | AssetCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type AssetIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    project?: boolean | ProjectDefaultArgs<ExtArgs>
+    Project?: boolean | ProjectDefaultArgs<ExtArgs>
   }
 
   export type $AssetPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Asset"
     objects: {
-      project: Prisma.$ProjectPayload<ExtArgs>
-      assetKies: Prisma.$AssetKiPayload<ExtArgs>[]
+      Project: Prisma.$ProjectPayload<ExtArgs>
+      AssetKis: Prisma.$AssetKiPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -9879,8 +10081,8 @@ export namespace Prisma {
    */
   export interface Prisma__AssetClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
-    assetKies<T extends Asset$assetKiesArgs<ExtArgs> = {}>(args?: Subset<T, Asset$assetKiesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AssetKiPayload<ExtArgs>, T, "findMany"> | Null>
+    Project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    AssetKis<T extends Asset$AssetKisArgs<ExtArgs> = {}>(args?: Subset<T, Asset$AssetKisArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AssetKiPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -10239,9 +10441,9 @@ export namespace Prisma {
   }
 
   /**
-   * Asset.assetKies
+   * Asset.AssetKis
    */
-  export type Asset$assetKiesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Asset$AssetKisArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the AssetKi
      */
@@ -10519,10 +10721,10 @@ export namespace Prisma {
     projectKi: number
     situation: string
     photoDate: Date
-    photo1: string
-    photo2: string
-    photo3: string
-    photo4: string
+    photo1: string | null
+    photo2: string | null
+    photo3: string | null
+    photo4: string | null
     createdAt: Date
     createdId: number
     createdBy: string
@@ -10567,8 +10769,8 @@ export namespace Prisma {
     updatedAt?: boolean
     updatedId?: boolean
     updatedBy?: boolean
-    asset?: boolean | AssetDefaultArgs<ExtArgs>
-    ki?: boolean | KiDefaultArgs<ExtArgs>
+    Asset?: boolean | AssetDefaultArgs<ExtArgs>
+    Ki?: boolean | KiDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["assetKi"]>
 
   export type AssetKiSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -10588,8 +10790,8 @@ export namespace Prisma {
     updatedAt?: boolean
     updatedId?: boolean
     updatedBy?: boolean
-    asset?: boolean | AssetDefaultArgs<ExtArgs>
-    ki?: boolean | KiDefaultArgs<ExtArgs>
+    Asset?: boolean | AssetDefaultArgs<ExtArgs>
+    Ki?: boolean | KiDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["assetKi"]>
 
   export type AssetKiSelectScalar = {
@@ -10612,19 +10814,19 @@ export namespace Prisma {
   }
 
   export type AssetKiInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    asset?: boolean | AssetDefaultArgs<ExtArgs>
-    ki?: boolean | KiDefaultArgs<ExtArgs>
+    Asset?: boolean | AssetDefaultArgs<ExtArgs>
+    Ki?: boolean | KiDefaultArgs<ExtArgs>
   }
   export type AssetKiIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    asset?: boolean | AssetDefaultArgs<ExtArgs>
-    ki?: boolean | KiDefaultArgs<ExtArgs>
+    Asset?: boolean | AssetDefaultArgs<ExtArgs>
+    Ki?: boolean | KiDefaultArgs<ExtArgs>
   }
 
   export type $AssetKiPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "AssetKi"
     objects: {
-      asset: Prisma.$AssetPayload<ExtArgs>
-      ki: Prisma.$KiPayload<ExtArgs>
+      Asset: Prisma.$AssetPayload<ExtArgs>
+      Ki: Prisma.$KiPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -10633,10 +10835,10 @@ export namespace Prisma {
       projectKi: number
       situation: string
       photoDate: Date
-      photo1: string
-      photo2: string
-      photo3: string
-      photo4: string
+      photo1: string | null
+      photo2: string | null
+      photo3: string | null
+      photo4: string | null
       createdAt: Date
       createdId: number
       createdBy: string
@@ -11007,8 +11209,8 @@ export namespace Prisma {
    */
   export interface Prisma__AssetKiClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    asset<T extends AssetDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AssetDefaultArgs<ExtArgs>>): Prisma__AssetClient<$Result.GetResult<Prisma.$AssetPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
-    ki<T extends KiDefaultArgs<ExtArgs> = {}>(args?: Subset<T, KiDefaultArgs<ExtArgs>>): Prisma__KiClient<$Result.GetResult<Prisma.$KiPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    Asset<T extends AssetDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AssetDefaultArgs<ExtArgs>>): Prisma__AssetClient<$Result.GetResult<Prisma.$AssetPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    Ki<T extends KiDefaultArgs<ExtArgs> = {}>(args?: Subset<T, KiDefaultArgs<ExtArgs>>): Prisma__KiClient<$Result.GetResult<Prisma.$KiPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -11413,7 +11615,7 @@ export namespace Prisma {
     sbimpId: string | null
     sbimpIdHistory: string | null
     name: string | null
-    nameFrigana: string | null
+    nameFurigana: string | null
     birthday: Date | null
     customerType: $Enums.CustomerType | null
     invoice: boolean | null
@@ -11437,7 +11639,7 @@ export namespace Prisma {
     sbimpId: string | null
     sbimpIdHistory: string | null
     name: string | null
-    nameFrigana: string | null
+    nameFurigana: string | null
     birthday: Date | null
     customerType: $Enums.CustomerType | null
     invoice: boolean | null
@@ -11461,7 +11663,7 @@ export namespace Prisma {
     sbimpId: number
     sbimpIdHistory: number
     name: number
-    nameFrigana: number
+    nameFurigana: number
     birthday: number
     customerType: number
     invoice: number
@@ -11497,7 +11699,7 @@ export namespace Prisma {
     sbimpId?: true
     sbimpIdHistory?: true
     name?: true
-    nameFrigana?: true
+    nameFurigana?: true
     birthday?: true
     customerType?: true
     invoice?: true
@@ -11521,7 +11723,7 @@ export namespace Prisma {
     sbimpId?: true
     sbimpIdHistory?: true
     name?: true
-    nameFrigana?: true
+    nameFurigana?: true
     birthday?: true
     customerType?: true
     invoice?: true
@@ -11545,7 +11747,7 @@ export namespace Prisma {
     sbimpId?: true
     sbimpIdHistory?: true
     name?: true
-    nameFrigana?: true
+    nameFurigana?: true
     birthday?: true
     customerType?: true
     invoice?: true
@@ -11656,7 +11858,7 @@ export namespace Prisma {
     sbimpId: string
     sbimpIdHistory: string
     name: string
-    nameFrigana: string
+    nameFurigana: string
     birthday: Date | null
     customerType: $Enums.CustomerType
     invoice: boolean
@@ -11699,7 +11901,7 @@ export namespace Prisma {
     sbimpId?: boolean
     sbimpIdHistory?: boolean
     name?: boolean
-    nameFrigana?: boolean
+    nameFurigana?: boolean
     birthday?: boolean
     customerType?: boolean
     invoice?: boolean
@@ -11716,7 +11918,7 @@ export namespace Prisma {
     updatedAt?: boolean
     updatedId?: boolean
     updatedBy?: boolean
-    customerFunds?: boolean | Customer$customerFundsArgs<ExtArgs>
+    CustomerFunds?: boolean | Customer$CustomerFundsArgs<ExtArgs>
     _count?: boolean | CustomerCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["customer"]>
 
@@ -11725,7 +11927,7 @@ export namespace Prisma {
     sbimpId?: boolean
     sbimpIdHistory?: boolean
     name?: boolean
-    nameFrigana?: boolean
+    nameFurigana?: boolean
     birthday?: boolean
     customerType?: boolean
     invoice?: boolean
@@ -11749,7 +11951,7 @@ export namespace Prisma {
     sbimpId?: boolean
     sbimpIdHistory?: boolean
     name?: boolean
-    nameFrigana?: boolean
+    nameFurigana?: boolean
     birthday?: boolean
     customerType?: boolean
     invoice?: boolean
@@ -11769,7 +11971,7 @@ export namespace Prisma {
   }
 
   export type CustomerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    customerFunds?: boolean | Customer$customerFundsArgs<ExtArgs>
+    CustomerFunds?: boolean | Customer$CustomerFundsArgs<ExtArgs>
     _count?: boolean | CustomerCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type CustomerIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -11777,14 +11979,14 @@ export namespace Prisma {
   export type $CustomerPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Customer"
     objects: {
-      customerFunds: Prisma.$CustomerFundPayload<ExtArgs>[]
+      CustomerFunds: Prisma.$CustomerFundPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       sbimpId: string
       sbimpIdHistory: string
       name: string
-      nameFrigana: string
+      nameFurigana: string
       birthday: Date | null
       customerType: $Enums.CustomerType
       invoice: boolean
@@ -12165,7 +12367,7 @@ export namespace Prisma {
    */
   export interface Prisma__CustomerClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    customerFunds<T extends Customer$customerFundsArgs<ExtArgs> = {}>(args?: Subset<T, Customer$customerFundsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerFundPayload<ExtArgs>, T, "findMany"> | Null>
+    CustomerFunds<T extends Customer$CustomerFundsArgs<ExtArgs> = {}>(args?: Subset<T, Customer$CustomerFundsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerFundPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -12199,7 +12401,7 @@ export namespace Prisma {
     readonly sbimpId: FieldRef<"Customer", 'String'>
     readonly sbimpIdHistory: FieldRef<"Customer", 'String'>
     readonly name: FieldRef<"Customer", 'String'>
-    readonly nameFrigana: FieldRef<"Customer", 'String'>
+    readonly nameFurigana: FieldRef<"Customer", 'String'>
     readonly birthday: FieldRef<"Customer", 'DateTime'>
     readonly customerType: FieldRef<"Customer", 'CustomerType'>
     readonly invoice: FieldRef<"Customer", 'Boolean'>
@@ -12530,9 +12732,9 @@ export namespace Prisma {
   }
 
   /**
-   * Customer.customerFunds
+   * Customer.CustomerFunds
    */
-  export type Customer$customerFundsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Customer$CustomerFundsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the CustomerFund
      */
@@ -13030,8 +13232,8 @@ export namespace Prisma {
     updatedAt?: boolean
     updatedId?: boolean
     updatedBy?: boolean
-    customer?: boolean | CustomerDefaultArgs<ExtArgs>
-    projectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
+    Customer?: boolean | CustomerDefaultArgs<ExtArgs>
+    ProjectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["customerFund"]>
 
   export type CustomerFundSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -13068,8 +13270,8 @@ export namespace Prisma {
     updatedAt?: boolean
     updatedId?: boolean
     updatedBy?: boolean
-    customer?: boolean | CustomerDefaultArgs<ExtArgs>
-    projectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
+    Customer?: boolean | CustomerDefaultArgs<ExtArgs>
+    ProjectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["customerFund"]>
 
   export type CustomerFundSelectScalar = {
@@ -13109,19 +13311,19 @@ export namespace Prisma {
   }
 
   export type CustomerFundInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    customer?: boolean | CustomerDefaultArgs<ExtArgs>
-    projectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
+    Customer?: boolean | CustomerDefaultArgs<ExtArgs>
+    ProjectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
   }
   export type CustomerFundIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    customer?: boolean | CustomerDefaultArgs<ExtArgs>
-    projectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
+    Customer?: boolean | CustomerDefaultArgs<ExtArgs>
+    ProjectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
   }
 
   export type $CustomerFundPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "CustomerFund"
     objects: {
-      customer: Prisma.$CustomerPayload<ExtArgs>
-      projectKi: Prisma.$ProjectKiPayload<ExtArgs>
+      Customer: Prisma.$CustomerPayload<ExtArgs>
+      ProjectKi: Prisma.$ProjectKiPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -13521,8 +13723,8 @@ export namespace Prisma {
    */
   export interface Prisma__CustomerFundClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    customer<T extends CustomerDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CustomerDefaultArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
-    projectKi<T extends ProjectKiDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectKiDefaultArgs<ExtArgs>>): Prisma__ProjectKiClient<$Result.GetResult<Prisma.$ProjectKiPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    Customer<T extends CustomerDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CustomerDefaultArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    ProjectKi<T extends ProjectKiDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectKiDefaultArgs<ExtArgs>>): Prisma__ProjectKiClient<$Result.GetResult<Prisma.$ProjectKiPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -13918,6 +14120,2042 @@ export namespace Prisma {
 
 
   /**
+   * Model Template
+   */
+
+  export type AggregateTemplate = {
+    _count: TemplateCountAggregateOutputType | null
+    _avg: TemplateAvgAggregateOutputType | null
+    _sum: TemplateSumAggregateOutputType | null
+    _min: TemplateMinAggregateOutputType | null
+    _max: TemplateMaxAggregateOutputType | null
+  }
+
+  export type TemplateAvgAggregateOutputType = {
+    size: number | null
+    version: number | null
+    createdId: number | null
+    updatedId: number | null
+  }
+
+  export type TemplateSumAggregateOutputType = {
+    size: number | null
+    version: number | null
+    createdId: number | null
+    updatedId: number | null
+  }
+
+  export type TemplateMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    contentType: string | null
+    ext: $Enums.ExtType | null
+    size: number | null
+    templateType: $Enums.TemplateType | null
+    file: Buffer | null
+    version: number | null
+    createdAt: Date | null
+    createdId: number | null
+    createdBy: string | null
+    updatedAt: Date | null
+    updatedId: number | null
+    updatedBy: string | null
+  }
+
+  export type TemplateMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    contentType: string | null
+    ext: $Enums.ExtType | null
+    size: number | null
+    templateType: $Enums.TemplateType | null
+    file: Buffer | null
+    version: number | null
+    createdAt: Date | null
+    createdId: number | null
+    createdBy: string | null
+    updatedAt: Date | null
+    updatedId: number | null
+    updatedBy: string | null
+  }
+
+  export type TemplateCountAggregateOutputType = {
+    id: number
+    name: number
+    contentType: number
+    ext: number
+    size: number
+    templateType: number
+    file: number
+    version: number
+    createdAt: number
+    createdId: number
+    createdBy: number
+    updatedAt: number
+    updatedId: number
+    updatedBy: number
+    _all: number
+  }
+
+
+  export type TemplateAvgAggregateInputType = {
+    size?: true
+    version?: true
+    createdId?: true
+    updatedId?: true
+  }
+
+  export type TemplateSumAggregateInputType = {
+    size?: true
+    version?: true
+    createdId?: true
+    updatedId?: true
+  }
+
+  export type TemplateMinAggregateInputType = {
+    id?: true
+    name?: true
+    contentType?: true
+    ext?: true
+    size?: true
+    templateType?: true
+    file?: true
+    version?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+  }
+
+  export type TemplateMaxAggregateInputType = {
+    id?: true
+    name?: true
+    contentType?: true
+    ext?: true
+    size?: true
+    templateType?: true
+    file?: true
+    version?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+  }
+
+  export type TemplateCountAggregateInputType = {
+    id?: true
+    name?: true
+    contentType?: true
+    ext?: true
+    size?: true
+    templateType?: true
+    file?: true
+    version?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+    _all?: true
+  }
+
+  export type TemplateAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Template to aggregate.
+     */
+    where?: TemplateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Templates to fetch.
+     */
+    orderBy?: TemplateOrderByWithRelationInput | TemplateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TemplateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Templates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Templates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Templates
+    **/
+    _count?: true | TemplateCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: TemplateAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: TemplateSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TemplateMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TemplateMaxAggregateInputType
+  }
+
+  export type GetTemplateAggregateType<T extends TemplateAggregateArgs> = {
+        [P in keyof T & keyof AggregateTemplate]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTemplate[P]>
+      : GetScalarType<T[P], AggregateTemplate[P]>
+  }
+
+
+
+
+  export type TemplateGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TemplateWhereInput
+    orderBy?: TemplateOrderByWithAggregationInput | TemplateOrderByWithAggregationInput[]
+    by: TemplateScalarFieldEnum[] | TemplateScalarFieldEnum
+    having?: TemplateScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TemplateCountAggregateInputType | true
+    _avg?: TemplateAvgAggregateInputType
+    _sum?: TemplateSumAggregateInputType
+    _min?: TemplateMinAggregateInputType
+    _max?: TemplateMaxAggregateInputType
+  }
+
+  export type TemplateGroupByOutputType = {
+    id: string
+    name: string
+    contentType: string
+    ext: $Enums.ExtType
+    size: number
+    templateType: $Enums.TemplateType
+    file: Buffer
+    version: number
+    createdAt: Date
+    createdId: number
+    createdBy: string
+    updatedAt: Date
+    updatedId: number
+    updatedBy: string
+    _count: TemplateCountAggregateOutputType | null
+    _avg: TemplateAvgAggregateOutputType | null
+    _sum: TemplateSumAggregateOutputType | null
+    _min: TemplateMinAggregateOutputType | null
+    _max: TemplateMaxAggregateOutputType | null
+  }
+
+  type GetTemplateGroupByPayload<T extends TemplateGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TemplateGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TemplateGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TemplateGroupByOutputType[P]>
+            : GetScalarType<T[P], TemplateGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TemplateSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    contentType?: boolean
+    ext?: boolean
+    size?: boolean
+    templateType?: boolean
+    file?: boolean
+    version?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }, ExtArgs["result"]["template"]>
+
+  export type TemplateSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    contentType?: boolean
+    ext?: boolean
+    size?: boolean
+    templateType?: boolean
+    file?: boolean
+    version?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }, ExtArgs["result"]["template"]>
+
+  export type TemplateSelectScalar = {
+    id?: boolean
+    name?: boolean
+    contentType?: boolean
+    ext?: boolean
+    size?: boolean
+    templateType?: boolean
+    file?: boolean
+    version?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }
+
+
+  export type $TemplatePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Template"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      contentType: string
+      ext: $Enums.ExtType
+      size: number
+      templateType: $Enums.TemplateType
+      file: Buffer
+      version: number
+      createdAt: Date
+      createdId: number
+      createdBy: string
+      updatedAt: Date
+      updatedId: number
+      updatedBy: string
+    }, ExtArgs["result"]["template"]>
+    composites: {}
+  }
+
+  type TemplateGetPayload<S extends boolean | null | undefined | TemplateDefaultArgs> = $Result.GetResult<Prisma.$TemplatePayload, S>
+
+  type TemplateCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<TemplateFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: TemplateCountAggregateInputType | true
+    }
+
+  export interface TemplateDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Template'], meta: { name: 'Template' } }
+    /**
+     * Find zero or one Template that matches the filter.
+     * @param {TemplateFindUniqueArgs} args - Arguments to find a Template
+     * @example
+     * // Get one Template
+     * const template = await prisma.template.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TemplateFindUniqueArgs>(args: SelectSubset<T, TemplateFindUniqueArgs<ExtArgs>>): Prisma__TemplateClient<$Result.GetResult<Prisma.$TemplatePayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one Template that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {TemplateFindUniqueOrThrowArgs} args - Arguments to find a Template
+     * @example
+     * // Get one Template
+     * const template = await prisma.template.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TemplateFindUniqueOrThrowArgs>(args: SelectSubset<T, TemplateFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TemplateClient<$Result.GetResult<Prisma.$TemplatePayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first Template that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TemplateFindFirstArgs} args - Arguments to find a Template
+     * @example
+     * // Get one Template
+     * const template = await prisma.template.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TemplateFindFirstArgs>(args?: SelectSubset<T, TemplateFindFirstArgs<ExtArgs>>): Prisma__TemplateClient<$Result.GetResult<Prisma.$TemplatePayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first Template that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TemplateFindFirstOrThrowArgs} args - Arguments to find a Template
+     * @example
+     * // Get one Template
+     * const template = await prisma.template.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TemplateFindFirstOrThrowArgs>(args?: SelectSubset<T, TemplateFindFirstOrThrowArgs<ExtArgs>>): Prisma__TemplateClient<$Result.GetResult<Prisma.$TemplatePayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more Templates that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TemplateFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Templates
+     * const templates = await prisma.template.findMany()
+     * 
+     * // Get first 10 Templates
+     * const templates = await prisma.template.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const templateWithIdOnly = await prisma.template.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends TemplateFindManyArgs>(args?: SelectSubset<T, TemplateFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TemplatePayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a Template.
+     * @param {TemplateCreateArgs} args - Arguments to create a Template.
+     * @example
+     * // Create one Template
+     * const Template = await prisma.template.create({
+     *   data: {
+     *     // ... data to create a Template
+     *   }
+     * })
+     * 
+     */
+    create<T extends TemplateCreateArgs>(args: SelectSubset<T, TemplateCreateArgs<ExtArgs>>): Prisma__TemplateClient<$Result.GetResult<Prisma.$TemplatePayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many Templates.
+     * @param {TemplateCreateManyArgs} args - Arguments to create many Templates.
+     * @example
+     * // Create many Templates
+     * const template = await prisma.template.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TemplateCreateManyArgs>(args?: SelectSubset<T, TemplateCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Templates and returns the data saved in the database.
+     * @param {TemplateCreateManyAndReturnArgs} args - Arguments to create many Templates.
+     * @example
+     * // Create many Templates
+     * const template = await prisma.template.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Templates and only return the `id`
+     * const templateWithIdOnly = await prisma.template.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends TemplateCreateManyAndReturnArgs>(args?: SelectSubset<T, TemplateCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TemplatePayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a Template.
+     * @param {TemplateDeleteArgs} args - Arguments to delete one Template.
+     * @example
+     * // Delete one Template
+     * const Template = await prisma.template.delete({
+     *   where: {
+     *     // ... filter to delete one Template
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TemplateDeleteArgs>(args: SelectSubset<T, TemplateDeleteArgs<ExtArgs>>): Prisma__TemplateClient<$Result.GetResult<Prisma.$TemplatePayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one Template.
+     * @param {TemplateUpdateArgs} args - Arguments to update one Template.
+     * @example
+     * // Update one Template
+     * const template = await prisma.template.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TemplateUpdateArgs>(args: SelectSubset<T, TemplateUpdateArgs<ExtArgs>>): Prisma__TemplateClient<$Result.GetResult<Prisma.$TemplatePayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more Templates.
+     * @param {TemplateDeleteManyArgs} args - Arguments to filter Templates to delete.
+     * @example
+     * // Delete a few Templates
+     * const { count } = await prisma.template.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TemplateDeleteManyArgs>(args?: SelectSubset<T, TemplateDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Templates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TemplateUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Templates
+     * const template = await prisma.template.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TemplateUpdateManyArgs>(args: SelectSubset<T, TemplateUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Template.
+     * @param {TemplateUpsertArgs} args - Arguments to update or create a Template.
+     * @example
+     * // Update or create a Template
+     * const template = await prisma.template.upsert({
+     *   create: {
+     *     // ... data to create a Template
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Template we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TemplateUpsertArgs>(args: SelectSubset<T, TemplateUpsertArgs<ExtArgs>>): Prisma__TemplateClient<$Result.GetResult<Prisma.$TemplatePayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of Templates.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TemplateCountArgs} args - Arguments to filter Templates to count.
+     * @example
+     * // Count the number of Templates
+     * const count = await prisma.template.count({
+     *   where: {
+     *     // ... the filter for the Templates we want to count
+     *   }
+     * })
+    **/
+    count<T extends TemplateCountArgs>(
+      args?: Subset<T, TemplateCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TemplateCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Template.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TemplateAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TemplateAggregateArgs>(args: Subset<T, TemplateAggregateArgs>): Prisma.PrismaPromise<GetTemplateAggregateType<T>>
+
+    /**
+     * Group by Template.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TemplateGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TemplateGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TemplateGroupByArgs['orderBy'] }
+        : { orderBy?: TemplateGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TemplateGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTemplateGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Template model
+   */
+  readonly fields: TemplateFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Template.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TemplateClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Template model
+   */ 
+  interface TemplateFieldRefs {
+    readonly id: FieldRef<"Template", 'String'>
+    readonly name: FieldRef<"Template", 'String'>
+    readonly contentType: FieldRef<"Template", 'String'>
+    readonly ext: FieldRef<"Template", 'ExtType'>
+    readonly size: FieldRef<"Template", 'Int'>
+    readonly templateType: FieldRef<"Template", 'TemplateType'>
+    readonly file: FieldRef<"Template", 'Bytes'>
+    readonly version: FieldRef<"Template", 'Int'>
+    readonly createdAt: FieldRef<"Template", 'DateTime'>
+    readonly createdId: FieldRef<"Template", 'Int'>
+    readonly createdBy: FieldRef<"Template", 'String'>
+    readonly updatedAt: FieldRef<"Template", 'DateTime'>
+    readonly updatedId: FieldRef<"Template", 'Int'>
+    readonly updatedBy: FieldRef<"Template", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Template findUnique
+   */
+  export type TemplateFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Template
+     */
+    select?: TemplateSelect<ExtArgs> | null
+    /**
+     * Filter, which Template to fetch.
+     */
+    where: TemplateWhereUniqueInput
+  }
+
+  /**
+   * Template findUniqueOrThrow
+   */
+  export type TemplateFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Template
+     */
+    select?: TemplateSelect<ExtArgs> | null
+    /**
+     * Filter, which Template to fetch.
+     */
+    where: TemplateWhereUniqueInput
+  }
+
+  /**
+   * Template findFirst
+   */
+  export type TemplateFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Template
+     */
+    select?: TemplateSelect<ExtArgs> | null
+    /**
+     * Filter, which Template to fetch.
+     */
+    where?: TemplateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Templates to fetch.
+     */
+    orderBy?: TemplateOrderByWithRelationInput | TemplateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Templates.
+     */
+    cursor?: TemplateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Templates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Templates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Templates.
+     */
+    distinct?: TemplateScalarFieldEnum | TemplateScalarFieldEnum[]
+  }
+
+  /**
+   * Template findFirstOrThrow
+   */
+  export type TemplateFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Template
+     */
+    select?: TemplateSelect<ExtArgs> | null
+    /**
+     * Filter, which Template to fetch.
+     */
+    where?: TemplateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Templates to fetch.
+     */
+    orderBy?: TemplateOrderByWithRelationInput | TemplateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Templates.
+     */
+    cursor?: TemplateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Templates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Templates.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Templates.
+     */
+    distinct?: TemplateScalarFieldEnum | TemplateScalarFieldEnum[]
+  }
+
+  /**
+   * Template findMany
+   */
+  export type TemplateFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Template
+     */
+    select?: TemplateSelect<ExtArgs> | null
+    /**
+     * Filter, which Templates to fetch.
+     */
+    where?: TemplateWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Templates to fetch.
+     */
+    orderBy?: TemplateOrderByWithRelationInput | TemplateOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Templates.
+     */
+    cursor?: TemplateWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Templates from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Templates.
+     */
+    skip?: number
+    distinct?: TemplateScalarFieldEnum | TemplateScalarFieldEnum[]
+  }
+
+  /**
+   * Template create
+   */
+  export type TemplateCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Template
+     */
+    select?: TemplateSelect<ExtArgs> | null
+    /**
+     * The data needed to create a Template.
+     */
+    data: XOR<TemplateCreateInput, TemplateUncheckedCreateInput>
+  }
+
+  /**
+   * Template createMany
+   */
+  export type TemplateCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Templates.
+     */
+    data: TemplateCreateManyInput | TemplateCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Template createManyAndReturn
+   */
+  export type TemplateCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Template
+     */
+    select?: TemplateSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many Templates.
+     */
+    data: TemplateCreateManyInput | TemplateCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Template update
+   */
+  export type TemplateUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Template
+     */
+    select?: TemplateSelect<ExtArgs> | null
+    /**
+     * The data needed to update a Template.
+     */
+    data: XOR<TemplateUpdateInput, TemplateUncheckedUpdateInput>
+    /**
+     * Choose, which Template to update.
+     */
+    where: TemplateWhereUniqueInput
+  }
+
+  /**
+   * Template updateMany
+   */
+  export type TemplateUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Templates.
+     */
+    data: XOR<TemplateUpdateManyMutationInput, TemplateUncheckedUpdateManyInput>
+    /**
+     * Filter which Templates to update
+     */
+    where?: TemplateWhereInput
+  }
+
+  /**
+   * Template upsert
+   */
+  export type TemplateUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Template
+     */
+    select?: TemplateSelect<ExtArgs> | null
+    /**
+     * The filter to search for the Template to update in case it exists.
+     */
+    where: TemplateWhereUniqueInput
+    /**
+     * In case the Template found by the `where` argument doesn't exist, create a new Template with this data.
+     */
+    create: XOR<TemplateCreateInput, TemplateUncheckedCreateInput>
+    /**
+     * In case the Template was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TemplateUpdateInput, TemplateUncheckedUpdateInput>
+  }
+
+  /**
+   * Template delete
+   */
+  export type TemplateDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Template
+     */
+    select?: TemplateSelect<ExtArgs> | null
+    /**
+     * Filter which Template to delete.
+     */
+    where: TemplateWhereUniqueInput
+  }
+
+  /**
+   * Template deleteMany
+   */
+  export type TemplateDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Templates to delete
+     */
+    where?: TemplateWhereInput
+  }
+
+  /**
+   * Template without action
+   */
+  export type TemplateDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Template
+     */
+    select?: TemplateSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * Model TemplateHistory
+   */
+
+  export type AggregateTemplateHistory = {
+    _count: TemplateHistoryCountAggregateOutputType | null
+    _avg: TemplateHistoryAvgAggregateOutputType | null
+    _sum: TemplateHistorySumAggregateOutputType | null
+    _min: TemplateHistoryMinAggregateOutputType | null
+    _max: TemplateHistoryMaxAggregateOutputType | null
+  }
+
+  export type TemplateHistoryAvgAggregateOutputType = {
+    size: number | null
+    version: number | null
+    updatedId: number | null
+  }
+
+  export type TemplateHistorySumAggregateOutputType = {
+    size: number | null
+    version: number | null
+    updatedId: number | null
+  }
+
+  export type TemplateHistoryMinAggregateOutputType = {
+    id: string | null
+    templateId: string | null
+    name: string | null
+    contentType: string | null
+    ext: $Enums.ExtType | null
+    size: number | null
+    templateType: $Enums.TemplateType | null
+    file: Buffer | null
+    version: number | null
+    updatedAt: Date | null
+    updatedId: number | null
+    updatedBy: string | null
+  }
+
+  export type TemplateHistoryMaxAggregateOutputType = {
+    id: string | null
+    templateId: string | null
+    name: string | null
+    contentType: string | null
+    ext: $Enums.ExtType | null
+    size: number | null
+    templateType: $Enums.TemplateType | null
+    file: Buffer | null
+    version: number | null
+    updatedAt: Date | null
+    updatedId: number | null
+    updatedBy: string | null
+  }
+
+  export type TemplateHistoryCountAggregateOutputType = {
+    id: number
+    templateId: number
+    name: number
+    contentType: number
+    ext: number
+    size: number
+    templateType: number
+    file: number
+    version: number
+    updatedAt: number
+    updatedId: number
+    updatedBy: number
+    _all: number
+  }
+
+
+  export type TemplateHistoryAvgAggregateInputType = {
+    size?: true
+    version?: true
+    updatedId?: true
+  }
+
+  export type TemplateHistorySumAggregateInputType = {
+    size?: true
+    version?: true
+    updatedId?: true
+  }
+
+  export type TemplateHistoryMinAggregateInputType = {
+    id?: true
+    templateId?: true
+    name?: true
+    contentType?: true
+    ext?: true
+    size?: true
+    templateType?: true
+    file?: true
+    version?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+  }
+
+  export type TemplateHistoryMaxAggregateInputType = {
+    id?: true
+    templateId?: true
+    name?: true
+    contentType?: true
+    ext?: true
+    size?: true
+    templateType?: true
+    file?: true
+    version?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+  }
+
+  export type TemplateHistoryCountAggregateInputType = {
+    id?: true
+    templateId?: true
+    name?: true
+    contentType?: true
+    ext?: true
+    size?: true
+    templateType?: true
+    file?: true
+    version?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+    _all?: true
+  }
+
+  export type TemplateHistoryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TemplateHistory to aggregate.
+     */
+    where?: TemplateHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TemplateHistories to fetch.
+     */
+    orderBy?: TemplateHistoryOrderByWithRelationInput | TemplateHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TemplateHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TemplateHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TemplateHistories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned TemplateHistories
+    **/
+    _count?: true | TemplateHistoryCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: TemplateHistoryAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: TemplateHistorySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TemplateHistoryMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TemplateHistoryMaxAggregateInputType
+  }
+
+  export type GetTemplateHistoryAggregateType<T extends TemplateHistoryAggregateArgs> = {
+        [P in keyof T & keyof AggregateTemplateHistory]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTemplateHistory[P]>
+      : GetScalarType<T[P], AggregateTemplateHistory[P]>
+  }
+
+
+
+
+  export type TemplateHistoryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TemplateHistoryWhereInput
+    orderBy?: TemplateHistoryOrderByWithAggregationInput | TemplateHistoryOrderByWithAggregationInput[]
+    by: TemplateHistoryScalarFieldEnum[] | TemplateHistoryScalarFieldEnum
+    having?: TemplateHistoryScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TemplateHistoryCountAggregateInputType | true
+    _avg?: TemplateHistoryAvgAggregateInputType
+    _sum?: TemplateHistorySumAggregateInputType
+    _min?: TemplateHistoryMinAggregateInputType
+    _max?: TemplateHistoryMaxAggregateInputType
+  }
+
+  export type TemplateHistoryGroupByOutputType = {
+    id: string
+    templateId: string
+    name: string
+    contentType: string
+    ext: $Enums.ExtType
+    size: number
+    templateType: $Enums.TemplateType
+    file: Buffer
+    version: number
+    updatedAt: Date
+    updatedId: number
+    updatedBy: string
+    _count: TemplateHistoryCountAggregateOutputType | null
+    _avg: TemplateHistoryAvgAggregateOutputType | null
+    _sum: TemplateHistorySumAggregateOutputType | null
+    _min: TemplateHistoryMinAggregateOutputType | null
+    _max: TemplateHistoryMaxAggregateOutputType | null
+  }
+
+  type GetTemplateHistoryGroupByPayload<T extends TemplateHistoryGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TemplateHistoryGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TemplateHistoryGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TemplateHistoryGroupByOutputType[P]>
+            : GetScalarType<T[P], TemplateHistoryGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TemplateHistorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    templateId?: boolean
+    name?: boolean
+    contentType?: boolean
+    ext?: boolean
+    size?: boolean
+    templateType?: boolean
+    file?: boolean
+    version?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }, ExtArgs["result"]["templateHistory"]>
+
+  export type TemplateHistorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    templateId?: boolean
+    name?: boolean
+    contentType?: boolean
+    ext?: boolean
+    size?: boolean
+    templateType?: boolean
+    file?: boolean
+    version?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }, ExtArgs["result"]["templateHistory"]>
+
+  export type TemplateHistorySelectScalar = {
+    id?: boolean
+    templateId?: boolean
+    name?: boolean
+    contentType?: boolean
+    ext?: boolean
+    size?: boolean
+    templateType?: boolean
+    file?: boolean
+    version?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }
+
+
+  export type $TemplateHistoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "TemplateHistory"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      templateId: string
+      name: string
+      contentType: string
+      ext: $Enums.ExtType
+      size: number
+      templateType: $Enums.TemplateType
+      file: Buffer
+      version: number
+      updatedAt: Date
+      updatedId: number
+      updatedBy: string
+    }, ExtArgs["result"]["templateHistory"]>
+    composites: {}
+  }
+
+  type TemplateHistoryGetPayload<S extends boolean | null | undefined | TemplateHistoryDefaultArgs> = $Result.GetResult<Prisma.$TemplateHistoryPayload, S>
+
+  type TemplateHistoryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<TemplateHistoryFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: TemplateHistoryCountAggregateInputType | true
+    }
+
+  export interface TemplateHistoryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['TemplateHistory'], meta: { name: 'TemplateHistory' } }
+    /**
+     * Find zero or one TemplateHistory that matches the filter.
+     * @param {TemplateHistoryFindUniqueArgs} args - Arguments to find a TemplateHistory
+     * @example
+     * // Get one TemplateHistory
+     * const templateHistory = await prisma.templateHistory.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TemplateHistoryFindUniqueArgs>(args: SelectSubset<T, TemplateHistoryFindUniqueArgs<ExtArgs>>): Prisma__TemplateHistoryClient<$Result.GetResult<Prisma.$TemplateHistoryPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one TemplateHistory that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {TemplateHistoryFindUniqueOrThrowArgs} args - Arguments to find a TemplateHistory
+     * @example
+     * // Get one TemplateHistory
+     * const templateHistory = await prisma.templateHistory.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TemplateHistoryFindUniqueOrThrowArgs>(args: SelectSubset<T, TemplateHistoryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TemplateHistoryClient<$Result.GetResult<Prisma.$TemplateHistoryPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first TemplateHistory that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TemplateHistoryFindFirstArgs} args - Arguments to find a TemplateHistory
+     * @example
+     * // Get one TemplateHistory
+     * const templateHistory = await prisma.templateHistory.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TemplateHistoryFindFirstArgs>(args?: SelectSubset<T, TemplateHistoryFindFirstArgs<ExtArgs>>): Prisma__TemplateHistoryClient<$Result.GetResult<Prisma.$TemplateHistoryPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first TemplateHistory that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TemplateHistoryFindFirstOrThrowArgs} args - Arguments to find a TemplateHistory
+     * @example
+     * // Get one TemplateHistory
+     * const templateHistory = await prisma.templateHistory.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TemplateHistoryFindFirstOrThrowArgs>(args?: SelectSubset<T, TemplateHistoryFindFirstOrThrowArgs<ExtArgs>>): Prisma__TemplateHistoryClient<$Result.GetResult<Prisma.$TemplateHistoryPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more TemplateHistories that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TemplateHistoryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all TemplateHistories
+     * const templateHistories = await prisma.templateHistory.findMany()
+     * 
+     * // Get first 10 TemplateHistories
+     * const templateHistories = await prisma.templateHistory.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const templateHistoryWithIdOnly = await prisma.templateHistory.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends TemplateHistoryFindManyArgs>(args?: SelectSubset<T, TemplateHistoryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TemplateHistoryPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a TemplateHistory.
+     * @param {TemplateHistoryCreateArgs} args - Arguments to create a TemplateHistory.
+     * @example
+     * // Create one TemplateHistory
+     * const TemplateHistory = await prisma.templateHistory.create({
+     *   data: {
+     *     // ... data to create a TemplateHistory
+     *   }
+     * })
+     * 
+     */
+    create<T extends TemplateHistoryCreateArgs>(args: SelectSubset<T, TemplateHistoryCreateArgs<ExtArgs>>): Prisma__TemplateHistoryClient<$Result.GetResult<Prisma.$TemplateHistoryPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many TemplateHistories.
+     * @param {TemplateHistoryCreateManyArgs} args - Arguments to create many TemplateHistories.
+     * @example
+     * // Create many TemplateHistories
+     * const templateHistory = await prisma.templateHistory.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TemplateHistoryCreateManyArgs>(args?: SelectSubset<T, TemplateHistoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many TemplateHistories and returns the data saved in the database.
+     * @param {TemplateHistoryCreateManyAndReturnArgs} args - Arguments to create many TemplateHistories.
+     * @example
+     * // Create many TemplateHistories
+     * const templateHistory = await prisma.templateHistory.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many TemplateHistories and only return the `id`
+     * const templateHistoryWithIdOnly = await prisma.templateHistory.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends TemplateHistoryCreateManyAndReturnArgs>(args?: SelectSubset<T, TemplateHistoryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TemplateHistoryPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a TemplateHistory.
+     * @param {TemplateHistoryDeleteArgs} args - Arguments to delete one TemplateHistory.
+     * @example
+     * // Delete one TemplateHistory
+     * const TemplateHistory = await prisma.templateHistory.delete({
+     *   where: {
+     *     // ... filter to delete one TemplateHistory
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TemplateHistoryDeleteArgs>(args: SelectSubset<T, TemplateHistoryDeleteArgs<ExtArgs>>): Prisma__TemplateHistoryClient<$Result.GetResult<Prisma.$TemplateHistoryPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one TemplateHistory.
+     * @param {TemplateHistoryUpdateArgs} args - Arguments to update one TemplateHistory.
+     * @example
+     * // Update one TemplateHistory
+     * const templateHistory = await prisma.templateHistory.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TemplateHistoryUpdateArgs>(args: SelectSubset<T, TemplateHistoryUpdateArgs<ExtArgs>>): Prisma__TemplateHistoryClient<$Result.GetResult<Prisma.$TemplateHistoryPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more TemplateHistories.
+     * @param {TemplateHistoryDeleteManyArgs} args - Arguments to filter TemplateHistories to delete.
+     * @example
+     * // Delete a few TemplateHistories
+     * const { count } = await prisma.templateHistory.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TemplateHistoryDeleteManyArgs>(args?: SelectSubset<T, TemplateHistoryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TemplateHistories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TemplateHistoryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many TemplateHistories
+     * const templateHistory = await prisma.templateHistory.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TemplateHistoryUpdateManyArgs>(args: SelectSubset<T, TemplateHistoryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one TemplateHistory.
+     * @param {TemplateHistoryUpsertArgs} args - Arguments to update or create a TemplateHistory.
+     * @example
+     * // Update or create a TemplateHistory
+     * const templateHistory = await prisma.templateHistory.upsert({
+     *   create: {
+     *     // ... data to create a TemplateHistory
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the TemplateHistory we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TemplateHistoryUpsertArgs>(args: SelectSubset<T, TemplateHistoryUpsertArgs<ExtArgs>>): Prisma__TemplateHistoryClient<$Result.GetResult<Prisma.$TemplateHistoryPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of TemplateHistories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TemplateHistoryCountArgs} args - Arguments to filter TemplateHistories to count.
+     * @example
+     * // Count the number of TemplateHistories
+     * const count = await prisma.templateHistory.count({
+     *   where: {
+     *     // ... the filter for the TemplateHistories we want to count
+     *   }
+     * })
+    **/
+    count<T extends TemplateHistoryCountArgs>(
+      args?: Subset<T, TemplateHistoryCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TemplateHistoryCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a TemplateHistory.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TemplateHistoryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TemplateHistoryAggregateArgs>(args: Subset<T, TemplateHistoryAggregateArgs>): Prisma.PrismaPromise<GetTemplateHistoryAggregateType<T>>
+
+    /**
+     * Group by TemplateHistory.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TemplateHistoryGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TemplateHistoryGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TemplateHistoryGroupByArgs['orderBy'] }
+        : { orderBy?: TemplateHistoryGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TemplateHistoryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTemplateHistoryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the TemplateHistory model
+   */
+  readonly fields: TemplateHistoryFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for TemplateHistory.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TemplateHistoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the TemplateHistory model
+   */ 
+  interface TemplateHistoryFieldRefs {
+    readonly id: FieldRef<"TemplateHistory", 'String'>
+    readonly templateId: FieldRef<"TemplateHistory", 'String'>
+    readonly name: FieldRef<"TemplateHistory", 'String'>
+    readonly contentType: FieldRef<"TemplateHistory", 'String'>
+    readonly ext: FieldRef<"TemplateHistory", 'ExtType'>
+    readonly size: FieldRef<"TemplateHistory", 'Int'>
+    readonly templateType: FieldRef<"TemplateHistory", 'TemplateType'>
+    readonly file: FieldRef<"TemplateHistory", 'Bytes'>
+    readonly version: FieldRef<"TemplateHistory", 'Int'>
+    readonly updatedAt: FieldRef<"TemplateHistory", 'DateTime'>
+    readonly updatedId: FieldRef<"TemplateHistory", 'Int'>
+    readonly updatedBy: FieldRef<"TemplateHistory", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * TemplateHistory findUnique
+   */
+  export type TemplateHistoryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TemplateHistory
+     */
+    select?: TemplateHistorySelect<ExtArgs> | null
+    /**
+     * Filter, which TemplateHistory to fetch.
+     */
+    where: TemplateHistoryWhereUniqueInput
+  }
+
+  /**
+   * TemplateHistory findUniqueOrThrow
+   */
+  export type TemplateHistoryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TemplateHistory
+     */
+    select?: TemplateHistorySelect<ExtArgs> | null
+    /**
+     * Filter, which TemplateHistory to fetch.
+     */
+    where: TemplateHistoryWhereUniqueInput
+  }
+
+  /**
+   * TemplateHistory findFirst
+   */
+  export type TemplateHistoryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TemplateHistory
+     */
+    select?: TemplateHistorySelect<ExtArgs> | null
+    /**
+     * Filter, which TemplateHistory to fetch.
+     */
+    where?: TemplateHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TemplateHistories to fetch.
+     */
+    orderBy?: TemplateHistoryOrderByWithRelationInput | TemplateHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TemplateHistories.
+     */
+    cursor?: TemplateHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TemplateHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TemplateHistories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TemplateHistories.
+     */
+    distinct?: TemplateHistoryScalarFieldEnum | TemplateHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * TemplateHistory findFirstOrThrow
+   */
+  export type TemplateHistoryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TemplateHistory
+     */
+    select?: TemplateHistorySelect<ExtArgs> | null
+    /**
+     * Filter, which TemplateHistory to fetch.
+     */
+    where?: TemplateHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TemplateHistories to fetch.
+     */
+    orderBy?: TemplateHistoryOrderByWithRelationInput | TemplateHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TemplateHistories.
+     */
+    cursor?: TemplateHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TemplateHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TemplateHistories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TemplateHistories.
+     */
+    distinct?: TemplateHistoryScalarFieldEnum | TemplateHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * TemplateHistory findMany
+   */
+  export type TemplateHistoryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TemplateHistory
+     */
+    select?: TemplateHistorySelect<ExtArgs> | null
+    /**
+     * Filter, which TemplateHistories to fetch.
+     */
+    where?: TemplateHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TemplateHistories to fetch.
+     */
+    orderBy?: TemplateHistoryOrderByWithRelationInput | TemplateHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing TemplateHistories.
+     */
+    cursor?: TemplateHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TemplateHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TemplateHistories.
+     */
+    skip?: number
+    distinct?: TemplateHistoryScalarFieldEnum | TemplateHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * TemplateHistory create
+   */
+  export type TemplateHistoryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TemplateHistory
+     */
+    select?: TemplateHistorySelect<ExtArgs> | null
+    /**
+     * The data needed to create a TemplateHistory.
+     */
+    data: XOR<TemplateHistoryCreateInput, TemplateHistoryUncheckedCreateInput>
+  }
+
+  /**
+   * TemplateHistory createMany
+   */
+  export type TemplateHistoryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many TemplateHistories.
+     */
+    data: TemplateHistoryCreateManyInput | TemplateHistoryCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * TemplateHistory createManyAndReturn
+   */
+  export type TemplateHistoryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TemplateHistory
+     */
+    select?: TemplateHistorySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many TemplateHistories.
+     */
+    data: TemplateHistoryCreateManyInput | TemplateHistoryCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * TemplateHistory update
+   */
+  export type TemplateHistoryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TemplateHistory
+     */
+    select?: TemplateHistorySelect<ExtArgs> | null
+    /**
+     * The data needed to update a TemplateHistory.
+     */
+    data: XOR<TemplateHistoryUpdateInput, TemplateHistoryUncheckedUpdateInput>
+    /**
+     * Choose, which TemplateHistory to update.
+     */
+    where: TemplateHistoryWhereUniqueInput
+  }
+
+  /**
+   * TemplateHistory updateMany
+   */
+  export type TemplateHistoryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update TemplateHistories.
+     */
+    data: XOR<TemplateHistoryUpdateManyMutationInput, TemplateHistoryUncheckedUpdateManyInput>
+    /**
+     * Filter which TemplateHistories to update
+     */
+    where?: TemplateHistoryWhereInput
+  }
+
+  /**
+   * TemplateHistory upsert
+   */
+  export type TemplateHistoryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TemplateHistory
+     */
+    select?: TemplateHistorySelect<ExtArgs> | null
+    /**
+     * The filter to search for the TemplateHistory to update in case it exists.
+     */
+    where: TemplateHistoryWhereUniqueInput
+    /**
+     * In case the TemplateHistory found by the `where` argument doesn't exist, create a new TemplateHistory with this data.
+     */
+    create: XOR<TemplateHistoryCreateInput, TemplateHistoryUncheckedCreateInput>
+    /**
+     * In case the TemplateHistory was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TemplateHistoryUpdateInput, TemplateHistoryUncheckedUpdateInput>
+  }
+
+  /**
+   * TemplateHistory delete
+   */
+  export type TemplateHistoryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TemplateHistory
+     */
+    select?: TemplateHistorySelect<ExtArgs> | null
+    /**
+     * Filter which TemplateHistory to delete.
+     */
+    where: TemplateHistoryWhereUniqueInput
+  }
+
+  /**
+   * TemplateHistory deleteMany
+   */
+  export type TemplateHistoryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TemplateHistories to delete
+     */
+    where?: TemplateHistoryWhereInput
+  }
+
+  /**
+   * TemplateHistory without action
+   */
+  export type TemplateHistoryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TemplateHistory
+     */
+    select?: TemplateHistorySelect<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -14100,7 +16338,7 @@ export namespace Prisma {
     sbimpId: 'sbimpId',
     sbimpIdHistory: 'sbimpIdHistory',
     name: 'name',
-    nameFrigana: 'nameFrigana',
+    nameFurigana: 'nameFurigana',
     birthday: 'birthday',
     customerType: 'customerType',
     invoice: 'invoice',
@@ -14159,6 +16397,44 @@ export namespace Prisma {
   };
 
   export type CustomerFundScalarFieldEnum = (typeof CustomerFundScalarFieldEnum)[keyof typeof CustomerFundScalarFieldEnum]
+
+
+  export const TemplateScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    contentType: 'contentType',
+    ext: 'ext',
+    size: 'size',
+    templateType: 'templateType',
+    file: 'file',
+    version: 'version',
+    createdAt: 'createdAt',
+    createdId: 'createdId',
+    createdBy: 'createdBy',
+    updatedAt: 'updatedAt',
+    updatedId: 'updatedId',
+    updatedBy: 'updatedBy'
+  };
+
+  export type TemplateScalarFieldEnum = (typeof TemplateScalarFieldEnum)[keyof typeof TemplateScalarFieldEnum]
+
+
+  export const TemplateHistoryScalarFieldEnum: {
+    id: 'id',
+    templateId: 'templateId',
+    name: 'name',
+    contentType: 'contentType',
+    ext: 'ext',
+    size: 'size',
+    templateType: 'templateType',
+    file: 'file',
+    version: 'version',
+    updatedAt: 'updatedAt',
+    updatedId: 'updatedId',
+    updatedBy: 'updatedBy'
+  };
+
+  export type TemplateHistoryScalarFieldEnum = (typeof TemplateHistoryScalarFieldEnum)[keyof typeof TemplateHistoryScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -14320,6 +16596,48 @@ export namespace Prisma {
    * Reference to a field of type 'InheritanceType[]'
    */
   export type ListEnumInheritanceTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InheritanceType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'ExtType'
+   */
+  export type EnumExtTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ExtType'>
+    
+
+
+  /**
+   * Reference to a field of type 'ExtType[]'
+   */
+  export type ListEnumExtTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ExtType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'TemplateType'
+   */
+  export type EnumTemplateTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TemplateType'>
+    
+
+
+  /**
+   * Reference to a field of type 'TemplateType[]'
+   */
+  export type ListEnumTemplateTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TemplateType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Bytes'
+   */
+  export type BytesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Bytes'>
+    
+
+
+  /**
+   * Reference to a field of type 'Bytes[]'
+   */
+  export type ListBytesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Bytes[]'>
     
   /**
    * Deep Input Types
@@ -14658,8 +16976,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Ki"> | Date | string
     updatedId?: IntFilter<"Ki"> | number
     updatedBy?: StringFilter<"Ki"> | string
-    projectKis?: ProjectKiListRelationFilter
-    assetKis?: AssetKiListRelationFilter
+    ProjectKis?: ProjectKiListRelationFilter
+    AssetKis?: AssetKiListRelationFilter
   }
 
   export type KiOrderByWithRelationInput = {
@@ -14672,8 +16990,8 @@ export namespace Prisma {
     updatedAt?: SortOrder
     updatedId?: SortOrder
     updatedBy?: SortOrder
-    projectKis?: ProjectKiOrderByRelationAggregateInput
-    assetKis?: AssetKiOrderByRelationAggregateInput
+    ProjectKis?: ProjectKiOrderByRelationAggregateInput
+    AssetKis?: AssetKiOrderByRelationAggregateInput
   }
 
   export type KiWhereUniqueInput = Prisma.AtLeast<{
@@ -14689,8 +17007,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Ki"> | Date | string
     updatedId?: IntFilter<"Ki"> | number
     updatedBy?: StringFilter<"Ki"> | string
-    projectKis?: ProjectKiListRelationFilter
-    assetKis?: AssetKiListRelationFilter
+    ProjectKis?: ProjectKiListRelationFilter
+    AssetKis?: AssetKiListRelationFilter
   }, "id">
 
   export type KiOrderByWithAggregationInput = {
@@ -14749,8 +17067,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Project"> | Date | string
     updatedId?: IntFilter<"Project"> | number
     updatedBy?: StringFilter<"Project"> | string
-    projectKies?: ProjectKiListRelationFilter
-    assets?: AssetListRelationFilter
+    ProjectKis?: ProjectKiListRelationFilter
+    Assets?: AssetListRelationFilter
   }
 
   export type ProjectOrderByWithRelationInput = {
@@ -14774,8 +17092,8 @@ export namespace Prisma {
     updatedAt?: SortOrder
     updatedId?: SortOrder
     updatedBy?: SortOrder
-    projectKies?: ProjectKiOrderByRelationAggregateInput
-    assets?: AssetOrderByRelationAggregateInput
+    ProjectKis?: ProjectKiOrderByRelationAggregateInput
+    Assets?: AssetOrderByRelationAggregateInput
   }
 
   export type ProjectWhereUniqueInput = Prisma.AtLeast<{
@@ -14802,8 +17120,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Project"> | Date | string
     updatedId?: IntFilter<"Project"> | number
     updatedBy?: StringFilter<"Project"> | string
-    projectKies?: ProjectKiListRelationFilter
-    assets?: AssetListRelationFilter
+    ProjectKis?: ProjectKiListRelationFilter
+    Assets?: AssetListRelationFilter
   }, "id" | "sbimpId" | "name">
 
   export type ProjectOrderByWithAggregationInput = {
@@ -14877,8 +17195,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"ProjectKi"> | Date | string
     updatedId?: IntFilter<"ProjectKi"> | number
     updatedBy?: StringFilter<"ProjectKi"> | string
-    project?: XOR<ProjectRelationFilter, ProjectWhereInput>
-    ki?: XOR<KiRelationFilter, KiWhereInput>
+    Project?: XOR<ProjectRelationFilter, ProjectWhereInput>
+    Ki?: XOR<KiRelationFilter, KiWhereInput>
     ustomerFunds?: CustomerFundListRelationFilter
   }
 
@@ -14896,8 +17214,8 @@ export namespace Prisma {
     updatedAt?: SortOrder
     updatedId?: SortOrder
     updatedBy?: SortOrder
-    project?: ProjectOrderByWithRelationInput
-    ki?: KiOrderByWithRelationInput
+    Project?: ProjectOrderByWithRelationInput
+    Ki?: KiOrderByWithRelationInput
     ustomerFunds?: CustomerFundOrderByRelationAggregateInput
   }
 
@@ -14920,8 +17238,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"ProjectKi"> | Date | string
     updatedId?: IntFilter<"ProjectKi"> | number
     updatedBy?: StringFilter<"ProjectKi"> | string
-    project?: XOR<ProjectRelationFilter, ProjectWhereInput>
-    ki?: XOR<KiRelationFilter, KiWhereInput>
+    Project?: XOR<ProjectRelationFilter, ProjectWhereInput>
+    Ki?: XOR<KiRelationFilter, KiWhereInput>
     ustomerFunds?: CustomerFundListRelationFilter
   }, "id" | "project_ki_identifier" | "project_prj_ki_identifier">
 
@@ -14980,8 +17298,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Asset"> | Date | string
     updatedId?: IntFilter<"Asset"> | number
     updatedBy?: StringFilter<"Asset"> | string
-    project?: XOR<ProjectRelationFilter, ProjectWhereInput>
-    assetKies?: AssetKiListRelationFilter
+    Project?: XOR<ProjectRelationFilter, ProjectWhereInput>
+    AssetKis?: AssetKiListRelationFilter
   }
 
   export type AssetOrderByWithRelationInput = {
@@ -14996,8 +17314,8 @@ export namespace Prisma {
     updatedAt?: SortOrder
     updatedId?: SortOrder
     updatedBy?: SortOrder
-    project?: ProjectOrderByWithRelationInput
-    assetKies?: AssetKiOrderByRelationAggregateInput
+    Project?: ProjectOrderByWithRelationInput
+    AssetKis?: AssetKiOrderByRelationAggregateInput
   }
 
   export type AssetWhereUniqueInput = Prisma.AtLeast<{
@@ -15015,8 +17333,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Asset"> | Date | string
     updatedId?: IntFilter<"Asset"> | number
     updatedBy?: StringFilter<"Asset"> | string
-    project?: XOR<ProjectRelationFilter, ProjectWhereInput>
-    assetKies?: AssetKiListRelationFilter
+    Project?: XOR<ProjectRelationFilter, ProjectWhereInput>
+    AssetKis?: AssetKiListRelationFilter
   }, "id" | "name">
 
   export type AssetOrderByWithAggregationInput = {
@@ -15065,18 +17383,18 @@ export namespace Prisma {
     projectKi?: IntFilter<"AssetKi"> | number
     situation?: StringFilter<"AssetKi"> | string
     photoDate?: DateTimeFilter<"AssetKi"> | Date | string
-    photo1?: StringFilter<"AssetKi"> | string
-    photo2?: StringFilter<"AssetKi"> | string
-    photo3?: StringFilter<"AssetKi"> | string
-    photo4?: StringFilter<"AssetKi"> | string
+    photo1?: StringNullableFilter<"AssetKi"> | string | null
+    photo2?: StringNullableFilter<"AssetKi"> | string | null
+    photo3?: StringNullableFilter<"AssetKi"> | string | null
+    photo4?: StringNullableFilter<"AssetKi"> | string | null
     createdAt?: DateTimeFilter<"AssetKi"> | Date | string
     createdId?: IntFilter<"AssetKi"> | number
     createdBy?: StringFilter<"AssetKi"> | string
     updatedAt?: DateTimeFilter<"AssetKi"> | Date | string
     updatedId?: IntFilter<"AssetKi"> | number
     updatedBy?: StringFilter<"AssetKi"> | string
-    asset?: XOR<AssetRelationFilter, AssetWhereInput>
-    ki?: XOR<KiRelationFilter, KiWhereInput>
+    Asset?: XOR<AssetRelationFilter, AssetWhereInput>
+    Ki?: XOR<KiRelationFilter, KiWhereInput>
   }
 
   export type AssetKiOrderByWithRelationInput = {
@@ -15086,18 +17404,18 @@ export namespace Prisma {
     projectKi?: SortOrder
     situation?: SortOrder
     photoDate?: SortOrder
-    photo1?: SortOrder
-    photo2?: SortOrder
-    photo3?: SortOrder
-    photo4?: SortOrder
+    photo1?: SortOrderInput | SortOrder
+    photo2?: SortOrderInput | SortOrder
+    photo3?: SortOrderInput | SortOrder
+    photo4?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
     updatedAt?: SortOrder
     updatedId?: SortOrder
     updatedBy?: SortOrder
-    asset?: AssetOrderByWithRelationInput
-    ki?: KiOrderByWithRelationInput
+    Asset?: AssetOrderByWithRelationInput
+    Ki?: KiOrderByWithRelationInput
   }
 
   export type AssetKiWhereUniqueInput = Prisma.AtLeast<{
@@ -15111,18 +17429,18 @@ export namespace Prisma {
     projectKi?: IntFilter<"AssetKi"> | number
     situation?: StringFilter<"AssetKi"> | string
     photoDate?: DateTimeFilter<"AssetKi"> | Date | string
-    photo1?: StringFilter<"AssetKi"> | string
-    photo2?: StringFilter<"AssetKi"> | string
-    photo3?: StringFilter<"AssetKi"> | string
-    photo4?: StringFilter<"AssetKi"> | string
+    photo1?: StringNullableFilter<"AssetKi"> | string | null
+    photo2?: StringNullableFilter<"AssetKi"> | string | null
+    photo3?: StringNullableFilter<"AssetKi"> | string | null
+    photo4?: StringNullableFilter<"AssetKi"> | string | null
     createdAt?: DateTimeFilter<"AssetKi"> | Date | string
     createdId?: IntFilter<"AssetKi"> | number
     createdBy?: StringFilter<"AssetKi"> | string
     updatedAt?: DateTimeFilter<"AssetKi"> | Date | string
     updatedId?: IntFilter<"AssetKi"> | number
     updatedBy?: StringFilter<"AssetKi"> | string
-    asset?: XOR<AssetRelationFilter, AssetWhereInput>
-    ki?: XOR<KiRelationFilter, KiWhereInput>
+    Asset?: XOR<AssetRelationFilter, AssetWhereInput>
+    Ki?: XOR<KiRelationFilter, KiWhereInput>
   }, "id" | "assetKi_ki_identifier">
 
   export type AssetKiOrderByWithAggregationInput = {
@@ -15132,10 +17450,10 @@ export namespace Prisma {
     projectKi?: SortOrder
     situation?: SortOrder
     photoDate?: SortOrder
-    photo1?: SortOrder
-    photo2?: SortOrder
-    photo3?: SortOrder
-    photo4?: SortOrder
+    photo1?: SortOrderInput | SortOrder
+    photo2?: SortOrderInput | SortOrder
+    photo3?: SortOrderInput | SortOrder
+    photo4?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -15159,10 +17477,10 @@ export namespace Prisma {
     projectKi?: IntWithAggregatesFilter<"AssetKi"> | number
     situation?: StringWithAggregatesFilter<"AssetKi"> | string
     photoDate?: DateTimeWithAggregatesFilter<"AssetKi"> | Date | string
-    photo1?: StringWithAggregatesFilter<"AssetKi"> | string
-    photo2?: StringWithAggregatesFilter<"AssetKi"> | string
-    photo3?: StringWithAggregatesFilter<"AssetKi"> | string
-    photo4?: StringWithAggregatesFilter<"AssetKi"> | string
+    photo1?: StringNullableWithAggregatesFilter<"AssetKi"> | string | null
+    photo2?: StringNullableWithAggregatesFilter<"AssetKi"> | string | null
+    photo3?: StringNullableWithAggregatesFilter<"AssetKi"> | string | null
+    photo4?: StringNullableWithAggregatesFilter<"AssetKi"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"AssetKi"> | Date | string
     createdId?: IntWithAggregatesFilter<"AssetKi"> | number
     createdBy?: StringWithAggregatesFilter<"AssetKi"> | string
@@ -15179,7 +17497,7 @@ export namespace Prisma {
     sbimpId?: StringFilter<"Customer"> | string
     sbimpIdHistory?: StringFilter<"Customer"> | string
     name?: StringFilter<"Customer"> | string
-    nameFrigana?: StringFilter<"Customer"> | string
+    nameFurigana?: StringFilter<"Customer"> | string
     birthday?: DateTimeNullableFilter<"Customer"> | Date | string | null
     customerType?: EnumCustomerTypeFilter<"Customer"> | $Enums.CustomerType
     invoice?: BoolFilter<"Customer"> | boolean
@@ -15196,7 +17514,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Customer"> | Date | string
     updatedId?: IntFilter<"Customer"> | number
     updatedBy?: StringFilter<"Customer"> | string
-    customerFunds?: CustomerFundListRelationFilter
+    CustomerFunds?: CustomerFundListRelationFilter
   }
 
   export type CustomerOrderByWithRelationInput = {
@@ -15204,7 +17522,7 @@ export namespace Prisma {
     sbimpId?: SortOrder
     sbimpIdHistory?: SortOrder
     name?: SortOrder
-    nameFrigana?: SortOrder
+    nameFurigana?: SortOrder
     birthday?: SortOrderInput | SortOrder
     customerType?: SortOrder
     invoice?: SortOrder
@@ -15221,7 +17539,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     updatedId?: SortOrder
     updatedBy?: SortOrder
-    customerFunds?: CustomerFundOrderByRelationAggregateInput
+    CustomerFunds?: CustomerFundOrderByRelationAggregateInput
   }
 
   export type CustomerWhereUniqueInput = Prisma.AtLeast<{
@@ -15232,7 +17550,7 @@ export namespace Prisma {
     NOT?: CustomerWhereInput | CustomerWhereInput[]
     sbimpIdHistory?: StringFilter<"Customer"> | string
     name?: StringFilter<"Customer"> | string
-    nameFrigana?: StringFilter<"Customer"> | string
+    nameFurigana?: StringFilter<"Customer"> | string
     birthday?: DateTimeNullableFilter<"Customer"> | Date | string | null
     customerType?: EnumCustomerTypeFilter<"Customer"> | $Enums.CustomerType
     invoice?: BoolFilter<"Customer"> | boolean
@@ -15249,7 +17567,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Customer"> | Date | string
     updatedId?: IntFilter<"Customer"> | number
     updatedBy?: StringFilter<"Customer"> | string
-    customerFunds?: CustomerFundListRelationFilter
+    CustomerFunds?: CustomerFundListRelationFilter
   }, "id" | "sbimpId">
 
   export type CustomerOrderByWithAggregationInput = {
@@ -15257,7 +17575,7 @@ export namespace Prisma {
     sbimpId?: SortOrder
     sbimpIdHistory?: SortOrder
     name?: SortOrder
-    nameFrigana?: SortOrder
+    nameFurigana?: SortOrder
     birthday?: SortOrderInput | SortOrder
     customerType?: SortOrder
     invoice?: SortOrder
@@ -15289,7 +17607,7 @@ export namespace Prisma {
     sbimpId?: StringWithAggregatesFilter<"Customer"> | string
     sbimpIdHistory?: StringWithAggregatesFilter<"Customer"> | string
     name?: StringWithAggregatesFilter<"Customer"> | string
-    nameFrigana?: StringWithAggregatesFilter<"Customer"> | string
+    nameFurigana?: StringWithAggregatesFilter<"Customer"> | string
     birthday?: DateTimeNullableWithAggregatesFilter<"Customer"> | Date | string | null
     customerType?: EnumCustomerTypeWithAggregatesFilter<"Customer"> | $Enums.CustomerType
     invoice?: BoolWithAggregatesFilter<"Customer"> | boolean
@@ -15345,8 +17663,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"CustomerFund"> | Date | string
     updatedId?: IntFilter<"CustomerFund"> | number
     updatedBy?: StringFilter<"CustomerFund"> | string
-    customer?: XOR<CustomerRelationFilter, CustomerWhereInput>
-    projectKi?: XOR<ProjectKiRelationFilter, ProjectKiWhereInput>
+    Customer?: XOR<CustomerRelationFilter, CustomerWhereInput>
+    ProjectKi?: XOR<ProjectKiRelationFilter, ProjectKiWhereInput>
   }
 
   export type CustomerFundOrderByWithRelationInput = {
@@ -15383,8 +17701,8 @@ export namespace Prisma {
     updatedAt?: SortOrder
     updatedId?: SortOrder
     updatedBy?: SortOrder
-    customer?: CustomerOrderByWithRelationInput
-    projectKi?: ProjectKiOrderByWithRelationInput
+    Customer?: CustomerOrderByWithRelationInput
+    ProjectKi?: ProjectKiOrderByWithRelationInput
   }
 
   export type CustomerFundWhereUniqueInput = Prisma.AtLeast<{
@@ -15425,8 +17743,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"CustomerFund"> | Date | string
     updatedId?: IntFilter<"CustomerFund"> | number
     updatedBy?: StringFilter<"CustomerFund"> | string
-    customer?: XOR<CustomerRelationFilter, CustomerWhereInput>
-    projectKi?: XOR<ProjectKiRelationFilter, ProjectKiWhereInput>
+    Customer?: XOR<CustomerRelationFilter, CustomerWhereInput>
+    ProjectKi?: XOR<ProjectKiRelationFilter, ProjectKiWhereInput>
   }, "id" | "fund_projectKi_identifier">
 
   export type CustomerFundOrderByWithAggregationInput = {
@@ -15507,6 +17825,194 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"CustomerFund"> | Date | string
     updatedId?: IntWithAggregatesFilter<"CustomerFund"> | number
     updatedBy?: StringWithAggregatesFilter<"CustomerFund"> | string
+  }
+
+  export type TemplateWhereInput = {
+    AND?: TemplateWhereInput | TemplateWhereInput[]
+    OR?: TemplateWhereInput[]
+    NOT?: TemplateWhereInput | TemplateWhereInput[]
+    id?: StringFilter<"Template"> | string
+    name?: StringFilter<"Template"> | string
+    contentType?: StringFilter<"Template"> | string
+    ext?: EnumExtTypeFilter<"Template"> | $Enums.ExtType
+    size?: IntFilter<"Template"> | number
+    templateType?: EnumTemplateTypeFilter<"Template"> | $Enums.TemplateType
+    file?: BytesFilter<"Template"> | Buffer
+    version?: IntFilter<"Template"> | number
+    createdAt?: DateTimeFilter<"Template"> | Date | string
+    createdId?: IntFilter<"Template"> | number
+    createdBy?: StringFilter<"Template"> | string
+    updatedAt?: DateTimeFilter<"Template"> | Date | string
+    updatedId?: IntFilter<"Template"> | number
+    updatedBy?: StringFilter<"Template"> | string
+  }
+
+  export type TemplateOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    contentType?: SortOrder
+    ext?: SortOrder
+    size?: SortOrder
+    templateType?: SortOrder
+    file?: SortOrder
+    version?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type TemplateWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: TemplateWhereInput | TemplateWhereInput[]
+    OR?: TemplateWhereInput[]
+    NOT?: TemplateWhereInput | TemplateWhereInput[]
+    name?: StringFilter<"Template"> | string
+    contentType?: StringFilter<"Template"> | string
+    ext?: EnumExtTypeFilter<"Template"> | $Enums.ExtType
+    size?: IntFilter<"Template"> | number
+    templateType?: EnumTemplateTypeFilter<"Template"> | $Enums.TemplateType
+    file?: BytesFilter<"Template"> | Buffer
+    version?: IntFilter<"Template"> | number
+    createdAt?: DateTimeFilter<"Template"> | Date | string
+    createdId?: IntFilter<"Template"> | number
+    createdBy?: StringFilter<"Template"> | string
+    updatedAt?: DateTimeFilter<"Template"> | Date | string
+    updatedId?: IntFilter<"Template"> | number
+    updatedBy?: StringFilter<"Template"> | string
+  }, "id">
+
+  export type TemplateOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    contentType?: SortOrder
+    ext?: SortOrder
+    size?: SortOrder
+    templateType?: SortOrder
+    file?: SortOrder
+    version?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+    _count?: TemplateCountOrderByAggregateInput
+    _avg?: TemplateAvgOrderByAggregateInput
+    _max?: TemplateMaxOrderByAggregateInput
+    _min?: TemplateMinOrderByAggregateInput
+    _sum?: TemplateSumOrderByAggregateInput
+  }
+
+  export type TemplateScalarWhereWithAggregatesInput = {
+    AND?: TemplateScalarWhereWithAggregatesInput | TemplateScalarWhereWithAggregatesInput[]
+    OR?: TemplateScalarWhereWithAggregatesInput[]
+    NOT?: TemplateScalarWhereWithAggregatesInput | TemplateScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Template"> | string
+    name?: StringWithAggregatesFilter<"Template"> | string
+    contentType?: StringWithAggregatesFilter<"Template"> | string
+    ext?: EnumExtTypeWithAggregatesFilter<"Template"> | $Enums.ExtType
+    size?: IntWithAggregatesFilter<"Template"> | number
+    templateType?: EnumTemplateTypeWithAggregatesFilter<"Template"> | $Enums.TemplateType
+    file?: BytesWithAggregatesFilter<"Template"> | Buffer
+    version?: IntWithAggregatesFilter<"Template"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Template"> | Date | string
+    createdId?: IntWithAggregatesFilter<"Template"> | number
+    createdBy?: StringWithAggregatesFilter<"Template"> | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Template"> | Date | string
+    updatedId?: IntWithAggregatesFilter<"Template"> | number
+    updatedBy?: StringWithAggregatesFilter<"Template"> | string
+  }
+
+  export type TemplateHistoryWhereInput = {
+    AND?: TemplateHistoryWhereInput | TemplateHistoryWhereInput[]
+    OR?: TemplateHistoryWhereInput[]
+    NOT?: TemplateHistoryWhereInput | TemplateHistoryWhereInput[]
+    id?: StringFilter<"TemplateHistory"> | string
+    templateId?: StringFilter<"TemplateHistory"> | string
+    name?: StringFilter<"TemplateHistory"> | string
+    contentType?: StringFilter<"TemplateHistory"> | string
+    ext?: EnumExtTypeFilter<"TemplateHistory"> | $Enums.ExtType
+    size?: IntFilter<"TemplateHistory"> | number
+    templateType?: EnumTemplateTypeFilter<"TemplateHistory"> | $Enums.TemplateType
+    file?: BytesFilter<"TemplateHistory"> | Buffer
+    version?: IntFilter<"TemplateHistory"> | number
+    updatedAt?: DateTimeFilter<"TemplateHistory"> | Date | string
+    updatedId?: IntFilter<"TemplateHistory"> | number
+    updatedBy?: StringFilter<"TemplateHistory"> | string
+  }
+
+  export type TemplateHistoryOrderByWithRelationInput = {
+    id?: SortOrder
+    templateId?: SortOrder
+    name?: SortOrder
+    contentType?: SortOrder
+    ext?: SortOrder
+    size?: SortOrder
+    templateType?: SortOrder
+    file?: SortOrder
+    version?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type TemplateHistoryWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: TemplateHistoryWhereInput | TemplateHistoryWhereInput[]
+    OR?: TemplateHistoryWhereInput[]
+    NOT?: TemplateHistoryWhereInput | TemplateHistoryWhereInput[]
+    templateId?: StringFilter<"TemplateHistory"> | string
+    name?: StringFilter<"TemplateHistory"> | string
+    contentType?: StringFilter<"TemplateHistory"> | string
+    ext?: EnumExtTypeFilter<"TemplateHistory"> | $Enums.ExtType
+    size?: IntFilter<"TemplateHistory"> | number
+    templateType?: EnumTemplateTypeFilter<"TemplateHistory"> | $Enums.TemplateType
+    file?: BytesFilter<"TemplateHistory"> | Buffer
+    version?: IntFilter<"TemplateHistory"> | number
+    updatedAt?: DateTimeFilter<"TemplateHistory"> | Date | string
+    updatedId?: IntFilter<"TemplateHistory"> | number
+    updatedBy?: StringFilter<"TemplateHistory"> | string
+  }, "id">
+
+  export type TemplateHistoryOrderByWithAggregationInput = {
+    id?: SortOrder
+    templateId?: SortOrder
+    name?: SortOrder
+    contentType?: SortOrder
+    ext?: SortOrder
+    size?: SortOrder
+    templateType?: SortOrder
+    file?: SortOrder
+    version?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+    _count?: TemplateHistoryCountOrderByAggregateInput
+    _avg?: TemplateHistoryAvgOrderByAggregateInput
+    _max?: TemplateHistoryMaxOrderByAggregateInput
+    _min?: TemplateHistoryMinOrderByAggregateInput
+    _sum?: TemplateHistorySumOrderByAggregateInput
+  }
+
+  export type TemplateHistoryScalarWhereWithAggregatesInput = {
+    AND?: TemplateHistoryScalarWhereWithAggregatesInput | TemplateHistoryScalarWhereWithAggregatesInput[]
+    OR?: TemplateHistoryScalarWhereWithAggregatesInput[]
+    NOT?: TemplateHistoryScalarWhereWithAggregatesInput | TemplateHistoryScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"TemplateHistory"> | string
+    templateId?: StringWithAggregatesFilter<"TemplateHistory"> | string
+    name?: StringWithAggregatesFilter<"TemplateHistory"> | string
+    contentType?: StringWithAggregatesFilter<"TemplateHistory"> | string
+    ext?: EnumExtTypeWithAggregatesFilter<"TemplateHistory"> | $Enums.ExtType
+    size?: IntWithAggregatesFilter<"TemplateHistory"> | number
+    templateType?: EnumTemplateTypeWithAggregatesFilter<"TemplateHistory"> | $Enums.TemplateType
+    file?: BytesWithAggregatesFilter<"TemplateHistory"> | Buffer
+    version?: IntWithAggregatesFilter<"TemplateHistory"> | number
+    updatedAt?: DateTimeWithAggregatesFilter<"TemplateHistory"> | Date | string
+    updatedId?: IntWithAggregatesFilter<"TemplateHistory"> | number
+    updatedBy?: StringWithAggregatesFilter<"TemplateHistory"> | string
   }
 
   export type UserCreateInput = {
@@ -15881,8 +18387,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    projectKis?: ProjectKiCreateNestedManyWithoutKiInput
-    assetKis?: AssetKiCreateNestedManyWithoutKiInput
+    ProjectKis?: ProjectKiCreateNestedManyWithoutKiInput
+    AssetKis?: AssetKiCreateNestedManyWithoutKiInput
   }
 
   export type KiUncheckedCreateInput = {
@@ -15895,8 +18401,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    projectKis?: ProjectKiUncheckedCreateNestedManyWithoutKiInput
-    assetKis?: AssetKiUncheckedCreateNestedManyWithoutKiInput
+    ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutKiInput
+    AssetKis?: AssetKiUncheckedCreateNestedManyWithoutKiInput
   }
 
   export type KiUpdateInput = {
@@ -15909,8 +18415,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    projectKis?: ProjectKiUpdateManyWithoutKiNestedInput
-    assetKis?: AssetKiUpdateManyWithoutKiNestedInput
+    ProjectKis?: ProjectKiUpdateManyWithoutKiNestedInput
+    AssetKis?: AssetKiUpdateManyWithoutKiNestedInput
   }
 
   export type KiUncheckedUpdateInput = {
@@ -15923,8 +18429,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    projectKis?: ProjectKiUncheckedUpdateManyWithoutKiNestedInput
-    assetKis?: AssetKiUncheckedUpdateManyWithoutKiNestedInput
+    ProjectKis?: ProjectKiUncheckedUpdateManyWithoutKiNestedInput
+    AssetKis?: AssetKiUncheckedUpdateManyWithoutKiNestedInput
   }
 
   export type KiCreateManyInput = {
@@ -15984,8 +18490,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    projectKies?: ProjectKiCreateNestedManyWithoutProjectInput
-    assets?: AssetCreateNestedManyWithoutProjectInput
+    ProjectKis?: ProjectKiCreateNestedManyWithoutProjectInput
+    Assets?: AssetCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectUncheckedCreateInput = {
@@ -16009,8 +18515,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    projectKies?: ProjectKiUncheckedCreateNestedManyWithoutProjectInput
-    assets?: AssetUncheckedCreateNestedManyWithoutProjectInput
+    ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutProjectInput
+    Assets?: AssetUncheckedCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectUpdateInput = {
@@ -16034,8 +18540,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    projectKies?: ProjectKiUpdateManyWithoutProjectNestedInput
-    assets?: AssetUpdateManyWithoutProjectNestedInput
+    ProjectKis?: ProjectKiUpdateManyWithoutProjectNestedInput
+    Assets?: AssetUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateInput = {
@@ -16059,8 +18565,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    projectKies?: ProjectKiUncheckedUpdateManyWithoutProjectNestedInput
-    assets?: AssetUncheckedUpdateManyWithoutProjectNestedInput
+    ProjectKis?: ProjectKiUncheckedUpdateManyWithoutProjectNestedInput
+    Assets?: AssetUncheckedUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectCreateManyInput = {
@@ -16144,8 +18650,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    project: ProjectCreateNestedOneWithoutProjectKiesInput
-    ki: KiCreateNestedOneWithoutProjectKisInput
+    Project: ProjectCreateNestedOneWithoutProjectKisInput
+    Ki: KiCreateNestedOneWithoutProjectKisInput
     ustomerFunds?: CustomerFundCreateNestedManyWithoutProjectKiInput
   }
 
@@ -16178,8 +18684,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    project?: ProjectUpdateOneRequiredWithoutProjectKiesNestedInput
-    ki?: KiUpdateOneRequiredWithoutProjectKisNestedInput
+    Project?: ProjectUpdateOneRequiredWithoutProjectKisNestedInput
+    Ki?: KiUpdateOneRequiredWithoutProjectKisNestedInput
     ustomerFunds?: CustomerFundUpdateManyWithoutProjectKiNestedInput
   }
 
@@ -16257,8 +18763,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    project: ProjectCreateNestedOneWithoutAssetsInput
-    assetKies?: AssetKiCreateNestedManyWithoutAssetInput
+    Project: ProjectCreateNestedOneWithoutAssetsInput
+    AssetKis?: AssetKiCreateNestedManyWithoutAssetInput
   }
 
   export type AssetUncheckedCreateInput = {
@@ -16273,7 +18779,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    assetKies?: AssetKiUncheckedCreateNestedManyWithoutAssetInput
+    AssetKis?: AssetKiUncheckedCreateNestedManyWithoutAssetInput
   }
 
   export type AssetUpdateInput = {
@@ -16287,8 +18793,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    project?: ProjectUpdateOneRequiredWithoutAssetsNestedInput
-    assetKies?: AssetKiUpdateManyWithoutAssetNestedInput
+    Project?: ProjectUpdateOneRequiredWithoutAssetsNestedInput
+    AssetKis?: AssetKiUpdateManyWithoutAssetNestedInput
   }
 
   export type AssetUncheckedUpdateInput = {
@@ -16303,7 +18809,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    assetKies?: AssetKiUncheckedUpdateManyWithoutAssetNestedInput
+    AssetKis?: AssetKiUncheckedUpdateManyWithoutAssetNestedInput
   }
 
   export type AssetCreateManyInput = {
@@ -16352,18 +18858,18 @@ export namespace Prisma {
     projectKi: number
     situation: string
     photoDate: Date | string
-    photo1: string
-    photo2: string
-    photo3: string
-    photo4: string
+    photo1?: string | null
+    photo2?: string | null
+    photo3?: string | null
+    photo4?: string | null
     createdAt?: Date | string
     createdId: number
     createdBy: string
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    asset: AssetCreateNestedOneWithoutAssetKiesInput
-    ki: KiCreateNestedOneWithoutAssetKisInput
+    Asset: AssetCreateNestedOneWithoutAssetKisInput
+    Ki: KiCreateNestedOneWithoutAssetKisInput
   }
 
   export type AssetKiUncheckedCreateInput = {
@@ -16373,10 +18879,10 @@ export namespace Prisma {
     projectKi: number
     situation: string
     photoDate: Date | string
-    photo1: string
-    photo2: string
-    photo3: string
-    photo4: string
+    photo1?: string | null
+    photo2?: string | null
+    photo3?: string | null
+    photo4?: string | null
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -16390,18 +18896,18 @@ export namespace Prisma {
     projectKi?: IntFieldUpdateOperationsInput | number
     situation?: StringFieldUpdateOperationsInput | string
     photoDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    photo1?: StringFieldUpdateOperationsInput | string
-    photo2?: StringFieldUpdateOperationsInput | string
-    photo3?: StringFieldUpdateOperationsInput | string
-    photo4?: StringFieldUpdateOperationsInput | string
+    photo1?: NullableStringFieldUpdateOperationsInput | string | null
+    photo2?: NullableStringFieldUpdateOperationsInput | string | null
+    photo3?: NullableStringFieldUpdateOperationsInput | string | null
+    photo4?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    asset?: AssetUpdateOneRequiredWithoutAssetKiesNestedInput
-    ki?: KiUpdateOneRequiredWithoutAssetKisNestedInput
+    Asset?: AssetUpdateOneRequiredWithoutAssetKisNestedInput
+    Ki?: KiUpdateOneRequiredWithoutAssetKisNestedInput
   }
 
   export type AssetKiUncheckedUpdateInput = {
@@ -16411,10 +18917,10 @@ export namespace Prisma {
     projectKi?: IntFieldUpdateOperationsInput | number
     situation?: StringFieldUpdateOperationsInput | string
     photoDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    photo1?: StringFieldUpdateOperationsInput | string
-    photo2?: StringFieldUpdateOperationsInput | string
-    photo3?: StringFieldUpdateOperationsInput | string
-    photo4?: StringFieldUpdateOperationsInput | string
+    photo1?: NullableStringFieldUpdateOperationsInput | string | null
+    photo2?: NullableStringFieldUpdateOperationsInput | string | null
+    photo3?: NullableStringFieldUpdateOperationsInput | string | null
+    photo4?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -16430,10 +18936,10 @@ export namespace Prisma {
     projectKi: number
     situation: string
     photoDate: Date | string
-    photo1: string
-    photo2: string
-    photo3: string
-    photo4: string
+    photo1?: string | null
+    photo2?: string | null
+    photo3?: string | null
+    photo4?: string | null
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -16447,10 +18953,10 @@ export namespace Prisma {
     projectKi?: IntFieldUpdateOperationsInput | number
     situation?: StringFieldUpdateOperationsInput | string
     photoDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    photo1?: StringFieldUpdateOperationsInput | string
-    photo2?: StringFieldUpdateOperationsInput | string
-    photo3?: StringFieldUpdateOperationsInput | string
-    photo4?: StringFieldUpdateOperationsInput | string
+    photo1?: NullableStringFieldUpdateOperationsInput | string | null
+    photo2?: NullableStringFieldUpdateOperationsInput | string | null
+    photo3?: NullableStringFieldUpdateOperationsInput | string | null
+    photo4?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -16466,10 +18972,10 @@ export namespace Prisma {
     projectKi?: IntFieldUpdateOperationsInput | number
     situation?: StringFieldUpdateOperationsInput | string
     photoDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    photo1?: StringFieldUpdateOperationsInput | string
-    photo2?: StringFieldUpdateOperationsInput | string
-    photo3?: StringFieldUpdateOperationsInput | string
-    photo4?: StringFieldUpdateOperationsInput | string
+    photo1?: NullableStringFieldUpdateOperationsInput | string | null
+    photo2?: NullableStringFieldUpdateOperationsInput | string | null
+    photo3?: NullableStringFieldUpdateOperationsInput | string | null
+    photo4?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -16483,7 +18989,7 @@ export namespace Prisma {
     sbimpId: string
     sbimpIdHistory: string
     name: string
-    nameFrigana: string
+    nameFurigana: string
     birthday?: Date | string | null
     customerType?: $Enums.CustomerType
     invoice?: boolean
@@ -16500,7 +19006,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    customerFunds?: CustomerFundCreateNestedManyWithoutCustomerInput
+    CustomerFunds?: CustomerFundCreateNestedManyWithoutCustomerInput
   }
 
   export type CustomerUncheckedCreateInput = {
@@ -16508,7 +19014,7 @@ export namespace Prisma {
     sbimpId: string
     sbimpIdHistory: string
     name: string
-    nameFrigana: string
+    nameFurigana: string
     birthday?: Date | string | null
     customerType?: $Enums.CustomerType
     invoice?: boolean
@@ -16525,7 +19031,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    customerFunds?: CustomerFundUncheckedCreateNestedManyWithoutCustomerInput
+    CustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutCustomerInput
   }
 
   export type CustomerUpdateInput = {
@@ -16533,7 +19039,7 @@ export namespace Prisma {
     sbimpId?: StringFieldUpdateOperationsInput | string
     sbimpIdHistory?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    nameFrigana?: StringFieldUpdateOperationsInput | string
+    nameFurigana?: StringFieldUpdateOperationsInput | string
     birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
     invoice?: BoolFieldUpdateOperationsInput | boolean
@@ -16550,7 +19056,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    customerFunds?: CustomerFundUpdateManyWithoutCustomerNestedInput
+    CustomerFunds?: CustomerFundUpdateManyWithoutCustomerNestedInput
   }
 
   export type CustomerUncheckedUpdateInput = {
@@ -16558,7 +19064,7 @@ export namespace Prisma {
     sbimpId?: StringFieldUpdateOperationsInput | string
     sbimpIdHistory?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    nameFrigana?: StringFieldUpdateOperationsInput | string
+    nameFurigana?: StringFieldUpdateOperationsInput | string
     birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
     invoice?: BoolFieldUpdateOperationsInput | boolean
@@ -16575,7 +19081,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    customerFunds?: CustomerFundUncheckedUpdateManyWithoutCustomerNestedInput
+    CustomerFunds?: CustomerFundUncheckedUpdateManyWithoutCustomerNestedInput
   }
 
   export type CustomerCreateManyInput = {
@@ -16583,7 +19089,7 @@ export namespace Prisma {
     sbimpId: string
     sbimpIdHistory: string
     name: string
-    nameFrigana: string
+    nameFurigana: string
     birthday?: Date | string | null
     customerType?: $Enums.CustomerType
     invoice?: boolean
@@ -16607,7 +19113,7 @@ export namespace Prisma {
     sbimpId?: StringFieldUpdateOperationsInput | string
     sbimpIdHistory?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    nameFrigana?: StringFieldUpdateOperationsInput | string
+    nameFurigana?: StringFieldUpdateOperationsInput | string
     birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
     invoice?: BoolFieldUpdateOperationsInput | boolean
@@ -16631,7 +19137,7 @@ export namespace Prisma {
     sbimpId?: StringFieldUpdateOperationsInput | string
     sbimpIdHistory?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    nameFrigana?: StringFieldUpdateOperationsInput | string
+    nameFurigana?: StringFieldUpdateOperationsInput | string
     birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
     invoice?: BoolFieldUpdateOperationsInput | boolean
@@ -16682,8 +19188,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    customer: CustomerCreateNestedOneWithoutCustomerFundsInput
-    projectKi: ProjectKiCreateNestedOneWithoutUstomerFundsInput
+    Customer: CustomerCreateNestedOneWithoutCustomerFundsInput
+    ProjectKi: ProjectKiCreateNestedOneWithoutUstomerFundsInput
   }
 
   export type CustomerFundUncheckedCreateInput = {
@@ -16754,8 +19260,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    customer?: CustomerUpdateOneRequiredWithoutCustomerFundsNestedInput
-    projectKi?: ProjectKiUpdateOneRequiredWithoutUstomerFundsNestedInput
+    Customer?: CustomerUpdateOneRequiredWithoutCustomerFundsNestedInput
+    ProjectKi?: ProjectKiUpdateOneRequiredWithoutUstomerFundsNestedInput
   }
 
   export type CustomerFundUncheckedUpdateInput = {
@@ -16895,6 +19401,230 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TemplateCreateInput = {
+    id?: string
+    name: string
+    contentType: string
+    ext: $Enums.ExtType
+    size: number
+    templateType: $Enums.TemplateType
+    file: Buffer
+    version?: number
+    createdAt?: Date | string
+    createdId: number
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: number
+    updatedBy: string
+  }
+
+  export type TemplateUncheckedCreateInput = {
+    id?: string
+    name: string
+    contentType: string
+    ext: $Enums.ExtType
+    size: number
+    templateType: $Enums.TemplateType
+    file: Buffer
+    version?: number
+    createdAt?: Date | string
+    createdId: number
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: number
+    updatedBy: string
+  }
+
+  export type TemplateUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    contentType?: StringFieldUpdateOperationsInput | string
+    ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
+    size?: IntFieldUpdateOperationsInput | number
+    templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
+    file?: BytesFieldUpdateOperationsInput | Buffer
+    version?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: IntFieldUpdateOperationsInput | number
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TemplateUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    contentType?: StringFieldUpdateOperationsInput | string
+    ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
+    size?: IntFieldUpdateOperationsInput | number
+    templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
+    file?: BytesFieldUpdateOperationsInput | Buffer
+    version?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: IntFieldUpdateOperationsInput | number
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TemplateCreateManyInput = {
+    id?: string
+    name: string
+    contentType: string
+    ext: $Enums.ExtType
+    size: number
+    templateType: $Enums.TemplateType
+    file: Buffer
+    version?: number
+    createdAt?: Date | string
+    createdId: number
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: number
+    updatedBy: string
+  }
+
+  export type TemplateUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    contentType?: StringFieldUpdateOperationsInput | string
+    ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
+    size?: IntFieldUpdateOperationsInput | number
+    templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
+    file?: BytesFieldUpdateOperationsInput | Buffer
+    version?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: IntFieldUpdateOperationsInput | number
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TemplateUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    contentType?: StringFieldUpdateOperationsInput | string
+    ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
+    size?: IntFieldUpdateOperationsInput | number
+    templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
+    file?: BytesFieldUpdateOperationsInput | Buffer
+    version?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: IntFieldUpdateOperationsInput | number
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TemplateHistoryCreateInput = {
+    id?: string
+    templateId: string
+    name: string
+    contentType: string
+    ext: $Enums.ExtType
+    size: number
+    templateType: $Enums.TemplateType
+    file: Buffer
+    version: number
+    updatedAt?: Date | string
+    updatedId: number
+    updatedBy: string
+  }
+
+  export type TemplateHistoryUncheckedCreateInput = {
+    id?: string
+    templateId: string
+    name: string
+    contentType: string
+    ext: $Enums.ExtType
+    size: number
+    templateType: $Enums.TemplateType
+    file: Buffer
+    version: number
+    updatedAt?: Date | string
+    updatedId: number
+    updatedBy: string
+  }
+
+  export type TemplateHistoryUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    templateId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    contentType?: StringFieldUpdateOperationsInput | string
+    ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
+    size?: IntFieldUpdateOperationsInput | number
+    templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
+    file?: BytesFieldUpdateOperationsInput | Buffer
+    version?: IntFieldUpdateOperationsInput | number
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TemplateHistoryUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    templateId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    contentType?: StringFieldUpdateOperationsInput | string
+    ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
+    size?: IntFieldUpdateOperationsInput | number
+    templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
+    file?: BytesFieldUpdateOperationsInput | Buffer
+    version?: IntFieldUpdateOperationsInput | number
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TemplateHistoryCreateManyInput = {
+    id?: string
+    templateId: string
+    name: string
+    contentType: string
+    ext: $Enums.ExtType
+    size: number
+    templateType: $Enums.TemplateType
+    file: Buffer
+    version: number
+    updatedAt?: Date | string
+    updatedId: number
+    updatedBy: string
+  }
+
+  export type TemplateHistoryUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    templateId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    contentType?: StringFieldUpdateOperationsInput | string
+    ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
+    size?: IntFieldUpdateOperationsInput | number
+    templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
+    file?: BytesFieldUpdateOperationsInput | Buffer
+    version?: IntFieldUpdateOperationsInput | number
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type TemplateHistoryUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    templateId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    contentType?: StringFieldUpdateOperationsInput | string
+    ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
+    size?: IntFieldUpdateOperationsInput | number
+    templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
+    file?: BytesFieldUpdateOperationsInput | Buffer
+    version?: IntFieldUpdateOperationsInput | number
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
@@ -17736,7 +20466,7 @@ export namespace Prisma {
     sbimpId?: SortOrder
     sbimpIdHistory?: SortOrder
     name?: SortOrder
-    nameFrigana?: SortOrder
+    nameFurigana?: SortOrder
     birthday?: SortOrder
     customerType?: SortOrder
     invoice?: SortOrder
@@ -17765,7 +20495,7 @@ export namespace Prisma {
     sbimpId?: SortOrder
     sbimpIdHistory?: SortOrder
     name?: SortOrder
-    nameFrigana?: SortOrder
+    nameFurigana?: SortOrder
     birthday?: SortOrder
     customerType?: SortOrder
     invoice?: SortOrder
@@ -17789,7 +20519,7 @@ export namespace Prisma {
     sbimpId?: SortOrder
     sbimpIdHistory?: SortOrder
     name?: SortOrder
-    nameFrigana?: SortOrder
+    nameFurigana?: SortOrder
     birthday?: SortOrder
     customerType?: SortOrder
     invoice?: SortOrder
@@ -18034,6 +20764,179 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
+  export type EnumExtTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.ExtType | EnumExtTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.ExtType[] | ListEnumExtTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ExtType[] | ListEnumExtTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumExtTypeFilter<$PrismaModel> | $Enums.ExtType
+  }
+
+  export type EnumTemplateTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.TemplateType | EnumTemplateTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.TemplateType[] | ListEnumTemplateTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.TemplateType[] | ListEnumTemplateTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumTemplateTypeFilter<$PrismaModel> | $Enums.TemplateType
+  }
+
+  export type BytesFilter<$PrismaModel = never> = {
+    equals?: Buffer | BytesFieldRefInput<$PrismaModel>
+    in?: Buffer[] | ListBytesFieldRefInput<$PrismaModel>
+    notIn?: Buffer[] | ListBytesFieldRefInput<$PrismaModel>
+    not?: NestedBytesFilter<$PrismaModel> | Buffer
+  }
+
+  export type TemplateCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    contentType?: SortOrder
+    ext?: SortOrder
+    size?: SortOrder
+    templateType?: SortOrder
+    file?: SortOrder
+    version?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type TemplateAvgOrderByAggregateInput = {
+    size?: SortOrder
+    version?: SortOrder
+    createdId?: SortOrder
+    updatedId?: SortOrder
+  }
+
+  export type TemplateMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    contentType?: SortOrder
+    ext?: SortOrder
+    size?: SortOrder
+    templateType?: SortOrder
+    file?: SortOrder
+    version?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type TemplateMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    contentType?: SortOrder
+    ext?: SortOrder
+    size?: SortOrder
+    templateType?: SortOrder
+    file?: SortOrder
+    version?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type TemplateSumOrderByAggregateInput = {
+    size?: SortOrder
+    version?: SortOrder
+    createdId?: SortOrder
+    updatedId?: SortOrder
+  }
+
+  export type EnumExtTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.ExtType | EnumExtTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.ExtType[] | ListEnumExtTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ExtType[] | ListEnumExtTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumExtTypeWithAggregatesFilter<$PrismaModel> | $Enums.ExtType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumExtTypeFilter<$PrismaModel>
+    _max?: NestedEnumExtTypeFilter<$PrismaModel>
+  }
+
+  export type EnumTemplateTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.TemplateType | EnumTemplateTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.TemplateType[] | ListEnumTemplateTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.TemplateType[] | ListEnumTemplateTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumTemplateTypeWithAggregatesFilter<$PrismaModel> | $Enums.TemplateType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumTemplateTypeFilter<$PrismaModel>
+    _max?: NestedEnumTemplateTypeFilter<$PrismaModel>
+  }
+
+  export type BytesWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Buffer | BytesFieldRefInput<$PrismaModel>
+    in?: Buffer[] | ListBytesFieldRefInput<$PrismaModel>
+    notIn?: Buffer[] | ListBytesFieldRefInput<$PrismaModel>
+    not?: NestedBytesWithAggregatesFilter<$PrismaModel> | Buffer
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBytesFilter<$PrismaModel>
+    _max?: NestedBytesFilter<$PrismaModel>
+  }
+
+  export type TemplateHistoryCountOrderByAggregateInput = {
+    id?: SortOrder
+    templateId?: SortOrder
+    name?: SortOrder
+    contentType?: SortOrder
+    ext?: SortOrder
+    size?: SortOrder
+    templateType?: SortOrder
+    file?: SortOrder
+    version?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type TemplateHistoryAvgOrderByAggregateInput = {
+    size?: SortOrder
+    version?: SortOrder
+    updatedId?: SortOrder
+  }
+
+  export type TemplateHistoryMaxOrderByAggregateInput = {
+    id?: SortOrder
+    templateId?: SortOrder
+    name?: SortOrder
+    contentType?: SortOrder
+    ext?: SortOrder
+    size?: SortOrder
+    templateType?: SortOrder
+    file?: SortOrder
+    version?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type TemplateHistoryMinOrderByAggregateInput = {
+    id?: SortOrder
+    templateId?: SortOrder
+    name?: SortOrder
+    contentType?: SortOrder
+    ext?: SortOrder
+    size?: SortOrder
+    templateType?: SortOrder
+    file?: SortOrder
+    version?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type TemplateHistorySumOrderByAggregateInput = {
+    size?: SortOrder
+    version?: SortOrder
+    updatedId?: SortOrder
+  }
+
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
   }
@@ -18250,9 +21153,9 @@ export namespace Prisma {
     deleteMany?: AssetScalarWhereInput | AssetScalarWhereInput[]
   }
 
-  export type ProjectCreateNestedOneWithoutProjectKiesInput = {
-    create?: XOR<ProjectCreateWithoutProjectKiesInput, ProjectUncheckedCreateWithoutProjectKiesInput>
-    connectOrCreate?: ProjectCreateOrConnectWithoutProjectKiesInput
+  export type ProjectCreateNestedOneWithoutProjectKisInput = {
+    create?: XOR<ProjectCreateWithoutProjectKisInput, ProjectUncheckedCreateWithoutProjectKisInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutProjectKisInput
     connect?: ProjectWhereUniqueInput
   }
 
@@ -18276,12 +21179,12 @@ export namespace Prisma {
     connect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
   }
 
-  export type ProjectUpdateOneRequiredWithoutProjectKiesNestedInput = {
-    create?: XOR<ProjectCreateWithoutProjectKiesInput, ProjectUncheckedCreateWithoutProjectKiesInput>
-    connectOrCreate?: ProjectCreateOrConnectWithoutProjectKiesInput
-    upsert?: ProjectUpsertWithoutProjectKiesInput
+  export type ProjectUpdateOneRequiredWithoutProjectKisNestedInput = {
+    create?: XOR<ProjectCreateWithoutProjectKisInput, ProjectUncheckedCreateWithoutProjectKisInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutProjectKisInput
+    upsert?: ProjectUpsertWithoutProjectKisInput
     connect?: ProjectWhereUniqueInput
-    update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutProjectKiesInput, ProjectUpdateWithoutProjectKiesInput>, ProjectUncheckedUpdateWithoutProjectKiesInput>
+    update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutProjectKisInput, ProjectUpdateWithoutProjectKisInput>, ProjectUncheckedUpdateWithoutProjectKisInput>
   }
 
   export type KiUpdateOneRequiredWithoutProjectKisNestedInput = {
@@ -18376,9 +21279,9 @@ export namespace Prisma {
     deleteMany?: AssetKiScalarWhereInput | AssetKiScalarWhereInput[]
   }
 
-  export type AssetCreateNestedOneWithoutAssetKiesInput = {
-    create?: XOR<AssetCreateWithoutAssetKiesInput, AssetUncheckedCreateWithoutAssetKiesInput>
-    connectOrCreate?: AssetCreateOrConnectWithoutAssetKiesInput
+  export type AssetCreateNestedOneWithoutAssetKisInput = {
+    create?: XOR<AssetCreateWithoutAssetKisInput, AssetUncheckedCreateWithoutAssetKisInput>
+    connectOrCreate?: AssetCreateOrConnectWithoutAssetKisInput
     connect?: AssetWhereUniqueInput
   }
 
@@ -18388,12 +21291,12 @@ export namespace Prisma {
     connect?: KiWhereUniqueInput
   }
 
-  export type AssetUpdateOneRequiredWithoutAssetKiesNestedInput = {
-    create?: XOR<AssetCreateWithoutAssetKiesInput, AssetUncheckedCreateWithoutAssetKiesInput>
-    connectOrCreate?: AssetCreateOrConnectWithoutAssetKiesInput
-    upsert?: AssetUpsertWithoutAssetKiesInput
+  export type AssetUpdateOneRequiredWithoutAssetKisNestedInput = {
+    create?: XOR<AssetCreateWithoutAssetKisInput, AssetUncheckedCreateWithoutAssetKisInput>
+    connectOrCreate?: AssetCreateOrConnectWithoutAssetKisInput
+    upsert?: AssetUpsertWithoutAssetKisInput
     connect?: AssetWhereUniqueInput
-    update?: XOR<XOR<AssetUpdateToOneWithWhereWithoutAssetKiesInput, AssetUpdateWithoutAssetKiesInput>, AssetUncheckedUpdateWithoutAssetKiesInput>
+    update?: XOR<XOR<AssetUpdateToOneWithWhereWithoutAssetKisInput, AssetUpdateWithoutAssetKisInput>, AssetUncheckedUpdateWithoutAssetKisInput>
   }
 
   export type KiUpdateOneRequiredWithoutAssetKisNestedInput = {
@@ -18492,6 +21395,18 @@ export namespace Prisma {
     upsert?: ProjectKiUpsertWithoutUstomerFundsInput
     connect?: ProjectKiWhereUniqueInput
     update?: XOR<XOR<ProjectKiUpdateToOneWithWhereWithoutUstomerFundsInput, ProjectKiUpdateWithoutUstomerFundsInput>, ProjectKiUncheckedUpdateWithoutUstomerFundsInput>
+  }
+
+  export type EnumExtTypeFieldUpdateOperationsInput = {
+    set?: $Enums.ExtType
+  }
+
+  export type EnumTemplateTypeFieldUpdateOperationsInput = {
+    set?: $Enums.TemplateType
+  }
+
+  export type BytesFieldUpdateOperationsInput = {
+    set?: Buffer
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -18806,6 +21721,57 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
+  export type NestedEnumExtTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.ExtType | EnumExtTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.ExtType[] | ListEnumExtTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ExtType[] | ListEnumExtTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumExtTypeFilter<$PrismaModel> | $Enums.ExtType
+  }
+
+  export type NestedEnumTemplateTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.TemplateType | EnumTemplateTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.TemplateType[] | ListEnumTemplateTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.TemplateType[] | ListEnumTemplateTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumTemplateTypeFilter<$PrismaModel> | $Enums.TemplateType
+  }
+
+  export type NestedBytesFilter<$PrismaModel = never> = {
+    equals?: Buffer | BytesFieldRefInput<$PrismaModel>
+    in?: Buffer[] | ListBytesFieldRefInput<$PrismaModel>
+    notIn?: Buffer[] | ListBytesFieldRefInput<$PrismaModel>
+    not?: NestedBytesFilter<$PrismaModel> | Buffer
+  }
+
+  export type NestedEnumExtTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.ExtType | EnumExtTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.ExtType[] | ListEnumExtTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ExtType[] | ListEnumExtTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumExtTypeWithAggregatesFilter<$PrismaModel> | $Enums.ExtType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumExtTypeFilter<$PrismaModel>
+    _max?: NestedEnumExtTypeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumTemplateTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.TemplateType | EnumTemplateTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.TemplateType[] | ListEnumTemplateTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.TemplateType[] | ListEnumTemplateTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumTemplateTypeWithAggregatesFilter<$PrismaModel> | $Enums.TemplateType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumTemplateTypeFilter<$PrismaModel>
+    _max?: NestedEnumTemplateTypeFilter<$PrismaModel>
+  }
+
+  export type NestedBytesWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Buffer | BytesFieldRefInput<$PrismaModel>
+    in?: Buffer[] | ListBytesFieldRefInput<$PrismaModel>
+    notIn?: Buffer[] | ListBytesFieldRefInput<$PrismaModel>
+    not?: NestedBytesWithAggregatesFilter<$PrismaModel> | Buffer
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBytesFilter<$PrismaModel>
+    _max?: NestedBytesFilter<$PrismaModel>
+  }
+
   export type ProjectKiCreateWithoutKiInput = {
     id?: string
     projectKi: number
@@ -18818,7 +21784,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    project: ProjectCreateNestedOneWithoutProjectKiesInput
+    Project: ProjectCreateNestedOneWithoutProjectKisInput
     ustomerFunds?: CustomerFundCreateNestedManyWithoutProjectKiInput
   }
 
@@ -18853,17 +21819,17 @@ export namespace Prisma {
     projectKi: number
     situation: string
     photoDate: Date | string
-    photo1: string
-    photo2: string
-    photo3: string
-    photo4: string
+    photo1?: string | null
+    photo2?: string | null
+    photo3?: string | null
+    photo4?: string | null
     createdAt?: Date | string
     createdId: number
     createdBy: string
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    asset: AssetCreateNestedOneWithoutAssetKiesInput
+    Asset: AssetCreateNestedOneWithoutAssetKisInput
   }
 
   export type AssetKiUncheckedCreateWithoutKiInput = {
@@ -18872,10 +21838,10 @@ export namespace Prisma {
     projectKi: number
     situation: string
     photoDate: Date | string
-    photo1: string
-    photo2: string
-    photo3: string
-    photo4: string
+    photo1?: string | null
+    photo2?: string | null
+    photo3?: string | null
+    photo4?: string | null
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -18955,10 +21921,10 @@ export namespace Prisma {
     projectKi?: IntFilter<"AssetKi"> | number
     situation?: StringFilter<"AssetKi"> | string
     photoDate?: DateTimeFilter<"AssetKi"> | Date | string
-    photo1?: StringFilter<"AssetKi"> | string
-    photo2?: StringFilter<"AssetKi"> | string
-    photo3?: StringFilter<"AssetKi"> | string
-    photo4?: StringFilter<"AssetKi"> | string
+    photo1?: StringNullableFilter<"AssetKi"> | string | null
+    photo2?: StringNullableFilter<"AssetKi"> | string | null
+    photo3?: StringNullableFilter<"AssetKi"> | string | null
+    photo4?: StringNullableFilter<"AssetKi"> | string | null
     createdAt?: DateTimeFilter<"AssetKi"> | Date | string
     createdId?: IntFilter<"AssetKi"> | number
     createdBy?: StringFilter<"AssetKi"> | string
@@ -18979,7 +21945,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    ki: KiCreateNestedOneWithoutProjectKisInput
+    Ki: KiCreateNestedOneWithoutProjectKisInput
     ustomerFunds?: CustomerFundCreateNestedManyWithoutProjectKiInput
   }
 
@@ -19020,7 +21986,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    assetKies?: AssetKiCreateNestedManyWithoutAssetInput
+    AssetKis?: AssetKiCreateNestedManyWithoutAssetInput
   }
 
   export type AssetUncheckedCreateWithoutProjectInput = {
@@ -19034,7 +22000,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    assetKies?: AssetKiUncheckedCreateNestedManyWithoutAssetInput
+    AssetKis?: AssetKiUncheckedCreateNestedManyWithoutAssetInput
   }
 
   export type AssetCreateOrConnectWithoutProjectInput = {
@@ -19096,7 +22062,7 @@ export namespace Prisma {
     updatedBy?: StringFilter<"Asset"> | string
   }
 
-  export type ProjectCreateWithoutProjectKiesInput = {
+  export type ProjectCreateWithoutProjectKisInput = {
     id: string
     sbimpId: string
     name: string
@@ -19117,10 +22083,10 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    assets?: AssetCreateNestedManyWithoutProjectInput
+    Assets?: AssetCreateNestedManyWithoutProjectInput
   }
 
-  export type ProjectUncheckedCreateWithoutProjectKiesInput = {
+  export type ProjectUncheckedCreateWithoutProjectKisInput = {
     id: string
     sbimpId: string
     name: string
@@ -19141,12 +22107,12 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    assets?: AssetUncheckedCreateNestedManyWithoutProjectInput
+    Assets?: AssetUncheckedCreateNestedManyWithoutProjectInput
   }
 
-  export type ProjectCreateOrConnectWithoutProjectKiesInput = {
+  export type ProjectCreateOrConnectWithoutProjectKisInput = {
     where: ProjectWhereUniqueInput
-    create: XOR<ProjectCreateWithoutProjectKiesInput, ProjectUncheckedCreateWithoutProjectKiesInput>
+    create: XOR<ProjectCreateWithoutProjectKisInput, ProjectUncheckedCreateWithoutProjectKisInput>
   }
 
   export type KiCreateWithoutProjectKisInput = {
@@ -19159,7 +22125,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    assetKis?: AssetKiCreateNestedManyWithoutKiInput
+    AssetKis?: AssetKiCreateNestedManyWithoutKiInput
   }
 
   export type KiUncheckedCreateWithoutProjectKisInput = {
@@ -19172,7 +22138,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    assetKis?: AssetKiUncheckedCreateNestedManyWithoutKiInput
+    AssetKis?: AssetKiUncheckedCreateNestedManyWithoutKiInput
   }
 
   export type KiCreateOrConnectWithoutProjectKisInput = {
@@ -19212,7 +22178,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    customer: CustomerCreateNestedOneWithoutCustomerFundsInput
+    Customer: CustomerCreateNestedOneWithoutCustomerFundsInput
   }
 
   export type CustomerFundUncheckedCreateWithoutProjectKiInput = {
@@ -19260,18 +22226,18 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type ProjectUpsertWithoutProjectKiesInput = {
-    update: XOR<ProjectUpdateWithoutProjectKiesInput, ProjectUncheckedUpdateWithoutProjectKiesInput>
-    create: XOR<ProjectCreateWithoutProjectKiesInput, ProjectUncheckedCreateWithoutProjectKiesInput>
+  export type ProjectUpsertWithoutProjectKisInput = {
+    update: XOR<ProjectUpdateWithoutProjectKisInput, ProjectUncheckedUpdateWithoutProjectKisInput>
+    create: XOR<ProjectCreateWithoutProjectKisInput, ProjectUncheckedCreateWithoutProjectKisInput>
     where?: ProjectWhereInput
   }
 
-  export type ProjectUpdateToOneWithWhereWithoutProjectKiesInput = {
+  export type ProjectUpdateToOneWithWhereWithoutProjectKisInput = {
     where?: ProjectWhereInput
-    data: XOR<ProjectUpdateWithoutProjectKiesInput, ProjectUncheckedUpdateWithoutProjectKiesInput>
+    data: XOR<ProjectUpdateWithoutProjectKisInput, ProjectUncheckedUpdateWithoutProjectKisInput>
   }
 
-  export type ProjectUpdateWithoutProjectKiesInput = {
+  export type ProjectUpdateWithoutProjectKisInput = {
     id?: StringFieldUpdateOperationsInput | string
     sbimpId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
@@ -19292,10 +22258,10 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    assets?: AssetUpdateManyWithoutProjectNestedInput
+    Assets?: AssetUpdateManyWithoutProjectNestedInput
   }
 
-  export type ProjectUncheckedUpdateWithoutProjectKiesInput = {
+  export type ProjectUncheckedUpdateWithoutProjectKisInput = {
     id?: StringFieldUpdateOperationsInput | string
     sbimpId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
@@ -19316,7 +22282,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    assets?: AssetUncheckedUpdateManyWithoutProjectNestedInput
+    Assets?: AssetUncheckedUpdateManyWithoutProjectNestedInput
   }
 
   export type KiUpsertWithoutProjectKisInput = {
@@ -19340,7 +22306,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    assetKis?: AssetKiUpdateManyWithoutKiNestedInput
+    AssetKis?: AssetKiUpdateManyWithoutKiNestedInput
   }
 
   export type KiUncheckedUpdateWithoutProjectKisInput = {
@@ -19353,7 +22319,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    assetKis?: AssetKiUncheckedUpdateManyWithoutKiNestedInput
+    AssetKis?: AssetKiUncheckedUpdateManyWithoutKiNestedInput
   }
 
   export type CustomerFundUpsertWithWhereUniqueWithoutProjectKiInput = {
@@ -19432,7 +22398,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    projectKies?: ProjectKiCreateNestedManyWithoutProjectInput
+    ProjectKis?: ProjectKiCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectUncheckedCreateWithoutAssetsInput = {
@@ -19456,7 +22422,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    projectKies?: ProjectKiUncheckedCreateNestedManyWithoutProjectInput
+    ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectCreateOrConnectWithoutAssetsInput = {
@@ -19469,17 +22435,17 @@ export namespace Prisma {
     projectKi: number
     situation: string
     photoDate: Date | string
-    photo1: string
-    photo2: string
-    photo3: string
-    photo4: string
+    photo1?: string | null
+    photo2?: string | null
+    photo3?: string | null
+    photo4?: string | null
     createdAt?: Date | string
     createdId: number
     createdBy: string
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    ki: KiCreateNestedOneWithoutAssetKisInput
+    Ki: KiCreateNestedOneWithoutAssetKisInput
   }
 
   export type AssetKiUncheckedCreateWithoutAssetInput = {
@@ -19488,10 +22454,10 @@ export namespace Prisma {
     projectKi: number
     situation: string
     photoDate: Date | string
-    photo1: string
-    photo2: string
-    photo3: string
-    photo4: string
+    photo1?: string | null
+    photo2?: string | null
+    photo3?: string | null
+    photo4?: string | null
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -19542,7 +22508,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    projectKies?: ProjectKiUpdateManyWithoutProjectNestedInput
+    ProjectKis?: ProjectKiUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateWithoutAssetsInput = {
@@ -19566,7 +22532,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    projectKies?: ProjectKiUncheckedUpdateManyWithoutProjectNestedInput
+    ProjectKis?: ProjectKiUncheckedUpdateManyWithoutProjectNestedInput
   }
 
   export type AssetKiUpsertWithWhereUniqueWithoutAssetInput = {
@@ -19585,7 +22551,7 @@ export namespace Prisma {
     data: XOR<AssetKiUpdateManyMutationInput, AssetKiUncheckedUpdateManyWithoutAssetInput>
   }
 
-  export type AssetCreateWithoutAssetKiesInput = {
+  export type AssetCreateWithoutAssetKisInput = {
     id?: string
     name: string
     address: string
@@ -19596,10 +22562,10 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    project: ProjectCreateNestedOneWithoutAssetsInput
+    Project: ProjectCreateNestedOneWithoutAssetsInput
   }
 
-  export type AssetUncheckedCreateWithoutAssetKiesInput = {
+  export type AssetUncheckedCreateWithoutAssetKisInput = {
     id?: string
     projectId: string
     name: string
@@ -19613,9 +22579,9 @@ export namespace Prisma {
     updatedBy: string
   }
 
-  export type AssetCreateOrConnectWithoutAssetKiesInput = {
+  export type AssetCreateOrConnectWithoutAssetKisInput = {
     where: AssetWhereUniqueInput
-    create: XOR<AssetCreateWithoutAssetKiesInput, AssetUncheckedCreateWithoutAssetKiesInput>
+    create: XOR<AssetCreateWithoutAssetKisInput, AssetUncheckedCreateWithoutAssetKisInput>
   }
 
   export type KiCreateWithoutAssetKisInput = {
@@ -19628,7 +22594,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    projectKis?: ProjectKiCreateNestedManyWithoutKiInput
+    ProjectKis?: ProjectKiCreateNestedManyWithoutKiInput
   }
 
   export type KiUncheckedCreateWithoutAssetKisInput = {
@@ -19641,7 +22607,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    projectKis?: ProjectKiUncheckedCreateNestedManyWithoutKiInput
+    ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutKiInput
   }
 
   export type KiCreateOrConnectWithoutAssetKisInput = {
@@ -19649,18 +22615,18 @@ export namespace Prisma {
     create: XOR<KiCreateWithoutAssetKisInput, KiUncheckedCreateWithoutAssetKisInput>
   }
 
-  export type AssetUpsertWithoutAssetKiesInput = {
-    update: XOR<AssetUpdateWithoutAssetKiesInput, AssetUncheckedUpdateWithoutAssetKiesInput>
-    create: XOR<AssetCreateWithoutAssetKiesInput, AssetUncheckedCreateWithoutAssetKiesInput>
+  export type AssetUpsertWithoutAssetKisInput = {
+    update: XOR<AssetUpdateWithoutAssetKisInput, AssetUncheckedUpdateWithoutAssetKisInput>
+    create: XOR<AssetCreateWithoutAssetKisInput, AssetUncheckedCreateWithoutAssetKisInput>
     where?: AssetWhereInput
   }
 
-  export type AssetUpdateToOneWithWhereWithoutAssetKiesInput = {
+  export type AssetUpdateToOneWithWhereWithoutAssetKisInput = {
     where?: AssetWhereInput
-    data: XOR<AssetUpdateWithoutAssetKiesInput, AssetUncheckedUpdateWithoutAssetKiesInput>
+    data: XOR<AssetUpdateWithoutAssetKisInput, AssetUncheckedUpdateWithoutAssetKisInput>
   }
 
-  export type AssetUpdateWithoutAssetKiesInput = {
+  export type AssetUpdateWithoutAssetKisInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
@@ -19671,10 +22637,10 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    project?: ProjectUpdateOneRequiredWithoutAssetsNestedInput
+    Project?: ProjectUpdateOneRequiredWithoutAssetsNestedInput
   }
 
-  export type AssetUncheckedUpdateWithoutAssetKiesInput = {
+  export type AssetUncheckedUpdateWithoutAssetKisInput = {
     id?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
@@ -19709,7 +22675,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    projectKis?: ProjectKiUpdateManyWithoutKiNestedInput
+    ProjectKis?: ProjectKiUpdateManyWithoutKiNestedInput
   }
 
   export type KiUncheckedUpdateWithoutAssetKisInput = {
@@ -19722,7 +22688,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    projectKis?: ProjectKiUncheckedUpdateManyWithoutKiNestedInput
+    ProjectKis?: ProjectKiUncheckedUpdateManyWithoutKiNestedInput
   }
 
   export type CustomerFundCreateWithoutCustomerInput = {
@@ -19757,7 +22723,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    projectKi: ProjectKiCreateNestedOneWithoutUstomerFundsInput
+    ProjectKi: ProjectKiCreateNestedOneWithoutUstomerFundsInput
   }
 
   export type CustomerFundUncheckedCreateWithoutCustomerInput = {
@@ -19826,7 +22792,7 @@ export namespace Prisma {
     sbimpId: string
     sbimpIdHistory: string
     name: string
-    nameFrigana: string
+    nameFurigana: string
     birthday?: Date | string | null
     customerType?: $Enums.CustomerType
     invoice?: boolean
@@ -19850,7 +22816,7 @@ export namespace Prisma {
     sbimpId: string
     sbimpIdHistory: string
     name: string
-    nameFrigana: string
+    nameFurigana: string
     birthday?: Date | string | null
     customerType?: $Enums.CustomerType
     invoice?: boolean
@@ -19886,8 +22852,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    project: ProjectCreateNestedOneWithoutProjectKiesInput
-    ki: KiCreateNestedOneWithoutProjectKisInput
+    Project: ProjectCreateNestedOneWithoutProjectKisInput
+    Ki: KiCreateNestedOneWithoutProjectKisInput
   }
 
   export type ProjectKiUncheckedCreateWithoutUstomerFundsInput = {
@@ -19927,7 +22893,7 @@ export namespace Prisma {
     sbimpId?: StringFieldUpdateOperationsInput | string
     sbimpIdHistory?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    nameFrigana?: StringFieldUpdateOperationsInput | string
+    nameFurigana?: StringFieldUpdateOperationsInput | string
     birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
     invoice?: BoolFieldUpdateOperationsInput | boolean
@@ -19951,7 +22917,7 @@ export namespace Prisma {
     sbimpId?: StringFieldUpdateOperationsInput | string
     sbimpIdHistory?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    nameFrigana?: StringFieldUpdateOperationsInput | string
+    nameFurigana?: StringFieldUpdateOperationsInput | string
     birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
     invoice?: BoolFieldUpdateOperationsInput | boolean
@@ -19993,8 +22959,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    project?: ProjectUpdateOneRequiredWithoutProjectKiesNestedInput
-    ki?: KiUpdateOneRequiredWithoutProjectKisNestedInput
+    Project?: ProjectUpdateOneRequiredWithoutProjectKisNestedInput
+    Ki?: KiUpdateOneRequiredWithoutProjectKisNestedInput
   }
 
   export type ProjectKiUncheckedUpdateWithoutUstomerFundsInput = {
@@ -20034,10 +23000,10 @@ export namespace Prisma {
     projectKi: number
     situation: string
     photoDate: Date | string
-    photo1: string
-    photo2: string
-    photo3: string
-    photo4: string
+    photo1?: string | null
+    photo2?: string | null
+    photo3?: string | null
+    photo4?: string | null
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -20058,7 +23024,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    project?: ProjectUpdateOneRequiredWithoutProjectKiesNestedInput
+    Project?: ProjectUpdateOneRequiredWithoutProjectKisNestedInput
     ustomerFunds?: CustomerFundUpdateManyWithoutProjectKiNestedInput
   }
 
@@ -20098,17 +23064,17 @@ export namespace Prisma {
     projectKi?: IntFieldUpdateOperationsInput | number
     situation?: StringFieldUpdateOperationsInput | string
     photoDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    photo1?: StringFieldUpdateOperationsInput | string
-    photo2?: StringFieldUpdateOperationsInput | string
-    photo3?: StringFieldUpdateOperationsInput | string
-    photo4?: StringFieldUpdateOperationsInput | string
+    photo1?: NullableStringFieldUpdateOperationsInput | string | null
+    photo2?: NullableStringFieldUpdateOperationsInput | string | null
+    photo3?: NullableStringFieldUpdateOperationsInput | string | null
+    photo4?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    asset?: AssetUpdateOneRequiredWithoutAssetKiesNestedInput
+    Asset?: AssetUpdateOneRequiredWithoutAssetKisNestedInput
   }
 
   export type AssetKiUncheckedUpdateWithoutKiInput = {
@@ -20117,10 +23083,10 @@ export namespace Prisma {
     projectKi?: IntFieldUpdateOperationsInput | number
     situation?: StringFieldUpdateOperationsInput | string
     photoDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    photo1?: StringFieldUpdateOperationsInput | string
-    photo2?: StringFieldUpdateOperationsInput | string
-    photo3?: StringFieldUpdateOperationsInput | string
-    photo4?: StringFieldUpdateOperationsInput | string
+    photo1?: NullableStringFieldUpdateOperationsInput | string | null
+    photo2?: NullableStringFieldUpdateOperationsInput | string | null
+    photo3?: NullableStringFieldUpdateOperationsInput | string | null
+    photo4?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -20135,10 +23101,10 @@ export namespace Prisma {
     projectKi?: IntFieldUpdateOperationsInput | number
     situation?: StringFieldUpdateOperationsInput | string
     photoDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    photo1?: StringFieldUpdateOperationsInput | string
-    photo2?: StringFieldUpdateOperationsInput | string
-    photo3?: StringFieldUpdateOperationsInput | string
-    photo4?: StringFieldUpdateOperationsInput | string
+    photo1?: NullableStringFieldUpdateOperationsInput | string | null
+    photo2?: NullableStringFieldUpdateOperationsInput | string | null
+    photo3?: NullableStringFieldUpdateOperationsInput | string | null
+    photo4?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -20187,7 +23153,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    ki?: KiUpdateOneRequiredWithoutProjectKisNestedInput
+    Ki?: KiUpdateOneRequiredWithoutProjectKisNestedInput
     ustomerFunds?: CustomerFundUpdateManyWithoutProjectKiNestedInput
   }
 
@@ -20233,7 +23199,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    assetKies?: AssetKiUpdateManyWithoutAssetNestedInput
+    AssetKis?: AssetKiUpdateManyWithoutAssetNestedInput
   }
 
   export type AssetUncheckedUpdateWithoutProjectInput = {
@@ -20247,7 +23213,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    assetKies?: AssetKiUncheckedUpdateManyWithoutAssetNestedInput
+    AssetKis?: AssetKiUncheckedUpdateManyWithoutAssetNestedInput
   }
 
   export type AssetUncheckedUpdateManyWithoutProjectInput = {
@@ -20330,7 +23296,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    customer?: CustomerUpdateOneRequiredWithoutCustomerFundsNestedInput
+    Customer?: CustomerUpdateOneRequiredWithoutCustomerFundsNestedInput
   }
 
   export type CustomerFundUncheckedUpdateWithoutProjectKiInput = {
@@ -20409,10 +23375,10 @@ export namespace Prisma {
     projectKi: number
     situation: string
     photoDate: Date | string
-    photo1: string
-    photo2: string
-    photo3: string
-    photo4: string
+    photo1?: string | null
+    photo2?: string | null
+    photo3?: string | null
+    photo4?: string | null
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -20426,17 +23392,17 @@ export namespace Prisma {
     projectKi?: IntFieldUpdateOperationsInput | number
     situation?: StringFieldUpdateOperationsInput | string
     photoDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    photo1?: StringFieldUpdateOperationsInput | string
-    photo2?: StringFieldUpdateOperationsInput | string
-    photo3?: StringFieldUpdateOperationsInput | string
-    photo4?: StringFieldUpdateOperationsInput | string
+    photo1?: NullableStringFieldUpdateOperationsInput | string | null
+    photo2?: NullableStringFieldUpdateOperationsInput | string | null
+    photo3?: NullableStringFieldUpdateOperationsInput | string | null
+    photo4?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    ki?: KiUpdateOneRequiredWithoutAssetKisNestedInput
+    Ki?: KiUpdateOneRequiredWithoutAssetKisNestedInput
   }
 
   export type AssetKiUncheckedUpdateWithoutAssetInput = {
@@ -20445,10 +23411,10 @@ export namespace Prisma {
     projectKi?: IntFieldUpdateOperationsInput | number
     situation?: StringFieldUpdateOperationsInput | string
     photoDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    photo1?: StringFieldUpdateOperationsInput | string
-    photo2?: StringFieldUpdateOperationsInput | string
-    photo3?: StringFieldUpdateOperationsInput | string
-    photo4?: StringFieldUpdateOperationsInput | string
+    photo1?: NullableStringFieldUpdateOperationsInput | string | null
+    photo2?: NullableStringFieldUpdateOperationsInput | string | null
+    photo3?: NullableStringFieldUpdateOperationsInput | string | null
+    photo4?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -20463,10 +23429,10 @@ export namespace Prisma {
     projectKi?: IntFieldUpdateOperationsInput | number
     situation?: StringFieldUpdateOperationsInput | string
     photoDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    photo1?: StringFieldUpdateOperationsInput | string
-    photo2?: StringFieldUpdateOperationsInput | string
-    photo3?: StringFieldUpdateOperationsInput | string
-    photo4?: StringFieldUpdateOperationsInput | string
+    photo1?: NullableStringFieldUpdateOperationsInput | string | null
+    photo2?: NullableStringFieldUpdateOperationsInput | string | null
+    photo3?: NullableStringFieldUpdateOperationsInput | string | null
+    photo4?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -20542,7 +23508,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    projectKi?: ProjectKiUpdateOneRequiredWithoutUstomerFundsNestedInput
+    ProjectKi?: ProjectKiUpdateOneRequiredWithoutUstomerFundsNestedInput
   }
 
   export type CustomerFundUncheckedUpdateWithoutCustomerInput = {
@@ -20684,6 +23650,14 @@ export namespace Prisma {
      * @deprecated Use CustomerFundDefaultArgs instead
      */
     export type CustomerFundArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = CustomerFundDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use TemplateDefaultArgs instead
+     */
+    export type TemplateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TemplateDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use TemplateHistoryDefaultArgs instead
+     */
+    export type TemplateHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TemplateHistoryDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

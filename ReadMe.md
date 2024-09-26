@@ -18,6 +18,6 @@ https://github.com/three-is-capital/fudosan-koguchi-types
 1. Tag を切る
 
    ```sh
-   git tag -a v0.2.0 -m "Update database"
-   git push origin v0.2.0
+   git tag -a v0.3.0 -m "Refactoring database"
+   git push origin v0.3.0
    ```
