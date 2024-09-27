@@ -2037,11 +2037,11 @@ export namespace Prisma {
    */
 
   export type ProjectKiCountOutputType = {
-    ustomerFunds: number
+    CustomerFunds: number
   }
 
   export type ProjectKiCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    ustomerFunds?: boolean | ProjectKiCountOutputTypeCountUstomerFundsArgs
+    CustomerFunds?: boolean | ProjectKiCountOutputTypeCountCustomerFundsArgs
   }
 
   // Custom InputTypes
@@ -2058,7 +2058,7 @@ export namespace Prisma {
   /**
    * ProjectKiCountOutputType without action
    */
-  export type ProjectKiCountOutputTypeCountUstomerFundsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProjectKiCountOutputTypeCountCustomerFundsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: CustomerFundWhereInput
   }
 
@@ -8575,7 +8575,7 @@ export namespace Prisma {
     updatedBy?: boolean
     Project?: boolean | ProjectDefaultArgs<ExtArgs>
     Ki?: boolean | KiDefaultArgs<ExtArgs>
-    ustomerFunds?: boolean | ProjectKi$ustomerFundsArgs<ExtArgs>
+    CustomerFunds?: boolean | ProjectKi$CustomerFundsArgs<ExtArgs>
     _count?: boolean | ProjectKiCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["projectKi"]>
 
@@ -8616,7 +8616,7 @@ export namespace Prisma {
   export type ProjectKiInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Project?: boolean | ProjectDefaultArgs<ExtArgs>
     Ki?: boolean | KiDefaultArgs<ExtArgs>
-    ustomerFunds?: boolean | ProjectKi$ustomerFundsArgs<ExtArgs>
+    CustomerFunds?: boolean | ProjectKi$CustomerFundsArgs<ExtArgs>
     _count?: boolean | ProjectKiCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ProjectKiIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -8629,7 +8629,7 @@ export namespace Prisma {
     objects: {
       Project: Prisma.$ProjectPayload<ExtArgs>
       Ki: Prisma.$KiPayload<ExtArgs>
-      ustomerFunds: Prisma.$CustomerFundPayload<ExtArgs>[]
+      CustomerFunds: Prisma.$CustomerFundPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -9011,7 +9011,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     Project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
     Ki<T extends KiDefaultArgs<ExtArgs> = {}>(args?: Subset<T, KiDefaultArgs<ExtArgs>>): Prisma__KiClient<$Result.GetResult<Prisma.$KiPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
-    ustomerFunds<T extends ProjectKi$ustomerFundsArgs<ExtArgs> = {}>(args?: Subset<T, ProjectKi$ustomerFundsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerFundPayload<ExtArgs>, T, "findMany"> | Null>
+    CustomerFunds<T extends ProjectKi$CustomerFundsArgs<ExtArgs> = {}>(args?: Subset<T, ProjectKi$CustomerFundsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerFundPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -9372,9 +9372,9 @@ export namespace Prisma {
   }
 
   /**
-   * ProjectKi.ustomerFunds
+   * ProjectKi.CustomerFunds
    */
-  export type ProjectKi$ustomerFundsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ProjectKi$CustomerFundsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Select specific fields to fetch from the CustomerFund
      */
@@ -17197,7 +17197,7 @@ export namespace Prisma {
     updatedBy?: StringFilter<"ProjectKi"> | string
     Project?: XOR<ProjectRelationFilter, ProjectWhereInput>
     Ki?: XOR<KiRelationFilter, KiWhereInput>
-    ustomerFunds?: CustomerFundListRelationFilter
+    CustomerFunds?: CustomerFundListRelationFilter
   }
 
   export type ProjectKiOrderByWithRelationInput = {
@@ -17216,7 +17216,7 @@ export namespace Prisma {
     updatedBy?: SortOrder
     Project?: ProjectOrderByWithRelationInput
     Ki?: KiOrderByWithRelationInput
-    ustomerFunds?: CustomerFundOrderByRelationAggregateInput
+    CustomerFunds?: CustomerFundOrderByRelationAggregateInput
   }
 
   export type ProjectKiWhereUniqueInput = Prisma.AtLeast<{
@@ -17240,7 +17240,7 @@ export namespace Prisma {
     updatedBy?: StringFilter<"ProjectKi"> | string
     Project?: XOR<ProjectRelationFilter, ProjectWhereInput>
     Ki?: XOR<KiRelationFilter, KiWhereInput>
-    ustomerFunds?: CustomerFundListRelationFilter
+    CustomerFunds?: CustomerFundListRelationFilter
   }, "id" | "project_ki_identifier" | "project_prj_ki_identifier">
 
   export type ProjectKiOrderByWithAggregationInput = {
@@ -18652,7 +18652,7 @@ export namespace Prisma {
     updatedBy: string
     Project: ProjectCreateNestedOneWithoutProjectKisInput
     Ki: KiCreateNestedOneWithoutProjectKisInput
-    ustomerFunds?: CustomerFundCreateNestedManyWithoutProjectKiInput
+    CustomerFunds?: CustomerFundCreateNestedManyWithoutProjectKiInput
   }
 
   export type ProjectKiUncheckedCreateInput = {
@@ -18669,7 +18669,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    ustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutProjectKiInput
+    CustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutProjectKiInput
   }
 
   export type ProjectKiUpdateInput = {
@@ -18686,7 +18686,7 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
     Project?: ProjectUpdateOneRequiredWithoutProjectKisNestedInput
     Ki?: KiUpdateOneRequiredWithoutProjectKisNestedInput
-    ustomerFunds?: CustomerFundUpdateManyWithoutProjectKiNestedInput
+    CustomerFunds?: CustomerFundUpdateManyWithoutProjectKiNestedInput
   }
 
   export type ProjectKiUncheckedUpdateInput = {
@@ -18703,7 +18703,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    ustomerFunds?: CustomerFundUncheckedUpdateManyWithoutProjectKiNestedInput
+    CustomerFunds?: CustomerFundUncheckedUpdateManyWithoutProjectKiNestedInput
   }
 
   export type ProjectKiCreateManyInput = {
@@ -19189,7 +19189,7 @@ export namespace Prisma {
     updatedId: number
     updatedBy: string
     Customer: CustomerCreateNestedOneWithoutCustomerFundsInput
-    ProjectKi: ProjectKiCreateNestedOneWithoutUstomerFundsInput
+    ProjectKi: ProjectKiCreateNestedOneWithoutCustomerFundsInput
   }
 
   export type CustomerFundUncheckedCreateInput = {
@@ -19261,7 +19261,7 @@ export namespace Prisma {
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
     Customer?: CustomerUpdateOneRequiredWithoutCustomerFundsNestedInput
-    ProjectKi?: ProjectKiUpdateOneRequiredWithoutUstomerFundsNestedInput
+    ProjectKi?: ProjectKiUpdateOneRequiredWithoutCustomerFundsNestedInput
   }
 
   export type CustomerFundUncheckedUpdateInput = {
@@ -21363,9 +21363,9 @@ export namespace Prisma {
     connect?: CustomerWhereUniqueInput
   }
 
-  export type ProjectKiCreateNestedOneWithoutUstomerFundsInput = {
-    create?: XOR<ProjectKiCreateWithoutUstomerFundsInput, ProjectKiUncheckedCreateWithoutUstomerFundsInput>
-    connectOrCreate?: ProjectKiCreateOrConnectWithoutUstomerFundsInput
+  export type ProjectKiCreateNestedOneWithoutCustomerFundsInput = {
+    create?: XOR<ProjectKiCreateWithoutCustomerFundsInput, ProjectKiUncheckedCreateWithoutCustomerFundsInput>
+    connectOrCreate?: ProjectKiCreateOrConnectWithoutCustomerFundsInput
     connect?: ProjectKiWhereUniqueInput
   }
 
@@ -21389,12 +21389,12 @@ export namespace Prisma {
     update?: XOR<XOR<CustomerUpdateToOneWithWhereWithoutCustomerFundsInput, CustomerUpdateWithoutCustomerFundsInput>, CustomerUncheckedUpdateWithoutCustomerFundsInput>
   }
 
-  export type ProjectKiUpdateOneRequiredWithoutUstomerFundsNestedInput = {
-    create?: XOR<ProjectKiCreateWithoutUstomerFundsInput, ProjectKiUncheckedCreateWithoutUstomerFundsInput>
-    connectOrCreate?: ProjectKiCreateOrConnectWithoutUstomerFundsInput
-    upsert?: ProjectKiUpsertWithoutUstomerFundsInput
+  export type ProjectKiUpdateOneRequiredWithoutCustomerFundsNestedInput = {
+    create?: XOR<ProjectKiCreateWithoutCustomerFundsInput, ProjectKiUncheckedCreateWithoutCustomerFundsInput>
+    connectOrCreate?: ProjectKiCreateOrConnectWithoutCustomerFundsInput
+    upsert?: ProjectKiUpsertWithoutCustomerFundsInput
     connect?: ProjectKiWhereUniqueInput
-    update?: XOR<XOR<ProjectKiUpdateToOneWithWhereWithoutUstomerFundsInput, ProjectKiUpdateWithoutUstomerFundsInput>, ProjectKiUncheckedUpdateWithoutUstomerFundsInput>
+    update?: XOR<XOR<ProjectKiUpdateToOneWithWhereWithoutCustomerFundsInput, ProjectKiUpdateWithoutCustomerFundsInput>, ProjectKiUncheckedUpdateWithoutCustomerFundsInput>
   }
 
   export type EnumExtTypeFieldUpdateOperationsInput = {
@@ -21785,7 +21785,7 @@ export namespace Prisma {
     updatedId: number
     updatedBy: string
     Project: ProjectCreateNestedOneWithoutProjectKisInput
-    ustomerFunds?: CustomerFundCreateNestedManyWithoutProjectKiInput
+    CustomerFunds?: CustomerFundCreateNestedManyWithoutProjectKiInput
   }
 
   export type ProjectKiUncheckedCreateWithoutKiInput = {
@@ -21801,7 +21801,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    ustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutProjectKiInput
+    CustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutProjectKiInput
   }
 
   export type ProjectKiCreateOrConnectWithoutKiInput = {
@@ -21946,7 +21946,7 @@ export namespace Prisma {
     updatedId: number
     updatedBy: string
     Ki: KiCreateNestedOneWithoutProjectKisInput
-    ustomerFunds?: CustomerFundCreateNestedManyWithoutProjectKiInput
+    CustomerFunds?: CustomerFundCreateNestedManyWithoutProjectKiInput
   }
 
   export type ProjectKiUncheckedCreateWithoutProjectInput = {
@@ -21962,7 +21962,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    ustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutProjectKiInput
+    CustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutProjectKiInput
   }
 
   export type ProjectKiCreateOrConnectWithoutProjectInput = {
@@ -22723,7 +22723,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: number
     updatedBy: string
-    ProjectKi: ProjectKiCreateNestedOneWithoutUstomerFundsInput
+    ProjectKi: ProjectKiCreateNestedOneWithoutCustomerFundsInput
   }
 
   export type CustomerFundUncheckedCreateWithoutCustomerInput = {
@@ -22840,7 +22840,7 @@ export namespace Prisma {
     create: XOR<CustomerCreateWithoutCustomerFundsInput, CustomerUncheckedCreateWithoutCustomerFundsInput>
   }
 
-  export type ProjectKiCreateWithoutUstomerFundsInput = {
+  export type ProjectKiCreateWithoutCustomerFundsInput = {
     id?: string
     projectKi: number
     paymentDate: Date | string
@@ -22856,7 +22856,7 @@ export namespace Prisma {
     Ki: KiCreateNestedOneWithoutProjectKisInput
   }
 
-  export type ProjectKiUncheckedCreateWithoutUstomerFundsInput = {
+  export type ProjectKiUncheckedCreateWithoutCustomerFundsInput = {
     id?: string
     projectId: string
     kiId: string
@@ -22872,9 +22872,9 @@ export namespace Prisma {
     updatedBy: string
   }
 
-  export type ProjectKiCreateOrConnectWithoutUstomerFundsInput = {
+  export type ProjectKiCreateOrConnectWithoutCustomerFundsInput = {
     where: ProjectKiWhereUniqueInput
-    create: XOR<ProjectKiCreateWithoutUstomerFundsInput, ProjectKiUncheckedCreateWithoutUstomerFundsInput>
+    create: XOR<ProjectKiCreateWithoutCustomerFundsInput, ProjectKiUncheckedCreateWithoutCustomerFundsInput>
   }
 
   export type CustomerUpsertWithoutCustomerFundsInput = {
@@ -22936,18 +22936,18 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
-  export type ProjectKiUpsertWithoutUstomerFundsInput = {
-    update: XOR<ProjectKiUpdateWithoutUstomerFundsInput, ProjectKiUncheckedUpdateWithoutUstomerFundsInput>
-    create: XOR<ProjectKiCreateWithoutUstomerFundsInput, ProjectKiUncheckedCreateWithoutUstomerFundsInput>
+  export type ProjectKiUpsertWithoutCustomerFundsInput = {
+    update: XOR<ProjectKiUpdateWithoutCustomerFundsInput, ProjectKiUncheckedUpdateWithoutCustomerFundsInput>
+    create: XOR<ProjectKiCreateWithoutCustomerFundsInput, ProjectKiUncheckedCreateWithoutCustomerFundsInput>
     where?: ProjectKiWhereInput
   }
 
-  export type ProjectKiUpdateToOneWithWhereWithoutUstomerFundsInput = {
+  export type ProjectKiUpdateToOneWithWhereWithoutCustomerFundsInput = {
     where?: ProjectKiWhereInput
-    data: XOR<ProjectKiUpdateWithoutUstomerFundsInput, ProjectKiUncheckedUpdateWithoutUstomerFundsInput>
+    data: XOR<ProjectKiUpdateWithoutCustomerFundsInput, ProjectKiUncheckedUpdateWithoutCustomerFundsInput>
   }
 
-  export type ProjectKiUpdateWithoutUstomerFundsInput = {
+  export type ProjectKiUpdateWithoutCustomerFundsInput = {
     id?: StringFieldUpdateOperationsInput | string
     projectKi?: IntFieldUpdateOperationsInput | number
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -22963,7 +22963,7 @@ export namespace Prisma {
     Ki?: KiUpdateOneRequiredWithoutProjectKisNestedInput
   }
 
-  export type ProjectKiUncheckedUpdateWithoutUstomerFundsInput = {
+  export type ProjectKiUncheckedUpdateWithoutCustomerFundsInput = {
     id?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
     kiId?: StringFieldUpdateOperationsInput | string
@@ -23025,7 +23025,7 @@ export namespace Prisma {
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
     Project?: ProjectUpdateOneRequiredWithoutProjectKisNestedInput
-    ustomerFunds?: CustomerFundUpdateManyWithoutProjectKiNestedInput
+    CustomerFunds?: CustomerFundUpdateManyWithoutProjectKiNestedInput
   }
 
   export type ProjectKiUncheckedUpdateWithoutKiInput = {
@@ -23041,7 +23041,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    ustomerFunds?: CustomerFundUncheckedUpdateManyWithoutProjectKiNestedInput
+    CustomerFunds?: CustomerFundUncheckedUpdateManyWithoutProjectKiNestedInput
   }
 
   export type ProjectKiUncheckedUpdateManyWithoutKiInput = {
@@ -23154,7 +23154,7 @@ export namespace Prisma {
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
     Ki?: KiUpdateOneRequiredWithoutProjectKisNestedInput
-    ustomerFunds?: CustomerFundUpdateManyWithoutProjectKiNestedInput
+    CustomerFunds?: CustomerFundUpdateManyWithoutProjectKiNestedInput
   }
 
   export type ProjectKiUncheckedUpdateWithoutProjectInput = {
@@ -23170,7 +23170,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    ustomerFunds?: CustomerFundUncheckedUpdateManyWithoutProjectKiNestedInput
+    CustomerFunds?: CustomerFundUncheckedUpdateManyWithoutProjectKiNestedInput
   }
 
   export type ProjectKiUncheckedUpdateManyWithoutProjectInput = {
@@ -23508,7 +23508,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: IntFieldUpdateOperationsInput | number
     updatedBy?: StringFieldUpdateOperationsInput | string
-    ProjectKi?: ProjectKiUpdateOneRequiredWithoutUstomerFundsNestedInput
+    ProjectKi?: ProjectKiUpdateOneRequiredWithoutCustomerFundsNestedInput
   }
 
   export type CustomerFundUncheckedUpdateWithoutCustomerInput = {
