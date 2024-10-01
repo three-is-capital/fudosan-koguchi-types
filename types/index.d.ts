@@ -108,6 +108,14 @@ export const CustomerType: {
 export type CustomerType = (typeof CustomerType)[keyof typeof CustomerType]
 
 
+export const HoryuStatusType: {
+  AskInstruction: 'AskInstruction',
+  InstructionReady: 'InstructionReady'
+};
+
+export type HoryuStatusType = (typeof HoryuStatusType)[keyof typeof HoryuStatusType]
+
+
 export const InheritanceType: {
   Gift: 'Gift',
   Inheritance: 'Inheritance'
@@ -150,6 +158,10 @@ export const UserType: typeof $Enums.UserType
 export type CustomerType = $Enums.CustomerType
 
 export const CustomerType: typeof $Enums.CustomerType
+
+export type HoryuStatusType = $Enums.HoryuStatusType
+
+export const HoryuStatusType: typeof $Enums.HoryuStatusType
 
 export type InheritanceType = $Enums.InheritanceType
 
@@ -446,6 +458,8 @@ export namespace Prisma {
   export import raw = runtime.raw
   export import Sql = runtime.Sql
 
+
+
   /**
    * Decimal.js
    */
@@ -472,8 +486,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 5.19.1
-   * Query Engine version: 69d742ee20b815d88e17e54db4a2a7a3b30324e3
+   * Prisma Client JS version: 5.20.0
+   * Query Engine version: 06fc58a368dc7be9fbbbe894adf8d445d208c284
    */
   export type PrismaVersion = {
     client: string
@@ -11618,6 +11632,7 @@ export namespace Prisma {
     nameFurigana: string | null
     birthday: Date | null
     customerType: $Enums.CustomerType | null
+    horyuStatus: $Enums.HoryuStatusType | null
     invoice: boolean | null
     postName: string | null
     zip: string | null
@@ -11642,6 +11657,7 @@ export namespace Prisma {
     nameFurigana: string | null
     birthday: Date | null
     customerType: $Enums.CustomerType | null
+    horyuStatus: $Enums.HoryuStatusType | null
     invoice: boolean | null
     postName: string | null
     zip: string | null
@@ -11666,6 +11682,7 @@ export namespace Prisma {
     nameFurigana: number
     birthday: number
     customerType: number
+    horyuStatus: number
     invoice: number
     postName: number
     zip: number
@@ -11702,6 +11719,7 @@ export namespace Prisma {
     nameFurigana?: true
     birthday?: true
     customerType?: true
+    horyuStatus?: true
     invoice?: true
     postName?: true
     zip?: true
@@ -11726,6 +11744,7 @@ export namespace Prisma {
     nameFurigana?: true
     birthday?: true
     customerType?: true
+    horyuStatus?: true
     invoice?: true
     postName?: true
     zip?: true
@@ -11750,6 +11769,7 @@ export namespace Prisma {
     nameFurigana?: true
     birthday?: true
     customerType?: true
+    horyuStatus?: true
     invoice?: true
     postName?: true
     zip?: true
@@ -11861,6 +11881,7 @@ export namespace Prisma {
     nameFurigana: string
     birthday: Date | null
     customerType: $Enums.CustomerType
+    horyuStatus: $Enums.HoryuStatusType | null
     invoice: boolean
     postName: string
     zip: string
@@ -11904,6 +11925,7 @@ export namespace Prisma {
     nameFurigana?: boolean
     birthday?: boolean
     customerType?: boolean
+    horyuStatus?: boolean
     invoice?: boolean
     postName?: boolean
     zip?: boolean
@@ -11930,6 +11952,7 @@ export namespace Prisma {
     nameFurigana?: boolean
     birthday?: boolean
     customerType?: boolean
+    horyuStatus?: boolean
     invoice?: boolean
     postName?: boolean
     zip?: boolean
@@ -11954,6 +11977,7 @@ export namespace Prisma {
     nameFurigana?: boolean
     birthday?: boolean
     customerType?: boolean
+    horyuStatus?: boolean
     invoice?: boolean
     postName?: boolean
     zip?: boolean
@@ -11989,6 +12013,7 @@ export namespace Prisma {
       nameFurigana: string
       birthday: Date | null
       customerType: $Enums.CustomerType
+      horyuStatus: $Enums.HoryuStatusType | null
       invoice: boolean
       postName: string
       zip: string
@@ -12404,6 +12429,7 @@ export namespace Prisma {
     readonly nameFurigana: FieldRef<"Customer", 'String'>
     readonly birthday: FieldRef<"Customer", 'DateTime'>
     readonly customerType: FieldRef<"Customer", 'CustomerType'>
+    readonly horyuStatus: FieldRef<"Customer", 'HoryuStatusType'>
     readonly invoice: FieldRef<"Customer", 'Boolean'>
     readonly postName: FieldRef<"Customer", 'String'>
     readonly zip: FieldRef<"Customer", 'String'>
@@ -12834,8 +12860,11 @@ export namespace Prisma {
     otherBunpaiThisKi: number | null
     otherBunpaiYear: number | null
     otherBunpaiTotal: number | null
+    instructionDueDate: Date | null
+    paymentDueDate: Date | null
     paymentDate: Date | null
     holdPayment: boolean | null
+    holdMemo: string | null
     createdAt: Date | null
     createdId: number | null
     createdBy: string | null
@@ -12870,8 +12899,11 @@ export namespace Prisma {
     otherBunpaiThisKi: number | null
     otherBunpaiYear: number | null
     otherBunpaiTotal: number | null
+    instructionDueDate: Date | null
+    paymentDueDate: Date | null
     paymentDate: Date | null
     holdPayment: boolean | null
+    holdMemo: string | null
     createdAt: Date | null
     createdId: number | null
     createdBy: string | null
@@ -12906,8 +12938,11 @@ export namespace Prisma {
     otherBunpaiThisKi: number
     otherBunpaiYear: number
     otherBunpaiTotal: number
+    instructionDueDate: number
+    paymentDueDate: number
     paymentDate: number
     holdPayment: number
+    holdMemo: number
     createdAt: number
     createdId: number
     createdBy: number
@@ -12974,8 +13009,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: true
     otherBunpaiYear?: true
     otherBunpaiTotal?: true
+    instructionDueDate?: true
+    paymentDueDate?: true
     paymentDate?: true
     holdPayment?: true
+    holdMemo?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -13010,8 +13048,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: true
     otherBunpaiYear?: true
     otherBunpaiTotal?: true
+    instructionDueDate?: true
+    paymentDueDate?: true
     paymentDate?: true
     holdPayment?: true
+    holdMemo?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -13046,8 +13087,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: true
     otherBunpaiYear?: true
     otherBunpaiTotal?: true
+    instructionDueDate?: true
+    paymentDueDate?: true
     paymentDate?: true
     holdPayment?: true
+    holdMemo?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -13169,8 +13213,11 @@ export namespace Prisma {
     otherBunpaiThisKi: number | null
     otherBunpaiYear: number | null
     otherBunpaiTotal: number | null
+    instructionDueDate: Date | null
+    paymentDueDate: Date | null
     paymentDate: Date | null
     holdPayment: boolean
+    holdMemo: string | null
     createdAt: Date
     createdId: number
     createdBy: string
@@ -13224,8 +13271,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: boolean
     otherBunpaiYear?: boolean
     otherBunpaiTotal?: boolean
+    instructionDueDate?: boolean
+    paymentDueDate?: boolean
     paymentDate?: boolean
     holdPayment?: boolean
+    holdMemo?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -13262,8 +13312,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: boolean
     otherBunpaiYear?: boolean
     otherBunpaiTotal?: boolean
+    instructionDueDate?: boolean
+    paymentDueDate?: boolean
     paymentDate?: boolean
     holdPayment?: boolean
+    holdMemo?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -13300,8 +13353,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: boolean
     otherBunpaiYear?: boolean
     otherBunpaiTotal?: boolean
+    instructionDueDate?: boolean
+    paymentDueDate?: boolean
     paymentDate?: boolean
     holdPayment?: boolean
+    holdMemo?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -13351,8 +13407,11 @@ export namespace Prisma {
       otherBunpaiThisKi: number | null
       otherBunpaiYear: number | null
       otherBunpaiTotal: number | null
+      instructionDueDate: Date | null
+      paymentDueDate: Date | null
       paymentDate: Date | null
       holdPayment: boolean
+      holdMemo: string | null
       createdAt: Date
       createdId: number
       createdBy: string
@@ -13779,8 +13838,11 @@ export namespace Prisma {
     readonly otherBunpaiThisKi: FieldRef<"CustomerFund", 'Int'>
     readonly otherBunpaiYear: FieldRef<"CustomerFund", 'Int'>
     readonly otherBunpaiTotal: FieldRef<"CustomerFund", 'Int'>
+    readonly instructionDueDate: FieldRef<"CustomerFund", 'DateTime'>
+    readonly paymentDueDate: FieldRef<"CustomerFund", 'DateTime'>
     readonly paymentDate: FieldRef<"CustomerFund", 'DateTime'>
     readonly holdPayment: FieldRef<"CustomerFund", 'Boolean'>
+    readonly holdMemo: FieldRef<"CustomerFund", 'String'>
     readonly createdAt: FieldRef<"CustomerFund", 'DateTime'>
     readonly createdId: FieldRef<"CustomerFund", 'Int'>
     readonly createdBy: FieldRef<"CustomerFund", 'String'>
@@ -16341,6 +16403,7 @@ export namespace Prisma {
     nameFurigana: 'nameFurigana',
     birthday: 'birthday',
     customerType: 'customerType',
+    horyuStatus: 'horyuStatus',
     invoice: 'invoice',
     postName: 'postName',
     zip: 'zip',
@@ -16386,8 +16449,11 @@ export namespace Prisma {
     otherBunpaiThisKi: 'otherBunpaiThisKi',
     otherBunpaiYear: 'otherBunpaiYear',
     otherBunpaiTotal: 'otherBunpaiTotal',
+    instructionDueDate: 'instructionDueDate',
+    paymentDueDate: 'paymentDueDate',
     paymentDate: 'paymentDate',
     holdPayment: 'holdPayment',
+    holdMemo: 'holdMemo',
     createdAt: 'createdAt',
     createdId: 'createdId',
     createdBy: 'createdBy',
@@ -16582,6 +16648,20 @@ export namespace Prisma {
    * Reference to a field of type 'CustomerType[]'
    */
   export type ListEnumCustomerTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CustomerType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'HoryuStatusType'
+   */
+  export type EnumHoryuStatusTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'HoryuStatusType'>
+    
+
+
+  /**
+   * Reference to a field of type 'HoryuStatusType[]'
+   */
+  export type ListEnumHoryuStatusTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'HoryuStatusType[]'>
     
 
 
@@ -17500,6 +17580,7 @@ export namespace Prisma {
     nameFurigana?: StringFilter<"Customer"> | string
     birthday?: DateTimeNullableFilter<"Customer"> | Date | string | null
     customerType?: EnumCustomerTypeFilter<"Customer"> | $Enums.CustomerType
+    horyuStatus?: EnumHoryuStatusTypeNullableFilter<"Customer"> | $Enums.HoryuStatusType | null
     invoice?: BoolFilter<"Customer"> | boolean
     postName?: StringFilter<"Customer"> | string
     zip?: StringFilter<"Customer"> | string
@@ -17525,6 +17606,7 @@ export namespace Prisma {
     nameFurigana?: SortOrder
     birthday?: SortOrderInput | SortOrder
     customerType?: SortOrder
+    horyuStatus?: SortOrderInput | SortOrder
     invoice?: SortOrder
     postName?: SortOrder
     zip?: SortOrder
@@ -17553,6 +17635,7 @@ export namespace Prisma {
     nameFurigana?: StringFilter<"Customer"> | string
     birthday?: DateTimeNullableFilter<"Customer"> | Date | string | null
     customerType?: EnumCustomerTypeFilter<"Customer"> | $Enums.CustomerType
+    horyuStatus?: EnumHoryuStatusTypeNullableFilter<"Customer"> | $Enums.HoryuStatusType | null
     invoice?: BoolFilter<"Customer"> | boolean
     postName?: StringFilter<"Customer"> | string
     zip?: StringFilter<"Customer"> | string
@@ -17578,6 +17661,7 @@ export namespace Prisma {
     nameFurigana?: SortOrder
     birthday?: SortOrderInput | SortOrder
     customerType?: SortOrder
+    horyuStatus?: SortOrderInput | SortOrder
     invoice?: SortOrder
     postName?: SortOrder
     zip?: SortOrder
@@ -17610,6 +17694,7 @@ export namespace Prisma {
     nameFurigana?: StringWithAggregatesFilter<"Customer"> | string
     birthday?: DateTimeNullableWithAggregatesFilter<"Customer"> | Date | string | null
     customerType?: EnumCustomerTypeWithAggregatesFilter<"Customer"> | $Enums.CustomerType
+    horyuStatus?: EnumHoryuStatusTypeNullableWithAggregatesFilter<"Customer"> | $Enums.HoryuStatusType | null
     invoice?: BoolWithAggregatesFilter<"Customer"> | boolean
     postName?: StringWithAggregatesFilter<"Customer"> | string
     zip?: StringWithAggregatesFilter<"Customer"> | string
@@ -17655,8 +17740,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: IntNullableFilter<"CustomerFund"> | number | null
     otherBunpaiYear?: IntNullableFilter<"CustomerFund"> | number | null
     otherBunpaiTotal?: IntNullableFilter<"CustomerFund"> | number | null
+    instructionDueDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
+    paymentDueDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
     paymentDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
     holdPayment?: BoolFilter<"CustomerFund"> | boolean
+    holdMemo?: StringNullableFilter<"CustomerFund"> | string | null
     createdAt?: DateTimeFilter<"CustomerFund"> | Date | string
     createdId?: IntFilter<"CustomerFund"> | number
     createdBy?: StringFilter<"CustomerFund"> | string
@@ -17693,8 +17781,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: SortOrderInput | SortOrder
     otherBunpaiYear?: SortOrderInput | SortOrder
     otherBunpaiTotal?: SortOrderInput | SortOrder
+    instructionDueDate?: SortOrderInput | SortOrder
+    paymentDueDate?: SortOrderInput | SortOrder
     paymentDate?: SortOrderInput | SortOrder
     holdPayment?: SortOrder
+    holdMemo?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -17735,8 +17826,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: IntNullableFilter<"CustomerFund"> | number | null
     otherBunpaiYear?: IntNullableFilter<"CustomerFund"> | number | null
     otherBunpaiTotal?: IntNullableFilter<"CustomerFund"> | number | null
+    instructionDueDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
+    paymentDueDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
     paymentDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
     holdPayment?: BoolFilter<"CustomerFund"> | boolean
+    holdMemo?: StringNullableFilter<"CustomerFund"> | string | null
     createdAt?: DateTimeFilter<"CustomerFund"> | Date | string
     createdId?: IntFilter<"CustomerFund"> | number
     createdBy?: StringFilter<"CustomerFund"> | string
@@ -17773,8 +17867,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: SortOrderInput | SortOrder
     otherBunpaiYear?: SortOrderInput | SortOrder
     otherBunpaiTotal?: SortOrderInput | SortOrder
+    instructionDueDate?: SortOrderInput | SortOrder
+    paymentDueDate?: SortOrderInput | SortOrder
     paymentDate?: SortOrderInput | SortOrder
     holdPayment?: SortOrder
+    holdMemo?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -17817,8 +17914,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: IntNullableWithAggregatesFilter<"CustomerFund"> | number | null
     otherBunpaiYear?: IntNullableWithAggregatesFilter<"CustomerFund"> | number | null
     otherBunpaiTotal?: IntNullableWithAggregatesFilter<"CustomerFund"> | number | null
+    instructionDueDate?: DateTimeNullableWithAggregatesFilter<"CustomerFund"> | Date | string | null
+    paymentDueDate?: DateTimeNullableWithAggregatesFilter<"CustomerFund"> | Date | string | null
     paymentDate?: DateTimeNullableWithAggregatesFilter<"CustomerFund"> | Date | string | null
     holdPayment?: BoolWithAggregatesFilter<"CustomerFund"> | boolean
+    holdMemo?: StringNullableWithAggregatesFilter<"CustomerFund"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"CustomerFund"> | Date | string
     createdId?: IntWithAggregatesFilter<"CustomerFund"> | number
     createdBy?: StringWithAggregatesFilter<"CustomerFund"> | string
@@ -18992,6 +19092,7 @@ export namespace Prisma {
     nameFurigana: string
     birthday?: Date | string | null
     customerType?: $Enums.CustomerType
+    horyuStatus?: $Enums.HoryuStatusType | null
     invoice?: boolean
     postName: string
     zip: string
@@ -19017,6 +19118,7 @@ export namespace Prisma {
     nameFurigana: string
     birthday?: Date | string | null
     customerType?: $Enums.CustomerType
+    horyuStatus?: $Enums.HoryuStatusType | null
     invoice?: boolean
     postName: string
     zip: string
@@ -19042,6 +19144,7 @@ export namespace Prisma {
     nameFurigana?: StringFieldUpdateOperationsInput | string
     birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
+    horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
     invoice?: BoolFieldUpdateOperationsInput | boolean
     postName?: StringFieldUpdateOperationsInput | string
     zip?: StringFieldUpdateOperationsInput | string
@@ -19067,6 +19170,7 @@ export namespace Prisma {
     nameFurigana?: StringFieldUpdateOperationsInput | string
     birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
+    horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
     invoice?: BoolFieldUpdateOperationsInput | boolean
     postName?: StringFieldUpdateOperationsInput | string
     zip?: StringFieldUpdateOperationsInput | string
@@ -19092,6 +19196,7 @@ export namespace Prisma {
     nameFurigana: string
     birthday?: Date | string | null
     customerType?: $Enums.CustomerType
+    horyuStatus?: $Enums.HoryuStatusType | null
     invoice?: boolean
     postName: string
     zip: string
@@ -19116,6 +19221,7 @@ export namespace Prisma {
     nameFurigana?: StringFieldUpdateOperationsInput | string
     birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
+    horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
     invoice?: BoolFieldUpdateOperationsInput | boolean
     postName?: StringFieldUpdateOperationsInput | string
     zip?: StringFieldUpdateOperationsInput | string
@@ -19140,6 +19246,7 @@ export namespace Prisma {
     nameFurigana?: StringFieldUpdateOperationsInput | string
     birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
+    horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
     invoice?: BoolFieldUpdateOperationsInput | boolean
     postName?: StringFieldUpdateOperationsInput | string
     zip?: StringFieldUpdateOperationsInput | string
@@ -19180,8 +19287,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
+    instructionDueDate?: Date | string | null
+    paymentDueDate?: Date | string | null
     paymentDate?: Date | string | null
     holdPayment?: boolean
+    holdMemo?: string | null
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -19218,8 +19328,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
+    instructionDueDate?: Date | string | null
+    paymentDueDate?: Date | string | null
     paymentDate?: Date | string | null
     holdPayment?: boolean
+    holdMemo?: string | null
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -19252,8 +19365,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -19290,8 +19406,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -19326,8 +19445,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
+    instructionDueDate?: Date | string | null
+    paymentDueDate?: Date | string | null
     paymentDate?: Date | string | null
     holdPayment?: boolean
+    holdMemo?: string | null
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -19360,8 +19482,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -19396,8 +19521,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -20461,6 +20589,13 @@ export namespace Prisma {
     not?: NestedEnumCustomerTypeFilter<$PrismaModel> | $Enums.CustomerType
   }
 
+  export type EnumHoryuStatusTypeNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.HoryuStatusType | EnumHoryuStatusTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.HoryuStatusType[] | ListEnumHoryuStatusTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.HoryuStatusType[] | ListEnumHoryuStatusTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumHoryuStatusTypeNullableFilter<$PrismaModel> | $Enums.HoryuStatusType | null
+  }
+
   export type CustomerCountOrderByAggregateInput = {
     id?: SortOrder
     sbimpId?: SortOrder
@@ -20469,6 +20604,7 @@ export namespace Prisma {
     nameFurigana?: SortOrder
     birthday?: SortOrder
     customerType?: SortOrder
+    horyuStatus?: SortOrder
     invoice?: SortOrder
     postName?: SortOrder
     zip?: SortOrder
@@ -20498,6 +20634,7 @@ export namespace Prisma {
     nameFurigana?: SortOrder
     birthday?: SortOrder
     customerType?: SortOrder
+    horyuStatus?: SortOrder
     invoice?: SortOrder
     postName?: SortOrder
     zip?: SortOrder
@@ -20522,6 +20659,7 @@ export namespace Prisma {
     nameFurigana?: SortOrder
     birthday?: SortOrder
     customerType?: SortOrder
+    horyuStatus?: SortOrder
     invoice?: SortOrder
     postName?: SortOrder
     zip?: SortOrder
@@ -20565,6 +20703,16 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumCustomerTypeFilter<$PrismaModel>
     _max?: NestedEnumCustomerTypeFilter<$PrismaModel>
+  }
+
+  export type EnumHoryuStatusTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.HoryuStatusType | EnumHoryuStatusTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.HoryuStatusType[] | ListEnumHoryuStatusTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.HoryuStatusType[] | ListEnumHoryuStatusTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumHoryuStatusTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.HoryuStatusType | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumHoryuStatusTypeNullableFilter<$PrismaModel>
+    _max?: NestedEnumHoryuStatusTypeNullableFilter<$PrismaModel>
   }
 
   export type EnumInheritanceTypeNullableFilter<$PrismaModel = never> = {
@@ -20626,8 +20774,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: SortOrder
     otherBunpaiYear?: SortOrder
     otherBunpaiTotal?: SortOrder
+    instructionDueDate?: SortOrder
+    paymentDueDate?: SortOrder
     paymentDate?: SortOrder
     holdPayment?: SortOrder
+    holdMemo?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -20677,8 +20828,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: SortOrder
     otherBunpaiYear?: SortOrder
     otherBunpaiTotal?: SortOrder
+    instructionDueDate?: SortOrder
+    paymentDueDate?: SortOrder
     paymentDate?: SortOrder
     holdPayment?: SortOrder
+    holdMemo?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -20713,8 +20867,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: SortOrder
     otherBunpaiYear?: SortOrder
     otherBunpaiTotal?: SortOrder
+    instructionDueDate?: SortOrder
+    paymentDueDate?: SortOrder
     paymentDate?: SortOrder
     holdPayment?: SortOrder
+    holdMemo?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -21329,6 +21486,10 @@ export namespace Prisma {
     set?: $Enums.CustomerType
   }
 
+  export type NullableEnumHoryuStatusTypeFieldUpdateOperationsInput = {
+    set?: $Enums.HoryuStatusType | null
+  }
+
   export type CustomerFundUpdateManyWithoutCustomerNestedInput = {
     create?: XOR<CustomerFundCreateWithoutCustomerInput, CustomerFundUncheckedCreateWithoutCustomerInput> | CustomerFundCreateWithoutCustomerInput[] | CustomerFundUncheckedCreateWithoutCustomerInput[]
     connectOrCreate?: CustomerFundCreateOrConnectWithoutCustomerInput | CustomerFundCreateOrConnectWithoutCustomerInput[]
@@ -21653,6 +21814,13 @@ export namespace Prisma {
     not?: NestedEnumCustomerTypeFilter<$PrismaModel> | $Enums.CustomerType
   }
 
+  export type NestedEnumHoryuStatusTypeNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.HoryuStatusType | EnumHoryuStatusTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.HoryuStatusType[] | ListEnumHoryuStatusTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.HoryuStatusType[] | ListEnumHoryuStatusTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumHoryuStatusTypeNullableFilter<$PrismaModel> | $Enums.HoryuStatusType | null
+  }
+
   export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -21675,6 +21843,16 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumCustomerTypeFilter<$PrismaModel>
     _max?: NestedEnumCustomerTypeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumHoryuStatusTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.HoryuStatusType | EnumHoryuStatusTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.HoryuStatusType[] | ListEnumHoryuStatusTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.HoryuStatusType[] | ListEnumHoryuStatusTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumHoryuStatusTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.HoryuStatusType | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumHoryuStatusTypeNullableFilter<$PrismaModel>
+    _max?: NestedEnumHoryuStatusTypeNullableFilter<$PrismaModel>
   }
 
   export type NestedEnumInheritanceTypeNullableFilter<$PrismaModel = never> = {
@@ -22170,8 +22348,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
+    instructionDueDate?: Date | string | null
+    paymentDueDate?: Date | string | null
     paymentDate?: Date | string | null
     holdPayment?: boolean
+    holdMemo?: string | null
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -22206,8 +22387,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
+    instructionDueDate?: Date | string | null
+    paymentDueDate?: Date | string | null
     paymentDate?: Date | string | null
     holdPayment?: boolean
+    holdMemo?: string | null
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -22367,8 +22551,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: IntNullableFilter<"CustomerFund"> | number | null
     otherBunpaiYear?: IntNullableFilter<"CustomerFund"> | number | null
     otherBunpaiTotal?: IntNullableFilter<"CustomerFund"> | number | null
+    instructionDueDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
+    paymentDueDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
     paymentDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
     holdPayment?: BoolFilter<"CustomerFund"> | boolean
+    holdMemo?: StringNullableFilter<"CustomerFund"> | string | null
     createdAt?: DateTimeFilter<"CustomerFund"> | Date | string
     createdId?: IntFilter<"CustomerFund"> | number
     createdBy?: StringFilter<"CustomerFund"> | string
@@ -22715,8 +22902,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
+    instructionDueDate?: Date | string | null
+    paymentDueDate?: Date | string | null
     paymentDate?: Date | string | null
     holdPayment?: boolean
+    holdMemo?: string | null
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -22751,8 +22941,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
+    instructionDueDate?: Date | string | null
+    paymentDueDate?: Date | string | null
     paymentDate?: Date | string | null
     holdPayment?: boolean
+    holdMemo?: string | null
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -22795,6 +22988,7 @@ export namespace Prisma {
     nameFurigana: string
     birthday?: Date | string | null
     customerType?: $Enums.CustomerType
+    horyuStatus?: $Enums.HoryuStatusType | null
     invoice?: boolean
     postName: string
     zip: string
@@ -22819,6 +23013,7 @@ export namespace Prisma {
     nameFurigana: string
     birthday?: Date | string | null
     customerType?: $Enums.CustomerType
+    horyuStatus?: $Enums.HoryuStatusType | null
     invoice?: boolean
     postName: string
     zip: string
@@ -22896,6 +23091,7 @@ export namespace Prisma {
     nameFurigana?: StringFieldUpdateOperationsInput | string
     birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
+    horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
     invoice?: BoolFieldUpdateOperationsInput | boolean
     postName?: StringFieldUpdateOperationsInput | string
     zip?: StringFieldUpdateOperationsInput | string
@@ -22920,6 +23116,7 @@ export namespace Prisma {
     nameFurigana?: StringFieldUpdateOperationsInput | string
     birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
+    horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
     invoice?: BoolFieldUpdateOperationsInput | boolean
     postName?: StringFieldUpdateOperationsInput | string
     zip?: StringFieldUpdateOperationsInput | string
@@ -23254,8 +23451,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
+    instructionDueDate?: Date | string | null
+    paymentDueDate?: Date | string | null
     paymentDate?: Date | string | null
     holdPayment?: boolean
+    holdMemo?: string | null
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -23288,8 +23488,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -23324,8 +23527,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -23359,8 +23565,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -23466,8 +23675,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
+    instructionDueDate?: Date | string | null
+    paymentDueDate?: Date | string | null
     paymentDate?: Date | string | null
     holdPayment?: boolean
+    holdMemo?: string | null
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -23500,8 +23712,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -23536,8 +23751,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -23571,8 +23789,11 @@ export namespace Prisma {
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
