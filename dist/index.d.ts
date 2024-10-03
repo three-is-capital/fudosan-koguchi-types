@@ -6063,6 +6063,7 @@ export namespace Prisma {
     id: string | null
     year: number | null
     month: number | null
+    completed: boolean | null
     createdAt: Date | null
     createdId: number | null
     createdBy: string | null
@@ -6075,6 +6076,7 @@ export namespace Prisma {
     id: string | null
     year: number | null
     month: number | null
+    completed: boolean | null
     createdAt: Date | null
     createdId: number | null
     createdBy: string | null
@@ -6087,6 +6089,7 @@ export namespace Prisma {
     id: number
     year: number
     month: number
+    completed: number
     createdAt: number
     createdId: number
     createdBy: number
@@ -6115,6 +6118,7 @@ export namespace Prisma {
     id?: true
     year?: true
     month?: true
+    completed?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -6127,6 +6131,7 @@ export namespace Prisma {
     id?: true
     year?: true
     month?: true
+    completed?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -6139,6 +6144,7 @@ export namespace Prisma {
     id?: true
     year?: true
     month?: true
+    completed?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -6238,6 +6244,7 @@ export namespace Prisma {
     id: string
     year: number
     month: number
+    completed: boolean
     createdAt: Date
     createdId: number
     createdBy: string
@@ -6269,6 +6276,7 @@ export namespace Prisma {
     id?: boolean
     year?: boolean
     month?: boolean
+    completed?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -6284,6 +6292,7 @@ export namespace Prisma {
     id?: boolean
     year?: boolean
     month?: boolean
+    completed?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -6296,6 +6305,7 @@ export namespace Prisma {
     id?: boolean
     year?: boolean
     month?: boolean
+    completed?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -6321,6 +6331,7 @@ export namespace Prisma {
       id: string
       year: number
       month: number
+      completed: boolean
       createdAt: Date
       createdId: number
       createdBy: string
@@ -6725,6 +6736,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Ki", 'String'>
     readonly year: FieldRef<"Ki", 'Int'>
     readonly month: FieldRef<"Ki", 'Int'>
+    readonly completed: FieldRef<"Ki", 'Boolean'>
     readonly createdAt: FieldRef<"Ki", 'DateTime'>
     readonly createdId: FieldRef<"Ki", 'Int'>
     readonly createdBy: FieldRef<"Ki", 'String'>
@@ -16300,6 +16312,7 @@ export namespace Prisma {
     id: 'id',
     year: 'year',
     month: 'month',
+    completed: 'completed',
     createdAt: 'createdAt',
     createdId: 'createdId',
     createdBy: 'createdBy',
@@ -17050,6 +17063,7 @@ export namespace Prisma {
     id?: StringFilter<"Ki"> | string
     year?: IntFilter<"Ki"> | number
     month?: IntFilter<"Ki"> | number
+    completed?: BoolFilter<"Ki"> | boolean
     createdAt?: DateTimeFilter<"Ki"> | Date | string
     createdId?: IntFilter<"Ki"> | number
     createdBy?: StringFilter<"Ki"> | string
@@ -17064,6 +17078,7 @@ export namespace Prisma {
     id?: SortOrder
     year?: SortOrder
     month?: SortOrder
+    completed?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -17081,6 +17096,7 @@ export namespace Prisma {
     NOT?: KiWhereInput | KiWhereInput[]
     year?: IntFilter<"Ki"> | number
     month?: IntFilter<"Ki"> | number
+    completed?: BoolFilter<"Ki"> | boolean
     createdAt?: DateTimeFilter<"Ki"> | Date | string
     createdId?: IntFilter<"Ki"> | number
     createdBy?: StringFilter<"Ki"> | string
@@ -17095,6 +17111,7 @@ export namespace Prisma {
     id?: SortOrder
     year?: SortOrder
     month?: SortOrder
+    completed?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -17115,6 +17132,7 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Ki"> | string
     year?: IntWithAggregatesFilter<"Ki"> | number
     month?: IntWithAggregatesFilter<"Ki"> | number
+    completed?: BoolWithAggregatesFilter<"Ki"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Ki"> | Date | string
     createdId?: IntWithAggregatesFilter<"Ki"> | number
     createdBy?: StringWithAggregatesFilter<"Ki"> | string
@@ -18481,6 +18499,7 @@ export namespace Prisma {
     id: string
     year: number
     month: number
+    completed?: boolean
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -18495,6 +18514,7 @@ export namespace Prisma {
     id: string
     year: number
     month: number
+    completed?: boolean
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -18509,6 +18529,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
+    completed?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -18523,6 +18544,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
+    completed?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -18537,6 +18559,7 @@ export namespace Prisma {
     id: string
     year: number
     month: number
+    completed?: boolean
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -18549,6 +18572,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
+    completed?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -18561,6 +18585,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
+    completed?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -20147,6 +20172,7 @@ export namespace Prisma {
     id?: SortOrder
     year?: SortOrder
     month?: SortOrder
+    completed?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -20166,6 +20192,7 @@ export namespace Prisma {
     id?: SortOrder
     year?: SortOrder
     month?: SortOrder
+    completed?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -20178,6 +20205,7 @@ export namespace Prisma {
     id?: SortOrder
     year?: SortOrder
     month?: SortOrder
+    completed?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -22297,6 +22325,7 @@ export namespace Prisma {
     id: string
     year: number
     month: number
+    completed?: boolean
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -22310,6 +22339,7 @@ export namespace Prisma {
     id: string
     year: number
     month: number
+    completed?: boolean
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -22484,6 +22514,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
+    completed?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -22497,6 +22528,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
+    completed?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -22775,6 +22807,7 @@ export namespace Prisma {
     id: string
     year: number
     month: number
+    completed?: boolean
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -22788,6 +22821,7 @@ export namespace Prisma {
     id: string
     year: number
     month: number
+    completed?: boolean
     createdAt?: Date | string
     createdId: number
     createdBy: string
@@ -22856,6 +22890,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
+    completed?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -22869,6 +22904,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
+    completed?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: IntFieldUpdateOperationsInput | number
     createdBy?: StringFieldUpdateOperationsInput | string
