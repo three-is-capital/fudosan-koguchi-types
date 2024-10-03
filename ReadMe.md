@@ -19,5 +19,5 @@ https://github.com/three-is-capital/fudosan-koguchi-types
 
    ```sh
    git tag -a v0.3.3 -m "Add completed in Ki"
-   git push origin v0.3.2
+   git push origin v0.3.3
    ```
