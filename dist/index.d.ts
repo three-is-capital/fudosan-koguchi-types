@@ -7151,6 +7151,7 @@ export namespace Prisma {
     id: string | null
     sbimpId: string | null
     name: string | null
+    shortName: string | null
     totalUnit: number | null
     totalAmount: bigint | null
     unitAmount: number | null
@@ -7174,6 +7175,7 @@ export namespace Prisma {
     id: string | null
     sbimpId: string | null
     name: string | null
+    shortName: string | null
     totalUnit: number | null
     totalAmount: bigint | null
     unitAmount: number | null
@@ -7197,6 +7199,7 @@ export namespace Prisma {
     id: number
     sbimpId: number
     name: number
+    shortName: number
     totalUnit: number
     totalAmount: number
     unitAmount: number
@@ -7246,6 +7249,7 @@ export namespace Prisma {
     id?: true
     sbimpId?: true
     name?: true
+    shortName?: true
     totalUnit?: true
     totalAmount?: true
     unitAmount?: true
@@ -7269,6 +7273,7 @@ export namespace Prisma {
     id?: true
     sbimpId?: true
     name?: true
+    shortName?: true
     totalUnit?: true
     totalAmount?: true
     unitAmount?: true
@@ -7292,6 +7297,7 @@ export namespace Prisma {
     id?: true
     sbimpId?: true
     name?: true
+    shortName?: true
     totalUnit?: true
     totalAmount?: true
     unitAmount?: true
@@ -7402,6 +7408,7 @@ export namespace Prisma {
     id: string
     sbimpId: string
     name: string
+    shortName: string
     totalUnit: number
     totalAmount: bigint
     unitAmount: number
@@ -7444,6 +7451,7 @@ export namespace Prisma {
     id?: boolean
     sbimpId?: boolean
     name?: boolean
+    shortName?: boolean
     totalUnit?: boolean
     totalAmount?: boolean
     unitAmount?: boolean
@@ -7470,6 +7478,7 @@ export namespace Prisma {
     id?: boolean
     sbimpId?: boolean
     name?: boolean
+    shortName?: boolean
     totalUnit?: boolean
     totalAmount?: boolean
     unitAmount?: boolean
@@ -7493,6 +7502,7 @@ export namespace Prisma {
     id?: boolean
     sbimpId?: boolean
     name?: boolean
+    shortName?: boolean
     totalUnit?: boolean
     totalAmount?: boolean
     unitAmount?: boolean
@@ -7529,6 +7539,7 @@ export namespace Prisma {
       id: string
       sbimpId: string
       name: string
+      shortName: string
       totalUnit: number
       totalAmount: bigint
       unitAmount: number
@@ -7944,6 +7955,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Project", 'String'>
     readonly sbimpId: FieldRef<"Project", 'String'>
     readonly name: FieldRef<"Project", 'String'>
+    readonly shortName: FieldRef<"Project", 'String'>
     readonly totalUnit: FieldRef<"Project", 'Int'>
     readonly totalAmount: FieldRef<"Project", 'BigInt'>
     readonly unitAmount: FieldRef<"Project", 'Int'>
@@ -16328,6 +16340,7 @@ export namespace Prisma {
     id: 'id',
     sbimpId: 'sbimpId',
     name: 'name',
+    shortName: 'shortName',
     totalUnit: 'totalUnit',
     totalAmount: 'totalAmount',
     unitAmount: 'unitAmount',
@@ -17148,6 +17161,7 @@ export namespace Prisma {
     id?: StringFilter<"Project"> | string
     sbimpId?: StringFilter<"Project"> | string
     name?: StringFilter<"Project"> | string
+    shortName?: StringFilter<"Project"> | string
     totalUnit?: IntFilter<"Project"> | number
     totalAmount?: BigIntFilter<"Project"> | bigint | number
     unitAmount?: IntFilter<"Project"> | number
@@ -17173,6 +17187,7 @@ export namespace Prisma {
     id?: SortOrder
     sbimpId?: SortOrder
     name?: SortOrder
+    shortName?: SortOrder
     totalUnit?: SortOrder
     totalAmount?: SortOrder
     unitAmount?: SortOrder
@@ -17198,6 +17213,7 @@ export namespace Prisma {
     id?: string
     sbimpId?: string
     name?: string
+    shortName?: string
     AND?: ProjectWhereInput | ProjectWhereInput[]
     OR?: ProjectWhereInput[]
     NOT?: ProjectWhereInput | ProjectWhereInput[]
@@ -17220,12 +17236,13 @@ export namespace Prisma {
     updatedBy?: StringFilter<"Project"> | string
     ProjectKis?: ProjectKiListRelationFilter
     Assets?: AssetListRelationFilter
-  }, "id" | "sbimpId" | "name">
+  }, "id" | "sbimpId" | "name" | "shortName">
 
   export type ProjectOrderByWithAggregationInput = {
     id?: SortOrder
     sbimpId?: SortOrder
     name?: SortOrder
+    shortName?: SortOrder
     totalUnit?: SortOrder
     totalAmount?: SortOrder
     unitAmount?: SortOrder
@@ -17257,6 +17274,7 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Project"> | string
     sbimpId?: StringWithAggregatesFilter<"Project"> | string
     name?: StringWithAggregatesFilter<"Project"> | string
+    shortName?: StringWithAggregatesFilter<"Project"> | string
     totalUnit?: IntWithAggregatesFilter<"Project"> | number
     totalAmount?: BigIntWithAggregatesFilter<"Project"> | bigint | number
     unitAmount?: IntWithAggregatesFilter<"Project"> | number
@@ -18598,6 +18616,7 @@ export namespace Prisma {
     id: string
     sbimpId: string
     name: string
+    shortName: string
     totalUnit: number
     totalAmount: bigint | number
     unitAmount: number
@@ -18623,6 +18642,7 @@ export namespace Prisma {
     id: string
     sbimpId: string
     name: string
+    shortName: string
     totalUnit: number
     totalAmount: bigint | number
     unitAmount: number
@@ -18648,6 +18668,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     sbimpId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    shortName?: StringFieldUpdateOperationsInput | string
     totalUnit?: IntFieldUpdateOperationsInput | number
     totalAmount?: BigIntFieldUpdateOperationsInput | bigint | number
     unitAmount?: IntFieldUpdateOperationsInput | number
@@ -18673,6 +18694,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     sbimpId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    shortName?: StringFieldUpdateOperationsInput | string
     totalUnit?: IntFieldUpdateOperationsInput | number
     totalAmount?: BigIntFieldUpdateOperationsInput | bigint | number
     unitAmount?: IntFieldUpdateOperationsInput | number
@@ -18698,6 +18720,7 @@ export namespace Prisma {
     id: string
     sbimpId: string
     name: string
+    shortName: string
     totalUnit: number
     totalAmount: bigint | number
     unitAmount: number
@@ -18721,6 +18744,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     sbimpId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    shortName?: StringFieldUpdateOperationsInput | string
     totalUnit?: IntFieldUpdateOperationsInput | number
     totalAmount?: BigIntFieldUpdateOperationsInput | bigint | number
     unitAmount?: IntFieldUpdateOperationsInput | number
@@ -18744,6 +18768,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     sbimpId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    shortName?: StringFieldUpdateOperationsInput | string
     totalUnit?: IntFieldUpdateOperationsInput | number
     totalAmount?: BigIntFieldUpdateOperationsInput | bigint | number
     unitAmount?: IntFieldUpdateOperationsInput | number
@@ -20257,6 +20282,7 @@ export namespace Prisma {
     id?: SortOrder
     sbimpId?: SortOrder
     name?: SortOrder
+    shortName?: SortOrder
     totalUnit?: SortOrder
     totalAmount?: SortOrder
     unitAmount?: SortOrder
@@ -20292,6 +20318,7 @@ export namespace Prisma {
     id?: SortOrder
     sbimpId?: SortOrder
     name?: SortOrder
+    shortName?: SortOrder
     totalUnit?: SortOrder
     totalAmount?: SortOrder
     unitAmount?: SortOrder
@@ -20315,6 +20342,7 @@ export namespace Prisma {
     id?: SortOrder
     sbimpId?: SortOrder
     name?: SortOrder
+    shortName?: SortOrder
     totalUnit?: SortOrder
     totalAmount?: SortOrder
     unitAmount?: SortOrder
@@ -22272,6 +22300,7 @@ export namespace Prisma {
     id: string
     sbimpId: string
     name: string
+    shortName: string
     totalUnit: number
     totalAmount: bigint | number
     unitAmount: number
@@ -22296,6 +22325,7 @@ export namespace Prisma {
     id: string
     sbimpId: string
     name: string
+    shortName: string
     totalUnit: number
     totalAmount: bigint | number
     unitAmount: number
@@ -22455,6 +22485,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     sbimpId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    shortName?: StringFieldUpdateOperationsInput | string
     totalUnit?: IntFieldUpdateOperationsInput | number
     totalAmount?: BigIntFieldUpdateOperationsInput | bigint | number
     unitAmount?: IntFieldUpdateOperationsInput | number
@@ -22479,6 +22510,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     sbimpId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    shortName?: StringFieldUpdateOperationsInput | string
     totalUnit?: IntFieldUpdateOperationsInput | number
     totalAmount?: BigIntFieldUpdateOperationsInput | bigint | number
     unitAmount?: IntFieldUpdateOperationsInput | number
@@ -22600,6 +22632,7 @@ export namespace Prisma {
     id: string
     sbimpId: string
     name: string
+    shortName: string
     totalUnit: number
     totalAmount: bigint | number
     unitAmount: number
@@ -22624,6 +22657,7 @@ export namespace Prisma {
     id: string
     sbimpId: string
     name: string
+    shortName: string
     totalUnit: number
     totalAmount: bigint | number
     unitAmount: number
@@ -22710,6 +22744,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     sbimpId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    shortName?: StringFieldUpdateOperationsInput | string
     totalUnit?: IntFieldUpdateOperationsInput | number
     totalAmount?: BigIntFieldUpdateOperationsInput | bigint | number
     unitAmount?: IntFieldUpdateOperationsInput | number
@@ -22734,6 +22769,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     sbimpId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    shortName?: StringFieldUpdateOperationsInput | string
     totalUnit?: IntFieldUpdateOperationsInput | number
     totalAmount?: BigIntFieldUpdateOperationsInput | bigint | number
     unitAmount?: IntFieldUpdateOperationsInput | number
