@@ -18,6 +18,6 @@ https://github.com/three-is-capital/fudosan-koguchi-types
 1. Tag を切る
 
    ```sh
-   git tag -a v0.3.4 -m "Add shortName in Project"
-   git push origin v0.3.4
+   git tag -a v0.3.5 -m "Update user related tables"
+   git push origin v0.3.5
    ```
