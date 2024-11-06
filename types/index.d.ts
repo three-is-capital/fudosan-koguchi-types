@@ -2149,20 +2149,8 @@ export namespace Prisma {
 
   export type AggregateUser = {
     _count: UserCountAggregateOutputType | null
-    _avg: UserAvgAggregateOutputType | null
-    _sum: UserSumAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
-  }
-
-  export type UserAvgAggregateOutputType = {
-    createdId: number | null
-    updatedId: number | null
-  }
-
-  export type UserSumAggregateOutputType = {
-    createdId: number | null
-    updatedId: number | null
   }
 
   export type UserMinAggregateOutputType = {
@@ -2173,10 +2161,10 @@ export namespace Prisma {
     userType: $Enums.UserType | null
     isDeleted: boolean | null
     createdAt: Date | null
-    createdId: number | null
+    createdId: string | null
     createdBy: string | null
     updatedAt: Date | null
-    updatedId: number | null
+    updatedId: string | null
     updatedBy: string | null
   }
 
@@ -2188,10 +2176,10 @@ export namespace Prisma {
     userType: $Enums.UserType | null
     isDeleted: boolean | null
     createdAt: Date | null
-    createdId: number | null
+    createdId: string | null
     createdBy: string | null
     updatedAt: Date | null
-    updatedId: number | null
+    updatedId: string | null
     updatedBy: string | null
   }
 
@@ -2211,16 +2199,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type UserAvgAggregateInputType = {
-    createdId?: true
-    updatedId?: true
-  }
-
-  export type UserSumAggregateInputType = {
-    createdId?: true
-    updatedId?: true
-  }
 
   export type UserMinAggregateInputType = {
     id?: true
@@ -2306,18 +2284,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: UserAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: UserSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: UserMinAggregateInputType
@@ -2348,8 +2314,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: UserCountAggregateInputType | true
-    _avg?: UserAvgAggregateInputType
-    _sum?: UserSumAggregateInputType
     _min?: UserMinAggregateInputType
     _max?: UserMaxAggregateInputType
   }
@@ -2362,14 +2326,12 @@ export namespace Prisma {
     userType: $Enums.UserType
     isDeleted: boolean
     createdAt: Date
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt: Date
-    updatedId: number
+    updatedId: string
     updatedBy: string
     _count: UserCountAggregateOutputType | null
-    _avg: UserAvgAggregateOutputType | null
-    _sum: UserSumAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
   }
@@ -2445,10 +2407,10 @@ export namespace Prisma {
       userType: $Enums.UserType
       isDeleted: boolean
       createdAt: Date
-      createdId: number
+      createdId: string
       createdBy: string
       updatedAt: Date
-      updatedId: number
+      updatedId: string
       updatedBy: string
     }, ExtArgs["result"]["user"]>
     composites: {}
@@ -2850,10 +2812,10 @@ export namespace Prisma {
     readonly userType: FieldRef<"User", 'UserType'>
     readonly isDeleted: FieldRef<"User", 'Boolean'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
-    readonly createdId: FieldRef<"User", 'Int'>
+    readonly createdId: FieldRef<"User", 'String'>
     readonly createdBy: FieldRef<"User", 'String'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
-    readonly updatedId: FieldRef<"User", 'Int'>
+    readonly updatedId: FieldRef<"User", 'String'>
     readonly updatedBy: FieldRef<"User", 'String'>
   }
     
@@ -3149,20 +3111,8 @@ export namespace Prisma {
 
   export type AggregateSBIMPUser = {
     _count: SBIMPUserCountAggregateOutputType | null
-    _avg: SBIMPUserAvgAggregateOutputType | null
-    _sum: SBIMPUserSumAggregateOutputType | null
     _min: SBIMPUserMinAggregateOutputType | null
     _max: SBIMPUserMaxAggregateOutputType | null
-  }
-
-  export type SBIMPUserAvgAggregateOutputType = {
-    createdId: number | null
-    updatedId: number | null
-  }
-
-  export type SBIMPUserSumAggregateOutputType = {
-    createdId: number | null
-    updatedId: number | null
   }
 
   export type SBIMPUserMinAggregateOutputType = {
@@ -3173,10 +3123,10 @@ export namespace Prisma {
     userType: $Enums.UserType | null
     isDeleted: boolean | null
     createdAt: Date | null
-    createdId: number | null
+    createdId: string | null
     createdBy: string | null
     updatedAt: Date | null
-    updatedId: number | null
+    updatedId: string | null
     updatedBy: string | null
   }
 
@@ -3188,10 +3138,10 @@ export namespace Prisma {
     userType: $Enums.UserType | null
     isDeleted: boolean | null
     createdAt: Date | null
-    createdId: number | null
+    createdId: string | null
     createdBy: string | null
     updatedAt: Date | null
-    updatedId: number | null
+    updatedId: string | null
     updatedBy: string | null
   }
 
@@ -3211,16 +3161,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type SBIMPUserAvgAggregateInputType = {
-    createdId?: true
-    updatedId?: true
-  }
-
-  export type SBIMPUserSumAggregateInputType = {
-    createdId?: true
-    updatedId?: true
-  }
 
   export type SBIMPUserMinAggregateInputType = {
     id?: true
@@ -3306,18 +3246,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: SBIMPUserAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: SBIMPUserSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: SBIMPUserMinAggregateInputType
@@ -3348,8 +3276,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: SBIMPUserCountAggregateInputType | true
-    _avg?: SBIMPUserAvgAggregateInputType
-    _sum?: SBIMPUserSumAggregateInputType
     _min?: SBIMPUserMinAggregateInputType
     _max?: SBIMPUserMaxAggregateInputType
   }
@@ -3362,14 +3288,12 @@ export namespace Prisma {
     userType: $Enums.UserType
     isDeleted: boolean
     createdAt: Date
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt: Date
-    updatedId: number
+    updatedId: string
     updatedBy: string
     _count: SBIMPUserCountAggregateOutputType | null
-    _avg: SBIMPUserAvgAggregateOutputType | null
-    _sum: SBIMPUserSumAggregateOutputType | null
     _min: SBIMPUserMinAggregateOutputType | null
     _max: SBIMPUserMaxAggregateOutputType | null
   }
@@ -3445,10 +3369,10 @@ export namespace Prisma {
       userType: $Enums.UserType
       isDeleted: boolean
       createdAt: Date
-      createdId: number
+      createdId: string
       createdBy: string
       updatedAt: Date
-      updatedId: number
+      updatedId: string
       updatedBy: string
     }, ExtArgs["result"]["sBIMPUser"]>
     composites: {}
@@ -3850,10 +3774,10 @@ export namespace Prisma {
     readonly userType: FieldRef<"SBIMPUser", 'UserType'>
     readonly isDeleted: FieldRef<"SBIMPUser", 'Boolean'>
     readonly createdAt: FieldRef<"SBIMPUser", 'DateTime'>
-    readonly createdId: FieldRef<"SBIMPUser", 'Int'>
+    readonly createdId: FieldRef<"SBIMPUser", 'String'>
     readonly createdBy: FieldRef<"SBIMPUser", 'String'>
     readonly updatedAt: FieldRef<"SBIMPUser", 'DateTime'>
-    readonly updatedId: FieldRef<"SBIMPUser", 'Int'>
+    readonly updatedId: FieldRef<"SBIMPUser", 'String'>
     readonly updatedBy: FieldRef<"SBIMPUser", 'String'>
   }
     
@@ -4149,20 +4073,8 @@ export namespace Prisma {
 
   export type AggregateEAJUser = {
     _count: EAJUserCountAggregateOutputType | null
-    _avg: EAJUserAvgAggregateOutputType | null
-    _sum: EAJUserSumAggregateOutputType | null
     _min: EAJUserMinAggregateOutputType | null
     _max: EAJUserMaxAggregateOutputType | null
-  }
-
-  export type EAJUserAvgAggregateOutputType = {
-    createdId: number | null
-    updatedId: number | null
-  }
-
-  export type EAJUserSumAggregateOutputType = {
-    createdId: number | null
-    updatedId: number | null
   }
 
   export type EAJUserMinAggregateOutputType = {
@@ -4173,10 +4085,10 @@ export namespace Prisma {
     userType: $Enums.UserType | null
     isDeleted: boolean | null
     createdAt: Date | null
-    createdId: number | null
+    createdId: string | null
     createdBy: string | null
     updatedAt: Date | null
-    updatedId: number | null
+    updatedId: string | null
     updatedBy: string | null
   }
 
@@ -4188,10 +4100,10 @@ export namespace Prisma {
     userType: $Enums.UserType | null
     isDeleted: boolean | null
     createdAt: Date | null
-    createdId: number | null
+    createdId: string | null
     createdBy: string | null
     updatedAt: Date | null
-    updatedId: number | null
+    updatedId: string | null
     updatedBy: string | null
   }
 
@@ -4211,16 +4123,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type EAJUserAvgAggregateInputType = {
-    createdId?: true
-    updatedId?: true
-  }
-
-  export type EAJUserSumAggregateInputType = {
-    createdId?: true
-    updatedId?: true
-  }
 
   export type EAJUserMinAggregateInputType = {
     id?: true
@@ -4306,18 +4208,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: EAJUserAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: EAJUserSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: EAJUserMinAggregateInputType
@@ -4348,8 +4238,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: EAJUserCountAggregateInputType | true
-    _avg?: EAJUserAvgAggregateInputType
-    _sum?: EAJUserSumAggregateInputType
     _min?: EAJUserMinAggregateInputType
     _max?: EAJUserMaxAggregateInputType
   }
@@ -4362,14 +4250,12 @@ export namespace Prisma {
     userType: $Enums.UserType
     isDeleted: boolean
     createdAt: Date
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt: Date
-    updatedId: number
+    updatedId: string
     updatedBy: string
     _count: EAJUserCountAggregateOutputType | null
-    _avg: EAJUserAvgAggregateOutputType | null
-    _sum: EAJUserSumAggregateOutputType | null
     _min: EAJUserMinAggregateOutputType | null
     _max: EAJUserMaxAggregateOutputType | null
   }
@@ -4445,10 +4331,10 @@ export namespace Prisma {
       userType: $Enums.UserType
       isDeleted: boolean
       createdAt: Date
-      createdId: number
+      createdId: string
       createdBy: string
       updatedAt: Date
-      updatedId: number
+      updatedId: string
       updatedBy: string
     }, ExtArgs["result"]["eAJUser"]>
     composites: {}
@@ -4850,10 +4736,10 @@ export namespace Prisma {
     readonly userType: FieldRef<"EAJUser", 'UserType'>
     readonly isDeleted: FieldRef<"EAJUser", 'Boolean'>
     readonly createdAt: FieldRef<"EAJUser", 'DateTime'>
-    readonly createdId: FieldRef<"EAJUser", 'Int'>
+    readonly createdId: FieldRef<"EAJUser", 'String'>
     readonly createdBy: FieldRef<"EAJUser", 'String'>
     readonly updatedAt: FieldRef<"EAJUser", 'DateTime'>
-    readonly updatedId: FieldRef<"EAJUser", 'Int'>
+    readonly updatedId: FieldRef<"EAJUser", 'String'>
     readonly updatedBy: FieldRef<"EAJUser", 'String'>
   }
     
@@ -6000,15 +5886,11 @@ export namespace Prisma {
   export type KiAvgAggregateOutputType = {
     year: number | null
     month: number | null
-    createdId: number | null
-    updatedId: number | null
   }
 
   export type KiSumAggregateOutputType = {
     year: number | null
     month: number | null
-    createdId: number | null
-    updatedId: number | null
   }
 
   export type KiMinAggregateOutputType = {
@@ -6017,10 +5899,10 @@ export namespace Prisma {
     month: number | null
     completed: boolean | null
     createdAt: Date | null
-    createdId: number | null
+    createdId: string | null
     createdBy: string | null
     updatedAt: Date | null
-    updatedId: number | null
+    updatedId: string | null
     updatedBy: string | null
   }
 
@@ -6030,10 +5912,10 @@ export namespace Prisma {
     month: number | null
     completed: boolean | null
     createdAt: Date | null
-    createdId: number | null
+    createdId: string | null
     createdBy: string | null
     updatedAt: Date | null
-    updatedId: number | null
+    updatedId: string | null
     updatedBy: string | null
   }
 
@@ -6055,15 +5937,11 @@ export namespace Prisma {
   export type KiAvgAggregateInputType = {
     year?: true
     month?: true
-    createdId?: true
-    updatedId?: true
   }
 
   export type KiSumAggregateInputType = {
     year?: true
     month?: true
-    createdId?: true
-    updatedId?: true
   }
 
   export type KiMinAggregateInputType = {
@@ -6198,10 +6076,10 @@ export namespace Prisma {
     month: number
     completed: boolean
     createdAt: Date
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt: Date
-    updatedId: number
+    updatedId: string
     updatedBy: string
     _count: KiCountAggregateOutputType | null
     _avg: KiAvgAggregateOutputType | null
@@ -6285,10 +6163,10 @@ export namespace Prisma {
       month: number
       completed: boolean
       createdAt: Date
-      createdId: number
+      createdId: string
       createdBy: string
       updatedAt: Date
-      updatedId: number
+      updatedId: string
       updatedBy: string
     }, ExtArgs["result"]["ki"]>
     composites: {}
@@ -6690,10 +6568,10 @@ export namespace Prisma {
     readonly month: FieldRef<"Ki", 'Int'>
     readonly completed: FieldRef<"Ki", 'Boolean'>
     readonly createdAt: FieldRef<"Ki", 'DateTime'>
-    readonly createdId: FieldRef<"Ki", 'Int'>
+    readonly createdId: FieldRef<"Ki", 'String'>
     readonly createdBy: FieldRef<"Ki", 'String'>
     readonly updatedAt: FieldRef<"Ki", 'DateTime'>
-    readonly updatedId: FieldRef<"Ki", 'Int'>
+    readonly updatedId: FieldRef<"Ki", 'String'>
     readonly updatedBy: FieldRef<"Ki", 'String'>
   }
     
@@ -7083,8 +6961,6 @@ export namespace Prisma {
     fullOccupancyYield: number | null
     totalKubun: number | null
     residenceKubun: number | null
-    createdId: number | null
-    updatedId: number | null
   }
 
   export type ProjectSumAggregateOutputType = {
@@ -7095,8 +6971,6 @@ export namespace Prisma {
     fullOccupancyYield: number | null
     totalKubun: number | null
     residenceKubun: number | null
-    createdId: number | null
-    updatedId: number | null
   }
 
   export type ProjectMinAggregateOutputType = {
@@ -7116,10 +6990,10 @@ export namespace Prisma {
     kamiyachoFlag: boolean | null
     mlspcFlag: boolean | null
     createdAt: Date | null
-    createdId: number | null
+    createdId: string | null
     createdBy: string | null
     updatedAt: Date | null
-    updatedId: number | null
+    updatedId: string | null
     updatedBy: string | null
   }
 
@@ -7140,10 +7014,10 @@ export namespace Prisma {
     kamiyachoFlag: boolean | null
     mlspcFlag: boolean | null
     createdAt: Date | null
-    createdId: number | null
+    createdId: string | null
     createdBy: string | null
     updatedAt: Date | null
-    updatedId: number | null
+    updatedId: string | null
     updatedBy: string | null
   }
 
@@ -7181,8 +7055,6 @@ export namespace Prisma {
     fullOccupancyYield?: true
     totalKubun?: true
     residenceKubun?: true
-    createdId?: true
-    updatedId?: true
   }
 
   export type ProjectSumAggregateInputType = {
@@ -7193,8 +7065,6 @@ export namespace Prisma {
     fullOccupancyYield?: true
     totalKubun?: true
     residenceKubun?: true
-    createdId?: true
-    updatedId?: true
   }
 
   export type ProjectMinAggregateInputType = {
@@ -7373,10 +7243,10 @@ export namespace Prisma {
     kamiyachoFlag: boolean
     mlspcFlag: boolean
     createdAt: Date
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt: Date
-    updatedId: number
+    updatedId: string
     updatedBy: string
     _count: ProjectCountAggregateOutputType | null
     _avg: ProjectAvgAggregateOutputType | null
@@ -7504,10 +7374,10 @@ export namespace Prisma {
       kamiyachoFlag: boolean
       mlspcFlag: boolean
       createdAt: Date
-      createdId: number
+      createdId: string
       createdBy: string
       updatedAt: Date
-      updatedId: number
+      updatedId: string
       updatedBy: string
     }, ExtArgs["result"]["project"]>
     composites: {}
@@ -7920,10 +7790,10 @@ export namespace Prisma {
     readonly kamiyachoFlag: FieldRef<"Project", 'Boolean'>
     readonly mlspcFlag: FieldRef<"Project", 'Boolean'>
     readonly createdAt: FieldRef<"Project", 'DateTime'>
-    readonly createdId: FieldRef<"Project", 'Int'>
+    readonly createdId: FieldRef<"Project", 'String'>
     readonly createdBy: FieldRef<"Project", 'String'>
     readonly updatedAt: FieldRef<"Project", 'DateTime'>
-    readonly updatedId: FieldRef<"Project", 'Int'>
+    readonly updatedId: FieldRef<"Project", 'String'>
     readonly updatedBy: FieldRef<"Project", 'String'>
   }
     
@@ -8307,14 +8177,10 @@ export namespace Prisma {
 
   export type ProjectKiAvgAggregateOutputType = {
     projectKi: number | null
-    createdId: number | null
-    updatedId: number | null
   }
 
   export type ProjectKiSumAggregateOutputType = {
     projectKi: number | null
-    createdId: number | null
-    updatedId: number | null
   }
 
   export type ProjectKiMinAggregateOutputType = {
@@ -8326,10 +8192,10 @@ export namespace Prisma {
     reportDate: Date | null
     topic: string | null
     createdAt: Date | null
-    createdId: number | null
+    createdId: string | null
     createdBy: string | null
     updatedAt: Date | null
-    updatedId: number | null
+    updatedId: string | null
     updatedBy: string | null
   }
 
@@ -8342,10 +8208,10 @@ export namespace Prisma {
     reportDate: Date | null
     topic: string | null
     createdAt: Date | null
-    createdId: number | null
+    createdId: string | null
     createdBy: string | null
     updatedAt: Date | null
-    updatedId: number | null
+    updatedId: string | null
     updatedBy: string | null
   }
 
@@ -8369,14 +8235,10 @@ export namespace Prisma {
 
   export type ProjectKiAvgAggregateInputType = {
     projectKi?: true
-    createdId?: true
-    updatedId?: true
   }
 
   export type ProjectKiSumAggregateInputType = {
     projectKi?: true
-    createdId?: true
-    updatedId?: true
   }
 
   export type ProjectKiMinAggregateInputType = {
@@ -8523,10 +8385,10 @@ export namespace Prisma {
     reportDate: Date
     topic: string
     createdAt: Date
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt: Date
-    updatedId: number
+    updatedId: string
     updatedBy: string
     _count: ProjectKiCountAggregateOutputType | null
     _avg: ProjectKiAvgAggregateOutputType | null
@@ -8630,10 +8492,10 @@ export namespace Prisma {
       reportDate: Date
       topic: string
       createdAt: Date
-      createdId: number
+      createdId: string
       createdBy: string
       updatedAt: Date
-      updatedId: number
+      updatedId: string
       updatedBy: string
     }, ExtArgs["result"]["projectKi"]>
     composites: {}
@@ -9039,10 +8901,10 @@ export namespace Prisma {
     readonly reportDate: FieldRef<"ProjectKi", 'DateTime'>
     readonly topic: FieldRef<"ProjectKi", 'String'>
     readonly createdAt: FieldRef<"ProjectKi", 'DateTime'>
-    readonly createdId: FieldRef<"ProjectKi", 'Int'>
+    readonly createdId: FieldRef<"ProjectKi", 'String'>
     readonly createdBy: FieldRef<"ProjectKi", 'String'>
     readonly updatedAt: FieldRef<"ProjectKi", 'DateTime'>
-    readonly updatedId: FieldRef<"ProjectKi", 'Int'>
+    readonly updatedId: FieldRef<"ProjectKi", 'String'>
     readonly updatedBy: FieldRef<"ProjectKi", 'String'>
   }
     
@@ -9402,20 +9264,8 @@ export namespace Prisma {
 
   export type AggregateAsset = {
     _count: AssetCountAggregateOutputType | null
-    _avg: AssetAvgAggregateOutputType | null
-    _sum: AssetSumAggregateOutputType | null
     _min: AssetMinAggregateOutputType | null
     _max: AssetMaxAggregateOutputType | null
-  }
-
-  export type AssetAvgAggregateOutputType = {
-    createdId: number | null
-    updatedId: number | null
-  }
-
-  export type AssetSumAggregateOutputType = {
-    createdId: number | null
-    updatedId: number | null
   }
 
   export type AssetMinAggregateOutputType = {
@@ -9425,10 +9275,10 @@ export namespace Prisma {
     address: string | null
     registeredAddress: string | null
     createdAt: Date | null
-    createdId: number | null
+    createdId: string | null
     createdBy: string | null
     updatedAt: Date | null
-    updatedId: number | null
+    updatedId: string | null
     updatedBy: string | null
   }
 
@@ -9439,10 +9289,10 @@ export namespace Prisma {
     address: string | null
     registeredAddress: string | null
     createdAt: Date | null
-    createdId: number | null
+    createdId: string | null
     createdBy: string | null
     updatedAt: Date | null
-    updatedId: number | null
+    updatedId: string | null
     updatedBy: string | null
   }
 
@@ -9461,16 +9311,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type AssetAvgAggregateInputType = {
-    createdId?: true
-    updatedId?: true
-  }
-
-  export type AssetSumAggregateInputType = {
-    createdId?: true
-    updatedId?: true
-  }
 
   export type AssetMinAggregateInputType = {
     id?: true
@@ -9553,18 +9393,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: AssetAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: AssetSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: AssetMinAggregateInputType
@@ -9595,8 +9423,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: AssetCountAggregateInputType | true
-    _avg?: AssetAvgAggregateInputType
-    _sum?: AssetSumAggregateInputType
     _min?: AssetMinAggregateInputType
     _max?: AssetMaxAggregateInputType
   }
@@ -9608,14 +9434,12 @@ export namespace Prisma {
     address: string
     registeredAddress: string
     createdAt: Date
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt: Date
-    updatedId: number
+    updatedId: string
     updatedBy: string
     _count: AssetCountAggregateOutputType | null
-    _avg: AssetAvgAggregateOutputType | null
-    _sum: AssetSumAggregateOutputType | null
     _min: AssetMinAggregateOutputType | null
     _max: AssetMaxAggregateOutputType | null
   }
@@ -9702,10 +9526,10 @@ export namespace Prisma {
       address: string
       registeredAddress: string
       createdAt: Date
-      createdId: number
+      createdId: string
       createdBy: string
       updatedAt: Date
-      updatedId: number
+      updatedId: string
       updatedBy: string
     }, ExtArgs["result"]["asset"]>
     composites: {}
@@ -10108,10 +9932,10 @@ export namespace Prisma {
     readonly address: FieldRef<"Asset", 'String'>
     readonly registeredAddress: FieldRef<"Asset", 'String'>
     readonly createdAt: FieldRef<"Asset", 'DateTime'>
-    readonly createdId: FieldRef<"Asset", 'Int'>
+    readonly createdId: FieldRef<"Asset", 'String'>
     readonly createdBy: FieldRef<"Asset", 'String'>
     readonly updatedAt: FieldRef<"Asset", 'DateTime'>
-    readonly updatedId: FieldRef<"Asset", 'Int'>
+    readonly updatedId: FieldRef<"Asset", 'String'>
     readonly updatedBy: FieldRef<"Asset", 'String'>
   }
     
@@ -10479,14 +10303,10 @@ export namespace Prisma {
 
   export type AssetKiAvgAggregateOutputType = {
     projectKi: number | null
-    createdId: number | null
-    updatedId: number | null
   }
 
   export type AssetKiSumAggregateOutputType = {
     projectKi: number | null
-    createdId: number | null
-    updatedId: number | null
   }
 
   export type AssetKiMinAggregateOutputType = {
@@ -10501,10 +10321,10 @@ export namespace Prisma {
     photo3: string | null
     photo4: string | null
     createdAt: Date | null
-    createdId: number | null
+    createdId: string | null
     createdBy: string | null
     updatedAt: Date | null
-    updatedId: number | null
+    updatedId: string | null
     updatedBy: string | null
   }
 
@@ -10520,10 +10340,10 @@ export namespace Prisma {
     photo3: string | null
     photo4: string | null
     createdAt: Date | null
-    createdId: number | null
+    createdId: string | null
     createdBy: string | null
     updatedAt: Date | null
-    updatedId: number | null
+    updatedId: string | null
     updatedBy: string | null
   }
 
@@ -10550,14 +10370,10 @@ export namespace Prisma {
 
   export type AssetKiAvgAggregateInputType = {
     projectKi?: true
-    createdId?: true
-    updatedId?: true
   }
 
   export type AssetKiSumAggregateInputType = {
     projectKi?: true
-    createdId?: true
-    updatedId?: true
   }
 
   export type AssetKiMinAggregateInputType = {
@@ -10716,10 +10532,10 @@ export namespace Prisma {
     photo3: string | null
     photo4: string | null
     createdAt: Date
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt: Date
-    updatedId: number
+    updatedId: string
     updatedBy: string
     _count: AssetKiCountAggregateOutputType | null
     _avg: AssetKiAvgAggregateOutputType | null
@@ -10830,10 +10646,10 @@ export namespace Prisma {
       photo3: string | null
       photo4: string | null
       createdAt: Date
-      createdId: number
+      createdId: string
       createdBy: string
       updatedAt: Date
-      updatedId: number
+      updatedId: string
       updatedBy: string
     }, ExtArgs["result"]["assetKi"]>
     composites: {}
@@ -11241,10 +11057,10 @@ export namespace Prisma {
     readonly photo3: FieldRef<"AssetKi", 'String'>
     readonly photo4: FieldRef<"AssetKi", 'String'>
     readonly createdAt: FieldRef<"AssetKi", 'DateTime'>
-    readonly createdId: FieldRef<"AssetKi", 'Int'>
+    readonly createdId: FieldRef<"AssetKi", 'String'>
     readonly createdBy: FieldRef<"AssetKi", 'String'>
     readonly updatedAt: FieldRef<"AssetKi", 'DateTime'>
-    readonly updatedId: FieldRef<"AssetKi", 'Int'>
+    readonly updatedId: FieldRef<"AssetKi", 'String'>
     readonly updatedBy: FieldRef<"AssetKi", 'String'>
   }
     
@@ -11584,26 +11400,13 @@ export namespace Prisma {
 
   export type AggregateCustomer = {
     _count: CustomerCountAggregateOutputType | null
-    _avg: CustomerAvgAggregateOutputType | null
-    _sum: CustomerSumAggregateOutputType | null
     _min: CustomerMinAggregateOutputType | null
     _max: CustomerMaxAggregateOutputType | null
-  }
-
-  export type CustomerAvgAggregateOutputType = {
-    createdId: number | null
-    updatedId: number | null
-  }
-
-  export type CustomerSumAggregateOutputType = {
-    createdId: number | null
-    updatedId: number | null
   }
 
   export type CustomerMinAggregateOutputType = {
     id: string | null
     sbimpId: string | null
-    sbimpIdHistory: string | null
     name: string | null
     nameFurigana: string | null
     birthday: Date | null
@@ -11618,17 +11421,16 @@ export namespace Prisma {
     address: string | null
     isDeleted: boolean | null
     createdAt: Date | null
-    createdId: number | null
+    createdId: string | null
     createdBy: string | null
     updatedAt: Date | null
-    updatedId: number | null
+    updatedId: string | null
     updatedBy: string | null
   }
 
   export type CustomerMaxAggregateOutputType = {
     id: string | null
     sbimpId: string | null
-    sbimpIdHistory: string | null
     name: string | null
     nameFurigana: string | null
     birthday: Date | null
@@ -11643,17 +11445,16 @@ export namespace Prisma {
     address: string | null
     isDeleted: boolean | null
     createdAt: Date | null
-    createdId: number | null
+    createdId: string | null
     createdBy: string | null
     updatedAt: Date | null
-    updatedId: number | null
+    updatedId: string | null
     updatedBy: string | null
   }
 
   export type CustomerCountAggregateOutputType = {
     id: number
     sbimpId: number
-    sbimpIdHistory: number
     name: number
     nameFurigana: number
     birthday: number
@@ -11677,20 +11478,9 @@ export namespace Prisma {
   }
 
 
-  export type CustomerAvgAggregateInputType = {
-    createdId?: true
-    updatedId?: true
-  }
-
-  export type CustomerSumAggregateInputType = {
-    createdId?: true
-    updatedId?: true
-  }
-
   export type CustomerMinAggregateInputType = {
     id?: true
     sbimpId?: true
-    sbimpIdHistory?: true
     name?: true
     nameFurigana?: true
     birthday?: true
@@ -11715,7 +11505,6 @@ export namespace Prisma {
   export type CustomerMaxAggregateInputType = {
     id?: true
     sbimpId?: true
-    sbimpIdHistory?: true
     name?: true
     nameFurigana?: true
     birthday?: true
@@ -11740,7 +11529,6 @@ export namespace Prisma {
   export type CustomerCountAggregateInputType = {
     id?: true
     sbimpId?: true
-    sbimpIdHistory?: true
     name?: true
     nameFurigana?: true
     birthday?: true
@@ -11801,18 +11589,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: CustomerAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: CustomerSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: CustomerMinAggregateInputType
@@ -11843,16 +11619,13 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: CustomerCountAggregateInputType | true
-    _avg?: CustomerAvgAggregateInputType
-    _sum?: CustomerSumAggregateInputType
     _min?: CustomerMinAggregateInputType
     _max?: CustomerMaxAggregateInputType
   }
 
   export type CustomerGroupByOutputType = {
     id: string
-    sbimpId: string
-    sbimpIdHistory: string
+    sbimpId: string | null
     name: string
     nameFurigana: string
     birthday: Date | null
@@ -11867,14 +11640,12 @@ export namespace Prisma {
     address: string
     isDeleted: boolean
     createdAt: Date
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt: Date
-    updatedId: number
+    updatedId: string
     updatedBy: string
     _count: CustomerCountAggregateOutputType | null
-    _avg: CustomerAvgAggregateOutputType | null
-    _sum: CustomerSumAggregateOutputType | null
     _min: CustomerMinAggregateOutputType | null
     _max: CustomerMaxAggregateOutputType | null
   }
@@ -11896,7 +11667,6 @@ export namespace Prisma {
   export type CustomerSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     sbimpId?: boolean
-    sbimpIdHistory?: boolean
     name?: boolean
     nameFurigana?: boolean
     birthday?: boolean
@@ -11923,7 +11693,6 @@ export namespace Prisma {
   export type CustomerSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     sbimpId?: boolean
-    sbimpIdHistory?: boolean
     name?: boolean
     nameFurigana?: boolean
     birthday?: boolean
@@ -11948,7 +11717,6 @@ export namespace Prisma {
   export type CustomerSelectScalar = {
     id?: boolean
     sbimpId?: boolean
-    sbimpIdHistory?: boolean
     name?: boolean
     nameFurigana?: boolean
     birthday?: boolean
@@ -11983,8 +11751,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      sbimpId: string
-      sbimpIdHistory: string
+      sbimpId: string | null
       name: string
       nameFurigana: string
       birthday: Date | null
@@ -11999,10 +11766,10 @@ export namespace Prisma {
       address: string
       isDeleted: boolean
       createdAt: Date
-      createdId: number
+      createdId: string
       createdBy: string
       updatedAt: Date
-      updatedId: number
+      updatedId: string
       updatedBy: string
     }, ExtArgs["result"]["customer"]>
     composites: {}
@@ -12400,7 +12167,6 @@ export namespace Prisma {
   interface CustomerFieldRefs {
     readonly id: FieldRef<"Customer", 'String'>
     readonly sbimpId: FieldRef<"Customer", 'String'>
-    readonly sbimpIdHistory: FieldRef<"Customer", 'String'>
     readonly name: FieldRef<"Customer", 'String'>
     readonly nameFurigana: FieldRef<"Customer", 'String'>
     readonly birthday: FieldRef<"Customer", 'DateTime'>
@@ -12415,10 +12181,10 @@ export namespace Prisma {
     readonly address: FieldRef<"Customer", 'String'>
     readonly isDeleted: FieldRef<"Customer", 'Boolean'>
     readonly createdAt: FieldRef<"Customer", 'DateTime'>
-    readonly createdId: FieldRef<"Customer", 'Int'>
+    readonly createdId: FieldRef<"Customer", 'String'>
     readonly createdBy: FieldRef<"Customer", 'String'>
     readonly updatedAt: FieldRef<"Customer", 'DateTime'>
-    readonly updatedId: FieldRef<"Customer", 'Int'>
+    readonly updatedId: FieldRef<"Customer", 'String'>
     readonly updatedBy: FieldRef<"Customer", 'String'>
   }
     
@@ -12791,8 +12557,6 @@ export namespace Prisma {
     otherBunpaiThisKi: number | null
     otherBunpaiYear: number | null
     otherBunpaiTotal: number | null
-    createdId: number | null
-    updatedId: number | null
   }
 
   export type CustomerFundSumAggregateOutputType = {
@@ -12806,8 +12570,6 @@ export namespace Prisma {
     otherBunpaiThisKi: number | null
     otherBunpaiYear: number | null
     otherBunpaiTotal: number | null
-    createdId: number | null
-    updatedId: number | null
   }
 
   export type CustomerFundMinAggregateOutputType = {
@@ -12842,10 +12604,10 @@ export namespace Prisma {
     holdPayment: boolean | null
     holdMemo: string | null
     createdAt: Date | null
-    createdId: number | null
+    createdId: string | null
     createdBy: string | null
     updatedAt: Date | null
-    updatedId: number | null
+    updatedId: string | null
     updatedBy: string | null
   }
 
@@ -12881,10 +12643,10 @@ export namespace Prisma {
     holdPayment: boolean | null
     holdMemo: string | null
     createdAt: Date | null
-    createdId: number | null
+    createdId: string | null
     createdBy: string | null
     updatedAt: Date | null
-    updatedId: number | null
+    updatedId: string | null
     updatedBy: string | null
   }
 
@@ -12940,8 +12702,6 @@ export namespace Prisma {
     otherBunpaiThisKi?: true
     otherBunpaiYear?: true
     otherBunpaiTotal?: true
-    createdId?: true
-    updatedId?: true
   }
 
   export type CustomerFundSumAggregateInputType = {
@@ -12955,8 +12715,6 @@ export namespace Prisma {
     otherBunpaiThisKi?: true
     otherBunpaiYear?: true
     otherBunpaiTotal?: true
-    createdId?: true
-    updatedId?: true
   }
 
   export type CustomerFundMinAggregateInputType = {
@@ -13195,10 +12953,10 @@ export namespace Prisma {
     holdPayment: boolean
     holdMemo: string | null
     createdAt: Date
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt: Date
-    updatedId: number
+    updatedId: string
     updatedBy: string
     _count: CustomerFundCountAggregateOutputType | null
     _avg: CustomerFundAvgAggregateOutputType | null
@@ -13389,10 +13147,10 @@ export namespace Prisma {
       holdPayment: boolean
       holdMemo: string | null
       createdAt: Date
-      createdId: number
+      createdId: string
       createdBy: string
       updatedAt: Date
-      updatedId: number
+      updatedId: string
       updatedBy: string
     }, ExtArgs["result"]["customerFund"]>
     composites: {}
@@ -13820,10 +13578,10 @@ export namespace Prisma {
     readonly holdPayment: FieldRef<"CustomerFund", 'Boolean'>
     readonly holdMemo: FieldRef<"CustomerFund", 'String'>
     readonly createdAt: FieldRef<"CustomerFund", 'DateTime'>
-    readonly createdId: FieldRef<"CustomerFund", 'Int'>
+    readonly createdId: FieldRef<"CustomerFund", 'String'>
     readonly createdBy: FieldRef<"CustomerFund", 'String'>
     readonly updatedAt: FieldRef<"CustomerFund", 'DateTime'>
-    readonly updatedId: FieldRef<"CustomerFund", 'Int'>
+    readonly updatedId: FieldRef<"CustomerFund", 'String'>
     readonly updatedBy: FieldRef<"CustomerFund", 'String'>
   }
     
@@ -14172,15 +13930,11 @@ export namespace Prisma {
   export type TemplateAvgAggregateOutputType = {
     size: number | null
     version: number | null
-    createdId: number | null
-    updatedId: number | null
   }
 
   export type TemplateSumAggregateOutputType = {
     size: number | null
     version: number | null
-    createdId: number | null
-    updatedId: number | null
   }
 
   export type TemplateMinAggregateOutputType = {
@@ -14193,10 +13947,10 @@ export namespace Prisma {
     file: Buffer | null
     version: number | null
     createdAt: Date | null
-    createdId: number | null
+    createdId: string | null
     createdBy: string | null
     updatedAt: Date | null
-    updatedId: number | null
+    updatedId: string | null
     updatedBy: string | null
   }
 
@@ -14210,10 +13964,10 @@ export namespace Prisma {
     file: Buffer | null
     version: number | null
     createdAt: Date | null
-    createdId: number | null
+    createdId: string | null
     createdBy: string | null
     updatedAt: Date | null
-    updatedId: number | null
+    updatedId: string | null
     updatedBy: string | null
   }
 
@@ -14239,15 +13993,11 @@ export namespace Prisma {
   export type TemplateAvgAggregateInputType = {
     size?: true
     version?: true
-    createdId?: true
-    updatedId?: true
   }
 
   export type TemplateSumAggregateInputType = {
     size?: true
     version?: true
-    createdId?: true
-    updatedId?: true
   }
 
   export type TemplateMinAggregateInputType = {
@@ -14398,10 +14148,10 @@ export namespace Prisma {
     file: Buffer
     version: number
     createdAt: Date
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt: Date
-    updatedId: number
+    updatedId: string
     updatedBy: string
     _count: TemplateCountAggregateOutputType | null
     _avg: TemplateAvgAggregateOutputType | null
@@ -14489,10 +14239,10 @@ export namespace Prisma {
       file: Buffer
       version: number
       createdAt: Date
-      createdId: number
+      createdId: string
       createdBy: string
       updatedAt: Date
-      updatedId: number
+      updatedId: string
       updatedBy: string
     }, ExtArgs["result"]["template"]>
     composites: {}
@@ -14896,10 +14646,10 @@ export namespace Prisma {
     readonly file: FieldRef<"Template", 'Bytes'>
     readonly version: FieldRef<"Template", 'Int'>
     readonly createdAt: FieldRef<"Template", 'DateTime'>
-    readonly createdId: FieldRef<"Template", 'Int'>
+    readonly createdId: FieldRef<"Template", 'String'>
     readonly createdBy: FieldRef<"Template", 'String'>
     readonly updatedAt: FieldRef<"Template", 'DateTime'>
-    readonly updatedId: FieldRef<"Template", 'Int'>
+    readonly updatedId: FieldRef<"Template", 'String'>
     readonly updatedBy: FieldRef<"Template", 'String'>
   }
     
@@ -15204,13 +14954,11 @@ export namespace Prisma {
   export type TemplateHistoryAvgAggregateOutputType = {
     size: number | null
     version: number | null
-    updatedId: number | null
   }
 
   export type TemplateHistorySumAggregateOutputType = {
     size: number | null
     version: number | null
-    updatedId: number | null
   }
 
   export type TemplateHistoryMinAggregateOutputType = {
@@ -15224,7 +14972,7 @@ export namespace Prisma {
     file: Buffer | null
     version: number | null
     updatedAt: Date | null
-    updatedId: number | null
+    updatedId: string | null
     updatedBy: string | null
   }
 
@@ -15239,7 +14987,7 @@ export namespace Prisma {
     file: Buffer | null
     version: number | null
     updatedAt: Date | null
-    updatedId: number | null
+    updatedId: string | null
     updatedBy: string | null
   }
 
@@ -15263,13 +15011,11 @@ export namespace Prisma {
   export type TemplateHistoryAvgAggregateInputType = {
     size?: true
     version?: true
-    updatedId?: true
   }
 
   export type TemplateHistorySumAggregateInputType = {
     size?: true
     version?: true
-    updatedId?: true
   }
 
   export type TemplateHistoryMinAggregateInputType = {
@@ -15415,7 +15161,7 @@ export namespace Prisma {
     file: Buffer
     version: number
     updatedAt: Date
-    updatedId: number
+    updatedId: string
     updatedBy: string
     _count: TemplateHistoryCountAggregateOutputType | null
     _avg: TemplateHistoryAvgAggregateOutputType | null
@@ -15498,7 +15244,7 @@ export namespace Prisma {
       file: Buffer
       version: number
       updatedAt: Date
-      updatedId: number
+      updatedId: string
       updatedBy: string
     }, ExtArgs["result"]["templateHistory"]>
     composites: {}
@@ -15903,7 +15649,7 @@ export namespace Prisma {
     readonly file: FieldRef<"TemplateHistory", 'Bytes'>
     readonly version: FieldRef<"TemplateHistory", 'Int'>
     readonly updatedAt: FieldRef<"TemplateHistory", 'DateTime'>
-    readonly updatedId: FieldRef<"TemplateHistory", 'Int'>
+    readonly updatedId: FieldRef<"TemplateHistory", 'String'>
     readonly updatedBy: FieldRef<"TemplateHistory", 'String'>
   }
     
@@ -16373,7 +16119,6 @@ export namespace Prisma {
   export const CustomerScalarFieldEnum: {
     id: 'id',
     sbimpId: 'sbimpId',
-    sbimpIdHistory: 'sbimpIdHistory',
     name: 'name',
     nameFurigana: 'nameFurigana',
     birthday: 'birthday',
@@ -16710,10 +16455,10 @@ export namespace Prisma {
     userType?: EnumUserTypeFilter<"User"> | $Enums.UserType
     isDeleted?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
-    createdId?: IntFilter<"User"> | number
+    createdId?: StringFilter<"User"> | string
     createdBy?: StringFilter<"User"> | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
-    updatedId?: IntFilter<"User"> | number
+    updatedId?: StringFilter<"User"> | string
     updatedBy?: StringFilter<"User"> | string
   }
 
@@ -16743,10 +16488,10 @@ export namespace Prisma {
     userType?: EnumUserTypeFilter<"User"> | $Enums.UserType
     isDeleted?: BoolFilter<"User"> | boolean
     createdAt?: DateTimeFilter<"User"> | Date | string
-    createdId?: IntFilter<"User"> | number
+    createdId?: StringFilter<"User"> | string
     createdBy?: StringFilter<"User"> | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
-    updatedId?: IntFilter<"User"> | number
+    updatedId?: StringFilter<"User"> | string
     updatedBy?: StringFilter<"User"> | string
   }, "id" | "email">
 
@@ -16764,10 +16509,8 @@ export namespace Prisma {
     updatedId?: SortOrder
     updatedBy?: SortOrder
     _count?: UserCountOrderByAggregateInput
-    _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
     _min?: UserMinOrderByAggregateInput
-    _sum?: UserSumOrderByAggregateInput
   }
 
   export type UserScalarWhereWithAggregatesInput = {
@@ -16781,10 +16524,10 @@ export namespace Prisma {
     userType?: EnumUserTypeWithAggregatesFilter<"User"> | $Enums.UserType
     isDeleted?: BoolWithAggregatesFilter<"User"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
-    createdId?: IntWithAggregatesFilter<"User"> | number
+    createdId?: StringWithAggregatesFilter<"User"> | string
     createdBy?: StringWithAggregatesFilter<"User"> | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
-    updatedId?: IntWithAggregatesFilter<"User"> | number
+    updatedId?: StringWithAggregatesFilter<"User"> | string
     updatedBy?: StringWithAggregatesFilter<"User"> | string
   }
 
@@ -16799,10 +16542,10 @@ export namespace Prisma {
     userType?: EnumUserTypeFilter<"SBIMPUser"> | $Enums.UserType
     isDeleted?: BoolFilter<"SBIMPUser"> | boolean
     createdAt?: DateTimeFilter<"SBIMPUser"> | Date | string
-    createdId?: IntFilter<"SBIMPUser"> | number
+    createdId?: StringFilter<"SBIMPUser"> | string
     createdBy?: StringFilter<"SBIMPUser"> | string
     updatedAt?: DateTimeFilter<"SBIMPUser"> | Date | string
-    updatedId?: IntFilter<"SBIMPUser"> | number
+    updatedId?: StringFilter<"SBIMPUser"> | string
     updatedBy?: StringFilter<"SBIMPUser"> | string
   }
 
@@ -16832,10 +16575,10 @@ export namespace Prisma {
     userType?: EnumUserTypeFilter<"SBIMPUser"> | $Enums.UserType
     isDeleted?: BoolFilter<"SBIMPUser"> | boolean
     createdAt?: DateTimeFilter<"SBIMPUser"> | Date | string
-    createdId?: IntFilter<"SBIMPUser"> | number
+    createdId?: StringFilter<"SBIMPUser"> | string
     createdBy?: StringFilter<"SBIMPUser"> | string
     updatedAt?: DateTimeFilter<"SBIMPUser"> | Date | string
-    updatedId?: IntFilter<"SBIMPUser"> | number
+    updatedId?: StringFilter<"SBIMPUser"> | string
     updatedBy?: StringFilter<"SBIMPUser"> | string
   }, "id" | "email">
 
@@ -16853,10 +16596,8 @@ export namespace Prisma {
     updatedId?: SortOrder
     updatedBy?: SortOrder
     _count?: SBIMPUserCountOrderByAggregateInput
-    _avg?: SBIMPUserAvgOrderByAggregateInput
     _max?: SBIMPUserMaxOrderByAggregateInput
     _min?: SBIMPUserMinOrderByAggregateInput
-    _sum?: SBIMPUserSumOrderByAggregateInput
   }
 
   export type SBIMPUserScalarWhereWithAggregatesInput = {
@@ -16870,10 +16611,10 @@ export namespace Prisma {
     userType?: EnumUserTypeWithAggregatesFilter<"SBIMPUser"> | $Enums.UserType
     isDeleted?: BoolWithAggregatesFilter<"SBIMPUser"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"SBIMPUser"> | Date | string
-    createdId?: IntWithAggregatesFilter<"SBIMPUser"> | number
+    createdId?: StringWithAggregatesFilter<"SBIMPUser"> | string
     createdBy?: StringWithAggregatesFilter<"SBIMPUser"> | string
     updatedAt?: DateTimeWithAggregatesFilter<"SBIMPUser"> | Date | string
-    updatedId?: IntWithAggregatesFilter<"SBIMPUser"> | number
+    updatedId?: StringWithAggregatesFilter<"SBIMPUser"> | string
     updatedBy?: StringWithAggregatesFilter<"SBIMPUser"> | string
   }
 
@@ -16888,10 +16629,10 @@ export namespace Prisma {
     userType?: EnumUserTypeFilter<"EAJUser"> | $Enums.UserType
     isDeleted?: BoolFilter<"EAJUser"> | boolean
     createdAt?: DateTimeFilter<"EAJUser"> | Date | string
-    createdId?: IntFilter<"EAJUser"> | number
+    createdId?: StringFilter<"EAJUser"> | string
     createdBy?: StringFilter<"EAJUser"> | string
     updatedAt?: DateTimeFilter<"EAJUser"> | Date | string
-    updatedId?: IntFilter<"EAJUser"> | number
+    updatedId?: StringFilter<"EAJUser"> | string
     updatedBy?: StringFilter<"EAJUser"> | string
   }
 
@@ -16921,10 +16662,10 @@ export namespace Prisma {
     userType?: EnumUserTypeFilter<"EAJUser"> | $Enums.UserType
     isDeleted?: BoolFilter<"EAJUser"> | boolean
     createdAt?: DateTimeFilter<"EAJUser"> | Date | string
-    createdId?: IntFilter<"EAJUser"> | number
+    createdId?: StringFilter<"EAJUser"> | string
     createdBy?: StringFilter<"EAJUser"> | string
     updatedAt?: DateTimeFilter<"EAJUser"> | Date | string
-    updatedId?: IntFilter<"EAJUser"> | number
+    updatedId?: StringFilter<"EAJUser"> | string
     updatedBy?: StringFilter<"EAJUser"> | string
   }, "id" | "email">
 
@@ -16942,10 +16683,8 @@ export namespace Prisma {
     updatedId?: SortOrder
     updatedBy?: SortOrder
     _count?: EAJUserCountOrderByAggregateInput
-    _avg?: EAJUserAvgOrderByAggregateInput
     _max?: EAJUserMaxOrderByAggregateInput
     _min?: EAJUserMinOrderByAggregateInput
-    _sum?: EAJUserSumOrderByAggregateInput
   }
 
   export type EAJUserScalarWhereWithAggregatesInput = {
@@ -16959,10 +16698,10 @@ export namespace Prisma {
     userType?: EnumUserTypeWithAggregatesFilter<"EAJUser"> | $Enums.UserType
     isDeleted?: BoolWithAggregatesFilter<"EAJUser"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"EAJUser"> | Date | string
-    createdId?: IntWithAggregatesFilter<"EAJUser"> | number
+    createdId?: StringWithAggregatesFilter<"EAJUser"> | string
     createdBy?: StringWithAggregatesFilter<"EAJUser"> | string
     updatedAt?: DateTimeWithAggregatesFilter<"EAJUser"> | Date | string
-    updatedId?: IntWithAggregatesFilter<"EAJUser"> | number
+    updatedId?: StringWithAggregatesFilter<"EAJUser"> | string
     updatedBy?: StringWithAggregatesFilter<"EAJUser"> | string
   }
 
@@ -17012,10 +16751,10 @@ export namespace Prisma {
     month?: IntFilter<"Ki"> | number
     completed?: BoolFilter<"Ki"> | boolean
     createdAt?: DateTimeFilter<"Ki"> | Date | string
-    createdId?: IntFilter<"Ki"> | number
+    createdId?: StringFilter<"Ki"> | string
     createdBy?: StringFilter<"Ki"> | string
     updatedAt?: DateTimeFilter<"Ki"> | Date | string
-    updatedId?: IntFilter<"Ki"> | number
+    updatedId?: StringFilter<"Ki"> | string
     updatedBy?: StringFilter<"Ki"> | string
     ProjectKis?: ProjectKiListRelationFilter
     AssetKis?: AssetKiListRelationFilter
@@ -17045,10 +16784,10 @@ export namespace Prisma {
     month?: IntFilter<"Ki"> | number
     completed?: BoolFilter<"Ki"> | boolean
     createdAt?: DateTimeFilter<"Ki"> | Date | string
-    createdId?: IntFilter<"Ki"> | number
+    createdId?: StringFilter<"Ki"> | string
     createdBy?: StringFilter<"Ki"> | string
     updatedAt?: DateTimeFilter<"Ki"> | Date | string
-    updatedId?: IntFilter<"Ki"> | number
+    updatedId?: StringFilter<"Ki"> | string
     updatedBy?: StringFilter<"Ki"> | string
     ProjectKis?: ProjectKiListRelationFilter
     AssetKis?: AssetKiListRelationFilter
@@ -17081,10 +16820,10 @@ export namespace Prisma {
     month?: IntWithAggregatesFilter<"Ki"> | number
     completed?: BoolWithAggregatesFilter<"Ki"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Ki"> | Date | string
-    createdId?: IntWithAggregatesFilter<"Ki"> | number
+    createdId?: StringWithAggregatesFilter<"Ki"> | string
     createdBy?: StringWithAggregatesFilter<"Ki"> | string
     updatedAt?: DateTimeWithAggregatesFilter<"Ki"> | Date | string
-    updatedId?: IntWithAggregatesFilter<"Ki"> | number
+    updatedId?: StringWithAggregatesFilter<"Ki"> | string
     updatedBy?: StringWithAggregatesFilter<"Ki"> | string
   }
 
@@ -17108,10 +16847,10 @@ export namespace Prisma {
     kamiyachoFlag?: BoolFilter<"Project"> | boolean
     mlspcFlag?: BoolFilter<"Project"> | boolean
     createdAt?: DateTimeFilter<"Project"> | Date | string
-    createdId?: IntFilter<"Project"> | number
+    createdId?: StringFilter<"Project"> | string
     createdBy?: StringFilter<"Project"> | string
     updatedAt?: DateTimeFilter<"Project"> | Date | string
-    updatedId?: IntFilter<"Project"> | number
+    updatedId?: StringFilter<"Project"> | string
     updatedBy?: StringFilter<"Project"> | string
     ProjectKis?: ProjectKiListRelationFilter
     Assets?: AssetListRelationFilter
@@ -17163,10 +16902,10 @@ export namespace Prisma {
     kamiyachoFlag?: BoolFilter<"Project"> | boolean
     mlspcFlag?: BoolFilter<"Project"> | boolean
     createdAt?: DateTimeFilter<"Project"> | Date | string
-    createdId?: IntFilter<"Project"> | number
+    createdId?: StringFilter<"Project"> | string
     createdBy?: StringFilter<"Project"> | string
     updatedAt?: DateTimeFilter<"Project"> | Date | string
-    updatedId?: IntFilter<"Project"> | number
+    updatedId?: StringFilter<"Project"> | string
     updatedBy?: StringFilter<"Project"> | string
     ProjectKis?: ProjectKiListRelationFilter
     Assets?: AssetListRelationFilter
@@ -17221,10 +16960,10 @@ export namespace Prisma {
     kamiyachoFlag?: BoolWithAggregatesFilter<"Project"> | boolean
     mlspcFlag?: BoolWithAggregatesFilter<"Project"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Project"> | Date | string
-    createdId?: IntWithAggregatesFilter<"Project"> | number
+    createdId?: StringWithAggregatesFilter<"Project"> | string
     createdBy?: StringWithAggregatesFilter<"Project"> | string
     updatedAt?: DateTimeWithAggregatesFilter<"Project"> | Date | string
-    updatedId?: IntWithAggregatesFilter<"Project"> | number
+    updatedId?: StringWithAggregatesFilter<"Project"> | string
     updatedBy?: StringWithAggregatesFilter<"Project"> | string
   }
 
@@ -17240,10 +16979,10 @@ export namespace Prisma {
     reportDate?: DateTimeFilter<"ProjectKi"> | Date | string
     topic?: StringFilter<"ProjectKi"> | string
     createdAt?: DateTimeFilter<"ProjectKi"> | Date | string
-    createdId?: IntFilter<"ProjectKi"> | number
+    createdId?: StringFilter<"ProjectKi"> | string
     createdBy?: StringFilter<"ProjectKi"> | string
     updatedAt?: DateTimeFilter<"ProjectKi"> | Date | string
-    updatedId?: IntFilter<"ProjectKi"> | number
+    updatedId?: StringFilter<"ProjectKi"> | string
     updatedBy?: StringFilter<"ProjectKi"> | string
     Project?: XOR<ProjectRelationFilter, ProjectWhereInput>
     Ki?: XOR<KiRelationFilter, KiWhereInput>
@@ -17283,10 +17022,10 @@ export namespace Prisma {
     reportDate?: DateTimeFilter<"ProjectKi"> | Date | string
     topic?: StringFilter<"ProjectKi"> | string
     createdAt?: DateTimeFilter<"ProjectKi"> | Date | string
-    createdId?: IntFilter<"ProjectKi"> | number
+    createdId?: StringFilter<"ProjectKi"> | string
     createdBy?: StringFilter<"ProjectKi"> | string
     updatedAt?: DateTimeFilter<"ProjectKi"> | Date | string
-    updatedId?: IntFilter<"ProjectKi"> | number
+    updatedId?: StringFilter<"ProjectKi"> | string
     updatedBy?: StringFilter<"ProjectKi"> | string
     Project?: XOR<ProjectRelationFilter, ProjectWhereInput>
     Ki?: XOR<KiRelationFilter, KiWhereInput>
@@ -17326,10 +17065,10 @@ export namespace Prisma {
     reportDate?: DateTimeWithAggregatesFilter<"ProjectKi"> | Date | string
     topic?: StringWithAggregatesFilter<"ProjectKi"> | string
     createdAt?: DateTimeWithAggregatesFilter<"ProjectKi"> | Date | string
-    createdId?: IntWithAggregatesFilter<"ProjectKi"> | number
+    createdId?: StringWithAggregatesFilter<"ProjectKi"> | string
     createdBy?: StringWithAggregatesFilter<"ProjectKi"> | string
     updatedAt?: DateTimeWithAggregatesFilter<"ProjectKi"> | Date | string
-    updatedId?: IntWithAggregatesFilter<"ProjectKi"> | number
+    updatedId?: StringWithAggregatesFilter<"ProjectKi"> | string
     updatedBy?: StringWithAggregatesFilter<"ProjectKi"> | string
   }
 
@@ -17343,10 +17082,10 @@ export namespace Prisma {
     address?: StringFilter<"Asset"> | string
     registeredAddress?: StringFilter<"Asset"> | string
     createdAt?: DateTimeFilter<"Asset"> | Date | string
-    createdId?: IntFilter<"Asset"> | number
+    createdId?: StringFilter<"Asset"> | string
     createdBy?: StringFilter<"Asset"> | string
     updatedAt?: DateTimeFilter<"Asset"> | Date | string
-    updatedId?: IntFilter<"Asset"> | number
+    updatedId?: StringFilter<"Asset"> | string
     updatedBy?: StringFilter<"Asset"> | string
     Project?: XOR<ProjectRelationFilter, ProjectWhereInput>
     AssetKis?: AssetKiListRelationFilter
@@ -17378,10 +17117,10 @@ export namespace Prisma {
     address?: StringFilter<"Asset"> | string
     registeredAddress?: StringFilter<"Asset"> | string
     createdAt?: DateTimeFilter<"Asset"> | Date | string
-    createdId?: IntFilter<"Asset"> | number
+    createdId?: StringFilter<"Asset"> | string
     createdBy?: StringFilter<"Asset"> | string
     updatedAt?: DateTimeFilter<"Asset"> | Date | string
-    updatedId?: IntFilter<"Asset"> | number
+    updatedId?: StringFilter<"Asset"> | string
     updatedBy?: StringFilter<"Asset"> | string
     Project?: XOR<ProjectRelationFilter, ProjectWhereInput>
     AssetKis?: AssetKiListRelationFilter
@@ -17400,10 +17139,8 @@ export namespace Prisma {
     updatedId?: SortOrder
     updatedBy?: SortOrder
     _count?: AssetCountOrderByAggregateInput
-    _avg?: AssetAvgOrderByAggregateInput
     _max?: AssetMaxOrderByAggregateInput
     _min?: AssetMinOrderByAggregateInput
-    _sum?: AssetSumOrderByAggregateInput
   }
 
   export type AssetScalarWhereWithAggregatesInput = {
@@ -17416,10 +17153,10 @@ export namespace Prisma {
     address?: StringWithAggregatesFilter<"Asset"> | string
     registeredAddress?: StringWithAggregatesFilter<"Asset"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Asset"> | Date | string
-    createdId?: IntWithAggregatesFilter<"Asset"> | number
+    createdId?: StringWithAggregatesFilter<"Asset"> | string
     createdBy?: StringWithAggregatesFilter<"Asset"> | string
     updatedAt?: DateTimeWithAggregatesFilter<"Asset"> | Date | string
-    updatedId?: IntWithAggregatesFilter<"Asset"> | number
+    updatedId?: StringWithAggregatesFilter<"Asset"> | string
     updatedBy?: StringWithAggregatesFilter<"Asset"> | string
   }
 
@@ -17438,10 +17175,10 @@ export namespace Prisma {
     photo3?: StringNullableFilter<"AssetKi"> | string | null
     photo4?: StringNullableFilter<"AssetKi"> | string | null
     createdAt?: DateTimeFilter<"AssetKi"> | Date | string
-    createdId?: IntFilter<"AssetKi"> | number
+    createdId?: StringFilter<"AssetKi"> | string
     createdBy?: StringFilter<"AssetKi"> | string
     updatedAt?: DateTimeFilter<"AssetKi"> | Date | string
-    updatedId?: IntFilter<"AssetKi"> | number
+    updatedId?: StringFilter<"AssetKi"> | string
     updatedBy?: StringFilter<"AssetKi"> | string
     Asset?: XOR<AssetRelationFilter, AssetWhereInput>
     Ki?: XOR<KiRelationFilter, KiWhereInput>
@@ -17484,10 +17221,10 @@ export namespace Prisma {
     photo3?: StringNullableFilter<"AssetKi"> | string | null
     photo4?: StringNullableFilter<"AssetKi"> | string | null
     createdAt?: DateTimeFilter<"AssetKi"> | Date | string
-    createdId?: IntFilter<"AssetKi"> | number
+    createdId?: StringFilter<"AssetKi"> | string
     createdBy?: StringFilter<"AssetKi"> | string
     updatedAt?: DateTimeFilter<"AssetKi"> | Date | string
-    updatedId?: IntFilter<"AssetKi"> | number
+    updatedId?: StringFilter<"AssetKi"> | string
     updatedBy?: StringFilter<"AssetKi"> | string
     Asset?: XOR<AssetRelationFilter, AssetWhereInput>
     Ki?: XOR<KiRelationFilter, KiWhereInput>
@@ -17532,10 +17269,10 @@ export namespace Prisma {
     photo3?: StringNullableWithAggregatesFilter<"AssetKi"> | string | null
     photo4?: StringNullableWithAggregatesFilter<"AssetKi"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"AssetKi"> | Date | string
-    createdId?: IntWithAggregatesFilter<"AssetKi"> | number
+    createdId?: StringWithAggregatesFilter<"AssetKi"> | string
     createdBy?: StringWithAggregatesFilter<"AssetKi"> | string
     updatedAt?: DateTimeWithAggregatesFilter<"AssetKi"> | Date | string
-    updatedId?: IntWithAggregatesFilter<"AssetKi"> | number
+    updatedId?: StringWithAggregatesFilter<"AssetKi"> | string
     updatedBy?: StringWithAggregatesFilter<"AssetKi"> | string
   }
 
@@ -17544,8 +17281,7 @@ export namespace Prisma {
     OR?: CustomerWhereInput[]
     NOT?: CustomerWhereInput | CustomerWhereInput[]
     id?: StringFilter<"Customer"> | string
-    sbimpId?: StringFilter<"Customer"> | string
-    sbimpIdHistory?: StringFilter<"Customer"> | string
+    sbimpId?: StringNullableFilter<"Customer"> | string | null
     name?: StringFilter<"Customer"> | string
     nameFurigana?: StringFilter<"Customer"> | string
     birthday?: DateTimeNullableFilter<"Customer"> | Date | string | null
@@ -17560,18 +17296,17 @@ export namespace Prisma {
     address?: StringFilter<"Customer"> | string
     isDeleted?: BoolFilter<"Customer"> | boolean
     createdAt?: DateTimeFilter<"Customer"> | Date | string
-    createdId?: IntFilter<"Customer"> | number
+    createdId?: StringFilter<"Customer"> | string
     createdBy?: StringFilter<"Customer"> | string
     updatedAt?: DateTimeFilter<"Customer"> | Date | string
-    updatedId?: IntFilter<"Customer"> | number
+    updatedId?: StringFilter<"Customer"> | string
     updatedBy?: StringFilter<"Customer"> | string
     CustomerFunds?: CustomerFundListRelationFilter
   }
 
   export type CustomerOrderByWithRelationInput = {
     id?: SortOrder
-    sbimpId?: SortOrder
-    sbimpIdHistory?: SortOrder
+    sbimpId?: SortOrderInput | SortOrder
     name?: SortOrder
     nameFurigana?: SortOrder
     birthday?: SortOrderInput | SortOrder
@@ -17596,11 +17331,10 @@ export namespace Prisma {
 
   export type CustomerWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    sbimpId?: string
     AND?: CustomerWhereInput | CustomerWhereInput[]
     OR?: CustomerWhereInput[]
     NOT?: CustomerWhereInput | CustomerWhereInput[]
-    sbimpIdHistory?: StringFilter<"Customer"> | string
+    sbimpId?: StringNullableFilter<"Customer"> | string | null
     name?: StringFilter<"Customer"> | string
     nameFurigana?: StringFilter<"Customer"> | string
     birthday?: DateTimeNullableFilter<"Customer"> | Date | string | null
@@ -17615,18 +17349,17 @@ export namespace Prisma {
     address?: StringFilter<"Customer"> | string
     isDeleted?: BoolFilter<"Customer"> | boolean
     createdAt?: DateTimeFilter<"Customer"> | Date | string
-    createdId?: IntFilter<"Customer"> | number
+    createdId?: StringFilter<"Customer"> | string
     createdBy?: StringFilter<"Customer"> | string
     updatedAt?: DateTimeFilter<"Customer"> | Date | string
-    updatedId?: IntFilter<"Customer"> | number
+    updatedId?: StringFilter<"Customer"> | string
     updatedBy?: StringFilter<"Customer"> | string
     CustomerFunds?: CustomerFundListRelationFilter
-  }, "id" | "sbimpId">
+  }, "id">
 
   export type CustomerOrderByWithAggregationInput = {
     id?: SortOrder
-    sbimpId?: SortOrder
-    sbimpIdHistory?: SortOrder
+    sbimpId?: SortOrderInput | SortOrder
     name?: SortOrder
     nameFurigana?: SortOrder
     birthday?: SortOrderInput | SortOrder
@@ -17647,10 +17380,8 @@ export namespace Prisma {
     updatedId?: SortOrder
     updatedBy?: SortOrder
     _count?: CustomerCountOrderByAggregateInput
-    _avg?: CustomerAvgOrderByAggregateInput
     _max?: CustomerMaxOrderByAggregateInput
     _min?: CustomerMinOrderByAggregateInput
-    _sum?: CustomerSumOrderByAggregateInput
   }
 
   export type CustomerScalarWhereWithAggregatesInput = {
@@ -17658,8 +17389,7 @@ export namespace Prisma {
     OR?: CustomerScalarWhereWithAggregatesInput[]
     NOT?: CustomerScalarWhereWithAggregatesInput | CustomerScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Customer"> | string
-    sbimpId?: StringWithAggregatesFilter<"Customer"> | string
-    sbimpIdHistory?: StringWithAggregatesFilter<"Customer"> | string
+    sbimpId?: StringNullableWithAggregatesFilter<"Customer"> | string | null
     name?: StringWithAggregatesFilter<"Customer"> | string
     nameFurigana?: StringWithAggregatesFilter<"Customer"> | string
     birthday?: DateTimeNullableWithAggregatesFilter<"Customer"> | Date | string | null
@@ -17674,10 +17404,10 @@ export namespace Prisma {
     address?: StringWithAggregatesFilter<"Customer"> | string
     isDeleted?: BoolWithAggregatesFilter<"Customer"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Customer"> | Date | string
-    createdId?: IntWithAggregatesFilter<"Customer"> | number
+    createdId?: StringWithAggregatesFilter<"Customer"> | string
     createdBy?: StringWithAggregatesFilter<"Customer"> | string
     updatedAt?: DateTimeWithAggregatesFilter<"Customer"> | Date | string
-    updatedId?: IntWithAggregatesFilter<"Customer"> | number
+    updatedId?: StringWithAggregatesFilter<"Customer"> | string
     updatedBy?: StringWithAggregatesFilter<"Customer"> | string
   }
 
@@ -17716,10 +17446,10 @@ export namespace Prisma {
     holdPayment?: BoolFilter<"CustomerFund"> | boolean
     holdMemo?: StringNullableFilter<"CustomerFund"> | string | null
     createdAt?: DateTimeFilter<"CustomerFund"> | Date | string
-    createdId?: IntFilter<"CustomerFund"> | number
+    createdId?: StringFilter<"CustomerFund"> | string
     createdBy?: StringFilter<"CustomerFund"> | string
     updatedAt?: DateTimeFilter<"CustomerFund"> | Date | string
-    updatedId?: IntFilter<"CustomerFund"> | number
+    updatedId?: StringFilter<"CustomerFund"> | string
     updatedBy?: StringFilter<"CustomerFund"> | string
     Customer?: XOR<CustomerRelationFilter, CustomerWhereInput>
     ProjectKi?: XOR<ProjectKiRelationFilter, ProjectKiWhereInput>
@@ -17802,10 +17532,10 @@ export namespace Prisma {
     holdPayment?: BoolFilter<"CustomerFund"> | boolean
     holdMemo?: StringNullableFilter<"CustomerFund"> | string | null
     createdAt?: DateTimeFilter<"CustomerFund"> | Date | string
-    createdId?: IntFilter<"CustomerFund"> | number
+    createdId?: StringFilter<"CustomerFund"> | string
     createdBy?: StringFilter<"CustomerFund"> | string
     updatedAt?: DateTimeFilter<"CustomerFund"> | Date | string
-    updatedId?: IntFilter<"CustomerFund"> | number
+    updatedId?: StringFilter<"CustomerFund"> | string
     updatedBy?: StringFilter<"CustomerFund"> | string
     Customer?: XOR<CustomerRelationFilter, CustomerWhereInput>
     ProjectKi?: XOR<ProjectKiRelationFilter, ProjectKiWhereInput>
@@ -17890,10 +17620,10 @@ export namespace Prisma {
     holdPayment?: BoolWithAggregatesFilter<"CustomerFund"> | boolean
     holdMemo?: StringNullableWithAggregatesFilter<"CustomerFund"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"CustomerFund"> | Date | string
-    createdId?: IntWithAggregatesFilter<"CustomerFund"> | number
+    createdId?: StringWithAggregatesFilter<"CustomerFund"> | string
     createdBy?: StringWithAggregatesFilter<"CustomerFund"> | string
     updatedAt?: DateTimeWithAggregatesFilter<"CustomerFund"> | Date | string
-    updatedId?: IntWithAggregatesFilter<"CustomerFund"> | number
+    updatedId?: StringWithAggregatesFilter<"CustomerFund"> | string
     updatedBy?: StringWithAggregatesFilter<"CustomerFund"> | string
   }
 
@@ -17910,10 +17640,10 @@ export namespace Prisma {
     file?: BytesFilter<"Template"> | Buffer
     version?: IntFilter<"Template"> | number
     createdAt?: DateTimeFilter<"Template"> | Date | string
-    createdId?: IntFilter<"Template"> | number
+    createdId?: StringFilter<"Template"> | string
     createdBy?: StringFilter<"Template"> | string
     updatedAt?: DateTimeFilter<"Template"> | Date | string
-    updatedId?: IntFilter<"Template"> | number
+    updatedId?: StringFilter<"Template"> | string
     updatedBy?: StringFilter<"Template"> | string
   }
 
@@ -17947,10 +17677,10 @@ export namespace Prisma {
     file?: BytesFilter<"Template"> | Buffer
     version?: IntFilter<"Template"> | number
     createdAt?: DateTimeFilter<"Template"> | Date | string
-    createdId?: IntFilter<"Template"> | number
+    createdId?: StringFilter<"Template"> | string
     createdBy?: StringFilter<"Template"> | string
     updatedAt?: DateTimeFilter<"Template"> | Date | string
-    updatedId?: IntFilter<"Template"> | number
+    updatedId?: StringFilter<"Template"> | string
     updatedBy?: StringFilter<"Template"> | string
   }, "id">
 
@@ -17989,10 +17719,10 @@ export namespace Prisma {
     file?: BytesWithAggregatesFilter<"Template"> | Buffer
     version?: IntWithAggregatesFilter<"Template"> | number
     createdAt?: DateTimeWithAggregatesFilter<"Template"> | Date | string
-    createdId?: IntWithAggregatesFilter<"Template"> | number
+    createdId?: StringWithAggregatesFilter<"Template"> | string
     createdBy?: StringWithAggregatesFilter<"Template"> | string
     updatedAt?: DateTimeWithAggregatesFilter<"Template"> | Date | string
-    updatedId?: IntWithAggregatesFilter<"Template"> | number
+    updatedId?: StringWithAggregatesFilter<"Template"> | string
     updatedBy?: StringWithAggregatesFilter<"Template"> | string
   }
 
@@ -18010,7 +17740,7 @@ export namespace Prisma {
     file?: BytesFilter<"TemplateHistory"> | Buffer
     version?: IntFilter<"TemplateHistory"> | number
     updatedAt?: DateTimeFilter<"TemplateHistory"> | Date | string
-    updatedId?: IntFilter<"TemplateHistory"> | number
+    updatedId?: StringFilter<"TemplateHistory"> | string
     updatedBy?: StringFilter<"TemplateHistory"> | string
   }
 
@@ -18043,7 +17773,7 @@ export namespace Prisma {
     file?: BytesFilter<"TemplateHistory"> | Buffer
     version?: IntFilter<"TemplateHistory"> | number
     updatedAt?: DateTimeFilter<"TemplateHistory"> | Date | string
-    updatedId?: IntFilter<"TemplateHistory"> | number
+    updatedId?: StringFilter<"TemplateHistory"> | string
     updatedBy?: StringFilter<"TemplateHistory"> | string
   }, "id">
 
@@ -18081,7 +17811,7 @@ export namespace Prisma {
     file?: BytesWithAggregatesFilter<"TemplateHistory"> | Buffer
     version?: IntWithAggregatesFilter<"TemplateHistory"> | number
     updatedAt?: DateTimeWithAggregatesFilter<"TemplateHistory"> | Date | string
-    updatedId?: IntWithAggregatesFilter<"TemplateHistory"> | number
+    updatedId?: StringWithAggregatesFilter<"TemplateHistory"> | string
     updatedBy?: StringWithAggregatesFilter<"TemplateHistory"> | string
   }
 
@@ -18093,10 +17823,10 @@ export namespace Prisma {
     userType?: $Enums.UserType
     isDeleted?: boolean
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -18108,10 +17838,10 @@ export namespace Prisma {
     userType?: $Enums.UserType
     isDeleted?: boolean
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -18123,10 +17853,10 @@ export namespace Prisma {
     userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -18138,10 +17868,10 @@ export namespace Prisma {
     userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -18153,10 +17883,10 @@ export namespace Prisma {
     userType?: $Enums.UserType
     isDeleted?: boolean
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -18168,10 +17898,10 @@ export namespace Prisma {
     userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -18183,10 +17913,10 @@ export namespace Prisma {
     userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -18198,10 +17928,10 @@ export namespace Prisma {
     userType?: $Enums.UserType
     isDeleted?: boolean
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -18213,10 +17943,10 @@ export namespace Prisma {
     userType?: $Enums.UserType
     isDeleted?: boolean
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -18228,10 +17958,10 @@ export namespace Prisma {
     userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -18243,10 +17973,10 @@ export namespace Prisma {
     userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -18258,10 +17988,10 @@ export namespace Prisma {
     userType?: $Enums.UserType
     isDeleted?: boolean
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -18273,10 +18003,10 @@ export namespace Prisma {
     userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -18288,10 +18018,10 @@ export namespace Prisma {
     userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -18303,10 +18033,10 @@ export namespace Prisma {
     userType?: $Enums.UserType
     isDeleted?: boolean
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -18318,10 +18048,10 @@ export namespace Prisma {
     userType?: $Enums.UserType
     isDeleted?: boolean
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -18333,10 +18063,10 @@ export namespace Prisma {
     userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -18348,10 +18078,10 @@ export namespace Prisma {
     userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -18363,10 +18093,10 @@ export namespace Prisma {
     userType?: $Enums.UserType
     isDeleted?: boolean
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -18378,10 +18108,10 @@ export namespace Prisma {
     userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -18393,10 +18123,10 @@ export namespace Prisma {
     userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -18441,10 +18171,10 @@ export namespace Prisma {
     month: number
     completed?: boolean
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     ProjectKis?: ProjectKiCreateNestedManyWithoutKiInput
     AssetKis?: AssetKiCreateNestedManyWithoutKiInput
@@ -18456,10 +18186,10 @@ export namespace Prisma {
     month: number
     completed?: boolean
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutKiInput
     AssetKis?: AssetKiUncheckedCreateNestedManyWithoutKiInput
@@ -18471,10 +18201,10 @@ export namespace Prisma {
     month?: IntFieldUpdateOperationsInput | number
     completed?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     ProjectKis?: ProjectKiUpdateManyWithoutKiNestedInput
     AssetKis?: AssetKiUpdateManyWithoutKiNestedInput
@@ -18486,10 +18216,10 @@ export namespace Prisma {
     month?: IntFieldUpdateOperationsInput | number
     completed?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     ProjectKis?: ProjectKiUncheckedUpdateManyWithoutKiNestedInput
     AssetKis?: AssetKiUncheckedUpdateManyWithoutKiNestedInput
@@ -18501,10 +18231,10 @@ export namespace Prisma {
     month: number
     completed?: boolean
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -18514,10 +18244,10 @@ export namespace Prisma {
     month?: IntFieldUpdateOperationsInput | number
     completed?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -18527,10 +18257,10 @@ export namespace Prisma {
     month?: IntFieldUpdateOperationsInput | number
     completed?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -18551,10 +18281,10 @@ export namespace Prisma {
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     ProjectKis?: ProjectKiCreateNestedManyWithoutProjectInput
     Assets?: AssetCreateNestedManyWithoutProjectInput
@@ -18577,10 +18307,10 @@ export namespace Prisma {
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutProjectInput
     Assets?: AssetUncheckedCreateNestedManyWithoutProjectInput
@@ -18603,10 +18333,10 @@ export namespace Prisma {
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     ProjectKis?: ProjectKiUpdateManyWithoutProjectNestedInput
     Assets?: AssetUpdateManyWithoutProjectNestedInput
@@ -18629,10 +18359,10 @@ export namespace Prisma {
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     ProjectKis?: ProjectKiUncheckedUpdateManyWithoutProjectNestedInput
     Assets?: AssetUncheckedUpdateManyWithoutProjectNestedInput
@@ -18655,10 +18385,10 @@ export namespace Prisma {
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -18679,10 +18409,10 @@ export namespace Prisma {
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -18703,10 +18433,10 @@ export namespace Prisma {
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -18717,10 +18447,10 @@ export namespace Prisma {
     reportDate: Date | string
     topic: string
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     Project: ProjectCreateNestedOneWithoutProjectKisInput
     Ki: KiCreateNestedOneWithoutProjectKisInput
@@ -18736,10 +18466,10 @@ export namespace Prisma {
     reportDate: Date | string
     topic: string
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     CustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutProjectKiInput
   }
@@ -18751,10 +18481,10 @@ export namespace Prisma {
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     Project?: ProjectUpdateOneRequiredWithoutProjectKisNestedInput
     Ki?: KiUpdateOneRequiredWithoutProjectKisNestedInput
@@ -18770,10 +18500,10 @@ export namespace Prisma {
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     CustomerFunds?: CustomerFundUncheckedUpdateManyWithoutProjectKiNestedInput
   }
@@ -18787,10 +18517,10 @@ export namespace Prisma {
     reportDate: Date | string
     topic: string
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -18801,10 +18531,10 @@ export namespace Prisma {
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -18817,10 +18547,10 @@ export namespace Prisma {
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -18830,10 +18560,10 @@ export namespace Prisma {
     address: string
     registeredAddress: string
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     Project: ProjectCreateNestedOneWithoutAssetsInput
     AssetKis?: AssetKiCreateNestedManyWithoutAssetInput
@@ -18846,10 +18576,10 @@ export namespace Prisma {
     address: string
     registeredAddress: string
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     AssetKis?: AssetKiUncheckedCreateNestedManyWithoutAssetInput
   }
@@ -18860,10 +18590,10 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     registeredAddress?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     Project?: ProjectUpdateOneRequiredWithoutAssetsNestedInput
     AssetKis?: AssetKiUpdateManyWithoutAssetNestedInput
@@ -18876,10 +18606,10 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     registeredAddress?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     AssetKis?: AssetKiUncheckedUpdateManyWithoutAssetNestedInput
   }
@@ -18891,10 +18621,10 @@ export namespace Prisma {
     address: string
     registeredAddress: string
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -18904,10 +18634,10 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     registeredAddress?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -18918,10 +18648,10 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     registeredAddress?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -18935,10 +18665,10 @@ export namespace Prisma {
     photo3?: string | null
     photo4?: string | null
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     Asset: AssetCreateNestedOneWithoutAssetKisInput
     Ki: KiCreateNestedOneWithoutAssetKisInput
@@ -18956,10 +18686,10 @@ export namespace Prisma {
     photo3?: string | null
     photo4?: string | null
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -18973,10 +18703,10 @@ export namespace Prisma {
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     Asset?: AssetUpdateOneRequiredWithoutAssetKisNestedInput
     Ki?: KiUpdateOneRequiredWithoutAssetKisNestedInput
@@ -18994,10 +18724,10 @@ export namespace Prisma {
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -19013,10 +18743,10 @@ export namespace Prisma {
     photo3?: string | null
     photo4?: string | null
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -19030,10 +18760,10 @@ export namespace Prisma {
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -19049,17 +18779,16 @@ export namespace Prisma {
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
   export type CustomerCreateInput = {
     id?: string
-    sbimpId: string
-    sbimpIdHistory: string
+    sbimpId?: string | null
     name: string
     nameFurigana: string
     birthday?: Date | string | null
@@ -19074,18 +18803,17 @@ export namespace Prisma {
     address: string
     isDeleted?: boolean
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     CustomerFunds?: CustomerFundCreateNestedManyWithoutCustomerInput
   }
 
   export type CustomerUncheckedCreateInput = {
     id?: string
-    sbimpId: string
-    sbimpIdHistory: string
+    sbimpId?: string | null
     name: string
     nameFurigana: string
     birthday?: Date | string | null
@@ -19100,18 +18828,17 @@ export namespace Prisma {
     address: string
     isDeleted?: boolean
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     CustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutCustomerInput
   }
 
   export type CustomerUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    sbimpId?: StringFieldUpdateOperationsInput | string
-    sbimpIdHistory?: StringFieldUpdateOperationsInput | string
+    sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     nameFurigana?: StringFieldUpdateOperationsInput | string
     birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -19126,18 +18853,17 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     CustomerFunds?: CustomerFundUpdateManyWithoutCustomerNestedInput
   }
 
   export type CustomerUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    sbimpId?: StringFieldUpdateOperationsInput | string
-    sbimpIdHistory?: StringFieldUpdateOperationsInput | string
+    sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     nameFurigana?: StringFieldUpdateOperationsInput | string
     birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -19152,18 +18878,17 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     CustomerFunds?: CustomerFundUncheckedUpdateManyWithoutCustomerNestedInput
   }
 
   export type CustomerCreateManyInput = {
     id?: string
-    sbimpId: string
-    sbimpIdHistory: string
+    sbimpId?: string | null
     name: string
     nameFurigana: string
     birthday?: Date | string | null
@@ -19178,17 +18903,16 @@ export namespace Prisma {
     address: string
     isDeleted?: boolean
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
   export type CustomerUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    sbimpId?: StringFieldUpdateOperationsInput | string
-    sbimpIdHistory?: StringFieldUpdateOperationsInput | string
+    sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     nameFurigana?: StringFieldUpdateOperationsInput | string
     birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -19203,17 +18927,16 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
   export type CustomerUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    sbimpId?: StringFieldUpdateOperationsInput | string
-    sbimpIdHistory?: StringFieldUpdateOperationsInput | string
+    sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     nameFurigana?: StringFieldUpdateOperationsInput | string
     birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -19228,10 +18951,10 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -19265,10 +18988,10 @@ export namespace Prisma {
     holdPayment?: boolean
     holdMemo?: string | null
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     Customer: CustomerCreateNestedOneWithoutCustomerFundsInput
     ProjectKi: ProjectKiCreateNestedOneWithoutCustomerFundsInput
@@ -19306,10 +19029,10 @@ export namespace Prisma {
     holdPayment?: boolean
     holdMemo?: string | null
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -19343,10 +19066,10 @@ export namespace Prisma {
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
     holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     Customer?: CustomerUpdateOneRequiredWithoutCustomerFundsNestedInput
     ProjectKi?: ProjectKiUpdateOneRequiredWithoutCustomerFundsNestedInput
@@ -19384,10 +19107,10 @@ export namespace Prisma {
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
     holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -19423,10 +19146,10 @@ export namespace Prisma {
     holdPayment?: boolean
     holdMemo?: string | null
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -19460,10 +19183,10 @@ export namespace Prisma {
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
     holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -19499,10 +19222,10 @@ export namespace Prisma {
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
     holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -19516,10 +19239,10 @@ export namespace Prisma {
     file: Buffer
     version?: number
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -19533,10 +19256,10 @@ export namespace Prisma {
     file: Buffer
     version?: number
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -19550,10 +19273,10 @@ export namespace Prisma {
     file?: BytesFieldUpdateOperationsInput | Buffer
     version?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -19567,10 +19290,10 @@ export namespace Prisma {
     file?: BytesFieldUpdateOperationsInput | Buffer
     version?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -19584,10 +19307,10 @@ export namespace Prisma {
     file: Buffer
     version?: number
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -19601,10 +19324,10 @@ export namespace Prisma {
     file?: BytesFieldUpdateOperationsInput | Buffer
     version?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -19618,10 +19341,10 @@ export namespace Prisma {
     file?: BytesFieldUpdateOperationsInput | Buffer
     version?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -19636,7 +19359,7 @@ export namespace Prisma {
     file: Buffer
     version: number
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -19651,7 +19374,7 @@ export namespace Prisma {
     file: Buffer
     version: number
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -19666,7 +19389,7 @@ export namespace Prisma {
     file?: BytesFieldUpdateOperationsInput | Buffer
     version?: IntFieldUpdateOperationsInput | number
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -19681,7 +19404,7 @@ export namespace Prisma {
     file?: BytesFieldUpdateOperationsInput | Buffer
     version?: IntFieldUpdateOperationsInput | number
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -19696,7 +19419,7 @@ export namespace Prisma {
     file: Buffer
     version: number
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -19711,7 +19434,7 @@ export namespace Prisma {
     file?: BytesFieldUpdateOperationsInput | Buffer
     version?: IntFieldUpdateOperationsInput | number
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -19726,7 +19449,7 @@ export namespace Prisma {
     file?: BytesFieldUpdateOperationsInput | Buffer
     version?: IntFieldUpdateOperationsInput | number
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -19790,17 +19513,6 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
-  }
-
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -19819,11 +19531,6 @@ export namespace Prisma {
     updatedAt?: SortOrder
     updatedId?: SortOrder
     updatedBy?: SortOrder
-  }
-
-  export type UserAvgOrderByAggregateInput = {
-    createdId?: SortOrder
-    updatedId?: SortOrder
   }
 
   export type UserMaxOrderByAggregateInput = {
@@ -19854,11 +19561,6 @@ export namespace Prisma {
     updatedAt?: SortOrder
     updatedId?: SortOrder
     updatedBy?: SortOrder
-  }
-
-  export type UserSumOrderByAggregateInput = {
-    createdId?: SortOrder
-    updatedId?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -19939,22 +19641,6 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
-  }
-
   export type SBIMPUserCountOrderByAggregateInput = {
     id?: SortOrder
     email?: SortOrder
@@ -19968,11 +19654,6 @@ export namespace Prisma {
     updatedAt?: SortOrder
     updatedId?: SortOrder
     updatedBy?: SortOrder
-  }
-
-  export type SBIMPUserAvgOrderByAggregateInput = {
-    createdId?: SortOrder
-    updatedId?: SortOrder
   }
 
   export type SBIMPUserMaxOrderByAggregateInput = {
@@ -20005,11 +19686,6 @@ export namespace Prisma {
     updatedBy?: SortOrder
   }
 
-  export type SBIMPUserSumOrderByAggregateInput = {
-    createdId?: SortOrder
-    updatedId?: SortOrder
-  }
-
   export type EAJUserCountOrderByAggregateInput = {
     id?: SortOrder
     email?: SortOrder
@@ -20023,11 +19699,6 @@ export namespace Prisma {
     updatedAt?: SortOrder
     updatedId?: SortOrder
     updatedBy?: SortOrder
-  }
-
-  export type EAJUserAvgOrderByAggregateInput = {
-    createdId?: SortOrder
-    updatedId?: SortOrder
   }
 
   export type EAJUserMaxOrderByAggregateInput = {
@@ -20060,11 +19731,6 @@ export namespace Prisma {
     updatedBy?: SortOrder
   }
 
-  export type EAJUserSumOrderByAggregateInput = {
-    createdId?: SortOrder
-    updatedId?: SortOrder
-  }
-
   export type CompanyCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -20078,6 +19744,17 @@ export namespace Prisma {
   export type CompanyMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type ProjectKiListRelationFilter = {
@@ -20116,8 +19793,6 @@ export namespace Prisma {
   export type KiAvgOrderByAggregateInput = {
     year?: SortOrder
     month?: SortOrder
-    createdId?: SortOrder
-    updatedId?: SortOrder
   }
 
   export type KiMaxOrderByAggregateInput = {
@@ -20149,8 +19824,22 @@ export namespace Prisma {
   export type KiSumOrderByAggregateInput = {
     year?: SortOrder
     month?: SortOrder
-    createdId?: SortOrder
-    updatedId?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type BigIntFilter<$PrismaModel = never> = {
@@ -20217,8 +19906,6 @@ export namespace Prisma {
     fullOccupancyYield?: SortOrder
     totalKubun?: SortOrder
     residenceKubun?: SortOrder
-    createdId?: SortOrder
-    updatedId?: SortOrder
   }
 
   export type ProjectMaxOrderByAggregateInput = {
@@ -20277,8 +19964,6 @@ export namespace Prisma {
     fullOccupancyYield?: SortOrder
     totalKubun?: SortOrder
     residenceKubun?: SortOrder
-    createdId?: SortOrder
-    updatedId?: SortOrder
   }
 
   export type BigIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -20361,8 +20046,6 @@ export namespace Prisma {
 
   export type ProjectKiAvgOrderByAggregateInput = {
     projectKi?: SortOrder
-    createdId?: SortOrder
-    updatedId?: SortOrder
   }
 
   export type ProjectKiMaxOrderByAggregateInput = {
@@ -20399,8 +20082,6 @@ export namespace Prisma {
 
   export type ProjectKiSumOrderByAggregateInput = {
     projectKi?: SortOrder
-    createdId?: SortOrder
-    updatedId?: SortOrder
   }
 
   export type AssetCountOrderByAggregateInput = {
@@ -20415,11 +20096,6 @@ export namespace Prisma {
     updatedAt?: SortOrder
     updatedId?: SortOrder
     updatedBy?: SortOrder
-  }
-
-  export type AssetAvgOrderByAggregateInput = {
-    createdId?: SortOrder
-    updatedId?: SortOrder
   }
 
   export type AssetMaxOrderByAggregateInput = {
@@ -20448,11 +20124,6 @@ export namespace Prisma {
     updatedAt?: SortOrder
     updatedId?: SortOrder
     updatedBy?: SortOrder
-  }
-
-  export type AssetSumOrderByAggregateInput = {
-    createdId?: SortOrder
-    updatedId?: SortOrder
   }
 
   export type AssetRelationFilter = {
@@ -20486,8 +20157,6 @@ export namespace Prisma {
 
   export type AssetKiAvgOrderByAggregateInput = {
     projectKi?: SortOrder
-    createdId?: SortOrder
-    updatedId?: SortOrder
   }
 
   export type AssetKiMaxOrderByAggregateInput = {
@@ -20530,8 +20199,6 @@ export namespace Prisma {
 
   export type AssetKiSumOrderByAggregateInput = {
     projectKi?: SortOrder
-    createdId?: SortOrder
-    updatedId?: SortOrder
   }
 
   export type DateTimeNullableFilter<$PrismaModel = never> = {
@@ -20562,7 +20229,6 @@ export namespace Prisma {
   export type CustomerCountOrderByAggregateInput = {
     id?: SortOrder
     sbimpId?: SortOrder
-    sbimpIdHistory?: SortOrder
     name?: SortOrder
     nameFurigana?: SortOrder
     birthday?: SortOrder
@@ -20584,15 +20250,9 @@ export namespace Prisma {
     updatedBy?: SortOrder
   }
 
-  export type CustomerAvgOrderByAggregateInput = {
-    createdId?: SortOrder
-    updatedId?: SortOrder
-  }
-
   export type CustomerMaxOrderByAggregateInput = {
     id?: SortOrder
     sbimpId?: SortOrder
-    sbimpIdHistory?: SortOrder
     name?: SortOrder
     nameFurigana?: SortOrder
     birthday?: SortOrder
@@ -20617,7 +20277,6 @@ export namespace Prisma {
   export type CustomerMinOrderByAggregateInput = {
     id?: SortOrder
     sbimpId?: SortOrder
-    sbimpIdHistory?: SortOrder
     name?: SortOrder
     nameFurigana?: SortOrder
     birthday?: SortOrder
@@ -20637,11 +20296,6 @@ export namespace Prisma {
     updatedAt?: SortOrder
     updatedId?: SortOrder
     updatedBy?: SortOrder
-  }
-
-  export type CustomerSumOrderByAggregateInput = {
-    createdId?: SortOrder
-    updatedId?: SortOrder
   }
 
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -20761,8 +20415,6 @@ export namespace Prisma {
     otherBunpaiThisKi?: SortOrder
     otherBunpaiYear?: SortOrder
     otherBunpaiTotal?: SortOrder
-    createdId?: SortOrder
-    updatedId?: SortOrder
   }
 
   export type CustomerFundMaxOrderByAggregateInput = {
@@ -20854,8 +20506,6 @@ export namespace Prisma {
     otherBunpaiThisKi?: SortOrder
     otherBunpaiYear?: SortOrder
     otherBunpaiTotal?: SortOrder
-    createdId?: SortOrder
-    updatedId?: SortOrder
   }
 
   export type EnumInheritanceTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -20925,8 +20575,6 @@ export namespace Prisma {
   export type TemplateAvgOrderByAggregateInput = {
     size?: SortOrder
     version?: SortOrder
-    createdId?: SortOrder
-    updatedId?: SortOrder
   }
 
   export type TemplateMaxOrderByAggregateInput = {
@@ -20966,8 +20614,6 @@ export namespace Prisma {
   export type TemplateSumOrderByAggregateInput = {
     size?: SortOrder
     version?: SortOrder
-    createdId?: SortOrder
-    updatedId?: SortOrder
   }
 
   export type EnumExtTypeWithAggregatesFilter<$PrismaModel = never> = {
@@ -21018,7 +20664,6 @@ export namespace Prisma {
   export type TemplateHistoryAvgOrderByAggregateInput = {
     size?: SortOrder
     version?: SortOrder
-    updatedId?: SortOrder
   }
 
   export type TemplateHistoryMaxOrderByAggregateInput = {
@@ -21054,7 +20699,6 @@ export namespace Prisma {
   export type TemplateHistorySumOrderByAggregateInput = {
     size?: SortOrder
     version?: SortOrder
-    updatedId?: SortOrder
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -21079,14 +20723,6 @@ export namespace Prisma {
 
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
-  }
-
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
   }
 
   export type ProjectKiCreateNestedManyWithoutKiInput = {
@@ -21115,6 +20751,14 @@ export namespace Prisma {
     connectOrCreate?: AssetKiCreateOrConnectWithoutKiInput | AssetKiCreateOrConnectWithoutKiInput[]
     createMany?: AssetKiCreateManyKiInputEnvelope
     connect?: AssetKiWhereUniqueInput | AssetKiWhereUniqueInput[]
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type ProjectKiUpdateManyWithoutKiNestedInput = {
@@ -21591,17 +21235,6 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type NestedIntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
-  }
-
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -21617,6 +21250,17 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type NestedIntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -21920,10 +21564,10 @@ export namespace Prisma {
     reportDate: Date | string
     topic: string
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     Project: ProjectCreateNestedOneWithoutProjectKisInput
     CustomerFunds?: CustomerFundCreateNestedManyWithoutProjectKiInput
@@ -21937,10 +21581,10 @@ export namespace Prisma {
     reportDate: Date | string
     topic: string
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     CustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutProjectKiInput
   }
@@ -21965,10 +21609,10 @@ export namespace Prisma {
     photo3?: string | null
     photo4?: string | null
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     Asset: AssetCreateNestedOneWithoutAssetKisInput
   }
@@ -21984,10 +21628,10 @@ export namespace Prisma {
     photo3?: string | null
     photo4?: string | null
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -22029,10 +21673,10 @@ export namespace Prisma {
     reportDate?: DateTimeFilter<"ProjectKi"> | Date | string
     topic?: StringFilter<"ProjectKi"> | string
     createdAt?: DateTimeFilter<"ProjectKi"> | Date | string
-    createdId?: IntFilter<"ProjectKi"> | number
+    createdId?: StringFilter<"ProjectKi"> | string
     createdBy?: StringFilter<"ProjectKi"> | string
     updatedAt?: DateTimeFilter<"ProjectKi"> | Date | string
-    updatedId?: IntFilter<"ProjectKi"> | number
+    updatedId?: StringFilter<"ProjectKi"> | string
     updatedBy?: StringFilter<"ProjectKi"> | string
   }
 
@@ -22067,10 +21711,10 @@ export namespace Prisma {
     photo3?: StringNullableFilter<"AssetKi"> | string | null
     photo4?: StringNullableFilter<"AssetKi"> | string | null
     createdAt?: DateTimeFilter<"AssetKi"> | Date | string
-    createdId?: IntFilter<"AssetKi"> | number
+    createdId?: StringFilter<"AssetKi"> | string
     createdBy?: StringFilter<"AssetKi"> | string
     updatedAt?: DateTimeFilter<"AssetKi"> | Date | string
-    updatedId?: IntFilter<"AssetKi"> | number
+    updatedId?: StringFilter<"AssetKi"> | string
     updatedBy?: StringFilter<"AssetKi"> | string
   }
 
@@ -22081,10 +21725,10 @@ export namespace Prisma {
     reportDate: Date | string
     topic: string
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     Ki: KiCreateNestedOneWithoutProjectKisInput
     CustomerFunds?: CustomerFundCreateNestedManyWithoutProjectKiInput
@@ -22098,10 +21742,10 @@ export namespace Prisma {
     reportDate: Date | string
     topic: string
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     CustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutProjectKiInput
   }
@@ -22122,10 +21766,10 @@ export namespace Prisma {
     address: string
     registeredAddress: string
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     AssetKis?: AssetKiCreateNestedManyWithoutAssetInput
   }
@@ -22136,10 +21780,10 @@ export namespace Prisma {
     address: string
     registeredAddress: string
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     AssetKis?: AssetKiUncheckedCreateNestedManyWithoutAssetInput
   }
@@ -22196,10 +21840,10 @@ export namespace Prisma {
     address?: StringFilter<"Asset"> | string
     registeredAddress?: StringFilter<"Asset"> | string
     createdAt?: DateTimeFilter<"Asset"> | Date | string
-    createdId?: IntFilter<"Asset"> | number
+    createdId?: StringFilter<"Asset"> | string
     createdBy?: StringFilter<"Asset"> | string
     updatedAt?: DateTimeFilter<"Asset"> | Date | string
-    updatedId?: IntFilter<"Asset"> | number
+    updatedId?: StringFilter<"Asset"> | string
     updatedBy?: StringFilter<"Asset"> | string
   }
 
@@ -22220,10 +21864,10 @@ export namespace Prisma {
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     Assets?: AssetCreateNestedManyWithoutProjectInput
   }
@@ -22245,10 +21889,10 @@ export namespace Prisma {
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     Assets?: AssetUncheckedCreateNestedManyWithoutProjectInput
   }
@@ -22264,10 +21908,10 @@ export namespace Prisma {
     month: number
     completed?: boolean
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     AssetKis?: AssetKiCreateNestedManyWithoutKiInput
   }
@@ -22278,10 +21922,10 @@ export namespace Prisma {
     month: number
     completed?: boolean
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     AssetKis?: AssetKiUncheckedCreateNestedManyWithoutKiInput
   }
@@ -22321,10 +21965,10 @@ export namespace Prisma {
     holdPayment?: boolean
     holdMemo?: string | null
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     Customer: CustomerCreateNestedOneWithoutCustomerFundsInput
   }
@@ -22360,10 +22004,10 @@ export namespace Prisma {
     holdPayment?: boolean
     holdMemo?: string | null
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -22405,10 +22049,10 @@ export namespace Prisma {
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     Assets?: AssetUpdateManyWithoutProjectNestedInput
   }
@@ -22430,10 +22074,10 @@ export namespace Prisma {
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     Assets?: AssetUncheckedUpdateManyWithoutProjectNestedInput
   }
@@ -22455,10 +22099,10 @@ export namespace Prisma {
     month?: IntFieldUpdateOperationsInput | number
     completed?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     AssetKis?: AssetKiUpdateManyWithoutKiNestedInput
   }
@@ -22469,10 +22113,10 @@ export namespace Prisma {
     month?: IntFieldUpdateOperationsInput | number
     completed?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     AssetKis?: AssetKiUncheckedUpdateManyWithoutKiNestedInput
   }
@@ -22528,10 +22172,10 @@ export namespace Prisma {
     holdPayment?: BoolFilter<"CustomerFund"> | boolean
     holdMemo?: StringNullableFilter<"CustomerFund"> | string | null
     createdAt?: DateTimeFilter<"CustomerFund"> | Date | string
-    createdId?: IntFilter<"CustomerFund"> | number
+    createdId?: StringFilter<"CustomerFund"> | string
     createdBy?: StringFilter<"CustomerFund"> | string
     updatedAt?: DateTimeFilter<"CustomerFund"> | Date | string
-    updatedId?: IntFilter<"CustomerFund"> | number
+    updatedId?: StringFilter<"CustomerFund"> | string
     updatedBy?: StringFilter<"CustomerFund"> | string
   }
 
@@ -22552,10 +22196,10 @@ export namespace Prisma {
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     ProjectKis?: ProjectKiCreateNestedManyWithoutProjectInput
   }
@@ -22577,10 +22221,10 @@ export namespace Prisma {
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutProjectInput
   }
@@ -22600,10 +22244,10 @@ export namespace Prisma {
     photo3?: string | null
     photo4?: string | null
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     Ki: KiCreateNestedOneWithoutAssetKisInput
   }
@@ -22619,10 +22263,10 @@ export namespace Prisma {
     photo3?: string | null
     photo4?: string | null
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -22664,10 +22308,10 @@ export namespace Prisma {
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     ProjectKis?: ProjectKiUpdateManyWithoutProjectNestedInput
   }
@@ -22689,10 +22333,10 @@ export namespace Prisma {
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     ProjectKis?: ProjectKiUncheckedUpdateManyWithoutProjectNestedInput
   }
@@ -22719,10 +22363,10 @@ export namespace Prisma {
     address: string
     registeredAddress: string
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     Project: ProjectCreateNestedOneWithoutAssetsInput
   }
@@ -22734,10 +22378,10 @@ export namespace Prisma {
     address: string
     registeredAddress: string
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -22752,10 +22396,10 @@ export namespace Prisma {
     month: number
     completed?: boolean
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     ProjectKis?: ProjectKiCreateNestedManyWithoutKiInput
   }
@@ -22766,10 +22410,10 @@ export namespace Prisma {
     month: number
     completed?: boolean
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutKiInput
   }
@@ -22796,10 +22440,10 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     registeredAddress?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     Project?: ProjectUpdateOneRequiredWithoutAssetsNestedInput
   }
@@ -22811,10 +22455,10 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     registeredAddress?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -22835,10 +22479,10 @@ export namespace Prisma {
     month?: IntFieldUpdateOperationsInput | number
     completed?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     ProjectKis?: ProjectKiUpdateManyWithoutKiNestedInput
   }
@@ -22849,10 +22493,10 @@ export namespace Prisma {
     month?: IntFieldUpdateOperationsInput | number
     completed?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     ProjectKis?: ProjectKiUncheckedUpdateManyWithoutKiNestedInput
   }
@@ -22887,10 +22531,10 @@ export namespace Prisma {
     holdPayment?: boolean
     holdMemo?: string | null
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     ProjectKi: ProjectKiCreateNestedOneWithoutCustomerFundsInput
   }
@@ -22926,10 +22570,10 @@ export namespace Prisma {
     holdPayment?: boolean
     holdMemo?: string | null
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -22961,8 +22605,7 @@ export namespace Prisma {
 
   export type CustomerCreateWithoutCustomerFundsInput = {
     id?: string
-    sbimpId: string
-    sbimpIdHistory: string
+    sbimpId?: string | null
     name: string
     nameFurigana: string
     birthday?: Date | string | null
@@ -22977,17 +22620,16 @@ export namespace Prisma {
     address: string
     isDeleted?: boolean
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
   export type CustomerUncheckedCreateWithoutCustomerFundsInput = {
     id?: string
-    sbimpId: string
-    sbimpIdHistory: string
+    sbimpId?: string | null
     name: string
     nameFurigana: string
     birthday?: Date | string | null
@@ -23002,10 +22644,10 @@ export namespace Prisma {
     address: string
     isDeleted?: boolean
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -23021,10 +22663,10 @@ export namespace Prisma {
     reportDate: Date | string
     topic: string
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
     Project: ProjectCreateNestedOneWithoutProjectKisInput
     Ki: KiCreateNestedOneWithoutProjectKisInput
@@ -23039,10 +22681,10 @@ export namespace Prisma {
     reportDate: Date | string
     topic: string
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -23064,8 +22706,7 @@ export namespace Prisma {
 
   export type CustomerUpdateWithoutCustomerFundsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    sbimpId?: StringFieldUpdateOperationsInput | string
-    sbimpIdHistory?: StringFieldUpdateOperationsInput | string
+    sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     nameFurigana?: StringFieldUpdateOperationsInput | string
     birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -23080,17 +22721,16 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
   export type CustomerUncheckedUpdateWithoutCustomerFundsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    sbimpId?: StringFieldUpdateOperationsInput | string
-    sbimpIdHistory?: StringFieldUpdateOperationsInput | string
+    sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
     name?: StringFieldUpdateOperationsInput | string
     nameFurigana?: StringFieldUpdateOperationsInput | string
     birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -23105,10 +22745,10 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -23130,10 +22770,10 @@ export namespace Prisma {
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     Project?: ProjectUpdateOneRequiredWithoutProjectKisNestedInput
     Ki?: KiUpdateOneRequiredWithoutProjectKisNestedInput
@@ -23148,10 +22788,10 @@ export namespace Prisma {
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -23163,10 +22803,10 @@ export namespace Prisma {
     reportDate: Date | string
     topic: string
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -23181,10 +22821,10 @@ export namespace Prisma {
     photo3?: string | null
     photo4?: string | null
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -23195,10 +22835,10 @@ export namespace Prisma {
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     Project?: ProjectUpdateOneRequiredWithoutProjectKisNestedInput
     CustomerFunds?: CustomerFundUpdateManyWithoutProjectKiNestedInput
@@ -23212,10 +22852,10 @@ export namespace Prisma {
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     CustomerFunds?: CustomerFundUncheckedUpdateManyWithoutProjectKiNestedInput
   }
@@ -23228,10 +22868,10 @@ export namespace Prisma {
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -23245,10 +22885,10 @@ export namespace Prisma {
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     Asset?: AssetUpdateOneRequiredWithoutAssetKisNestedInput
   }
@@ -23264,10 +22904,10 @@ export namespace Prisma {
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -23282,10 +22922,10 @@ export namespace Prisma {
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -23297,10 +22937,10 @@ export namespace Prisma {
     reportDate: Date | string
     topic: string
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -23310,10 +22950,10 @@ export namespace Prisma {
     address: string
     registeredAddress: string
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -23324,10 +22964,10 @@ export namespace Prisma {
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     Ki?: KiUpdateOneRequiredWithoutProjectKisNestedInput
     CustomerFunds?: CustomerFundUpdateManyWithoutProjectKiNestedInput
@@ -23341,10 +22981,10 @@ export namespace Prisma {
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     CustomerFunds?: CustomerFundUncheckedUpdateManyWithoutProjectKiNestedInput
   }
@@ -23357,10 +22997,10 @@ export namespace Prisma {
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -23370,10 +23010,10 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     registeredAddress?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     AssetKis?: AssetKiUpdateManyWithoutAssetNestedInput
   }
@@ -23384,10 +23024,10 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     registeredAddress?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     AssetKis?: AssetKiUncheckedUpdateManyWithoutAssetNestedInput
   }
@@ -23398,10 +23038,10 @@ export namespace Prisma {
     address?: StringFieldUpdateOperationsInput | string
     registeredAddress?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -23436,10 +23076,10 @@ export namespace Prisma {
     holdPayment?: boolean
     holdMemo?: string | null
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -23473,10 +23113,10 @@ export namespace Prisma {
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
     holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     Customer?: CustomerUpdateOneRequiredWithoutCustomerFundsNestedInput
   }
@@ -23512,10 +23152,10 @@ export namespace Prisma {
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
     holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -23550,10 +23190,10 @@ export namespace Prisma {
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
     holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -23568,10 +23208,10 @@ export namespace Prisma {
     photo3?: string | null
     photo4?: string | null
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -23585,10 +23225,10 @@ export namespace Prisma {
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     Ki?: KiUpdateOneRequiredWithoutAssetKisNestedInput
   }
@@ -23604,10 +23244,10 @@ export namespace Prisma {
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -23622,10 +23262,10 @@ export namespace Prisma {
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -23660,10 +23300,10 @@ export namespace Prisma {
     holdPayment?: boolean
     holdMemo?: string | null
     createdAt?: Date | string
-    createdId: number
+    createdId: string
     createdBy: string
     updatedAt?: Date | string
-    updatedId: number
+    updatedId: string
     updatedBy: string
   }
 
@@ -23697,10 +23337,10 @@ export namespace Prisma {
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
     holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     ProjectKi?: ProjectKiUpdateOneRequiredWithoutCustomerFundsNestedInput
   }
@@ -23736,10 +23376,10 @@ export namespace Prisma {
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
     holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
@@ -23774,10 +23414,10 @@ export namespace Prisma {
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
     holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: IntFieldUpdateOperationsInput | number
+    createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: IntFieldUpdateOperationsInput | number
+    updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
