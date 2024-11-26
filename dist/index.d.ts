@@ -78,6 +78,11 @@ export type Template = $Result.DefaultSelection<Prisma.$TemplatePayload>
  * 
  */
 export type TemplateHistory = $Result.DefaultSelection<Prisma.$TemplateHistoryPayload>
+/**
+ * Model VariableDefinition
+ * 
+ */
+export type VariableDefinition = $Result.DefaultSelection<Prisma.$VariableDefinitionPayload>
 
 /**
  * Enums
@@ -108,20 +113,20 @@ export const CustomerType: {
 export type CustomerType = (typeof CustomerType)[keyof typeof CustomerType]
 
 
-export const HoryuStatusType: {
-  AskInstruction: 'AskInstruction',
-  InstructionReady: 'InstructionReady'
-};
-
-export type HoryuStatusType = (typeof HoryuStatusType)[keyof typeof HoryuStatusType]
-
-
 export const InheritanceType: {
   Gift: 'Gift',
   Inheritance: 'Inheritance'
 };
 
 export type InheritanceType = (typeof InheritanceType)[keyof typeof InheritanceType]
+
+
+export const HoryuStatusType: {
+  AskInstruction: 'AskInstruction',
+  InstructionReady: 'InstructionReady'
+};
+
+export type HoryuStatusType = (typeof HoryuStatusType)[keyof typeof HoryuStatusType]
 
 
 export const ExtType: {
@@ -145,6 +150,19 @@ export const TemplateType: {
 
 export type TemplateType = (typeof TemplateType)[keyof typeof TemplateType]
 
+
+export const VariableType: {
+  Str: 'Str',
+  Num: 'Num',
+  YyyyMmDd: 'YyyyMmDd',
+  YyyyMm: 'YyyyMm',
+  MmDd: 'MmDd',
+  Photo: 'Photo',
+  Calc: 'Calc'
+};
+
+export type VariableType = (typeof VariableType)[keyof typeof VariableType]
+
 }
 
 export type UserRole = $Enums.UserRole
@@ -159,13 +177,13 @@ export type CustomerType = $Enums.CustomerType
 
 export const CustomerType: typeof $Enums.CustomerType
 
-export type HoryuStatusType = $Enums.HoryuStatusType
-
-export const HoryuStatusType: typeof $Enums.HoryuStatusType
-
 export type InheritanceType = $Enums.InheritanceType
 
 export const InheritanceType: typeof $Enums.InheritanceType
+
+export type HoryuStatusType = $Enums.HoryuStatusType
+
+export const HoryuStatusType: typeof $Enums.HoryuStatusType
 
 export type ExtType = $Enums.ExtType
 
@@ -174,6 +192,10 @@ export const ExtType: typeof $Enums.ExtType
 export type TemplateType = $Enums.TemplateType
 
 export const TemplateType: typeof $Enums.TemplateType
+
+export type VariableType = $Enums.VariableType
+
+export const VariableType: typeof $Enums.VariableType
 
 /**
  * ##  Prisma Client ʲˢ
@@ -427,6 +449,16 @@ export class PrismaClient<
     * ```
     */
   get templateHistory(): Prisma.TemplateHistoryDelegate<ExtArgs>;
+
+  /**
+   * `prisma.variableDefinition`: Exposes CRUD operations for the **VariableDefinition** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more VariableDefinitions
+    * const variableDefinitions = await prisma.variableDefinition.findMany()
+    * ```
+    */
+  get variableDefinition(): Prisma.VariableDefinitionDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -486,8 +518,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 5.20.0
-   * Query Engine version: 06fc58a368dc7be9fbbbe894adf8d445d208c284
+   * Prisma Client JS version: 5.22.0
+   * Query Engine version: 605197351a3c8bdd595af2d2a9bc3025bca48ea2
    */
   export type PrismaVersion = {
     client: string
@@ -880,7 +912,8 @@ export namespace Prisma {
     Customer: 'Customer',
     CustomerFund: 'CustomerFund',
     Template: 'Template',
-    TemplateHistory: 'TemplateHistory'
+    TemplateHistory: 'TemplateHistory',
+    VariableDefinition: 'VariableDefinition'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -896,7 +929,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "user" | "sBIMPUser" | "eAJUser" | "company" | "ki" | "project" | "projectKi" | "asset" | "assetKi" | "customer" | "customerFund" | "template" | "templateHistory"
+      modelProps: "user" | "sBIMPUser" | "eAJUser" | "company" | "ki" | "project" | "projectKi" | "asset" | "assetKi" | "customer" | "customerFund" | "template" | "templateHistory" | "variableDefinition"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1810,6 +1843,76 @@ export namespace Prisma {
           }
         }
       }
+      VariableDefinition: {
+        payload: Prisma.$VariableDefinitionPayload<ExtArgs>
+        fields: Prisma.VariableDefinitionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.VariableDefinitionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VariableDefinitionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.VariableDefinitionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VariableDefinitionPayload>
+          }
+          findFirst: {
+            args: Prisma.VariableDefinitionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VariableDefinitionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.VariableDefinitionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VariableDefinitionPayload>
+          }
+          findMany: {
+            args: Prisma.VariableDefinitionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VariableDefinitionPayload>[]
+          }
+          create: {
+            args: Prisma.VariableDefinitionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VariableDefinitionPayload>
+          }
+          createMany: {
+            args: Prisma.VariableDefinitionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.VariableDefinitionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VariableDefinitionPayload>[]
+          }
+          delete: {
+            args: Prisma.VariableDefinitionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VariableDefinitionPayload>
+          }
+          update: {
+            args: Prisma.VariableDefinitionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VariableDefinitionPayload>
+          }
+          deleteMany: {
+            args: Prisma.VariableDefinitionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.VariableDefinitionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.VariableDefinitionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VariableDefinitionPayload>
+          }
+          aggregate: {
+            args: Prisma.VariableDefinitionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateVariableDefinition>
+          }
+          groupBy: {
+            args: Prisma.VariableDefinitionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<VariableDefinitionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.VariableDefinitionCountArgs<ExtArgs>
+            result: $Utils.Optional<VariableDefinitionCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -2013,11 +2116,13 @@ export namespace Prisma {
   export type ProjectCountOutputType = {
     ProjectKis: number
     Assets: number
+    Customers: number
   }
 
   export type ProjectCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     ProjectKis?: boolean | ProjectCountOutputTypeCountProjectKisArgs
     Assets?: boolean | ProjectCountOutputTypeCountAssetsArgs
+    Customers?: boolean | ProjectCountOutputTypeCountCustomersArgs
   }
 
   // Custom InputTypes
@@ -2043,6 +2148,13 @@ export namespace Prisma {
    */
   export type ProjectCountOutputTypeCountAssetsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: AssetWhereInput
+  }
+
+  /**
+   * ProjectCountOutputType without action
+   */
+  export type ProjectCountOutputTypeCountCustomersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CustomerWhereInput
   }
 
 
@@ -7293,6 +7405,7 @@ export namespace Prisma {
     updatedBy?: boolean
     ProjectKis?: boolean | Project$ProjectKisArgs<ExtArgs>
     Assets?: boolean | Project$AssetsArgs<ExtArgs>
+    Customers?: boolean | Project$CustomersArgs<ExtArgs>
     _count?: boolean | ProjectCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["project"]>
 
@@ -7347,6 +7460,7 @@ export namespace Prisma {
   export type ProjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     ProjectKis?: boolean | Project$ProjectKisArgs<ExtArgs>
     Assets?: boolean | Project$AssetsArgs<ExtArgs>
+    Customers?: boolean | Project$CustomersArgs<ExtArgs>
     _count?: boolean | ProjectCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ProjectIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -7356,6 +7470,7 @@ export namespace Prisma {
     objects: {
       ProjectKis: Prisma.$ProjectKiPayload<ExtArgs>[]
       Assets: Prisma.$AssetPayload<ExtArgs>[]
+      Customers: Prisma.$CustomerPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -7745,6 +7860,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     ProjectKis<T extends Project$ProjectKisArgs<ExtArgs> = {}>(args?: Subset<T, Project$ProjectKisArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectKiPayload<ExtArgs>, T, "findMany"> | Null>
     Assets<T extends Project$AssetsArgs<ExtArgs> = {}>(args?: Subset<T, Project$AssetsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AssetPayload<ExtArgs>, T, "findMany"> | Null>
+    Customers<T extends Project$CustomersArgs<ExtArgs> = {}>(args?: Subset<T, Project$CustomersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8146,6 +8262,26 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: AssetScalarFieldEnum | AssetScalarFieldEnum[]
+  }
+
+  /**
+   * Project.Customers
+   */
+  export type Project$CustomersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Customer
+     */
+    select?: CustomerSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerInclude<ExtArgs> | null
+    where?: CustomerWhereInput
+    orderBy?: CustomerOrderByWithRelationInput | CustomerOrderByWithRelationInput[]
+    cursor?: CustomerWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CustomerScalarFieldEnum | CustomerScalarFieldEnum[]
   }
 
   /**
@@ -11400,18 +11536,33 @@ export namespace Prisma {
 
   export type AggregateCustomer = {
     _count: CustomerCountAggregateOutputType | null
+    _avg: CustomerAvgAggregateOutputType | null
+    _sum: CustomerSumAggregateOutputType | null
     _min: CustomerMinAggregateOutputType | null
     _max: CustomerMaxAggregateOutputType | null
   }
 
+  export type CustomerAvgAggregateOutputType = {
+    bankCode: number | null
+    bankBranchCode: number | null
+    bankAccountTypeCode: number | null
+  }
+
+  export type CustomerSumAggregateOutputType = {
+    bankCode: number | null
+    bankBranchCode: number | null
+    bankAccountTypeCode: number | null
+  }
+
   export type CustomerMinAggregateOutputType = {
     id: string | null
+    projectId: string | null
     sbimpId: string | null
+    fundStatus: string | null
     name: string | null
     nameFurigana: string | null
     birthday: Date | null
     customerType: $Enums.CustomerType | null
-    horyuStatus: $Enums.HoryuStatusType | null
     invoice: boolean | null
     postName: string | null
     zip: string | null
@@ -11419,6 +11570,25 @@ export namespace Prisma {
     prefecture: string | null
     city: string | null
     address: string | null
+    transferName: string | null
+    transferNameFurigana: string | null
+    bankCode: number | null
+    bankName: string | null
+    bankBranchCode: number | null
+    bankBranchName: string | null
+    bankAccountTypeCode: number | null
+    bankAccountType: string | null
+    bankAccount: string | null
+    inheritanceType: $Enums.InheritanceType | null
+    inheritanceStatus: string | null
+    giftContractDate: Date | null
+    trustTransferDate: Date | null
+    oldBunpaiEndDate: Date | null
+    newBunpaiStartDate: Date | null
+    horyuStatus: $Enums.HoryuStatusType | null
+    instructionDueDate: Date | null
+    paymentDueDate: Date | null
+    holdMemo: string | null
     isDeleted: boolean | null
     createdAt: Date | null
     createdId: string | null
@@ -11430,12 +11600,13 @@ export namespace Prisma {
 
   export type CustomerMaxAggregateOutputType = {
     id: string | null
+    projectId: string | null
     sbimpId: string | null
+    fundStatus: string | null
     name: string | null
     nameFurigana: string | null
     birthday: Date | null
     customerType: $Enums.CustomerType | null
-    horyuStatus: $Enums.HoryuStatusType | null
     invoice: boolean | null
     postName: string | null
     zip: string | null
@@ -11443,6 +11614,25 @@ export namespace Prisma {
     prefecture: string | null
     city: string | null
     address: string | null
+    transferName: string | null
+    transferNameFurigana: string | null
+    bankCode: number | null
+    bankName: string | null
+    bankBranchCode: number | null
+    bankBranchName: string | null
+    bankAccountTypeCode: number | null
+    bankAccountType: string | null
+    bankAccount: string | null
+    inheritanceType: $Enums.InheritanceType | null
+    inheritanceStatus: string | null
+    giftContractDate: Date | null
+    trustTransferDate: Date | null
+    oldBunpaiEndDate: Date | null
+    newBunpaiStartDate: Date | null
+    horyuStatus: $Enums.HoryuStatusType | null
+    instructionDueDate: Date | null
+    paymentDueDate: Date | null
+    holdMemo: string | null
     isDeleted: boolean | null
     createdAt: Date | null
     createdId: string | null
@@ -11454,12 +11644,13 @@ export namespace Prisma {
 
   export type CustomerCountAggregateOutputType = {
     id: number
+    projectId: number
     sbimpId: number
+    fundStatus: number
     name: number
     nameFurigana: number
     birthday: number
     customerType: number
-    horyuStatus: number
     invoice: number
     postName: number
     zip: number
@@ -11467,6 +11658,25 @@ export namespace Prisma {
     prefecture: number
     city: number
     address: number
+    transferName: number
+    transferNameFurigana: number
+    bankCode: number
+    bankName: number
+    bankBranchCode: number
+    bankBranchName: number
+    bankAccountTypeCode: number
+    bankAccountType: number
+    bankAccount: number
+    inheritanceType: number
+    inheritanceStatus: number
+    giftContractDate: number
+    trustTransferDate: number
+    oldBunpaiEndDate: number
+    newBunpaiStartDate: number
+    horyuStatus: number
+    instructionDueDate: number
+    paymentDueDate: number
+    holdMemo: number
     isDeleted: number
     createdAt: number
     createdId: number
@@ -11478,14 +11688,27 @@ export namespace Prisma {
   }
 
 
+  export type CustomerAvgAggregateInputType = {
+    bankCode?: true
+    bankBranchCode?: true
+    bankAccountTypeCode?: true
+  }
+
+  export type CustomerSumAggregateInputType = {
+    bankCode?: true
+    bankBranchCode?: true
+    bankAccountTypeCode?: true
+  }
+
   export type CustomerMinAggregateInputType = {
     id?: true
+    projectId?: true
     sbimpId?: true
+    fundStatus?: true
     name?: true
     nameFurigana?: true
     birthday?: true
     customerType?: true
-    horyuStatus?: true
     invoice?: true
     postName?: true
     zip?: true
@@ -11493,6 +11716,25 @@ export namespace Prisma {
     prefecture?: true
     city?: true
     address?: true
+    transferName?: true
+    transferNameFurigana?: true
+    bankCode?: true
+    bankName?: true
+    bankBranchCode?: true
+    bankBranchName?: true
+    bankAccountTypeCode?: true
+    bankAccountType?: true
+    bankAccount?: true
+    inheritanceType?: true
+    inheritanceStatus?: true
+    giftContractDate?: true
+    trustTransferDate?: true
+    oldBunpaiEndDate?: true
+    newBunpaiStartDate?: true
+    horyuStatus?: true
+    instructionDueDate?: true
+    paymentDueDate?: true
+    holdMemo?: true
     isDeleted?: true
     createdAt?: true
     createdId?: true
@@ -11504,12 +11746,13 @@ export namespace Prisma {
 
   export type CustomerMaxAggregateInputType = {
     id?: true
+    projectId?: true
     sbimpId?: true
+    fundStatus?: true
     name?: true
     nameFurigana?: true
     birthday?: true
     customerType?: true
-    horyuStatus?: true
     invoice?: true
     postName?: true
     zip?: true
@@ -11517,6 +11760,25 @@ export namespace Prisma {
     prefecture?: true
     city?: true
     address?: true
+    transferName?: true
+    transferNameFurigana?: true
+    bankCode?: true
+    bankName?: true
+    bankBranchCode?: true
+    bankBranchName?: true
+    bankAccountTypeCode?: true
+    bankAccountType?: true
+    bankAccount?: true
+    inheritanceType?: true
+    inheritanceStatus?: true
+    giftContractDate?: true
+    trustTransferDate?: true
+    oldBunpaiEndDate?: true
+    newBunpaiStartDate?: true
+    horyuStatus?: true
+    instructionDueDate?: true
+    paymentDueDate?: true
+    holdMemo?: true
     isDeleted?: true
     createdAt?: true
     createdId?: true
@@ -11528,12 +11790,13 @@ export namespace Prisma {
 
   export type CustomerCountAggregateInputType = {
     id?: true
+    projectId?: true
     sbimpId?: true
+    fundStatus?: true
     name?: true
     nameFurigana?: true
     birthday?: true
     customerType?: true
-    horyuStatus?: true
     invoice?: true
     postName?: true
     zip?: true
@@ -11541,6 +11804,25 @@ export namespace Prisma {
     prefecture?: true
     city?: true
     address?: true
+    transferName?: true
+    transferNameFurigana?: true
+    bankCode?: true
+    bankName?: true
+    bankBranchCode?: true
+    bankBranchName?: true
+    bankAccountTypeCode?: true
+    bankAccountType?: true
+    bankAccount?: true
+    inheritanceType?: true
+    inheritanceStatus?: true
+    giftContractDate?: true
+    trustTransferDate?: true
+    oldBunpaiEndDate?: true
+    newBunpaiStartDate?: true
+    horyuStatus?: true
+    instructionDueDate?: true
+    paymentDueDate?: true
+    holdMemo?: true
     isDeleted?: true
     createdAt?: true
     createdId?: true
@@ -11589,6 +11871,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: CustomerAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CustomerSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: CustomerMinAggregateInputType
@@ -11619,18 +11913,21 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: CustomerCountAggregateInputType | true
+    _avg?: CustomerAvgAggregateInputType
+    _sum?: CustomerSumAggregateInputType
     _min?: CustomerMinAggregateInputType
     _max?: CustomerMaxAggregateInputType
   }
 
   export type CustomerGroupByOutputType = {
     id: string
+    projectId: string
     sbimpId: string | null
+    fundStatus: string
     name: string
     nameFurigana: string
     birthday: Date | null
     customerType: $Enums.CustomerType
-    horyuStatus: $Enums.HoryuStatusType | null
     invoice: boolean
     postName: string
     zip: string
@@ -11638,6 +11935,25 @@ export namespace Prisma {
     prefecture: string
     city: string
     address: string
+    transferName: string
+    transferNameFurigana: string
+    bankCode: number
+    bankName: string
+    bankBranchCode: number
+    bankBranchName: string
+    bankAccountTypeCode: number
+    bankAccountType: string
+    bankAccount: string
+    inheritanceType: $Enums.InheritanceType | null
+    inheritanceStatus: string | null
+    giftContractDate: Date | null
+    trustTransferDate: Date | null
+    oldBunpaiEndDate: Date | null
+    newBunpaiStartDate: Date | null
+    horyuStatus: $Enums.HoryuStatusType | null
+    instructionDueDate: Date | null
+    paymentDueDate: Date | null
+    holdMemo: string | null
     isDeleted: boolean
     createdAt: Date
     createdId: string
@@ -11646,6 +11962,8 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     _count: CustomerCountAggregateOutputType | null
+    _avg: CustomerAvgAggregateOutputType | null
+    _sum: CustomerSumAggregateOutputType | null
     _min: CustomerMinAggregateOutputType | null
     _max: CustomerMaxAggregateOutputType | null
   }
@@ -11666,12 +11984,13 @@ export namespace Prisma {
 
   export type CustomerSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    projectId?: boolean
     sbimpId?: boolean
+    fundStatus?: boolean
     name?: boolean
     nameFurigana?: boolean
     birthday?: boolean
     customerType?: boolean
-    horyuStatus?: boolean
     invoice?: boolean
     postName?: boolean
     zip?: boolean
@@ -11679,6 +11998,25 @@ export namespace Prisma {
     prefecture?: boolean
     city?: boolean
     address?: boolean
+    transferName?: boolean
+    transferNameFurigana?: boolean
+    bankCode?: boolean
+    bankName?: boolean
+    bankBranchCode?: boolean
+    bankBranchName?: boolean
+    bankAccountTypeCode?: boolean
+    bankAccountType?: boolean
+    bankAccount?: boolean
+    inheritanceType?: boolean
+    inheritanceStatus?: boolean
+    giftContractDate?: boolean
+    trustTransferDate?: boolean
+    oldBunpaiEndDate?: boolean
+    newBunpaiStartDate?: boolean
+    horyuStatus?: boolean
+    instructionDueDate?: boolean
+    paymentDueDate?: boolean
+    holdMemo?: boolean
     isDeleted?: boolean
     createdAt?: boolean
     createdId?: boolean
@@ -11686,18 +12024,20 @@ export namespace Prisma {
     updatedAt?: boolean
     updatedId?: boolean
     updatedBy?: boolean
+    Project?: boolean | ProjectDefaultArgs<ExtArgs>
     CustomerFunds?: boolean | Customer$CustomerFundsArgs<ExtArgs>
     _count?: boolean | CustomerCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["customer"]>
 
   export type CustomerSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    projectId?: boolean
     sbimpId?: boolean
+    fundStatus?: boolean
     name?: boolean
     nameFurigana?: boolean
     birthday?: boolean
     customerType?: boolean
-    horyuStatus?: boolean
     invoice?: boolean
     postName?: boolean
     zip?: boolean
@@ -11705,6 +12045,25 @@ export namespace Prisma {
     prefecture?: boolean
     city?: boolean
     address?: boolean
+    transferName?: boolean
+    transferNameFurigana?: boolean
+    bankCode?: boolean
+    bankName?: boolean
+    bankBranchCode?: boolean
+    bankBranchName?: boolean
+    bankAccountTypeCode?: boolean
+    bankAccountType?: boolean
+    bankAccount?: boolean
+    inheritanceType?: boolean
+    inheritanceStatus?: boolean
+    giftContractDate?: boolean
+    trustTransferDate?: boolean
+    oldBunpaiEndDate?: boolean
+    newBunpaiStartDate?: boolean
+    horyuStatus?: boolean
+    instructionDueDate?: boolean
+    paymentDueDate?: boolean
+    holdMemo?: boolean
     isDeleted?: boolean
     createdAt?: boolean
     createdId?: boolean
@@ -11712,16 +12071,18 @@ export namespace Prisma {
     updatedAt?: boolean
     updatedId?: boolean
     updatedBy?: boolean
+    Project?: boolean | ProjectDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["customer"]>
 
   export type CustomerSelectScalar = {
     id?: boolean
+    projectId?: boolean
     sbimpId?: boolean
+    fundStatus?: boolean
     name?: boolean
     nameFurigana?: boolean
     birthday?: boolean
     customerType?: boolean
-    horyuStatus?: boolean
     invoice?: boolean
     postName?: boolean
     zip?: boolean
@@ -11729,6 +12090,25 @@ export namespace Prisma {
     prefecture?: boolean
     city?: boolean
     address?: boolean
+    transferName?: boolean
+    transferNameFurigana?: boolean
+    bankCode?: boolean
+    bankName?: boolean
+    bankBranchCode?: boolean
+    bankBranchName?: boolean
+    bankAccountTypeCode?: boolean
+    bankAccountType?: boolean
+    bankAccount?: boolean
+    inheritanceType?: boolean
+    inheritanceStatus?: boolean
+    giftContractDate?: boolean
+    trustTransferDate?: boolean
+    oldBunpaiEndDate?: boolean
+    newBunpaiStartDate?: boolean
+    horyuStatus?: boolean
+    instructionDueDate?: boolean
+    paymentDueDate?: boolean
+    holdMemo?: boolean
     isDeleted?: boolean
     createdAt?: boolean
     createdId?: boolean
@@ -11739,24 +12119,29 @@ export namespace Prisma {
   }
 
   export type CustomerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Project?: boolean | ProjectDefaultArgs<ExtArgs>
     CustomerFunds?: boolean | Customer$CustomerFundsArgs<ExtArgs>
     _count?: boolean | CustomerCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type CustomerIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type CustomerIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }
 
   export type $CustomerPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Customer"
     objects: {
+      Project: Prisma.$ProjectPayload<ExtArgs>
       CustomerFunds: Prisma.$CustomerFundPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
+      projectId: string
       sbimpId: string | null
+      fundStatus: string
       name: string
       nameFurigana: string
       birthday: Date | null
       customerType: $Enums.CustomerType
-      horyuStatus: $Enums.HoryuStatusType | null
       invoice: boolean
       postName: string
       zip: string
@@ -11764,6 +12149,25 @@ export namespace Prisma {
       prefecture: string
       city: string
       address: string
+      transferName: string
+      transferNameFurigana: string
+      bankCode: number
+      bankName: string
+      bankBranchCode: number
+      bankBranchName: string
+      bankAccountTypeCode: number
+      bankAccountType: string
+      bankAccount: string
+      inheritanceType: $Enums.InheritanceType | null
+      inheritanceStatus: string | null
+      giftContractDate: Date | null
+      trustTransferDate: Date | null
+      oldBunpaiEndDate: Date | null
+      newBunpaiStartDate: Date | null
+      horyuStatus: $Enums.HoryuStatusType | null
+      instructionDueDate: Date | null
+      paymentDueDate: Date | null
+      holdMemo: string | null
       isDeleted: boolean
       createdAt: Date
       createdId: string
@@ -12135,6 +12539,7 @@ export namespace Prisma {
    */
   export interface Prisma__CustomerClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    Project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
     CustomerFunds<T extends Customer$CustomerFundsArgs<ExtArgs> = {}>(args?: Subset<T, Customer$CustomerFundsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerFundPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -12166,12 +12571,13 @@ export namespace Prisma {
    */ 
   interface CustomerFieldRefs {
     readonly id: FieldRef<"Customer", 'String'>
+    readonly projectId: FieldRef<"Customer", 'String'>
     readonly sbimpId: FieldRef<"Customer", 'String'>
+    readonly fundStatus: FieldRef<"Customer", 'String'>
     readonly name: FieldRef<"Customer", 'String'>
     readonly nameFurigana: FieldRef<"Customer", 'String'>
     readonly birthday: FieldRef<"Customer", 'DateTime'>
     readonly customerType: FieldRef<"Customer", 'CustomerType'>
-    readonly horyuStatus: FieldRef<"Customer", 'HoryuStatusType'>
     readonly invoice: FieldRef<"Customer", 'Boolean'>
     readonly postName: FieldRef<"Customer", 'String'>
     readonly zip: FieldRef<"Customer", 'String'>
@@ -12179,6 +12585,25 @@ export namespace Prisma {
     readonly prefecture: FieldRef<"Customer", 'String'>
     readonly city: FieldRef<"Customer", 'String'>
     readonly address: FieldRef<"Customer", 'String'>
+    readonly transferName: FieldRef<"Customer", 'String'>
+    readonly transferNameFurigana: FieldRef<"Customer", 'String'>
+    readonly bankCode: FieldRef<"Customer", 'Int'>
+    readonly bankName: FieldRef<"Customer", 'String'>
+    readonly bankBranchCode: FieldRef<"Customer", 'Int'>
+    readonly bankBranchName: FieldRef<"Customer", 'String'>
+    readonly bankAccountTypeCode: FieldRef<"Customer", 'Int'>
+    readonly bankAccountType: FieldRef<"Customer", 'String'>
+    readonly bankAccount: FieldRef<"Customer", 'String'>
+    readonly inheritanceType: FieldRef<"Customer", 'InheritanceType'>
+    readonly inheritanceStatus: FieldRef<"Customer", 'String'>
+    readonly giftContractDate: FieldRef<"Customer", 'DateTime'>
+    readonly trustTransferDate: FieldRef<"Customer", 'DateTime'>
+    readonly oldBunpaiEndDate: FieldRef<"Customer", 'DateTime'>
+    readonly newBunpaiStartDate: FieldRef<"Customer", 'DateTime'>
+    readonly horyuStatus: FieldRef<"Customer", 'HoryuStatusType'>
+    readonly instructionDueDate: FieldRef<"Customer", 'DateTime'>
+    readonly paymentDueDate: FieldRef<"Customer", 'DateTime'>
+    readonly holdMemo: FieldRef<"Customer", 'String'>
     readonly isDeleted: FieldRef<"Customer", 'Boolean'>
     readonly createdAt: FieldRef<"Customer", 'DateTime'>
     readonly createdId: FieldRef<"Customer", 'String'>
@@ -12407,6 +12832,10 @@ export namespace Prisma {
      */
     data: CustomerCreateManyInput | CustomerCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -12548,9 +12977,6 @@ export namespace Prisma {
 
   export type CustomerFundAvgAggregateOutputType = {
     applyUnit: number | null
-    bankCode: number | null
-    bankBranchCode: number | null
-    bankAccountTypeCode: number | null
     bunpaiThisKi: number | null
     bunpaiYear: number | null
     bunpaiTotal: number | null
@@ -12561,9 +12987,6 @@ export namespace Prisma {
 
   export type CustomerFundSumAggregateOutputType = {
     applyUnit: number | null
-    bankCode: number | null
-    bankBranchCode: number | null
-    bankAccountTypeCode: number | null
     bunpaiThisKi: number | null
     bunpaiYear: number | null
     bunpaiTotal: number | null
@@ -12577,32 +13000,15 @@ export namespace Prisma {
     fundId: string | null
     customerId: string | null
     projectKiId: string | null
-    fundStatus: string | null
     applyUnit: number | null
-    bankCode: number | null
-    bankName: string | null
-    bankBranchCode: number | null
-    bankBranchName: string | null
-    bankAccountTypeCode: number | null
-    bankAccountType: string | null
-    bankAccount: string | null
-    inheritanceType: $Enums.InheritanceType | null
-    inheritanceStatus: string | null
-    giftContractDate: Date | null
-    trustTransferDate: Date | null
-    oldBunpaiEndDate: Date | null
-    newBunpaiStartDate: Date | null
     bunpaiThisKi: number | null
     bunpaiYear: number | null
     bunpaiTotal: number | null
     otherBunpaiThisKi: number | null
     otherBunpaiYear: number | null
     otherBunpaiTotal: number | null
-    instructionDueDate: Date | null
-    paymentDueDate: Date | null
     paymentDate: Date | null
     holdPayment: boolean | null
-    holdMemo: string | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -12616,32 +13022,15 @@ export namespace Prisma {
     fundId: string | null
     customerId: string | null
     projectKiId: string | null
-    fundStatus: string | null
     applyUnit: number | null
-    bankCode: number | null
-    bankName: string | null
-    bankBranchCode: number | null
-    bankBranchName: string | null
-    bankAccountTypeCode: number | null
-    bankAccountType: string | null
-    bankAccount: string | null
-    inheritanceType: $Enums.InheritanceType | null
-    inheritanceStatus: string | null
-    giftContractDate: Date | null
-    trustTransferDate: Date | null
-    oldBunpaiEndDate: Date | null
-    newBunpaiStartDate: Date | null
     bunpaiThisKi: number | null
     bunpaiYear: number | null
     bunpaiTotal: number | null
     otherBunpaiThisKi: number | null
     otherBunpaiYear: number | null
     otherBunpaiTotal: number | null
-    instructionDueDate: Date | null
-    paymentDueDate: Date | null
     paymentDate: Date | null
     holdPayment: boolean | null
-    holdMemo: string | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -12655,32 +13044,15 @@ export namespace Prisma {
     fundId: number
     customerId: number
     projectKiId: number
-    fundStatus: number
     applyUnit: number
-    bankCode: number
-    bankName: number
-    bankBranchCode: number
-    bankBranchName: number
-    bankAccountTypeCode: number
-    bankAccountType: number
-    bankAccount: number
-    inheritanceType: number
-    inheritanceStatus: number
-    giftContractDate: number
-    trustTransferDate: number
-    oldBunpaiEndDate: number
-    newBunpaiStartDate: number
     bunpaiThisKi: number
     bunpaiYear: number
     bunpaiTotal: number
     otherBunpaiThisKi: number
     otherBunpaiYear: number
     otherBunpaiTotal: number
-    instructionDueDate: number
-    paymentDueDate: number
     paymentDate: number
     holdPayment: number
-    holdMemo: number
     createdAt: number
     createdId: number
     createdBy: number
@@ -12693,9 +13065,6 @@ export namespace Prisma {
 
   export type CustomerFundAvgAggregateInputType = {
     applyUnit?: true
-    bankCode?: true
-    bankBranchCode?: true
-    bankAccountTypeCode?: true
     bunpaiThisKi?: true
     bunpaiYear?: true
     bunpaiTotal?: true
@@ -12706,9 +13075,6 @@ export namespace Prisma {
 
   export type CustomerFundSumAggregateInputType = {
     applyUnit?: true
-    bankCode?: true
-    bankBranchCode?: true
-    bankAccountTypeCode?: true
     bunpaiThisKi?: true
     bunpaiYear?: true
     bunpaiTotal?: true
@@ -12722,32 +13088,15 @@ export namespace Prisma {
     fundId?: true
     customerId?: true
     projectKiId?: true
-    fundStatus?: true
     applyUnit?: true
-    bankCode?: true
-    bankName?: true
-    bankBranchCode?: true
-    bankBranchName?: true
-    bankAccountTypeCode?: true
-    bankAccountType?: true
-    bankAccount?: true
-    inheritanceType?: true
-    inheritanceStatus?: true
-    giftContractDate?: true
-    trustTransferDate?: true
-    oldBunpaiEndDate?: true
-    newBunpaiStartDate?: true
     bunpaiThisKi?: true
     bunpaiYear?: true
     bunpaiTotal?: true
     otherBunpaiThisKi?: true
     otherBunpaiYear?: true
     otherBunpaiTotal?: true
-    instructionDueDate?: true
-    paymentDueDate?: true
     paymentDate?: true
     holdPayment?: true
-    holdMemo?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -12761,32 +13110,15 @@ export namespace Prisma {
     fundId?: true
     customerId?: true
     projectKiId?: true
-    fundStatus?: true
     applyUnit?: true
-    bankCode?: true
-    bankName?: true
-    bankBranchCode?: true
-    bankBranchName?: true
-    bankAccountTypeCode?: true
-    bankAccountType?: true
-    bankAccount?: true
-    inheritanceType?: true
-    inheritanceStatus?: true
-    giftContractDate?: true
-    trustTransferDate?: true
-    oldBunpaiEndDate?: true
-    newBunpaiStartDate?: true
     bunpaiThisKi?: true
     bunpaiYear?: true
     bunpaiTotal?: true
     otherBunpaiThisKi?: true
     otherBunpaiYear?: true
     otherBunpaiTotal?: true
-    instructionDueDate?: true
-    paymentDueDate?: true
     paymentDate?: true
     holdPayment?: true
-    holdMemo?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -12800,32 +13132,15 @@ export namespace Prisma {
     fundId?: true
     customerId?: true
     projectKiId?: true
-    fundStatus?: true
     applyUnit?: true
-    bankCode?: true
-    bankName?: true
-    bankBranchCode?: true
-    bankBranchName?: true
-    bankAccountTypeCode?: true
-    bankAccountType?: true
-    bankAccount?: true
-    inheritanceType?: true
-    inheritanceStatus?: true
-    giftContractDate?: true
-    trustTransferDate?: true
-    oldBunpaiEndDate?: true
-    newBunpaiStartDate?: true
     bunpaiThisKi?: true
     bunpaiYear?: true
     bunpaiTotal?: true
     otherBunpaiThisKi?: true
     otherBunpaiYear?: true
     otherBunpaiTotal?: true
-    instructionDueDate?: true
-    paymentDueDate?: true
     paymentDate?: true
     holdPayment?: true
-    holdMemo?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -12926,32 +13241,15 @@ export namespace Prisma {
     fundId: string
     customerId: string
     projectKiId: string
-    fundStatus: string
     applyUnit: number
-    bankCode: number
-    bankName: string
-    bankBranchCode: number
-    bankBranchName: string
-    bankAccountTypeCode: number
-    bankAccountType: string
-    bankAccount: string
-    inheritanceType: $Enums.InheritanceType | null
-    inheritanceStatus: string | null
-    giftContractDate: Date | null
-    trustTransferDate: Date | null
-    oldBunpaiEndDate: Date | null
-    newBunpaiStartDate: Date | null
     bunpaiThisKi: number | null
     bunpaiYear: number | null
     bunpaiTotal: number | null
     otherBunpaiThisKi: number | null
     otherBunpaiYear: number | null
     otherBunpaiTotal: number | null
-    instructionDueDate: Date | null
-    paymentDueDate: Date | null
     paymentDate: Date | null
     holdPayment: boolean
-    holdMemo: string | null
     createdAt: Date
     createdId: string
     createdBy: string
@@ -12984,32 +13282,15 @@ export namespace Prisma {
     fundId?: boolean
     customerId?: boolean
     projectKiId?: boolean
-    fundStatus?: boolean
     applyUnit?: boolean
-    bankCode?: boolean
-    bankName?: boolean
-    bankBranchCode?: boolean
-    bankBranchName?: boolean
-    bankAccountTypeCode?: boolean
-    bankAccountType?: boolean
-    bankAccount?: boolean
-    inheritanceType?: boolean
-    inheritanceStatus?: boolean
-    giftContractDate?: boolean
-    trustTransferDate?: boolean
-    oldBunpaiEndDate?: boolean
-    newBunpaiStartDate?: boolean
     bunpaiThisKi?: boolean
     bunpaiYear?: boolean
     bunpaiTotal?: boolean
     otherBunpaiThisKi?: boolean
     otherBunpaiYear?: boolean
     otherBunpaiTotal?: boolean
-    instructionDueDate?: boolean
-    paymentDueDate?: boolean
     paymentDate?: boolean
     holdPayment?: boolean
-    holdMemo?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -13025,32 +13306,15 @@ export namespace Prisma {
     fundId?: boolean
     customerId?: boolean
     projectKiId?: boolean
-    fundStatus?: boolean
     applyUnit?: boolean
-    bankCode?: boolean
-    bankName?: boolean
-    bankBranchCode?: boolean
-    bankBranchName?: boolean
-    bankAccountTypeCode?: boolean
-    bankAccountType?: boolean
-    bankAccount?: boolean
-    inheritanceType?: boolean
-    inheritanceStatus?: boolean
-    giftContractDate?: boolean
-    trustTransferDate?: boolean
-    oldBunpaiEndDate?: boolean
-    newBunpaiStartDate?: boolean
     bunpaiThisKi?: boolean
     bunpaiYear?: boolean
     bunpaiTotal?: boolean
     otherBunpaiThisKi?: boolean
     otherBunpaiYear?: boolean
     otherBunpaiTotal?: boolean
-    instructionDueDate?: boolean
-    paymentDueDate?: boolean
     paymentDate?: boolean
     holdPayment?: boolean
-    holdMemo?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -13066,32 +13330,15 @@ export namespace Prisma {
     fundId?: boolean
     customerId?: boolean
     projectKiId?: boolean
-    fundStatus?: boolean
     applyUnit?: boolean
-    bankCode?: boolean
-    bankName?: boolean
-    bankBranchCode?: boolean
-    bankBranchName?: boolean
-    bankAccountTypeCode?: boolean
-    bankAccountType?: boolean
-    bankAccount?: boolean
-    inheritanceType?: boolean
-    inheritanceStatus?: boolean
-    giftContractDate?: boolean
-    trustTransferDate?: boolean
-    oldBunpaiEndDate?: boolean
-    newBunpaiStartDate?: boolean
     bunpaiThisKi?: boolean
     bunpaiYear?: boolean
     bunpaiTotal?: boolean
     otherBunpaiThisKi?: boolean
     otherBunpaiYear?: boolean
     otherBunpaiTotal?: boolean
-    instructionDueDate?: boolean
-    paymentDueDate?: boolean
     paymentDate?: boolean
     holdPayment?: boolean
-    holdMemo?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -13120,32 +13367,15 @@ export namespace Prisma {
       fundId: string
       customerId: string
       projectKiId: string
-      fundStatus: string
       applyUnit: number
-      bankCode: number
-      bankName: string
-      bankBranchCode: number
-      bankBranchName: string
-      bankAccountTypeCode: number
-      bankAccountType: string
-      bankAccount: string
-      inheritanceType: $Enums.InheritanceType | null
-      inheritanceStatus: string | null
-      giftContractDate: Date | null
-      trustTransferDate: Date | null
-      oldBunpaiEndDate: Date | null
-      newBunpaiStartDate: Date | null
       bunpaiThisKi: number | null
       bunpaiYear: number | null
       bunpaiTotal: number | null
       otherBunpaiThisKi: number | null
       otherBunpaiYear: number | null
       otherBunpaiTotal: number | null
-      instructionDueDate: Date | null
-      paymentDueDate: Date | null
       paymentDate: Date | null
       holdPayment: boolean
-      holdMemo: string | null
       createdAt: Date
       createdId: string
       createdBy: string
@@ -13551,32 +13781,15 @@ export namespace Prisma {
     readonly fundId: FieldRef<"CustomerFund", 'String'>
     readonly customerId: FieldRef<"CustomerFund", 'String'>
     readonly projectKiId: FieldRef<"CustomerFund", 'String'>
-    readonly fundStatus: FieldRef<"CustomerFund", 'String'>
     readonly applyUnit: FieldRef<"CustomerFund", 'Int'>
-    readonly bankCode: FieldRef<"CustomerFund", 'Int'>
-    readonly bankName: FieldRef<"CustomerFund", 'String'>
-    readonly bankBranchCode: FieldRef<"CustomerFund", 'Int'>
-    readonly bankBranchName: FieldRef<"CustomerFund", 'String'>
-    readonly bankAccountTypeCode: FieldRef<"CustomerFund", 'Int'>
-    readonly bankAccountType: FieldRef<"CustomerFund", 'String'>
-    readonly bankAccount: FieldRef<"CustomerFund", 'String'>
-    readonly inheritanceType: FieldRef<"CustomerFund", 'InheritanceType'>
-    readonly inheritanceStatus: FieldRef<"CustomerFund", 'String'>
-    readonly giftContractDate: FieldRef<"CustomerFund", 'DateTime'>
-    readonly trustTransferDate: FieldRef<"CustomerFund", 'DateTime'>
-    readonly oldBunpaiEndDate: FieldRef<"CustomerFund", 'DateTime'>
-    readonly newBunpaiStartDate: FieldRef<"CustomerFund", 'DateTime'>
     readonly bunpaiThisKi: FieldRef<"CustomerFund", 'Int'>
     readonly bunpaiYear: FieldRef<"CustomerFund", 'Int'>
     readonly bunpaiTotal: FieldRef<"CustomerFund", 'Int'>
     readonly otherBunpaiThisKi: FieldRef<"CustomerFund", 'Int'>
     readonly otherBunpaiYear: FieldRef<"CustomerFund", 'Int'>
     readonly otherBunpaiTotal: FieldRef<"CustomerFund", 'Int'>
-    readonly instructionDueDate: FieldRef<"CustomerFund", 'DateTime'>
-    readonly paymentDueDate: FieldRef<"CustomerFund", 'DateTime'>
     readonly paymentDate: FieldRef<"CustomerFund", 'DateTime'>
     readonly holdPayment: FieldRef<"CustomerFund", 'Boolean'>
-    readonly holdMemo: FieldRef<"CustomerFund", 'String'>
     readonly createdAt: FieldRef<"CustomerFund", 'DateTime'>
     readonly createdId: FieldRef<"CustomerFund", 'String'>
     readonly createdBy: FieldRef<"CustomerFund", 'String'>
@@ -15940,6 +16153,968 @@ export namespace Prisma {
 
 
   /**
+   * Model VariableDefinition
+   */
+
+  export type AggregateVariableDefinition = {
+    _count: VariableDefinitionCountAggregateOutputType | null
+    _min: VariableDefinitionMinAggregateOutputType | null
+    _max: VariableDefinitionMaxAggregateOutputType | null
+  }
+
+  export type VariableDefinitionMinAggregateOutputType = {
+    id: string | null
+    key: string | null
+    def: string | null
+    variableType: $Enums.VariableType | null
+    note: string | null
+    example: string | null
+    createdAt: Date | null
+    createdId: string | null
+    createdBy: string | null
+    updatedAt: Date | null
+    updatedId: string | null
+    updatedBy: string | null
+  }
+
+  export type VariableDefinitionMaxAggregateOutputType = {
+    id: string | null
+    key: string | null
+    def: string | null
+    variableType: $Enums.VariableType | null
+    note: string | null
+    example: string | null
+    createdAt: Date | null
+    createdId: string | null
+    createdBy: string | null
+    updatedAt: Date | null
+    updatedId: string | null
+    updatedBy: string | null
+  }
+
+  export type VariableDefinitionCountAggregateOutputType = {
+    id: number
+    key: number
+    def: number
+    variableType: number
+    note: number
+    example: number
+    createdAt: number
+    createdId: number
+    createdBy: number
+    updatedAt: number
+    updatedId: number
+    updatedBy: number
+    _all: number
+  }
+
+
+  export type VariableDefinitionMinAggregateInputType = {
+    id?: true
+    key?: true
+    def?: true
+    variableType?: true
+    note?: true
+    example?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+  }
+
+  export type VariableDefinitionMaxAggregateInputType = {
+    id?: true
+    key?: true
+    def?: true
+    variableType?: true
+    note?: true
+    example?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+  }
+
+  export type VariableDefinitionCountAggregateInputType = {
+    id?: true
+    key?: true
+    def?: true
+    variableType?: true
+    note?: true
+    example?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+    _all?: true
+  }
+
+  export type VariableDefinitionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which VariableDefinition to aggregate.
+     */
+    where?: VariableDefinitionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of VariableDefinitions to fetch.
+     */
+    orderBy?: VariableDefinitionOrderByWithRelationInput | VariableDefinitionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: VariableDefinitionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` VariableDefinitions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` VariableDefinitions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned VariableDefinitions
+    **/
+    _count?: true | VariableDefinitionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: VariableDefinitionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: VariableDefinitionMaxAggregateInputType
+  }
+
+  export type GetVariableDefinitionAggregateType<T extends VariableDefinitionAggregateArgs> = {
+        [P in keyof T & keyof AggregateVariableDefinition]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateVariableDefinition[P]>
+      : GetScalarType<T[P], AggregateVariableDefinition[P]>
+  }
+
+
+
+
+  export type VariableDefinitionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: VariableDefinitionWhereInput
+    orderBy?: VariableDefinitionOrderByWithAggregationInput | VariableDefinitionOrderByWithAggregationInput[]
+    by: VariableDefinitionScalarFieldEnum[] | VariableDefinitionScalarFieldEnum
+    having?: VariableDefinitionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: VariableDefinitionCountAggregateInputType | true
+    _min?: VariableDefinitionMinAggregateInputType
+    _max?: VariableDefinitionMaxAggregateInputType
+  }
+
+  export type VariableDefinitionGroupByOutputType = {
+    id: string
+    key: string
+    def: string
+    variableType: $Enums.VariableType
+    note: string | null
+    example: string | null
+    createdAt: Date
+    createdId: string
+    createdBy: string
+    updatedAt: Date
+    updatedId: string
+    updatedBy: string
+    _count: VariableDefinitionCountAggregateOutputType | null
+    _min: VariableDefinitionMinAggregateOutputType | null
+    _max: VariableDefinitionMaxAggregateOutputType | null
+  }
+
+  type GetVariableDefinitionGroupByPayload<T extends VariableDefinitionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<VariableDefinitionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof VariableDefinitionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], VariableDefinitionGroupByOutputType[P]>
+            : GetScalarType<T[P], VariableDefinitionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type VariableDefinitionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    key?: boolean
+    def?: boolean
+    variableType?: boolean
+    note?: boolean
+    example?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }, ExtArgs["result"]["variableDefinition"]>
+
+  export type VariableDefinitionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    key?: boolean
+    def?: boolean
+    variableType?: boolean
+    note?: boolean
+    example?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }, ExtArgs["result"]["variableDefinition"]>
+
+  export type VariableDefinitionSelectScalar = {
+    id?: boolean
+    key?: boolean
+    def?: boolean
+    variableType?: boolean
+    note?: boolean
+    example?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }
+
+
+  export type $VariableDefinitionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "VariableDefinition"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      key: string
+      def: string
+      variableType: $Enums.VariableType
+      note: string | null
+      example: string | null
+      createdAt: Date
+      createdId: string
+      createdBy: string
+      updatedAt: Date
+      updatedId: string
+      updatedBy: string
+    }, ExtArgs["result"]["variableDefinition"]>
+    composites: {}
+  }
+
+  type VariableDefinitionGetPayload<S extends boolean | null | undefined | VariableDefinitionDefaultArgs> = $Result.GetResult<Prisma.$VariableDefinitionPayload, S>
+
+  type VariableDefinitionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<VariableDefinitionFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: VariableDefinitionCountAggregateInputType | true
+    }
+
+  export interface VariableDefinitionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['VariableDefinition'], meta: { name: 'VariableDefinition' } }
+    /**
+     * Find zero or one VariableDefinition that matches the filter.
+     * @param {VariableDefinitionFindUniqueArgs} args - Arguments to find a VariableDefinition
+     * @example
+     * // Get one VariableDefinition
+     * const variableDefinition = await prisma.variableDefinition.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends VariableDefinitionFindUniqueArgs>(args: SelectSubset<T, VariableDefinitionFindUniqueArgs<ExtArgs>>): Prisma__VariableDefinitionClient<$Result.GetResult<Prisma.$VariableDefinitionPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one VariableDefinition that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {VariableDefinitionFindUniqueOrThrowArgs} args - Arguments to find a VariableDefinition
+     * @example
+     * // Get one VariableDefinition
+     * const variableDefinition = await prisma.variableDefinition.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends VariableDefinitionFindUniqueOrThrowArgs>(args: SelectSubset<T, VariableDefinitionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__VariableDefinitionClient<$Result.GetResult<Prisma.$VariableDefinitionPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first VariableDefinition that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VariableDefinitionFindFirstArgs} args - Arguments to find a VariableDefinition
+     * @example
+     * // Get one VariableDefinition
+     * const variableDefinition = await prisma.variableDefinition.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends VariableDefinitionFindFirstArgs>(args?: SelectSubset<T, VariableDefinitionFindFirstArgs<ExtArgs>>): Prisma__VariableDefinitionClient<$Result.GetResult<Prisma.$VariableDefinitionPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first VariableDefinition that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VariableDefinitionFindFirstOrThrowArgs} args - Arguments to find a VariableDefinition
+     * @example
+     * // Get one VariableDefinition
+     * const variableDefinition = await prisma.variableDefinition.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends VariableDefinitionFindFirstOrThrowArgs>(args?: SelectSubset<T, VariableDefinitionFindFirstOrThrowArgs<ExtArgs>>): Prisma__VariableDefinitionClient<$Result.GetResult<Prisma.$VariableDefinitionPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more VariableDefinitions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VariableDefinitionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all VariableDefinitions
+     * const variableDefinitions = await prisma.variableDefinition.findMany()
+     * 
+     * // Get first 10 VariableDefinitions
+     * const variableDefinitions = await prisma.variableDefinition.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const variableDefinitionWithIdOnly = await prisma.variableDefinition.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends VariableDefinitionFindManyArgs>(args?: SelectSubset<T, VariableDefinitionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VariableDefinitionPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a VariableDefinition.
+     * @param {VariableDefinitionCreateArgs} args - Arguments to create a VariableDefinition.
+     * @example
+     * // Create one VariableDefinition
+     * const VariableDefinition = await prisma.variableDefinition.create({
+     *   data: {
+     *     // ... data to create a VariableDefinition
+     *   }
+     * })
+     * 
+     */
+    create<T extends VariableDefinitionCreateArgs>(args: SelectSubset<T, VariableDefinitionCreateArgs<ExtArgs>>): Prisma__VariableDefinitionClient<$Result.GetResult<Prisma.$VariableDefinitionPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many VariableDefinitions.
+     * @param {VariableDefinitionCreateManyArgs} args - Arguments to create many VariableDefinitions.
+     * @example
+     * // Create many VariableDefinitions
+     * const variableDefinition = await prisma.variableDefinition.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends VariableDefinitionCreateManyArgs>(args?: SelectSubset<T, VariableDefinitionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many VariableDefinitions and returns the data saved in the database.
+     * @param {VariableDefinitionCreateManyAndReturnArgs} args - Arguments to create many VariableDefinitions.
+     * @example
+     * // Create many VariableDefinitions
+     * const variableDefinition = await prisma.variableDefinition.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many VariableDefinitions and only return the `id`
+     * const variableDefinitionWithIdOnly = await prisma.variableDefinition.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends VariableDefinitionCreateManyAndReturnArgs>(args?: SelectSubset<T, VariableDefinitionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VariableDefinitionPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a VariableDefinition.
+     * @param {VariableDefinitionDeleteArgs} args - Arguments to delete one VariableDefinition.
+     * @example
+     * // Delete one VariableDefinition
+     * const VariableDefinition = await prisma.variableDefinition.delete({
+     *   where: {
+     *     // ... filter to delete one VariableDefinition
+     *   }
+     * })
+     * 
+     */
+    delete<T extends VariableDefinitionDeleteArgs>(args: SelectSubset<T, VariableDefinitionDeleteArgs<ExtArgs>>): Prisma__VariableDefinitionClient<$Result.GetResult<Prisma.$VariableDefinitionPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one VariableDefinition.
+     * @param {VariableDefinitionUpdateArgs} args - Arguments to update one VariableDefinition.
+     * @example
+     * // Update one VariableDefinition
+     * const variableDefinition = await prisma.variableDefinition.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends VariableDefinitionUpdateArgs>(args: SelectSubset<T, VariableDefinitionUpdateArgs<ExtArgs>>): Prisma__VariableDefinitionClient<$Result.GetResult<Prisma.$VariableDefinitionPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more VariableDefinitions.
+     * @param {VariableDefinitionDeleteManyArgs} args - Arguments to filter VariableDefinitions to delete.
+     * @example
+     * // Delete a few VariableDefinitions
+     * const { count } = await prisma.variableDefinition.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends VariableDefinitionDeleteManyArgs>(args?: SelectSubset<T, VariableDefinitionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more VariableDefinitions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VariableDefinitionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many VariableDefinitions
+     * const variableDefinition = await prisma.variableDefinition.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends VariableDefinitionUpdateManyArgs>(args: SelectSubset<T, VariableDefinitionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one VariableDefinition.
+     * @param {VariableDefinitionUpsertArgs} args - Arguments to update or create a VariableDefinition.
+     * @example
+     * // Update or create a VariableDefinition
+     * const variableDefinition = await prisma.variableDefinition.upsert({
+     *   create: {
+     *     // ... data to create a VariableDefinition
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the VariableDefinition we want to update
+     *   }
+     * })
+     */
+    upsert<T extends VariableDefinitionUpsertArgs>(args: SelectSubset<T, VariableDefinitionUpsertArgs<ExtArgs>>): Prisma__VariableDefinitionClient<$Result.GetResult<Prisma.$VariableDefinitionPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of VariableDefinitions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VariableDefinitionCountArgs} args - Arguments to filter VariableDefinitions to count.
+     * @example
+     * // Count the number of VariableDefinitions
+     * const count = await prisma.variableDefinition.count({
+     *   where: {
+     *     // ... the filter for the VariableDefinitions we want to count
+     *   }
+     * })
+    **/
+    count<T extends VariableDefinitionCountArgs>(
+      args?: Subset<T, VariableDefinitionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], VariableDefinitionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a VariableDefinition.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VariableDefinitionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends VariableDefinitionAggregateArgs>(args: Subset<T, VariableDefinitionAggregateArgs>): Prisma.PrismaPromise<GetVariableDefinitionAggregateType<T>>
+
+    /**
+     * Group by VariableDefinition.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {VariableDefinitionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends VariableDefinitionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: VariableDefinitionGroupByArgs['orderBy'] }
+        : { orderBy?: VariableDefinitionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, VariableDefinitionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetVariableDefinitionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the VariableDefinition model
+   */
+  readonly fields: VariableDefinitionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for VariableDefinition.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__VariableDefinitionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the VariableDefinition model
+   */ 
+  interface VariableDefinitionFieldRefs {
+    readonly id: FieldRef<"VariableDefinition", 'String'>
+    readonly key: FieldRef<"VariableDefinition", 'String'>
+    readonly def: FieldRef<"VariableDefinition", 'String'>
+    readonly variableType: FieldRef<"VariableDefinition", 'VariableType'>
+    readonly note: FieldRef<"VariableDefinition", 'String'>
+    readonly example: FieldRef<"VariableDefinition", 'String'>
+    readonly createdAt: FieldRef<"VariableDefinition", 'DateTime'>
+    readonly createdId: FieldRef<"VariableDefinition", 'String'>
+    readonly createdBy: FieldRef<"VariableDefinition", 'String'>
+    readonly updatedAt: FieldRef<"VariableDefinition", 'DateTime'>
+    readonly updatedId: FieldRef<"VariableDefinition", 'String'>
+    readonly updatedBy: FieldRef<"VariableDefinition", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * VariableDefinition findUnique
+   */
+  export type VariableDefinitionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VariableDefinition
+     */
+    select?: VariableDefinitionSelect<ExtArgs> | null
+    /**
+     * Filter, which VariableDefinition to fetch.
+     */
+    where: VariableDefinitionWhereUniqueInput
+  }
+
+  /**
+   * VariableDefinition findUniqueOrThrow
+   */
+  export type VariableDefinitionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VariableDefinition
+     */
+    select?: VariableDefinitionSelect<ExtArgs> | null
+    /**
+     * Filter, which VariableDefinition to fetch.
+     */
+    where: VariableDefinitionWhereUniqueInput
+  }
+
+  /**
+   * VariableDefinition findFirst
+   */
+  export type VariableDefinitionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VariableDefinition
+     */
+    select?: VariableDefinitionSelect<ExtArgs> | null
+    /**
+     * Filter, which VariableDefinition to fetch.
+     */
+    where?: VariableDefinitionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of VariableDefinitions to fetch.
+     */
+    orderBy?: VariableDefinitionOrderByWithRelationInput | VariableDefinitionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for VariableDefinitions.
+     */
+    cursor?: VariableDefinitionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` VariableDefinitions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` VariableDefinitions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of VariableDefinitions.
+     */
+    distinct?: VariableDefinitionScalarFieldEnum | VariableDefinitionScalarFieldEnum[]
+  }
+
+  /**
+   * VariableDefinition findFirstOrThrow
+   */
+  export type VariableDefinitionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VariableDefinition
+     */
+    select?: VariableDefinitionSelect<ExtArgs> | null
+    /**
+     * Filter, which VariableDefinition to fetch.
+     */
+    where?: VariableDefinitionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of VariableDefinitions to fetch.
+     */
+    orderBy?: VariableDefinitionOrderByWithRelationInput | VariableDefinitionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for VariableDefinitions.
+     */
+    cursor?: VariableDefinitionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` VariableDefinitions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` VariableDefinitions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of VariableDefinitions.
+     */
+    distinct?: VariableDefinitionScalarFieldEnum | VariableDefinitionScalarFieldEnum[]
+  }
+
+  /**
+   * VariableDefinition findMany
+   */
+  export type VariableDefinitionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VariableDefinition
+     */
+    select?: VariableDefinitionSelect<ExtArgs> | null
+    /**
+     * Filter, which VariableDefinitions to fetch.
+     */
+    where?: VariableDefinitionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of VariableDefinitions to fetch.
+     */
+    orderBy?: VariableDefinitionOrderByWithRelationInput | VariableDefinitionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing VariableDefinitions.
+     */
+    cursor?: VariableDefinitionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` VariableDefinitions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` VariableDefinitions.
+     */
+    skip?: number
+    distinct?: VariableDefinitionScalarFieldEnum | VariableDefinitionScalarFieldEnum[]
+  }
+
+  /**
+   * VariableDefinition create
+   */
+  export type VariableDefinitionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VariableDefinition
+     */
+    select?: VariableDefinitionSelect<ExtArgs> | null
+    /**
+     * The data needed to create a VariableDefinition.
+     */
+    data: XOR<VariableDefinitionCreateInput, VariableDefinitionUncheckedCreateInput>
+  }
+
+  /**
+   * VariableDefinition createMany
+   */
+  export type VariableDefinitionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many VariableDefinitions.
+     */
+    data: VariableDefinitionCreateManyInput | VariableDefinitionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * VariableDefinition createManyAndReturn
+   */
+  export type VariableDefinitionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VariableDefinition
+     */
+    select?: VariableDefinitionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many VariableDefinitions.
+     */
+    data: VariableDefinitionCreateManyInput | VariableDefinitionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * VariableDefinition update
+   */
+  export type VariableDefinitionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VariableDefinition
+     */
+    select?: VariableDefinitionSelect<ExtArgs> | null
+    /**
+     * The data needed to update a VariableDefinition.
+     */
+    data: XOR<VariableDefinitionUpdateInput, VariableDefinitionUncheckedUpdateInput>
+    /**
+     * Choose, which VariableDefinition to update.
+     */
+    where: VariableDefinitionWhereUniqueInput
+  }
+
+  /**
+   * VariableDefinition updateMany
+   */
+  export type VariableDefinitionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update VariableDefinitions.
+     */
+    data: XOR<VariableDefinitionUpdateManyMutationInput, VariableDefinitionUncheckedUpdateManyInput>
+    /**
+     * Filter which VariableDefinitions to update
+     */
+    where?: VariableDefinitionWhereInput
+  }
+
+  /**
+   * VariableDefinition upsert
+   */
+  export type VariableDefinitionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VariableDefinition
+     */
+    select?: VariableDefinitionSelect<ExtArgs> | null
+    /**
+     * The filter to search for the VariableDefinition to update in case it exists.
+     */
+    where: VariableDefinitionWhereUniqueInput
+    /**
+     * In case the VariableDefinition found by the `where` argument doesn't exist, create a new VariableDefinition with this data.
+     */
+    create: XOR<VariableDefinitionCreateInput, VariableDefinitionUncheckedCreateInput>
+    /**
+     * In case the VariableDefinition was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<VariableDefinitionUpdateInput, VariableDefinitionUncheckedUpdateInput>
+  }
+
+  /**
+   * VariableDefinition delete
+   */
+  export type VariableDefinitionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VariableDefinition
+     */
+    select?: VariableDefinitionSelect<ExtArgs> | null
+    /**
+     * Filter which VariableDefinition to delete.
+     */
+    where: VariableDefinitionWhereUniqueInput
+  }
+
+  /**
+   * VariableDefinition deleteMany
+   */
+  export type VariableDefinitionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which VariableDefinitions to delete
+     */
+    where?: VariableDefinitionWhereInput
+  }
+
+  /**
+   * VariableDefinition without action
+   */
+  export type VariableDefinitionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the VariableDefinition
+     */
+    select?: VariableDefinitionSelect<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -16118,12 +17293,13 @@ export namespace Prisma {
 
   export const CustomerScalarFieldEnum: {
     id: 'id',
+    projectId: 'projectId',
     sbimpId: 'sbimpId',
+    fundStatus: 'fundStatus',
     name: 'name',
     nameFurigana: 'nameFurigana',
     birthday: 'birthday',
     customerType: 'customerType',
-    horyuStatus: 'horyuStatus',
     invoice: 'invoice',
     postName: 'postName',
     zip: 'zip',
@@ -16131,6 +17307,25 @@ export namespace Prisma {
     prefecture: 'prefecture',
     city: 'city',
     address: 'address',
+    transferName: 'transferName',
+    transferNameFurigana: 'transferNameFurigana',
+    bankCode: 'bankCode',
+    bankName: 'bankName',
+    bankBranchCode: 'bankBranchCode',
+    bankBranchName: 'bankBranchName',
+    bankAccountTypeCode: 'bankAccountTypeCode',
+    bankAccountType: 'bankAccountType',
+    bankAccount: 'bankAccount',
+    inheritanceType: 'inheritanceType',
+    inheritanceStatus: 'inheritanceStatus',
+    giftContractDate: 'giftContractDate',
+    trustTransferDate: 'trustTransferDate',
+    oldBunpaiEndDate: 'oldBunpaiEndDate',
+    newBunpaiStartDate: 'newBunpaiStartDate',
+    horyuStatus: 'horyuStatus',
+    instructionDueDate: 'instructionDueDate',
+    paymentDueDate: 'paymentDueDate',
+    holdMemo: 'holdMemo',
     isDeleted: 'isDeleted',
     createdAt: 'createdAt',
     createdId: 'createdId',
@@ -16148,32 +17343,15 @@ export namespace Prisma {
     fundId: 'fundId',
     customerId: 'customerId',
     projectKiId: 'projectKiId',
-    fundStatus: 'fundStatus',
     applyUnit: 'applyUnit',
-    bankCode: 'bankCode',
-    bankName: 'bankName',
-    bankBranchCode: 'bankBranchCode',
-    bankBranchName: 'bankBranchName',
-    bankAccountTypeCode: 'bankAccountTypeCode',
-    bankAccountType: 'bankAccountType',
-    bankAccount: 'bankAccount',
-    inheritanceType: 'inheritanceType',
-    inheritanceStatus: 'inheritanceStatus',
-    giftContractDate: 'giftContractDate',
-    trustTransferDate: 'trustTransferDate',
-    oldBunpaiEndDate: 'oldBunpaiEndDate',
-    newBunpaiStartDate: 'newBunpaiStartDate',
     bunpaiThisKi: 'bunpaiThisKi',
     bunpaiYear: 'bunpaiYear',
     bunpaiTotal: 'bunpaiTotal',
     otherBunpaiThisKi: 'otherBunpaiThisKi',
     otherBunpaiYear: 'otherBunpaiYear',
     otherBunpaiTotal: 'otherBunpaiTotal',
-    instructionDueDate: 'instructionDueDate',
-    paymentDueDate: 'paymentDueDate',
     paymentDate: 'paymentDate',
     holdPayment: 'holdPayment',
-    holdMemo: 'holdMemo',
     createdAt: 'createdAt',
     createdId: 'createdId',
     createdBy: 'createdBy',
@@ -16221,6 +17399,24 @@ export namespace Prisma {
   };
 
   export type TemplateHistoryScalarFieldEnum = (typeof TemplateHistoryScalarFieldEnum)[keyof typeof TemplateHistoryScalarFieldEnum]
+
+
+  export const VariableDefinitionScalarFieldEnum: {
+    id: 'id',
+    key: 'key',
+    def: 'def',
+    variableType: 'variableType',
+    note: 'note',
+    example: 'example',
+    createdAt: 'createdAt',
+    createdId: 'createdId',
+    createdBy: 'createdBy',
+    updatedAt: 'updatedAt',
+    updatedId: 'updatedId',
+    updatedBy: 'updatedBy'
+  };
+
+  export type VariableDefinitionScalarFieldEnum = (typeof VariableDefinitionScalarFieldEnum)[keyof typeof VariableDefinitionScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -16372,20 +17568,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'HoryuStatusType'
-   */
-  export type EnumHoryuStatusTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'HoryuStatusType'>
-    
-
-
-  /**
-   * Reference to a field of type 'HoryuStatusType[]'
-   */
-  export type ListEnumHoryuStatusTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'HoryuStatusType[]'>
-    
-
-
-  /**
    * Reference to a field of type 'InheritanceType'
    */
   export type EnumInheritanceTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InheritanceType'>
@@ -16396,6 +17578,20 @@ export namespace Prisma {
    * Reference to a field of type 'InheritanceType[]'
    */
   export type ListEnumInheritanceTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'InheritanceType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'HoryuStatusType'
+   */
+  export type EnumHoryuStatusTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'HoryuStatusType'>
+    
+
+
+  /**
+   * Reference to a field of type 'HoryuStatusType[]'
+   */
+  export type ListEnumHoryuStatusTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'HoryuStatusType[]'>
     
 
 
@@ -16438,6 +17634,20 @@ export namespace Prisma {
    * Reference to a field of type 'Bytes[]'
    */
   export type ListBytesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Bytes[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'VariableType'
+   */
+  export type EnumVariableTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'VariableType'>
+    
+
+
+  /**
+   * Reference to a field of type 'VariableType[]'
+   */
+  export type ListEnumVariableTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'VariableType[]'>
     
   /**
    * Deep Input Types
@@ -16854,6 +18064,7 @@ export namespace Prisma {
     updatedBy?: StringFilter<"Project"> | string
     ProjectKis?: ProjectKiListRelationFilter
     Assets?: AssetListRelationFilter
+    Customers?: CustomerListRelationFilter
   }
 
   export type ProjectOrderByWithRelationInput = {
@@ -16880,6 +18091,7 @@ export namespace Prisma {
     updatedBy?: SortOrder
     ProjectKis?: ProjectKiOrderByRelationAggregateInput
     Assets?: AssetOrderByRelationAggregateInput
+    Customers?: CustomerOrderByRelationAggregateInput
   }
 
   export type ProjectWhereUniqueInput = Prisma.AtLeast<{
@@ -16909,6 +18121,7 @@ export namespace Prisma {
     updatedBy?: StringFilter<"Project"> | string
     ProjectKis?: ProjectKiListRelationFilter
     Assets?: AssetListRelationFilter
+    Customers?: CustomerListRelationFilter
   }, "id" | "sbimpId" | "name" | "shortName">
 
   export type ProjectOrderByWithAggregationInput = {
@@ -17281,12 +18494,13 @@ export namespace Prisma {
     OR?: CustomerWhereInput[]
     NOT?: CustomerWhereInput | CustomerWhereInput[]
     id?: StringFilter<"Customer"> | string
+    projectId?: StringFilter<"Customer"> | string
     sbimpId?: StringNullableFilter<"Customer"> | string | null
+    fundStatus?: StringFilter<"Customer"> | string
     name?: StringFilter<"Customer"> | string
     nameFurigana?: StringFilter<"Customer"> | string
     birthday?: DateTimeNullableFilter<"Customer"> | Date | string | null
     customerType?: EnumCustomerTypeFilter<"Customer"> | $Enums.CustomerType
-    horyuStatus?: EnumHoryuStatusTypeNullableFilter<"Customer"> | $Enums.HoryuStatusType | null
     invoice?: BoolFilter<"Customer"> | boolean
     postName?: StringFilter<"Customer"> | string
     zip?: StringFilter<"Customer"> | string
@@ -17294,6 +18508,25 @@ export namespace Prisma {
     prefecture?: StringFilter<"Customer"> | string
     city?: StringFilter<"Customer"> | string
     address?: StringFilter<"Customer"> | string
+    transferName?: StringFilter<"Customer"> | string
+    transferNameFurigana?: StringFilter<"Customer"> | string
+    bankCode?: IntFilter<"Customer"> | number
+    bankName?: StringFilter<"Customer"> | string
+    bankBranchCode?: IntFilter<"Customer"> | number
+    bankBranchName?: StringFilter<"Customer"> | string
+    bankAccountTypeCode?: IntFilter<"Customer"> | number
+    bankAccountType?: StringFilter<"Customer"> | string
+    bankAccount?: StringFilter<"Customer"> | string
+    inheritanceType?: EnumInheritanceTypeNullableFilter<"Customer"> | $Enums.InheritanceType | null
+    inheritanceStatus?: StringNullableFilter<"Customer"> | string | null
+    giftContractDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
+    trustTransferDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
+    oldBunpaiEndDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
+    newBunpaiStartDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
+    horyuStatus?: EnumHoryuStatusTypeNullableFilter<"Customer"> | $Enums.HoryuStatusType | null
+    instructionDueDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
+    paymentDueDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
+    holdMemo?: StringNullableFilter<"Customer"> | string | null
     isDeleted?: BoolFilter<"Customer"> | boolean
     createdAt?: DateTimeFilter<"Customer"> | Date | string
     createdId?: StringFilter<"Customer"> | string
@@ -17301,17 +18534,19 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Customer"> | Date | string
     updatedId?: StringFilter<"Customer"> | string
     updatedBy?: StringFilter<"Customer"> | string
+    Project?: XOR<ProjectRelationFilter, ProjectWhereInput>
     CustomerFunds?: CustomerFundListRelationFilter
   }
 
   export type CustomerOrderByWithRelationInput = {
     id?: SortOrder
+    projectId?: SortOrder
     sbimpId?: SortOrderInput | SortOrder
+    fundStatus?: SortOrder
     name?: SortOrder
     nameFurigana?: SortOrder
     birthday?: SortOrderInput | SortOrder
     customerType?: SortOrder
-    horyuStatus?: SortOrderInput | SortOrder
     invoice?: SortOrder
     postName?: SortOrder
     zip?: SortOrder
@@ -17319,6 +18554,25 @@ export namespace Prisma {
     prefecture?: SortOrder
     city?: SortOrder
     address?: SortOrder
+    transferName?: SortOrder
+    transferNameFurigana?: SortOrder
+    bankCode?: SortOrder
+    bankName?: SortOrder
+    bankBranchCode?: SortOrder
+    bankBranchName?: SortOrder
+    bankAccountTypeCode?: SortOrder
+    bankAccountType?: SortOrder
+    bankAccount?: SortOrder
+    inheritanceType?: SortOrderInput | SortOrder
+    inheritanceStatus?: SortOrderInput | SortOrder
+    giftContractDate?: SortOrderInput | SortOrder
+    trustTransferDate?: SortOrderInput | SortOrder
+    oldBunpaiEndDate?: SortOrderInput | SortOrder
+    newBunpaiStartDate?: SortOrderInput | SortOrder
+    horyuStatus?: SortOrderInput | SortOrder
+    instructionDueDate?: SortOrderInput | SortOrder
+    paymentDueDate?: SortOrderInput | SortOrder
+    holdMemo?: SortOrderInput | SortOrder
     isDeleted?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
@@ -17326,6 +18580,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
     updatedId?: SortOrder
     updatedBy?: SortOrder
+    Project?: ProjectOrderByWithRelationInput
     CustomerFunds?: CustomerFundOrderByRelationAggregateInput
   }
 
@@ -17334,12 +18589,13 @@ export namespace Prisma {
     AND?: CustomerWhereInput | CustomerWhereInput[]
     OR?: CustomerWhereInput[]
     NOT?: CustomerWhereInput | CustomerWhereInput[]
+    projectId?: StringFilter<"Customer"> | string
     sbimpId?: StringNullableFilter<"Customer"> | string | null
+    fundStatus?: StringFilter<"Customer"> | string
     name?: StringFilter<"Customer"> | string
     nameFurigana?: StringFilter<"Customer"> | string
     birthday?: DateTimeNullableFilter<"Customer"> | Date | string | null
     customerType?: EnumCustomerTypeFilter<"Customer"> | $Enums.CustomerType
-    horyuStatus?: EnumHoryuStatusTypeNullableFilter<"Customer"> | $Enums.HoryuStatusType | null
     invoice?: BoolFilter<"Customer"> | boolean
     postName?: StringFilter<"Customer"> | string
     zip?: StringFilter<"Customer"> | string
@@ -17347,6 +18603,25 @@ export namespace Prisma {
     prefecture?: StringFilter<"Customer"> | string
     city?: StringFilter<"Customer"> | string
     address?: StringFilter<"Customer"> | string
+    transferName?: StringFilter<"Customer"> | string
+    transferNameFurigana?: StringFilter<"Customer"> | string
+    bankCode?: IntFilter<"Customer"> | number
+    bankName?: StringFilter<"Customer"> | string
+    bankBranchCode?: IntFilter<"Customer"> | number
+    bankBranchName?: StringFilter<"Customer"> | string
+    bankAccountTypeCode?: IntFilter<"Customer"> | number
+    bankAccountType?: StringFilter<"Customer"> | string
+    bankAccount?: StringFilter<"Customer"> | string
+    inheritanceType?: EnumInheritanceTypeNullableFilter<"Customer"> | $Enums.InheritanceType | null
+    inheritanceStatus?: StringNullableFilter<"Customer"> | string | null
+    giftContractDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
+    trustTransferDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
+    oldBunpaiEndDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
+    newBunpaiStartDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
+    horyuStatus?: EnumHoryuStatusTypeNullableFilter<"Customer"> | $Enums.HoryuStatusType | null
+    instructionDueDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
+    paymentDueDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
+    holdMemo?: StringNullableFilter<"Customer"> | string | null
     isDeleted?: BoolFilter<"Customer"> | boolean
     createdAt?: DateTimeFilter<"Customer"> | Date | string
     createdId?: StringFilter<"Customer"> | string
@@ -17354,17 +18629,19 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Customer"> | Date | string
     updatedId?: StringFilter<"Customer"> | string
     updatedBy?: StringFilter<"Customer"> | string
+    Project?: XOR<ProjectRelationFilter, ProjectWhereInput>
     CustomerFunds?: CustomerFundListRelationFilter
   }, "id">
 
   export type CustomerOrderByWithAggregationInput = {
     id?: SortOrder
+    projectId?: SortOrder
     sbimpId?: SortOrderInput | SortOrder
+    fundStatus?: SortOrder
     name?: SortOrder
     nameFurigana?: SortOrder
     birthday?: SortOrderInput | SortOrder
     customerType?: SortOrder
-    horyuStatus?: SortOrderInput | SortOrder
     invoice?: SortOrder
     postName?: SortOrder
     zip?: SortOrder
@@ -17372,6 +18649,25 @@ export namespace Prisma {
     prefecture?: SortOrder
     city?: SortOrder
     address?: SortOrder
+    transferName?: SortOrder
+    transferNameFurigana?: SortOrder
+    bankCode?: SortOrder
+    bankName?: SortOrder
+    bankBranchCode?: SortOrder
+    bankBranchName?: SortOrder
+    bankAccountTypeCode?: SortOrder
+    bankAccountType?: SortOrder
+    bankAccount?: SortOrder
+    inheritanceType?: SortOrderInput | SortOrder
+    inheritanceStatus?: SortOrderInput | SortOrder
+    giftContractDate?: SortOrderInput | SortOrder
+    trustTransferDate?: SortOrderInput | SortOrder
+    oldBunpaiEndDate?: SortOrderInput | SortOrder
+    newBunpaiStartDate?: SortOrderInput | SortOrder
+    horyuStatus?: SortOrderInput | SortOrder
+    instructionDueDate?: SortOrderInput | SortOrder
+    paymentDueDate?: SortOrderInput | SortOrder
+    holdMemo?: SortOrderInput | SortOrder
     isDeleted?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
@@ -17380,8 +18676,10 @@ export namespace Prisma {
     updatedId?: SortOrder
     updatedBy?: SortOrder
     _count?: CustomerCountOrderByAggregateInput
+    _avg?: CustomerAvgOrderByAggregateInput
     _max?: CustomerMaxOrderByAggregateInput
     _min?: CustomerMinOrderByAggregateInput
+    _sum?: CustomerSumOrderByAggregateInput
   }
 
   export type CustomerScalarWhereWithAggregatesInput = {
@@ -17389,12 +18687,13 @@ export namespace Prisma {
     OR?: CustomerScalarWhereWithAggregatesInput[]
     NOT?: CustomerScalarWhereWithAggregatesInput | CustomerScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Customer"> | string
+    projectId?: StringWithAggregatesFilter<"Customer"> | string
     sbimpId?: StringNullableWithAggregatesFilter<"Customer"> | string | null
+    fundStatus?: StringWithAggregatesFilter<"Customer"> | string
     name?: StringWithAggregatesFilter<"Customer"> | string
     nameFurigana?: StringWithAggregatesFilter<"Customer"> | string
     birthday?: DateTimeNullableWithAggregatesFilter<"Customer"> | Date | string | null
     customerType?: EnumCustomerTypeWithAggregatesFilter<"Customer"> | $Enums.CustomerType
-    horyuStatus?: EnumHoryuStatusTypeNullableWithAggregatesFilter<"Customer"> | $Enums.HoryuStatusType | null
     invoice?: BoolWithAggregatesFilter<"Customer"> | boolean
     postName?: StringWithAggregatesFilter<"Customer"> | string
     zip?: StringWithAggregatesFilter<"Customer"> | string
@@ -17402,6 +18701,25 @@ export namespace Prisma {
     prefecture?: StringWithAggregatesFilter<"Customer"> | string
     city?: StringWithAggregatesFilter<"Customer"> | string
     address?: StringWithAggregatesFilter<"Customer"> | string
+    transferName?: StringWithAggregatesFilter<"Customer"> | string
+    transferNameFurigana?: StringWithAggregatesFilter<"Customer"> | string
+    bankCode?: IntWithAggregatesFilter<"Customer"> | number
+    bankName?: StringWithAggregatesFilter<"Customer"> | string
+    bankBranchCode?: IntWithAggregatesFilter<"Customer"> | number
+    bankBranchName?: StringWithAggregatesFilter<"Customer"> | string
+    bankAccountTypeCode?: IntWithAggregatesFilter<"Customer"> | number
+    bankAccountType?: StringWithAggregatesFilter<"Customer"> | string
+    bankAccount?: StringWithAggregatesFilter<"Customer"> | string
+    inheritanceType?: EnumInheritanceTypeNullableWithAggregatesFilter<"Customer"> | $Enums.InheritanceType | null
+    inheritanceStatus?: StringNullableWithAggregatesFilter<"Customer"> | string | null
+    giftContractDate?: DateTimeNullableWithAggregatesFilter<"Customer"> | Date | string | null
+    trustTransferDate?: DateTimeNullableWithAggregatesFilter<"Customer"> | Date | string | null
+    oldBunpaiEndDate?: DateTimeNullableWithAggregatesFilter<"Customer"> | Date | string | null
+    newBunpaiStartDate?: DateTimeNullableWithAggregatesFilter<"Customer"> | Date | string | null
+    horyuStatus?: EnumHoryuStatusTypeNullableWithAggregatesFilter<"Customer"> | $Enums.HoryuStatusType | null
+    instructionDueDate?: DateTimeNullableWithAggregatesFilter<"Customer"> | Date | string | null
+    paymentDueDate?: DateTimeNullableWithAggregatesFilter<"Customer"> | Date | string | null
+    holdMemo?: StringNullableWithAggregatesFilter<"Customer"> | string | null
     isDeleted?: BoolWithAggregatesFilter<"Customer"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"Customer"> | Date | string
     createdId?: StringWithAggregatesFilter<"Customer"> | string
@@ -17419,32 +18737,15 @@ export namespace Prisma {
     fundId?: StringFilter<"CustomerFund"> | string
     customerId?: StringFilter<"CustomerFund"> | string
     projectKiId?: StringFilter<"CustomerFund"> | string
-    fundStatus?: StringFilter<"CustomerFund"> | string
     applyUnit?: IntFilter<"CustomerFund"> | number
-    bankCode?: IntFilter<"CustomerFund"> | number
-    bankName?: StringFilter<"CustomerFund"> | string
-    bankBranchCode?: IntFilter<"CustomerFund"> | number
-    bankBranchName?: StringFilter<"CustomerFund"> | string
-    bankAccountTypeCode?: IntFilter<"CustomerFund"> | number
-    bankAccountType?: StringFilter<"CustomerFund"> | string
-    bankAccount?: StringFilter<"CustomerFund"> | string
-    inheritanceType?: EnumInheritanceTypeNullableFilter<"CustomerFund"> | $Enums.InheritanceType | null
-    inheritanceStatus?: StringNullableFilter<"CustomerFund"> | string | null
-    giftContractDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
-    trustTransferDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
-    oldBunpaiEndDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
-    newBunpaiStartDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
     bunpaiThisKi?: IntNullableFilter<"CustomerFund"> | number | null
     bunpaiYear?: IntNullableFilter<"CustomerFund"> | number | null
     bunpaiTotal?: IntNullableFilter<"CustomerFund"> | number | null
     otherBunpaiThisKi?: IntNullableFilter<"CustomerFund"> | number | null
     otherBunpaiYear?: IntNullableFilter<"CustomerFund"> | number | null
     otherBunpaiTotal?: IntNullableFilter<"CustomerFund"> | number | null
-    instructionDueDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
-    paymentDueDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
     paymentDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
     holdPayment?: BoolFilter<"CustomerFund"> | boolean
-    holdMemo?: StringNullableFilter<"CustomerFund"> | string | null
     createdAt?: DateTimeFilter<"CustomerFund"> | Date | string
     createdId?: StringFilter<"CustomerFund"> | string
     createdBy?: StringFilter<"CustomerFund"> | string
@@ -17460,32 +18761,15 @@ export namespace Prisma {
     fundId?: SortOrder
     customerId?: SortOrder
     projectKiId?: SortOrder
-    fundStatus?: SortOrder
     applyUnit?: SortOrder
-    bankCode?: SortOrder
-    bankName?: SortOrder
-    bankBranchCode?: SortOrder
-    bankBranchName?: SortOrder
-    bankAccountTypeCode?: SortOrder
-    bankAccountType?: SortOrder
-    bankAccount?: SortOrder
-    inheritanceType?: SortOrderInput | SortOrder
-    inheritanceStatus?: SortOrderInput | SortOrder
-    giftContractDate?: SortOrderInput | SortOrder
-    trustTransferDate?: SortOrderInput | SortOrder
-    oldBunpaiEndDate?: SortOrderInput | SortOrder
-    newBunpaiStartDate?: SortOrderInput | SortOrder
     bunpaiThisKi?: SortOrderInput | SortOrder
     bunpaiYear?: SortOrderInput | SortOrder
     bunpaiTotal?: SortOrderInput | SortOrder
     otherBunpaiThisKi?: SortOrderInput | SortOrder
     otherBunpaiYear?: SortOrderInput | SortOrder
     otherBunpaiTotal?: SortOrderInput | SortOrder
-    instructionDueDate?: SortOrderInput | SortOrder
-    paymentDueDate?: SortOrderInput | SortOrder
     paymentDate?: SortOrderInput | SortOrder
     holdPayment?: SortOrder
-    holdMemo?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -17505,32 +18789,15 @@ export namespace Prisma {
     fundId?: StringFilter<"CustomerFund"> | string
     customerId?: StringFilter<"CustomerFund"> | string
     projectKiId?: StringFilter<"CustomerFund"> | string
-    fundStatus?: StringFilter<"CustomerFund"> | string
     applyUnit?: IntFilter<"CustomerFund"> | number
-    bankCode?: IntFilter<"CustomerFund"> | number
-    bankName?: StringFilter<"CustomerFund"> | string
-    bankBranchCode?: IntFilter<"CustomerFund"> | number
-    bankBranchName?: StringFilter<"CustomerFund"> | string
-    bankAccountTypeCode?: IntFilter<"CustomerFund"> | number
-    bankAccountType?: StringFilter<"CustomerFund"> | string
-    bankAccount?: StringFilter<"CustomerFund"> | string
-    inheritanceType?: EnumInheritanceTypeNullableFilter<"CustomerFund"> | $Enums.InheritanceType | null
-    inheritanceStatus?: StringNullableFilter<"CustomerFund"> | string | null
-    giftContractDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
-    trustTransferDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
-    oldBunpaiEndDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
-    newBunpaiStartDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
     bunpaiThisKi?: IntNullableFilter<"CustomerFund"> | number | null
     bunpaiYear?: IntNullableFilter<"CustomerFund"> | number | null
     bunpaiTotal?: IntNullableFilter<"CustomerFund"> | number | null
     otherBunpaiThisKi?: IntNullableFilter<"CustomerFund"> | number | null
     otherBunpaiYear?: IntNullableFilter<"CustomerFund"> | number | null
     otherBunpaiTotal?: IntNullableFilter<"CustomerFund"> | number | null
-    instructionDueDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
-    paymentDueDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
     paymentDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
     holdPayment?: BoolFilter<"CustomerFund"> | boolean
-    holdMemo?: StringNullableFilter<"CustomerFund"> | string | null
     createdAt?: DateTimeFilter<"CustomerFund"> | Date | string
     createdId?: StringFilter<"CustomerFund"> | string
     createdBy?: StringFilter<"CustomerFund"> | string
@@ -17546,32 +18813,15 @@ export namespace Prisma {
     fundId?: SortOrder
     customerId?: SortOrder
     projectKiId?: SortOrder
-    fundStatus?: SortOrder
     applyUnit?: SortOrder
-    bankCode?: SortOrder
-    bankName?: SortOrder
-    bankBranchCode?: SortOrder
-    bankBranchName?: SortOrder
-    bankAccountTypeCode?: SortOrder
-    bankAccountType?: SortOrder
-    bankAccount?: SortOrder
-    inheritanceType?: SortOrderInput | SortOrder
-    inheritanceStatus?: SortOrderInput | SortOrder
-    giftContractDate?: SortOrderInput | SortOrder
-    trustTransferDate?: SortOrderInput | SortOrder
-    oldBunpaiEndDate?: SortOrderInput | SortOrder
-    newBunpaiStartDate?: SortOrderInput | SortOrder
     bunpaiThisKi?: SortOrderInput | SortOrder
     bunpaiYear?: SortOrderInput | SortOrder
     bunpaiTotal?: SortOrderInput | SortOrder
     otherBunpaiThisKi?: SortOrderInput | SortOrder
     otherBunpaiYear?: SortOrderInput | SortOrder
     otherBunpaiTotal?: SortOrderInput | SortOrder
-    instructionDueDate?: SortOrderInput | SortOrder
-    paymentDueDate?: SortOrderInput | SortOrder
     paymentDate?: SortOrderInput | SortOrder
     holdPayment?: SortOrder
-    holdMemo?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -17593,32 +18843,15 @@ export namespace Prisma {
     fundId?: StringWithAggregatesFilter<"CustomerFund"> | string
     customerId?: StringWithAggregatesFilter<"CustomerFund"> | string
     projectKiId?: StringWithAggregatesFilter<"CustomerFund"> | string
-    fundStatus?: StringWithAggregatesFilter<"CustomerFund"> | string
     applyUnit?: IntWithAggregatesFilter<"CustomerFund"> | number
-    bankCode?: IntWithAggregatesFilter<"CustomerFund"> | number
-    bankName?: StringWithAggregatesFilter<"CustomerFund"> | string
-    bankBranchCode?: IntWithAggregatesFilter<"CustomerFund"> | number
-    bankBranchName?: StringWithAggregatesFilter<"CustomerFund"> | string
-    bankAccountTypeCode?: IntWithAggregatesFilter<"CustomerFund"> | number
-    bankAccountType?: StringWithAggregatesFilter<"CustomerFund"> | string
-    bankAccount?: StringWithAggregatesFilter<"CustomerFund"> | string
-    inheritanceType?: EnumInheritanceTypeNullableWithAggregatesFilter<"CustomerFund"> | $Enums.InheritanceType | null
-    inheritanceStatus?: StringNullableWithAggregatesFilter<"CustomerFund"> | string | null
-    giftContractDate?: DateTimeNullableWithAggregatesFilter<"CustomerFund"> | Date | string | null
-    trustTransferDate?: DateTimeNullableWithAggregatesFilter<"CustomerFund"> | Date | string | null
-    oldBunpaiEndDate?: DateTimeNullableWithAggregatesFilter<"CustomerFund"> | Date | string | null
-    newBunpaiStartDate?: DateTimeNullableWithAggregatesFilter<"CustomerFund"> | Date | string | null
     bunpaiThisKi?: IntNullableWithAggregatesFilter<"CustomerFund"> | number | null
     bunpaiYear?: IntNullableWithAggregatesFilter<"CustomerFund"> | number | null
     bunpaiTotal?: IntNullableWithAggregatesFilter<"CustomerFund"> | number | null
     otherBunpaiThisKi?: IntNullableWithAggregatesFilter<"CustomerFund"> | number | null
     otherBunpaiYear?: IntNullableWithAggregatesFilter<"CustomerFund"> | number | null
     otherBunpaiTotal?: IntNullableWithAggregatesFilter<"CustomerFund"> | number | null
-    instructionDueDate?: DateTimeNullableWithAggregatesFilter<"CustomerFund"> | Date | string | null
-    paymentDueDate?: DateTimeNullableWithAggregatesFilter<"CustomerFund"> | Date | string | null
     paymentDate?: DateTimeNullableWithAggregatesFilter<"CustomerFund"> | Date | string | null
     holdPayment?: BoolWithAggregatesFilter<"CustomerFund"> | boolean
-    holdMemo?: StringNullableWithAggregatesFilter<"CustomerFund"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"CustomerFund"> | Date | string
     createdId?: StringWithAggregatesFilter<"CustomerFund"> | string
     createdBy?: StringWithAggregatesFilter<"CustomerFund"> | string
@@ -17813,6 +19046,93 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"TemplateHistory"> | Date | string
     updatedId?: StringWithAggregatesFilter<"TemplateHistory"> | string
     updatedBy?: StringWithAggregatesFilter<"TemplateHistory"> | string
+  }
+
+  export type VariableDefinitionWhereInput = {
+    AND?: VariableDefinitionWhereInput | VariableDefinitionWhereInput[]
+    OR?: VariableDefinitionWhereInput[]
+    NOT?: VariableDefinitionWhereInput | VariableDefinitionWhereInput[]
+    id?: StringFilter<"VariableDefinition"> | string
+    key?: StringFilter<"VariableDefinition"> | string
+    def?: StringFilter<"VariableDefinition"> | string
+    variableType?: EnumVariableTypeFilter<"VariableDefinition"> | $Enums.VariableType
+    note?: StringNullableFilter<"VariableDefinition"> | string | null
+    example?: StringNullableFilter<"VariableDefinition"> | string | null
+    createdAt?: DateTimeFilter<"VariableDefinition"> | Date | string
+    createdId?: StringFilter<"VariableDefinition"> | string
+    createdBy?: StringFilter<"VariableDefinition"> | string
+    updatedAt?: DateTimeFilter<"VariableDefinition"> | Date | string
+    updatedId?: StringFilter<"VariableDefinition"> | string
+    updatedBy?: StringFilter<"VariableDefinition"> | string
+  }
+
+  export type VariableDefinitionOrderByWithRelationInput = {
+    id?: SortOrder
+    key?: SortOrder
+    def?: SortOrder
+    variableType?: SortOrder
+    note?: SortOrderInput | SortOrder
+    example?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type VariableDefinitionWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: VariableDefinitionWhereInput | VariableDefinitionWhereInput[]
+    OR?: VariableDefinitionWhereInput[]
+    NOT?: VariableDefinitionWhereInput | VariableDefinitionWhereInput[]
+    key?: StringFilter<"VariableDefinition"> | string
+    def?: StringFilter<"VariableDefinition"> | string
+    variableType?: EnumVariableTypeFilter<"VariableDefinition"> | $Enums.VariableType
+    note?: StringNullableFilter<"VariableDefinition"> | string | null
+    example?: StringNullableFilter<"VariableDefinition"> | string | null
+    createdAt?: DateTimeFilter<"VariableDefinition"> | Date | string
+    createdId?: StringFilter<"VariableDefinition"> | string
+    createdBy?: StringFilter<"VariableDefinition"> | string
+    updatedAt?: DateTimeFilter<"VariableDefinition"> | Date | string
+    updatedId?: StringFilter<"VariableDefinition"> | string
+    updatedBy?: StringFilter<"VariableDefinition"> | string
+  }, "id">
+
+  export type VariableDefinitionOrderByWithAggregationInput = {
+    id?: SortOrder
+    key?: SortOrder
+    def?: SortOrder
+    variableType?: SortOrder
+    note?: SortOrderInput | SortOrder
+    example?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+    _count?: VariableDefinitionCountOrderByAggregateInput
+    _max?: VariableDefinitionMaxOrderByAggregateInput
+    _min?: VariableDefinitionMinOrderByAggregateInput
+  }
+
+  export type VariableDefinitionScalarWhereWithAggregatesInput = {
+    AND?: VariableDefinitionScalarWhereWithAggregatesInput | VariableDefinitionScalarWhereWithAggregatesInput[]
+    OR?: VariableDefinitionScalarWhereWithAggregatesInput[]
+    NOT?: VariableDefinitionScalarWhereWithAggregatesInput | VariableDefinitionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"VariableDefinition"> | string
+    key?: StringWithAggregatesFilter<"VariableDefinition"> | string
+    def?: StringWithAggregatesFilter<"VariableDefinition"> | string
+    variableType?: EnumVariableTypeWithAggregatesFilter<"VariableDefinition"> | $Enums.VariableType
+    note?: StringNullableWithAggregatesFilter<"VariableDefinition"> | string | null
+    example?: StringNullableWithAggregatesFilter<"VariableDefinition"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"VariableDefinition"> | Date | string
+    createdId?: StringWithAggregatesFilter<"VariableDefinition"> | string
+    createdBy?: StringWithAggregatesFilter<"VariableDefinition"> | string
+    updatedAt?: DateTimeWithAggregatesFilter<"VariableDefinition"> | Date | string
+    updatedId?: StringWithAggregatesFilter<"VariableDefinition"> | string
+    updatedBy?: StringWithAggregatesFilter<"VariableDefinition"> | string
   }
 
   export type UserCreateInput = {
@@ -18288,6 +19608,7 @@ export namespace Prisma {
     updatedBy: string
     ProjectKis?: ProjectKiCreateNestedManyWithoutProjectInput
     Assets?: AssetCreateNestedManyWithoutProjectInput
+    Customers?: CustomerCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectUncheckedCreateInput = {
@@ -18314,6 +19635,7 @@ export namespace Prisma {
     updatedBy: string
     ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutProjectInput
     Assets?: AssetUncheckedCreateNestedManyWithoutProjectInput
+    Customers?: CustomerUncheckedCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectUpdateInput = {
@@ -18340,6 +19662,7 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
     ProjectKis?: ProjectKiUpdateManyWithoutProjectNestedInput
     Assets?: AssetUpdateManyWithoutProjectNestedInput
+    Customers?: CustomerUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateInput = {
@@ -18366,6 +19689,7 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
     ProjectKis?: ProjectKiUncheckedUpdateManyWithoutProjectNestedInput
     Assets?: AssetUncheckedUpdateManyWithoutProjectNestedInput
+    Customers?: CustomerUncheckedUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectCreateManyInput = {
@@ -18789,180 +20113,20 @@ export namespace Prisma {
   export type CustomerCreateInput = {
     id?: string
     sbimpId?: string | null
-    name: string
-    nameFurigana: string
-    birthday?: Date | string | null
-    customerType?: $Enums.CustomerType
-    horyuStatus?: $Enums.HoryuStatusType | null
-    invoice?: boolean
-    postName: string
-    zip: string
-    fullAddress: string
-    prefecture: string
-    city: string
-    address: string
-    isDeleted?: boolean
-    createdAt?: Date | string
-    createdId: string
-    createdBy: string
-    updatedAt?: Date | string
-    updatedId: string
-    updatedBy: string
-    CustomerFunds?: CustomerFundCreateNestedManyWithoutCustomerInput
-  }
-
-  export type CustomerUncheckedCreateInput = {
-    id?: string
-    sbimpId?: string | null
-    name: string
-    nameFurigana: string
-    birthday?: Date | string | null
-    customerType?: $Enums.CustomerType
-    horyuStatus?: $Enums.HoryuStatusType | null
-    invoice?: boolean
-    postName: string
-    zip: string
-    fullAddress: string
-    prefecture: string
-    city: string
-    address: string
-    isDeleted?: boolean
-    createdAt?: Date | string
-    createdId: string
-    createdBy: string
-    updatedAt?: Date | string
-    updatedId: string
-    updatedBy: string
-    CustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutCustomerInput
-  }
-
-  export type CustomerUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
-    name?: StringFieldUpdateOperationsInput | string
-    nameFurigana?: StringFieldUpdateOperationsInput | string
-    birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
-    horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
-    invoice?: BoolFieldUpdateOperationsInput | boolean
-    postName?: StringFieldUpdateOperationsInput | string
-    zip?: StringFieldUpdateOperationsInput | string
-    fullAddress?: StringFieldUpdateOperationsInput | string
-    prefecture?: StringFieldUpdateOperationsInput | string
-    city?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    isDeleted?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: StringFieldUpdateOperationsInput | string
-    createdBy?: StringFieldUpdateOperationsInput | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: StringFieldUpdateOperationsInput | string
-    updatedBy?: StringFieldUpdateOperationsInput | string
-    CustomerFunds?: CustomerFundUpdateManyWithoutCustomerNestedInput
-  }
-
-  export type CustomerUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
-    name?: StringFieldUpdateOperationsInput | string
-    nameFurigana?: StringFieldUpdateOperationsInput | string
-    birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
-    horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
-    invoice?: BoolFieldUpdateOperationsInput | boolean
-    postName?: StringFieldUpdateOperationsInput | string
-    zip?: StringFieldUpdateOperationsInput | string
-    fullAddress?: StringFieldUpdateOperationsInput | string
-    prefecture?: StringFieldUpdateOperationsInput | string
-    city?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    isDeleted?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: StringFieldUpdateOperationsInput | string
-    createdBy?: StringFieldUpdateOperationsInput | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: StringFieldUpdateOperationsInput | string
-    updatedBy?: StringFieldUpdateOperationsInput | string
-    CustomerFunds?: CustomerFundUncheckedUpdateManyWithoutCustomerNestedInput
-  }
-
-  export type CustomerCreateManyInput = {
-    id?: string
-    sbimpId?: string | null
-    name: string
-    nameFurigana: string
-    birthday?: Date | string | null
-    customerType?: $Enums.CustomerType
-    horyuStatus?: $Enums.HoryuStatusType | null
-    invoice?: boolean
-    postName: string
-    zip: string
-    fullAddress: string
-    prefecture: string
-    city: string
-    address: string
-    isDeleted?: boolean
-    createdAt?: Date | string
-    createdId: string
-    createdBy: string
-    updatedAt?: Date | string
-    updatedId: string
-    updatedBy: string
-  }
-
-  export type CustomerUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
-    name?: StringFieldUpdateOperationsInput | string
-    nameFurigana?: StringFieldUpdateOperationsInput | string
-    birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
-    horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
-    invoice?: BoolFieldUpdateOperationsInput | boolean
-    postName?: StringFieldUpdateOperationsInput | string
-    zip?: StringFieldUpdateOperationsInput | string
-    fullAddress?: StringFieldUpdateOperationsInput | string
-    prefecture?: StringFieldUpdateOperationsInput | string
-    city?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    isDeleted?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: StringFieldUpdateOperationsInput | string
-    createdBy?: StringFieldUpdateOperationsInput | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: StringFieldUpdateOperationsInput | string
-    updatedBy?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type CustomerUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
-    name?: StringFieldUpdateOperationsInput | string
-    nameFurigana?: StringFieldUpdateOperationsInput | string
-    birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
-    horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
-    invoice?: BoolFieldUpdateOperationsInput | boolean
-    postName?: StringFieldUpdateOperationsInput | string
-    zip?: StringFieldUpdateOperationsInput | string
-    fullAddress?: StringFieldUpdateOperationsInput | string
-    prefecture?: StringFieldUpdateOperationsInput | string
-    city?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    isDeleted?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    createdId?: StringFieldUpdateOperationsInput | string
-    createdBy?: StringFieldUpdateOperationsInput | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: StringFieldUpdateOperationsInput | string
-    updatedBy?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type CustomerFundCreateInput = {
-    id?: string
-    fundId: string
     fundStatus: string
-    applyUnit: number
+    name: string
+    nameFurigana: string
+    birthday?: Date | string | null
+    customerType?: $Enums.CustomerType
+    invoice?: boolean
+    postName: string
+    zip: string
+    fullAddress: string
+    prefecture: string
+    city: string
+    address: string
+    transferName: string
+    transferNameFurigana: string
     bankCode: number
     bankName: string
     bankBranchCode: number
@@ -18976,17 +20140,299 @@ export namespace Prisma {
     trustTransferDate?: Date | string | null
     oldBunpaiEndDate?: Date | string | null
     newBunpaiStartDate?: Date | string | null
+    horyuStatus?: $Enums.HoryuStatusType | null
+    instructionDueDate?: Date | string | null
+    paymentDueDate?: Date | string | null
+    holdMemo?: string | null
+    isDeleted?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    Project: ProjectCreateNestedOneWithoutCustomersInput
+    CustomerFunds?: CustomerFundCreateNestedManyWithoutCustomerInput
+  }
+
+  export type CustomerUncheckedCreateInput = {
+    id?: string
+    projectId: string
+    sbimpId?: string | null
+    fundStatus: string
+    name: string
+    nameFurigana: string
+    birthday?: Date | string | null
+    customerType?: $Enums.CustomerType
+    invoice?: boolean
+    postName: string
+    zip: string
+    fullAddress: string
+    prefecture: string
+    city: string
+    address: string
+    transferName: string
+    transferNameFurigana: string
+    bankCode: number
+    bankName: string
+    bankBranchCode: number
+    bankBranchName: string
+    bankAccountTypeCode: number
+    bankAccountType: string
+    bankAccount: string
+    inheritanceType?: $Enums.InheritanceType | null
+    inheritanceStatus?: string | null
+    giftContractDate?: Date | string | null
+    trustTransferDate?: Date | string | null
+    oldBunpaiEndDate?: Date | string | null
+    newBunpaiStartDate?: Date | string | null
+    horyuStatus?: $Enums.HoryuStatusType | null
+    instructionDueDate?: Date | string | null
+    paymentDueDate?: Date | string | null
+    holdMemo?: string | null
+    isDeleted?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    CustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutCustomerInput
+  }
+
+  export type CustomerUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
+    fundStatus?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    nameFurigana?: StringFieldUpdateOperationsInput | string
+    birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
+    invoice?: BoolFieldUpdateOperationsInput | boolean
+    postName?: StringFieldUpdateOperationsInput | string
+    zip?: StringFieldUpdateOperationsInput | string
+    fullAddress?: StringFieldUpdateOperationsInput | string
+    prefecture?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    transferName?: StringFieldUpdateOperationsInput | string
+    transferNameFurigana?: StringFieldUpdateOperationsInput | string
+    bankCode?: IntFieldUpdateOperationsInput | number
+    bankName?: StringFieldUpdateOperationsInput | string
+    bankBranchCode?: IntFieldUpdateOperationsInput | number
+    bankBranchName?: StringFieldUpdateOperationsInput | string
+    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
+    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
+    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    Project?: ProjectUpdateOneRequiredWithoutCustomersNestedInput
+    CustomerFunds?: CustomerFundUpdateManyWithoutCustomerNestedInput
+  }
+
+  export type CustomerUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
+    fundStatus?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    nameFurigana?: StringFieldUpdateOperationsInput | string
+    birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
+    invoice?: BoolFieldUpdateOperationsInput | boolean
+    postName?: StringFieldUpdateOperationsInput | string
+    zip?: StringFieldUpdateOperationsInput | string
+    fullAddress?: StringFieldUpdateOperationsInput | string
+    prefecture?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    transferName?: StringFieldUpdateOperationsInput | string
+    transferNameFurigana?: StringFieldUpdateOperationsInput | string
+    bankCode?: IntFieldUpdateOperationsInput | number
+    bankName?: StringFieldUpdateOperationsInput | string
+    bankBranchCode?: IntFieldUpdateOperationsInput | number
+    bankBranchName?: StringFieldUpdateOperationsInput | string
+    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
+    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
+    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    CustomerFunds?: CustomerFundUncheckedUpdateManyWithoutCustomerNestedInput
+  }
+
+  export type CustomerCreateManyInput = {
+    id?: string
+    projectId: string
+    sbimpId?: string | null
+    fundStatus: string
+    name: string
+    nameFurigana: string
+    birthday?: Date | string | null
+    customerType?: $Enums.CustomerType
+    invoice?: boolean
+    postName: string
+    zip: string
+    fullAddress: string
+    prefecture: string
+    city: string
+    address: string
+    transferName: string
+    transferNameFurigana: string
+    bankCode: number
+    bankName: string
+    bankBranchCode: number
+    bankBranchName: string
+    bankAccountTypeCode: number
+    bankAccountType: string
+    bankAccount: string
+    inheritanceType?: $Enums.InheritanceType | null
+    inheritanceStatus?: string | null
+    giftContractDate?: Date | string | null
+    trustTransferDate?: Date | string | null
+    oldBunpaiEndDate?: Date | string | null
+    newBunpaiStartDate?: Date | string | null
+    horyuStatus?: $Enums.HoryuStatusType | null
+    instructionDueDate?: Date | string | null
+    paymentDueDate?: Date | string | null
+    holdMemo?: string | null
+    isDeleted?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type CustomerUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
+    fundStatus?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    nameFurigana?: StringFieldUpdateOperationsInput | string
+    birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
+    invoice?: BoolFieldUpdateOperationsInput | boolean
+    postName?: StringFieldUpdateOperationsInput | string
+    zip?: StringFieldUpdateOperationsInput | string
+    fullAddress?: StringFieldUpdateOperationsInput | string
+    prefecture?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    transferName?: StringFieldUpdateOperationsInput | string
+    transferNameFurigana?: StringFieldUpdateOperationsInput | string
+    bankCode?: IntFieldUpdateOperationsInput | number
+    bankName?: StringFieldUpdateOperationsInput | string
+    bankBranchCode?: IntFieldUpdateOperationsInput | number
+    bankBranchName?: StringFieldUpdateOperationsInput | string
+    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
+    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
+    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CustomerUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
+    fundStatus?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    nameFurigana?: StringFieldUpdateOperationsInput | string
+    birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
+    invoice?: BoolFieldUpdateOperationsInput | boolean
+    postName?: StringFieldUpdateOperationsInput | string
+    zip?: StringFieldUpdateOperationsInput | string
+    fullAddress?: StringFieldUpdateOperationsInput | string
+    prefecture?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    transferName?: StringFieldUpdateOperationsInput | string
+    transferNameFurigana?: StringFieldUpdateOperationsInput | string
+    bankCode?: IntFieldUpdateOperationsInput | number
+    bankName?: StringFieldUpdateOperationsInput | string
+    bankBranchCode?: IntFieldUpdateOperationsInput | number
+    bankBranchName?: StringFieldUpdateOperationsInput | string
+    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
+    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
+    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CustomerFundCreateInput = {
+    id?: string
+    fundId: string
+    applyUnit: number
     bunpaiThisKi?: number | null
     bunpaiYear?: number | null
     bunpaiTotal?: number | null
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
-    instructionDueDate?: Date | string | null
-    paymentDueDate?: Date | string | null
     paymentDate?: Date | string | null
     holdPayment?: boolean
-    holdMemo?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -19002,32 +20448,15 @@ export namespace Prisma {
     fundId: string
     customerId: string
     projectKiId: string
-    fundStatus: string
     applyUnit: number
-    bankCode: number
-    bankName: string
-    bankBranchCode: number
-    bankBranchName: string
-    bankAccountTypeCode: number
-    bankAccountType: string
-    bankAccount: string
-    inheritanceType?: $Enums.InheritanceType | null
-    inheritanceStatus?: string | null
-    giftContractDate?: Date | string | null
-    trustTransferDate?: Date | string | null
-    oldBunpaiEndDate?: Date | string | null
-    newBunpaiStartDate?: Date | string | null
     bunpaiThisKi?: number | null
     bunpaiYear?: number | null
     bunpaiTotal?: number | null
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
-    instructionDueDate?: Date | string | null
-    paymentDueDate?: Date | string | null
     paymentDate?: Date | string | null
     holdPayment?: boolean
-    holdMemo?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -19039,32 +20468,15 @@ export namespace Prisma {
   export type CustomerFundUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     fundId?: StringFieldUpdateOperationsInput | string
-    fundStatus?: StringFieldUpdateOperationsInput | string
     applyUnit?: IntFieldUpdateOperationsInput | number
-    bankCode?: IntFieldUpdateOperationsInput | number
-    bankName?: StringFieldUpdateOperationsInput | string
-    bankBranchCode?: IntFieldUpdateOperationsInput | number
-    bankBranchName?: StringFieldUpdateOperationsInput | string
-    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
-    bankAccountType?: StringFieldUpdateOperationsInput | string
-    bankAccount?: StringFieldUpdateOperationsInput | string
-    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
-    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
-    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
-    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
-    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -19080,32 +20492,15 @@ export namespace Prisma {
     fundId?: StringFieldUpdateOperationsInput | string
     customerId?: StringFieldUpdateOperationsInput | string
     projectKiId?: StringFieldUpdateOperationsInput | string
-    fundStatus?: StringFieldUpdateOperationsInput | string
     applyUnit?: IntFieldUpdateOperationsInput | number
-    bankCode?: IntFieldUpdateOperationsInput | number
-    bankName?: StringFieldUpdateOperationsInput | string
-    bankBranchCode?: IntFieldUpdateOperationsInput | number
-    bankBranchName?: StringFieldUpdateOperationsInput | string
-    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
-    bankAccountType?: StringFieldUpdateOperationsInput | string
-    bankAccount?: StringFieldUpdateOperationsInput | string
-    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
-    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
-    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
-    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
-    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -19119,32 +20514,15 @@ export namespace Prisma {
     fundId: string
     customerId: string
     projectKiId: string
-    fundStatus: string
     applyUnit: number
-    bankCode: number
-    bankName: string
-    bankBranchCode: number
-    bankBranchName: string
-    bankAccountTypeCode: number
-    bankAccountType: string
-    bankAccount: string
-    inheritanceType?: $Enums.InheritanceType | null
-    inheritanceStatus?: string | null
-    giftContractDate?: Date | string | null
-    trustTransferDate?: Date | string | null
-    oldBunpaiEndDate?: Date | string | null
-    newBunpaiStartDate?: Date | string | null
     bunpaiThisKi?: number | null
     bunpaiYear?: number | null
     bunpaiTotal?: number | null
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
-    instructionDueDate?: Date | string | null
-    paymentDueDate?: Date | string | null
     paymentDate?: Date | string | null
     holdPayment?: boolean
-    holdMemo?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -19156,32 +20534,15 @@ export namespace Prisma {
   export type CustomerFundUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     fundId?: StringFieldUpdateOperationsInput | string
-    fundStatus?: StringFieldUpdateOperationsInput | string
     applyUnit?: IntFieldUpdateOperationsInput | number
-    bankCode?: IntFieldUpdateOperationsInput | number
-    bankName?: StringFieldUpdateOperationsInput | string
-    bankBranchCode?: IntFieldUpdateOperationsInput | number
-    bankBranchName?: StringFieldUpdateOperationsInput | string
-    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
-    bankAccountType?: StringFieldUpdateOperationsInput | string
-    bankAccount?: StringFieldUpdateOperationsInput | string
-    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
-    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
-    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
-    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
-    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -19195,32 +20556,15 @@ export namespace Prisma {
     fundId?: StringFieldUpdateOperationsInput | string
     customerId?: StringFieldUpdateOperationsInput | string
     projectKiId?: StringFieldUpdateOperationsInput | string
-    fundStatus?: StringFieldUpdateOperationsInput | string
     applyUnit?: IntFieldUpdateOperationsInput | number
-    bankCode?: IntFieldUpdateOperationsInput | number
-    bankName?: StringFieldUpdateOperationsInput | string
-    bankBranchCode?: IntFieldUpdateOperationsInput | number
-    bankBranchName?: StringFieldUpdateOperationsInput | string
-    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
-    bankAccountType?: StringFieldUpdateOperationsInput | string
-    bankAccount?: StringFieldUpdateOperationsInput | string
-    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
-    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
-    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
-    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
-    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -19448,6 +20792,111 @@ export namespace Prisma {
     templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
     file?: BytesFieldUpdateOperationsInput | Buffer
     version?: IntFieldUpdateOperationsInput | number
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type VariableDefinitionCreateInput = {
+    id?: string
+    key: string
+    def: string
+    variableType?: $Enums.VariableType
+    note?: string | null
+    example?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type VariableDefinitionUncheckedCreateInput = {
+    id?: string
+    key: string
+    def: string
+    variableType?: $Enums.VariableType
+    note?: string | null
+    example?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type VariableDefinitionUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    def?: StringFieldUpdateOperationsInput | string
+    variableType?: EnumVariableTypeFieldUpdateOperationsInput | $Enums.VariableType
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    example?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type VariableDefinitionUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    def?: StringFieldUpdateOperationsInput | string
+    variableType?: EnumVariableTypeFieldUpdateOperationsInput | $Enums.VariableType
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    example?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type VariableDefinitionCreateManyInput = {
+    id?: string
+    key: string
+    def: string
+    variableType?: $Enums.VariableType
+    note?: string | null
+    example?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type VariableDefinitionUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    def?: StringFieldUpdateOperationsInput | string
+    variableType?: EnumVariableTypeFieldUpdateOperationsInput | $Enums.VariableType
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    example?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type VariableDefinitionUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    key?: StringFieldUpdateOperationsInput | string
+    def?: StringFieldUpdateOperationsInput | string
+    variableType?: EnumVariableTypeFieldUpdateOperationsInput | $Enums.VariableType
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    example?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
@@ -19870,7 +21319,17 @@ export namespace Prisma {
     none?: AssetWhereInput
   }
 
+  export type CustomerListRelationFilter = {
+    every?: CustomerWhereInput
+    some?: CustomerWhereInput
+    none?: CustomerWhereInput
+  }
+
   export type AssetOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CustomerOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -20219,6 +21678,13 @@ export namespace Prisma {
     not?: NestedEnumCustomerTypeFilter<$PrismaModel> | $Enums.CustomerType
   }
 
+  export type EnumInheritanceTypeNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.InheritanceType | EnumInheritanceTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.InheritanceType[] | ListEnumInheritanceTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.InheritanceType[] | ListEnumInheritanceTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumInheritanceTypeNullableFilter<$PrismaModel> | $Enums.InheritanceType | null
+  }
+
   export type EnumHoryuStatusTypeNullableFilter<$PrismaModel = never> = {
     equals?: $Enums.HoryuStatusType | EnumHoryuStatusTypeFieldRefInput<$PrismaModel> | null
     in?: $Enums.HoryuStatusType[] | ListEnumHoryuStatusTypeFieldRefInput<$PrismaModel> | null
@@ -20228,12 +21694,13 @@ export namespace Prisma {
 
   export type CustomerCountOrderByAggregateInput = {
     id?: SortOrder
+    projectId?: SortOrder
     sbimpId?: SortOrder
+    fundStatus?: SortOrder
     name?: SortOrder
     nameFurigana?: SortOrder
     birthday?: SortOrder
     customerType?: SortOrder
-    horyuStatus?: SortOrder
     invoice?: SortOrder
     postName?: SortOrder
     zip?: SortOrder
@@ -20241,6 +21708,25 @@ export namespace Prisma {
     prefecture?: SortOrder
     city?: SortOrder
     address?: SortOrder
+    transferName?: SortOrder
+    transferNameFurigana?: SortOrder
+    bankCode?: SortOrder
+    bankName?: SortOrder
+    bankBranchCode?: SortOrder
+    bankBranchName?: SortOrder
+    bankAccountTypeCode?: SortOrder
+    bankAccountType?: SortOrder
+    bankAccount?: SortOrder
+    inheritanceType?: SortOrder
+    inheritanceStatus?: SortOrder
+    giftContractDate?: SortOrder
+    trustTransferDate?: SortOrder
+    oldBunpaiEndDate?: SortOrder
+    newBunpaiStartDate?: SortOrder
+    horyuStatus?: SortOrder
+    instructionDueDate?: SortOrder
+    paymentDueDate?: SortOrder
+    holdMemo?: SortOrder
     isDeleted?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
@@ -20250,14 +21736,21 @@ export namespace Prisma {
     updatedBy?: SortOrder
   }
 
+  export type CustomerAvgOrderByAggregateInput = {
+    bankCode?: SortOrder
+    bankBranchCode?: SortOrder
+    bankAccountTypeCode?: SortOrder
+  }
+
   export type CustomerMaxOrderByAggregateInput = {
     id?: SortOrder
+    projectId?: SortOrder
     sbimpId?: SortOrder
+    fundStatus?: SortOrder
     name?: SortOrder
     nameFurigana?: SortOrder
     birthday?: SortOrder
     customerType?: SortOrder
-    horyuStatus?: SortOrder
     invoice?: SortOrder
     postName?: SortOrder
     zip?: SortOrder
@@ -20265,6 +21758,25 @@ export namespace Prisma {
     prefecture?: SortOrder
     city?: SortOrder
     address?: SortOrder
+    transferName?: SortOrder
+    transferNameFurigana?: SortOrder
+    bankCode?: SortOrder
+    bankName?: SortOrder
+    bankBranchCode?: SortOrder
+    bankBranchName?: SortOrder
+    bankAccountTypeCode?: SortOrder
+    bankAccountType?: SortOrder
+    bankAccount?: SortOrder
+    inheritanceType?: SortOrder
+    inheritanceStatus?: SortOrder
+    giftContractDate?: SortOrder
+    trustTransferDate?: SortOrder
+    oldBunpaiEndDate?: SortOrder
+    newBunpaiStartDate?: SortOrder
+    horyuStatus?: SortOrder
+    instructionDueDate?: SortOrder
+    paymentDueDate?: SortOrder
+    holdMemo?: SortOrder
     isDeleted?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
@@ -20276,12 +21788,13 @@ export namespace Prisma {
 
   export type CustomerMinOrderByAggregateInput = {
     id?: SortOrder
+    projectId?: SortOrder
     sbimpId?: SortOrder
+    fundStatus?: SortOrder
     name?: SortOrder
     nameFurigana?: SortOrder
     birthday?: SortOrder
     customerType?: SortOrder
-    horyuStatus?: SortOrder
     invoice?: SortOrder
     postName?: SortOrder
     zip?: SortOrder
@@ -20289,6 +21802,25 @@ export namespace Prisma {
     prefecture?: SortOrder
     city?: SortOrder
     address?: SortOrder
+    transferName?: SortOrder
+    transferNameFurigana?: SortOrder
+    bankCode?: SortOrder
+    bankName?: SortOrder
+    bankBranchCode?: SortOrder
+    bankBranchName?: SortOrder
+    bankAccountTypeCode?: SortOrder
+    bankAccountType?: SortOrder
+    bankAccount?: SortOrder
+    inheritanceType?: SortOrder
+    inheritanceStatus?: SortOrder
+    giftContractDate?: SortOrder
+    trustTransferDate?: SortOrder
+    oldBunpaiEndDate?: SortOrder
+    newBunpaiStartDate?: SortOrder
+    horyuStatus?: SortOrder
+    instructionDueDate?: SortOrder
+    paymentDueDate?: SortOrder
+    holdMemo?: SortOrder
     isDeleted?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
@@ -20296,6 +21828,12 @@ export namespace Prisma {
     updatedAt?: SortOrder
     updatedId?: SortOrder
     updatedBy?: SortOrder
+  }
+
+  export type CustomerSumOrderByAggregateInput = {
+    bankCode?: SortOrder
+    bankBranchCode?: SortOrder
+    bankAccountTypeCode?: SortOrder
   }
 
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -20322,6 +21860,16 @@ export namespace Prisma {
     _max?: NestedEnumCustomerTypeFilter<$PrismaModel>
   }
 
+  export type EnumInheritanceTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.InheritanceType | EnumInheritanceTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.InheritanceType[] | ListEnumInheritanceTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.InheritanceType[] | ListEnumInheritanceTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumInheritanceTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.InheritanceType | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumInheritanceTypeNullableFilter<$PrismaModel>
+    _max?: NestedEnumInheritanceTypeNullableFilter<$PrismaModel>
+  }
+
   export type EnumHoryuStatusTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: $Enums.HoryuStatusType | EnumHoryuStatusTypeFieldRefInput<$PrismaModel> | null
     in?: $Enums.HoryuStatusType[] | ListEnumHoryuStatusTypeFieldRefInput<$PrismaModel> | null
@@ -20330,13 +21878,6 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedEnumHoryuStatusTypeNullableFilter<$PrismaModel>
     _max?: NestedEnumHoryuStatusTypeNullableFilter<$PrismaModel>
-  }
-
-  export type EnumInheritanceTypeNullableFilter<$PrismaModel = never> = {
-    equals?: $Enums.InheritanceType | EnumInheritanceTypeFieldRefInput<$PrismaModel> | null
-    in?: $Enums.InheritanceType[] | ListEnumInheritanceTypeFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.InheritanceType[] | ListEnumInheritanceTypeFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumInheritanceTypeNullableFilter<$PrismaModel> | $Enums.InheritanceType | null
   }
 
   export type IntNullableFilter<$PrismaModel = never> = {
@@ -20370,32 +21911,15 @@ export namespace Prisma {
     fundId?: SortOrder
     customerId?: SortOrder
     projectKiId?: SortOrder
-    fundStatus?: SortOrder
     applyUnit?: SortOrder
-    bankCode?: SortOrder
-    bankName?: SortOrder
-    bankBranchCode?: SortOrder
-    bankBranchName?: SortOrder
-    bankAccountTypeCode?: SortOrder
-    bankAccountType?: SortOrder
-    bankAccount?: SortOrder
-    inheritanceType?: SortOrder
-    inheritanceStatus?: SortOrder
-    giftContractDate?: SortOrder
-    trustTransferDate?: SortOrder
-    oldBunpaiEndDate?: SortOrder
-    newBunpaiStartDate?: SortOrder
     bunpaiThisKi?: SortOrder
     bunpaiYear?: SortOrder
     bunpaiTotal?: SortOrder
     otherBunpaiThisKi?: SortOrder
     otherBunpaiYear?: SortOrder
     otherBunpaiTotal?: SortOrder
-    instructionDueDate?: SortOrder
-    paymentDueDate?: SortOrder
     paymentDate?: SortOrder
     holdPayment?: SortOrder
-    holdMemo?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -20406,9 +21930,6 @@ export namespace Prisma {
 
   export type CustomerFundAvgOrderByAggregateInput = {
     applyUnit?: SortOrder
-    bankCode?: SortOrder
-    bankBranchCode?: SortOrder
-    bankAccountTypeCode?: SortOrder
     bunpaiThisKi?: SortOrder
     bunpaiYear?: SortOrder
     bunpaiTotal?: SortOrder
@@ -20422,32 +21943,15 @@ export namespace Prisma {
     fundId?: SortOrder
     customerId?: SortOrder
     projectKiId?: SortOrder
-    fundStatus?: SortOrder
     applyUnit?: SortOrder
-    bankCode?: SortOrder
-    bankName?: SortOrder
-    bankBranchCode?: SortOrder
-    bankBranchName?: SortOrder
-    bankAccountTypeCode?: SortOrder
-    bankAccountType?: SortOrder
-    bankAccount?: SortOrder
-    inheritanceType?: SortOrder
-    inheritanceStatus?: SortOrder
-    giftContractDate?: SortOrder
-    trustTransferDate?: SortOrder
-    oldBunpaiEndDate?: SortOrder
-    newBunpaiStartDate?: SortOrder
     bunpaiThisKi?: SortOrder
     bunpaiYear?: SortOrder
     bunpaiTotal?: SortOrder
     otherBunpaiThisKi?: SortOrder
     otherBunpaiYear?: SortOrder
     otherBunpaiTotal?: SortOrder
-    instructionDueDate?: SortOrder
-    paymentDueDate?: SortOrder
     paymentDate?: SortOrder
     holdPayment?: SortOrder
-    holdMemo?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -20461,32 +21965,15 @@ export namespace Prisma {
     fundId?: SortOrder
     customerId?: SortOrder
     projectKiId?: SortOrder
-    fundStatus?: SortOrder
     applyUnit?: SortOrder
-    bankCode?: SortOrder
-    bankName?: SortOrder
-    bankBranchCode?: SortOrder
-    bankBranchName?: SortOrder
-    bankAccountTypeCode?: SortOrder
-    bankAccountType?: SortOrder
-    bankAccount?: SortOrder
-    inheritanceType?: SortOrder
-    inheritanceStatus?: SortOrder
-    giftContractDate?: SortOrder
-    trustTransferDate?: SortOrder
-    oldBunpaiEndDate?: SortOrder
-    newBunpaiStartDate?: SortOrder
     bunpaiThisKi?: SortOrder
     bunpaiYear?: SortOrder
     bunpaiTotal?: SortOrder
     otherBunpaiThisKi?: SortOrder
     otherBunpaiYear?: SortOrder
     otherBunpaiTotal?: SortOrder
-    instructionDueDate?: SortOrder
-    paymentDueDate?: SortOrder
     paymentDate?: SortOrder
     holdPayment?: SortOrder
-    holdMemo?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -20497,25 +21984,12 @@ export namespace Prisma {
 
   export type CustomerFundSumOrderByAggregateInput = {
     applyUnit?: SortOrder
-    bankCode?: SortOrder
-    bankBranchCode?: SortOrder
-    bankAccountTypeCode?: SortOrder
     bunpaiThisKi?: SortOrder
     bunpaiYear?: SortOrder
     bunpaiTotal?: SortOrder
     otherBunpaiThisKi?: SortOrder
     otherBunpaiYear?: SortOrder
     otherBunpaiTotal?: SortOrder
-  }
-
-  export type EnumInheritanceTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.InheritanceType | EnumInheritanceTypeFieldRefInput<$PrismaModel> | null
-    in?: $Enums.InheritanceType[] | ListEnumInheritanceTypeFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.InheritanceType[] | ListEnumInheritanceTypeFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumInheritanceTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.InheritanceType | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedEnumInheritanceTypeNullableFilter<$PrismaModel>
-    _max?: NestedEnumInheritanceTypeNullableFilter<$PrismaModel>
   }
 
   export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -20701,6 +22175,68 @@ export namespace Prisma {
     version?: SortOrder
   }
 
+  export type EnumVariableTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.VariableType | EnumVariableTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.VariableType[] | ListEnumVariableTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.VariableType[] | ListEnumVariableTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumVariableTypeFilter<$PrismaModel> | $Enums.VariableType
+  }
+
+  export type VariableDefinitionCountOrderByAggregateInput = {
+    id?: SortOrder
+    key?: SortOrder
+    def?: SortOrder
+    variableType?: SortOrder
+    note?: SortOrder
+    example?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type VariableDefinitionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    key?: SortOrder
+    def?: SortOrder
+    variableType?: SortOrder
+    note?: SortOrder
+    example?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type VariableDefinitionMinOrderByAggregateInput = {
+    id?: SortOrder
+    key?: SortOrder
+    def?: SortOrder
+    variableType?: SortOrder
+    note?: SortOrder
+    example?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type EnumVariableTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.VariableType | EnumVariableTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.VariableType[] | ListEnumVariableTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.VariableType[] | ListEnumVariableTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumVariableTypeWithAggregatesFilter<$PrismaModel> | $Enums.VariableType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumVariableTypeFilter<$PrismaModel>
+    _max?: NestedEnumVariableTypeFilter<$PrismaModel>
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -20831,6 +22367,13 @@ export namespace Prisma {
     connect?: AssetWhereUniqueInput | AssetWhereUniqueInput[]
   }
 
+  export type CustomerCreateNestedManyWithoutProjectInput = {
+    create?: XOR<CustomerCreateWithoutProjectInput, CustomerUncheckedCreateWithoutProjectInput> | CustomerCreateWithoutProjectInput[] | CustomerUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: CustomerCreateOrConnectWithoutProjectInput | CustomerCreateOrConnectWithoutProjectInput[]
+    createMany?: CustomerCreateManyProjectInputEnvelope
+    connect?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
+  }
+
   export type ProjectKiUncheckedCreateNestedManyWithoutProjectInput = {
     create?: XOR<ProjectKiCreateWithoutProjectInput, ProjectKiUncheckedCreateWithoutProjectInput> | ProjectKiCreateWithoutProjectInput[] | ProjectKiUncheckedCreateWithoutProjectInput[]
     connectOrCreate?: ProjectKiCreateOrConnectWithoutProjectInput | ProjectKiCreateOrConnectWithoutProjectInput[]
@@ -20843,6 +22386,13 @@ export namespace Prisma {
     connectOrCreate?: AssetCreateOrConnectWithoutProjectInput | AssetCreateOrConnectWithoutProjectInput[]
     createMany?: AssetCreateManyProjectInputEnvelope
     connect?: AssetWhereUniqueInput | AssetWhereUniqueInput[]
+  }
+
+  export type CustomerUncheckedCreateNestedManyWithoutProjectInput = {
+    create?: XOR<CustomerCreateWithoutProjectInput, CustomerUncheckedCreateWithoutProjectInput> | CustomerCreateWithoutProjectInput[] | CustomerUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: CustomerCreateOrConnectWithoutProjectInput | CustomerCreateOrConnectWithoutProjectInput[]
+    createMany?: CustomerCreateManyProjectInputEnvelope
+    connect?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
   }
 
   export type BigIntFieldUpdateOperationsInput = {
@@ -20889,6 +22439,20 @@ export namespace Prisma {
     deleteMany?: AssetScalarWhereInput | AssetScalarWhereInput[]
   }
 
+  export type CustomerUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<CustomerCreateWithoutProjectInput, CustomerUncheckedCreateWithoutProjectInput> | CustomerCreateWithoutProjectInput[] | CustomerUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: CustomerCreateOrConnectWithoutProjectInput | CustomerCreateOrConnectWithoutProjectInput[]
+    upsert?: CustomerUpsertWithWhereUniqueWithoutProjectInput | CustomerUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: CustomerCreateManyProjectInputEnvelope
+    set?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
+    disconnect?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
+    delete?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
+    connect?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
+    update?: CustomerUpdateWithWhereUniqueWithoutProjectInput | CustomerUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: CustomerUpdateManyWithWhereWithoutProjectInput | CustomerUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: CustomerScalarWhereInput | CustomerScalarWhereInput[]
+  }
+
   export type ProjectKiUncheckedUpdateManyWithoutProjectNestedInput = {
     create?: XOR<ProjectKiCreateWithoutProjectInput, ProjectKiUncheckedCreateWithoutProjectInput> | ProjectKiCreateWithoutProjectInput[] | ProjectKiUncheckedCreateWithoutProjectInput[]
     connectOrCreate?: ProjectKiCreateOrConnectWithoutProjectInput | ProjectKiCreateOrConnectWithoutProjectInput[]
@@ -20915,6 +22479,20 @@ export namespace Prisma {
     update?: AssetUpdateWithWhereUniqueWithoutProjectInput | AssetUpdateWithWhereUniqueWithoutProjectInput[]
     updateMany?: AssetUpdateManyWithWhereWithoutProjectInput | AssetUpdateManyWithWhereWithoutProjectInput[]
     deleteMany?: AssetScalarWhereInput | AssetScalarWhereInput[]
+  }
+
+  export type CustomerUncheckedUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<CustomerCreateWithoutProjectInput, CustomerUncheckedCreateWithoutProjectInput> | CustomerCreateWithoutProjectInput[] | CustomerUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: CustomerCreateOrConnectWithoutProjectInput | CustomerCreateOrConnectWithoutProjectInput[]
+    upsert?: CustomerUpsertWithWhereUniqueWithoutProjectInput | CustomerUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: CustomerCreateManyProjectInputEnvelope
+    set?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
+    disconnect?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
+    delete?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
+    connect?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
+    update?: CustomerUpdateWithWhereUniqueWithoutProjectInput | CustomerUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: CustomerUpdateManyWithWhereWithoutProjectInput | CustomerUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: CustomerScalarWhereInput | CustomerScalarWhereInput[]
   }
 
   export type ProjectCreateNestedOneWithoutProjectKisInput = {
@@ -21071,6 +22649,12 @@ export namespace Prisma {
     update?: XOR<XOR<KiUpdateToOneWithWhereWithoutAssetKisInput, KiUpdateWithoutAssetKisInput>, KiUncheckedUpdateWithoutAssetKisInput>
   }
 
+  export type ProjectCreateNestedOneWithoutCustomersInput = {
+    create?: XOR<ProjectCreateWithoutCustomersInput, ProjectUncheckedCreateWithoutCustomersInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutCustomersInput
+    connect?: ProjectWhereUniqueInput
+  }
+
   export type CustomerFundCreateNestedManyWithoutCustomerInput = {
     create?: XOR<CustomerFundCreateWithoutCustomerInput, CustomerFundUncheckedCreateWithoutCustomerInput> | CustomerFundCreateWithoutCustomerInput[] | CustomerFundUncheckedCreateWithoutCustomerInput[]
     connectOrCreate?: CustomerFundCreateOrConnectWithoutCustomerInput | CustomerFundCreateOrConnectWithoutCustomerInput[]
@@ -21093,8 +22677,20 @@ export namespace Prisma {
     set?: $Enums.CustomerType
   }
 
+  export type NullableEnumInheritanceTypeFieldUpdateOperationsInput = {
+    set?: $Enums.InheritanceType | null
+  }
+
   export type NullableEnumHoryuStatusTypeFieldUpdateOperationsInput = {
     set?: $Enums.HoryuStatusType | null
+  }
+
+  export type ProjectUpdateOneRequiredWithoutCustomersNestedInput = {
+    create?: XOR<ProjectCreateWithoutCustomersInput, ProjectUncheckedCreateWithoutCustomersInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutCustomersInput
+    upsert?: ProjectUpsertWithoutCustomersInput
+    connect?: ProjectWhereUniqueInput
+    update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutCustomersInput, ProjectUpdateWithoutCustomersInput>, ProjectUncheckedUpdateWithoutCustomersInput>
   }
 
   export type CustomerFundUpdateManyWithoutCustomerNestedInput = {
@@ -21137,10 +22733,6 @@ export namespace Prisma {
     connect?: ProjectKiWhereUniqueInput
   }
 
-  export type NullableEnumInheritanceTypeFieldUpdateOperationsInput = {
-    set?: $Enums.InheritanceType | null
-  }
-
   export type NullableIntFieldUpdateOperationsInput = {
     set?: number | null
     increment?: number
@@ -21175,6 +22767,10 @@ export namespace Prisma {
 
   export type BytesFieldUpdateOperationsInput = {
     set?: Buffer
+  }
+
+  export type EnumVariableTypeFieldUpdateOperationsInput = {
+    set?: $Enums.VariableType
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -21421,6 +23017,13 @@ export namespace Prisma {
     not?: NestedEnumCustomerTypeFilter<$PrismaModel> | $Enums.CustomerType
   }
 
+  export type NestedEnumInheritanceTypeNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.InheritanceType | EnumInheritanceTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.InheritanceType[] | ListEnumInheritanceTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.InheritanceType[] | ListEnumInheritanceTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumInheritanceTypeNullableFilter<$PrismaModel> | $Enums.InheritanceType | null
+  }
+
   export type NestedEnumHoryuStatusTypeNullableFilter<$PrismaModel = never> = {
     equals?: $Enums.HoryuStatusType | EnumHoryuStatusTypeFieldRefInput<$PrismaModel> | null
     in?: $Enums.HoryuStatusType[] | ListEnumHoryuStatusTypeFieldRefInput<$PrismaModel> | null
@@ -21452,23 +23055,6 @@ export namespace Prisma {
     _max?: NestedEnumCustomerTypeFilter<$PrismaModel>
   }
 
-  export type NestedEnumHoryuStatusTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.HoryuStatusType | EnumHoryuStatusTypeFieldRefInput<$PrismaModel> | null
-    in?: $Enums.HoryuStatusType[] | ListEnumHoryuStatusTypeFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.HoryuStatusType[] | ListEnumHoryuStatusTypeFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumHoryuStatusTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.HoryuStatusType | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedEnumHoryuStatusTypeNullableFilter<$PrismaModel>
-    _max?: NestedEnumHoryuStatusTypeNullableFilter<$PrismaModel>
-  }
-
-  export type NestedEnumInheritanceTypeNullableFilter<$PrismaModel = never> = {
-    equals?: $Enums.InheritanceType | EnumInheritanceTypeFieldRefInput<$PrismaModel> | null
-    in?: $Enums.InheritanceType[] | ListEnumInheritanceTypeFieldRefInput<$PrismaModel> | null
-    notIn?: $Enums.InheritanceType[] | ListEnumInheritanceTypeFieldRefInput<$PrismaModel> | null
-    not?: NestedEnumInheritanceTypeNullableFilter<$PrismaModel> | $Enums.InheritanceType | null
-  }
-
   export type NestedEnumInheritanceTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: $Enums.InheritanceType | EnumInheritanceTypeFieldRefInput<$PrismaModel> | null
     in?: $Enums.InheritanceType[] | ListEnumInheritanceTypeFieldRefInput<$PrismaModel> | null
@@ -21477,6 +23063,16 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedEnumInheritanceTypeNullableFilter<$PrismaModel>
     _max?: NestedEnumInheritanceTypeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedEnumHoryuStatusTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.HoryuStatusType | EnumHoryuStatusTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.HoryuStatusType[] | ListEnumHoryuStatusTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.HoryuStatusType[] | ListEnumHoryuStatusTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumHoryuStatusTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.HoryuStatusType | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumHoryuStatusTypeNullableFilter<$PrismaModel>
+    _max?: NestedEnumHoryuStatusTypeNullableFilter<$PrismaModel>
   }
 
   export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -21555,6 +23151,23 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedBytesFilter<$PrismaModel>
     _max?: NestedBytesFilter<$PrismaModel>
+  }
+
+  export type NestedEnumVariableTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.VariableType | EnumVariableTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.VariableType[] | ListEnumVariableTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.VariableType[] | ListEnumVariableTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumVariableTypeFilter<$PrismaModel> | $Enums.VariableType
+  }
+
+  export type NestedEnumVariableTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.VariableType | EnumVariableTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.VariableType[] | ListEnumVariableTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.VariableType[] | ListEnumVariableTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumVariableTypeWithAggregatesFilter<$PrismaModel> | $Enums.VariableType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumVariableTypeFilter<$PrismaModel>
+    _max?: NestedEnumVariableTypeFilter<$PrismaModel>
   }
 
   export type ProjectKiCreateWithoutKiInput = {
@@ -21798,6 +23411,104 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type CustomerCreateWithoutProjectInput = {
+    id?: string
+    sbimpId?: string | null
+    fundStatus: string
+    name: string
+    nameFurigana: string
+    birthday?: Date | string | null
+    customerType?: $Enums.CustomerType
+    invoice?: boolean
+    postName: string
+    zip: string
+    fullAddress: string
+    prefecture: string
+    city: string
+    address: string
+    transferName: string
+    transferNameFurigana: string
+    bankCode: number
+    bankName: string
+    bankBranchCode: number
+    bankBranchName: string
+    bankAccountTypeCode: number
+    bankAccountType: string
+    bankAccount: string
+    inheritanceType?: $Enums.InheritanceType | null
+    inheritanceStatus?: string | null
+    giftContractDate?: Date | string | null
+    trustTransferDate?: Date | string | null
+    oldBunpaiEndDate?: Date | string | null
+    newBunpaiStartDate?: Date | string | null
+    horyuStatus?: $Enums.HoryuStatusType | null
+    instructionDueDate?: Date | string | null
+    paymentDueDate?: Date | string | null
+    holdMemo?: string | null
+    isDeleted?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    CustomerFunds?: CustomerFundCreateNestedManyWithoutCustomerInput
+  }
+
+  export type CustomerUncheckedCreateWithoutProjectInput = {
+    id?: string
+    sbimpId?: string | null
+    fundStatus: string
+    name: string
+    nameFurigana: string
+    birthday?: Date | string | null
+    customerType?: $Enums.CustomerType
+    invoice?: boolean
+    postName: string
+    zip: string
+    fullAddress: string
+    prefecture: string
+    city: string
+    address: string
+    transferName: string
+    transferNameFurigana: string
+    bankCode: number
+    bankName: string
+    bankBranchCode: number
+    bankBranchName: string
+    bankAccountTypeCode: number
+    bankAccountType: string
+    bankAccount: string
+    inheritanceType?: $Enums.InheritanceType | null
+    inheritanceStatus?: string | null
+    giftContractDate?: Date | string | null
+    trustTransferDate?: Date | string | null
+    oldBunpaiEndDate?: Date | string | null
+    newBunpaiStartDate?: Date | string | null
+    horyuStatus?: $Enums.HoryuStatusType | null
+    instructionDueDate?: Date | string | null
+    paymentDueDate?: Date | string | null
+    holdMemo?: string | null
+    isDeleted?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    CustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutCustomerInput
+  }
+
+  export type CustomerCreateOrConnectWithoutProjectInput = {
+    where: CustomerWhereUniqueInput
+    create: XOR<CustomerCreateWithoutProjectInput, CustomerUncheckedCreateWithoutProjectInput>
+  }
+
+  export type CustomerCreateManyProjectInputEnvelope = {
+    data: CustomerCreateManyProjectInput | CustomerCreateManyProjectInput[]
+    skipDuplicates?: boolean
+  }
+
   export type ProjectKiUpsertWithWhereUniqueWithoutProjectInput = {
     where: ProjectKiWhereUniqueInput
     update: XOR<ProjectKiUpdateWithoutProjectInput, ProjectKiUncheckedUpdateWithoutProjectInput>
@@ -21847,6 +23558,69 @@ export namespace Prisma {
     updatedBy?: StringFilter<"Asset"> | string
   }
 
+  export type CustomerUpsertWithWhereUniqueWithoutProjectInput = {
+    where: CustomerWhereUniqueInput
+    update: XOR<CustomerUpdateWithoutProjectInput, CustomerUncheckedUpdateWithoutProjectInput>
+    create: XOR<CustomerCreateWithoutProjectInput, CustomerUncheckedCreateWithoutProjectInput>
+  }
+
+  export type CustomerUpdateWithWhereUniqueWithoutProjectInput = {
+    where: CustomerWhereUniqueInput
+    data: XOR<CustomerUpdateWithoutProjectInput, CustomerUncheckedUpdateWithoutProjectInput>
+  }
+
+  export type CustomerUpdateManyWithWhereWithoutProjectInput = {
+    where: CustomerScalarWhereInput
+    data: XOR<CustomerUpdateManyMutationInput, CustomerUncheckedUpdateManyWithoutProjectInput>
+  }
+
+  export type CustomerScalarWhereInput = {
+    AND?: CustomerScalarWhereInput | CustomerScalarWhereInput[]
+    OR?: CustomerScalarWhereInput[]
+    NOT?: CustomerScalarWhereInput | CustomerScalarWhereInput[]
+    id?: StringFilter<"Customer"> | string
+    projectId?: StringFilter<"Customer"> | string
+    sbimpId?: StringNullableFilter<"Customer"> | string | null
+    fundStatus?: StringFilter<"Customer"> | string
+    name?: StringFilter<"Customer"> | string
+    nameFurigana?: StringFilter<"Customer"> | string
+    birthday?: DateTimeNullableFilter<"Customer"> | Date | string | null
+    customerType?: EnumCustomerTypeFilter<"Customer"> | $Enums.CustomerType
+    invoice?: BoolFilter<"Customer"> | boolean
+    postName?: StringFilter<"Customer"> | string
+    zip?: StringFilter<"Customer"> | string
+    fullAddress?: StringFilter<"Customer"> | string
+    prefecture?: StringFilter<"Customer"> | string
+    city?: StringFilter<"Customer"> | string
+    address?: StringFilter<"Customer"> | string
+    transferName?: StringFilter<"Customer"> | string
+    transferNameFurigana?: StringFilter<"Customer"> | string
+    bankCode?: IntFilter<"Customer"> | number
+    bankName?: StringFilter<"Customer"> | string
+    bankBranchCode?: IntFilter<"Customer"> | number
+    bankBranchName?: StringFilter<"Customer"> | string
+    bankAccountTypeCode?: IntFilter<"Customer"> | number
+    bankAccountType?: StringFilter<"Customer"> | string
+    bankAccount?: StringFilter<"Customer"> | string
+    inheritanceType?: EnumInheritanceTypeNullableFilter<"Customer"> | $Enums.InheritanceType | null
+    inheritanceStatus?: StringNullableFilter<"Customer"> | string | null
+    giftContractDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
+    trustTransferDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
+    oldBunpaiEndDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
+    newBunpaiStartDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
+    horyuStatus?: EnumHoryuStatusTypeNullableFilter<"Customer"> | $Enums.HoryuStatusType | null
+    instructionDueDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
+    paymentDueDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
+    holdMemo?: StringNullableFilter<"Customer"> | string | null
+    isDeleted?: BoolFilter<"Customer"> | boolean
+    createdAt?: DateTimeFilter<"Customer"> | Date | string
+    createdId?: StringFilter<"Customer"> | string
+    createdBy?: StringFilter<"Customer"> | string
+    updatedAt?: DateTimeFilter<"Customer"> | Date | string
+    updatedId?: StringFilter<"Customer"> | string
+    updatedBy?: StringFilter<"Customer"> | string
+  }
+
   export type ProjectCreateWithoutProjectKisInput = {
     id: string
     sbimpId: string
@@ -21870,6 +23644,7 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     Assets?: AssetCreateNestedManyWithoutProjectInput
+    Customers?: CustomerCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectUncheckedCreateWithoutProjectKisInput = {
@@ -21895,6 +23670,7 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     Assets?: AssetUncheckedCreateNestedManyWithoutProjectInput
+    Customers?: CustomerUncheckedCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectCreateOrConnectWithoutProjectKisInput = {
@@ -21938,32 +23714,15 @@ export namespace Prisma {
   export type CustomerFundCreateWithoutProjectKiInput = {
     id?: string
     fundId: string
-    fundStatus: string
     applyUnit: number
-    bankCode: number
-    bankName: string
-    bankBranchCode: number
-    bankBranchName: string
-    bankAccountTypeCode: number
-    bankAccountType: string
-    bankAccount: string
-    inheritanceType?: $Enums.InheritanceType | null
-    inheritanceStatus?: string | null
-    giftContractDate?: Date | string | null
-    trustTransferDate?: Date | string | null
-    oldBunpaiEndDate?: Date | string | null
-    newBunpaiStartDate?: Date | string | null
     bunpaiThisKi?: number | null
     bunpaiYear?: number | null
     bunpaiTotal?: number | null
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
-    instructionDueDate?: Date | string | null
-    paymentDueDate?: Date | string | null
     paymentDate?: Date | string | null
     holdPayment?: boolean
-    holdMemo?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -21977,32 +23736,15 @@ export namespace Prisma {
     id?: string
     fundId: string
     customerId: string
-    fundStatus: string
     applyUnit: number
-    bankCode: number
-    bankName: string
-    bankBranchCode: number
-    bankBranchName: string
-    bankAccountTypeCode: number
-    bankAccountType: string
-    bankAccount: string
-    inheritanceType?: $Enums.InheritanceType | null
-    inheritanceStatus?: string | null
-    giftContractDate?: Date | string | null
-    trustTransferDate?: Date | string | null
-    oldBunpaiEndDate?: Date | string | null
-    newBunpaiStartDate?: Date | string | null
     bunpaiThisKi?: number | null
     bunpaiYear?: number | null
     bunpaiTotal?: number | null
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
-    instructionDueDate?: Date | string | null
-    paymentDueDate?: Date | string | null
     paymentDate?: Date | string | null
     holdPayment?: boolean
-    holdMemo?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -22055,6 +23797,7 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     Assets?: AssetUpdateManyWithoutProjectNestedInput
+    Customers?: CustomerUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateWithoutProjectKisInput = {
@@ -22080,6 +23823,7 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     Assets?: AssetUncheckedUpdateManyWithoutProjectNestedInput
+    Customers?: CustomerUncheckedUpdateManyWithoutProjectNestedInput
   }
 
   export type KiUpsertWithoutProjectKisInput = {
@@ -22145,32 +23889,15 @@ export namespace Prisma {
     fundId?: StringFilter<"CustomerFund"> | string
     customerId?: StringFilter<"CustomerFund"> | string
     projectKiId?: StringFilter<"CustomerFund"> | string
-    fundStatus?: StringFilter<"CustomerFund"> | string
     applyUnit?: IntFilter<"CustomerFund"> | number
-    bankCode?: IntFilter<"CustomerFund"> | number
-    bankName?: StringFilter<"CustomerFund"> | string
-    bankBranchCode?: IntFilter<"CustomerFund"> | number
-    bankBranchName?: StringFilter<"CustomerFund"> | string
-    bankAccountTypeCode?: IntFilter<"CustomerFund"> | number
-    bankAccountType?: StringFilter<"CustomerFund"> | string
-    bankAccount?: StringFilter<"CustomerFund"> | string
-    inheritanceType?: EnumInheritanceTypeNullableFilter<"CustomerFund"> | $Enums.InheritanceType | null
-    inheritanceStatus?: StringNullableFilter<"CustomerFund"> | string | null
-    giftContractDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
-    trustTransferDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
-    oldBunpaiEndDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
-    newBunpaiStartDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
     bunpaiThisKi?: IntNullableFilter<"CustomerFund"> | number | null
     bunpaiYear?: IntNullableFilter<"CustomerFund"> | number | null
     bunpaiTotal?: IntNullableFilter<"CustomerFund"> | number | null
     otherBunpaiThisKi?: IntNullableFilter<"CustomerFund"> | number | null
     otherBunpaiYear?: IntNullableFilter<"CustomerFund"> | number | null
     otherBunpaiTotal?: IntNullableFilter<"CustomerFund"> | number | null
-    instructionDueDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
-    paymentDueDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
     paymentDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
     holdPayment?: BoolFilter<"CustomerFund"> | boolean
-    holdMemo?: StringNullableFilter<"CustomerFund"> | string | null
     createdAt?: DateTimeFilter<"CustomerFund"> | Date | string
     createdId?: StringFilter<"CustomerFund"> | string
     createdBy?: StringFilter<"CustomerFund"> | string
@@ -22202,6 +23929,7 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     ProjectKis?: ProjectKiCreateNestedManyWithoutProjectInput
+    Customers?: CustomerCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectUncheckedCreateWithoutAssetsInput = {
@@ -22227,6 +23955,7 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutProjectInput
+    Customers?: CustomerUncheckedCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectCreateOrConnectWithoutAssetsInput = {
@@ -22314,6 +24043,7 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     ProjectKis?: ProjectKiUpdateManyWithoutProjectNestedInput
+    Customers?: CustomerUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateWithoutAssetsInput = {
@@ -22339,6 +24069,7 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     ProjectKis?: ProjectKiUncheckedUpdateManyWithoutProjectNestedInput
+    Customers?: CustomerUncheckedUpdateManyWithoutProjectNestedInput
   }
 
   export type AssetKiUpsertWithWhereUniqueWithoutAssetInput = {
@@ -22501,35 +24232,75 @@ export namespace Prisma {
     ProjectKis?: ProjectKiUncheckedUpdateManyWithoutKiNestedInput
   }
 
+  export type ProjectCreateWithoutCustomersInput = {
+    id: string
+    sbimpId: string
+    name: string
+    shortName: string
+    totalUnit: number
+    totalAmount: bigint | number
+    unitAmount: number
+    trustTermStart: Date | string
+    trustTermEnd: Date | string
+    dividendYield: number
+    fullOccupancyYield: number
+    totalKubun?: number
+    residenceKubun?: number
+    kamiyachoFlag?: boolean
+    mlspcFlag?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ProjectKis?: ProjectKiCreateNestedManyWithoutProjectInput
+    Assets?: AssetCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectUncheckedCreateWithoutCustomersInput = {
+    id: string
+    sbimpId: string
+    name: string
+    shortName: string
+    totalUnit: number
+    totalAmount: bigint | number
+    unitAmount: number
+    trustTermStart: Date | string
+    trustTermEnd: Date | string
+    dividendYield: number
+    fullOccupancyYield: number
+    totalKubun?: number
+    residenceKubun?: number
+    kamiyachoFlag?: boolean
+    mlspcFlag?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutProjectInput
+    Assets?: AssetUncheckedCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectCreateOrConnectWithoutCustomersInput = {
+    where: ProjectWhereUniqueInput
+    create: XOR<ProjectCreateWithoutCustomersInput, ProjectUncheckedCreateWithoutCustomersInput>
+  }
+
   export type CustomerFundCreateWithoutCustomerInput = {
     id?: string
     fundId: string
-    fundStatus: string
     applyUnit: number
-    bankCode: number
-    bankName: string
-    bankBranchCode: number
-    bankBranchName: string
-    bankAccountTypeCode: number
-    bankAccountType: string
-    bankAccount: string
-    inheritanceType?: $Enums.InheritanceType | null
-    inheritanceStatus?: string | null
-    giftContractDate?: Date | string | null
-    trustTransferDate?: Date | string | null
-    oldBunpaiEndDate?: Date | string | null
-    newBunpaiStartDate?: Date | string | null
     bunpaiThisKi?: number | null
     bunpaiYear?: number | null
     bunpaiTotal?: number | null
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
-    instructionDueDate?: Date | string | null
-    paymentDueDate?: Date | string | null
     paymentDate?: Date | string | null
     holdPayment?: boolean
-    holdMemo?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -22543,32 +24314,15 @@ export namespace Prisma {
     id?: string
     fundId: string
     projectKiId: string
-    fundStatus: string
     applyUnit: number
-    bankCode: number
-    bankName: string
-    bankBranchCode: number
-    bankBranchName: string
-    bankAccountTypeCode: number
-    bankAccountType: string
-    bankAccount: string
-    inheritanceType?: $Enums.InheritanceType | null
-    inheritanceStatus?: string | null
-    giftContractDate?: Date | string | null
-    trustTransferDate?: Date | string | null
-    oldBunpaiEndDate?: Date | string | null
-    newBunpaiStartDate?: Date | string | null
     bunpaiThisKi?: number | null
     bunpaiYear?: number | null
     bunpaiTotal?: number | null
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
-    instructionDueDate?: Date | string | null
-    paymentDueDate?: Date | string | null
     paymentDate?: Date | string | null
     holdPayment?: boolean
-    holdMemo?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -22585,6 +24339,69 @@ export namespace Prisma {
   export type CustomerFundCreateManyCustomerInputEnvelope = {
     data: CustomerFundCreateManyCustomerInput | CustomerFundCreateManyCustomerInput[]
     skipDuplicates?: boolean
+  }
+
+  export type ProjectUpsertWithoutCustomersInput = {
+    update: XOR<ProjectUpdateWithoutCustomersInput, ProjectUncheckedUpdateWithoutCustomersInput>
+    create: XOR<ProjectCreateWithoutCustomersInput, ProjectUncheckedCreateWithoutCustomersInput>
+    where?: ProjectWhereInput
+  }
+
+  export type ProjectUpdateToOneWithWhereWithoutCustomersInput = {
+    where?: ProjectWhereInput
+    data: XOR<ProjectUpdateWithoutCustomersInput, ProjectUncheckedUpdateWithoutCustomersInput>
+  }
+
+  export type ProjectUpdateWithoutCustomersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: StringFieldUpdateOperationsInput | string
+    totalUnit?: IntFieldUpdateOperationsInput | number
+    totalAmount?: BigIntFieldUpdateOperationsInput | bigint | number
+    unitAmount?: IntFieldUpdateOperationsInput | number
+    trustTermStart?: DateTimeFieldUpdateOperationsInput | Date | string
+    trustTermEnd?: DateTimeFieldUpdateOperationsInput | Date | string
+    dividendYield?: FloatFieldUpdateOperationsInput | number
+    fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
+    totalKubun?: IntFieldUpdateOperationsInput | number
+    residenceKubun?: IntFieldUpdateOperationsInput | number
+    kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
+    mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ProjectKis?: ProjectKiUpdateManyWithoutProjectNestedInput
+    Assets?: AssetUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateWithoutCustomersInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: StringFieldUpdateOperationsInput | string
+    totalUnit?: IntFieldUpdateOperationsInput | number
+    totalAmount?: BigIntFieldUpdateOperationsInput | bigint | number
+    unitAmount?: IntFieldUpdateOperationsInput | number
+    trustTermStart?: DateTimeFieldUpdateOperationsInput | Date | string
+    trustTermEnd?: DateTimeFieldUpdateOperationsInput | Date | string
+    dividendYield?: FloatFieldUpdateOperationsInput | number
+    fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
+    totalKubun?: IntFieldUpdateOperationsInput | number
+    residenceKubun?: IntFieldUpdateOperationsInput | number
+    kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
+    mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ProjectKis?: ProjectKiUncheckedUpdateManyWithoutProjectNestedInput
+    Assets?: AssetUncheckedUpdateManyWithoutProjectNestedInput
   }
 
   export type CustomerFundUpsertWithWhereUniqueWithoutCustomerInput = {
@@ -22606,11 +24423,11 @@ export namespace Prisma {
   export type CustomerCreateWithoutCustomerFundsInput = {
     id?: string
     sbimpId?: string | null
+    fundStatus: string
     name: string
     nameFurigana: string
     birthday?: Date | string | null
     customerType?: $Enums.CustomerType
-    horyuStatus?: $Enums.HoryuStatusType | null
     invoice?: boolean
     postName: string
     zip: string
@@ -22618,6 +24435,25 @@ export namespace Prisma {
     prefecture: string
     city: string
     address: string
+    transferName: string
+    transferNameFurigana: string
+    bankCode: number
+    bankName: string
+    bankBranchCode: number
+    bankBranchName: string
+    bankAccountTypeCode: number
+    bankAccountType: string
+    bankAccount: string
+    inheritanceType?: $Enums.InheritanceType | null
+    inheritanceStatus?: string | null
+    giftContractDate?: Date | string | null
+    trustTransferDate?: Date | string | null
+    oldBunpaiEndDate?: Date | string | null
+    newBunpaiStartDate?: Date | string | null
+    horyuStatus?: $Enums.HoryuStatusType | null
+    instructionDueDate?: Date | string | null
+    paymentDueDate?: Date | string | null
+    holdMemo?: string | null
     isDeleted?: boolean
     createdAt?: Date | string
     createdId: string
@@ -22625,16 +24461,18 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: string
     updatedBy: string
+    Project: ProjectCreateNestedOneWithoutCustomersInput
   }
 
   export type CustomerUncheckedCreateWithoutCustomerFundsInput = {
     id?: string
+    projectId: string
     sbimpId?: string | null
+    fundStatus: string
     name: string
     nameFurigana: string
     birthday?: Date | string | null
     customerType?: $Enums.CustomerType
-    horyuStatus?: $Enums.HoryuStatusType | null
     invoice?: boolean
     postName: string
     zip: string
@@ -22642,6 +24480,25 @@ export namespace Prisma {
     prefecture: string
     city: string
     address: string
+    transferName: string
+    transferNameFurigana: string
+    bankCode: number
+    bankName: string
+    bankBranchCode: number
+    bankBranchName: string
+    bankAccountTypeCode: number
+    bankAccountType: string
+    bankAccount: string
+    inheritanceType?: $Enums.InheritanceType | null
+    inheritanceStatus?: string | null
+    giftContractDate?: Date | string | null
+    trustTransferDate?: Date | string | null
+    oldBunpaiEndDate?: Date | string | null
+    newBunpaiStartDate?: Date | string | null
+    horyuStatus?: $Enums.HoryuStatusType | null
+    instructionDueDate?: Date | string | null
+    paymentDueDate?: Date | string | null
+    holdMemo?: string | null
     isDeleted?: boolean
     createdAt?: Date | string
     createdId: string
@@ -22707,11 +24564,11 @@ export namespace Prisma {
   export type CustomerUpdateWithoutCustomerFundsInput = {
     id?: StringFieldUpdateOperationsInput | string
     sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
+    fundStatus?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     nameFurigana?: StringFieldUpdateOperationsInput | string
     birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
-    horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
     invoice?: BoolFieldUpdateOperationsInput | boolean
     postName?: StringFieldUpdateOperationsInput | string
     zip?: StringFieldUpdateOperationsInput | string
@@ -22719,6 +24576,25 @@ export namespace Prisma {
     prefecture?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    transferName?: StringFieldUpdateOperationsInput | string
+    transferNameFurigana?: StringFieldUpdateOperationsInput | string
+    bankCode?: IntFieldUpdateOperationsInput | number
+    bankName?: StringFieldUpdateOperationsInput | string
+    bankBranchCode?: IntFieldUpdateOperationsInput | number
+    bankBranchName?: StringFieldUpdateOperationsInput | string
+    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
+    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
+    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
@@ -22726,16 +24602,18 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
+    Project?: ProjectUpdateOneRequiredWithoutCustomersNestedInput
   }
 
   export type CustomerUncheckedUpdateWithoutCustomerFundsInput = {
     id?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
     sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
+    fundStatus?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     nameFurigana?: StringFieldUpdateOperationsInput | string
     birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
-    horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
     invoice?: BoolFieldUpdateOperationsInput | boolean
     postName?: StringFieldUpdateOperationsInput | string
     zip?: StringFieldUpdateOperationsInput | string
@@ -22743,6 +24621,25 @@ export namespace Prisma {
     prefecture?: StringFieldUpdateOperationsInput | string
     city?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
+    transferName?: StringFieldUpdateOperationsInput | string
+    transferNameFurigana?: StringFieldUpdateOperationsInput | string
+    bankCode?: IntFieldUpdateOperationsInput | number
+    bankName?: StringFieldUpdateOperationsInput | string
+    bankBranchCode?: IntFieldUpdateOperationsInput | number
+    bankBranchName?: StringFieldUpdateOperationsInput | string
+    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
+    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
+    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
@@ -22957,6 +24854,49 @@ export namespace Prisma {
     updatedBy: string
   }
 
+  export type CustomerCreateManyProjectInput = {
+    id?: string
+    sbimpId?: string | null
+    fundStatus: string
+    name: string
+    nameFurigana: string
+    birthday?: Date | string | null
+    customerType?: $Enums.CustomerType
+    invoice?: boolean
+    postName: string
+    zip: string
+    fullAddress: string
+    prefecture: string
+    city: string
+    address: string
+    transferName: string
+    transferNameFurigana: string
+    bankCode: number
+    bankName: string
+    bankBranchCode: number
+    bankBranchName: string
+    bankAccountTypeCode: number
+    bankAccountType: string
+    bankAccount: string
+    inheritanceType?: $Enums.InheritanceType | null
+    inheritanceStatus?: string | null
+    giftContractDate?: Date | string | null
+    trustTransferDate?: Date | string | null
+    oldBunpaiEndDate?: Date | string | null
+    newBunpaiStartDate?: Date | string | null
+    horyuStatus?: $Enums.HoryuStatusType | null
+    instructionDueDate?: Date | string | null
+    paymentDueDate?: Date | string | null
+    holdMemo?: string | null
+    isDeleted?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
   export type ProjectKiUpdateWithoutProjectInput = {
     id?: StringFieldUpdateOperationsInput | string
     projectKi?: IntFieldUpdateOperationsInput | number
@@ -23045,49 +24985,23 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
-  export type CustomerFundCreateManyProjectKiInput = {
-    id?: string
-    fundId: string
-    customerId: string
-    fundStatus: string
-    applyUnit: number
-    bankCode: number
-    bankName: string
-    bankBranchCode: number
-    bankBranchName: string
-    bankAccountTypeCode: number
-    bankAccountType: string
-    bankAccount: string
-    inheritanceType?: $Enums.InheritanceType | null
-    inheritanceStatus?: string | null
-    giftContractDate?: Date | string | null
-    trustTransferDate?: Date | string | null
-    oldBunpaiEndDate?: Date | string | null
-    newBunpaiStartDate?: Date | string | null
-    bunpaiThisKi?: number | null
-    bunpaiYear?: number | null
-    bunpaiTotal?: number | null
-    otherBunpaiThisKi?: number | null
-    otherBunpaiYear?: number | null
-    otherBunpaiTotal?: number | null
-    instructionDueDate?: Date | string | null
-    paymentDueDate?: Date | string | null
-    paymentDate?: Date | string | null
-    holdPayment?: boolean
-    holdMemo?: string | null
-    createdAt?: Date | string
-    createdId: string
-    createdBy: string
-    updatedAt?: Date | string
-    updatedId: string
-    updatedBy: string
-  }
-
-  export type CustomerFundUpdateWithoutProjectKiInput = {
+  export type CustomerUpdateWithoutProjectInput = {
     id?: StringFieldUpdateOperationsInput | string
-    fundId?: StringFieldUpdateOperationsInput | string
+    sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
     fundStatus?: StringFieldUpdateOperationsInput | string
-    applyUnit?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    nameFurigana?: StringFieldUpdateOperationsInput | string
+    birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
+    invoice?: BoolFieldUpdateOperationsInput | boolean
+    postName?: StringFieldUpdateOperationsInput | string
+    zip?: StringFieldUpdateOperationsInput | string
+    fullAddress?: StringFieldUpdateOperationsInput | string
+    prefecture?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    transferName?: StringFieldUpdateOperationsInput | string
+    transferNameFurigana?: StringFieldUpdateOperationsInput | string
     bankCode?: IntFieldUpdateOperationsInput | number
     bankName?: StringFieldUpdateOperationsInput | string
     bankBranchCode?: IntFieldUpdateOperationsInput | number
@@ -23101,17 +25015,140 @@ export namespace Prisma {
     trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
+    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    CustomerFunds?: CustomerFundUpdateManyWithoutCustomerNestedInput
+  }
+
+  export type CustomerUncheckedUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
+    fundStatus?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    nameFurigana?: StringFieldUpdateOperationsInput | string
+    birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
+    invoice?: BoolFieldUpdateOperationsInput | boolean
+    postName?: StringFieldUpdateOperationsInput | string
+    zip?: StringFieldUpdateOperationsInput | string
+    fullAddress?: StringFieldUpdateOperationsInput | string
+    prefecture?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    transferName?: StringFieldUpdateOperationsInput | string
+    transferNameFurigana?: StringFieldUpdateOperationsInput | string
+    bankCode?: IntFieldUpdateOperationsInput | number
+    bankName?: StringFieldUpdateOperationsInput | string
+    bankBranchCode?: IntFieldUpdateOperationsInput | number
+    bankBranchName?: StringFieldUpdateOperationsInput | string
+    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
+    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
+    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    CustomerFunds?: CustomerFundUncheckedUpdateManyWithoutCustomerNestedInput
+  }
+
+  export type CustomerUncheckedUpdateManyWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
+    fundStatus?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    nameFurigana?: StringFieldUpdateOperationsInput | string
+    birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
+    invoice?: BoolFieldUpdateOperationsInput | boolean
+    postName?: StringFieldUpdateOperationsInput | string
+    zip?: StringFieldUpdateOperationsInput | string
+    fullAddress?: StringFieldUpdateOperationsInput | string
+    prefecture?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    transferName?: StringFieldUpdateOperationsInput | string
+    transferNameFurigana?: StringFieldUpdateOperationsInput | string
+    bankCode?: IntFieldUpdateOperationsInput | number
+    bankName?: StringFieldUpdateOperationsInput | string
+    bankBranchCode?: IntFieldUpdateOperationsInput | number
+    bankBranchName?: StringFieldUpdateOperationsInput | string
+    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
+    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
+    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CustomerFundCreateManyProjectKiInput = {
+    id?: string
+    fundId: string
+    customerId: string
+    applyUnit: number
+    bunpaiThisKi?: number | null
+    bunpaiYear?: number | null
+    bunpaiTotal?: number | null
+    otherBunpaiThisKi?: number | null
+    otherBunpaiYear?: number | null
+    otherBunpaiTotal?: number | null
+    paymentDate?: Date | string | null
+    holdPayment?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type CustomerFundUpdateWithoutProjectKiInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fundId?: StringFieldUpdateOperationsInput | string
+    applyUnit?: IntFieldUpdateOperationsInput | number
     bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
-    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
-    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -23125,32 +25162,15 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     fundId?: StringFieldUpdateOperationsInput | string
     customerId?: StringFieldUpdateOperationsInput | string
-    fundStatus?: StringFieldUpdateOperationsInput | string
     applyUnit?: IntFieldUpdateOperationsInput | number
-    bankCode?: IntFieldUpdateOperationsInput | number
-    bankName?: StringFieldUpdateOperationsInput | string
-    bankBranchCode?: IntFieldUpdateOperationsInput | number
-    bankBranchName?: StringFieldUpdateOperationsInput | string
-    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
-    bankAccountType?: StringFieldUpdateOperationsInput | string
-    bankAccount?: StringFieldUpdateOperationsInput | string
-    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
-    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
-    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
-    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
-    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -23163,32 +25183,15 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     fundId?: StringFieldUpdateOperationsInput | string
     customerId?: StringFieldUpdateOperationsInput | string
-    fundStatus?: StringFieldUpdateOperationsInput | string
     applyUnit?: IntFieldUpdateOperationsInput | number
-    bankCode?: IntFieldUpdateOperationsInput | number
-    bankName?: StringFieldUpdateOperationsInput | string
-    bankBranchCode?: IntFieldUpdateOperationsInput | number
-    bankBranchName?: StringFieldUpdateOperationsInput | string
-    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
-    bankAccountType?: StringFieldUpdateOperationsInput | string
-    bankAccount?: StringFieldUpdateOperationsInput | string
-    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
-    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
-    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
-    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
-    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -23273,32 +25276,15 @@ export namespace Prisma {
     id?: string
     fundId: string
     projectKiId: string
-    fundStatus: string
     applyUnit: number
-    bankCode: number
-    bankName: string
-    bankBranchCode: number
-    bankBranchName: string
-    bankAccountTypeCode: number
-    bankAccountType: string
-    bankAccount: string
-    inheritanceType?: $Enums.InheritanceType | null
-    inheritanceStatus?: string | null
-    giftContractDate?: Date | string | null
-    trustTransferDate?: Date | string | null
-    oldBunpaiEndDate?: Date | string | null
-    newBunpaiStartDate?: Date | string | null
     bunpaiThisKi?: number | null
     bunpaiYear?: number | null
     bunpaiTotal?: number | null
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
-    instructionDueDate?: Date | string | null
-    paymentDueDate?: Date | string | null
     paymentDate?: Date | string | null
     holdPayment?: boolean
-    holdMemo?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -23310,32 +25296,15 @@ export namespace Prisma {
   export type CustomerFundUpdateWithoutCustomerInput = {
     id?: StringFieldUpdateOperationsInput | string
     fundId?: StringFieldUpdateOperationsInput | string
-    fundStatus?: StringFieldUpdateOperationsInput | string
     applyUnit?: IntFieldUpdateOperationsInput | number
-    bankCode?: IntFieldUpdateOperationsInput | number
-    bankName?: StringFieldUpdateOperationsInput | string
-    bankBranchCode?: IntFieldUpdateOperationsInput | number
-    bankBranchName?: StringFieldUpdateOperationsInput | string
-    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
-    bankAccountType?: StringFieldUpdateOperationsInput | string
-    bankAccount?: StringFieldUpdateOperationsInput | string
-    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
-    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
-    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
-    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
-    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -23349,32 +25318,15 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     fundId?: StringFieldUpdateOperationsInput | string
     projectKiId?: StringFieldUpdateOperationsInput | string
-    fundStatus?: StringFieldUpdateOperationsInput | string
     applyUnit?: IntFieldUpdateOperationsInput | number
-    bankCode?: IntFieldUpdateOperationsInput | number
-    bankName?: StringFieldUpdateOperationsInput | string
-    bankBranchCode?: IntFieldUpdateOperationsInput | number
-    bankBranchName?: StringFieldUpdateOperationsInput | string
-    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
-    bankAccountType?: StringFieldUpdateOperationsInput | string
-    bankAccount?: StringFieldUpdateOperationsInput | string
-    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
-    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
-    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
-    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
-    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -23387,32 +25339,15 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     fundId?: StringFieldUpdateOperationsInput | string
     projectKiId?: StringFieldUpdateOperationsInput | string
-    fundStatus?: StringFieldUpdateOperationsInput | string
     applyUnit?: IntFieldUpdateOperationsInput | number
-    bankCode?: IntFieldUpdateOperationsInput | number
-    bankName?: StringFieldUpdateOperationsInput | string
-    bankBranchCode?: IntFieldUpdateOperationsInput | number
-    bankBranchName?: StringFieldUpdateOperationsInput | string
-    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
-    bankAccountType?: StringFieldUpdateOperationsInput | string
-    bankAccount?: StringFieldUpdateOperationsInput | string
-    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
-    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
-    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
-    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
-    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -23498,6 +25433,10 @@ export namespace Prisma {
      * @deprecated Use TemplateHistoryDefaultArgs instead
      */
     export type TemplateHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TemplateHistoryDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use VariableDefinitionDefaultArgs instead
+     */
+    export type VariableDefinitionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = VariableDefinitionDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany
