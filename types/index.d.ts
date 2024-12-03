@@ -83,6 +83,16 @@ export type TemplateHistory = $Result.DefaultSelection<Prisma.$TemplateHistoryPa
  * 
  */
 export type VariableDefinition = $Result.DefaultSelection<Prisma.$VariableDefinitionPayload>
+/**
+ * Model YayoiCSV
+ * 
+ */
+export type YayoiCSV = $Result.DefaultSelection<Prisma.$YayoiCSVPayload>
+/**
+ * Model YayoiCSVHistory
+ * 
+ */
+export type YayoiCSVHistory = $Result.DefaultSelection<Prisma.$YayoiCSVHistoryPayload>
 
 /**
  * Enums
@@ -459,6 +469,26 @@ export class PrismaClient<
     * ```
     */
   get variableDefinition(): Prisma.VariableDefinitionDelegate<ExtArgs>;
+
+  /**
+   * `prisma.yayoiCSV`: Exposes CRUD operations for the **YayoiCSV** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more YayoiCSVS
+    * const yayoiCSVS = await prisma.yayoiCSV.findMany()
+    * ```
+    */
+  get yayoiCSV(): Prisma.YayoiCSVDelegate<ExtArgs>;
+
+  /**
+   * `prisma.yayoiCSVHistory`: Exposes CRUD operations for the **YayoiCSVHistory** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more YayoiCSVHistories
+    * const yayoiCSVHistories = await prisma.yayoiCSVHistory.findMany()
+    * ```
+    */
+  get yayoiCSVHistory(): Prisma.YayoiCSVHistoryDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -913,7 +943,9 @@ export namespace Prisma {
     CustomerFund: 'CustomerFund',
     Template: 'Template',
     TemplateHistory: 'TemplateHistory',
-    VariableDefinition: 'VariableDefinition'
+    VariableDefinition: 'VariableDefinition',
+    YayoiCSV: 'YayoiCSV',
+    YayoiCSVHistory: 'YayoiCSVHistory'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -929,7 +961,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "user" | "sBIMPUser" | "eAJUser" | "company" | "ki" | "project" | "projectKi" | "asset" | "assetKi" | "customer" | "customerFund" | "template" | "templateHistory" | "variableDefinition"
+      modelProps: "user" | "sBIMPUser" | "eAJUser" | "company" | "ki" | "project" | "projectKi" | "asset" | "assetKi" | "customer" | "customerFund" | "template" | "templateHistory" | "variableDefinition" | "yayoiCSV" | "yayoiCSVHistory"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1913,6 +1945,146 @@ export namespace Prisma {
           }
         }
       }
+      YayoiCSV: {
+        payload: Prisma.$YayoiCSVPayload<ExtArgs>
+        fields: Prisma.YayoiCSVFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.YayoiCSVFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YayoiCSVPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.YayoiCSVFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YayoiCSVPayload>
+          }
+          findFirst: {
+            args: Prisma.YayoiCSVFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YayoiCSVPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.YayoiCSVFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YayoiCSVPayload>
+          }
+          findMany: {
+            args: Prisma.YayoiCSVFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YayoiCSVPayload>[]
+          }
+          create: {
+            args: Prisma.YayoiCSVCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YayoiCSVPayload>
+          }
+          createMany: {
+            args: Prisma.YayoiCSVCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.YayoiCSVCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YayoiCSVPayload>[]
+          }
+          delete: {
+            args: Prisma.YayoiCSVDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YayoiCSVPayload>
+          }
+          update: {
+            args: Prisma.YayoiCSVUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YayoiCSVPayload>
+          }
+          deleteMany: {
+            args: Prisma.YayoiCSVDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.YayoiCSVUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.YayoiCSVUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YayoiCSVPayload>
+          }
+          aggregate: {
+            args: Prisma.YayoiCSVAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateYayoiCSV>
+          }
+          groupBy: {
+            args: Prisma.YayoiCSVGroupByArgs<ExtArgs>
+            result: $Utils.Optional<YayoiCSVGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.YayoiCSVCountArgs<ExtArgs>
+            result: $Utils.Optional<YayoiCSVCountAggregateOutputType> | number
+          }
+        }
+      }
+      YayoiCSVHistory: {
+        payload: Prisma.$YayoiCSVHistoryPayload<ExtArgs>
+        fields: Prisma.YayoiCSVHistoryFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.YayoiCSVHistoryFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YayoiCSVHistoryPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.YayoiCSVHistoryFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YayoiCSVHistoryPayload>
+          }
+          findFirst: {
+            args: Prisma.YayoiCSVHistoryFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YayoiCSVHistoryPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.YayoiCSVHistoryFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YayoiCSVHistoryPayload>
+          }
+          findMany: {
+            args: Prisma.YayoiCSVHistoryFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YayoiCSVHistoryPayload>[]
+          }
+          create: {
+            args: Prisma.YayoiCSVHistoryCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YayoiCSVHistoryPayload>
+          }
+          createMany: {
+            args: Prisma.YayoiCSVHistoryCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.YayoiCSVHistoryCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YayoiCSVHistoryPayload>[]
+          }
+          delete: {
+            args: Prisma.YayoiCSVHistoryDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YayoiCSVHistoryPayload>
+          }
+          update: {
+            args: Prisma.YayoiCSVHistoryUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YayoiCSVHistoryPayload>
+          }
+          deleteMany: {
+            args: Prisma.YayoiCSVHistoryDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.YayoiCSVHistoryUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.YayoiCSVHistoryUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$YayoiCSVHistoryPayload>
+          }
+          aggregate: {
+            args: Prisma.YayoiCSVHistoryAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateYayoiCSVHistory>
+          }
+          groupBy: {
+            args: Prisma.YayoiCSVHistoryGroupByArgs<ExtArgs>
+            result: $Utils.Optional<YayoiCSVHistoryGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.YayoiCSVHistoryCountArgs<ExtArgs>
+            result: $Utils.Optional<YayoiCSVHistoryCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -2248,6 +2420,73 @@ export namespace Prisma {
    */
   export type CustomerCountOutputTypeCountCustomerFundsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: CustomerFundWhereInput
+  }
+
+
+  /**
+   * Count Type TemplateCountOutputType
+   */
+
+  export type TemplateCountOutputType = {
+    ReportMainProjects: number
+    ReportAtt2Projects: number
+    ReportAtt3Projects: number
+    BunpaiProjects: number
+    RefProjects: number
+  }
+
+  export type TemplateCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    ReportMainProjects?: boolean | TemplateCountOutputTypeCountReportMainProjectsArgs
+    ReportAtt2Projects?: boolean | TemplateCountOutputTypeCountReportAtt2ProjectsArgs
+    ReportAtt3Projects?: boolean | TemplateCountOutputTypeCountReportAtt3ProjectsArgs
+    BunpaiProjects?: boolean | TemplateCountOutputTypeCountBunpaiProjectsArgs
+    RefProjects?: boolean | TemplateCountOutputTypeCountRefProjectsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * TemplateCountOutputType without action
+   */
+  export type TemplateCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TemplateCountOutputType
+     */
+    select?: TemplateCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * TemplateCountOutputType without action
+   */
+  export type TemplateCountOutputTypeCountReportMainProjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProjectWhereInput
+  }
+
+  /**
+   * TemplateCountOutputType without action
+   */
+  export type TemplateCountOutputTypeCountReportAtt2ProjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProjectWhereInput
+  }
+
+  /**
+   * TemplateCountOutputType without action
+   */
+  export type TemplateCountOutputTypeCountReportAtt3ProjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProjectWhereInput
+  }
+
+  /**
+   * TemplateCountOutputType without action
+   */
+  export type TemplateCountOutputTypeCountBunpaiProjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProjectWhereInput
+  }
+
+  /**
+   * TemplateCountOutputType without action
+   */
+  export type TemplateCountOutputTypeCountRefProjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProjectWhereInput
   }
 
 
@@ -5154,16 +5393,49 @@ export namespace Prisma {
   export type CompanyMinAggregateOutputType = {
     id: string | null
     name: string | null
+    templateKey: string | null
+    address: string | null
+    establishedAt: string | null
+    capital: string | null
+    representative: string | null
+    createdAt: Date | null
+    createdId: string | null
+    createdBy: string | null
+    updatedAt: Date | null
+    updatedId: string | null
+    updatedBy: string | null
   }
 
   export type CompanyMaxAggregateOutputType = {
     id: string | null
     name: string | null
+    templateKey: string | null
+    address: string | null
+    establishedAt: string | null
+    capital: string | null
+    representative: string | null
+    createdAt: Date | null
+    createdId: string | null
+    createdBy: string | null
+    updatedAt: Date | null
+    updatedId: string | null
+    updatedBy: string | null
   }
 
   export type CompanyCountAggregateOutputType = {
     id: number
     name: number
+    templateKey: number
+    address: number
+    establishedAt: number
+    capital: number
+    representative: number
+    createdAt: number
+    createdId: number
+    createdBy: number
+    updatedAt: number
+    updatedId: number
+    updatedBy: number
     _all: number
   }
 
@@ -5171,16 +5443,49 @@ export namespace Prisma {
   export type CompanyMinAggregateInputType = {
     id?: true
     name?: true
+    templateKey?: true
+    address?: true
+    establishedAt?: true
+    capital?: true
+    representative?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
   }
 
   export type CompanyMaxAggregateInputType = {
     id?: true
     name?: true
+    templateKey?: true
+    address?: true
+    establishedAt?: true
+    capital?: true
+    representative?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
   }
 
   export type CompanyCountAggregateInputType = {
     id?: true
     name?: true
+    templateKey?: true
+    address?: true
+    establishedAt?: true
+    capital?: true
+    representative?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
     _all?: true
   }
 
@@ -5259,6 +5564,17 @@ export namespace Prisma {
   export type CompanyGroupByOutputType = {
     id: string
     name: string
+    templateKey: string
+    address: string
+    establishedAt: string
+    capital: string
+    representative: string
+    createdAt: Date
+    createdId: string
+    createdBy: string
+    updatedAt: Date
+    updatedId: string
+    updatedBy: string
     _count: CompanyCountAggregateOutputType | null
     _min: CompanyMinAggregateOutputType | null
     _max: CompanyMaxAggregateOutputType | null
@@ -5281,16 +5597,49 @@ export namespace Prisma {
   export type CompanySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    templateKey?: boolean
+    address?: boolean
+    establishedAt?: boolean
+    capital?: boolean
+    representative?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
   }, ExtArgs["result"]["company"]>
 
   export type CompanySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
+    templateKey?: boolean
+    address?: boolean
+    establishedAt?: boolean
+    capital?: boolean
+    representative?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
   }, ExtArgs["result"]["company"]>
 
   export type CompanySelectScalar = {
     id?: boolean
     name?: boolean
+    templateKey?: boolean
+    address?: boolean
+    establishedAt?: boolean
+    capital?: boolean
+    representative?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
   }
 
 
@@ -5300,6 +5649,17 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
+      templateKey: string
+      address: string
+      establishedAt: string
+      capital: string
+      representative: string
+      createdAt: Date
+      createdId: string
+      createdBy: string
+      updatedAt: Date
+      updatedId: string
+      updatedBy: string
     }, ExtArgs["result"]["company"]>
     composites: {}
   }
@@ -5695,6 +6055,17 @@ export namespace Prisma {
   interface CompanyFieldRefs {
     readonly id: FieldRef<"Company", 'String'>
     readonly name: FieldRef<"Company", 'String'>
+    readonly templateKey: FieldRef<"Company", 'String'>
+    readonly address: FieldRef<"Company", 'String'>
+    readonly establishedAt: FieldRef<"Company", 'String'>
+    readonly capital: FieldRef<"Company", 'String'>
+    readonly representative: FieldRef<"Company", 'String'>
+    readonly createdAt: FieldRef<"Company", 'DateTime'>
+    readonly createdId: FieldRef<"Company", 'String'>
+    readonly createdBy: FieldRef<"Company", 'String'>
+    readonly updatedAt: FieldRef<"Company", 'DateTime'>
+    readonly updatedId: FieldRef<"Company", 'String'>
+    readonly updatedBy: FieldRef<"Company", 'String'>
   }
     
 
@@ -7101,6 +7472,11 @@ export namespace Prisma {
     residenceKubun: number | null
     kamiyachoFlag: boolean | null
     mlspcFlag: boolean | null
+    reportMainId: string | null
+    reportAtt2Id: string | null
+    reportAtt3Id: string | null
+    bunpaiId: string | null
+    refId: string | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -7125,6 +7501,11 @@ export namespace Prisma {
     residenceKubun: number | null
     kamiyachoFlag: boolean | null
     mlspcFlag: boolean | null
+    reportMainId: string | null
+    reportAtt2Id: string | null
+    reportAtt3Id: string | null
+    bunpaiId: string | null
+    refId: string | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -7149,6 +7530,11 @@ export namespace Prisma {
     residenceKubun: number
     kamiyachoFlag: number
     mlspcFlag: number
+    reportMainId: number
+    reportAtt2Id: number
+    reportAtt3Id: number
+    bunpaiId: number
+    refId: number
     createdAt: number
     createdId: number
     createdBy: number
@@ -7195,6 +7581,11 @@ export namespace Prisma {
     residenceKubun?: true
     kamiyachoFlag?: true
     mlspcFlag?: true
+    reportMainId?: true
+    reportAtt2Id?: true
+    reportAtt3Id?: true
+    bunpaiId?: true
+    refId?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -7219,6 +7610,11 @@ export namespace Prisma {
     residenceKubun?: true
     kamiyachoFlag?: true
     mlspcFlag?: true
+    reportMainId?: true
+    reportAtt2Id?: true
+    reportAtt3Id?: true
+    bunpaiId?: true
+    refId?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -7243,6 +7639,11 @@ export namespace Prisma {
     residenceKubun?: true
     kamiyachoFlag?: true
     mlspcFlag?: true
+    reportMainId?: true
+    reportAtt2Id?: true
+    reportAtt3Id?: true
+    bunpaiId?: true
+    refId?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -7354,6 +7755,11 @@ export namespace Prisma {
     residenceKubun: number
     kamiyachoFlag: boolean
     mlspcFlag: boolean
+    reportMainId: string | null
+    reportAtt2Id: string | null
+    reportAtt3Id: string | null
+    bunpaiId: string | null
+    refId: string | null
     createdAt: Date
     createdId: string
     createdBy: string
@@ -7397,12 +7803,22 @@ export namespace Prisma {
     residenceKubun?: boolean
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    reportMainId?: boolean
+    reportAtt2Id?: boolean
+    reportAtt3Id?: boolean
+    bunpaiId?: boolean
+    refId?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
     updatedAt?: boolean
     updatedId?: boolean
     updatedBy?: boolean
+    ReportMain?: boolean | Project$ReportMainArgs<ExtArgs>
+    ReportAtt2?: boolean | Project$ReportAtt2Args<ExtArgs>
+    ReportAtt3?: boolean | Project$ReportAtt3Args<ExtArgs>
+    Bunpai?: boolean | Project$BunpaiArgs<ExtArgs>
+    Ref?: boolean | Project$RefArgs<ExtArgs>
     ProjectKis?: boolean | Project$ProjectKisArgs<ExtArgs>
     Assets?: boolean | Project$AssetsArgs<ExtArgs>
     Customers?: boolean | Project$CustomersArgs<ExtArgs>
@@ -7425,12 +7841,22 @@ export namespace Prisma {
     residenceKubun?: boolean
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    reportMainId?: boolean
+    reportAtt2Id?: boolean
+    reportAtt3Id?: boolean
+    bunpaiId?: boolean
+    refId?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
     updatedAt?: boolean
     updatedId?: boolean
     updatedBy?: boolean
+    ReportMain?: boolean | Project$ReportMainArgs<ExtArgs>
+    ReportAtt2?: boolean | Project$ReportAtt2Args<ExtArgs>
+    ReportAtt3?: boolean | Project$ReportAtt3Args<ExtArgs>
+    Bunpai?: boolean | Project$BunpaiArgs<ExtArgs>
+    Ref?: boolean | Project$RefArgs<ExtArgs>
   }, ExtArgs["result"]["project"]>
 
   export type ProjectSelectScalar = {
@@ -7449,6 +7875,11 @@ export namespace Prisma {
     residenceKubun?: boolean
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    reportMainId?: boolean
+    reportAtt2Id?: boolean
+    reportAtt3Id?: boolean
+    bunpaiId?: boolean
+    refId?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -7458,16 +7889,32 @@ export namespace Prisma {
   }
 
   export type ProjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    ReportMain?: boolean | Project$ReportMainArgs<ExtArgs>
+    ReportAtt2?: boolean | Project$ReportAtt2Args<ExtArgs>
+    ReportAtt3?: boolean | Project$ReportAtt3Args<ExtArgs>
+    Bunpai?: boolean | Project$BunpaiArgs<ExtArgs>
+    Ref?: boolean | Project$RefArgs<ExtArgs>
     ProjectKis?: boolean | Project$ProjectKisArgs<ExtArgs>
     Assets?: boolean | Project$AssetsArgs<ExtArgs>
     Customers?: boolean | Project$CustomersArgs<ExtArgs>
     _count?: boolean | ProjectCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type ProjectIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type ProjectIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    ReportMain?: boolean | Project$ReportMainArgs<ExtArgs>
+    ReportAtt2?: boolean | Project$ReportAtt2Args<ExtArgs>
+    ReportAtt3?: boolean | Project$ReportAtt3Args<ExtArgs>
+    Bunpai?: boolean | Project$BunpaiArgs<ExtArgs>
+    Ref?: boolean | Project$RefArgs<ExtArgs>
+  }
 
   export type $ProjectPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Project"
     objects: {
+      ReportMain: Prisma.$TemplatePayload<ExtArgs> | null
+      ReportAtt2: Prisma.$TemplatePayload<ExtArgs> | null
+      ReportAtt3: Prisma.$TemplatePayload<ExtArgs> | null
+      Bunpai: Prisma.$TemplatePayload<ExtArgs> | null
+      Ref: Prisma.$TemplatePayload<ExtArgs> | null
       ProjectKis: Prisma.$ProjectKiPayload<ExtArgs>[]
       Assets: Prisma.$AssetPayload<ExtArgs>[]
       Customers: Prisma.$CustomerPayload<ExtArgs>[]
@@ -7488,6 +7935,11 @@ export namespace Prisma {
       residenceKubun: number
       kamiyachoFlag: boolean
       mlspcFlag: boolean
+      reportMainId: string | null
+      reportAtt2Id: string | null
+      reportAtt3Id: string | null
+      bunpaiId: string | null
+      refId: string | null
       createdAt: Date
       createdId: string
       createdBy: string
@@ -7858,6 +8310,11 @@ export namespace Prisma {
    */
   export interface Prisma__ProjectClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    ReportMain<T extends Project$ReportMainArgs<ExtArgs> = {}>(args?: Subset<T, Project$ReportMainArgs<ExtArgs>>): Prisma__TemplateClient<$Result.GetResult<Prisma.$TemplatePayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    ReportAtt2<T extends Project$ReportAtt2Args<ExtArgs> = {}>(args?: Subset<T, Project$ReportAtt2Args<ExtArgs>>): Prisma__TemplateClient<$Result.GetResult<Prisma.$TemplatePayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    ReportAtt3<T extends Project$ReportAtt3Args<ExtArgs> = {}>(args?: Subset<T, Project$ReportAtt3Args<ExtArgs>>): Prisma__TemplateClient<$Result.GetResult<Prisma.$TemplatePayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    Bunpai<T extends Project$BunpaiArgs<ExtArgs> = {}>(args?: Subset<T, Project$BunpaiArgs<ExtArgs>>): Prisma__TemplateClient<$Result.GetResult<Prisma.$TemplatePayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    Ref<T extends Project$RefArgs<ExtArgs> = {}>(args?: Subset<T, Project$RefArgs<ExtArgs>>): Prisma__TemplateClient<$Result.GetResult<Prisma.$TemplatePayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
     ProjectKis<T extends Project$ProjectKisArgs<ExtArgs> = {}>(args?: Subset<T, Project$ProjectKisArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectKiPayload<ExtArgs>, T, "findMany"> | Null>
     Assets<T extends Project$AssetsArgs<ExtArgs> = {}>(args?: Subset<T, Project$AssetsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AssetPayload<ExtArgs>, T, "findMany"> | Null>
     Customers<T extends Project$CustomersArgs<ExtArgs> = {}>(args?: Subset<T, Project$CustomersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findMany"> | Null>
@@ -7905,6 +8362,11 @@ export namespace Prisma {
     readonly residenceKubun: FieldRef<"Project", 'Int'>
     readonly kamiyachoFlag: FieldRef<"Project", 'Boolean'>
     readonly mlspcFlag: FieldRef<"Project", 'Boolean'>
+    readonly reportMainId: FieldRef<"Project", 'String'>
+    readonly reportAtt2Id: FieldRef<"Project", 'String'>
+    readonly reportAtt3Id: FieldRef<"Project", 'String'>
+    readonly bunpaiId: FieldRef<"Project", 'String'>
+    readonly refId: FieldRef<"Project", 'String'>
     readonly createdAt: FieldRef<"Project", 'DateTime'>
     readonly createdId: FieldRef<"Project", 'String'>
     readonly createdBy: FieldRef<"Project", 'String'>
@@ -8132,6 +8594,10 @@ export namespace Prisma {
      */
     data: ProjectCreateManyInput | ProjectCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -8225,6 +8691,81 @@ export namespace Prisma {
   }
 
   /**
+   * Project.ReportMain
+   */
+  export type Project$ReportMainArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Template
+     */
+    select?: TemplateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TemplateInclude<ExtArgs> | null
+    where?: TemplateWhereInput
+  }
+
+  /**
+   * Project.ReportAtt2
+   */
+  export type Project$ReportAtt2Args<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Template
+     */
+    select?: TemplateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TemplateInclude<ExtArgs> | null
+    where?: TemplateWhereInput
+  }
+
+  /**
+   * Project.ReportAtt3
+   */
+  export type Project$ReportAtt3Args<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Template
+     */
+    select?: TemplateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TemplateInclude<ExtArgs> | null
+    where?: TemplateWhereInput
+  }
+
+  /**
+   * Project.Bunpai
+   */
+  export type Project$BunpaiArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Template
+     */
+    select?: TemplateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TemplateInclude<ExtArgs> | null
+    where?: TemplateWhereInput
+  }
+
+  /**
+   * Project.Ref
+   */
+  export type Project$RefArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Template
+     */
+    select?: TemplateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TemplateInclude<ExtArgs> | null
+    where?: TemplateWhereInput
+  }
+
+  /**
    * Project.ProjectKis
    */
   export type Project$ProjectKisArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -8313,10 +8854,12 @@ export namespace Prisma {
 
   export type ProjectKiAvgAggregateOutputType = {
     projectKi: number | null
+    ganponKuriire: number | null
   }
 
   export type ProjectKiSumAggregateOutputType = {
     projectKi: number | null
+    ganponKuriire: number | null
   }
 
   export type ProjectKiMinAggregateOutputType = {
@@ -8327,6 +8870,7 @@ export namespace Prisma {
     paymentDate: Date | null
     reportDate: Date | null
     topic: string | null
+    ganponKuriire: number | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -8343,6 +8887,7 @@ export namespace Prisma {
     paymentDate: Date | null
     reportDate: Date | null
     topic: string | null
+    ganponKuriire: number | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -8359,6 +8904,7 @@ export namespace Prisma {
     paymentDate: number
     reportDate: number
     topic: number
+    ganponKuriire: number
     createdAt: number
     createdId: number
     createdBy: number
@@ -8371,10 +8917,12 @@ export namespace Prisma {
 
   export type ProjectKiAvgAggregateInputType = {
     projectKi?: true
+    ganponKuriire?: true
   }
 
   export type ProjectKiSumAggregateInputType = {
     projectKi?: true
+    ganponKuriire?: true
   }
 
   export type ProjectKiMinAggregateInputType = {
@@ -8385,6 +8933,7 @@ export namespace Prisma {
     paymentDate?: true
     reportDate?: true
     topic?: true
+    ganponKuriire?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -8401,6 +8950,7 @@ export namespace Prisma {
     paymentDate?: true
     reportDate?: true
     topic?: true
+    ganponKuriire?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -8417,6 +8967,7 @@ export namespace Prisma {
     paymentDate?: true
     reportDate?: true
     topic?: true
+    ganponKuriire?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -8520,6 +9071,7 @@ export namespace Prisma {
     paymentDate: Date
     reportDate: Date
     topic: string
+    ganponKuriire: number
     createdAt: Date
     createdId: string
     createdBy: string
@@ -8555,6 +9107,7 @@ export namespace Prisma {
     paymentDate?: boolean
     reportDate?: boolean
     topic?: boolean
+    ganponKuriire?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -8575,6 +9128,7 @@ export namespace Prisma {
     paymentDate?: boolean
     reportDate?: boolean
     topic?: boolean
+    ganponKuriire?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -8593,6 +9147,7 @@ export namespace Prisma {
     paymentDate?: boolean
     reportDate?: boolean
     topic?: boolean
+    ganponKuriire?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -8627,6 +9182,7 @@ export namespace Prisma {
       paymentDate: Date
       reportDate: Date
       topic: string
+      ganponKuriire: number
       createdAt: Date
       createdId: string
       createdBy: string
@@ -9036,6 +9592,7 @@ export namespace Prisma {
     readonly paymentDate: FieldRef<"ProjectKi", 'DateTime'>
     readonly reportDate: FieldRef<"ProjectKi", 'DateTime'>
     readonly topic: FieldRef<"ProjectKi", 'String'>
+    readonly ganponKuriire: FieldRef<"ProjectKi", 'Int'>
     readonly createdAt: FieldRef<"ProjectKi", 'DateTime'>
     readonly createdId: FieldRef<"ProjectKi", 'String'>
     readonly createdBy: FieldRef<"ProjectKi", 'String'>
@@ -9410,6 +9967,11 @@ export namespace Prisma {
     name: string | null
     address: string | null
     registeredAddress: string | null
+    SelfValuationPos: string | null
+    LandValuationPos: string | null
+    BuildingValuationPos: string | null
+    LandEquityValuationPos: string | null
+    LandSelfValuationPos: string | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -9424,6 +9986,11 @@ export namespace Prisma {
     name: string | null
     address: string | null
     registeredAddress: string | null
+    SelfValuationPos: string | null
+    LandValuationPos: string | null
+    BuildingValuationPos: string | null
+    LandEquityValuationPos: string | null
+    LandSelfValuationPos: string | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -9438,6 +10005,11 @@ export namespace Prisma {
     name: number
     address: number
     registeredAddress: number
+    SelfValuationPos: number
+    LandValuationPos: number
+    BuildingValuationPos: number
+    LandEquityValuationPos: number
+    LandSelfValuationPos: number
     createdAt: number
     createdId: number
     createdBy: number
@@ -9454,6 +10026,11 @@ export namespace Prisma {
     name?: true
     address?: true
     registeredAddress?: true
+    SelfValuationPos?: true
+    LandValuationPos?: true
+    BuildingValuationPos?: true
+    LandEquityValuationPos?: true
+    LandSelfValuationPos?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -9468,6 +10045,11 @@ export namespace Prisma {
     name?: true
     address?: true
     registeredAddress?: true
+    SelfValuationPos?: true
+    LandValuationPos?: true
+    BuildingValuationPos?: true
+    LandEquityValuationPos?: true
+    LandSelfValuationPos?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -9482,6 +10064,11 @@ export namespace Prisma {
     name?: true
     address?: true
     registeredAddress?: true
+    SelfValuationPos?: true
+    LandValuationPos?: true
+    BuildingValuationPos?: true
+    LandEquityValuationPos?: true
+    LandSelfValuationPos?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -9569,6 +10156,11 @@ export namespace Prisma {
     name: string
     address: string
     registeredAddress: string
+    SelfValuationPos: string
+    LandValuationPos: string
+    BuildingValuationPos: string
+    LandEquityValuationPos: string
+    LandSelfValuationPos: string
     createdAt: Date
     createdId: string
     createdBy: string
@@ -9600,6 +10192,11 @@ export namespace Prisma {
     name?: boolean
     address?: boolean
     registeredAddress?: boolean
+    SelfValuationPos?: boolean
+    LandValuationPos?: boolean
+    BuildingValuationPos?: boolean
+    LandEquityValuationPos?: boolean
+    LandSelfValuationPos?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -9617,6 +10214,11 @@ export namespace Prisma {
     name?: boolean
     address?: boolean
     registeredAddress?: boolean
+    SelfValuationPos?: boolean
+    LandValuationPos?: boolean
+    BuildingValuationPos?: boolean
+    LandEquityValuationPos?: boolean
+    LandSelfValuationPos?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -9632,6 +10234,11 @@ export namespace Prisma {
     name?: boolean
     address?: boolean
     registeredAddress?: boolean
+    SelfValuationPos?: boolean
+    LandValuationPos?: boolean
+    BuildingValuationPos?: boolean
+    LandEquityValuationPos?: boolean
+    LandSelfValuationPos?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -9661,6 +10268,11 @@ export namespace Prisma {
       name: string
       address: string
       registeredAddress: string
+      SelfValuationPos: string
+      LandValuationPos: string
+      BuildingValuationPos: string
+      LandEquityValuationPos: string
+      LandSelfValuationPos: string
       createdAt: Date
       createdId: string
       createdBy: string
@@ -10067,6 +10679,11 @@ export namespace Prisma {
     readonly name: FieldRef<"Asset", 'String'>
     readonly address: FieldRef<"Asset", 'String'>
     readonly registeredAddress: FieldRef<"Asset", 'String'>
+    readonly SelfValuationPos: FieldRef<"Asset", 'String'>
+    readonly LandValuationPos: FieldRef<"Asset", 'String'>
+    readonly BuildingValuationPos: FieldRef<"Asset", 'String'>
+    readonly LandEquityValuationPos: FieldRef<"Asset", 'String'>
+    readonly LandSelfValuationPos: FieldRef<"Asset", 'String'>
     readonly createdAt: FieldRef<"Asset", 'DateTime'>
     readonly createdId: FieldRef<"Asset", 'String'>
     readonly createdBy: FieldRef<"Asset", 'String'>
@@ -14402,6 +15019,12 @@ export namespace Prisma {
     updatedAt?: boolean
     updatedId?: boolean
     updatedBy?: boolean
+    ReportMainProjects?: boolean | Template$ReportMainProjectsArgs<ExtArgs>
+    ReportAtt2Projects?: boolean | Template$ReportAtt2ProjectsArgs<ExtArgs>
+    ReportAtt3Projects?: boolean | Template$ReportAtt3ProjectsArgs<ExtArgs>
+    BunpaiProjects?: boolean | Template$BunpaiProjectsArgs<ExtArgs>
+    RefProjects?: boolean | Template$RefProjectsArgs<ExtArgs>
+    _count?: boolean | TemplateCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["template"]>
 
   export type TemplateSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -14438,10 +15061,25 @@ export namespace Prisma {
     updatedBy?: boolean
   }
 
+  export type TemplateInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    ReportMainProjects?: boolean | Template$ReportMainProjectsArgs<ExtArgs>
+    ReportAtt2Projects?: boolean | Template$ReportAtt2ProjectsArgs<ExtArgs>
+    ReportAtt3Projects?: boolean | Template$ReportAtt3ProjectsArgs<ExtArgs>
+    BunpaiProjects?: boolean | Template$BunpaiProjectsArgs<ExtArgs>
+    RefProjects?: boolean | Template$RefProjectsArgs<ExtArgs>
+    _count?: boolean | TemplateCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type TemplateIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $TemplatePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Template"
-    objects: {}
+    objects: {
+      ReportMainProjects: Prisma.$ProjectPayload<ExtArgs>[]
+      ReportAtt2Projects: Prisma.$ProjectPayload<ExtArgs>[]
+      ReportAtt3Projects: Prisma.$ProjectPayload<ExtArgs>[]
+      BunpaiProjects: Prisma.$ProjectPayload<ExtArgs>[]
+      RefProjects: Prisma.$ProjectPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
@@ -14821,6 +15459,11 @@ export namespace Prisma {
    */
   export interface Prisma__TemplateClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    ReportMainProjects<T extends Template$ReportMainProjectsArgs<ExtArgs> = {}>(args?: Subset<T, Template$ReportMainProjectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findMany"> | Null>
+    ReportAtt2Projects<T extends Template$ReportAtt2ProjectsArgs<ExtArgs> = {}>(args?: Subset<T, Template$ReportAtt2ProjectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findMany"> | Null>
+    ReportAtt3Projects<T extends Template$ReportAtt3ProjectsArgs<ExtArgs> = {}>(args?: Subset<T, Template$ReportAtt3ProjectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findMany"> | Null>
+    BunpaiProjects<T extends Template$BunpaiProjectsArgs<ExtArgs> = {}>(args?: Subset<T, Template$BunpaiProjectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findMany"> | Null>
+    RefProjects<T extends Template$RefProjectsArgs<ExtArgs> = {}>(args?: Subset<T, Template$RefProjectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -14877,6 +15520,10 @@ export namespace Prisma {
      */
     select?: TemplateSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TemplateInclude<ExtArgs> | null
+    /**
      * Filter, which Template to fetch.
      */
     where: TemplateWhereUniqueInput
@@ -14891,6 +15538,10 @@ export namespace Prisma {
      */
     select?: TemplateSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TemplateInclude<ExtArgs> | null
+    /**
      * Filter, which Template to fetch.
      */
     where: TemplateWhereUniqueInput
@@ -14904,6 +15555,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the Template
      */
     select?: TemplateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TemplateInclude<ExtArgs> | null
     /**
      * Filter, which Template to fetch.
      */
@@ -14949,6 +15604,10 @@ export namespace Prisma {
      */
     select?: TemplateSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TemplateInclude<ExtArgs> | null
+    /**
      * Filter, which Template to fetch.
      */
     where?: TemplateWhereInput
@@ -14993,6 +15652,10 @@ export namespace Prisma {
      */
     select?: TemplateSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TemplateInclude<ExtArgs> | null
+    /**
      * Filter, which Templates to fetch.
      */
     where?: TemplateWhereInput
@@ -15031,6 +15694,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the Template
      */
     select?: TemplateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TemplateInclude<ExtArgs> | null
     /**
      * The data needed to create a Template.
      */
@@ -15072,6 +15739,10 @@ export namespace Prisma {
      */
     select?: TemplateSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TemplateInclude<ExtArgs> | null
+    /**
      * The data needed to update a Template.
      */
     data: XOR<TemplateUpdateInput, TemplateUncheckedUpdateInput>
@@ -15104,6 +15775,10 @@ export namespace Prisma {
      */
     select?: TemplateSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TemplateInclude<ExtArgs> | null
+    /**
      * The filter to search for the Template to update in case it exists.
      */
     where: TemplateWhereUniqueInput
@@ -15126,6 +15801,10 @@ export namespace Prisma {
      */
     select?: TemplateSelect<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TemplateInclude<ExtArgs> | null
+    /**
      * Filter which Template to delete.
      */
     where: TemplateWhereUniqueInput
@@ -15142,6 +15821,106 @@ export namespace Prisma {
   }
 
   /**
+   * Template.ReportMainProjects
+   */
+  export type Template$ReportMainProjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    where?: ProjectWhereInput
+    orderBy?: ProjectOrderByWithRelationInput | ProjectOrderByWithRelationInput[]
+    cursor?: ProjectWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProjectScalarFieldEnum | ProjectScalarFieldEnum[]
+  }
+
+  /**
+   * Template.ReportAtt2Projects
+   */
+  export type Template$ReportAtt2ProjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    where?: ProjectWhereInput
+    orderBy?: ProjectOrderByWithRelationInput | ProjectOrderByWithRelationInput[]
+    cursor?: ProjectWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProjectScalarFieldEnum | ProjectScalarFieldEnum[]
+  }
+
+  /**
+   * Template.ReportAtt3Projects
+   */
+  export type Template$ReportAtt3ProjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    where?: ProjectWhereInput
+    orderBy?: ProjectOrderByWithRelationInput | ProjectOrderByWithRelationInput[]
+    cursor?: ProjectWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProjectScalarFieldEnum | ProjectScalarFieldEnum[]
+  }
+
+  /**
+   * Template.BunpaiProjects
+   */
+  export type Template$BunpaiProjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    where?: ProjectWhereInput
+    orderBy?: ProjectOrderByWithRelationInput | ProjectOrderByWithRelationInput[]
+    cursor?: ProjectWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProjectScalarFieldEnum | ProjectScalarFieldEnum[]
+  }
+
+  /**
+   * Template.RefProjects
+   */
+  export type Template$RefProjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Project
+     */
+    select?: ProjectSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectInclude<ExtArgs> | null
+    where?: ProjectWhereInput
+    orderBy?: ProjectOrderByWithRelationInput | ProjectOrderByWithRelationInput[]
+    cursor?: ProjectWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProjectScalarFieldEnum | ProjectScalarFieldEnum[]
+  }
+
+  /**
    * Template without action
    */
   export type TemplateDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -15149,6 +15928,10 @@ export namespace Prisma {
      * Select specific fields to fetch from the Template
      */
     select?: TemplateSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TemplateInclude<ExtArgs> | null
   }
 
 
@@ -17115,6 +17898,1930 @@ export namespace Prisma {
 
 
   /**
+   * Model YayoiCSV
+   */
+
+  export type AggregateYayoiCSV = {
+    _count: YayoiCSVCountAggregateOutputType | null
+    _min: YayoiCSVMinAggregateOutputType | null
+    _max: YayoiCSVMaxAggregateOutputType | null
+  }
+
+  export type YayoiCSVMinAggregateOutputType = {
+    id: string | null
+    projectId: string | null
+    kiId: string | null
+    csvType: string | null
+    taxType: string | null
+    csv: string | null
+    json: string | null
+    createdAt: Date | null
+    createdId: string | null
+    createdBy: string | null
+    updatedAt: Date | null
+    updatedId: string | null
+    updatedBy: string | null
+  }
+
+  export type YayoiCSVMaxAggregateOutputType = {
+    id: string | null
+    projectId: string | null
+    kiId: string | null
+    csvType: string | null
+    taxType: string | null
+    csv: string | null
+    json: string | null
+    createdAt: Date | null
+    createdId: string | null
+    createdBy: string | null
+    updatedAt: Date | null
+    updatedId: string | null
+    updatedBy: string | null
+  }
+
+  export type YayoiCSVCountAggregateOutputType = {
+    id: number
+    projectId: number
+    kiId: number
+    csvType: number
+    taxType: number
+    csv: number
+    json: number
+    createdAt: number
+    createdId: number
+    createdBy: number
+    updatedAt: number
+    updatedId: number
+    updatedBy: number
+    _all: number
+  }
+
+
+  export type YayoiCSVMinAggregateInputType = {
+    id?: true
+    projectId?: true
+    kiId?: true
+    csvType?: true
+    taxType?: true
+    csv?: true
+    json?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+  }
+
+  export type YayoiCSVMaxAggregateInputType = {
+    id?: true
+    projectId?: true
+    kiId?: true
+    csvType?: true
+    taxType?: true
+    csv?: true
+    json?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+  }
+
+  export type YayoiCSVCountAggregateInputType = {
+    id?: true
+    projectId?: true
+    kiId?: true
+    csvType?: true
+    taxType?: true
+    csv?: true
+    json?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+    _all?: true
+  }
+
+  export type YayoiCSVAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which YayoiCSV to aggregate.
+     */
+    where?: YayoiCSVWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of YayoiCSVS to fetch.
+     */
+    orderBy?: YayoiCSVOrderByWithRelationInput | YayoiCSVOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: YayoiCSVWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` YayoiCSVS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` YayoiCSVS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned YayoiCSVS
+    **/
+    _count?: true | YayoiCSVCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: YayoiCSVMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: YayoiCSVMaxAggregateInputType
+  }
+
+  export type GetYayoiCSVAggregateType<T extends YayoiCSVAggregateArgs> = {
+        [P in keyof T & keyof AggregateYayoiCSV]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateYayoiCSV[P]>
+      : GetScalarType<T[P], AggregateYayoiCSV[P]>
+  }
+
+
+
+
+  export type YayoiCSVGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: YayoiCSVWhereInput
+    orderBy?: YayoiCSVOrderByWithAggregationInput | YayoiCSVOrderByWithAggregationInput[]
+    by: YayoiCSVScalarFieldEnum[] | YayoiCSVScalarFieldEnum
+    having?: YayoiCSVScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: YayoiCSVCountAggregateInputType | true
+    _min?: YayoiCSVMinAggregateInputType
+    _max?: YayoiCSVMaxAggregateInputType
+  }
+
+  export type YayoiCSVGroupByOutputType = {
+    id: string
+    projectId: string
+    kiId: string
+    csvType: string
+    taxType: string
+    csv: string
+    json: string
+    createdAt: Date
+    createdId: string
+    createdBy: string
+    updatedAt: Date
+    updatedId: string
+    updatedBy: string
+    _count: YayoiCSVCountAggregateOutputType | null
+    _min: YayoiCSVMinAggregateOutputType | null
+    _max: YayoiCSVMaxAggregateOutputType | null
+  }
+
+  type GetYayoiCSVGroupByPayload<T extends YayoiCSVGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<YayoiCSVGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof YayoiCSVGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], YayoiCSVGroupByOutputType[P]>
+            : GetScalarType<T[P], YayoiCSVGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type YayoiCSVSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    projectId?: boolean
+    kiId?: boolean
+    csvType?: boolean
+    taxType?: boolean
+    csv?: boolean
+    json?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }, ExtArgs["result"]["yayoiCSV"]>
+
+  export type YayoiCSVSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    projectId?: boolean
+    kiId?: boolean
+    csvType?: boolean
+    taxType?: boolean
+    csv?: boolean
+    json?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }, ExtArgs["result"]["yayoiCSV"]>
+
+  export type YayoiCSVSelectScalar = {
+    id?: boolean
+    projectId?: boolean
+    kiId?: boolean
+    csvType?: boolean
+    taxType?: boolean
+    csv?: boolean
+    json?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }
+
+
+  export type $YayoiCSVPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "YayoiCSV"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      projectId: string
+      kiId: string
+      csvType: string
+      taxType: string
+      csv: string
+      json: string
+      createdAt: Date
+      createdId: string
+      createdBy: string
+      updatedAt: Date
+      updatedId: string
+      updatedBy: string
+    }, ExtArgs["result"]["yayoiCSV"]>
+    composites: {}
+  }
+
+  type YayoiCSVGetPayload<S extends boolean | null | undefined | YayoiCSVDefaultArgs> = $Result.GetResult<Prisma.$YayoiCSVPayload, S>
+
+  type YayoiCSVCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<YayoiCSVFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: YayoiCSVCountAggregateInputType | true
+    }
+
+  export interface YayoiCSVDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['YayoiCSV'], meta: { name: 'YayoiCSV' } }
+    /**
+     * Find zero or one YayoiCSV that matches the filter.
+     * @param {YayoiCSVFindUniqueArgs} args - Arguments to find a YayoiCSV
+     * @example
+     * // Get one YayoiCSV
+     * const yayoiCSV = await prisma.yayoiCSV.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends YayoiCSVFindUniqueArgs>(args: SelectSubset<T, YayoiCSVFindUniqueArgs<ExtArgs>>): Prisma__YayoiCSVClient<$Result.GetResult<Prisma.$YayoiCSVPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one YayoiCSV that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {YayoiCSVFindUniqueOrThrowArgs} args - Arguments to find a YayoiCSV
+     * @example
+     * // Get one YayoiCSV
+     * const yayoiCSV = await prisma.yayoiCSV.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends YayoiCSVFindUniqueOrThrowArgs>(args: SelectSubset<T, YayoiCSVFindUniqueOrThrowArgs<ExtArgs>>): Prisma__YayoiCSVClient<$Result.GetResult<Prisma.$YayoiCSVPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first YayoiCSV that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YayoiCSVFindFirstArgs} args - Arguments to find a YayoiCSV
+     * @example
+     * // Get one YayoiCSV
+     * const yayoiCSV = await prisma.yayoiCSV.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends YayoiCSVFindFirstArgs>(args?: SelectSubset<T, YayoiCSVFindFirstArgs<ExtArgs>>): Prisma__YayoiCSVClient<$Result.GetResult<Prisma.$YayoiCSVPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first YayoiCSV that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YayoiCSVFindFirstOrThrowArgs} args - Arguments to find a YayoiCSV
+     * @example
+     * // Get one YayoiCSV
+     * const yayoiCSV = await prisma.yayoiCSV.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends YayoiCSVFindFirstOrThrowArgs>(args?: SelectSubset<T, YayoiCSVFindFirstOrThrowArgs<ExtArgs>>): Prisma__YayoiCSVClient<$Result.GetResult<Prisma.$YayoiCSVPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more YayoiCSVS that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YayoiCSVFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all YayoiCSVS
+     * const yayoiCSVS = await prisma.yayoiCSV.findMany()
+     * 
+     * // Get first 10 YayoiCSVS
+     * const yayoiCSVS = await prisma.yayoiCSV.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const yayoiCSVWithIdOnly = await prisma.yayoiCSV.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends YayoiCSVFindManyArgs>(args?: SelectSubset<T, YayoiCSVFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YayoiCSVPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a YayoiCSV.
+     * @param {YayoiCSVCreateArgs} args - Arguments to create a YayoiCSV.
+     * @example
+     * // Create one YayoiCSV
+     * const YayoiCSV = await prisma.yayoiCSV.create({
+     *   data: {
+     *     // ... data to create a YayoiCSV
+     *   }
+     * })
+     * 
+     */
+    create<T extends YayoiCSVCreateArgs>(args: SelectSubset<T, YayoiCSVCreateArgs<ExtArgs>>): Prisma__YayoiCSVClient<$Result.GetResult<Prisma.$YayoiCSVPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many YayoiCSVS.
+     * @param {YayoiCSVCreateManyArgs} args - Arguments to create many YayoiCSVS.
+     * @example
+     * // Create many YayoiCSVS
+     * const yayoiCSV = await prisma.yayoiCSV.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends YayoiCSVCreateManyArgs>(args?: SelectSubset<T, YayoiCSVCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many YayoiCSVS and returns the data saved in the database.
+     * @param {YayoiCSVCreateManyAndReturnArgs} args - Arguments to create many YayoiCSVS.
+     * @example
+     * // Create many YayoiCSVS
+     * const yayoiCSV = await prisma.yayoiCSV.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many YayoiCSVS and only return the `id`
+     * const yayoiCSVWithIdOnly = await prisma.yayoiCSV.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends YayoiCSVCreateManyAndReturnArgs>(args?: SelectSubset<T, YayoiCSVCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YayoiCSVPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a YayoiCSV.
+     * @param {YayoiCSVDeleteArgs} args - Arguments to delete one YayoiCSV.
+     * @example
+     * // Delete one YayoiCSV
+     * const YayoiCSV = await prisma.yayoiCSV.delete({
+     *   where: {
+     *     // ... filter to delete one YayoiCSV
+     *   }
+     * })
+     * 
+     */
+    delete<T extends YayoiCSVDeleteArgs>(args: SelectSubset<T, YayoiCSVDeleteArgs<ExtArgs>>): Prisma__YayoiCSVClient<$Result.GetResult<Prisma.$YayoiCSVPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one YayoiCSV.
+     * @param {YayoiCSVUpdateArgs} args - Arguments to update one YayoiCSV.
+     * @example
+     * // Update one YayoiCSV
+     * const yayoiCSV = await prisma.yayoiCSV.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends YayoiCSVUpdateArgs>(args: SelectSubset<T, YayoiCSVUpdateArgs<ExtArgs>>): Prisma__YayoiCSVClient<$Result.GetResult<Prisma.$YayoiCSVPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more YayoiCSVS.
+     * @param {YayoiCSVDeleteManyArgs} args - Arguments to filter YayoiCSVS to delete.
+     * @example
+     * // Delete a few YayoiCSVS
+     * const { count } = await prisma.yayoiCSV.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends YayoiCSVDeleteManyArgs>(args?: SelectSubset<T, YayoiCSVDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more YayoiCSVS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YayoiCSVUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many YayoiCSVS
+     * const yayoiCSV = await prisma.yayoiCSV.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends YayoiCSVUpdateManyArgs>(args: SelectSubset<T, YayoiCSVUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one YayoiCSV.
+     * @param {YayoiCSVUpsertArgs} args - Arguments to update or create a YayoiCSV.
+     * @example
+     * // Update or create a YayoiCSV
+     * const yayoiCSV = await prisma.yayoiCSV.upsert({
+     *   create: {
+     *     // ... data to create a YayoiCSV
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the YayoiCSV we want to update
+     *   }
+     * })
+     */
+    upsert<T extends YayoiCSVUpsertArgs>(args: SelectSubset<T, YayoiCSVUpsertArgs<ExtArgs>>): Prisma__YayoiCSVClient<$Result.GetResult<Prisma.$YayoiCSVPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of YayoiCSVS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YayoiCSVCountArgs} args - Arguments to filter YayoiCSVS to count.
+     * @example
+     * // Count the number of YayoiCSVS
+     * const count = await prisma.yayoiCSV.count({
+     *   where: {
+     *     // ... the filter for the YayoiCSVS we want to count
+     *   }
+     * })
+    **/
+    count<T extends YayoiCSVCountArgs>(
+      args?: Subset<T, YayoiCSVCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], YayoiCSVCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a YayoiCSV.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YayoiCSVAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends YayoiCSVAggregateArgs>(args: Subset<T, YayoiCSVAggregateArgs>): Prisma.PrismaPromise<GetYayoiCSVAggregateType<T>>
+
+    /**
+     * Group by YayoiCSV.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YayoiCSVGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends YayoiCSVGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: YayoiCSVGroupByArgs['orderBy'] }
+        : { orderBy?: YayoiCSVGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, YayoiCSVGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetYayoiCSVGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the YayoiCSV model
+   */
+  readonly fields: YayoiCSVFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for YayoiCSV.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__YayoiCSVClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the YayoiCSV model
+   */ 
+  interface YayoiCSVFieldRefs {
+    readonly id: FieldRef<"YayoiCSV", 'String'>
+    readonly projectId: FieldRef<"YayoiCSV", 'String'>
+    readonly kiId: FieldRef<"YayoiCSV", 'String'>
+    readonly csvType: FieldRef<"YayoiCSV", 'String'>
+    readonly taxType: FieldRef<"YayoiCSV", 'String'>
+    readonly csv: FieldRef<"YayoiCSV", 'String'>
+    readonly json: FieldRef<"YayoiCSV", 'String'>
+    readonly createdAt: FieldRef<"YayoiCSV", 'DateTime'>
+    readonly createdId: FieldRef<"YayoiCSV", 'String'>
+    readonly createdBy: FieldRef<"YayoiCSV", 'String'>
+    readonly updatedAt: FieldRef<"YayoiCSV", 'DateTime'>
+    readonly updatedId: FieldRef<"YayoiCSV", 'String'>
+    readonly updatedBy: FieldRef<"YayoiCSV", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * YayoiCSV findUnique
+   */
+  export type YayoiCSVFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YayoiCSV
+     */
+    select?: YayoiCSVSelect<ExtArgs> | null
+    /**
+     * Filter, which YayoiCSV to fetch.
+     */
+    where: YayoiCSVWhereUniqueInput
+  }
+
+  /**
+   * YayoiCSV findUniqueOrThrow
+   */
+  export type YayoiCSVFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YayoiCSV
+     */
+    select?: YayoiCSVSelect<ExtArgs> | null
+    /**
+     * Filter, which YayoiCSV to fetch.
+     */
+    where: YayoiCSVWhereUniqueInput
+  }
+
+  /**
+   * YayoiCSV findFirst
+   */
+  export type YayoiCSVFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YayoiCSV
+     */
+    select?: YayoiCSVSelect<ExtArgs> | null
+    /**
+     * Filter, which YayoiCSV to fetch.
+     */
+    where?: YayoiCSVWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of YayoiCSVS to fetch.
+     */
+    orderBy?: YayoiCSVOrderByWithRelationInput | YayoiCSVOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for YayoiCSVS.
+     */
+    cursor?: YayoiCSVWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` YayoiCSVS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` YayoiCSVS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of YayoiCSVS.
+     */
+    distinct?: YayoiCSVScalarFieldEnum | YayoiCSVScalarFieldEnum[]
+  }
+
+  /**
+   * YayoiCSV findFirstOrThrow
+   */
+  export type YayoiCSVFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YayoiCSV
+     */
+    select?: YayoiCSVSelect<ExtArgs> | null
+    /**
+     * Filter, which YayoiCSV to fetch.
+     */
+    where?: YayoiCSVWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of YayoiCSVS to fetch.
+     */
+    orderBy?: YayoiCSVOrderByWithRelationInput | YayoiCSVOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for YayoiCSVS.
+     */
+    cursor?: YayoiCSVWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` YayoiCSVS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` YayoiCSVS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of YayoiCSVS.
+     */
+    distinct?: YayoiCSVScalarFieldEnum | YayoiCSVScalarFieldEnum[]
+  }
+
+  /**
+   * YayoiCSV findMany
+   */
+  export type YayoiCSVFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YayoiCSV
+     */
+    select?: YayoiCSVSelect<ExtArgs> | null
+    /**
+     * Filter, which YayoiCSVS to fetch.
+     */
+    where?: YayoiCSVWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of YayoiCSVS to fetch.
+     */
+    orderBy?: YayoiCSVOrderByWithRelationInput | YayoiCSVOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing YayoiCSVS.
+     */
+    cursor?: YayoiCSVWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` YayoiCSVS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` YayoiCSVS.
+     */
+    skip?: number
+    distinct?: YayoiCSVScalarFieldEnum | YayoiCSVScalarFieldEnum[]
+  }
+
+  /**
+   * YayoiCSV create
+   */
+  export type YayoiCSVCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YayoiCSV
+     */
+    select?: YayoiCSVSelect<ExtArgs> | null
+    /**
+     * The data needed to create a YayoiCSV.
+     */
+    data: XOR<YayoiCSVCreateInput, YayoiCSVUncheckedCreateInput>
+  }
+
+  /**
+   * YayoiCSV createMany
+   */
+  export type YayoiCSVCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many YayoiCSVS.
+     */
+    data: YayoiCSVCreateManyInput | YayoiCSVCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * YayoiCSV createManyAndReturn
+   */
+  export type YayoiCSVCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YayoiCSV
+     */
+    select?: YayoiCSVSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many YayoiCSVS.
+     */
+    data: YayoiCSVCreateManyInput | YayoiCSVCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * YayoiCSV update
+   */
+  export type YayoiCSVUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YayoiCSV
+     */
+    select?: YayoiCSVSelect<ExtArgs> | null
+    /**
+     * The data needed to update a YayoiCSV.
+     */
+    data: XOR<YayoiCSVUpdateInput, YayoiCSVUncheckedUpdateInput>
+    /**
+     * Choose, which YayoiCSV to update.
+     */
+    where: YayoiCSVWhereUniqueInput
+  }
+
+  /**
+   * YayoiCSV updateMany
+   */
+  export type YayoiCSVUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update YayoiCSVS.
+     */
+    data: XOR<YayoiCSVUpdateManyMutationInput, YayoiCSVUncheckedUpdateManyInput>
+    /**
+     * Filter which YayoiCSVS to update
+     */
+    where?: YayoiCSVWhereInput
+  }
+
+  /**
+   * YayoiCSV upsert
+   */
+  export type YayoiCSVUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YayoiCSV
+     */
+    select?: YayoiCSVSelect<ExtArgs> | null
+    /**
+     * The filter to search for the YayoiCSV to update in case it exists.
+     */
+    where: YayoiCSVWhereUniqueInput
+    /**
+     * In case the YayoiCSV found by the `where` argument doesn't exist, create a new YayoiCSV with this data.
+     */
+    create: XOR<YayoiCSVCreateInput, YayoiCSVUncheckedCreateInput>
+    /**
+     * In case the YayoiCSV was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<YayoiCSVUpdateInput, YayoiCSVUncheckedUpdateInput>
+  }
+
+  /**
+   * YayoiCSV delete
+   */
+  export type YayoiCSVDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YayoiCSV
+     */
+    select?: YayoiCSVSelect<ExtArgs> | null
+    /**
+     * Filter which YayoiCSV to delete.
+     */
+    where: YayoiCSVWhereUniqueInput
+  }
+
+  /**
+   * YayoiCSV deleteMany
+   */
+  export type YayoiCSVDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which YayoiCSVS to delete
+     */
+    where?: YayoiCSVWhereInput
+  }
+
+  /**
+   * YayoiCSV without action
+   */
+  export type YayoiCSVDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YayoiCSV
+     */
+    select?: YayoiCSVSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * Model YayoiCSVHistory
+   */
+
+  export type AggregateYayoiCSVHistory = {
+    _count: YayoiCSVHistoryCountAggregateOutputType | null
+    _min: YayoiCSVHistoryMinAggregateOutputType | null
+    _max: YayoiCSVHistoryMaxAggregateOutputType | null
+  }
+
+  export type YayoiCSVHistoryMinAggregateOutputType = {
+    id: string | null
+    yayoiCSVId: string | null
+    projectId: string | null
+    kiId: string | null
+    csvType: string | null
+    taxType: string | null
+    csv: string | null
+    json: string | null
+    updatedAt: Date | null
+    updatedId: string | null
+    updatedBy: string | null
+  }
+
+  export type YayoiCSVHistoryMaxAggregateOutputType = {
+    id: string | null
+    yayoiCSVId: string | null
+    projectId: string | null
+    kiId: string | null
+    csvType: string | null
+    taxType: string | null
+    csv: string | null
+    json: string | null
+    updatedAt: Date | null
+    updatedId: string | null
+    updatedBy: string | null
+  }
+
+  export type YayoiCSVHistoryCountAggregateOutputType = {
+    id: number
+    yayoiCSVId: number
+    projectId: number
+    kiId: number
+    csvType: number
+    taxType: number
+    csv: number
+    json: number
+    updatedAt: number
+    updatedId: number
+    updatedBy: number
+    _all: number
+  }
+
+
+  export type YayoiCSVHistoryMinAggregateInputType = {
+    id?: true
+    yayoiCSVId?: true
+    projectId?: true
+    kiId?: true
+    csvType?: true
+    taxType?: true
+    csv?: true
+    json?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+  }
+
+  export type YayoiCSVHistoryMaxAggregateInputType = {
+    id?: true
+    yayoiCSVId?: true
+    projectId?: true
+    kiId?: true
+    csvType?: true
+    taxType?: true
+    csv?: true
+    json?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+  }
+
+  export type YayoiCSVHistoryCountAggregateInputType = {
+    id?: true
+    yayoiCSVId?: true
+    projectId?: true
+    kiId?: true
+    csvType?: true
+    taxType?: true
+    csv?: true
+    json?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+    _all?: true
+  }
+
+  export type YayoiCSVHistoryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which YayoiCSVHistory to aggregate.
+     */
+    where?: YayoiCSVHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of YayoiCSVHistories to fetch.
+     */
+    orderBy?: YayoiCSVHistoryOrderByWithRelationInput | YayoiCSVHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: YayoiCSVHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` YayoiCSVHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` YayoiCSVHistories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned YayoiCSVHistories
+    **/
+    _count?: true | YayoiCSVHistoryCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: YayoiCSVHistoryMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: YayoiCSVHistoryMaxAggregateInputType
+  }
+
+  export type GetYayoiCSVHistoryAggregateType<T extends YayoiCSVHistoryAggregateArgs> = {
+        [P in keyof T & keyof AggregateYayoiCSVHistory]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateYayoiCSVHistory[P]>
+      : GetScalarType<T[P], AggregateYayoiCSVHistory[P]>
+  }
+
+
+
+
+  export type YayoiCSVHistoryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: YayoiCSVHistoryWhereInput
+    orderBy?: YayoiCSVHistoryOrderByWithAggregationInput | YayoiCSVHistoryOrderByWithAggregationInput[]
+    by: YayoiCSVHistoryScalarFieldEnum[] | YayoiCSVHistoryScalarFieldEnum
+    having?: YayoiCSVHistoryScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: YayoiCSVHistoryCountAggregateInputType | true
+    _min?: YayoiCSVHistoryMinAggregateInputType
+    _max?: YayoiCSVHistoryMaxAggregateInputType
+  }
+
+  export type YayoiCSVHistoryGroupByOutputType = {
+    id: string
+    yayoiCSVId: string
+    projectId: string
+    kiId: string
+    csvType: string
+    taxType: string
+    csv: string
+    json: string
+    updatedAt: Date
+    updatedId: string
+    updatedBy: string
+    _count: YayoiCSVHistoryCountAggregateOutputType | null
+    _min: YayoiCSVHistoryMinAggregateOutputType | null
+    _max: YayoiCSVHistoryMaxAggregateOutputType | null
+  }
+
+  type GetYayoiCSVHistoryGroupByPayload<T extends YayoiCSVHistoryGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<YayoiCSVHistoryGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof YayoiCSVHistoryGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], YayoiCSVHistoryGroupByOutputType[P]>
+            : GetScalarType<T[P], YayoiCSVHistoryGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type YayoiCSVHistorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    yayoiCSVId?: boolean
+    projectId?: boolean
+    kiId?: boolean
+    csvType?: boolean
+    taxType?: boolean
+    csv?: boolean
+    json?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }, ExtArgs["result"]["yayoiCSVHistory"]>
+
+  export type YayoiCSVHistorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    yayoiCSVId?: boolean
+    projectId?: boolean
+    kiId?: boolean
+    csvType?: boolean
+    taxType?: boolean
+    csv?: boolean
+    json?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }, ExtArgs["result"]["yayoiCSVHistory"]>
+
+  export type YayoiCSVHistorySelectScalar = {
+    id?: boolean
+    yayoiCSVId?: boolean
+    projectId?: boolean
+    kiId?: boolean
+    csvType?: boolean
+    taxType?: boolean
+    csv?: boolean
+    json?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }
+
+
+  export type $YayoiCSVHistoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "YayoiCSVHistory"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      yayoiCSVId: string
+      projectId: string
+      kiId: string
+      csvType: string
+      taxType: string
+      csv: string
+      json: string
+      updatedAt: Date
+      updatedId: string
+      updatedBy: string
+    }, ExtArgs["result"]["yayoiCSVHistory"]>
+    composites: {}
+  }
+
+  type YayoiCSVHistoryGetPayload<S extends boolean | null | undefined | YayoiCSVHistoryDefaultArgs> = $Result.GetResult<Prisma.$YayoiCSVHistoryPayload, S>
+
+  type YayoiCSVHistoryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<YayoiCSVHistoryFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: YayoiCSVHistoryCountAggregateInputType | true
+    }
+
+  export interface YayoiCSVHistoryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['YayoiCSVHistory'], meta: { name: 'YayoiCSVHistory' } }
+    /**
+     * Find zero or one YayoiCSVHistory that matches the filter.
+     * @param {YayoiCSVHistoryFindUniqueArgs} args - Arguments to find a YayoiCSVHistory
+     * @example
+     * // Get one YayoiCSVHistory
+     * const yayoiCSVHistory = await prisma.yayoiCSVHistory.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends YayoiCSVHistoryFindUniqueArgs>(args: SelectSubset<T, YayoiCSVHistoryFindUniqueArgs<ExtArgs>>): Prisma__YayoiCSVHistoryClient<$Result.GetResult<Prisma.$YayoiCSVHistoryPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one YayoiCSVHistory that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {YayoiCSVHistoryFindUniqueOrThrowArgs} args - Arguments to find a YayoiCSVHistory
+     * @example
+     * // Get one YayoiCSVHistory
+     * const yayoiCSVHistory = await prisma.yayoiCSVHistory.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends YayoiCSVHistoryFindUniqueOrThrowArgs>(args: SelectSubset<T, YayoiCSVHistoryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__YayoiCSVHistoryClient<$Result.GetResult<Prisma.$YayoiCSVHistoryPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first YayoiCSVHistory that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YayoiCSVHistoryFindFirstArgs} args - Arguments to find a YayoiCSVHistory
+     * @example
+     * // Get one YayoiCSVHistory
+     * const yayoiCSVHistory = await prisma.yayoiCSVHistory.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends YayoiCSVHistoryFindFirstArgs>(args?: SelectSubset<T, YayoiCSVHistoryFindFirstArgs<ExtArgs>>): Prisma__YayoiCSVHistoryClient<$Result.GetResult<Prisma.$YayoiCSVHistoryPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first YayoiCSVHistory that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YayoiCSVHistoryFindFirstOrThrowArgs} args - Arguments to find a YayoiCSVHistory
+     * @example
+     * // Get one YayoiCSVHistory
+     * const yayoiCSVHistory = await prisma.yayoiCSVHistory.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends YayoiCSVHistoryFindFirstOrThrowArgs>(args?: SelectSubset<T, YayoiCSVHistoryFindFirstOrThrowArgs<ExtArgs>>): Prisma__YayoiCSVHistoryClient<$Result.GetResult<Prisma.$YayoiCSVHistoryPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more YayoiCSVHistories that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YayoiCSVHistoryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all YayoiCSVHistories
+     * const yayoiCSVHistories = await prisma.yayoiCSVHistory.findMany()
+     * 
+     * // Get first 10 YayoiCSVHistories
+     * const yayoiCSVHistories = await prisma.yayoiCSVHistory.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const yayoiCSVHistoryWithIdOnly = await prisma.yayoiCSVHistory.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends YayoiCSVHistoryFindManyArgs>(args?: SelectSubset<T, YayoiCSVHistoryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YayoiCSVHistoryPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a YayoiCSVHistory.
+     * @param {YayoiCSVHistoryCreateArgs} args - Arguments to create a YayoiCSVHistory.
+     * @example
+     * // Create one YayoiCSVHistory
+     * const YayoiCSVHistory = await prisma.yayoiCSVHistory.create({
+     *   data: {
+     *     // ... data to create a YayoiCSVHistory
+     *   }
+     * })
+     * 
+     */
+    create<T extends YayoiCSVHistoryCreateArgs>(args: SelectSubset<T, YayoiCSVHistoryCreateArgs<ExtArgs>>): Prisma__YayoiCSVHistoryClient<$Result.GetResult<Prisma.$YayoiCSVHistoryPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many YayoiCSVHistories.
+     * @param {YayoiCSVHistoryCreateManyArgs} args - Arguments to create many YayoiCSVHistories.
+     * @example
+     * // Create many YayoiCSVHistories
+     * const yayoiCSVHistory = await prisma.yayoiCSVHistory.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends YayoiCSVHistoryCreateManyArgs>(args?: SelectSubset<T, YayoiCSVHistoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many YayoiCSVHistories and returns the data saved in the database.
+     * @param {YayoiCSVHistoryCreateManyAndReturnArgs} args - Arguments to create many YayoiCSVHistories.
+     * @example
+     * // Create many YayoiCSVHistories
+     * const yayoiCSVHistory = await prisma.yayoiCSVHistory.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many YayoiCSVHistories and only return the `id`
+     * const yayoiCSVHistoryWithIdOnly = await prisma.yayoiCSVHistory.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends YayoiCSVHistoryCreateManyAndReturnArgs>(args?: SelectSubset<T, YayoiCSVHistoryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$YayoiCSVHistoryPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a YayoiCSVHistory.
+     * @param {YayoiCSVHistoryDeleteArgs} args - Arguments to delete one YayoiCSVHistory.
+     * @example
+     * // Delete one YayoiCSVHistory
+     * const YayoiCSVHistory = await prisma.yayoiCSVHistory.delete({
+     *   where: {
+     *     // ... filter to delete one YayoiCSVHistory
+     *   }
+     * })
+     * 
+     */
+    delete<T extends YayoiCSVHistoryDeleteArgs>(args: SelectSubset<T, YayoiCSVHistoryDeleteArgs<ExtArgs>>): Prisma__YayoiCSVHistoryClient<$Result.GetResult<Prisma.$YayoiCSVHistoryPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one YayoiCSVHistory.
+     * @param {YayoiCSVHistoryUpdateArgs} args - Arguments to update one YayoiCSVHistory.
+     * @example
+     * // Update one YayoiCSVHistory
+     * const yayoiCSVHistory = await prisma.yayoiCSVHistory.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends YayoiCSVHistoryUpdateArgs>(args: SelectSubset<T, YayoiCSVHistoryUpdateArgs<ExtArgs>>): Prisma__YayoiCSVHistoryClient<$Result.GetResult<Prisma.$YayoiCSVHistoryPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more YayoiCSVHistories.
+     * @param {YayoiCSVHistoryDeleteManyArgs} args - Arguments to filter YayoiCSVHistories to delete.
+     * @example
+     * // Delete a few YayoiCSVHistories
+     * const { count } = await prisma.yayoiCSVHistory.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends YayoiCSVHistoryDeleteManyArgs>(args?: SelectSubset<T, YayoiCSVHistoryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more YayoiCSVHistories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YayoiCSVHistoryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many YayoiCSVHistories
+     * const yayoiCSVHistory = await prisma.yayoiCSVHistory.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends YayoiCSVHistoryUpdateManyArgs>(args: SelectSubset<T, YayoiCSVHistoryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one YayoiCSVHistory.
+     * @param {YayoiCSVHistoryUpsertArgs} args - Arguments to update or create a YayoiCSVHistory.
+     * @example
+     * // Update or create a YayoiCSVHistory
+     * const yayoiCSVHistory = await prisma.yayoiCSVHistory.upsert({
+     *   create: {
+     *     // ... data to create a YayoiCSVHistory
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the YayoiCSVHistory we want to update
+     *   }
+     * })
+     */
+    upsert<T extends YayoiCSVHistoryUpsertArgs>(args: SelectSubset<T, YayoiCSVHistoryUpsertArgs<ExtArgs>>): Prisma__YayoiCSVHistoryClient<$Result.GetResult<Prisma.$YayoiCSVHistoryPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of YayoiCSVHistories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YayoiCSVHistoryCountArgs} args - Arguments to filter YayoiCSVHistories to count.
+     * @example
+     * // Count the number of YayoiCSVHistories
+     * const count = await prisma.yayoiCSVHistory.count({
+     *   where: {
+     *     // ... the filter for the YayoiCSVHistories we want to count
+     *   }
+     * })
+    **/
+    count<T extends YayoiCSVHistoryCountArgs>(
+      args?: Subset<T, YayoiCSVHistoryCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], YayoiCSVHistoryCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a YayoiCSVHistory.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YayoiCSVHistoryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends YayoiCSVHistoryAggregateArgs>(args: Subset<T, YayoiCSVHistoryAggregateArgs>): Prisma.PrismaPromise<GetYayoiCSVHistoryAggregateType<T>>
+
+    /**
+     * Group by YayoiCSVHistory.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {YayoiCSVHistoryGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends YayoiCSVHistoryGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: YayoiCSVHistoryGroupByArgs['orderBy'] }
+        : { orderBy?: YayoiCSVHistoryGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, YayoiCSVHistoryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetYayoiCSVHistoryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the YayoiCSVHistory model
+   */
+  readonly fields: YayoiCSVHistoryFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for YayoiCSVHistory.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__YayoiCSVHistoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the YayoiCSVHistory model
+   */ 
+  interface YayoiCSVHistoryFieldRefs {
+    readonly id: FieldRef<"YayoiCSVHistory", 'String'>
+    readonly yayoiCSVId: FieldRef<"YayoiCSVHistory", 'String'>
+    readonly projectId: FieldRef<"YayoiCSVHistory", 'String'>
+    readonly kiId: FieldRef<"YayoiCSVHistory", 'String'>
+    readonly csvType: FieldRef<"YayoiCSVHistory", 'String'>
+    readonly taxType: FieldRef<"YayoiCSVHistory", 'String'>
+    readonly csv: FieldRef<"YayoiCSVHistory", 'String'>
+    readonly json: FieldRef<"YayoiCSVHistory", 'String'>
+    readonly updatedAt: FieldRef<"YayoiCSVHistory", 'DateTime'>
+    readonly updatedId: FieldRef<"YayoiCSVHistory", 'String'>
+    readonly updatedBy: FieldRef<"YayoiCSVHistory", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * YayoiCSVHistory findUnique
+   */
+  export type YayoiCSVHistoryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YayoiCSVHistory
+     */
+    select?: YayoiCSVHistorySelect<ExtArgs> | null
+    /**
+     * Filter, which YayoiCSVHistory to fetch.
+     */
+    where: YayoiCSVHistoryWhereUniqueInput
+  }
+
+  /**
+   * YayoiCSVHistory findUniqueOrThrow
+   */
+  export type YayoiCSVHistoryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YayoiCSVHistory
+     */
+    select?: YayoiCSVHistorySelect<ExtArgs> | null
+    /**
+     * Filter, which YayoiCSVHistory to fetch.
+     */
+    where: YayoiCSVHistoryWhereUniqueInput
+  }
+
+  /**
+   * YayoiCSVHistory findFirst
+   */
+  export type YayoiCSVHistoryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YayoiCSVHistory
+     */
+    select?: YayoiCSVHistorySelect<ExtArgs> | null
+    /**
+     * Filter, which YayoiCSVHistory to fetch.
+     */
+    where?: YayoiCSVHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of YayoiCSVHistories to fetch.
+     */
+    orderBy?: YayoiCSVHistoryOrderByWithRelationInput | YayoiCSVHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for YayoiCSVHistories.
+     */
+    cursor?: YayoiCSVHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` YayoiCSVHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` YayoiCSVHistories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of YayoiCSVHistories.
+     */
+    distinct?: YayoiCSVHistoryScalarFieldEnum | YayoiCSVHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * YayoiCSVHistory findFirstOrThrow
+   */
+  export type YayoiCSVHistoryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YayoiCSVHistory
+     */
+    select?: YayoiCSVHistorySelect<ExtArgs> | null
+    /**
+     * Filter, which YayoiCSVHistory to fetch.
+     */
+    where?: YayoiCSVHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of YayoiCSVHistories to fetch.
+     */
+    orderBy?: YayoiCSVHistoryOrderByWithRelationInput | YayoiCSVHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for YayoiCSVHistories.
+     */
+    cursor?: YayoiCSVHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` YayoiCSVHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` YayoiCSVHistories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of YayoiCSVHistories.
+     */
+    distinct?: YayoiCSVHistoryScalarFieldEnum | YayoiCSVHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * YayoiCSVHistory findMany
+   */
+  export type YayoiCSVHistoryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YayoiCSVHistory
+     */
+    select?: YayoiCSVHistorySelect<ExtArgs> | null
+    /**
+     * Filter, which YayoiCSVHistories to fetch.
+     */
+    where?: YayoiCSVHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of YayoiCSVHistories to fetch.
+     */
+    orderBy?: YayoiCSVHistoryOrderByWithRelationInput | YayoiCSVHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing YayoiCSVHistories.
+     */
+    cursor?: YayoiCSVHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` YayoiCSVHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` YayoiCSVHistories.
+     */
+    skip?: number
+    distinct?: YayoiCSVHistoryScalarFieldEnum | YayoiCSVHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * YayoiCSVHistory create
+   */
+  export type YayoiCSVHistoryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YayoiCSVHistory
+     */
+    select?: YayoiCSVHistorySelect<ExtArgs> | null
+    /**
+     * The data needed to create a YayoiCSVHistory.
+     */
+    data: XOR<YayoiCSVHistoryCreateInput, YayoiCSVHistoryUncheckedCreateInput>
+  }
+
+  /**
+   * YayoiCSVHistory createMany
+   */
+  export type YayoiCSVHistoryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many YayoiCSVHistories.
+     */
+    data: YayoiCSVHistoryCreateManyInput | YayoiCSVHistoryCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * YayoiCSVHistory createManyAndReturn
+   */
+  export type YayoiCSVHistoryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YayoiCSVHistory
+     */
+    select?: YayoiCSVHistorySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many YayoiCSVHistories.
+     */
+    data: YayoiCSVHistoryCreateManyInput | YayoiCSVHistoryCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * YayoiCSVHistory update
+   */
+  export type YayoiCSVHistoryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YayoiCSVHistory
+     */
+    select?: YayoiCSVHistorySelect<ExtArgs> | null
+    /**
+     * The data needed to update a YayoiCSVHistory.
+     */
+    data: XOR<YayoiCSVHistoryUpdateInput, YayoiCSVHistoryUncheckedUpdateInput>
+    /**
+     * Choose, which YayoiCSVHistory to update.
+     */
+    where: YayoiCSVHistoryWhereUniqueInput
+  }
+
+  /**
+   * YayoiCSVHistory updateMany
+   */
+  export type YayoiCSVHistoryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update YayoiCSVHistories.
+     */
+    data: XOR<YayoiCSVHistoryUpdateManyMutationInput, YayoiCSVHistoryUncheckedUpdateManyInput>
+    /**
+     * Filter which YayoiCSVHistories to update
+     */
+    where?: YayoiCSVHistoryWhereInput
+  }
+
+  /**
+   * YayoiCSVHistory upsert
+   */
+  export type YayoiCSVHistoryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YayoiCSVHistory
+     */
+    select?: YayoiCSVHistorySelect<ExtArgs> | null
+    /**
+     * The filter to search for the YayoiCSVHistory to update in case it exists.
+     */
+    where: YayoiCSVHistoryWhereUniqueInput
+    /**
+     * In case the YayoiCSVHistory found by the `where` argument doesn't exist, create a new YayoiCSVHistory with this data.
+     */
+    create: XOR<YayoiCSVHistoryCreateInput, YayoiCSVHistoryUncheckedCreateInput>
+    /**
+     * In case the YayoiCSVHistory was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<YayoiCSVHistoryUpdateInput, YayoiCSVHistoryUncheckedUpdateInput>
+  }
+
+  /**
+   * YayoiCSVHistory delete
+   */
+  export type YayoiCSVHistoryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YayoiCSVHistory
+     */
+    select?: YayoiCSVHistorySelect<ExtArgs> | null
+    /**
+     * Filter which YayoiCSVHistory to delete.
+     */
+    where: YayoiCSVHistoryWhereUniqueInput
+  }
+
+  /**
+   * YayoiCSVHistory deleteMany
+   */
+  export type YayoiCSVHistoryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which YayoiCSVHistories to delete
+     */
+    where?: YayoiCSVHistoryWhereInput
+  }
+
+  /**
+   * YayoiCSVHistory without action
+   */
+  export type YayoiCSVHistoryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the YayoiCSVHistory
+     */
+    select?: YayoiCSVHistorySelect<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -17184,7 +19891,18 @@ export namespace Prisma {
 
   export const CompanyScalarFieldEnum: {
     id: 'id',
-    name: 'name'
+    name: 'name',
+    templateKey: 'templateKey',
+    address: 'address',
+    establishedAt: 'establishedAt',
+    capital: 'capital',
+    representative: 'representative',
+    createdAt: 'createdAt',
+    createdId: 'createdId',
+    createdBy: 'createdBy',
+    updatedAt: 'updatedAt',
+    updatedId: 'updatedId',
+    updatedBy: 'updatedBy'
   };
 
   export type CompanyScalarFieldEnum = (typeof CompanyScalarFieldEnum)[keyof typeof CompanyScalarFieldEnum]
@@ -17222,6 +19940,11 @@ export namespace Prisma {
     residenceKubun: 'residenceKubun',
     kamiyachoFlag: 'kamiyachoFlag',
     mlspcFlag: 'mlspcFlag',
+    reportMainId: 'reportMainId',
+    reportAtt2Id: 'reportAtt2Id',
+    reportAtt3Id: 'reportAtt3Id',
+    bunpaiId: 'bunpaiId',
+    refId: 'refId',
     createdAt: 'createdAt',
     createdId: 'createdId',
     createdBy: 'createdBy',
@@ -17241,6 +19964,7 @@ export namespace Prisma {
     paymentDate: 'paymentDate',
     reportDate: 'reportDate',
     topic: 'topic',
+    ganponKuriire: 'ganponKuriire',
     createdAt: 'createdAt',
     createdId: 'createdId',
     createdBy: 'createdBy',
@@ -17258,6 +19982,11 @@ export namespace Prisma {
     name: 'name',
     address: 'address',
     registeredAddress: 'registeredAddress',
+    SelfValuationPos: 'SelfValuationPos',
+    LandValuationPos: 'LandValuationPos',
+    BuildingValuationPos: 'BuildingValuationPos',
+    LandEquityValuationPos: 'LandEquityValuationPos',
+    LandSelfValuationPos: 'LandSelfValuationPos',
     createdAt: 'createdAt',
     createdId: 'createdId',
     createdBy: 'createdBy',
@@ -17417,6 +20146,42 @@ export namespace Prisma {
   };
 
   export type VariableDefinitionScalarFieldEnum = (typeof VariableDefinitionScalarFieldEnum)[keyof typeof VariableDefinitionScalarFieldEnum]
+
+
+  export const YayoiCSVScalarFieldEnum: {
+    id: 'id',
+    projectId: 'projectId',
+    kiId: 'kiId',
+    csvType: 'csvType',
+    taxType: 'taxType',
+    csv: 'csv',
+    json: 'json',
+    createdAt: 'createdAt',
+    createdId: 'createdId',
+    createdBy: 'createdBy',
+    updatedAt: 'updatedAt',
+    updatedId: 'updatedId',
+    updatedBy: 'updatedBy'
+  };
+
+  export type YayoiCSVScalarFieldEnum = (typeof YayoiCSVScalarFieldEnum)[keyof typeof YayoiCSVScalarFieldEnum]
+
+
+  export const YayoiCSVHistoryScalarFieldEnum: {
+    id: 'id',
+    yayoiCSVId: 'yayoiCSVId',
+    projectId: 'projectId',
+    kiId: 'kiId',
+    csvType: 'csvType',
+    taxType: 'taxType',
+    csv: 'csv',
+    json: 'json',
+    updatedAt: 'updatedAt',
+    updatedId: 'updatedId',
+    updatedBy: 'updatedBy'
+  };
+
+  export type YayoiCSVHistoryScalarFieldEnum = (typeof YayoiCSVHistoryScalarFieldEnum)[keyof typeof YayoiCSVHistoryScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -17921,24 +20686,68 @@ export namespace Prisma {
     NOT?: CompanyWhereInput | CompanyWhereInput[]
     id?: StringFilter<"Company"> | string
     name?: StringFilter<"Company"> | string
+    templateKey?: StringFilter<"Company"> | string
+    address?: StringFilter<"Company"> | string
+    establishedAt?: StringFilter<"Company"> | string
+    capital?: StringFilter<"Company"> | string
+    representative?: StringFilter<"Company"> | string
+    createdAt?: DateTimeFilter<"Company"> | Date | string
+    createdId?: StringFilter<"Company"> | string
+    createdBy?: StringFilter<"Company"> | string
+    updatedAt?: DateTimeFilter<"Company"> | Date | string
+    updatedId?: StringFilter<"Company"> | string
+    updatedBy?: StringFilter<"Company"> | string
   }
 
   export type CompanyOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
+    templateKey?: SortOrder
+    address?: SortOrder
+    establishedAt?: SortOrder
+    capital?: SortOrder
+    representative?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
   }
 
   export type CompanyWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    templateKey?: string
     AND?: CompanyWhereInput | CompanyWhereInput[]
     OR?: CompanyWhereInput[]
     NOT?: CompanyWhereInput | CompanyWhereInput[]
     name?: StringFilter<"Company"> | string
-  }, "id">
+    address?: StringFilter<"Company"> | string
+    establishedAt?: StringFilter<"Company"> | string
+    capital?: StringFilter<"Company"> | string
+    representative?: StringFilter<"Company"> | string
+    createdAt?: DateTimeFilter<"Company"> | Date | string
+    createdId?: StringFilter<"Company"> | string
+    createdBy?: StringFilter<"Company"> | string
+    updatedAt?: DateTimeFilter<"Company"> | Date | string
+    updatedId?: StringFilter<"Company"> | string
+    updatedBy?: StringFilter<"Company"> | string
+  }, "id" | "templateKey">
 
   export type CompanyOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
+    templateKey?: SortOrder
+    address?: SortOrder
+    establishedAt?: SortOrder
+    capital?: SortOrder
+    representative?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
     _count?: CompanyCountOrderByAggregateInput
     _max?: CompanyMaxOrderByAggregateInput
     _min?: CompanyMinOrderByAggregateInput
@@ -17950,6 +20759,17 @@ export namespace Prisma {
     NOT?: CompanyScalarWhereWithAggregatesInput | CompanyScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Company"> | string
     name?: StringWithAggregatesFilter<"Company"> | string
+    templateKey?: StringWithAggregatesFilter<"Company"> | string
+    address?: StringWithAggregatesFilter<"Company"> | string
+    establishedAt?: StringWithAggregatesFilter<"Company"> | string
+    capital?: StringWithAggregatesFilter<"Company"> | string
+    representative?: StringWithAggregatesFilter<"Company"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Company"> | Date | string
+    createdId?: StringWithAggregatesFilter<"Company"> | string
+    createdBy?: StringWithAggregatesFilter<"Company"> | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Company"> | Date | string
+    updatedId?: StringWithAggregatesFilter<"Company"> | string
+    updatedBy?: StringWithAggregatesFilter<"Company"> | string
   }
 
   export type KiWhereInput = {
@@ -18056,12 +20876,22 @@ export namespace Prisma {
     residenceKubun?: IntFilter<"Project"> | number
     kamiyachoFlag?: BoolFilter<"Project"> | boolean
     mlspcFlag?: BoolFilter<"Project"> | boolean
+    reportMainId?: StringNullableFilter<"Project"> | string | null
+    reportAtt2Id?: StringNullableFilter<"Project"> | string | null
+    reportAtt3Id?: StringNullableFilter<"Project"> | string | null
+    bunpaiId?: StringNullableFilter<"Project"> | string | null
+    refId?: StringNullableFilter<"Project"> | string | null
     createdAt?: DateTimeFilter<"Project"> | Date | string
     createdId?: StringFilter<"Project"> | string
     createdBy?: StringFilter<"Project"> | string
     updatedAt?: DateTimeFilter<"Project"> | Date | string
     updatedId?: StringFilter<"Project"> | string
     updatedBy?: StringFilter<"Project"> | string
+    ReportMain?: XOR<TemplateNullableRelationFilter, TemplateWhereInput> | null
+    ReportAtt2?: XOR<TemplateNullableRelationFilter, TemplateWhereInput> | null
+    ReportAtt3?: XOR<TemplateNullableRelationFilter, TemplateWhereInput> | null
+    Bunpai?: XOR<TemplateNullableRelationFilter, TemplateWhereInput> | null
+    Ref?: XOR<TemplateNullableRelationFilter, TemplateWhereInput> | null
     ProjectKis?: ProjectKiListRelationFilter
     Assets?: AssetListRelationFilter
     Customers?: CustomerListRelationFilter
@@ -18083,12 +20913,22 @@ export namespace Prisma {
     residenceKubun?: SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
+    reportMainId?: SortOrderInput | SortOrder
+    reportAtt2Id?: SortOrderInput | SortOrder
+    reportAtt3Id?: SortOrderInput | SortOrder
+    bunpaiId?: SortOrderInput | SortOrder
+    refId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
     updatedAt?: SortOrder
     updatedId?: SortOrder
     updatedBy?: SortOrder
+    ReportMain?: TemplateOrderByWithRelationInput
+    ReportAtt2?: TemplateOrderByWithRelationInput
+    ReportAtt3?: TemplateOrderByWithRelationInput
+    Bunpai?: TemplateOrderByWithRelationInput
+    Ref?: TemplateOrderByWithRelationInput
     ProjectKis?: ProjectKiOrderByRelationAggregateInput
     Assets?: AssetOrderByRelationAggregateInput
     Customers?: CustomerOrderByRelationAggregateInput
@@ -18113,12 +20953,22 @@ export namespace Prisma {
     residenceKubun?: IntFilter<"Project"> | number
     kamiyachoFlag?: BoolFilter<"Project"> | boolean
     mlspcFlag?: BoolFilter<"Project"> | boolean
+    reportMainId?: StringNullableFilter<"Project"> | string | null
+    reportAtt2Id?: StringNullableFilter<"Project"> | string | null
+    reportAtt3Id?: StringNullableFilter<"Project"> | string | null
+    bunpaiId?: StringNullableFilter<"Project"> | string | null
+    refId?: StringNullableFilter<"Project"> | string | null
     createdAt?: DateTimeFilter<"Project"> | Date | string
     createdId?: StringFilter<"Project"> | string
     createdBy?: StringFilter<"Project"> | string
     updatedAt?: DateTimeFilter<"Project"> | Date | string
     updatedId?: StringFilter<"Project"> | string
     updatedBy?: StringFilter<"Project"> | string
+    ReportMain?: XOR<TemplateNullableRelationFilter, TemplateWhereInput> | null
+    ReportAtt2?: XOR<TemplateNullableRelationFilter, TemplateWhereInput> | null
+    ReportAtt3?: XOR<TemplateNullableRelationFilter, TemplateWhereInput> | null
+    Bunpai?: XOR<TemplateNullableRelationFilter, TemplateWhereInput> | null
+    Ref?: XOR<TemplateNullableRelationFilter, TemplateWhereInput> | null
     ProjectKis?: ProjectKiListRelationFilter
     Assets?: AssetListRelationFilter
     Customers?: CustomerListRelationFilter
@@ -18140,6 +20990,11 @@ export namespace Prisma {
     residenceKubun?: SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
+    reportMainId?: SortOrderInput | SortOrder
+    reportAtt2Id?: SortOrderInput | SortOrder
+    reportAtt3Id?: SortOrderInput | SortOrder
+    bunpaiId?: SortOrderInput | SortOrder
+    refId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -18172,6 +21027,11 @@ export namespace Prisma {
     residenceKubun?: IntWithAggregatesFilter<"Project"> | number
     kamiyachoFlag?: BoolWithAggregatesFilter<"Project"> | boolean
     mlspcFlag?: BoolWithAggregatesFilter<"Project"> | boolean
+    reportMainId?: StringNullableWithAggregatesFilter<"Project"> | string | null
+    reportAtt2Id?: StringNullableWithAggregatesFilter<"Project"> | string | null
+    reportAtt3Id?: StringNullableWithAggregatesFilter<"Project"> | string | null
+    bunpaiId?: StringNullableWithAggregatesFilter<"Project"> | string | null
+    refId?: StringNullableWithAggregatesFilter<"Project"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Project"> | Date | string
     createdId?: StringWithAggregatesFilter<"Project"> | string
     createdBy?: StringWithAggregatesFilter<"Project"> | string
@@ -18191,6 +21051,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFilter<"ProjectKi"> | Date | string
     reportDate?: DateTimeFilter<"ProjectKi"> | Date | string
     topic?: StringFilter<"ProjectKi"> | string
+    ganponKuriire?: IntFilter<"ProjectKi"> | number
     createdAt?: DateTimeFilter<"ProjectKi"> | Date | string
     createdId?: StringFilter<"ProjectKi"> | string
     createdBy?: StringFilter<"ProjectKi"> | string
@@ -18210,6 +21071,7 @@ export namespace Prisma {
     paymentDate?: SortOrder
     reportDate?: SortOrder
     topic?: SortOrder
+    ganponKuriire?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -18234,6 +21096,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFilter<"ProjectKi"> | Date | string
     reportDate?: DateTimeFilter<"ProjectKi"> | Date | string
     topic?: StringFilter<"ProjectKi"> | string
+    ganponKuriire?: IntFilter<"ProjectKi"> | number
     createdAt?: DateTimeFilter<"ProjectKi"> | Date | string
     createdId?: StringFilter<"ProjectKi"> | string
     createdBy?: StringFilter<"ProjectKi"> | string
@@ -18253,6 +21116,7 @@ export namespace Prisma {
     paymentDate?: SortOrder
     reportDate?: SortOrder
     topic?: SortOrder
+    ganponKuriire?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -18277,6 +21141,7 @@ export namespace Prisma {
     paymentDate?: DateTimeWithAggregatesFilter<"ProjectKi"> | Date | string
     reportDate?: DateTimeWithAggregatesFilter<"ProjectKi"> | Date | string
     topic?: StringWithAggregatesFilter<"ProjectKi"> | string
+    ganponKuriire?: IntWithAggregatesFilter<"ProjectKi"> | number
     createdAt?: DateTimeWithAggregatesFilter<"ProjectKi"> | Date | string
     createdId?: StringWithAggregatesFilter<"ProjectKi"> | string
     createdBy?: StringWithAggregatesFilter<"ProjectKi"> | string
@@ -18294,6 +21159,11 @@ export namespace Prisma {
     name?: StringFilter<"Asset"> | string
     address?: StringFilter<"Asset"> | string
     registeredAddress?: StringFilter<"Asset"> | string
+    SelfValuationPos?: StringFilter<"Asset"> | string
+    LandValuationPos?: StringFilter<"Asset"> | string
+    BuildingValuationPos?: StringFilter<"Asset"> | string
+    LandEquityValuationPos?: StringFilter<"Asset"> | string
+    LandSelfValuationPos?: StringFilter<"Asset"> | string
     createdAt?: DateTimeFilter<"Asset"> | Date | string
     createdId?: StringFilter<"Asset"> | string
     createdBy?: StringFilter<"Asset"> | string
@@ -18310,6 +21180,11 @@ export namespace Prisma {
     name?: SortOrder
     address?: SortOrder
     registeredAddress?: SortOrder
+    SelfValuationPos?: SortOrder
+    LandValuationPos?: SortOrder
+    BuildingValuationPos?: SortOrder
+    LandEquityValuationPos?: SortOrder
+    LandSelfValuationPos?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -18329,6 +21204,11 @@ export namespace Prisma {
     projectId?: StringFilter<"Asset"> | string
     address?: StringFilter<"Asset"> | string
     registeredAddress?: StringFilter<"Asset"> | string
+    SelfValuationPos?: StringFilter<"Asset"> | string
+    LandValuationPos?: StringFilter<"Asset"> | string
+    BuildingValuationPos?: StringFilter<"Asset"> | string
+    LandEquityValuationPos?: StringFilter<"Asset"> | string
+    LandSelfValuationPos?: StringFilter<"Asset"> | string
     createdAt?: DateTimeFilter<"Asset"> | Date | string
     createdId?: StringFilter<"Asset"> | string
     createdBy?: StringFilter<"Asset"> | string
@@ -18345,6 +21225,11 @@ export namespace Prisma {
     name?: SortOrder
     address?: SortOrder
     registeredAddress?: SortOrder
+    SelfValuationPos?: SortOrder
+    LandValuationPos?: SortOrder
+    BuildingValuationPos?: SortOrder
+    LandEquityValuationPos?: SortOrder
+    LandSelfValuationPos?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -18365,6 +21250,11 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Asset"> | string
     address?: StringWithAggregatesFilter<"Asset"> | string
     registeredAddress?: StringWithAggregatesFilter<"Asset"> | string
+    SelfValuationPos?: StringWithAggregatesFilter<"Asset"> | string
+    LandValuationPos?: StringWithAggregatesFilter<"Asset"> | string
+    BuildingValuationPos?: StringWithAggregatesFilter<"Asset"> | string
+    LandEquityValuationPos?: StringWithAggregatesFilter<"Asset"> | string
+    LandSelfValuationPos?: StringWithAggregatesFilter<"Asset"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Asset"> | Date | string
     createdId?: StringWithAggregatesFilter<"Asset"> | string
     createdBy?: StringWithAggregatesFilter<"Asset"> | string
@@ -18878,6 +21768,11 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Template"> | Date | string
     updatedId?: StringFilter<"Template"> | string
     updatedBy?: StringFilter<"Template"> | string
+    ReportMainProjects?: ProjectListRelationFilter
+    ReportAtt2Projects?: ProjectListRelationFilter
+    ReportAtt3Projects?: ProjectListRelationFilter
+    BunpaiProjects?: ProjectListRelationFilter
+    RefProjects?: ProjectListRelationFilter
   }
 
   export type TemplateOrderByWithRelationInput = {
@@ -18895,6 +21790,11 @@ export namespace Prisma {
     updatedAt?: SortOrder
     updatedId?: SortOrder
     updatedBy?: SortOrder
+    ReportMainProjects?: ProjectOrderByRelationAggregateInput
+    ReportAtt2Projects?: ProjectOrderByRelationAggregateInput
+    ReportAtt3Projects?: ProjectOrderByRelationAggregateInput
+    BunpaiProjects?: ProjectOrderByRelationAggregateInput
+    RefProjects?: ProjectOrderByRelationAggregateInput
   }
 
   export type TemplateWhereUniqueInput = Prisma.AtLeast<{
@@ -18915,6 +21815,11 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Template"> | Date | string
     updatedId?: StringFilter<"Template"> | string
     updatedBy?: StringFilter<"Template"> | string
+    ReportMainProjects?: ProjectListRelationFilter
+    ReportAtt2Projects?: ProjectListRelationFilter
+    ReportAtt3Projects?: ProjectListRelationFilter
+    BunpaiProjects?: ProjectListRelationFilter
+    RefProjects?: ProjectListRelationFilter
   }, "id">
 
   export type TemplateOrderByWithAggregationInput = {
@@ -19133,6 +22038,181 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"VariableDefinition"> | Date | string
     updatedId?: StringWithAggregatesFilter<"VariableDefinition"> | string
     updatedBy?: StringWithAggregatesFilter<"VariableDefinition"> | string
+  }
+
+  export type YayoiCSVWhereInput = {
+    AND?: YayoiCSVWhereInput | YayoiCSVWhereInput[]
+    OR?: YayoiCSVWhereInput[]
+    NOT?: YayoiCSVWhereInput | YayoiCSVWhereInput[]
+    id?: StringFilter<"YayoiCSV"> | string
+    projectId?: StringFilter<"YayoiCSV"> | string
+    kiId?: StringFilter<"YayoiCSV"> | string
+    csvType?: StringFilter<"YayoiCSV"> | string
+    taxType?: StringFilter<"YayoiCSV"> | string
+    csv?: StringFilter<"YayoiCSV"> | string
+    json?: StringFilter<"YayoiCSV"> | string
+    createdAt?: DateTimeFilter<"YayoiCSV"> | Date | string
+    createdId?: StringFilter<"YayoiCSV"> | string
+    createdBy?: StringFilter<"YayoiCSV"> | string
+    updatedAt?: DateTimeFilter<"YayoiCSV"> | Date | string
+    updatedId?: StringFilter<"YayoiCSV"> | string
+    updatedBy?: StringFilter<"YayoiCSV"> | string
+  }
+
+  export type YayoiCSVOrderByWithRelationInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    kiId?: SortOrder
+    csvType?: SortOrder
+    taxType?: SortOrder
+    csv?: SortOrder
+    json?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type YayoiCSVWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    yayoi_csv_project_ki_identifier?: YayoiCSVYayoi_csv_project_ki_identifierCompoundUniqueInput
+    AND?: YayoiCSVWhereInput | YayoiCSVWhereInput[]
+    OR?: YayoiCSVWhereInput[]
+    NOT?: YayoiCSVWhereInput | YayoiCSVWhereInput[]
+    projectId?: StringFilter<"YayoiCSV"> | string
+    kiId?: StringFilter<"YayoiCSV"> | string
+    csvType?: StringFilter<"YayoiCSV"> | string
+    taxType?: StringFilter<"YayoiCSV"> | string
+    csv?: StringFilter<"YayoiCSV"> | string
+    json?: StringFilter<"YayoiCSV"> | string
+    createdAt?: DateTimeFilter<"YayoiCSV"> | Date | string
+    createdId?: StringFilter<"YayoiCSV"> | string
+    createdBy?: StringFilter<"YayoiCSV"> | string
+    updatedAt?: DateTimeFilter<"YayoiCSV"> | Date | string
+    updatedId?: StringFilter<"YayoiCSV"> | string
+    updatedBy?: StringFilter<"YayoiCSV"> | string
+  }, "id" | "yayoi_csv_project_ki_identifier">
+
+  export type YayoiCSVOrderByWithAggregationInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    kiId?: SortOrder
+    csvType?: SortOrder
+    taxType?: SortOrder
+    csv?: SortOrder
+    json?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+    _count?: YayoiCSVCountOrderByAggregateInput
+    _max?: YayoiCSVMaxOrderByAggregateInput
+    _min?: YayoiCSVMinOrderByAggregateInput
+  }
+
+  export type YayoiCSVScalarWhereWithAggregatesInput = {
+    AND?: YayoiCSVScalarWhereWithAggregatesInput | YayoiCSVScalarWhereWithAggregatesInput[]
+    OR?: YayoiCSVScalarWhereWithAggregatesInput[]
+    NOT?: YayoiCSVScalarWhereWithAggregatesInput | YayoiCSVScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"YayoiCSV"> | string
+    projectId?: StringWithAggregatesFilter<"YayoiCSV"> | string
+    kiId?: StringWithAggregatesFilter<"YayoiCSV"> | string
+    csvType?: StringWithAggregatesFilter<"YayoiCSV"> | string
+    taxType?: StringWithAggregatesFilter<"YayoiCSV"> | string
+    csv?: StringWithAggregatesFilter<"YayoiCSV"> | string
+    json?: StringWithAggregatesFilter<"YayoiCSV"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"YayoiCSV"> | Date | string
+    createdId?: StringWithAggregatesFilter<"YayoiCSV"> | string
+    createdBy?: StringWithAggregatesFilter<"YayoiCSV"> | string
+    updatedAt?: DateTimeWithAggregatesFilter<"YayoiCSV"> | Date | string
+    updatedId?: StringWithAggregatesFilter<"YayoiCSV"> | string
+    updatedBy?: StringWithAggregatesFilter<"YayoiCSV"> | string
+  }
+
+  export type YayoiCSVHistoryWhereInput = {
+    AND?: YayoiCSVHistoryWhereInput | YayoiCSVHistoryWhereInput[]
+    OR?: YayoiCSVHistoryWhereInput[]
+    NOT?: YayoiCSVHistoryWhereInput | YayoiCSVHistoryWhereInput[]
+    id?: StringFilter<"YayoiCSVHistory"> | string
+    yayoiCSVId?: StringFilter<"YayoiCSVHistory"> | string
+    projectId?: StringFilter<"YayoiCSVHistory"> | string
+    kiId?: StringFilter<"YayoiCSVHistory"> | string
+    csvType?: StringFilter<"YayoiCSVHistory"> | string
+    taxType?: StringFilter<"YayoiCSVHistory"> | string
+    csv?: StringFilter<"YayoiCSVHistory"> | string
+    json?: StringFilter<"YayoiCSVHistory"> | string
+    updatedAt?: DateTimeFilter<"YayoiCSVHistory"> | Date | string
+    updatedId?: StringFilter<"YayoiCSVHistory"> | string
+    updatedBy?: StringFilter<"YayoiCSVHistory"> | string
+  }
+
+  export type YayoiCSVHistoryOrderByWithRelationInput = {
+    id?: SortOrder
+    yayoiCSVId?: SortOrder
+    projectId?: SortOrder
+    kiId?: SortOrder
+    csvType?: SortOrder
+    taxType?: SortOrder
+    csv?: SortOrder
+    json?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type YayoiCSVHistoryWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: YayoiCSVHistoryWhereInput | YayoiCSVHistoryWhereInput[]
+    OR?: YayoiCSVHistoryWhereInput[]
+    NOT?: YayoiCSVHistoryWhereInput | YayoiCSVHistoryWhereInput[]
+    yayoiCSVId?: StringFilter<"YayoiCSVHistory"> | string
+    projectId?: StringFilter<"YayoiCSVHistory"> | string
+    kiId?: StringFilter<"YayoiCSVHistory"> | string
+    csvType?: StringFilter<"YayoiCSVHistory"> | string
+    taxType?: StringFilter<"YayoiCSVHistory"> | string
+    csv?: StringFilter<"YayoiCSVHistory"> | string
+    json?: StringFilter<"YayoiCSVHistory"> | string
+    updatedAt?: DateTimeFilter<"YayoiCSVHistory"> | Date | string
+    updatedId?: StringFilter<"YayoiCSVHistory"> | string
+    updatedBy?: StringFilter<"YayoiCSVHistory"> | string
+  }, "id">
+
+  export type YayoiCSVHistoryOrderByWithAggregationInput = {
+    id?: SortOrder
+    yayoiCSVId?: SortOrder
+    projectId?: SortOrder
+    kiId?: SortOrder
+    csvType?: SortOrder
+    taxType?: SortOrder
+    csv?: SortOrder
+    json?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+    _count?: YayoiCSVHistoryCountOrderByAggregateInput
+    _max?: YayoiCSVHistoryMaxOrderByAggregateInput
+    _min?: YayoiCSVHistoryMinOrderByAggregateInput
+  }
+
+  export type YayoiCSVHistoryScalarWhereWithAggregatesInput = {
+    AND?: YayoiCSVHistoryScalarWhereWithAggregatesInput | YayoiCSVHistoryScalarWhereWithAggregatesInput[]
+    OR?: YayoiCSVHistoryScalarWhereWithAggregatesInput[]
+    NOT?: YayoiCSVHistoryScalarWhereWithAggregatesInput | YayoiCSVHistoryScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"YayoiCSVHistory"> | string
+    yayoiCSVId?: StringWithAggregatesFilter<"YayoiCSVHistory"> | string
+    projectId?: StringWithAggregatesFilter<"YayoiCSVHistory"> | string
+    kiId?: StringWithAggregatesFilter<"YayoiCSVHistory"> | string
+    csvType?: StringWithAggregatesFilter<"YayoiCSVHistory"> | string
+    taxType?: StringWithAggregatesFilter<"YayoiCSVHistory"> | string
+    csv?: StringWithAggregatesFilter<"YayoiCSVHistory"> | string
+    json?: StringWithAggregatesFilter<"YayoiCSVHistory"> | string
+    updatedAt?: DateTimeWithAggregatesFilter<"YayoiCSVHistory"> | Date | string
+    updatedId?: StringWithAggregatesFilter<"YayoiCSVHistory"> | string
+    updatedBy?: StringWithAggregatesFilter<"YayoiCSVHistory"> | string
   }
 
   export type UserCreateInput = {
@@ -19453,36 +22533,113 @@ export namespace Prisma {
   export type CompanyCreateInput = {
     id?: string
     name: string
+    templateKey: string
+    address: string
+    establishedAt: string
+    capital: string
+    representative: string
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
   }
 
   export type CompanyUncheckedCreateInput = {
     id?: string
     name: string
+    templateKey: string
+    address: string
+    establishedAt: string
+    capital: string
+    representative: string
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
   }
 
   export type CompanyUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    templateKey?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    establishedAt?: StringFieldUpdateOperationsInput | string
+    capital?: StringFieldUpdateOperationsInput | string
+    representative?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
   export type CompanyUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    templateKey?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    establishedAt?: StringFieldUpdateOperationsInput | string
+    capital?: StringFieldUpdateOperationsInput | string
+    representative?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
   export type CompanyCreateManyInput = {
     id?: string
     name: string
+    templateKey: string
+    address: string
+    establishedAt: string
+    capital: string
+    representative: string
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
   }
 
   export type CompanyUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    templateKey?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    establishedAt?: StringFieldUpdateOperationsInput | string
+    capital?: StringFieldUpdateOperationsInput | string
+    representative?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
   export type CompanyUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    templateKey?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    establishedAt?: StringFieldUpdateOperationsInput | string
+    capital?: StringFieldUpdateOperationsInput | string
+    representative?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
   export type KiCreateInput = {
@@ -19606,6 +22763,11 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: string
     updatedBy: string
+    ReportMain?: TemplateCreateNestedOneWithoutReportMainProjectsInput
+    ReportAtt2?: TemplateCreateNestedOneWithoutReportAtt2ProjectsInput
+    ReportAtt3?: TemplateCreateNestedOneWithoutReportAtt3ProjectsInput
+    Bunpai?: TemplateCreateNestedOneWithoutBunpaiProjectsInput
+    Ref?: TemplateCreateNestedOneWithoutRefProjectsInput
     ProjectKis?: ProjectKiCreateNestedManyWithoutProjectInput
     Assets?: AssetCreateNestedManyWithoutProjectInput
     Customers?: CustomerCreateNestedManyWithoutProjectInput
@@ -19627,6 +22789,11 @@ export namespace Prisma {
     residenceKubun?: number
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    reportMainId?: string | null
+    reportAtt2Id?: string | null
+    reportAtt3Id?: string | null
+    bunpaiId?: string | null
+    refId?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -19660,6 +22827,11 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
+    ReportMain?: TemplateUpdateOneWithoutReportMainProjectsNestedInput
+    ReportAtt2?: TemplateUpdateOneWithoutReportAtt2ProjectsNestedInput
+    ReportAtt3?: TemplateUpdateOneWithoutReportAtt3ProjectsNestedInput
+    Bunpai?: TemplateUpdateOneWithoutBunpaiProjectsNestedInput
+    Ref?: TemplateUpdateOneWithoutRefProjectsNestedInput
     ProjectKis?: ProjectKiUpdateManyWithoutProjectNestedInput
     Assets?: AssetUpdateManyWithoutProjectNestedInput
     Customers?: CustomerUpdateManyWithoutProjectNestedInput
@@ -19681,6 +22853,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
+    reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
+    reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
+    bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
+    refId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -19708,6 +22885,11 @@ export namespace Prisma {
     residenceKubun?: number
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    reportMainId?: string | null
+    reportAtt2Id?: string | null
+    reportAtt3Id?: string | null
+    bunpaiId?: string | null
+    refId?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -19756,6 +22938,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
+    reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
+    reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
+    bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
+    refId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -19770,6 +22957,7 @@ export namespace Prisma {
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
+    ganponKuriire?: number
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -19789,6 +22977,7 @@ export namespace Prisma {
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
+    ganponKuriire?: number
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -19804,6 +22993,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    ganponKuriire?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -19823,6 +23013,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    ganponKuriire?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -19840,6 +23031,7 @@ export namespace Prisma {
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
+    ganponKuriire?: number
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -19854,6 +23046,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    ganponKuriire?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -19870,6 +23063,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    ganponKuriire?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -19883,6 +23077,11 @@ export namespace Prisma {
     name: string
     address: string
     registeredAddress: string
+    SelfValuationPos?: string
+    LandValuationPos?: string
+    BuildingValuationPos?: string
+    LandEquityValuationPos?: string
+    LandSelfValuationPos?: string
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -19899,6 +23098,11 @@ export namespace Prisma {
     name: string
     address: string
     registeredAddress: string
+    SelfValuationPos?: string
+    LandValuationPos?: string
+    BuildingValuationPos?: string
+    LandEquityValuationPos?: string
+    LandSelfValuationPos?: string
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -19913,6 +23117,11 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     registeredAddress?: StringFieldUpdateOperationsInput | string
+    SelfValuationPos?: StringFieldUpdateOperationsInput | string
+    LandValuationPos?: StringFieldUpdateOperationsInput | string
+    BuildingValuationPos?: StringFieldUpdateOperationsInput | string
+    LandEquityValuationPos?: StringFieldUpdateOperationsInput | string
+    LandSelfValuationPos?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -19929,6 +23138,11 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     registeredAddress?: StringFieldUpdateOperationsInput | string
+    SelfValuationPos?: StringFieldUpdateOperationsInput | string
+    LandValuationPos?: StringFieldUpdateOperationsInput | string
+    BuildingValuationPos?: StringFieldUpdateOperationsInput | string
+    LandEquityValuationPos?: StringFieldUpdateOperationsInput | string
+    LandSelfValuationPos?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -19944,6 +23158,11 @@ export namespace Prisma {
     name: string
     address: string
     registeredAddress: string
+    SelfValuationPos?: string
+    LandValuationPos?: string
+    BuildingValuationPos?: string
+    LandEquityValuationPos?: string
+    LandSelfValuationPos?: string
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -19957,6 +23176,11 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     registeredAddress?: StringFieldUpdateOperationsInput | string
+    SelfValuationPos?: StringFieldUpdateOperationsInput | string
+    LandValuationPos?: StringFieldUpdateOperationsInput | string
+    BuildingValuationPos?: StringFieldUpdateOperationsInput | string
+    LandEquityValuationPos?: StringFieldUpdateOperationsInput | string
+    LandSelfValuationPos?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -19971,6 +23195,11 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     registeredAddress?: StringFieldUpdateOperationsInput | string
+    SelfValuationPos?: StringFieldUpdateOperationsInput | string
+    LandValuationPos?: StringFieldUpdateOperationsInput | string
+    BuildingValuationPos?: StringFieldUpdateOperationsInput | string
+    LandEquityValuationPos?: StringFieldUpdateOperationsInput | string
+    LandSelfValuationPos?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -20588,6 +23817,11 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: string
     updatedBy: string
+    ReportMainProjects?: ProjectCreateNestedManyWithoutReportMainInput
+    ReportAtt2Projects?: ProjectCreateNestedManyWithoutReportAtt2Input
+    ReportAtt3Projects?: ProjectCreateNestedManyWithoutReportAtt3Input
+    BunpaiProjects?: ProjectCreateNestedManyWithoutBunpaiInput
+    RefProjects?: ProjectCreateNestedManyWithoutRefInput
   }
 
   export type TemplateUncheckedCreateInput = {
@@ -20605,6 +23839,11 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: string
     updatedBy: string
+    ReportMainProjects?: ProjectUncheckedCreateNestedManyWithoutReportMainInput
+    ReportAtt2Projects?: ProjectUncheckedCreateNestedManyWithoutReportAtt2Input
+    ReportAtt3Projects?: ProjectUncheckedCreateNestedManyWithoutReportAtt3Input
+    BunpaiProjects?: ProjectUncheckedCreateNestedManyWithoutBunpaiInput
+    RefProjects?: ProjectUncheckedCreateNestedManyWithoutRefInput
   }
 
   export type TemplateUpdateInput = {
@@ -20622,6 +23861,11 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
+    ReportMainProjects?: ProjectUpdateManyWithoutReportMainNestedInput
+    ReportAtt2Projects?: ProjectUpdateManyWithoutReportAtt2NestedInput
+    ReportAtt3Projects?: ProjectUpdateManyWithoutReportAtt3NestedInput
+    BunpaiProjects?: ProjectUpdateManyWithoutBunpaiNestedInput
+    RefProjects?: ProjectUpdateManyWithoutRefNestedInput
   }
 
   export type TemplateUncheckedUpdateInput = {
@@ -20639,6 +23883,11 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
+    ReportMainProjects?: ProjectUncheckedUpdateManyWithoutReportMainNestedInput
+    ReportAtt2Projects?: ProjectUncheckedUpdateManyWithoutReportAtt2NestedInput
+    ReportAtt3Projects?: ProjectUncheckedUpdateManyWithoutReportAtt3NestedInput
+    BunpaiProjects?: ProjectUncheckedUpdateManyWithoutBunpaiNestedInput
+    RefProjects?: ProjectUncheckedUpdateManyWithoutRefNestedInput
   }
 
   export type TemplateCreateManyInput = {
@@ -20897,6 +24146,216 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type YayoiCSVCreateInput = {
+    id?: string
+    projectId: string
+    kiId: string
+    csvType: string
+    taxType: string
+    csv: string
+    json: string
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type YayoiCSVUncheckedCreateInput = {
+    id?: string
+    projectId: string
+    kiId: string
+    csvType: string
+    taxType: string
+    csv: string
+    json: string
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type YayoiCSVUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    csvType?: StringFieldUpdateOperationsInput | string
+    taxType?: StringFieldUpdateOperationsInput | string
+    csv?: StringFieldUpdateOperationsInput | string
+    json?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type YayoiCSVUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    csvType?: StringFieldUpdateOperationsInput | string
+    taxType?: StringFieldUpdateOperationsInput | string
+    csv?: StringFieldUpdateOperationsInput | string
+    json?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type YayoiCSVCreateManyInput = {
+    id?: string
+    projectId: string
+    kiId: string
+    csvType: string
+    taxType: string
+    csv: string
+    json: string
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type YayoiCSVUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    csvType?: StringFieldUpdateOperationsInput | string
+    taxType?: StringFieldUpdateOperationsInput | string
+    csv?: StringFieldUpdateOperationsInput | string
+    json?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type YayoiCSVUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    csvType?: StringFieldUpdateOperationsInput | string
+    taxType?: StringFieldUpdateOperationsInput | string
+    csv?: StringFieldUpdateOperationsInput | string
+    json?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type YayoiCSVHistoryCreateInput = {
+    id?: string
+    yayoiCSVId: string
+    projectId: string
+    kiId: string
+    csvType: string
+    taxType: string
+    csv: string
+    json: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type YayoiCSVHistoryUncheckedCreateInput = {
+    id?: string
+    yayoiCSVId: string
+    projectId: string
+    kiId: string
+    csvType: string
+    taxType: string
+    csv: string
+    json: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type YayoiCSVHistoryUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    yayoiCSVId?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    csvType?: StringFieldUpdateOperationsInput | string
+    taxType?: StringFieldUpdateOperationsInput | string
+    csv?: StringFieldUpdateOperationsInput | string
+    json?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type YayoiCSVHistoryUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    yayoiCSVId?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    csvType?: StringFieldUpdateOperationsInput | string
+    taxType?: StringFieldUpdateOperationsInput | string
+    csv?: StringFieldUpdateOperationsInput | string
+    json?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type YayoiCSVHistoryCreateManyInput = {
+    id?: string
+    yayoiCSVId: string
+    projectId: string
+    kiId: string
+    csvType: string
+    taxType: string
+    csv: string
+    json: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type YayoiCSVHistoryUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    yayoiCSVId?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    csvType?: StringFieldUpdateOperationsInput | string
+    taxType?: StringFieldUpdateOperationsInput | string
+    csv?: StringFieldUpdateOperationsInput | string
+    json?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type YayoiCSVHistoryUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    yayoiCSVId?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    csvType?: StringFieldUpdateOperationsInput | string
+    taxType?: StringFieldUpdateOperationsInput | string
+    csv?: StringFieldUpdateOperationsInput | string
+    json?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
@@ -21183,16 +24642,49 @@ export namespace Prisma {
   export type CompanyCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    templateKey?: SortOrder
+    address?: SortOrder
+    establishedAt?: SortOrder
+    capital?: SortOrder
+    representative?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
   }
 
   export type CompanyMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    templateKey?: SortOrder
+    address?: SortOrder
+    establishedAt?: SortOrder
+    capital?: SortOrder
+    representative?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
   }
 
   export type CompanyMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
+    templateKey?: SortOrder
+    address?: SortOrder
+    establishedAt?: SortOrder
+    capital?: SortOrder
+    representative?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -21313,6 +24805,11 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type TemplateNullableRelationFilter = {
+    is?: TemplateWhereInput | null
+    isNot?: TemplateWhereInput | null
+  }
+
   export type AssetListRelationFilter = {
     every?: AssetWhereInput
     some?: AssetWhereInput
@@ -21349,6 +24846,11 @@ export namespace Prisma {
     residenceKubun?: SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
+    reportMainId?: SortOrder
+    reportAtt2Id?: SortOrder
+    reportAtt3Id?: SortOrder
+    bunpaiId?: SortOrder
+    refId?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -21383,6 +24885,11 @@ export namespace Prisma {
     residenceKubun?: SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
+    reportMainId?: SortOrder
+    reportAtt2Id?: SortOrder
+    reportAtt3Id?: SortOrder
+    bunpaiId?: SortOrder
+    refId?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -21407,6 +24914,11 @@ export namespace Prisma {
     residenceKubun?: SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
+    reportMainId?: SortOrder
+    reportAtt2Id?: SortOrder
+    reportAtt3Id?: SortOrder
+    bunpaiId?: SortOrder
+    refId?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -21495,6 +25007,7 @@ export namespace Prisma {
     paymentDate?: SortOrder
     reportDate?: SortOrder
     topic?: SortOrder
+    ganponKuriire?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -21505,6 +25018,7 @@ export namespace Prisma {
 
   export type ProjectKiAvgOrderByAggregateInput = {
     projectKi?: SortOrder
+    ganponKuriire?: SortOrder
   }
 
   export type ProjectKiMaxOrderByAggregateInput = {
@@ -21515,6 +25029,7 @@ export namespace Prisma {
     paymentDate?: SortOrder
     reportDate?: SortOrder
     topic?: SortOrder
+    ganponKuriire?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -21531,6 +25046,7 @@ export namespace Prisma {
     paymentDate?: SortOrder
     reportDate?: SortOrder
     topic?: SortOrder
+    ganponKuriire?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -21541,6 +25057,7 @@ export namespace Prisma {
 
   export type ProjectKiSumOrderByAggregateInput = {
     projectKi?: SortOrder
+    ganponKuriire?: SortOrder
   }
 
   export type AssetCountOrderByAggregateInput = {
@@ -21549,6 +25066,11 @@ export namespace Prisma {
     name?: SortOrder
     address?: SortOrder
     registeredAddress?: SortOrder
+    SelfValuationPos?: SortOrder
+    LandValuationPos?: SortOrder
+    BuildingValuationPos?: SortOrder
+    LandEquityValuationPos?: SortOrder
+    LandSelfValuationPos?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -21563,6 +25085,11 @@ export namespace Prisma {
     name?: SortOrder
     address?: SortOrder
     registeredAddress?: SortOrder
+    SelfValuationPos?: SortOrder
+    LandValuationPos?: SortOrder
+    BuildingValuationPos?: SortOrder
+    LandEquityValuationPos?: SortOrder
+    LandSelfValuationPos?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -21577,6 +25104,11 @@ export namespace Prisma {
     name?: SortOrder
     address?: SortOrder
     registeredAddress?: SortOrder
+    SelfValuationPos?: SortOrder
+    LandValuationPos?: SortOrder
+    BuildingValuationPos?: SortOrder
+    LandEquityValuationPos?: SortOrder
+    LandSelfValuationPos?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -22029,6 +25561,16 @@ export namespace Prisma {
     not?: NestedBytesFilter<$PrismaModel> | Buffer
   }
 
+  export type ProjectListRelationFilter = {
+    every?: ProjectWhereInput
+    some?: ProjectWhereInput
+    none?: ProjectWhereInput
+  }
+
+  export type ProjectOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type TemplateCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -22237,6 +25779,103 @@ export namespace Prisma {
     _max?: NestedEnumVariableTypeFilter<$PrismaModel>
   }
 
+  export type YayoiCSVYayoi_csv_project_ki_identifierCompoundUniqueInput = {
+    projectId: string
+    kiId: string
+    csvType: string
+    taxType: string
+  }
+
+  export type YayoiCSVCountOrderByAggregateInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    kiId?: SortOrder
+    csvType?: SortOrder
+    taxType?: SortOrder
+    csv?: SortOrder
+    json?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type YayoiCSVMaxOrderByAggregateInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    kiId?: SortOrder
+    csvType?: SortOrder
+    taxType?: SortOrder
+    csv?: SortOrder
+    json?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type YayoiCSVMinOrderByAggregateInput = {
+    id?: SortOrder
+    projectId?: SortOrder
+    kiId?: SortOrder
+    csvType?: SortOrder
+    taxType?: SortOrder
+    csv?: SortOrder
+    json?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type YayoiCSVHistoryCountOrderByAggregateInput = {
+    id?: SortOrder
+    yayoiCSVId?: SortOrder
+    projectId?: SortOrder
+    kiId?: SortOrder
+    csvType?: SortOrder
+    taxType?: SortOrder
+    csv?: SortOrder
+    json?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type YayoiCSVHistoryMaxOrderByAggregateInput = {
+    id?: SortOrder
+    yayoiCSVId?: SortOrder
+    projectId?: SortOrder
+    kiId?: SortOrder
+    csvType?: SortOrder
+    taxType?: SortOrder
+    csv?: SortOrder
+    json?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type YayoiCSVHistoryMinOrderByAggregateInput = {
+    id?: SortOrder
+    yayoiCSVId?: SortOrder
+    projectId?: SortOrder
+    kiId?: SortOrder
+    csvType?: SortOrder
+    taxType?: SortOrder
+    csv?: SortOrder
+    json?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -22353,6 +25992,36 @@ export namespace Prisma {
     deleteMany?: AssetKiScalarWhereInput | AssetKiScalarWhereInput[]
   }
 
+  export type TemplateCreateNestedOneWithoutReportMainProjectsInput = {
+    create?: XOR<TemplateCreateWithoutReportMainProjectsInput, TemplateUncheckedCreateWithoutReportMainProjectsInput>
+    connectOrCreate?: TemplateCreateOrConnectWithoutReportMainProjectsInput
+    connect?: TemplateWhereUniqueInput
+  }
+
+  export type TemplateCreateNestedOneWithoutReportAtt2ProjectsInput = {
+    create?: XOR<TemplateCreateWithoutReportAtt2ProjectsInput, TemplateUncheckedCreateWithoutReportAtt2ProjectsInput>
+    connectOrCreate?: TemplateCreateOrConnectWithoutReportAtt2ProjectsInput
+    connect?: TemplateWhereUniqueInput
+  }
+
+  export type TemplateCreateNestedOneWithoutReportAtt3ProjectsInput = {
+    create?: XOR<TemplateCreateWithoutReportAtt3ProjectsInput, TemplateUncheckedCreateWithoutReportAtt3ProjectsInput>
+    connectOrCreate?: TemplateCreateOrConnectWithoutReportAtt3ProjectsInput
+    connect?: TemplateWhereUniqueInput
+  }
+
+  export type TemplateCreateNestedOneWithoutBunpaiProjectsInput = {
+    create?: XOR<TemplateCreateWithoutBunpaiProjectsInput, TemplateUncheckedCreateWithoutBunpaiProjectsInput>
+    connectOrCreate?: TemplateCreateOrConnectWithoutBunpaiProjectsInput
+    connect?: TemplateWhereUniqueInput
+  }
+
+  export type TemplateCreateNestedOneWithoutRefProjectsInput = {
+    create?: XOR<TemplateCreateWithoutRefProjectsInput, TemplateUncheckedCreateWithoutRefProjectsInput>
+    connectOrCreate?: TemplateCreateOrConnectWithoutRefProjectsInput
+    connect?: TemplateWhereUniqueInput
+  }
+
   export type ProjectKiCreateNestedManyWithoutProjectInput = {
     create?: XOR<ProjectKiCreateWithoutProjectInput, ProjectKiUncheckedCreateWithoutProjectInput> | ProjectKiCreateWithoutProjectInput[] | ProjectKiUncheckedCreateWithoutProjectInput[]
     connectOrCreate?: ProjectKiCreateOrConnectWithoutProjectInput | ProjectKiCreateOrConnectWithoutProjectInput[]
@@ -22409,6 +26078,56 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type TemplateUpdateOneWithoutReportMainProjectsNestedInput = {
+    create?: XOR<TemplateCreateWithoutReportMainProjectsInput, TemplateUncheckedCreateWithoutReportMainProjectsInput>
+    connectOrCreate?: TemplateCreateOrConnectWithoutReportMainProjectsInput
+    upsert?: TemplateUpsertWithoutReportMainProjectsInput
+    disconnect?: TemplateWhereInput | boolean
+    delete?: TemplateWhereInput | boolean
+    connect?: TemplateWhereUniqueInput
+    update?: XOR<XOR<TemplateUpdateToOneWithWhereWithoutReportMainProjectsInput, TemplateUpdateWithoutReportMainProjectsInput>, TemplateUncheckedUpdateWithoutReportMainProjectsInput>
+  }
+
+  export type TemplateUpdateOneWithoutReportAtt2ProjectsNestedInput = {
+    create?: XOR<TemplateCreateWithoutReportAtt2ProjectsInput, TemplateUncheckedCreateWithoutReportAtt2ProjectsInput>
+    connectOrCreate?: TemplateCreateOrConnectWithoutReportAtt2ProjectsInput
+    upsert?: TemplateUpsertWithoutReportAtt2ProjectsInput
+    disconnect?: TemplateWhereInput | boolean
+    delete?: TemplateWhereInput | boolean
+    connect?: TemplateWhereUniqueInput
+    update?: XOR<XOR<TemplateUpdateToOneWithWhereWithoutReportAtt2ProjectsInput, TemplateUpdateWithoutReportAtt2ProjectsInput>, TemplateUncheckedUpdateWithoutReportAtt2ProjectsInput>
+  }
+
+  export type TemplateUpdateOneWithoutReportAtt3ProjectsNestedInput = {
+    create?: XOR<TemplateCreateWithoutReportAtt3ProjectsInput, TemplateUncheckedCreateWithoutReportAtt3ProjectsInput>
+    connectOrCreate?: TemplateCreateOrConnectWithoutReportAtt3ProjectsInput
+    upsert?: TemplateUpsertWithoutReportAtt3ProjectsInput
+    disconnect?: TemplateWhereInput | boolean
+    delete?: TemplateWhereInput | boolean
+    connect?: TemplateWhereUniqueInput
+    update?: XOR<XOR<TemplateUpdateToOneWithWhereWithoutReportAtt3ProjectsInput, TemplateUpdateWithoutReportAtt3ProjectsInput>, TemplateUncheckedUpdateWithoutReportAtt3ProjectsInput>
+  }
+
+  export type TemplateUpdateOneWithoutBunpaiProjectsNestedInput = {
+    create?: XOR<TemplateCreateWithoutBunpaiProjectsInput, TemplateUncheckedCreateWithoutBunpaiProjectsInput>
+    connectOrCreate?: TemplateCreateOrConnectWithoutBunpaiProjectsInput
+    upsert?: TemplateUpsertWithoutBunpaiProjectsInput
+    disconnect?: TemplateWhereInput | boolean
+    delete?: TemplateWhereInput | boolean
+    connect?: TemplateWhereUniqueInput
+    update?: XOR<XOR<TemplateUpdateToOneWithWhereWithoutBunpaiProjectsInput, TemplateUpdateWithoutBunpaiProjectsInput>, TemplateUncheckedUpdateWithoutBunpaiProjectsInput>
+  }
+
+  export type TemplateUpdateOneWithoutRefProjectsNestedInput = {
+    create?: XOR<TemplateCreateWithoutRefProjectsInput, TemplateUncheckedCreateWithoutRefProjectsInput>
+    connectOrCreate?: TemplateCreateOrConnectWithoutRefProjectsInput
+    upsert?: TemplateUpsertWithoutRefProjectsInput
+    disconnect?: TemplateWhereInput | boolean
+    delete?: TemplateWhereInput | boolean
+    connect?: TemplateWhereUniqueInput
+    update?: XOR<XOR<TemplateUpdateToOneWithWhereWithoutRefProjectsInput, TemplateUpdateWithoutRefProjectsInput>, TemplateUncheckedUpdateWithoutRefProjectsInput>
   }
 
   export type ProjectKiUpdateManyWithoutProjectNestedInput = {
@@ -22757,6 +26476,76 @@ export namespace Prisma {
     update?: XOR<XOR<ProjectKiUpdateToOneWithWhereWithoutCustomerFundsInput, ProjectKiUpdateWithoutCustomerFundsInput>, ProjectKiUncheckedUpdateWithoutCustomerFundsInput>
   }
 
+  export type ProjectCreateNestedManyWithoutReportMainInput = {
+    create?: XOR<ProjectCreateWithoutReportMainInput, ProjectUncheckedCreateWithoutReportMainInput> | ProjectCreateWithoutReportMainInput[] | ProjectUncheckedCreateWithoutReportMainInput[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutReportMainInput | ProjectCreateOrConnectWithoutReportMainInput[]
+    createMany?: ProjectCreateManyReportMainInputEnvelope
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+  }
+
+  export type ProjectCreateNestedManyWithoutReportAtt2Input = {
+    create?: XOR<ProjectCreateWithoutReportAtt2Input, ProjectUncheckedCreateWithoutReportAtt2Input> | ProjectCreateWithoutReportAtt2Input[] | ProjectUncheckedCreateWithoutReportAtt2Input[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutReportAtt2Input | ProjectCreateOrConnectWithoutReportAtt2Input[]
+    createMany?: ProjectCreateManyReportAtt2InputEnvelope
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+  }
+
+  export type ProjectCreateNestedManyWithoutReportAtt3Input = {
+    create?: XOR<ProjectCreateWithoutReportAtt3Input, ProjectUncheckedCreateWithoutReportAtt3Input> | ProjectCreateWithoutReportAtt3Input[] | ProjectUncheckedCreateWithoutReportAtt3Input[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutReportAtt3Input | ProjectCreateOrConnectWithoutReportAtt3Input[]
+    createMany?: ProjectCreateManyReportAtt3InputEnvelope
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+  }
+
+  export type ProjectCreateNestedManyWithoutBunpaiInput = {
+    create?: XOR<ProjectCreateWithoutBunpaiInput, ProjectUncheckedCreateWithoutBunpaiInput> | ProjectCreateWithoutBunpaiInput[] | ProjectUncheckedCreateWithoutBunpaiInput[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutBunpaiInput | ProjectCreateOrConnectWithoutBunpaiInput[]
+    createMany?: ProjectCreateManyBunpaiInputEnvelope
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+  }
+
+  export type ProjectCreateNestedManyWithoutRefInput = {
+    create?: XOR<ProjectCreateWithoutRefInput, ProjectUncheckedCreateWithoutRefInput> | ProjectCreateWithoutRefInput[] | ProjectUncheckedCreateWithoutRefInput[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutRefInput | ProjectCreateOrConnectWithoutRefInput[]
+    createMany?: ProjectCreateManyRefInputEnvelope
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+  }
+
+  export type ProjectUncheckedCreateNestedManyWithoutReportMainInput = {
+    create?: XOR<ProjectCreateWithoutReportMainInput, ProjectUncheckedCreateWithoutReportMainInput> | ProjectCreateWithoutReportMainInput[] | ProjectUncheckedCreateWithoutReportMainInput[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutReportMainInput | ProjectCreateOrConnectWithoutReportMainInput[]
+    createMany?: ProjectCreateManyReportMainInputEnvelope
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+  }
+
+  export type ProjectUncheckedCreateNestedManyWithoutReportAtt2Input = {
+    create?: XOR<ProjectCreateWithoutReportAtt2Input, ProjectUncheckedCreateWithoutReportAtt2Input> | ProjectCreateWithoutReportAtt2Input[] | ProjectUncheckedCreateWithoutReportAtt2Input[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutReportAtt2Input | ProjectCreateOrConnectWithoutReportAtt2Input[]
+    createMany?: ProjectCreateManyReportAtt2InputEnvelope
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+  }
+
+  export type ProjectUncheckedCreateNestedManyWithoutReportAtt3Input = {
+    create?: XOR<ProjectCreateWithoutReportAtt3Input, ProjectUncheckedCreateWithoutReportAtt3Input> | ProjectCreateWithoutReportAtt3Input[] | ProjectUncheckedCreateWithoutReportAtt3Input[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutReportAtt3Input | ProjectCreateOrConnectWithoutReportAtt3Input[]
+    createMany?: ProjectCreateManyReportAtt3InputEnvelope
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+  }
+
+  export type ProjectUncheckedCreateNestedManyWithoutBunpaiInput = {
+    create?: XOR<ProjectCreateWithoutBunpaiInput, ProjectUncheckedCreateWithoutBunpaiInput> | ProjectCreateWithoutBunpaiInput[] | ProjectUncheckedCreateWithoutBunpaiInput[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutBunpaiInput | ProjectCreateOrConnectWithoutBunpaiInput[]
+    createMany?: ProjectCreateManyBunpaiInputEnvelope
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+  }
+
+  export type ProjectUncheckedCreateNestedManyWithoutRefInput = {
+    create?: XOR<ProjectCreateWithoutRefInput, ProjectUncheckedCreateWithoutRefInput> | ProjectCreateWithoutRefInput[] | ProjectUncheckedCreateWithoutRefInput[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutRefInput | ProjectCreateOrConnectWithoutRefInput[]
+    createMany?: ProjectCreateManyRefInputEnvelope
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+  }
+
   export type EnumExtTypeFieldUpdateOperationsInput = {
     set?: $Enums.ExtType
   }
@@ -22767,6 +26556,146 @@ export namespace Prisma {
 
   export type BytesFieldUpdateOperationsInput = {
     set?: Buffer
+  }
+
+  export type ProjectUpdateManyWithoutReportMainNestedInput = {
+    create?: XOR<ProjectCreateWithoutReportMainInput, ProjectUncheckedCreateWithoutReportMainInput> | ProjectCreateWithoutReportMainInput[] | ProjectUncheckedCreateWithoutReportMainInput[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutReportMainInput | ProjectCreateOrConnectWithoutReportMainInput[]
+    upsert?: ProjectUpsertWithWhereUniqueWithoutReportMainInput | ProjectUpsertWithWhereUniqueWithoutReportMainInput[]
+    createMany?: ProjectCreateManyReportMainInputEnvelope
+    set?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    disconnect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    delete?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    update?: ProjectUpdateWithWhereUniqueWithoutReportMainInput | ProjectUpdateWithWhereUniqueWithoutReportMainInput[]
+    updateMany?: ProjectUpdateManyWithWhereWithoutReportMainInput | ProjectUpdateManyWithWhereWithoutReportMainInput[]
+    deleteMany?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
+  }
+
+  export type ProjectUpdateManyWithoutReportAtt2NestedInput = {
+    create?: XOR<ProjectCreateWithoutReportAtt2Input, ProjectUncheckedCreateWithoutReportAtt2Input> | ProjectCreateWithoutReportAtt2Input[] | ProjectUncheckedCreateWithoutReportAtt2Input[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutReportAtt2Input | ProjectCreateOrConnectWithoutReportAtt2Input[]
+    upsert?: ProjectUpsertWithWhereUniqueWithoutReportAtt2Input | ProjectUpsertWithWhereUniqueWithoutReportAtt2Input[]
+    createMany?: ProjectCreateManyReportAtt2InputEnvelope
+    set?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    disconnect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    delete?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    update?: ProjectUpdateWithWhereUniqueWithoutReportAtt2Input | ProjectUpdateWithWhereUniqueWithoutReportAtt2Input[]
+    updateMany?: ProjectUpdateManyWithWhereWithoutReportAtt2Input | ProjectUpdateManyWithWhereWithoutReportAtt2Input[]
+    deleteMany?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
+  }
+
+  export type ProjectUpdateManyWithoutReportAtt3NestedInput = {
+    create?: XOR<ProjectCreateWithoutReportAtt3Input, ProjectUncheckedCreateWithoutReportAtt3Input> | ProjectCreateWithoutReportAtt3Input[] | ProjectUncheckedCreateWithoutReportAtt3Input[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutReportAtt3Input | ProjectCreateOrConnectWithoutReportAtt3Input[]
+    upsert?: ProjectUpsertWithWhereUniqueWithoutReportAtt3Input | ProjectUpsertWithWhereUniqueWithoutReportAtt3Input[]
+    createMany?: ProjectCreateManyReportAtt3InputEnvelope
+    set?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    disconnect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    delete?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    update?: ProjectUpdateWithWhereUniqueWithoutReportAtt3Input | ProjectUpdateWithWhereUniqueWithoutReportAtt3Input[]
+    updateMany?: ProjectUpdateManyWithWhereWithoutReportAtt3Input | ProjectUpdateManyWithWhereWithoutReportAtt3Input[]
+    deleteMany?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
+  }
+
+  export type ProjectUpdateManyWithoutBunpaiNestedInput = {
+    create?: XOR<ProjectCreateWithoutBunpaiInput, ProjectUncheckedCreateWithoutBunpaiInput> | ProjectCreateWithoutBunpaiInput[] | ProjectUncheckedCreateWithoutBunpaiInput[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutBunpaiInput | ProjectCreateOrConnectWithoutBunpaiInput[]
+    upsert?: ProjectUpsertWithWhereUniqueWithoutBunpaiInput | ProjectUpsertWithWhereUniqueWithoutBunpaiInput[]
+    createMany?: ProjectCreateManyBunpaiInputEnvelope
+    set?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    disconnect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    delete?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    update?: ProjectUpdateWithWhereUniqueWithoutBunpaiInput | ProjectUpdateWithWhereUniqueWithoutBunpaiInput[]
+    updateMany?: ProjectUpdateManyWithWhereWithoutBunpaiInput | ProjectUpdateManyWithWhereWithoutBunpaiInput[]
+    deleteMany?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
+  }
+
+  export type ProjectUpdateManyWithoutRefNestedInput = {
+    create?: XOR<ProjectCreateWithoutRefInput, ProjectUncheckedCreateWithoutRefInput> | ProjectCreateWithoutRefInput[] | ProjectUncheckedCreateWithoutRefInput[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutRefInput | ProjectCreateOrConnectWithoutRefInput[]
+    upsert?: ProjectUpsertWithWhereUniqueWithoutRefInput | ProjectUpsertWithWhereUniqueWithoutRefInput[]
+    createMany?: ProjectCreateManyRefInputEnvelope
+    set?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    disconnect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    delete?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    update?: ProjectUpdateWithWhereUniqueWithoutRefInput | ProjectUpdateWithWhereUniqueWithoutRefInput[]
+    updateMany?: ProjectUpdateManyWithWhereWithoutRefInput | ProjectUpdateManyWithWhereWithoutRefInput[]
+    deleteMany?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
+  }
+
+  export type ProjectUncheckedUpdateManyWithoutReportMainNestedInput = {
+    create?: XOR<ProjectCreateWithoutReportMainInput, ProjectUncheckedCreateWithoutReportMainInput> | ProjectCreateWithoutReportMainInput[] | ProjectUncheckedCreateWithoutReportMainInput[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutReportMainInput | ProjectCreateOrConnectWithoutReportMainInput[]
+    upsert?: ProjectUpsertWithWhereUniqueWithoutReportMainInput | ProjectUpsertWithWhereUniqueWithoutReportMainInput[]
+    createMany?: ProjectCreateManyReportMainInputEnvelope
+    set?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    disconnect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    delete?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    update?: ProjectUpdateWithWhereUniqueWithoutReportMainInput | ProjectUpdateWithWhereUniqueWithoutReportMainInput[]
+    updateMany?: ProjectUpdateManyWithWhereWithoutReportMainInput | ProjectUpdateManyWithWhereWithoutReportMainInput[]
+    deleteMany?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
+  }
+
+  export type ProjectUncheckedUpdateManyWithoutReportAtt2NestedInput = {
+    create?: XOR<ProjectCreateWithoutReportAtt2Input, ProjectUncheckedCreateWithoutReportAtt2Input> | ProjectCreateWithoutReportAtt2Input[] | ProjectUncheckedCreateWithoutReportAtt2Input[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutReportAtt2Input | ProjectCreateOrConnectWithoutReportAtt2Input[]
+    upsert?: ProjectUpsertWithWhereUniqueWithoutReportAtt2Input | ProjectUpsertWithWhereUniqueWithoutReportAtt2Input[]
+    createMany?: ProjectCreateManyReportAtt2InputEnvelope
+    set?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    disconnect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    delete?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    update?: ProjectUpdateWithWhereUniqueWithoutReportAtt2Input | ProjectUpdateWithWhereUniqueWithoutReportAtt2Input[]
+    updateMany?: ProjectUpdateManyWithWhereWithoutReportAtt2Input | ProjectUpdateManyWithWhereWithoutReportAtt2Input[]
+    deleteMany?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
+  }
+
+  export type ProjectUncheckedUpdateManyWithoutReportAtt3NestedInput = {
+    create?: XOR<ProjectCreateWithoutReportAtt3Input, ProjectUncheckedCreateWithoutReportAtt3Input> | ProjectCreateWithoutReportAtt3Input[] | ProjectUncheckedCreateWithoutReportAtt3Input[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutReportAtt3Input | ProjectCreateOrConnectWithoutReportAtt3Input[]
+    upsert?: ProjectUpsertWithWhereUniqueWithoutReportAtt3Input | ProjectUpsertWithWhereUniqueWithoutReportAtt3Input[]
+    createMany?: ProjectCreateManyReportAtt3InputEnvelope
+    set?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    disconnect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    delete?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    update?: ProjectUpdateWithWhereUniqueWithoutReportAtt3Input | ProjectUpdateWithWhereUniqueWithoutReportAtt3Input[]
+    updateMany?: ProjectUpdateManyWithWhereWithoutReportAtt3Input | ProjectUpdateManyWithWhereWithoutReportAtt3Input[]
+    deleteMany?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
+  }
+
+  export type ProjectUncheckedUpdateManyWithoutBunpaiNestedInput = {
+    create?: XOR<ProjectCreateWithoutBunpaiInput, ProjectUncheckedCreateWithoutBunpaiInput> | ProjectCreateWithoutBunpaiInput[] | ProjectUncheckedCreateWithoutBunpaiInput[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutBunpaiInput | ProjectCreateOrConnectWithoutBunpaiInput[]
+    upsert?: ProjectUpsertWithWhereUniqueWithoutBunpaiInput | ProjectUpsertWithWhereUniqueWithoutBunpaiInput[]
+    createMany?: ProjectCreateManyBunpaiInputEnvelope
+    set?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    disconnect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    delete?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    update?: ProjectUpdateWithWhereUniqueWithoutBunpaiInput | ProjectUpdateWithWhereUniqueWithoutBunpaiInput[]
+    updateMany?: ProjectUpdateManyWithWhereWithoutBunpaiInput | ProjectUpdateManyWithWhereWithoutBunpaiInput[]
+    deleteMany?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
+  }
+
+  export type ProjectUncheckedUpdateManyWithoutRefNestedInput = {
+    create?: XOR<ProjectCreateWithoutRefInput, ProjectUncheckedCreateWithoutRefInput> | ProjectCreateWithoutRefInput[] | ProjectUncheckedCreateWithoutRefInput[]
+    connectOrCreate?: ProjectCreateOrConnectWithoutRefInput | ProjectCreateOrConnectWithoutRefInput[]
+    upsert?: ProjectUpsertWithWhereUniqueWithoutRefInput | ProjectUpsertWithWhereUniqueWithoutRefInput[]
+    createMany?: ProjectCreateManyRefInputEnvelope
+    set?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    disconnect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    delete?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    connect?: ProjectWhereUniqueInput | ProjectWhereUniqueInput[]
+    update?: ProjectUpdateWithWhereUniqueWithoutRefInput | ProjectUpdateWithWhereUniqueWithoutRefInput[]
+    updateMany?: ProjectUpdateManyWithWhereWithoutRefInput | ProjectUpdateManyWithWhereWithoutRefInput[]
+    deleteMany?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
   }
 
   export type EnumVariableTypeFieldUpdateOperationsInput = {
@@ -23176,6 +27105,7 @@ export namespace Prisma {
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
+    ganponKuriire?: number
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -23193,6 +27123,7 @@ export namespace Prisma {
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
+    ganponKuriire?: number
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -23285,6 +27216,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFilter<"ProjectKi"> | Date | string
     reportDate?: DateTimeFilter<"ProjectKi"> | Date | string
     topic?: StringFilter<"ProjectKi"> | string
+    ganponKuriire?: IntFilter<"ProjectKi"> | number
     createdAt?: DateTimeFilter<"ProjectKi"> | Date | string
     createdId?: StringFilter<"ProjectKi"> | string
     createdBy?: StringFilter<"ProjectKi"> | string
@@ -23331,12 +27263,248 @@ export namespace Prisma {
     updatedBy?: StringFilter<"AssetKi"> | string
   }
 
+  export type TemplateCreateWithoutReportMainProjectsInput = {
+    id?: string
+    name: string
+    contentType: string
+    ext: $Enums.ExtType
+    size: number
+    templateType: $Enums.TemplateType
+    file: Buffer
+    version?: number
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ReportAtt2Projects?: ProjectCreateNestedManyWithoutReportAtt2Input
+    ReportAtt3Projects?: ProjectCreateNestedManyWithoutReportAtt3Input
+    BunpaiProjects?: ProjectCreateNestedManyWithoutBunpaiInput
+    RefProjects?: ProjectCreateNestedManyWithoutRefInput
+  }
+
+  export type TemplateUncheckedCreateWithoutReportMainProjectsInput = {
+    id?: string
+    name: string
+    contentType: string
+    ext: $Enums.ExtType
+    size: number
+    templateType: $Enums.TemplateType
+    file: Buffer
+    version?: number
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ReportAtt2Projects?: ProjectUncheckedCreateNestedManyWithoutReportAtt2Input
+    ReportAtt3Projects?: ProjectUncheckedCreateNestedManyWithoutReportAtt3Input
+    BunpaiProjects?: ProjectUncheckedCreateNestedManyWithoutBunpaiInput
+    RefProjects?: ProjectUncheckedCreateNestedManyWithoutRefInput
+  }
+
+  export type TemplateCreateOrConnectWithoutReportMainProjectsInput = {
+    where: TemplateWhereUniqueInput
+    create: XOR<TemplateCreateWithoutReportMainProjectsInput, TemplateUncheckedCreateWithoutReportMainProjectsInput>
+  }
+
+  export type TemplateCreateWithoutReportAtt2ProjectsInput = {
+    id?: string
+    name: string
+    contentType: string
+    ext: $Enums.ExtType
+    size: number
+    templateType: $Enums.TemplateType
+    file: Buffer
+    version?: number
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ReportMainProjects?: ProjectCreateNestedManyWithoutReportMainInput
+    ReportAtt3Projects?: ProjectCreateNestedManyWithoutReportAtt3Input
+    BunpaiProjects?: ProjectCreateNestedManyWithoutBunpaiInput
+    RefProjects?: ProjectCreateNestedManyWithoutRefInput
+  }
+
+  export type TemplateUncheckedCreateWithoutReportAtt2ProjectsInput = {
+    id?: string
+    name: string
+    contentType: string
+    ext: $Enums.ExtType
+    size: number
+    templateType: $Enums.TemplateType
+    file: Buffer
+    version?: number
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ReportMainProjects?: ProjectUncheckedCreateNestedManyWithoutReportMainInput
+    ReportAtt3Projects?: ProjectUncheckedCreateNestedManyWithoutReportAtt3Input
+    BunpaiProjects?: ProjectUncheckedCreateNestedManyWithoutBunpaiInput
+    RefProjects?: ProjectUncheckedCreateNestedManyWithoutRefInput
+  }
+
+  export type TemplateCreateOrConnectWithoutReportAtt2ProjectsInput = {
+    where: TemplateWhereUniqueInput
+    create: XOR<TemplateCreateWithoutReportAtt2ProjectsInput, TemplateUncheckedCreateWithoutReportAtt2ProjectsInput>
+  }
+
+  export type TemplateCreateWithoutReportAtt3ProjectsInput = {
+    id?: string
+    name: string
+    contentType: string
+    ext: $Enums.ExtType
+    size: number
+    templateType: $Enums.TemplateType
+    file: Buffer
+    version?: number
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ReportMainProjects?: ProjectCreateNestedManyWithoutReportMainInput
+    ReportAtt2Projects?: ProjectCreateNestedManyWithoutReportAtt2Input
+    BunpaiProjects?: ProjectCreateNestedManyWithoutBunpaiInput
+    RefProjects?: ProjectCreateNestedManyWithoutRefInput
+  }
+
+  export type TemplateUncheckedCreateWithoutReportAtt3ProjectsInput = {
+    id?: string
+    name: string
+    contentType: string
+    ext: $Enums.ExtType
+    size: number
+    templateType: $Enums.TemplateType
+    file: Buffer
+    version?: number
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ReportMainProjects?: ProjectUncheckedCreateNestedManyWithoutReportMainInput
+    ReportAtt2Projects?: ProjectUncheckedCreateNestedManyWithoutReportAtt2Input
+    BunpaiProjects?: ProjectUncheckedCreateNestedManyWithoutBunpaiInput
+    RefProjects?: ProjectUncheckedCreateNestedManyWithoutRefInput
+  }
+
+  export type TemplateCreateOrConnectWithoutReportAtt3ProjectsInput = {
+    where: TemplateWhereUniqueInput
+    create: XOR<TemplateCreateWithoutReportAtt3ProjectsInput, TemplateUncheckedCreateWithoutReportAtt3ProjectsInput>
+  }
+
+  export type TemplateCreateWithoutBunpaiProjectsInput = {
+    id?: string
+    name: string
+    contentType: string
+    ext: $Enums.ExtType
+    size: number
+    templateType: $Enums.TemplateType
+    file: Buffer
+    version?: number
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ReportMainProjects?: ProjectCreateNestedManyWithoutReportMainInput
+    ReportAtt2Projects?: ProjectCreateNestedManyWithoutReportAtt2Input
+    ReportAtt3Projects?: ProjectCreateNestedManyWithoutReportAtt3Input
+    RefProjects?: ProjectCreateNestedManyWithoutRefInput
+  }
+
+  export type TemplateUncheckedCreateWithoutBunpaiProjectsInput = {
+    id?: string
+    name: string
+    contentType: string
+    ext: $Enums.ExtType
+    size: number
+    templateType: $Enums.TemplateType
+    file: Buffer
+    version?: number
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ReportMainProjects?: ProjectUncheckedCreateNestedManyWithoutReportMainInput
+    ReportAtt2Projects?: ProjectUncheckedCreateNestedManyWithoutReportAtt2Input
+    ReportAtt3Projects?: ProjectUncheckedCreateNestedManyWithoutReportAtt3Input
+    RefProjects?: ProjectUncheckedCreateNestedManyWithoutRefInput
+  }
+
+  export type TemplateCreateOrConnectWithoutBunpaiProjectsInput = {
+    where: TemplateWhereUniqueInput
+    create: XOR<TemplateCreateWithoutBunpaiProjectsInput, TemplateUncheckedCreateWithoutBunpaiProjectsInput>
+  }
+
+  export type TemplateCreateWithoutRefProjectsInput = {
+    id?: string
+    name: string
+    contentType: string
+    ext: $Enums.ExtType
+    size: number
+    templateType: $Enums.TemplateType
+    file: Buffer
+    version?: number
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ReportMainProjects?: ProjectCreateNestedManyWithoutReportMainInput
+    ReportAtt2Projects?: ProjectCreateNestedManyWithoutReportAtt2Input
+    ReportAtt3Projects?: ProjectCreateNestedManyWithoutReportAtt3Input
+    BunpaiProjects?: ProjectCreateNestedManyWithoutBunpaiInput
+  }
+
+  export type TemplateUncheckedCreateWithoutRefProjectsInput = {
+    id?: string
+    name: string
+    contentType: string
+    ext: $Enums.ExtType
+    size: number
+    templateType: $Enums.TemplateType
+    file: Buffer
+    version?: number
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ReportMainProjects?: ProjectUncheckedCreateNestedManyWithoutReportMainInput
+    ReportAtt2Projects?: ProjectUncheckedCreateNestedManyWithoutReportAtt2Input
+    ReportAtt3Projects?: ProjectUncheckedCreateNestedManyWithoutReportAtt3Input
+    BunpaiProjects?: ProjectUncheckedCreateNestedManyWithoutBunpaiInput
+  }
+
+  export type TemplateCreateOrConnectWithoutRefProjectsInput = {
+    where: TemplateWhereUniqueInput
+    create: XOR<TemplateCreateWithoutRefProjectsInput, TemplateUncheckedCreateWithoutRefProjectsInput>
+  }
+
   export type ProjectKiCreateWithoutProjectInput = {
     id?: string
     projectKi: number
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
+    ganponKuriire?: number
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -23354,6 +27522,7 @@ export namespace Prisma {
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
+    ganponKuriire?: number
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -23378,6 +27547,11 @@ export namespace Prisma {
     name: string
     address: string
     registeredAddress: string
+    SelfValuationPos?: string
+    LandValuationPos?: string
+    BuildingValuationPos?: string
+    LandEquityValuationPos?: string
+    LandSelfValuationPos?: string
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -23392,6 +27566,11 @@ export namespace Prisma {
     name: string
     address: string
     registeredAddress: string
+    SelfValuationPos?: string
+    LandValuationPos?: string
+    BuildingValuationPos?: string
+    LandEquityValuationPos?: string
+    LandSelfValuationPos?: string
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -23509,6 +27688,271 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type TemplateUpsertWithoutReportMainProjectsInput = {
+    update: XOR<TemplateUpdateWithoutReportMainProjectsInput, TemplateUncheckedUpdateWithoutReportMainProjectsInput>
+    create: XOR<TemplateCreateWithoutReportMainProjectsInput, TemplateUncheckedCreateWithoutReportMainProjectsInput>
+    where?: TemplateWhereInput
+  }
+
+  export type TemplateUpdateToOneWithWhereWithoutReportMainProjectsInput = {
+    where?: TemplateWhereInput
+    data: XOR<TemplateUpdateWithoutReportMainProjectsInput, TemplateUncheckedUpdateWithoutReportMainProjectsInput>
+  }
+
+  export type TemplateUpdateWithoutReportMainProjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    contentType?: StringFieldUpdateOperationsInput | string
+    ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
+    size?: IntFieldUpdateOperationsInput | number
+    templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
+    file?: BytesFieldUpdateOperationsInput | Buffer
+    version?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ReportAtt2Projects?: ProjectUpdateManyWithoutReportAtt2NestedInput
+    ReportAtt3Projects?: ProjectUpdateManyWithoutReportAtt3NestedInput
+    BunpaiProjects?: ProjectUpdateManyWithoutBunpaiNestedInput
+    RefProjects?: ProjectUpdateManyWithoutRefNestedInput
+  }
+
+  export type TemplateUncheckedUpdateWithoutReportMainProjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    contentType?: StringFieldUpdateOperationsInput | string
+    ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
+    size?: IntFieldUpdateOperationsInput | number
+    templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
+    file?: BytesFieldUpdateOperationsInput | Buffer
+    version?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ReportAtt2Projects?: ProjectUncheckedUpdateManyWithoutReportAtt2NestedInput
+    ReportAtt3Projects?: ProjectUncheckedUpdateManyWithoutReportAtt3NestedInput
+    BunpaiProjects?: ProjectUncheckedUpdateManyWithoutBunpaiNestedInput
+    RefProjects?: ProjectUncheckedUpdateManyWithoutRefNestedInput
+  }
+
+  export type TemplateUpsertWithoutReportAtt2ProjectsInput = {
+    update: XOR<TemplateUpdateWithoutReportAtt2ProjectsInput, TemplateUncheckedUpdateWithoutReportAtt2ProjectsInput>
+    create: XOR<TemplateCreateWithoutReportAtt2ProjectsInput, TemplateUncheckedCreateWithoutReportAtt2ProjectsInput>
+    where?: TemplateWhereInput
+  }
+
+  export type TemplateUpdateToOneWithWhereWithoutReportAtt2ProjectsInput = {
+    where?: TemplateWhereInput
+    data: XOR<TemplateUpdateWithoutReportAtt2ProjectsInput, TemplateUncheckedUpdateWithoutReportAtt2ProjectsInput>
+  }
+
+  export type TemplateUpdateWithoutReportAtt2ProjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    contentType?: StringFieldUpdateOperationsInput | string
+    ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
+    size?: IntFieldUpdateOperationsInput | number
+    templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
+    file?: BytesFieldUpdateOperationsInput | Buffer
+    version?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ReportMainProjects?: ProjectUpdateManyWithoutReportMainNestedInput
+    ReportAtt3Projects?: ProjectUpdateManyWithoutReportAtt3NestedInput
+    BunpaiProjects?: ProjectUpdateManyWithoutBunpaiNestedInput
+    RefProjects?: ProjectUpdateManyWithoutRefNestedInput
+  }
+
+  export type TemplateUncheckedUpdateWithoutReportAtt2ProjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    contentType?: StringFieldUpdateOperationsInput | string
+    ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
+    size?: IntFieldUpdateOperationsInput | number
+    templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
+    file?: BytesFieldUpdateOperationsInput | Buffer
+    version?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ReportMainProjects?: ProjectUncheckedUpdateManyWithoutReportMainNestedInput
+    ReportAtt3Projects?: ProjectUncheckedUpdateManyWithoutReportAtt3NestedInput
+    BunpaiProjects?: ProjectUncheckedUpdateManyWithoutBunpaiNestedInput
+    RefProjects?: ProjectUncheckedUpdateManyWithoutRefNestedInput
+  }
+
+  export type TemplateUpsertWithoutReportAtt3ProjectsInput = {
+    update: XOR<TemplateUpdateWithoutReportAtt3ProjectsInput, TemplateUncheckedUpdateWithoutReportAtt3ProjectsInput>
+    create: XOR<TemplateCreateWithoutReportAtt3ProjectsInput, TemplateUncheckedCreateWithoutReportAtt3ProjectsInput>
+    where?: TemplateWhereInput
+  }
+
+  export type TemplateUpdateToOneWithWhereWithoutReportAtt3ProjectsInput = {
+    where?: TemplateWhereInput
+    data: XOR<TemplateUpdateWithoutReportAtt3ProjectsInput, TemplateUncheckedUpdateWithoutReportAtt3ProjectsInput>
+  }
+
+  export type TemplateUpdateWithoutReportAtt3ProjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    contentType?: StringFieldUpdateOperationsInput | string
+    ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
+    size?: IntFieldUpdateOperationsInput | number
+    templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
+    file?: BytesFieldUpdateOperationsInput | Buffer
+    version?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ReportMainProjects?: ProjectUpdateManyWithoutReportMainNestedInput
+    ReportAtt2Projects?: ProjectUpdateManyWithoutReportAtt2NestedInput
+    BunpaiProjects?: ProjectUpdateManyWithoutBunpaiNestedInput
+    RefProjects?: ProjectUpdateManyWithoutRefNestedInput
+  }
+
+  export type TemplateUncheckedUpdateWithoutReportAtt3ProjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    contentType?: StringFieldUpdateOperationsInput | string
+    ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
+    size?: IntFieldUpdateOperationsInput | number
+    templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
+    file?: BytesFieldUpdateOperationsInput | Buffer
+    version?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ReportMainProjects?: ProjectUncheckedUpdateManyWithoutReportMainNestedInput
+    ReportAtt2Projects?: ProjectUncheckedUpdateManyWithoutReportAtt2NestedInput
+    BunpaiProjects?: ProjectUncheckedUpdateManyWithoutBunpaiNestedInput
+    RefProjects?: ProjectUncheckedUpdateManyWithoutRefNestedInput
+  }
+
+  export type TemplateUpsertWithoutBunpaiProjectsInput = {
+    update: XOR<TemplateUpdateWithoutBunpaiProjectsInput, TemplateUncheckedUpdateWithoutBunpaiProjectsInput>
+    create: XOR<TemplateCreateWithoutBunpaiProjectsInput, TemplateUncheckedCreateWithoutBunpaiProjectsInput>
+    where?: TemplateWhereInput
+  }
+
+  export type TemplateUpdateToOneWithWhereWithoutBunpaiProjectsInput = {
+    where?: TemplateWhereInput
+    data: XOR<TemplateUpdateWithoutBunpaiProjectsInput, TemplateUncheckedUpdateWithoutBunpaiProjectsInput>
+  }
+
+  export type TemplateUpdateWithoutBunpaiProjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    contentType?: StringFieldUpdateOperationsInput | string
+    ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
+    size?: IntFieldUpdateOperationsInput | number
+    templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
+    file?: BytesFieldUpdateOperationsInput | Buffer
+    version?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ReportMainProjects?: ProjectUpdateManyWithoutReportMainNestedInput
+    ReportAtt2Projects?: ProjectUpdateManyWithoutReportAtt2NestedInput
+    ReportAtt3Projects?: ProjectUpdateManyWithoutReportAtt3NestedInput
+    RefProjects?: ProjectUpdateManyWithoutRefNestedInput
+  }
+
+  export type TemplateUncheckedUpdateWithoutBunpaiProjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    contentType?: StringFieldUpdateOperationsInput | string
+    ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
+    size?: IntFieldUpdateOperationsInput | number
+    templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
+    file?: BytesFieldUpdateOperationsInput | Buffer
+    version?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ReportMainProjects?: ProjectUncheckedUpdateManyWithoutReportMainNestedInput
+    ReportAtt2Projects?: ProjectUncheckedUpdateManyWithoutReportAtt2NestedInput
+    ReportAtt3Projects?: ProjectUncheckedUpdateManyWithoutReportAtt3NestedInput
+    RefProjects?: ProjectUncheckedUpdateManyWithoutRefNestedInput
+  }
+
+  export type TemplateUpsertWithoutRefProjectsInput = {
+    update: XOR<TemplateUpdateWithoutRefProjectsInput, TemplateUncheckedUpdateWithoutRefProjectsInput>
+    create: XOR<TemplateCreateWithoutRefProjectsInput, TemplateUncheckedCreateWithoutRefProjectsInput>
+    where?: TemplateWhereInput
+  }
+
+  export type TemplateUpdateToOneWithWhereWithoutRefProjectsInput = {
+    where?: TemplateWhereInput
+    data: XOR<TemplateUpdateWithoutRefProjectsInput, TemplateUncheckedUpdateWithoutRefProjectsInput>
+  }
+
+  export type TemplateUpdateWithoutRefProjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    contentType?: StringFieldUpdateOperationsInput | string
+    ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
+    size?: IntFieldUpdateOperationsInput | number
+    templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
+    file?: BytesFieldUpdateOperationsInput | Buffer
+    version?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ReportMainProjects?: ProjectUpdateManyWithoutReportMainNestedInput
+    ReportAtt2Projects?: ProjectUpdateManyWithoutReportAtt2NestedInput
+    ReportAtt3Projects?: ProjectUpdateManyWithoutReportAtt3NestedInput
+    BunpaiProjects?: ProjectUpdateManyWithoutBunpaiNestedInput
+  }
+
+  export type TemplateUncheckedUpdateWithoutRefProjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    contentType?: StringFieldUpdateOperationsInput | string
+    ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
+    size?: IntFieldUpdateOperationsInput | number
+    templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
+    file?: BytesFieldUpdateOperationsInput | Buffer
+    version?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ReportMainProjects?: ProjectUncheckedUpdateManyWithoutReportMainNestedInput
+    ReportAtt2Projects?: ProjectUncheckedUpdateManyWithoutReportAtt2NestedInput
+    ReportAtt3Projects?: ProjectUncheckedUpdateManyWithoutReportAtt3NestedInput
+    BunpaiProjects?: ProjectUncheckedUpdateManyWithoutBunpaiNestedInput
+  }
+
   export type ProjectKiUpsertWithWhereUniqueWithoutProjectInput = {
     where: ProjectKiWhereUniqueInput
     update: XOR<ProjectKiUpdateWithoutProjectInput, ProjectKiUncheckedUpdateWithoutProjectInput>
@@ -23550,6 +27994,11 @@ export namespace Prisma {
     name?: StringFilter<"Asset"> | string
     address?: StringFilter<"Asset"> | string
     registeredAddress?: StringFilter<"Asset"> | string
+    SelfValuationPos?: StringFilter<"Asset"> | string
+    LandValuationPos?: StringFilter<"Asset"> | string
+    BuildingValuationPos?: StringFilter<"Asset"> | string
+    LandEquityValuationPos?: StringFilter<"Asset"> | string
+    LandSelfValuationPos?: StringFilter<"Asset"> | string
     createdAt?: DateTimeFilter<"Asset"> | Date | string
     createdId?: StringFilter<"Asset"> | string
     createdBy?: StringFilter<"Asset"> | string
@@ -23643,6 +28092,11 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: string
     updatedBy: string
+    ReportMain?: TemplateCreateNestedOneWithoutReportMainProjectsInput
+    ReportAtt2?: TemplateCreateNestedOneWithoutReportAtt2ProjectsInput
+    ReportAtt3?: TemplateCreateNestedOneWithoutReportAtt3ProjectsInput
+    Bunpai?: TemplateCreateNestedOneWithoutBunpaiProjectsInput
+    Ref?: TemplateCreateNestedOneWithoutRefProjectsInput
     Assets?: AssetCreateNestedManyWithoutProjectInput
     Customers?: CustomerCreateNestedManyWithoutProjectInput
   }
@@ -23663,6 +28117,11 @@ export namespace Prisma {
     residenceKubun?: number
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    reportMainId?: string | null
+    reportAtt2Id?: string | null
+    reportAtt3Id?: string | null
+    bunpaiId?: string | null
+    refId?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -23796,6 +28255,11 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
+    ReportMain?: TemplateUpdateOneWithoutReportMainProjectsNestedInput
+    ReportAtt2?: TemplateUpdateOneWithoutReportAtt2ProjectsNestedInput
+    ReportAtt3?: TemplateUpdateOneWithoutReportAtt3ProjectsNestedInput
+    Bunpai?: TemplateUpdateOneWithoutBunpaiProjectsNestedInput
+    Ref?: TemplateUpdateOneWithoutRefProjectsNestedInput
     Assets?: AssetUpdateManyWithoutProjectNestedInput
     Customers?: CustomerUpdateManyWithoutProjectNestedInput
   }
@@ -23816,6 +28280,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
+    reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
+    reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
+    bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
+    refId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -23928,6 +28397,11 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: string
     updatedBy: string
+    ReportMain?: TemplateCreateNestedOneWithoutReportMainProjectsInput
+    ReportAtt2?: TemplateCreateNestedOneWithoutReportAtt2ProjectsInput
+    ReportAtt3?: TemplateCreateNestedOneWithoutReportAtt3ProjectsInput
+    Bunpai?: TemplateCreateNestedOneWithoutBunpaiProjectsInput
+    Ref?: TemplateCreateNestedOneWithoutRefProjectsInput
     ProjectKis?: ProjectKiCreateNestedManyWithoutProjectInput
     Customers?: CustomerCreateNestedManyWithoutProjectInput
   }
@@ -23948,6 +28422,11 @@ export namespace Prisma {
     residenceKubun?: number
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    reportMainId?: string | null
+    reportAtt2Id?: string | null
+    reportAtt3Id?: string | null
+    bunpaiId?: string | null
+    refId?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -24042,6 +28521,11 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
+    ReportMain?: TemplateUpdateOneWithoutReportMainProjectsNestedInput
+    ReportAtt2?: TemplateUpdateOneWithoutReportAtt2ProjectsNestedInput
+    ReportAtt3?: TemplateUpdateOneWithoutReportAtt3ProjectsNestedInput
+    Bunpai?: TemplateUpdateOneWithoutBunpaiProjectsNestedInput
+    Ref?: TemplateUpdateOneWithoutRefProjectsNestedInput
     ProjectKis?: ProjectKiUpdateManyWithoutProjectNestedInput
     Customers?: CustomerUpdateManyWithoutProjectNestedInput
   }
@@ -24062,6 +28546,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
+    reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
+    reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
+    bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
+    refId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -24093,6 +28582,11 @@ export namespace Prisma {
     name: string
     address: string
     registeredAddress: string
+    SelfValuationPos?: string
+    LandValuationPos?: string
+    BuildingValuationPos?: string
+    LandEquityValuationPos?: string
+    LandSelfValuationPos?: string
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -24108,6 +28602,11 @@ export namespace Prisma {
     name: string
     address: string
     registeredAddress: string
+    SelfValuationPos?: string
+    LandValuationPos?: string
+    BuildingValuationPos?: string
+    LandEquityValuationPos?: string
+    LandSelfValuationPos?: string
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -24170,6 +28669,11 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     registeredAddress?: StringFieldUpdateOperationsInput | string
+    SelfValuationPos?: StringFieldUpdateOperationsInput | string
+    LandValuationPos?: StringFieldUpdateOperationsInput | string
+    BuildingValuationPos?: StringFieldUpdateOperationsInput | string
+    LandEquityValuationPos?: StringFieldUpdateOperationsInput | string
+    LandSelfValuationPos?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -24185,6 +28689,11 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     registeredAddress?: StringFieldUpdateOperationsInput | string
+    SelfValuationPos?: StringFieldUpdateOperationsInput | string
+    LandValuationPos?: StringFieldUpdateOperationsInput | string
+    BuildingValuationPos?: StringFieldUpdateOperationsInput | string
+    LandEquityValuationPos?: StringFieldUpdateOperationsInput | string
+    LandSelfValuationPos?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -24254,6 +28763,11 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: string
     updatedBy: string
+    ReportMain?: TemplateCreateNestedOneWithoutReportMainProjectsInput
+    ReportAtt2?: TemplateCreateNestedOneWithoutReportAtt2ProjectsInput
+    ReportAtt3?: TemplateCreateNestedOneWithoutReportAtt3ProjectsInput
+    Bunpai?: TemplateCreateNestedOneWithoutBunpaiProjectsInput
+    Ref?: TemplateCreateNestedOneWithoutRefProjectsInput
     ProjectKis?: ProjectKiCreateNestedManyWithoutProjectInput
     Assets?: AssetCreateNestedManyWithoutProjectInput
   }
@@ -24274,6 +28788,11 @@ export namespace Prisma {
     residenceKubun?: number
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    reportMainId?: string | null
+    reportAtt2Id?: string | null
+    reportAtt3Id?: string | null
+    bunpaiId?: string | null
+    refId?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -24374,6 +28893,11 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
+    ReportMain?: TemplateUpdateOneWithoutReportMainProjectsNestedInput
+    ReportAtt2?: TemplateUpdateOneWithoutReportAtt2ProjectsNestedInput
+    ReportAtt3?: TemplateUpdateOneWithoutReportAtt3ProjectsNestedInput
+    Bunpai?: TemplateUpdateOneWithoutBunpaiProjectsNestedInput
+    Ref?: TemplateUpdateOneWithoutRefProjectsNestedInput
     ProjectKis?: ProjectKiUpdateManyWithoutProjectNestedInput
     Assets?: AssetUpdateManyWithoutProjectNestedInput
   }
@@ -24394,6 +28918,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
+    reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
+    reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
+    bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
+    refId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -24519,6 +29048,7 @@ export namespace Prisma {
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
+    ganponKuriire?: number
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -24537,6 +29067,7 @@ export namespace Prisma {
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
+    ganponKuriire?: number
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -24666,6 +29197,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    ganponKuriire?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -24684,12 +29216,485 @@ export namespace Prisma {
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    ganponKuriire?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectCreateWithoutReportMainInput = {
+    id: string
+    sbimpId: string
+    name: string
+    shortName: string
+    totalUnit: number
+    totalAmount: bigint | number
+    unitAmount: number
+    trustTermStart: Date | string
+    trustTermEnd: Date | string
+    dividendYield: number
+    fullOccupancyYield: number
+    totalKubun?: number
+    residenceKubun?: number
+    kamiyachoFlag?: boolean
+    mlspcFlag?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ReportAtt2?: TemplateCreateNestedOneWithoutReportAtt2ProjectsInput
+    ReportAtt3?: TemplateCreateNestedOneWithoutReportAtt3ProjectsInput
+    Bunpai?: TemplateCreateNestedOneWithoutBunpaiProjectsInput
+    Ref?: TemplateCreateNestedOneWithoutRefProjectsInput
+    ProjectKis?: ProjectKiCreateNestedManyWithoutProjectInput
+    Assets?: AssetCreateNestedManyWithoutProjectInput
+    Customers?: CustomerCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectUncheckedCreateWithoutReportMainInput = {
+    id: string
+    sbimpId: string
+    name: string
+    shortName: string
+    totalUnit: number
+    totalAmount: bigint | number
+    unitAmount: number
+    trustTermStart: Date | string
+    trustTermEnd: Date | string
+    dividendYield: number
+    fullOccupancyYield: number
+    totalKubun?: number
+    residenceKubun?: number
+    kamiyachoFlag?: boolean
+    mlspcFlag?: boolean
+    reportAtt2Id?: string | null
+    reportAtt3Id?: string | null
+    bunpaiId?: string | null
+    refId?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutProjectInput
+    Assets?: AssetUncheckedCreateNestedManyWithoutProjectInput
+    Customers?: CustomerUncheckedCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectCreateOrConnectWithoutReportMainInput = {
+    where: ProjectWhereUniqueInput
+    create: XOR<ProjectCreateWithoutReportMainInput, ProjectUncheckedCreateWithoutReportMainInput>
+  }
+
+  export type ProjectCreateManyReportMainInputEnvelope = {
+    data: ProjectCreateManyReportMainInput | ProjectCreateManyReportMainInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ProjectCreateWithoutReportAtt2Input = {
+    id: string
+    sbimpId: string
+    name: string
+    shortName: string
+    totalUnit: number
+    totalAmount: bigint | number
+    unitAmount: number
+    trustTermStart: Date | string
+    trustTermEnd: Date | string
+    dividendYield: number
+    fullOccupancyYield: number
+    totalKubun?: number
+    residenceKubun?: number
+    kamiyachoFlag?: boolean
+    mlspcFlag?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ReportMain?: TemplateCreateNestedOneWithoutReportMainProjectsInput
+    ReportAtt3?: TemplateCreateNestedOneWithoutReportAtt3ProjectsInput
+    Bunpai?: TemplateCreateNestedOneWithoutBunpaiProjectsInput
+    Ref?: TemplateCreateNestedOneWithoutRefProjectsInput
+    ProjectKis?: ProjectKiCreateNestedManyWithoutProjectInput
+    Assets?: AssetCreateNestedManyWithoutProjectInput
+    Customers?: CustomerCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectUncheckedCreateWithoutReportAtt2Input = {
+    id: string
+    sbimpId: string
+    name: string
+    shortName: string
+    totalUnit: number
+    totalAmount: bigint | number
+    unitAmount: number
+    trustTermStart: Date | string
+    trustTermEnd: Date | string
+    dividendYield: number
+    fullOccupancyYield: number
+    totalKubun?: number
+    residenceKubun?: number
+    kamiyachoFlag?: boolean
+    mlspcFlag?: boolean
+    reportMainId?: string | null
+    reportAtt3Id?: string | null
+    bunpaiId?: string | null
+    refId?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutProjectInput
+    Assets?: AssetUncheckedCreateNestedManyWithoutProjectInput
+    Customers?: CustomerUncheckedCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectCreateOrConnectWithoutReportAtt2Input = {
+    where: ProjectWhereUniqueInput
+    create: XOR<ProjectCreateWithoutReportAtt2Input, ProjectUncheckedCreateWithoutReportAtt2Input>
+  }
+
+  export type ProjectCreateManyReportAtt2InputEnvelope = {
+    data: ProjectCreateManyReportAtt2Input | ProjectCreateManyReportAtt2Input[]
+    skipDuplicates?: boolean
+  }
+
+  export type ProjectCreateWithoutReportAtt3Input = {
+    id: string
+    sbimpId: string
+    name: string
+    shortName: string
+    totalUnit: number
+    totalAmount: bigint | number
+    unitAmount: number
+    trustTermStart: Date | string
+    trustTermEnd: Date | string
+    dividendYield: number
+    fullOccupancyYield: number
+    totalKubun?: number
+    residenceKubun?: number
+    kamiyachoFlag?: boolean
+    mlspcFlag?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ReportMain?: TemplateCreateNestedOneWithoutReportMainProjectsInput
+    ReportAtt2?: TemplateCreateNestedOneWithoutReportAtt2ProjectsInput
+    Bunpai?: TemplateCreateNestedOneWithoutBunpaiProjectsInput
+    Ref?: TemplateCreateNestedOneWithoutRefProjectsInput
+    ProjectKis?: ProjectKiCreateNestedManyWithoutProjectInput
+    Assets?: AssetCreateNestedManyWithoutProjectInput
+    Customers?: CustomerCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectUncheckedCreateWithoutReportAtt3Input = {
+    id: string
+    sbimpId: string
+    name: string
+    shortName: string
+    totalUnit: number
+    totalAmount: bigint | number
+    unitAmount: number
+    trustTermStart: Date | string
+    trustTermEnd: Date | string
+    dividendYield: number
+    fullOccupancyYield: number
+    totalKubun?: number
+    residenceKubun?: number
+    kamiyachoFlag?: boolean
+    mlspcFlag?: boolean
+    reportMainId?: string | null
+    reportAtt2Id?: string | null
+    bunpaiId?: string | null
+    refId?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutProjectInput
+    Assets?: AssetUncheckedCreateNestedManyWithoutProjectInput
+    Customers?: CustomerUncheckedCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectCreateOrConnectWithoutReportAtt3Input = {
+    where: ProjectWhereUniqueInput
+    create: XOR<ProjectCreateWithoutReportAtt3Input, ProjectUncheckedCreateWithoutReportAtt3Input>
+  }
+
+  export type ProjectCreateManyReportAtt3InputEnvelope = {
+    data: ProjectCreateManyReportAtt3Input | ProjectCreateManyReportAtt3Input[]
+    skipDuplicates?: boolean
+  }
+
+  export type ProjectCreateWithoutBunpaiInput = {
+    id: string
+    sbimpId: string
+    name: string
+    shortName: string
+    totalUnit: number
+    totalAmount: bigint | number
+    unitAmount: number
+    trustTermStart: Date | string
+    trustTermEnd: Date | string
+    dividendYield: number
+    fullOccupancyYield: number
+    totalKubun?: number
+    residenceKubun?: number
+    kamiyachoFlag?: boolean
+    mlspcFlag?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ReportMain?: TemplateCreateNestedOneWithoutReportMainProjectsInput
+    ReportAtt2?: TemplateCreateNestedOneWithoutReportAtt2ProjectsInput
+    ReportAtt3?: TemplateCreateNestedOneWithoutReportAtt3ProjectsInput
+    Ref?: TemplateCreateNestedOneWithoutRefProjectsInput
+    ProjectKis?: ProjectKiCreateNestedManyWithoutProjectInput
+    Assets?: AssetCreateNestedManyWithoutProjectInput
+    Customers?: CustomerCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectUncheckedCreateWithoutBunpaiInput = {
+    id: string
+    sbimpId: string
+    name: string
+    shortName: string
+    totalUnit: number
+    totalAmount: bigint | number
+    unitAmount: number
+    trustTermStart: Date | string
+    trustTermEnd: Date | string
+    dividendYield: number
+    fullOccupancyYield: number
+    totalKubun?: number
+    residenceKubun?: number
+    kamiyachoFlag?: boolean
+    mlspcFlag?: boolean
+    reportMainId?: string | null
+    reportAtt2Id?: string | null
+    reportAtt3Id?: string | null
+    refId?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutProjectInput
+    Assets?: AssetUncheckedCreateNestedManyWithoutProjectInput
+    Customers?: CustomerUncheckedCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectCreateOrConnectWithoutBunpaiInput = {
+    where: ProjectWhereUniqueInput
+    create: XOR<ProjectCreateWithoutBunpaiInput, ProjectUncheckedCreateWithoutBunpaiInput>
+  }
+
+  export type ProjectCreateManyBunpaiInputEnvelope = {
+    data: ProjectCreateManyBunpaiInput | ProjectCreateManyBunpaiInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ProjectCreateWithoutRefInput = {
+    id: string
+    sbimpId: string
+    name: string
+    shortName: string
+    totalUnit: number
+    totalAmount: bigint | number
+    unitAmount: number
+    trustTermStart: Date | string
+    trustTermEnd: Date | string
+    dividendYield: number
+    fullOccupancyYield: number
+    totalKubun?: number
+    residenceKubun?: number
+    kamiyachoFlag?: boolean
+    mlspcFlag?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ReportMain?: TemplateCreateNestedOneWithoutReportMainProjectsInput
+    ReportAtt2?: TemplateCreateNestedOneWithoutReportAtt2ProjectsInput
+    ReportAtt3?: TemplateCreateNestedOneWithoutReportAtt3ProjectsInput
+    Bunpai?: TemplateCreateNestedOneWithoutBunpaiProjectsInput
+    ProjectKis?: ProjectKiCreateNestedManyWithoutProjectInput
+    Assets?: AssetCreateNestedManyWithoutProjectInput
+    Customers?: CustomerCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectUncheckedCreateWithoutRefInput = {
+    id: string
+    sbimpId: string
+    name: string
+    shortName: string
+    totalUnit: number
+    totalAmount: bigint | number
+    unitAmount: number
+    trustTermStart: Date | string
+    trustTermEnd: Date | string
+    dividendYield: number
+    fullOccupancyYield: number
+    totalKubun?: number
+    residenceKubun?: number
+    kamiyachoFlag?: boolean
+    mlspcFlag?: boolean
+    reportMainId?: string | null
+    reportAtt2Id?: string | null
+    reportAtt3Id?: string | null
+    bunpaiId?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutProjectInput
+    Assets?: AssetUncheckedCreateNestedManyWithoutProjectInput
+    Customers?: CustomerUncheckedCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectCreateOrConnectWithoutRefInput = {
+    where: ProjectWhereUniqueInput
+    create: XOR<ProjectCreateWithoutRefInput, ProjectUncheckedCreateWithoutRefInput>
+  }
+
+  export type ProjectCreateManyRefInputEnvelope = {
+    data: ProjectCreateManyRefInput | ProjectCreateManyRefInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ProjectUpsertWithWhereUniqueWithoutReportMainInput = {
+    where: ProjectWhereUniqueInput
+    update: XOR<ProjectUpdateWithoutReportMainInput, ProjectUncheckedUpdateWithoutReportMainInput>
+    create: XOR<ProjectCreateWithoutReportMainInput, ProjectUncheckedCreateWithoutReportMainInput>
+  }
+
+  export type ProjectUpdateWithWhereUniqueWithoutReportMainInput = {
+    where: ProjectWhereUniqueInput
+    data: XOR<ProjectUpdateWithoutReportMainInput, ProjectUncheckedUpdateWithoutReportMainInput>
+  }
+
+  export type ProjectUpdateManyWithWhereWithoutReportMainInput = {
+    where: ProjectScalarWhereInput
+    data: XOR<ProjectUpdateManyMutationInput, ProjectUncheckedUpdateManyWithoutReportMainInput>
+  }
+
+  export type ProjectScalarWhereInput = {
+    AND?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
+    OR?: ProjectScalarWhereInput[]
+    NOT?: ProjectScalarWhereInput | ProjectScalarWhereInput[]
+    id?: StringFilter<"Project"> | string
+    sbimpId?: StringFilter<"Project"> | string
+    name?: StringFilter<"Project"> | string
+    shortName?: StringFilter<"Project"> | string
+    totalUnit?: IntFilter<"Project"> | number
+    totalAmount?: BigIntFilter<"Project"> | bigint | number
+    unitAmount?: IntFilter<"Project"> | number
+    trustTermStart?: DateTimeFilter<"Project"> | Date | string
+    trustTermEnd?: DateTimeFilter<"Project"> | Date | string
+    dividendYield?: FloatFilter<"Project"> | number
+    fullOccupancyYield?: FloatFilter<"Project"> | number
+    totalKubun?: IntFilter<"Project"> | number
+    residenceKubun?: IntFilter<"Project"> | number
+    kamiyachoFlag?: BoolFilter<"Project"> | boolean
+    mlspcFlag?: BoolFilter<"Project"> | boolean
+    reportMainId?: StringNullableFilter<"Project"> | string | null
+    reportAtt2Id?: StringNullableFilter<"Project"> | string | null
+    reportAtt3Id?: StringNullableFilter<"Project"> | string | null
+    bunpaiId?: StringNullableFilter<"Project"> | string | null
+    refId?: StringNullableFilter<"Project"> | string | null
+    createdAt?: DateTimeFilter<"Project"> | Date | string
+    createdId?: StringFilter<"Project"> | string
+    createdBy?: StringFilter<"Project"> | string
+    updatedAt?: DateTimeFilter<"Project"> | Date | string
+    updatedId?: StringFilter<"Project"> | string
+    updatedBy?: StringFilter<"Project"> | string
+  }
+
+  export type ProjectUpsertWithWhereUniqueWithoutReportAtt2Input = {
+    where: ProjectWhereUniqueInput
+    update: XOR<ProjectUpdateWithoutReportAtt2Input, ProjectUncheckedUpdateWithoutReportAtt2Input>
+    create: XOR<ProjectCreateWithoutReportAtt2Input, ProjectUncheckedCreateWithoutReportAtt2Input>
+  }
+
+  export type ProjectUpdateWithWhereUniqueWithoutReportAtt2Input = {
+    where: ProjectWhereUniqueInput
+    data: XOR<ProjectUpdateWithoutReportAtt2Input, ProjectUncheckedUpdateWithoutReportAtt2Input>
+  }
+
+  export type ProjectUpdateManyWithWhereWithoutReportAtt2Input = {
+    where: ProjectScalarWhereInput
+    data: XOR<ProjectUpdateManyMutationInput, ProjectUncheckedUpdateManyWithoutReportAtt2Input>
+  }
+
+  export type ProjectUpsertWithWhereUniqueWithoutReportAtt3Input = {
+    where: ProjectWhereUniqueInput
+    update: XOR<ProjectUpdateWithoutReportAtt3Input, ProjectUncheckedUpdateWithoutReportAtt3Input>
+    create: XOR<ProjectCreateWithoutReportAtt3Input, ProjectUncheckedCreateWithoutReportAtt3Input>
+  }
+
+  export type ProjectUpdateWithWhereUniqueWithoutReportAtt3Input = {
+    where: ProjectWhereUniqueInput
+    data: XOR<ProjectUpdateWithoutReportAtt3Input, ProjectUncheckedUpdateWithoutReportAtt3Input>
+  }
+
+  export type ProjectUpdateManyWithWhereWithoutReportAtt3Input = {
+    where: ProjectScalarWhereInput
+    data: XOR<ProjectUpdateManyMutationInput, ProjectUncheckedUpdateManyWithoutReportAtt3Input>
+  }
+
+  export type ProjectUpsertWithWhereUniqueWithoutBunpaiInput = {
+    where: ProjectWhereUniqueInput
+    update: XOR<ProjectUpdateWithoutBunpaiInput, ProjectUncheckedUpdateWithoutBunpaiInput>
+    create: XOR<ProjectCreateWithoutBunpaiInput, ProjectUncheckedCreateWithoutBunpaiInput>
+  }
+
+  export type ProjectUpdateWithWhereUniqueWithoutBunpaiInput = {
+    where: ProjectWhereUniqueInput
+    data: XOR<ProjectUpdateWithoutBunpaiInput, ProjectUncheckedUpdateWithoutBunpaiInput>
+  }
+
+  export type ProjectUpdateManyWithWhereWithoutBunpaiInput = {
+    where: ProjectScalarWhereInput
+    data: XOR<ProjectUpdateManyMutationInput, ProjectUncheckedUpdateManyWithoutBunpaiInput>
+  }
+
+  export type ProjectUpsertWithWhereUniqueWithoutRefInput = {
+    where: ProjectWhereUniqueInput
+    update: XOR<ProjectUpdateWithoutRefInput, ProjectUncheckedUpdateWithoutRefInput>
+    create: XOR<ProjectCreateWithoutRefInput, ProjectUncheckedCreateWithoutRefInput>
+  }
+
+  export type ProjectUpdateWithWhereUniqueWithoutRefInput = {
+    where: ProjectWhereUniqueInput
+    data: XOR<ProjectUpdateWithoutRefInput, ProjectUncheckedUpdateWithoutRefInput>
+  }
+
+  export type ProjectUpdateManyWithWhereWithoutRefInput = {
+    where: ProjectScalarWhereInput
+    data: XOR<ProjectUpdateManyMutationInput, ProjectUncheckedUpdateManyWithoutRefInput>
   }
 
   export type ProjectKiCreateManyKiInput = {
@@ -24699,6 +29704,7 @@ export namespace Prisma {
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
+    ganponKuriire?: number
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -24731,6 +29737,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    ganponKuriire?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -24748,6 +29755,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    ganponKuriire?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -24764,6 +29772,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    ganponKuriire?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -24833,6 +29842,7 @@ export namespace Prisma {
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
+    ganponKuriire?: number
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -24846,6 +29856,11 @@ export namespace Prisma {
     name: string
     address: string
     registeredAddress: string
+    SelfValuationPos?: string
+    LandValuationPos?: string
+    BuildingValuationPos?: string
+    LandEquityValuationPos?: string
+    LandSelfValuationPos?: string
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -24903,6 +29918,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    ganponKuriire?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -24920,6 +29936,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    ganponKuriire?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -24936,6 +29953,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    ganponKuriire?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -24949,6 +29967,11 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     registeredAddress?: StringFieldUpdateOperationsInput | string
+    SelfValuationPos?: StringFieldUpdateOperationsInput | string
+    LandValuationPos?: StringFieldUpdateOperationsInput | string
+    BuildingValuationPos?: StringFieldUpdateOperationsInput | string
+    LandEquityValuationPos?: StringFieldUpdateOperationsInput | string
+    LandSelfValuationPos?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -24963,6 +29986,11 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     registeredAddress?: StringFieldUpdateOperationsInput | string
+    SelfValuationPos?: StringFieldUpdateOperationsInput | string
+    LandValuationPos?: StringFieldUpdateOperationsInput | string
+    BuildingValuationPos?: StringFieldUpdateOperationsInput | string
+    LandEquityValuationPos?: StringFieldUpdateOperationsInput | string
+    LandSelfValuationPos?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -24977,6 +30005,11 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     address?: StringFieldUpdateOperationsInput | string
     registeredAddress?: StringFieldUpdateOperationsInput | string
+    SelfValuationPos?: StringFieldUpdateOperationsInput | string
+    LandValuationPos?: StringFieldUpdateOperationsInput | string
+    BuildingValuationPos?: StringFieldUpdateOperationsInput | string
+    LandEquityValuationPos?: StringFieldUpdateOperationsInput | string
+    LandSelfValuationPos?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -25356,6 +30389,596 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
+  export type ProjectCreateManyReportMainInput = {
+    id: string
+    sbimpId: string
+    name: string
+    shortName: string
+    totalUnit: number
+    totalAmount: bigint | number
+    unitAmount: number
+    trustTermStart: Date | string
+    trustTermEnd: Date | string
+    dividendYield: number
+    fullOccupancyYield: number
+    totalKubun?: number
+    residenceKubun?: number
+    kamiyachoFlag?: boolean
+    mlspcFlag?: boolean
+    reportAtt2Id?: string | null
+    reportAtt3Id?: string | null
+    bunpaiId?: string | null
+    refId?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type ProjectCreateManyReportAtt2Input = {
+    id: string
+    sbimpId: string
+    name: string
+    shortName: string
+    totalUnit: number
+    totalAmount: bigint | number
+    unitAmount: number
+    trustTermStart: Date | string
+    trustTermEnd: Date | string
+    dividendYield: number
+    fullOccupancyYield: number
+    totalKubun?: number
+    residenceKubun?: number
+    kamiyachoFlag?: boolean
+    mlspcFlag?: boolean
+    reportMainId?: string | null
+    reportAtt3Id?: string | null
+    bunpaiId?: string | null
+    refId?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type ProjectCreateManyReportAtt3Input = {
+    id: string
+    sbimpId: string
+    name: string
+    shortName: string
+    totalUnit: number
+    totalAmount: bigint | number
+    unitAmount: number
+    trustTermStart: Date | string
+    trustTermEnd: Date | string
+    dividendYield: number
+    fullOccupancyYield: number
+    totalKubun?: number
+    residenceKubun?: number
+    kamiyachoFlag?: boolean
+    mlspcFlag?: boolean
+    reportMainId?: string | null
+    reportAtt2Id?: string | null
+    bunpaiId?: string | null
+    refId?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type ProjectCreateManyBunpaiInput = {
+    id: string
+    sbimpId: string
+    name: string
+    shortName: string
+    totalUnit: number
+    totalAmount: bigint | number
+    unitAmount: number
+    trustTermStart: Date | string
+    trustTermEnd: Date | string
+    dividendYield: number
+    fullOccupancyYield: number
+    totalKubun?: number
+    residenceKubun?: number
+    kamiyachoFlag?: boolean
+    mlspcFlag?: boolean
+    reportMainId?: string | null
+    reportAtt2Id?: string | null
+    reportAtt3Id?: string | null
+    refId?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type ProjectCreateManyRefInput = {
+    id: string
+    sbimpId: string
+    name: string
+    shortName: string
+    totalUnit: number
+    totalAmount: bigint | number
+    unitAmount: number
+    trustTermStart: Date | string
+    trustTermEnd: Date | string
+    dividendYield: number
+    fullOccupancyYield: number
+    totalKubun?: number
+    residenceKubun?: number
+    kamiyachoFlag?: boolean
+    mlspcFlag?: boolean
+    reportMainId?: string | null
+    reportAtt2Id?: string | null
+    reportAtt3Id?: string | null
+    bunpaiId?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type ProjectUpdateWithoutReportMainInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: StringFieldUpdateOperationsInput | string
+    totalUnit?: IntFieldUpdateOperationsInput | number
+    totalAmount?: BigIntFieldUpdateOperationsInput | bigint | number
+    unitAmount?: IntFieldUpdateOperationsInput | number
+    trustTermStart?: DateTimeFieldUpdateOperationsInput | Date | string
+    trustTermEnd?: DateTimeFieldUpdateOperationsInput | Date | string
+    dividendYield?: FloatFieldUpdateOperationsInput | number
+    fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
+    totalKubun?: IntFieldUpdateOperationsInput | number
+    residenceKubun?: IntFieldUpdateOperationsInput | number
+    kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
+    mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ReportAtt2?: TemplateUpdateOneWithoutReportAtt2ProjectsNestedInput
+    ReportAtt3?: TemplateUpdateOneWithoutReportAtt3ProjectsNestedInput
+    Bunpai?: TemplateUpdateOneWithoutBunpaiProjectsNestedInput
+    Ref?: TemplateUpdateOneWithoutRefProjectsNestedInput
+    ProjectKis?: ProjectKiUpdateManyWithoutProjectNestedInput
+    Assets?: AssetUpdateManyWithoutProjectNestedInput
+    Customers?: CustomerUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateWithoutReportMainInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: StringFieldUpdateOperationsInput | string
+    totalUnit?: IntFieldUpdateOperationsInput | number
+    totalAmount?: BigIntFieldUpdateOperationsInput | bigint | number
+    unitAmount?: IntFieldUpdateOperationsInput | number
+    trustTermStart?: DateTimeFieldUpdateOperationsInput | Date | string
+    trustTermEnd?: DateTimeFieldUpdateOperationsInput | Date | string
+    dividendYield?: FloatFieldUpdateOperationsInput | number
+    fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
+    totalKubun?: IntFieldUpdateOperationsInput | number
+    residenceKubun?: IntFieldUpdateOperationsInput | number
+    kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
+    mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
+    reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
+    bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
+    refId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ProjectKis?: ProjectKiUncheckedUpdateManyWithoutProjectNestedInput
+    Assets?: AssetUncheckedUpdateManyWithoutProjectNestedInput
+    Customers?: CustomerUncheckedUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateManyWithoutReportMainInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: StringFieldUpdateOperationsInput | string
+    totalUnit?: IntFieldUpdateOperationsInput | number
+    totalAmount?: BigIntFieldUpdateOperationsInput | bigint | number
+    unitAmount?: IntFieldUpdateOperationsInput | number
+    trustTermStart?: DateTimeFieldUpdateOperationsInput | Date | string
+    trustTermEnd?: DateTimeFieldUpdateOperationsInput | Date | string
+    dividendYield?: FloatFieldUpdateOperationsInput | number
+    fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
+    totalKubun?: IntFieldUpdateOperationsInput | number
+    residenceKubun?: IntFieldUpdateOperationsInput | number
+    kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
+    mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
+    reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
+    bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
+    refId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectUpdateWithoutReportAtt2Input = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: StringFieldUpdateOperationsInput | string
+    totalUnit?: IntFieldUpdateOperationsInput | number
+    totalAmount?: BigIntFieldUpdateOperationsInput | bigint | number
+    unitAmount?: IntFieldUpdateOperationsInput | number
+    trustTermStart?: DateTimeFieldUpdateOperationsInput | Date | string
+    trustTermEnd?: DateTimeFieldUpdateOperationsInput | Date | string
+    dividendYield?: FloatFieldUpdateOperationsInput | number
+    fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
+    totalKubun?: IntFieldUpdateOperationsInput | number
+    residenceKubun?: IntFieldUpdateOperationsInput | number
+    kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
+    mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ReportMain?: TemplateUpdateOneWithoutReportMainProjectsNestedInput
+    ReportAtt3?: TemplateUpdateOneWithoutReportAtt3ProjectsNestedInput
+    Bunpai?: TemplateUpdateOneWithoutBunpaiProjectsNestedInput
+    Ref?: TemplateUpdateOneWithoutRefProjectsNestedInput
+    ProjectKis?: ProjectKiUpdateManyWithoutProjectNestedInput
+    Assets?: AssetUpdateManyWithoutProjectNestedInput
+    Customers?: CustomerUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateWithoutReportAtt2Input = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: StringFieldUpdateOperationsInput | string
+    totalUnit?: IntFieldUpdateOperationsInput | number
+    totalAmount?: BigIntFieldUpdateOperationsInput | bigint | number
+    unitAmount?: IntFieldUpdateOperationsInput | number
+    trustTermStart?: DateTimeFieldUpdateOperationsInput | Date | string
+    trustTermEnd?: DateTimeFieldUpdateOperationsInput | Date | string
+    dividendYield?: FloatFieldUpdateOperationsInput | number
+    fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
+    totalKubun?: IntFieldUpdateOperationsInput | number
+    residenceKubun?: IntFieldUpdateOperationsInput | number
+    kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
+    mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
+    reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
+    bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
+    refId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ProjectKis?: ProjectKiUncheckedUpdateManyWithoutProjectNestedInput
+    Assets?: AssetUncheckedUpdateManyWithoutProjectNestedInput
+    Customers?: CustomerUncheckedUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateManyWithoutReportAtt2Input = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: StringFieldUpdateOperationsInput | string
+    totalUnit?: IntFieldUpdateOperationsInput | number
+    totalAmount?: BigIntFieldUpdateOperationsInput | bigint | number
+    unitAmount?: IntFieldUpdateOperationsInput | number
+    trustTermStart?: DateTimeFieldUpdateOperationsInput | Date | string
+    trustTermEnd?: DateTimeFieldUpdateOperationsInput | Date | string
+    dividendYield?: FloatFieldUpdateOperationsInput | number
+    fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
+    totalKubun?: IntFieldUpdateOperationsInput | number
+    residenceKubun?: IntFieldUpdateOperationsInput | number
+    kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
+    mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
+    reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
+    bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
+    refId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectUpdateWithoutReportAtt3Input = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: StringFieldUpdateOperationsInput | string
+    totalUnit?: IntFieldUpdateOperationsInput | number
+    totalAmount?: BigIntFieldUpdateOperationsInput | bigint | number
+    unitAmount?: IntFieldUpdateOperationsInput | number
+    trustTermStart?: DateTimeFieldUpdateOperationsInput | Date | string
+    trustTermEnd?: DateTimeFieldUpdateOperationsInput | Date | string
+    dividendYield?: FloatFieldUpdateOperationsInput | number
+    fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
+    totalKubun?: IntFieldUpdateOperationsInput | number
+    residenceKubun?: IntFieldUpdateOperationsInput | number
+    kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
+    mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ReportMain?: TemplateUpdateOneWithoutReportMainProjectsNestedInput
+    ReportAtt2?: TemplateUpdateOneWithoutReportAtt2ProjectsNestedInput
+    Bunpai?: TemplateUpdateOneWithoutBunpaiProjectsNestedInput
+    Ref?: TemplateUpdateOneWithoutRefProjectsNestedInput
+    ProjectKis?: ProjectKiUpdateManyWithoutProjectNestedInput
+    Assets?: AssetUpdateManyWithoutProjectNestedInput
+    Customers?: CustomerUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateWithoutReportAtt3Input = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: StringFieldUpdateOperationsInput | string
+    totalUnit?: IntFieldUpdateOperationsInput | number
+    totalAmount?: BigIntFieldUpdateOperationsInput | bigint | number
+    unitAmount?: IntFieldUpdateOperationsInput | number
+    trustTermStart?: DateTimeFieldUpdateOperationsInput | Date | string
+    trustTermEnd?: DateTimeFieldUpdateOperationsInput | Date | string
+    dividendYield?: FloatFieldUpdateOperationsInput | number
+    fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
+    totalKubun?: IntFieldUpdateOperationsInput | number
+    residenceKubun?: IntFieldUpdateOperationsInput | number
+    kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
+    mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
+    reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
+    bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
+    refId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ProjectKis?: ProjectKiUncheckedUpdateManyWithoutProjectNestedInput
+    Assets?: AssetUncheckedUpdateManyWithoutProjectNestedInput
+    Customers?: CustomerUncheckedUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateManyWithoutReportAtt3Input = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: StringFieldUpdateOperationsInput | string
+    totalUnit?: IntFieldUpdateOperationsInput | number
+    totalAmount?: BigIntFieldUpdateOperationsInput | bigint | number
+    unitAmount?: IntFieldUpdateOperationsInput | number
+    trustTermStart?: DateTimeFieldUpdateOperationsInput | Date | string
+    trustTermEnd?: DateTimeFieldUpdateOperationsInput | Date | string
+    dividendYield?: FloatFieldUpdateOperationsInput | number
+    fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
+    totalKubun?: IntFieldUpdateOperationsInput | number
+    residenceKubun?: IntFieldUpdateOperationsInput | number
+    kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
+    mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
+    reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
+    bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
+    refId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectUpdateWithoutBunpaiInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: StringFieldUpdateOperationsInput | string
+    totalUnit?: IntFieldUpdateOperationsInput | number
+    totalAmount?: BigIntFieldUpdateOperationsInput | bigint | number
+    unitAmount?: IntFieldUpdateOperationsInput | number
+    trustTermStart?: DateTimeFieldUpdateOperationsInput | Date | string
+    trustTermEnd?: DateTimeFieldUpdateOperationsInput | Date | string
+    dividendYield?: FloatFieldUpdateOperationsInput | number
+    fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
+    totalKubun?: IntFieldUpdateOperationsInput | number
+    residenceKubun?: IntFieldUpdateOperationsInput | number
+    kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
+    mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ReportMain?: TemplateUpdateOneWithoutReportMainProjectsNestedInput
+    ReportAtt2?: TemplateUpdateOneWithoutReportAtt2ProjectsNestedInput
+    ReportAtt3?: TemplateUpdateOneWithoutReportAtt3ProjectsNestedInput
+    Ref?: TemplateUpdateOneWithoutRefProjectsNestedInput
+    ProjectKis?: ProjectKiUpdateManyWithoutProjectNestedInput
+    Assets?: AssetUpdateManyWithoutProjectNestedInput
+    Customers?: CustomerUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateWithoutBunpaiInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: StringFieldUpdateOperationsInput | string
+    totalUnit?: IntFieldUpdateOperationsInput | number
+    totalAmount?: BigIntFieldUpdateOperationsInput | bigint | number
+    unitAmount?: IntFieldUpdateOperationsInput | number
+    trustTermStart?: DateTimeFieldUpdateOperationsInput | Date | string
+    trustTermEnd?: DateTimeFieldUpdateOperationsInput | Date | string
+    dividendYield?: FloatFieldUpdateOperationsInput | number
+    fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
+    totalKubun?: IntFieldUpdateOperationsInput | number
+    residenceKubun?: IntFieldUpdateOperationsInput | number
+    kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
+    mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
+    reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
+    reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
+    refId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ProjectKis?: ProjectKiUncheckedUpdateManyWithoutProjectNestedInput
+    Assets?: AssetUncheckedUpdateManyWithoutProjectNestedInput
+    Customers?: CustomerUncheckedUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateManyWithoutBunpaiInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: StringFieldUpdateOperationsInput | string
+    totalUnit?: IntFieldUpdateOperationsInput | number
+    totalAmount?: BigIntFieldUpdateOperationsInput | bigint | number
+    unitAmount?: IntFieldUpdateOperationsInput | number
+    trustTermStart?: DateTimeFieldUpdateOperationsInput | Date | string
+    trustTermEnd?: DateTimeFieldUpdateOperationsInput | Date | string
+    dividendYield?: FloatFieldUpdateOperationsInput | number
+    fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
+    totalKubun?: IntFieldUpdateOperationsInput | number
+    residenceKubun?: IntFieldUpdateOperationsInput | number
+    kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
+    mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
+    reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
+    reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
+    refId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectUpdateWithoutRefInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: StringFieldUpdateOperationsInput | string
+    totalUnit?: IntFieldUpdateOperationsInput | number
+    totalAmount?: BigIntFieldUpdateOperationsInput | bigint | number
+    unitAmount?: IntFieldUpdateOperationsInput | number
+    trustTermStart?: DateTimeFieldUpdateOperationsInput | Date | string
+    trustTermEnd?: DateTimeFieldUpdateOperationsInput | Date | string
+    dividendYield?: FloatFieldUpdateOperationsInput | number
+    fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
+    totalKubun?: IntFieldUpdateOperationsInput | number
+    residenceKubun?: IntFieldUpdateOperationsInput | number
+    kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
+    mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ReportMain?: TemplateUpdateOneWithoutReportMainProjectsNestedInput
+    ReportAtt2?: TemplateUpdateOneWithoutReportAtt2ProjectsNestedInput
+    ReportAtt3?: TemplateUpdateOneWithoutReportAtt3ProjectsNestedInput
+    Bunpai?: TemplateUpdateOneWithoutBunpaiProjectsNestedInput
+    ProjectKis?: ProjectKiUpdateManyWithoutProjectNestedInput
+    Assets?: AssetUpdateManyWithoutProjectNestedInput
+    Customers?: CustomerUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateWithoutRefInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: StringFieldUpdateOperationsInput | string
+    totalUnit?: IntFieldUpdateOperationsInput | number
+    totalAmount?: BigIntFieldUpdateOperationsInput | bigint | number
+    unitAmount?: IntFieldUpdateOperationsInput | number
+    trustTermStart?: DateTimeFieldUpdateOperationsInput | Date | string
+    trustTermEnd?: DateTimeFieldUpdateOperationsInput | Date | string
+    dividendYield?: FloatFieldUpdateOperationsInput | number
+    fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
+    totalKubun?: IntFieldUpdateOperationsInput | number
+    residenceKubun?: IntFieldUpdateOperationsInput | number
+    kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
+    mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
+    reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
+    reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
+    bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ProjectKis?: ProjectKiUncheckedUpdateManyWithoutProjectNestedInput
+    Assets?: AssetUncheckedUpdateManyWithoutProjectNestedInput
+    Customers?: CustomerUncheckedUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateManyWithoutRefInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: StringFieldUpdateOperationsInput | string
+    totalUnit?: IntFieldUpdateOperationsInput | number
+    totalAmount?: BigIntFieldUpdateOperationsInput | bigint | number
+    unitAmount?: IntFieldUpdateOperationsInput | number
+    trustTermStart?: DateTimeFieldUpdateOperationsInput | Date | string
+    trustTermEnd?: DateTimeFieldUpdateOperationsInput | Date | string
+    dividendYield?: FloatFieldUpdateOperationsInput | number
+    fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
+    totalKubun?: IntFieldUpdateOperationsInput | number
+    residenceKubun?: IntFieldUpdateOperationsInput | number
+    kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
+    mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
+    reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
+    reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
+    bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
 
 
   /**
@@ -25381,6 +31004,10 @@ export namespace Prisma {
      * @deprecated Use CustomerCountOutputTypeDefaultArgs instead
      */
     export type CustomerCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = CustomerCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use TemplateCountOutputTypeDefaultArgs instead
+     */
+    export type TemplateCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TemplateCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use UserDefaultArgs instead
      */
@@ -25437,6 +31064,14 @@ export namespace Prisma {
      * @deprecated Use VariableDefinitionDefaultArgs instead
      */
     export type VariableDefinitionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = VariableDefinitionDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use YayoiCSVDefaultArgs instead
+     */
+    export type YayoiCSVArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = YayoiCSVDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use YayoiCSVHistoryDefaultArgs instead
+     */
+    export type YayoiCSVHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = YayoiCSVHistoryDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany
