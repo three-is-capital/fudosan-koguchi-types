@@ -5398,6 +5398,11 @@ export namespace Prisma {
     establishedAt: string | null
     capital: string | null
     representative: string | null
+    role: string | null
+    introduction: string | null
+    business: string | null
+    licenses: string | null
+    invoiceNumber: string | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -5414,6 +5419,11 @@ export namespace Prisma {
     establishedAt: string | null
     capital: string | null
     representative: string | null
+    role: string | null
+    introduction: string | null
+    business: string | null
+    licenses: string | null
+    invoiceNumber: string | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -5430,6 +5440,11 @@ export namespace Prisma {
     establishedAt: number
     capital: number
     representative: number
+    role: number
+    introduction: number
+    business: number
+    licenses: number
+    invoiceNumber: number
     createdAt: number
     createdId: number
     createdBy: number
@@ -5448,6 +5463,11 @@ export namespace Prisma {
     establishedAt?: true
     capital?: true
     representative?: true
+    role?: true
+    introduction?: true
+    business?: true
+    licenses?: true
+    invoiceNumber?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -5464,6 +5484,11 @@ export namespace Prisma {
     establishedAt?: true
     capital?: true
     representative?: true
+    role?: true
+    introduction?: true
+    business?: true
+    licenses?: true
+    invoiceNumber?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -5480,6 +5505,11 @@ export namespace Prisma {
     establishedAt?: true
     capital?: true
     representative?: true
+    role?: true
+    introduction?: true
+    business?: true
+    licenses?: true
+    invoiceNumber?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -5569,6 +5599,11 @@ export namespace Prisma {
     establishedAt: string
     capital: string
     representative: string
+    role: string | null
+    introduction: string | null
+    business: string | null
+    licenses: string | null
+    invoiceNumber: string | null
     createdAt: Date
     createdId: string
     createdBy: string
@@ -5602,6 +5637,11 @@ export namespace Prisma {
     establishedAt?: boolean
     capital?: boolean
     representative?: boolean
+    role?: boolean
+    introduction?: boolean
+    business?: boolean
+    licenses?: boolean
+    invoiceNumber?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -5618,6 +5658,11 @@ export namespace Prisma {
     establishedAt?: boolean
     capital?: boolean
     representative?: boolean
+    role?: boolean
+    introduction?: boolean
+    business?: boolean
+    licenses?: boolean
+    invoiceNumber?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -5634,6 +5679,11 @@ export namespace Prisma {
     establishedAt?: boolean
     capital?: boolean
     representative?: boolean
+    role?: boolean
+    introduction?: boolean
+    business?: boolean
+    licenses?: boolean
+    invoiceNumber?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -5654,6 +5704,11 @@ export namespace Prisma {
       establishedAt: string
       capital: string
       representative: string
+      role: string | null
+      introduction: string | null
+      business: string | null
+      licenses: string | null
+      invoiceNumber: string | null
       createdAt: Date
       createdId: string
       createdBy: string
@@ -6060,6 +6115,11 @@ export namespace Prisma {
     readonly establishedAt: FieldRef<"Company", 'String'>
     readonly capital: FieldRef<"Company", 'String'>
     readonly representative: FieldRef<"Company", 'String'>
+    readonly role: FieldRef<"Company", 'String'>
+    readonly introduction: FieldRef<"Company", 'String'>
+    readonly business: FieldRef<"Company", 'String'>
+    readonly licenses: FieldRef<"Company", 'String'>
+    readonly invoiceNumber: FieldRef<"Company", 'String'>
     readonly createdAt: FieldRef<"Company", 'DateTime'>
     readonly createdId: FieldRef<"Company", 'String'>
     readonly createdBy: FieldRef<"Company", 'String'>
@@ -19897,6 +19957,11 @@ export namespace Prisma {
     establishedAt: 'establishedAt',
     capital: 'capital',
     representative: 'representative',
+    role: 'role',
+    introduction: 'introduction',
+    business: 'business',
+    licenses: 'licenses',
+    invoiceNumber: 'invoiceNumber',
     createdAt: 'createdAt',
     createdId: 'createdId',
     createdBy: 'createdBy',
@@ -20691,6 +20756,11 @@ export namespace Prisma {
     establishedAt?: StringFilter<"Company"> | string
     capital?: StringFilter<"Company"> | string
     representative?: StringFilter<"Company"> | string
+    role?: StringNullableFilter<"Company"> | string | null
+    introduction?: StringNullableFilter<"Company"> | string | null
+    business?: StringNullableFilter<"Company"> | string | null
+    licenses?: StringNullableFilter<"Company"> | string | null
+    invoiceNumber?: StringNullableFilter<"Company"> | string | null
     createdAt?: DateTimeFilter<"Company"> | Date | string
     createdId?: StringFilter<"Company"> | string
     createdBy?: StringFilter<"Company"> | string
@@ -20707,6 +20777,11 @@ export namespace Prisma {
     establishedAt?: SortOrder
     capital?: SortOrder
     representative?: SortOrder
+    role?: SortOrderInput | SortOrder
+    introduction?: SortOrderInput | SortOrder
+    business?: SortOrderInput | SortOrder
+    licenses?: SortOrderInput | SortOrder
+    invoiceNumber?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -20726,6 +20801,11 @@ export namespace Prisma {
     establishedAt?: StringFilter<"Company"> | string
     capital?: StringFilter<"Company"> | string
     representative?: StringFilter<"Company"> | string
+    role?: StringNullableFilter<"Company"> | string | null
+    introduction?: StringNullableFilter<"Company"> | string | null
+    business?: StringNullableFilter<"Company"> | string | null
+    licenses?: StringNullableFilter<"Company"> | string | null
+    invoiceNumber?: StringNullableFilter<"Company"> | string | null
     createdAt?: DateTimeFilter<"Company"> | Date | string
     createdId?: StringFilter<"Company"> | string
     createdBy?: StringFilter<"Company"> | string
@@ -20742,6 +20822,11 @@ export namespace Prisma {
     establishedAt?: SortOrder
     capital?: SortOrder
     representative?: SortOrder
+    role?: SortOrderInput | SortOrder
+    introduction?: SortOrderInput | SortOrder
+    business?: SortOrderInput | SortOrder
+    licenses?: SortOrderInput | SortOrder
+    invoiceNumber?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -20764,6 +20849,11 @@ export namespace Prisma {
     establishedAt?: StringWithAggregatesFilter<"Company"> | string
     capital?: StringWithAggregatesFilter<"Company"> | string
     representative?: StringWithAggregatesFilter<"Company"> | string
+    role?: StringNullableWithAggregatesFilter<"Company"> | string | null
+    introduction?: StringNullableWithAggregatesFilter<"Company"> | string | null
+    business?: StringNullableWithAggregatesFilter<"Company"> | string | null
+    licenses?: StringNullableWithAggregatesFilter<"Company"> | string | null
+    invoiceNumber?: StringNullableWithAggregatesFilter<"Company"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Company"> | Date | string
     createdId?: StringWithAggregatesFilter<"Company"> | string
     createdBy?: StringWithAggregatesFilter<"Company"> | string
@@ -22538,6 +22628,11 @@ export namespace Prisma {
     establishedAt: string
     capital: string
     representative: string
+    role?: string | null
+    introduction?: string | null
+    business?: string | null
+    licenses?: string | null
+    invoiceNumber?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -22554,6 +22649,11 @@ export namespace Prisma {
     establishedAt: string
     capital: string
     representative: string
+    role?: string | null
+    introduction?: string | null
+    business?: string | null
+    licenses?: string | null
+    invoiceNumber?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -22570,6 +22670,11 @@ export namespace Prisma {
     establishedAt?: StringFieldUpdateOperationsInput | string
     capital?: StringFieldUpdateOperationsInput | string
     representative?: StringFieldUpdateOperationsInput | string
+    role?: NullableStringFieldUpdateOperationsInput | string | null
+    introduction?: NullableStringFieldUpdateOperationsInput | string | null
+    business?: NullableStringFieldUpdateOperationsInput | string | null
+    licenses?: NullableStringFieldUpdateOperationsInput | string | null
+    invoiceNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -22586,6 +22691,11 @@ export namespace Prisma {
     establishedAt?: StringFieldUpdateOperationsInput | string
     capital?: StringFieldUpdateOperationsInput | string
     representative?: StringFieldUpdateOperationsInput | string
+    role?: NullableStringFieldUpdateOperationsInput | string | null
+    introduction?: NullableStringFieldUpdateOperationsInput | string | null
+    business?: NullableStringFieldUpdateOperationsInput | string | null
+    licenses?: NullableStringFieldUpdateOperationsInput | string | null
+    invoiceNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -22602,6 +22712,11 @@ export namespace Prisma {
     establishedAt: string
     capital: string
     representative: string
+    role?: string | null
+    introduction?: string | null
+    business?: string | null
+    licenses?: string | null
+    invoiceNumber?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -22618,6 +22733,11 @@ export namespace Prisma {
     establishedAt?: StringFieldUpdateOperationsInput | string
     capital?: StringFieldUpdateOperationsInput | string
     representative?: StringFieldUpdateOperationsInput | string
+    role?: NullableStringFieldUpdateOperationsInput | string | null
+    introduction?: NullableStringFieldUpdateOperationsInput | string | null
+    business?: NullableStringFieldUpdateOperationsInput | string | null
+    licenses?: NullableStringFieldUpdateOperationsInput | string | null
+    invoiceNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -22634,6 +22754,11 @@ export namespace Prisma {
     establishedAt?: StringFieldUpdateOperationsInput | string
     capital?: StringFieldUpdateOperationsInput | string
     representative?: StringFieldUpdateOperationsInput | string
+    role?: NullableStringFieldUpdateOperationsInput | string | null
+    introduction?: NullableStringFieldUpdateOperationsInput | string | null
+    business?: NullableStringFieldUpdateOperationsInput | string | null
+    licenses?: NullableStringFieldUpdateOperationsInput | string | null
+    invoiceNumber?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -24647,6 +24772,11 @@ export namespace Prisma {
     establishedAt?: SortOrder
     capital?: SortOrder
     representative?: SortOrder
+    role?: SortOrder
+    introduction?: SortOrder
+    business?: SortOrder
+    licenses?: SortOrder
+    invoiceNumber?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -24663,6 +24793,11 @@ export namespace Prisma {
     establishedAt?: SortOrder
     capital?: SortOrder
     representative?: SortOrder
+    role?: SortOrder
+    introduction?: SortOrder
+    business?: SortOrder
+    licenses?: SortOrder
+    invoiceNumber?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -24679,6 +24814,11 @@ export namespace Prisma {
     establishedAt?: SortOrder
     capital?: SortOrder
     representative?: SortOrder
+    role?: SortOrder
+    introduction?: SortOrder
+    business?: SortOrder
+    licenses?: SortOrder
+    invoiceNumber?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
