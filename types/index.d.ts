@@ -11116,10 +11116,18 @@ export namespace Prisma {
 
   export type AssetKiAvgAggregateOutputType = {
     projectKi: number | null
+    pmPerformanceMoveIn: number | null
+    pmPerformanceMoveOut: number | null
+    pmPerformanceRate: number | null
+    pmPerformanceRatePercent: number | null
   }
 
   export type AssetKiSumAggregateOutputType = {
     projectKi: number | null
+    pmPerformanceMoveIn: number | null
+    pmPerformanceMoveOut: number | null
+    pmPerformanceRate: number | null
+    pmPerformanceRatePercent: number | null
   }
 
   export type AssetKiMinAggregateOutputType = {
@@ -11128,6 +11136,10 @@ export namespace Prisma {
     kiId: string | null
     projectKi: number | null
     situation: string | null
+    pmPerformanceMoveIn: number | null
+    pmPerformanceMoveOut: number | null
+    pmPerformanceRate: number | null
+    pmPerformanceRatePercent: number | null
     photoDate: Date | null
     photo1: string | null
     photo2: string | null
@@ -11147,6 +11159,10 @@ export namespace Prisma {
     kiId: string | null
     projectKi: number | null
     situation: string | null
+    pmPerformanceMoveIn: number | null
+    pmPerformanceMoveOut: number | null
+    pmPerformanceRate: number | null
+    pmPerformanceRatePercent: number | null
     photoDate: Date | null
     photo1: string | null
     photo2: string | null
@@ -11166,6 +11182,10 @@ export namespace Prisma {
     kiId: number
     projectKi: number
     situation: number
+    pmPerformanceMoveIn: number
+    pmPerformanceMoveOut: number
+    pmPerformanceRate: number
+    pmPerformanceRatePercent: number
     photoDate: number
     photo1: number
     photo2: number
@@ -11183,10 +11203,18 @@ export namespace Prisma {
 
   export type AssetKiAvgAggregateInputType = {
     projectKi?: true
+    pmPerformanceMoveIn?: true
+    pmPerformanceMoveOut?: true
+    pmPerformanceRate?: true
+    pmPerformanceRatePercent?: true
   }
 
   export type AssetKiSumAggregateInputType = {
     projectKi?: true
+    pmPerformanceMoveIn?: true
+    pmPerformanceMoveOut?: true
+    pmPerformanceRate?: true
+    pmPerformanceRatePercent?: true
   }
 
   export type AssetKiMinAggregateInputType = {
@@ -11195,6 +11223,10 @@ export namespace Prisma {
     kiId?: true
     projectKi?: true
     situation?: true
+    pmPerformanceMoveIn?: true
+    pmPerformanceMoveOut?: true
+    pmPerformanceRate?: true
+    pmPerformanceRatePercent?: true
     photoDate?: true
     photo1?: true
     photo2?: true
@@ -11214,6 +11246,10 @@ export namespace Prisma {
     kiId?: true
     projectKi?: true
     situation?: true
+    pmPerformanceMoveIn?: true
+    pmPerformanceMoveOut?: true
+    pmPerformanceRate?: true
+    pmPerformanceRatePercent?: true
     photoDate?: true
     photo1?: true
     photo2?: true
@@ -11233,6 +11269,10 @@ export namespace Prisma {
     kiId?: true
     projectKi?: true
     situation?: true
+    pmPerformanceMoveIn?: true
+    pmPerformanceMoveOut?: true
+    pmPerformanceRate?: true
+    pmPerformanceRatePercent?: true
     photoDate?: true
     photo1?: true
     photo2?: true
@@ -11339,6 +11379,10 @@ export namespace Prisma {
     kiId: string
     projectKi: number
     situation: string
+    pmPerformanceMoveIn: number | null
+    pmPerformanceMoveOut: number | null
+    pmPerformanceRate: number | null
+    pmPerformanceRatePercent: number | null
     photoDate: Date
     photo1: string | null
     photo2: string | null
@@ -11377,6 +11421,10 @@ export namespace Prisma {
     kiId?: boolean
     projectKi?: boolean
     situation?: boolean
+    pmPerformanceMoveIn?: boolean
+    pmPerformanceMoveOut?: boolean
+    pmPerformanceRate?: boolean
+    pmPerformanceRatePercent?: boolean
     photoDate?: boolean
     photo1?: boolean
     photo2?: boolean
@@ -11398,6 +11446,10 @@ export namespace Prisma {
     kiId?: boolean
     projectKi?: boolean
     situation?: boolean
+    pmPerformanceMoveIn?: boolean
+    pmPerformanceMoveOut?: boolean
+    pmPerformanceRate?: boolean
+    pmPerformanceRatePercent?: boolean
     photoDate?: boolean
     photo1?: boolean
     photo2?: boolean
@@ -11419,6 +11471,10 @@ export namespace Prisma {
     kiId?: boolean
     projectKi?: boolean
     situation?: boolean
+    pmPerformanceMoveIn?: boolean
+    pmPerformanceMoveOut?: boolean
+    pmPerformanceRate?: boolean
+    pmPerformanceRatePercent?: boolean
     photoDate?: boolean
     photo1?: boolean
     photo2?: boolean
@@ -11453,6 +11509,10 @@ export namespace Prisma {
       kiId: string
       projectKi: number
       situation: string
+      pmPerformanceMoveIn: number | null
+      pmPerformanceMoveOut: number | null
+      pmPerformanceRate: number | null
+      pmPerformanceRatePercent: number | null
       photoDate: Date
       photo1: string | null
       photo2: string | null
@@ -11864,6 +11924,10 @@ export namespace Prisma {
     readonly kiId: FieldRef<"AssetKi", 'String'>
     readonly projectKi: FieldRef<"AssetKi", 'Int'>
     readonly situation: FieldRef<"AssetKi", 'String'>
+    readonly pmPerformanceMoveIn: FieldRef<"AssetKi", 'Int'>
+    readonly pmPerformanceMoveOut: FieldRef<"AssetKi", 'Int'>
+    readonly pmPerformanceRate: FieldRef<"AssetKi", 'Float'>
+    readonly pmPerformanceRatePercent: FieldRef<"AssetKi", 'Float'>
     readonly photoDate: FieldRef<"AssetKi", 'DateTime'>
     readonly photo1: FieldRef<"AssetKi", 'String'>
     readonly photo2: FieldRef<"AssetKi", 'String'>
@@ -20069,6 +20133,10 @@ export namespace Prisma {
     kiId: 'kiId',
     projectKi: 'projectKi',
     situation: 'situation',
+    pmPerformanceMoveIn: 'pmPerformanceMoveIn',
+    pmPerformanceMoveOut: 'pmPerformanceMoveOut',
+    pmPerformanceRate: 'pmPerformanceRate',
+    pmPerformanceRatePercent: 'pmPerformanceRatePercent',
     photoDate: 'photoDate',
     photo1: 'photo1',
     photo2: 'photo2',
@@ -21362,6 +21430,10 @@ export namespace Prisma {
     kiId?: StringFilter<"AssetKi"> | string
     projectKi?: IntFilter<"AssetKi"> | number
     situation?: StringFilter<"AssetKi"> | string
+    pmPerformanceMoveIn?: IntNullableFilter<"AssetKi"> | number | null
+    pmPerformanceMoveOut?: IntNullableFilter<"AssetKi"> | number | null
+    pmPerformanceRate?: FloatNullableFilter<"AssetKi"> | number | null
+    pmPerformanceRatePercent?: FloatNullableFilter<"AssetKi"> | number | null
     photoDate?: DateTimeFilter<"AssetKi"> | Date | string
     photo1?: StringNullableFilter<"AssetKi"> | string | null
     photo2?: StringNullableFilter<"AssetKi"> | string | null
@@ -21383,6 +21455,10 @@ export namespace Prisma {
     kiId?: SortOrder
     projectKi?: SortOrder
     situation?: SortOrder
+    pmPerformanceMoveIn?: SortOrderInput | SortOrder
+    pmPerformanceMoveOut?: SortOrderInput | SortOrder
+    pmPerformanceRate?: SortOrderInput | SortOrder
+    pmPerformanceRatePercent?: SortOrderInput | SortOrder
     photoDate?: SortOrder
     photo1?: SortOrderInput | SortOrder
     photo2?: SortOrderInput | SortOrder
@@ -21408,6 +21484,10 @@ export namespace Prisma {
     kiId?: StringFilter<"AssetKi"> | string
     projectKi?: IntFilter<"AssetKi"> | number
     situation?: StringFilter<"AssetKi"> | string
+    pmPerformanceMoveIn?: IntNullableFilter<"AssetKi"> | number | null
+    pmPerformanceMoveOut?: IntNullableFilter<"AssetKi"> | number | null
+    pmPerformanceRate?: FloatNullableFilter<"AssetKi"> | number | null
+    pmPerformanceRatePercent?: FloatNullableFilter<"AssetKi"> | number | null
     photoDate?: DateTimeFilter<"AssetKi"> | Date | string
     photo1?: StringNullableFilter<"AssetKi"> | string | null
     photo2?: StringNullableFilter<"AssetKi"> | string | null
@@ -21429,6 +21509,10 @@ export namespace Prisma {
     kiId?: SortOrder
     projectKi?: SortOrder
     situation?: SortOrder
+    pmPerformanceMoveIn?: SortOrderInput | SortOrder
+    pmPerformanceMoveOut?: SortOrderInput | SortOrder
+    pmPerformanceRate?: SortOrderInput | SortOrder
+    pmPerformanceRatePercent?: SortOrderInput | SortOrder
     photoDate?: SortOrder
     photo1?: SortOrderInput | SortOrder
     photo2?: SortOrderInput | SortOrder
@@ -21456,6 +21540,10 @@ export namespace Prisma {
     kiId?: StringWithAggregatesFilter<"AssetKi"> | string
     projectKi?: IntWithAggregatesFilter<"AssetKi"> | number
     situation?: StringWithAggregatesFilter<"AssetKi"> | string
+    pmPerformanceMoveIn?: IntNullableWithAggregatesFilter<"AssetKi"> | number | null
+    pmPerformanceMoveOut?: IntNullableWithAggregatesFilter<"AssetKi"> | number | null
+    pmPerformanceRate?: FloatNullableWithAggregatesFilter<"AssetKi"> | number | null
+    pmPerformanceRatePercent?: FloatNullableWithAggregatesFilter<"AssetKi"> | number | null
     photoDate?: DateTimeWithAggregatesFilter<"AssetKi"> | Date | string
     photo1?: StringNullableWithAggregatesFilter<"AssetKi"> | string | null
     photo2?: StringNullableWithAggregatesFilter<"AssetKi"> | string | null
@@ -23337,6 +23425,10 @@ export namespace Prisma {
     id?: string
     projectKi: number
     situation: string
+    pmPerformanceMoveIn?: number | null
+    pmPerformanceMoveOut?: number | null
+    pmPerformanceRate?: number | null
+    pmPerformanceRatePercent?: number | null
     photoDate: Date | string
     photo1?: string | null
     photo2?: string | null
@@ -23358,6 +23450,10 @@ export namespace Prisma {
     kiId: string
     projectKi: number
     situation: string
+    pmPerformanceMoveIn?: number | null
+    pmPerformanceMoveOut?: number | null
+    pmPerformanceRate?: number | null
+    pmPerformanceRatePercent?: number | null
     photoDate: Date | string
     photo1?: string | null
     photo2?: string | null
@@ -23375,6 +23471,10 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     projectKi?: IntFieldUpdateOperationsInput | number
     situation?: StringFieldUpdateOperationsInput | string
+    pmPerformanceMoveIn?: NullableIntFieldUpdateOperationsInput | number | null
+    pmPerformanceMoveOut?: NullableIntFieldUpdateOperationsInput | number | null
+    pmPerformanceRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    pmPerformanceRatePercent?: NullableFloatFieldUpdateOperationsInput | number | null
     photoDate?: DateTimeFieldUpdateOperationsInput | Date | string
     photo1?: NullableStringFieldUpdateOperationsInput | string | null
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
@@ -23396,6 +23496,10 @@ export namespace Prisma {
     kiId?: StringFieldUpdateOperationsInput | string
     projectKi?: IntFieldUpdateOperationsInput | number
     situation?: StringFieldUpdateOperationsInput | string
+    pmPerformanceMoveIn?: NullableIntFieldUpdateOperationsInput | number | null
+    pmPerformanceMoveOut?: NullableIntFieldUpdateOperationsInput | number | null
+    pmPerformanceRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    pmPerformanceRatePercent?: NullableFloatFieldUpdateOperationsInput | number | null
     photoDate?: DateTimeFieldUpdateOperationsInput | Date | string
     photo1?: NullableStringFieldUpdateOperationsInput | string | null
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
@@ -23415,6 +23519,10 @@ export namespace Prisma {
     kiId: string
     projectKi: number
     situation: string
+    pmPerformanceMoveIn?: number | null
+    pmPerformanceMoveOut?: number | null
+    pmPerformanceRate?: number | null
+    pmPerformanceRatePercent?: number | null
     photoDate: Date | string
     photo1?: string | null
     photo2?: string | null
@@ -23432,6 +23540,10 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     projectKi?: IntFieldUpdateOperationsInput | number
     situation?: StringFieldUpdateOperationsInput | string
+    pmPerformanceMoveIn?: NullableIntFieldUpdateOperationsInput | number | null
+    pmPerformanceMoveOut?: NullableIntFieldUpdateOperationsInput | number | null
+    pmPerformanceRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    pmPerformanceRatePercent?: NullableFloatFieldUpdateOperationsInput | number | null
     photoDate?: DateTimeFieldUpdateOperationsInput | Date | string
     photo1?: NullableStringFieldUpdateOperationsInput | string | null
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
@@ -23451,6 +23563,10 @@ export namespace Prisma {
     kiId?: StringFieldUpdateOperationsInput | string
     projectKi?: IntFieldUpdateOperationsInput | number
     situation?: StringFieldUpdateOperationsInput | string
+    pmPerformanceMoveIn?: NullableIntFieldUpdateOperationsInput | number | null
+    pmPerformanceMoveOut?: NullableIntFieldUpdateOperationsInput | number | null
+    pmPerformanceRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    pmPerformanceRatePercent?: NullableFloatFieldUpdateOperationsInput | number | null
     photoDate?: DateTimeFieldUpdateOperationsInput | Date | string
     photo1?: NullableStringFieldUpdateOperationsInput | string | null
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
@@ -25257,6 +25373,28 @@ export namespace Prisma {
     updatedBy?: SortOrder
   }
 
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type FloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type AssetRelationFilter = {
     is?: AssetWhereInput
     isNot?: AssetWhereInput
@@ -25273,6 +25411,10 @@ export namespace Prisma {
     kiId?: SortOrder
     projectKi?: SortOrder
     situation?: SortOrder
+    pmPerformanceMoveIn?: SortOrder
+    pmPerformanceMoveOut?: SortOrder
+    pmPerformanceRate?: SortOrder
+    pmPerformanceRatePercent?: SortOrder
     photoDate?: SortOrder
     photo1?: SortOrder
     photo2?: SortOrder
@@ -25288,6 +25430,10 @@ export namespace Prisma {
 
   export type AssetKiAvgOrderByAggregateInput = {
     projectKi?: SortOrder
+    pmPerformanceMoveIn?: SortOrder
+    pmPerformanceMoveOut?: SortOrder
+    pmPerformanceRate?: SortOrder
+    pmPerformanceRatePercent?: SortOrder
   }
 
   export type AssetKiMaxOrderByAggregateInput = {
@@ -25296,6 +25442,10 @@ export namespace Prisma {
     kiId?: SortOrder
     projectKi?: SortOrder
     situation?: SortOrder
+    pmPerformanceMoveIn?: SortOrder
+    pmPerformanceMoveOut?: SortOrder
+    pmPerformanceRate?: SortOrder
+    pmPerformanceRatePercent?: SortOrder
     photoDate?: SortOrder
     photo1?: SortOrder
     photo2?: SortOrder
@@ -25315,6 +25465,10 @@ export namespace Prisma {
     kiId?: SortOrder
     projectKi?: SortOrder
     situation?: SortOrder
+    pmPerformanceMoveIn?: SortOrder
+    pmPerformanceMoveOut?: SortOrder
+    pmPerformanceRate?: SortOrder
+    pmPerformanceRatePercent?: SortOrder
     photoDate?: SortOrder
     photo1?: SortOrder
     photo2?: SortOrder
@@ -25330,6 +25484,42 @@ export namespace Prisma {
 
   export type AssetKiSumOrderByAggregateInput = {
     projectKi?: SortOrder
+    pmPerformanceMoveIn?: SortOrder
+    pmPerformanceMoveOut?: SortOrder
+    pmPerformanceRate?: SortOrder
+    pmPerformanceRatePercent?: SortOrder
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
   export type DateTimeNullableFilter<$PrismaModel = never> = {
@@ -25552,17 +25742,6 @@ export namespace Prisma {
     _max?: NestedEnumHoryuStatusTypeNullableFilter<$PrismaModel>
   }
 
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
   export type CustomerRelationFilter = {
     is?: CustomerWhereInput
     isNot?: CustomerWhereInput
@@ -25662,22 +25841,6 @@ export namespace Prisma {
     otherBunpaiThisKi?: SortOrder
     otherBunpaiYear?: SortOrder
     otherBunpaiTotal?: SortOrder
-  }
-
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type EnumExtTypeFilter<$PrismaModel = never> = {
@@ -26492,6 +26655,22 @@ export namespace Prisma {
     connect?: KiWhereUniqueInput
   }
 
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type NullableFloatFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type AssetUpdateOneRequiredWithoutAssetKisNestedInput = {
     create?: XOR<AssetCreateWithoutAssetKisInput, AssetUncheckedCreateWithoutAssetKisInput>
     connectOrCreate?: AssetCreateOrConnectWithoutAssetKisInput
@@ -26590,14 +26769,6 @@ export namespace Prisma {
     create?: XOR<ProjectKiCreateWithoutCustomerFundsInput, ProjectKiUncheckedCreateWithoutCustomerFundsInput>
     connectOrCreate?: ProjectKiCreateOrConnectWithoutCustomerFundsInput
     connect?: ProjectKiWhereUniqueInput
-  }
-
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
   }
 
   export type CustomerUpdateOneRequiredWithoutCustomerFundsNestedInput = {
@@ -27068,6 +27239,49 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
   export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -27142,33 +27356,6 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedEnumHoryuStatusTypeNullableFilter<$PrismaModel>
     _max?: NestedEnumHoryuStatusTypeNullableFilter<$PrismaModel>
-  }
-
-  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
-  export type NestedFloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedEnumExtTypeFilter<$PrismaModel = never> = {
@@ -27287,6 +27474,10 @@ export namespace Prisma {
     id?: string
     projectKi: number
     situation: string
+    pmPerformanceMoveIn?: number | null
+    pmPerformanceMoveOut?: number | null
+    pmPerformanceRate?: number | null
+    pmPerformanceRatePercent?: number | null
     photoDate: Date | string
     photo1?: string | null
     photo2?: string | null
@@ -27306,6 +27497,10 @@ export namespace Prisma {
     assetId: string
     projectKi: number
     situation: string
+    pmPerformanceMoveIn?: number | null
+    pmPerformanceMoveOut?: number | null
+    pmPerformanceRate?: number | null
+    pmPerformanceRatePercent?: number | null
     photoDate: Date | string
     photo1?: string | null
     photo2?: string | null
@@ -27390,6 +27585,10 @@ export namespace Prisma {
     kiId?: StringFilter<"AssetKi"> | string
     projectKi?: IntFilter<"AssetKi"> | number
     situation?: StringFilter<"AssetKi"> | string
+    pmPerformanceMoveIn?: IntNullableFilter<"AssetKi"> | number | null
+    pmPerformanceMoveOut?: IntNullableFilter<"AssetKi"> | number | null
+    pmPerformanceRate?: FloatNullableFilter<"AssetKi"> | number | null
+    pmPerformanceRatePercent?: FloatNullableFilter<"AssetKi"> | number | null
     photoDate?: DateTimeFilter<"AssetKi"> | Date | string
     photo1?: StringNullableFilter<"AssetKi"> | string | null
     photo2?: StringNullableFilter<"AssetKi"> | string | null
@@ -28586,6 +28785,10 @@ export namespace Prisma {
     id?: string
     projectKi: number
     situation: string
+    pmPerformanceMoveIn?: number | null
+    pmPerformanceMoveOut?: number | null
+    pmPerformanceRate?: number | null
+    pmPerformanceRatePercent?: number | null
     photoDate: Date | string
     photo1?: string | null
     photo2?: string | null
@@ -28605,6 +28808,10 @@ export namespace Prisma {
     kiId: string
     projectKi: number
     situation: string
+    pmPerformanceMoveIn?: number | null
+    pmPerformanceMoveOut?: number | null
+    pmPerformanceRate?: number | null
+    pmPerformanceRatePercent?: number | null
     photoDate: Date | string
     photo1?: string | null
     photo2?: string | null
@@ -29858,6 +30065,10 @@ export namespace Prisma {
     assetId: string
     projectKi: number
     situation: string
+    pmPerformanceMoveIn?: number | null
+    pmPerformanceMoveOut?: number | null
+    pmPerformanceRate?: number | null
+    pmPerformanceRatePercent?: number | null
     photoDate: Date | string
     photo1?: string | null
     photo2?: string | null
@@ -29925,6 +30136,10 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     projectKi?: IntFieldUpdateOperationsInput | number
     situation?: StringFieldUpdateOperationsInput | string
+    pmPerformanceMoveIn?: NullableIntFieldUpdateOperationsInput | number | null
+    pmPerformanceMoveOut?: NullableIntFieldUpdateOperationsInput | number | null
+    pmPerformanceRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    pmPerformanceRatePercent?: NullableFloatFieldUpdateOperationsInput | number | null
     photoDate?: DateTimeFieldUpdateOperationsInput | Date | string
     photo1?: NullableStringFieldUpdateOperationsInput | string | null
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
@@ -29944,6 +30159,10 @@ export namespace Prisma {
     assetId?: StringFieldUpdateOperationsInput | string
     projectKi?: IntFieldUpdateOperationsInput | number
     situation?: StringFieldUpdateOperationsInput | string
+    pmPerformanceMoveIn?: NullableIntFieldUpdateOperationsInput | number | null
+    pmPerformanceMoveOut?: NullableIntFieldUpdateOperationsInput | number | null
+    pmPerformanceRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    pmPerformanceRatePercent?: NullableFloatFieldUpdateOperationsInput | number | null
     photoDate?: DateTimeFieldUpdateOperationsInput | Date | string
     photo1?: NullableStringFieldUpdateOperationsInput | string | null
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
@@ -29962,6 +30181,10 @@ export namespace Prisma {
     assetId?: StringFieldUpdateOperationsInput | string
     projectKi?: IntFieldUpdateOperationsInput | number
     situation?: StringFieldUpdateOperationsInput | string
+    pmPerformanceMoveIn?: NullableIntFieldUpdateOperationsInput | number | null
+    pmPerformanceMoveOut?: NullableIntFieldUpdateOperationsInput | number | null
+    pmPerformanceRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    pmPerformanceRatePercent?: NullableFloatFieldUpdateOperationsInput | number | null
     photoDate?: DateTimeFieldUpdateOperationsInput | Date | string
     photo1?: NullableStringFieldUpdateOperationsInput | string | null
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
@@ -30378,6 +30601,10 @@ export namespace Prisma {
     kiId: string
     projectKi: number
     situation: string
+    pmPerformanceMoveIn?: number | null
+    pmPerformanceMoveOut?: number | null
+    pmPerformanceRate?: number | null
+    pmPerformanceRatePercent?: number | null
     photoDate: Date | string
     photo1?: string | null
     photo2?: string | null
@@ -30395,6 +30622,10 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     projectKi?: IntFieldUpdateOperationsInput | number
     situation?: StringFieldUpdateOperationsInput | string
+    pmPerformanceMoveIn?: NullableIntFieldUpdateOperationsInput | number | null
+    pmPerformanceMoveOut?: NullableIntFieldUpdateOperationsInput | number | null
+    pmPerformanceRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    pmPerformanceRatePercent?: NullableFloatFieldUpdateOperationsInput | number | null
     photoDate?: DateTimeFieldUpdateOperationsInput | Date | string
     photo1?: NullableStringFieldUpdateOperationsInput | string | null
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
@@ -30414,6 +30645,10 @@ export namespace Prisma {
     kiId?: StringFieldUpdateOperationsInput | string
     projectKi?: IntFieldUpdateOperationsInput | number
     situation?: StringFieldUpdateOperationsInput | string
+    pmPerformanceMoveIn?: NullableIntFieldUpdateOperationsInput | number | null
+    pmPerformanceMoveOut?: NullableIntFieldUpdateOperationsInput | number | null
+    pmPerformanceRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    pmPerformanceRatePercent?: NullableFloatFieldUpdateOperationsInput | number | null
     photoDate?: DateTimeFieldUpdateOperationsInput | Date | string
     photo1?: NullableStringFieldUpdateOperationsInput | string | null
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
@@ -30432,6 +30667,10 @@ export namespace Prisma {
     kiId?: StringFieldUpdateOperationsInput | string
     projectKi?: IntFieldUpdateOperationsInput | number
     situation?: StringFieldUpdateOperationsInput | string
+    pmPerformanceMoveIn?: NullableIntFieldUpdateOperationsInput | number | null
+    pmPerformanceMoveOut?: NullableIntFieldUpdateOperationsInput | number | null
+    pmPerformanceRate?: NullableFloatFieldUpdateOperationsInput | number | null
+    pmPerformanceRatePercent?: NullableFloatFieldUpdateOperationsInput | number | null
     photoDate?: DateTimeFieldUpdateOperationsInput | Date | string
     photo1?: NullableStringFieldUpdateOperationsInput | string | null
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
