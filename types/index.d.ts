@@ -7530,6 +7530,8 @@ export namespace Prisma {
     fullOccupancyYield: number | null
     totalKubun: number | null
     residenceKubun: number | null
+    settlorGkName: string | null
+    settlorGkAddress: string | null
     kamiyachoFlag: boolean | null
     mlspcFlag: boolean | null
     reportMainId: string | null
@@ -7559,6 +7561,8 @@ export namespace Prisma {
     fullOccupancyYield: number | null
     totalKubun: number | null
     residenceKubun: number | null
+    settlorGkName: string | null
+    settlorGkAddress: string | null
     kamiyachoFlag: boolean | null
     mlspcFlag: boolean | null
     reportMainId: string | null
@@ -7588,6 +7592,8 @@ export namespace Prisma {
     fullOccupancyYield: number
     totalKubun: number
     residenceKubun: number
+    settlorGkName: number
+    settlorGkAddress: number
     kamiyachoFlag: number
     mlspcFlag: number
     reportMainId: number
@@ -7639,6 +7645,8 @@ export namespace Prisma {
     fullOccupancyYield?: true
     totalKubun?: true
     residenceKubun?: true
+    settlorGkName?: true
+    settlorGkAddress?: true
     kamiyachoFlag?: true
     mlspcFlag?: true
     reportMainId?: true
@@ -7668,6 +7676,8 @@ export namespace Prisma {
     fullOccupancyYield?: true
     totalKubun?: true
     residenceKubun?: true
+    settlorGkName?: true
+    settlorGkAddress?: true
     kamiyachoFlag?: true
     mlspcFlag?: true
     reportMainId?: true
@@ -7697,6 +7707,8 @@ export namespace Prisma {
     fullOccupancyYield?: true
     totalKubun?: true
     residenceKubun?: true
+    settlorGkName?: true
+    settlorGkAddress?: true
     kamiyachoFlag?: true
     mlspcFlag?: true
     reportMainId?: true
@@ -7813,6 +7825,8 @@ export namespace Prisma {
     fullOccupancyYield: number
     totalKubun: number
     residenceKubun: number
+    settlorGkName: string
+    settlorGkAddress: string
     kamiyachoFlag: boolean
     mlspcFlag: boolean
     reportMainId: string | null
@@ -7861,6 +7875,8 @@ export namespace Prisma {
     fullOccupancyYield?: boolean
     totalKubun?: boolean
     residenceKubun?: boolean
+    settlorGkName?: boolean
+    settlorGkAddress?: boolean
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     reportMainId?: boolean
@@ -7899,6 +7915,8 @@ export namespace Prisma {
     fullOccupancyYield?: boolean
     totalKubun?: boolean
     residenceKubun?: boolean
+    settlorGkName?: boolean
+    settlorGkAddress?: boolean
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     reportMainId?: boolean
@@ -7933,6 +7951,8 @@ export namespace Prisma {
     fullOccupancyYield?: boolean
     totalKubun?: boolean
     residenceKubun?: boolean
+    settlorGkName?: boolean
+    settlorGkAddress?: boolean
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     reportMainId?: boolean
@@ -7993,6 +8013,8 @@ export namespace Prisma {
       fullOccupancyYield: number
       totalKubun: number
       residenceKubun: number
+      settlorGkName: string
+      settlorGkAddress: string
       kamiyachoFlag: boolean
       mlspcFlag: boolean
       reportMainId: string | null
@@ -8420,6 +8442,8 @@ export namespace Prisma {
     readonly fullOccupancyYield: FieldRef<"Project", 'Float'>
     readonly totalKubun: FieldRef<"Project", 'Int'>
     readonly residenceKubun: FieldRef<"Project", 'Int'>
+    readonly settlorGkName: FieldRef<"Project", 'String'>
+    readonly settlorGkAddress: FieldRef<"Project", 'String'>
     readonly kamiyachoFlag: FieldRef<"Project", 'Boolean'>
     readonly mlspcFlag: FieldRef<"Project", 'Boolean'>
     readonly reportMainId: FieldRef<"Project", 'String'>
@@ -8915,11 +8939,59 @@ export namespace Prisma {
   export type ProjectKiAvgAggregateOutputType = {
     projectKi: number | null
     ganponKuriire: number | null
+    mlspcMarginIncludeTax: number | null
+    totalUnit: number | null
+    totalUnitNonInvoice: number | null
+    shintakuShueki: number | null
+    shintakuHiyo: number | null
+    sashihikiShintakuRieki: number | null
+    shintakuRieki: number | null
+    bunpaiRieki: number | null
+    bunpaiSogaku: number | null
+    bunpaiSogakuNonInvoice: number | null
+    kurikoshiRieki: number | null
+    unitShintakuShueki: number | null
+    unitShintakuHiyo: number | null
+    unitShintakuHiyoForNonInvoice: number | null
+    unitSashihikiShintakuRieki: number | null
+    unitSashihikiShintakuRiekiForNonInvoice: number | null
+    unitGanponKuriire: number | null
+    unitBunpai: number | null
+    unitBunpaiForNonInvoice: number | null
+    shohiyoRyuhokin: number | null
+    shuzenTsumitatekin: number | null
+    azukarikinHenkanJunbikin: number | null
+    sonotaGenyokin: number | null
+    futuYokinTokiZandaka: number | null
   }
 
   export type ProjectKiSumAggregateOutputType = {
     projectKi: number | null
     ganponKuriire: number | null
+    mlspcMarginIncludeTax: number | null
+    totalUnit: number | null
+    totalUnitNonInvoice: number | null
+    shintakuShueki: number | null
+    shintakuHiyo: number | null
+    sashihikiShintakuRieki: number | null
+    shintakuRieki: number | null
+    bunpaiRieki: number | null
+    bunpaiSogaku: number | null
+    bunpaiSogakuNonInvoice: number | null
+    kurikoshiRieki: number | null
+    unitShintakuShueki: number | null
+    unitShintakuHiyo: number | null
+    unitShintakuHiyoForNonInvoice: number | null
+    unitSashihikiShintakuRieki: number | null
+    unitSashihikiShintakuRiekiForNonInvoice: number | null
+    unitGanponKuriire: number | null
+    unitBunpai: number | null
+    unitBunpaiForNonInvoice: number | null
+    shohiyoRyuhokin: number | null
+    shuzenTsumitatekin: number | null
+    azukarikinHenkanJunbikin: number | null
+    sonotaGenyokin: number | null
+    futuYokinTokiZandaka: number | null
   }
 
   export type ProjectKiMinAggregateOutputType = {
@@ -8927,10 +8999,36 @@ export namespace Prisma {
     projectId: string | null
     kiId: string | null
     projectKi: number | null
+    startAt: Date | null
+    endAt: Date | null
     paymentDate: Date | null
     reportDate: Date | null
     topic: string | null
     ganponKuriire: number | null
+    mlspcMarginIncludeTax: number | null
+    totalUnit: number | null
+    totalUnitNonInvoice: number | null
+    shintakuShueki: number | null
+    shintakuHiyo: number | null
+    sashihikiShintakuRieki: number | null
+    shintakuRieki: number | null
+    bunpaiRieki: number | null
+    bunpaiSogaku: number | null
+    bunpaiSogakuNonInvoice: number | null
+    kurikoshiRieki: number | null
+    unitShintakuShueki: number | null
+    unitShintakuHiyo: number | null
+    unitShintakuHiyoForNonInvoice: number | null
+    unitSashihikiShintakuRieki: number | null
+    unitSashihikiShintakuRiekiForNonInvoice: number | null
+    unitGanponKuriire: number | null
+    unitBunpai: number | null
+    unitBunpaiForNonInvoice: number | null
+    shohiyoRyuhokin: number | null
+    shuzenTsumitatekin: number | null
+    azukarikinHenkanJunbikin: number | null
+    sonotaGenyokin: number | null
+    futuYokinTokiZandaka: number | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -8944,10 +9042,36 @@ export namespace Prisma {
     projectId: string | null
     kiId: string | null
     projectKi: number | null
+    startAt: Date | null
+    endAt: Date | null
     paymentDate: Date | null
     reportDate: Date | null
     topic: string | null
     ganponKuriire: number | null
+    mlspcMarginIncludeTax: number | null
+    totalUnit: number | null
+    totalUnitNonInvoice: number | null
+    shintakuShueki: number | null
+    shintakuHiyo: number | null
+    sashihikiShintakuRieki: number | null
+    shintakuRieki: number | null
+    bunpaiRieki: number | null
+    bunpaiSogaku: number | null
+    bunpaiSogakuNonInvoice: number | null
+    kurikoshiRieki: number | null
+    unitShintakuShueki: number | null
+    unitShintakuHiyo: number | null
+    unitShintakuHiyoForNonInvoice: number | null
+    unitSashihikiShintakuRieki: number | null
+    unitSashihikiShintakuRiekiForNonInvoice: number | null
+    unitGanponKuriire: number | null
+    unitBunpai: number | null
+    unitBunpaiForNonInvoice: number | null
+    shohiyoRyuhokin: number | null
+    shuzenTsumitatekin: number | null
+    azukarikinHenkanJunbikin: number | null
+    sonotaGenyokin: number | null
+    futuYokinTokiZandaka: number | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -8961,10 +9085,36 @@ export namespace Prisma {
     projectId: number
     kiId: number
     projectKi: number
+    startAt: number
+    endAt: number
     paymentDate: number
     reportDate: number
     topic: number
     ganponKuriire: number
+    mlspcMarginIncludeTax: number
+    totalUnit: number
+    totalUnitNonInvoice: number
+    shintakuShueki: number
+    shintakuHiyo: number
+    sashihikiShintakuRieki: number
+    shintakuRieki: number
+    bunpaiRieki: number
+    bunpaiSogaku: number
+    bunpaiSogakuNonInvoice: number
+    kurikoshiRieki: number
+    unitShintakuShueki: number
+    unitShintakuHiyo: number
+    unitShintakuHiyoForNonInvoice: number
+    unitSashihikiShintakuRieki: number
+    unitSashihikiShintakuRiekiForNonInvoice: number
+    unitGanponKuriire: number
+    unitBunpai: number
+    unitBunpaiForNonInvoice: number
+    shohiyoRyuhokin: number
+    shuzenTsumitatekin: number
+    azukarikinHenkanJunbikin: number
+    sonotaGenyokin: number
+    futuYokinTokiZandaka: number
     createdAt: number
     createdId: number
     createdBy: number
@@ -8978,11 +9128,59 @@ export namespace Prisma {
   export type ProjectKiAvgAggregateInputType = {
     projectKi?: true
     ganponKuriire?: true
+    mlspcMarginIncludeTax?: true
+    totalUnit?: true
+    totalUnitNonInvoice?: true
+    shintakuShueki?: true
+    shintakuHiyo?: true
+    sashihikiShintakuRieki?: true
+    shintakuRieki?: true
+    bunpaiRieki?: true
+    bunpaiSogaku?: true
+    bunpaiSogakuNonInvoice?: true
+    kurikoshiRieki?: true
+    unitShintakuShueki?: true
+    unitShintakuHiyo?: true
+    unitShintakuHiyoForNonInvoice?: true
+    unitSashihikiShintakuRieki?: true
+    unitSashihikiShintakuRiekiForNonInvoice?: true
+    unitGanponKuriire?: true
+    unitBunpai?: true
+    unitBunpaiForNonInvoice?: true
+    shohiyoRyuhokin?: true
+    shuzenTsumitatekin?: true
+    azukarikinHenkanJunbikin?: true
+    sonotaGenyokin?: true
+    futuYokinTokiZandaka?: true
   }
 
   export type ProjectKiSumAggregateInputType = {
     projectKi?: true
     ganponKuriire?: true
+    mlspcMarginIncludeTax?: true
+    totalUnit?: true
+    totalUnitNonInvoice?: true
+    shintakuShueki?: true
+    shintakuHiyo?: true
+    sashihikiShintakuRieki?: true
+    shintakuRieki?: true
+    bunpaiRieki?: true
+    bunpaiSogaku?: true
+    bunpaiSogakuNonInvoice?: true
+    kurikoshiRieki?: true
+    unitShintakuShueki?: true
+    unitShintakuHiyo?: true
+    unitShintakuHiyoForNonInvoice?: true
+    unitSashihikiShintakuRieki?: true
+    unitSashihikiShintakuRiekiForNonInvoice?: true
+    unitGanponKuriire?: true
+    unitBunpai?: true
+    unitBunpaiForNonInvoice?: true
+    shohiyoRyuhokin?: true
+    shuzenTsumitatekin?: true
+    azukarikinHenkanJunbikin?: true
+    sonotaGenyokin?: true
+    futuYokinTokiZandaka?: true
   }
 
   export type ProjectKiMinAggregateInputType = {
@@ -8990,10 +9188,36 @@ export namespace Prisma {
     projectId?: true
     kiId?: true
     projectKi?: true
+    startAt?: true
+    endAt?: true
     paymentDate?: true
     reportDate?: true
     topic?: true
     ganponKuriire?: true
+    mlspcMarginIncludeTax?: true
+    totalUnit?: true
+    totalUnitNonInvoice?: true
+    shintakuShueki?: true
+    shintakuHiyo?: true
+    sashihikiShintakuRieki?: true
+    shintakuRieki?: true
+    bunpaiRieki?: true
+    bunpaiSogaku?: true
+    bunpaiSogakuNonInvoice?: true
+    kurikoshiRieki?: true
+    unitShintakuShueki?: true
+    unitShintakuHiyo?: true
+    unitShintakuHiyoForNonInvoice?: true
+    unitSashihikiShintakuRieki?: true
+    unitSashihikiShintakuRiekiForNonInvoice?: true
+    unitGanponKuriire?: true
+    unitBunpai?: true
+    unitBunpaiForNonInvoice?: true
+    shohiyoRyuhokin?: true
+    shuzenTsumitatekin?: true
+    azukarikinHenkanJunbikin?: true
+    sonotaGenyokin?: true
+    futuYokinTokiZandaka?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -9007,10 +9231,36 @@ export namespace Prisma {
     projectId?: true
     kiId?: true
     projectKi?: true
+    startAt?: true
+    endAt?: true
     paymentDate?: true
     reportDate?: true
     topic?: true
     ganponKuriire?: true
+    mlspcMarginIncludeTax?: true
+    totalUnit?: true
+    totalUnitNonInvoice?: true
+    shintakuShueki?: true
+    shintakuHiyo?: true
+    sashihikiShintakuRieki?: true
+    shintakuRieki?: true
+    bunpaiRieki?: true
+    bunpaiSogaku?: true
+    bunpaiSogakuNonInvoice?: true
+    kurikoshiRieki?: true
+    unitShintakuShueki?: true
+    unitShintakuHiyo?: true
+    unitShintakuHiyoForNonInvoice?: true
+    unitSashihikiShintakuRieki?: true
+    unitSashihikiShintakuRiekiForNonInvoice?: true
+    unitGanponKuriire?: true
+    unitBunpai?: true
+    unitBunpaiForNonInvoice?: true
+    shohiyoRyuhokin?: true
+    shuzenTsumitatekin?: true
+    azukarikinHenkanJunbikin?: true
+    sonotaGenyokin?: true
+    futuYokinTokiZandaka?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -9024,10 +9274,36 @@ export namespace Prisma {
     projectId?: true
     kiId?: true
     projectKi?: true
+    startAt?: true
+    endAt?: true
     paymentDate?: true
     reportDate?: true
     topic?: true
     ganponKuriire?: true
+    mlspcMarginIncludeTax?: true
+    totalUnit?: true
+    totalUnitNonInvoice?: true
+    shintakuShueki?: true
+    shintakuHiyo?: true
+    sashihikiShintakuRieki?: true
+    shintakuRieki?: true
+    bunpaiRieki?: true
+    bunpaiSogaku?: true
+    bunpaiSogakuNonInvoice?: true
+    kurikoshiRieki?: true
+    unitShintakuShueki?: true
+    unitShintakuHiyo?: true
+    unitShintakuHiyoForNonInvoice?: true
+    unitSashihikiShintakuRieki?: true
+    unitSashihikiShintakuRiekiForNonInvoice?: true
+    unitGanponKuriire?: true
+    unitBunpai?: true
+    unitBunpaiForNonInvoice?: true
+    shohiyoRyuhokin?: true
+    shuzenTsumitatekin?: true
+    azukarikinHenkanJunbikin?: true
+    sonotaGenyokin?: true
+    futuYokinTokiZandaka?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -9128,10 +9404,36 @@ export namespace Prisma {
     projectId: string
     kiId: string
     projectKi: number
+    startAt: Date
+    endAt: Date
     paymentDate: Date
     reportDate: Date
     topic: string
     ganponKuriire: number
+    mlspcMarginIncludeTax: number | null
+    totalUnit: number | null
+    totalUnitNonInvoice: number | null
+    shintakuShueki: number | null
+    shintakuHiyo: number | null
+    sashihikiShintakuRieki: number | null
+    shintakuRieki: number | null
+    bunpaiRieki: number | null
+    bunpaiSogaku: number | null
+    bunpaiSogakuNonInvoice: number | null
+    kurikoshiRieki: number | null
+    unitShintakuShueki: number | null
+    unitShintakuHiyo: number | null
+    unitShintakuHiyoForNonInvoice: number | null
+    unitSashihikiShintakuRieki: number | null
+    unitSashihikiShintakuRiekiForNonInvoice: number | null
+    unitGanponKuriire: number | null
+    unitBunpai: number | null
+    unitBunpaiForNonInvoice: number | null
+    shohiyoRyuhokin: number | null
+    shuzenTsumitatekin: number | null
+    azukarikinHenkanJunbikin: number | null
+    sonotaGenyokin: number | null
+    futuYokinTokiZandaka: number | null
     createdAt: Date
     createdId: string
     createdBy: string
@@ -9164,10 +9466,36 @@ export namespace Prisma {
     projectId?: boolean
     kiId?: boolean
     projectKi?: boolean
+    startAt?: boolean
+    endAt?: boolean
     paymentDate?: boolean
     reportDate?: boolean
     topic?: boolean
     ganponKuriire?: boolean
+    mlspcMarginIncludeTax?: boolean
+    totalUnit?: boolean
+    totalUnitNonInvoice?: boolean
+    shintakuShueki?: boolean
+    shintakuHiyo?: boolean
+    sashihikiShintakuRieki?: boolean
+    shintakuRieki?: boolean
+    bunpaiRieki?: boolean
+    bunpaiSogaku?: boolean
+    bunpaiSogakuNonInvoice?: boolean
+    kurikoshiRieki?: boolean
+    unitShintakuShueki?: boolean
+    unitShintakuHiyo?: boolean
+    unitShintakuHiyoForNonInvoice?: boolean
+    unitSashihikiShintakuRieki?: boolean
+    unitSashihikiShintakuRiekiForNonInvoice?: boolean
+    unitGanponKuriire?: boolean
+    unitBunpai?: boolean
+    unitBunpaiForNonInvoice?: boolean
+    shohiyoRyuhokin?: boolean
+    shuzenTsumitatekin?: boolean
+    azukarikinHenkanJunbikin?: boolean
+    sonotaGenyokin?: boolean
+    futuYokinTokiZandaka?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -9185,10 +9513,36 @@ export namespace Prisma {
     projectId?: boolean
     kiId?: boolean
     projectKi?: boolean
+    startAt?: boolean
+    endAt?: boolean
     paymentDate?: boolean
     reportDate?: boolean
     topic?: boolean
     ganponKuriire?: boolean
+    mlspcMarginIncludeTax?: boolean
+    totalUnit?: boolean
+    totalUnitNonInvoice?: boolean
+    shintakuShueki?: boolean
+    shintakuHiyo?: boolean
+    sashihikiShintakuRieki?: boolean
+    shintakuRieki?: boolean
+    bunpaiRieki?: boolean
+    bunpaiSogaku?: boolean
+    bunpaiSogakuNonInvoice?: boolean
+    kurikoshiRieki?: boolean
+    unitShintakuShueki?: boolean
+    unitShintakuHiyo?: boolean
+    unitShintakuHiyoForNonInvoice?: boolean
+    unitSashihikiShintakuRieki?: boolean
+    unitSashihikiShintakuRiekiForNonInvoice?: boolean
+    unitGanponKuriire?: boolean
+    unitBunpai?: boolean
+    unitBunpaiForNonInvoice?: boolean
+    shohiyoRyuhokin?: boolean
+    shuzenTsumitatekin?: boolean
+    azukarikinHenkanJunbikin?: boolean
+    sonotaGenyokin?: boolean
+    futuYokinTokiZandaka?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -9204,10 +9558,36 @@ export namespace Prisma {
     projectId?: boolean
     kiId?: boolean
     projectKi?: boolean
+    startAt?: boolean
+    endAt?: boolean
     paymentDate?: boolean
     reportDate?: boolean
     topic?: boolean
     ganponKuriire?: boolean
+    mlspcMarginIncludeTax?: boolean
+    totalUnit?: boolean
+    totalUnitNonInvoice?: boolean
+    shintakuShueki?: boolean
+    shintakuHiyo?: boolean
+    sashihikiShintakuRieki?: boolean
+    shintakuRieki?: boolean
+    bunpaiRieki?: boolean
+    bunpaiSogaku?: boolean
+    bunpaiSogakuNonInvoice?: boolean
+    kurikoshiRieki?: boolean
+    unitShintakuShueki?: boolean
+    unitShintakuHiyo?: boolean
+    unitShintakuHiyoForNonInvoice?: boolean
+    unitSashihikiShintakuRieki?: boolean
+    unitSashihikiShintakuRiekiForNonInvoice?: boolean
+    unitGanponKuriire?: boolean
+    unitBunpai?: boolean
+    unitBunpaiForNonInvoice?: boolean
+    shohiyoRyuhokin?: boolean
+    shuzenTsumitatekin?: boolean
+    azukarikinHenkanJunbikin?: boolean
+    sonotaGenyokin?: boolean
+    futuYokinTokiZandaka?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -9239,10 +9619,36 @@ export namespace Prisma {
       projectId: string
       kiId: string
       projectKi: number
+      startAt: Date
+      endAt: Date
       paymentDate: Date
       reportDate: Date
       topic: string
       ganponKuriire: number
+      mlspcMarginIncludeTax: number | null
+      totalUnit: number | null
+      totalUnitNonInvoice: number | null
+      shintakuShueki: number | null
+      shintakuHiyo: number | null
+      sashihikiShintakuRieki: number | null
+      shintakuRieki: number | null
+      bunpaiRieki: number | null
+      bunpaiSogaku: number | null
+      bunpaiSogakuNonInvoice: number | null
+      kurikoshiRieki: number | null
+      unitShintakuShueki: number | null
+      unitShintakuHiyo: number | null
+      unitShintakuHiyoForNonInvoice: number | null
+      unitSashihikiShintakuRieki: number | null
+      unitSashihikiShintakuRiekiForNonInvoice: number | null
+      unitGanponKuriire: number | null
+      unitBunpai: number | null
+      unitBunpaiForNonInvoice: number | null
+      shohiyoRyuhokin: number | null
+      shuzenTsumitatekin: number | null
+      azukarikinHenkanJunbikin: number | null
+      sonotaGenyokin: number | null
+      futuYokinTokiZandaka: number | null
       createdAt: Date
       createdId: string
       createdBy: string
@@ -9649,10 +10055,36 @@ export namespace Prisma {
     readonly projectId: FieldRef<"ProjectKi", 'String'>
     readonly kiId: FieldRef<"ProjectKi", 'String'>
     readonly projectKi: FieldRef<"ProjectKi", 'Int'>
+    readonly startAt: FieldRef<"ProjectKi", 'DateTime'>
+    readonly endAt: FieldRef<"ProjectKi", 'DateTime'>
     readonly paymentDate: FieldRef<"ProjectKi", 'DateTime'>
     readonly reportDate: FieldRef<"ProjectKi", 'DateTime'>
     readonly topic: FieldRef<"ProjectKi", 'String'>
     readonly ganponKuriire: FieldRef<"ProjectKi", 'Int'>
+    readonly mlspcMarginIncludeTax: FieldRef<"ProjectKi", 'Int'>
+    readonly totalUnit: FieldRef<"ProjectKi", 'Int'>
+    readonly totalUnitNonInvoice: FieldRef<"ProjectKi", 'Int'>
+    readonly shintakuShueki: FieldRef<"ProjectKi", 'Int'>
+    readonly shintakuHiyo: FieldRef<"ProjectKi", 'Int'>
+    readonly sashihikiShintakuRieki: FieldRef<"ProjectKi", 'Int'>
+    readonly shintakuRieki: FieldRef<"ProjectKi", 'Int'>
+    readonly bunpaiRieki: FieldRef<"ProjectKi", 'Int'>
+    readonly bunpaiSogaku: FieldRef<"ProjectKi", 'Int'>
+    readonly bunpaiSogakuNonInvoice: FieldRef<"ProjectKi", 'Int'>
+    readonly kurikoshiRieki: FieldRef<"ProjectKi", 'Int'>
+    readonly unitShintakuShueki: FieldRef<"ProjectKi", 'Int'>
+    readonly unitShintakuHiyo: FieldRef<"ProjectKi", 'Int'>
+    readonly unitShintakuHiyoForNonInvoice: FieldRef<"ProjectKi", 'Int'>
+    readonly unitSashihikiShintakuRieki: FieldRef<"ProjectKi", 'Int'>
+    readonly unitSashihikiShintakuRiekiForNonInvoice: FieldRef<"ProjectKi", 'Int'>
+    readonly unitGanponKuriire: FieldRef<"ProjectKi", 'Int'>
+    readonly unitBunpai: FieldRef<"ProjectKi", 'Int'>
+    readonly unitBunpaiForNonInvoice: FieldRef<"ProjectKi", 'Int'>
+    readonly shohiyoRyuhokin: FieldRef<"ProjectKi", 'Int'>
+    readonly shuzenTsumitatekin: FieldRef<"ProjectKi", 'Int'>
+    readonly azukarikinHenkanJunbikin: FieldRef<"ProjectKi", 'Int'>
+    readonly sonotaGenyokin: FieldRef<"ProjectKi", 'Int'>
+    readonly futuYokinTokiZandaka: FieldRef<"ProjectKi", 'Int'>
     readonly createdAt: FieldRef<"ProjectKi", 'DateTime'>
     readonly createdId: FieldRef<"ProjectKi", 'String'>
     readonly createdBy: FieldRef<"ProjectKi", 'String'>
@@ -20067,6 +20499,8 @@ export namespace Prisma {
     fullOccupancyYield: 'fullOccupancyYield',
     totalKubun: 'totalKubun',
     residenceKubun: 'residenceKubun',
+    settlorGkName: 'settlorGkName',
+    settlorGkAddress: 'settlorGkAddress',
     kamiyachoFlag: 'kamiyachoFlag',
     mlspcFlag: 'mlspcFlag',
     reportMainId: 'reportMainId',
@@ -20090,10 +20524,36 @@ export namespace Prisma {
     projectId: 'projectId',
     kiId: 'kiId',
     projectKi: 'projectKi',
+    startAt: 'startAt',
+    endAt: 'endAt',
     paymentDate: 'paymentDate',
     reportDate: 'reportDate',
     topic: 'topic',
     ganponKuriire: 'ganponKuriire',
+    mlspcMarginIncludeTax: 'mlspcMarginIncludeTax',
+    totalUnit: 'totalUnit',
+    totalUnitNonInvoice: 'totalUnitNonInvoice',
+    shintakuShueki: 'shintakuShueki',
+    shintakuHiyo: 'shintakuHiyo',
+    sashihikiShintakuRieki: 'sashihikiShintakuRieki',
+    shintakuRieki: 'shintakuRieki',
+    bunpaiRieki: 'bunpaiRieki',
+    bunpaiSogaku: 'bunpaiSogaku',
+    bunpaiSogakuNonInvoice: 'bunpaiSogakuNonInvoice',
+    kurikoshiRieki: 'kurikoshiRieki',
+    unitShintakuShueki: 'unitShintakuShueki',
+    unitShintakuHiyo: 'unitShintakuHiyo',
+    unitShintakuHiyoForNonInvoice: 'unitShintakuHiyoForNonInvoice',
+    unitSashihikiShintakuRieki: 'unitSashihikiShintakuRieki',
+    unitSashihikiShintakuRiekiForNonInvoice: 'unitSashihikiShintakuRiekiForNonInvoice',
+    unitGanponKuriire: 'unitGanponKuriire',
+    unitBunpai: 'unitBunpai',
+    unitBunpaiForNonInvoice: 'unitBunpaiForNonInvoice',
+    shohiyoRyuhokin: 'shohiyoRyuhokin',
+    shuzenTsumitatekin: 'shuzenTsumitatekin',
+    azukarikinHenkanJunbikin: 'azukarikinHenkanJunbikin',
+    sonotaGenyokin: 'sonotaGenyokin',
+    futuYokinTokiZandaka: 'futuYokinTokiZandaka',
     createdAt: 'createdAt',
     createdId: 'createdId',
     createdBy: 'createdBy',
@@ -21032,6 +21492,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatFilter<"Project"> | number
     totalKubun?: IntFilter<"Project"> | number
     residenceKubun?: IntFilter<"Project"> | number
+    settlorGkName?: StringFilter<"Project"> | string
+    settlorGkAddress?: StringFilter<"Project"> | string
     kamiyachoFlag?: BoolFilter<"Project"> | boolean
     mlspcFlag?: BoolFilter<"Project"> | boolean
     reportMainId?: StringNullableFilter<"Project"> | string | null
@@ -21069,6 +21531,8 @@ export namespace Prisma {
     fullOccupancyYield?: SortOrder
     totalKubun?: SortOrder
     residenceKubun?: SortOrder
+    settlorGkName?: SortOrder
+    settlorGkAddress?: SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
     reportMainId?: SortOrderInput | SortOrder
@@ -21109,6 +21573,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatFilter<"Project"> | number
     totalKubun?: IntFilter<"Project"> | number
     residenceKubun?: IntFilter<"Project"> | number
+    settlorGkName?: StringFilter<"Project"> | string
+    settlorGkAddress?: StringFilter<"Project"> | string
     kamiyachoFlag?: BoolFilter<"Project"> | boolean
     mlspcFlag?: BoolFilter<"Project"> | boolean
     reportMainId?: StringNullableFilter<"Project"> | string | null
@@ -21146,6 +21612,8 @@ export namespace Prisma {
     fullOccupancyYield?: SortOrder
     totalKubun?: SortOrder
     residenceKubun?: SortOrder
+    settlorGkName?: SortOrder
+    settlorGkAddress?: SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
     reportMainId?: SortOrderInput | SortOrder
@@ -21183,6 +21651,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatWithAggregatesFilter<"Project"> | number
     totalKubun?: IntWithAggregatesFilter<"Project"> | number
     residenceKubun?: IntWithAggregatesFilter<"Project"> | number
+    settlorGkName?: StringWithAggregatesFilter<"Project"> | string
+    settlorGkAddress?: StringWithAggregatesFilter<"Project"> | string
     kamiyachoFlag?: BoolWithAggregatesFilter<"Project"> | boolean
     mlspcFlag?: BoolWithAggregatesFilter<"Project"> | boolean
     reportMainId?: StringNullableWithAggregatesFilter<"Project"> | string | null
@@ -21206,10 +21676,36 @@ export namespace Prisma {
     projectId?: StringFilter<"ProjectKi"> | string
     kiId?: StringFilter<"ProjectKi"> | string
     projectKi?: IntFilter<"ProjectKi"> | number
+    startAt?: DateTimeFilter<"ProjectKi"> | Date | string
+    endAt?: DateTimeFilter<"ProjectKi"> | Date | string
     paymentDate?: DateTimeFilter<"ProjectKi"> | Date | string
     reportDate?: DateTimeFilter<"ProjectKi"> | Date | string
     topic?: StringFilter<"ProjectKi"> | string
     ganponKuriire?: IntFilter<"ProjectKi"> | number
+    mlspcMarginIncludeTax?: IntNullableFilter<"ProjectKi"> | number | null
+    totalUnit?: IntNullableFilter<"ProjectKi"> | number | null
+    totalUnitNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuShueki?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuHiyo?: IntNullableFilter<"ProjectKi"> | number | null
+    sashihikiShintakuRieki?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuRieki?: IntNullableFilter<"ProjectKi"> | number | null
+    bunpaiRieki?: IntNullableFilter<"ProjectKi"> | number | null
+    bunpaiSogaku?: IntNullableFilter<"ProjectKi"> | number | null
+    bunpaiSogakuNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    kurikoshiRieki?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuShueki?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyo?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    unitSashihikiShintakuRieki?: IntNullableFilter<"ProjectKi"> | number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    unitGanponKuriire?: IntNullableFilter<"ProjectKi"> | number | null
+    unitBunpai?: IntNullableFilter<"ProjectKi"> | number | null
+    unitBunpaiForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    shohiyoRyuhokin?: IntNullableFilter<"ProjectKi"> | number | null
+    shuzenTsumitatekin?: IntNullableFilter<"ProjectKi"> | number | null
+    azukarikinHenkanJunbikin?: IntNullableFilter<"ProjectKi"> | number | null
+    sonotaGenyokin?: IntNullableFilter<"ProjectKi"> | number | null
+    futuYokinTokiZandaka?: IntNullableFilter<"ProjectKi"> | number | null
     createdAt?: DateTimeFilter<"ProjectKi"> | Date | string
     createdId?: StringFilter<"ProjectKi"> | string
     createdBy?: StringFilter<"ProjectKi"> | string
@@ -21226,10 +21722,36 @@ export namespace Prisma {
     projectId?: SortOrder
     kiId?: SortOrder
     projectKi?: SortOrder
+    startAt?: SortOrder
+    endAt?: SortOrder
     paymentDate?: SortOrder
     reportDate?: SortOrder
     topic?: SortOrder
     ganponKuriire?: SortOrder
+    mlspcMarginIncludeTax?: SortOrderInput | SortOrder
+    totalUnit?: SortOrderInput | SortOrder
+    totalUnitNonInvoice?: SortOrderInput | SortOrder
+    shintakuShueki?: SortOrderInput | SortOrder
+    shintakuHiyo?: SortOrderInput | SortOrder
+    sashihikiShintakuRieki?: SortOrderInput | SortOrder
+    shintakuRieki?: SortOrderInput | SortOrder
+    bunpaiRieki?: SortOrderInput | SortOrder
+    bunpaiSogaku?: SortOrderInput | SortOrder
+    bunpaiSogakuNonInvoice?: SortOrderInput | SortOrder
+    kurikoshiRieki?: SortOrderInput | SortOrder
+    unitShintakuShueki?: SortOrderInput | SortOrder
+    unitShintakuHiyo?: SortOrderInput | SortOrder
+    unitShintakuHiyoForNonInvoice?: SortOrderInput | SortOrder
+    unitSashihikiShintakuRieki?: SortOrderInput | SortOrder
+    unitSashihikiShintakuRiekiForNonInvoice?: SortOrderInput | SortOrder
+    unitGanponKuriire?: SortOrderInput | SortOrder
+    unitBunpai?: SortOrderInput | SortOrder
+    unitBunpaiForNonInvoice?: SortOrderInput | SortOrder
+    shohiyoRyuhokin?: SortOrderInput | SortOrder
+    shuzenTsumitatekin?: SortOrderInput | SortOrder
+    azukarikinHenkanJunbikin?: SortOrderInput | SortOrder
+    sonotaGenyokin?: SortOrderInput | SortOrder
+    futuYokinTokiZandaka?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -21251,10 +21773,36 @@ export namespace Prisma {
     projectId?: StringFilter<"ProjectKi"> | string
     kiId?: StringFilter<"ProjectKi"> | string
     projectKi?: IntFilter<"ProjectKi"> | number
+    startAt?: DateTimeFilter<"ProjectKi"> | Date | string
+    endAt?: DateTimeFilter<"ProjectKi"> | Date | string
     paymentDate?: DateTimeFilter<"ProjectKi"> | Date | string
     reportDate?: DateTimeFilter<"ProjectKi"> | Date | string
     topic?: StringFilter<"ProjectKi"> | string
     ganponKuriire?: IntFilter<"ProjectKi"> | number
+    mlspcMarginIncludeTax?: IntNullableFilter<"ProjectKi"> | number | null
+    totalUnit?: IntNullableFilter<"ProjectKi"> | number | null
+    totalUnitNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuShueki?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuHiyo?: IntNullableFilter<"ProjectKi"> | number | null
+    sashihikiShintakuRieki?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuRieki?: IntNullableFilter<"ProjectKi"> | number | null
+    bunpaiRieki?: IntNullableFilter<"ProjectKi"> | number | null
+    bunpaiSogaku?: IntNullableFilter<"ProjectKi"> | number | null
+    bunpaiSogakuNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    kurikoshiRieki?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuShueki?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyo?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    unitSashihikiShintakuRieki?: IntNullableFilter<"ProjectKi"> | number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    unitGanponKuriire?: IntNullableFilter<"ProjectKi"> | number | null
+    unitBunpai?: IntNullableFilter<"ProjectKi"> | number | null
+    unitBunpaiForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    shohiyoRyuhokin?: IntNullableFilter<"ProjectKi"> | number | null
+    shuzenTsumitatekin?: IntNullableFilter<"ProjectKi"> | number | null
+    azukarikinHenkanJunbikin?: IntNullableFilter<"ProjectKi"> | number | null
+    sonotaGenyokin?: IntNullableFilter<"ProjectKi"> | number | null
+    futuYokinTokiZandaka?: IntNullableFilter<"ProjectKi"> | number | null
     createdAt?: DateTimeFilter<"ProjectKi"> | Date | string
     createdId?: StringFilter<"ProjectKi"> | string
     createdBy?: StringFilter<"ProjectKi"> | string
@@ -21271,10 +21819,36 @@ export namespace Prisma {
     projectId?: SortOrder
     kiId?: SortOrder
     projectKi?: SortOrder
+    startAt?: SortOrder
+    endAt?: SortOrder
     paymentDate?: SortOrder
     reportDate?: SortOrder
     topic?: SortOrder
     ganponKuriire?: SortOrder
+    mlspcMarginIncludeTax?: SortOrderInput | SortOrder
+    totalUnit?: SortOrderInput | SortOrder
+    totalUnitNonInvoice?: SortOrderInput | SortOrder
+    shintakuShueki?: SortOrderInput | SortOrder
+    shintakuHiyo?: SortOrderInput | SortOrder
+    sashihikiShintakuRieki?: SortOrderInput | SortOrder
+    shintakuRieki?: SortOrderInput | SortOrder
+    bunpaiRieki?: SortOrderInput | SortOrder
+    bunpaiSogaku?: SortOrderInput | SortOrder
+    bunpaiSogakuNonInvoice?: SortOrderInput | SortOrder
+    kurikoshiRieki?: SortOrderInput | SortOrder
+    unitShintakuShueki?: SortOrderInput | SortOrder
+    unitShintakuHiyo?: SortOrderInput | SortOrder
+    unitShintakuHiyoForNonInvoice?: SortOrderInput | SortOrder
+    unitSashihikiShintakuRieki?: SortOrderInput | SortOrder
+    unitSashihikiShintakuRiekiForNonInvoice?: SortOrderInput | SortOrder
+    unitGanponKuriire?: SortOrderInput | SortOrder
+    unitBunpai?: SortOrderInput | SortOrder
+    unitBunpaiForNonInvoice?: SortOrderInput | SortOrder
+    shohiyoRyuhokin?: SortOrderInput | SortOrder
+    shuzenTsumitatekin?: SortOrderInput | SortOrder
+    azukarikinHenkanJunbikin?: SortOrderInput | SortOrder
+    sonotaGenyokin?: SortOrderInput | SortOrder
+    futuYokinTokiZandaka?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -21296,10 +21870,36 @@ export namespace Prisma {
     projectId?: StringWithAggregatesFilter<"ProjectKi"> | string
     kiId?: StringWithAggregatesFilter<"ProjectKi"> | string
     projectKi?: IntWithAggregatesFilter<"ProjectKi"> | number
+    startAt?: DateTimeWithAggregatesFilter<"ProjectKi"> | Date | string
+    endAt?: DateTimeWithAggregatesFilter<"ProjectKi"> | Date | string
     paymentDate?: DateTimeWithAggregatesFilter<"ProjectKi"> | Date | string
     reportDate?: DateTimeWithAggregatesFilter<"ProjectKi"> | Date | string
     topic?: StringWithAggregatesFilter<"ProjectKi"> | string
     ganponKuriire?: IntWithAggregatesFilter<"ProjectKi"> | number
+    mlspcMarginIncludeTax?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    totalUnit?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    totalUnitNonInvoice?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    shintakuShueki?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    shintakuHiyo?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    sashihikiShintakuRieki?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    shintakuRieki?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    bunpaiRieki?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    bunpaiSogaku?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    bunpaiSogakuNonInvoice?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    kurikoshiRieki?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    unitShintakuShueki?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    unitShintakuHiyo?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoForNonInvoice?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    unitSashihikiShintakuRieki?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    unitGanponKuriire?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    unitBunpai?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    unitBunpaiForNonInvoice?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    shohiyoRyuhokin?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    shuzenTsumitatekin?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    azukarikinHenkanJunbikin?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    sonotaGenyokin?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    futuYokinTokiZandaka?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     createdAt?: DateTimeWithAggregatesFilter<"ProjectKi"> | Date | string
     createdId?: StringWithAggregatesFilter<"ProjectKi"> | string
     createdBy?: StringWithAggregatesFilter<"ProjectKi"> | string
@@ -22968,6 +23568,8 @@ export namespace Prisma {
     fullOccupancyYield: number
     totalKubun?: number
     residenceKubun?: number
+    settlorGkName: string
+    settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     createdAt?: Date | string
@@ -23000,6 +23602,8 @@ export namespace Prisma {
     fullOccupancyYield: number
     totalKubun?: number
     residenceKubun?: number
+    settlorGkName: string
+    settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     reportMainId?: string | null
@@ -23032,6 +23636,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
     totalKubun?: IntFieldUpdateOperationsInput | number
     residenceKubun?: IntFieldUpdateOperationsInput | number
+    settlorGkName?: StringFieldUpdateOperationsInput | string
+    settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -23064,6 +23670,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
     totalKubun?: IntFieldUpdateOperationsInput | number
     residenceKubun?: IntFieldUpdateOperationsInput | number
+    settlorGkName?: StringFieldUpdateOperationsInput | string
+    settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -23096,6 +23704,8 @@ export namespace Prisma {
     fullOccupancyYield: number
     totalKubun?: number
     residenceKubun?: number
+    settlorGkName: string
+    settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     reportMainId?: string | null
@@ -23125,6 +23735,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
     totalKubun?: IntFieldUpdateOperationsInput | number
     residenceKubun?: IntFieldUpdateOperationsInput | number
+    settlorGkName?: StringFieldUpdateOperationsInput | string
+    settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -23149,6 +23761,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
     totalKubun?: IntFieldUpdateOperationsInput | number
     residenceKubun?: IntFieldUpdateOperationsInput | number
+    settlorGkName?: StringFieldUpdateOperationsInput | string
+    settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -23167,10 +23781,36 @@ export namespace Prisma {
   export type ProjectKiCreateInput = {
     id?: string
     projectKi: number
+    startAt: Date | string
+    endAt: Date | string
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
     ganponKuriire?: number
+    mlspcMarginIncludeTax?: number | null
+    totalUnit?: number | null
+    totalUnitNonInvoice?: number | null
+    shintakuShueki?: number | null
+    shintakuHiyo?: number | null
+    sashihikiShintakuRieki?: number | null
+    shintakuRieki?: number | null
+    bunpaiRieki?: number | null
+    bunpaiSogaku?: number | null
+    bunpaiSogakuNonInvoice?: number | null
+    kurikoshiRieki?: number | null
+    unitShintakuShueki?: number | null
+    unitShintakuHiyo?: number | null
+    unitShintakuHiyoForNonInvoice?: number | null
+    unitSashihikiShintakuRieki?: number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: number | null
+    unitGanponKuriire?: number | null
+    unitBunpai?: number | null
+    unitBunpaiForNonInvoice?: number | null
+    shohiyoRyuhokin?: number | null
+    shuzenTsumitatekin?: number | null
+    azukarikinHenkanJunbikin?: number | null
+    sonotaGenyokin?: number | null
+    futuYokinTokiZandaka?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -23187,10 +23827,36 @@ export namespace Prisma {
     projectId: string
     kiId: string
     projectKi: number
+    startAt: Date | string
+    endAt: Date | string
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
     ganponKuriire?: number
+    mlspcMarginIncludeTax?: number | null
+    totalUnit?: number | null
+    totalUnitNonInvoice?: number | null
+    shintakuShueki?: number | null
+    shintakuHiyo?: number | null
+    sashihikiShintakuRieki?: number | null
+    shintakuRieki?: number | null
+    bunpaiRieki?: number | null
+    bunpaiSogaku?: number | null
+    bunpaiSogakuNonInvoice?: number | null
+    kurikoshiRieki?: number | null
+    unitShintakuShueki?: number | null
+    unitShintakuHiyo?: number | null
+    unitShintakuHiyoForNonInvoice?: number | null
+    unitSashihikiShintakuRieki?: number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: number | null
+    unitGanponKuriire?: number | null
+    unitBunpai?: number | null
+    unitBunpaiForNonInvoice?: number | null
+    shohiyoRyuhokin?: number | null
+    shuzenTsumitatekin?: number | null
+    azukarikinHenkanJunbikin?: number | null
+    sonotaGenyokin?: number | null
+    futuYokinTokiZandaka?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -23203,10 +23869,36 @@ export namespace Prisma {
   export type ProjectKiUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     projectKi?: IntFieldUpdateOperationsInput | number
+    startAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: IntFieldUpdateOperationsInput | number
+    mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    sashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiSogaku?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiSogakuNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
+    shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
+    azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
+    sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
+    futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -23223,10 +23915,36 @@ export namespace Prisma {
     projectId?: StringFieldUpdateOperationsInput | string
     kiId?: StringFieldUpdateOperationsInput | string
     projectKi?: IntFieldUpdateOperationsInput | number
+    startAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: IntFieldUpdateOperationsInput | number
+    mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    sashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiSogaku?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiSogakuNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
+    shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
+    azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
+    sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
+    futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -23241,10 +23959,36 @@ export namespace Prisma {
     projectId: string
     kiId: string
     projectKi: number
+    startAt: Date | string
+    endAt: Date | string
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
     ganponKuriire?: number
+    mlspcMarginIncludeTax?: number | null
+    totalUnit?: number | null
+    totalUnitNonInvoice?: number | null
+    shintakuShueki?: number | null
+    shintakuHiyo?: number | null
+    sashihikiShintakuRieki?: number | null
+    shintakuRieki?: number | null
+    bunpaiRieki?: number | null
+    bunpaiSogaku?: number | null
+    bunpaiSogakuNonInvoice?: number | null
+    kurikoshiRieki?: number | null
+    unitShintakuShueki?: number | null
+    unitShintakuHiyo?: number | null
+    unitShintakuHiyoForNonInvoice?: number | null
+    unitSashihikiShintakuRieki?: number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: number | null
+    unitGanponKuriire?: number | null
+    unitBunpai?: number | null
+    unitBunpaiForNonInvoice?: number | null
+    shohiyoRyuhokin?: number | null
+    shuzenTsumitatekin?: number | null
+    azukarikinHenkanJunbikin?: number | null
+    sonotaGenyokin?: number | null
+    futuYokinTokiZandaka?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -23256,10 +24000,36 @@ export namespace Prisma {
   export type ProjectKiUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     projectKi?: IntFieldUpdateOperationsInput | number
+    startAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: IntFieldUpdateOperationsInput | number
+    mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    sashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiSogaku?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiSogakuNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
+    shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
+    azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
+    sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
+    futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -23273,10 +24043,36 @@ export namespace Prisma {
     projectId?: StringFieldUpdateOperationsInput | string
     kiId?: StringFieldUpdateOperationsInput | string
     projectKi?: IntFieldUpdateOperationsInput | number
+    startAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: IntFieldUpdateOperationsInput | number
+    mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    sashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiSogaku?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiSogakuNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
+    shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
+    azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
+    sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
+    futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -25100,6 +25896,8 @@ export namespace Prisma {
     fullOccupancyYield?: SortOrder
     totalKubun?: SortOrder
     residenceKubun?: SortOrder
+    settlorGkName?: SortOrder
+    settlorGkAddress?: SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
     reportMainId?: SortOrder
@@ -25139,6 +25937,8 @@ export namespace Prisma {
     fullOccupancyYield?: SortOrder
     totalKubun?: SortOrder
     residenceKubun?: SortOrder
+    settlorGkName?: SortOrder
+    settlorGkAddress?: SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
     reportMainId?: SortOrder
@@ -25168,6 +25968,8 @@ export namespace Prisma {
     fullOccupancyYield?: SortOrder
     totalKubun?: SortOrder
     residenceKubun?: SortOrder
+    settlorGkName?: SortOrder
+    settlorGkAddress?: SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
     reportMainId?: SortOrder
@@ -25225,6 +26027,17 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type ProjectRelationFilter = {
     is?: ProjectWhereInput
     isNot?: ProjectWhereInput
@@ -25260,10 +26073,36 @@ export namespace Prisma {
     projectId?: SortOrder
     kiId?: SortOrder
     projectKi?: SortOrder
+    startAt?: SortOrder
+    endAt?: SortOrder
     paymentDate?: SortOrder
     reportDate?: SortOrder
     topic?: SortOrder
     ganponKuriire?: SortOrder
+    mlspcMarginIncludeTax?: SortOrder
+    totalUnit?: SortOrder
+    totalUnitNonInvoice?: SortOrder
+    shintakuShueki?: SortOrder
+    shintakuHiyo?: SortOrder
+    sashihikiShintakuRieki?: SortOrder
+    shintakuRieki?: SortOrder
+    bunpaiRieki?: SortOrder
+    bunpaiSogaku?: SortOrder
+    bunpaiSogakuNonInvoice?: SortOrder
+    kurikoshiRieki?: SortOrder
+    unitShintakuShueki?: SortOrder
+    unitShintakuHiyo?: SortOrder
+    unitShintakuHiyoForNonInvoice?: SortOrder
+    unitSashihikiShintakuRieki?: SortOrder
+    unitSashihikiShintakuRiekiForNonInvoice?: SortOrder
+    unitGanponKuriire?: SortOrder
+    unitBunpai?: SortOrder
+    unitBunpaiForNonInvoice?: SortOrder
+    shohiyoRyuhokin?: SortOrder
+    shuzenTsumitatekin?: SortOrder
+    azukarikinHenkanJunbikin?: SortOrder
+    sonotaGenyokin?: SortOrder
+    futuYokinTokiZandaka?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -25275,6 +26114,30 @@ export namespace Prisma {
   export type ProjectKiAvgOrderByAggregateInput = {
     projectKi?: SortOrder
     ganponKuriire?: SortOrder
+    mlspcMarginIncludeTax?: SortOrder
+    totalUnit?: SortOrder
+    totalUnitNonInvoice?: SortOrder
+    shintakuShueki?: SortOrder
+    shintakuHiyo?: SortOrder
+    sashihikiShintakuRieki?: SortOrder
+    shintakuRieki?: SortOrder
+    bunpaiRieki?: SortOrder
+    bunpaiSogaku?: SortOrder
+    bunpaiSogakuNonInvoice?: SortOrder
+    kurikoshiRieki?: SortOrder
+    unitShintakuShueki?: SortOrder
+    unitShintakuHiyo?: SortOrder
+    unitShintakuHiyoForNonInvoice?: SortOrder
+    unitSashihikiShintakuRieki?: SortOrder
+    unitSashihikiShintakuRiekiForNonInvoice?: SortOrder
+    unitGanponKuriire?: SortOrder
+    unitBunpai?: SortOrder
+    unitBunpaiForNonInvoice?: SortOrder
+    shohiyoRyuhokin?: SortOrder
+    shuzenTsumitatekin?: SortOrder
+    azukarikinHenkanJunbikin?: SortOrder
+    sonotaGenyokin?: SortOrder
+    futuYokinTokiZandaka?: SortOrder
   }
 
   export type ProjectKiMaxOrderByAggregateInput = {
@@ -25282,10 +26145,36 @@ export namespace Prisma {
     projectId?: SortOrder
     kiId?: SortOrder
     projectKi?: SortOrder
+    startAt?: SortOrder
+    endAt?: SortOrder
     paymentDate?: SortOrder
     reportDate?: SortOrder
     topic?: SortOrder
     ganponKuriire?: SortOrder
+    mlspcMarginIncludeTax?: SortOrder
+    totalUnit?: SortOrder
+    totalUnitNonInvoice?: SortOrder
+    shintakuShueki?: SortOrder
+    shintakuHiyo?: SortOrder
+    sashihikiShintakuRieki?: SortOrder
+    shintakuRieki?: SortOrder
+    bunpaiRieki?: SortOrder
+    bunpaiSogaku?: SortOrder
+    bunpaiSogakuNonInvoice?: SortOrder
+    kurikoshiRieki?: SortOrder
+    unitShintakuShueki?: SortOrder
+    unitShintakuHiyo?: SortOrder
+    unitShintakuHiyoForNonInvoice?: SortOrder
+    unitSashihikiShintakuRieki?: SortOrder
+    unitSashihikiShintakuRiekiForNonInvoice?: SortOrder
+    unitGanponKuriire?: SortOrder
+    unitBunpai?: SortOrder
+    unitBunpaiForNonInvoice?: SortOrder
+    shohiyoRyuhokin?: SortOrder
+    shuzenTsumitatekin?: SortOrder
+    azukarikinHenkanJunbikin?: SortOrder
+    sonotaGenyokin?: SortOrder
+    futuYokinTokiZandaka?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -25299,10 +26188,36 @@ export namespace Prisma {
     projectId?: SortOrder
     kiId?: SortOrder
     projectKi?: SortOrder
+    startAt?: SortOrder
+    endAt?: SortOrder
     paymentDate?: SortOrder
     reportDate?: SortOrder
     topic?: SortOrder
     ganponKuriire?: SortOrder
+    mlspcMarginIncludeTax?: SortOrder
+    totalUnit?: SortOrder
+    totalUnitNonInvoice?: SortOrder
+    shintakuShueki?: SortOrder
+    shintakuHiyo?: SortOrder
+    sashihikiShintakuRieki?: SortOrder
+    shintakuRieki?: SortOrder
+    bunpaiRieki?: SortOrder
+    bunpaiSogaku?: SortOrder
+    bunpaiSogakuNonInvoice?: SortOrder
+    kurikoshiRieki?: SortOrder
+    unitShintakuShueki?: SortOrder
+    unitShintakuHiyo?: SortOrder
+    unitShintakuHiyoForNonInvoice?: SortOrder
+    unitSashihikiShintakuRieki?: SortOrder
+    unitSashihikiShintakuRiekiForNonInvoice?: SortOrder
+    unitGanponKuriire?: SortOrder
+    unitBunpai?: SortOrder
+    unitBunpaiForNonInvoice?: SortOrder
+    shohiyoRyuhokin?: SortOrder
+    shuzenTsumitatekin?: SortOrder
+    azukarikinHenkanJunbikin?: SortOrder
+    sonotaGenyokin?: SortOrder
+    futuYokinTokiZandaka?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -25314,6 +26229,46 @@ export namespace Prisma {
   export type ProjectKiSumOrderByAggregateInput = {
     projectKi?: SortOrder
     ganponKuriire?: SortOrder
+    mlspcMarginIncludeTax?: SortOrder
+    totalUnit?: SortOrder
+    totalUnitNonInvoice?: SortOrder
+    shintakuShueki?: SortOrder
+    shintakuHiyo?: SortOrder
+    sashihikiShintakuRieki?: SortOrder
+    shintakuRieki?: SortOrder
+    bunpaiRieki?: SortOrder
+    bunpaiSogaku?: SortOrder
+    bunpaiSogakuNonInvoice?: SortOrder
+    kurikoshiRieki?: SortOrder
+    unitShintakuShueki?: SortOrder
+    unitShintakuHiyo?: SortOrder
+    unitShintakuHiyoForNonInvoice?: SortOrder
+    unitSashihikiShintakuRieki?: SortOrder
+    unitSashihikiShintakuRiekiForNonInvoice?: SortOrder
+    unitGanponKuriire?: SortOrder
+    unitBunpai?: SortOrder
+    unitBunpaiForNonInvoice?: SortOrder
+    shohiyoRyuhokin?: SortOrder
+    shuzenTsumitatekin?: SortOrder
+    azukarikinHenkanJunbikin?: SortOrder
+    sonotaGenyokin?: SortOrder
+    futuYokinTokiZandaka?: SortOrder
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type AssetCountOrderByAggregateInput = {
@@ -25371,17 +26326,6 @@ export namespace Prisma {
     updatedAt?: SortOrder
     updatedId?: SortOrder
     updatedBy?: SortOrder
-  }
-
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type FloatNullableFilter<$PrismaModel = never> = {
@@ -25488,22 +26432,6 @@ export namespace Prisma {
     pmPerformanceMoveOut?: SortOrder
     pmPerformanceRate?: SortOrder
     pmPerformanceRatePercent?: SortOrder
-  }
-
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -26543,6 +27471,14 @@ export namespace Prisma {
     connect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
   }
 
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type ProjectUpdateOneRequiredWithoutProjectKisNestedInput = {
     create?: XOR<ProjectCreateWithoutProjectKisInput, ProjectUncheckedCreateWithoutProjectKisInput>
     connectOrCreate?: ProjectCreateOrConnectWithoutProjectKisInput
@@ -26653,14 +27589,6 @@ export namespace Prisma {
     create?: XOR<KiCreateWithoutAssetKisInput, KiUncheckedCreateWithoutAssetKisInput>
     connectOrCreate?: KiCreateOrConnectWithoutAssetKisInput
     connect?: KiWhereUniqueInput
-  }
-
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
   }
 
   export type NullableFloatFieldUpdateOperationsInput = {
@@ -27239,17 +28167,6 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
-  export type NestedFloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
-  }
-
   export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
@@ -27264,6 +28181,17 @@ export namespace Prisma {
     _sum?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedIntNullableFilter<$PrismaModel>
     _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -27429,10 +28357,36 @@ export namespace Prisma {
   export type ProjectKiCreateWithoutKiInput = {
     id?: string
     projectKi: number
+    startAt: Date | string
+    endAt: Date | string
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
     ganponKuriire?: number
+    mlspcMarginIncludeTax?: number | null
+    totalUnit?: number | null
+    totalUnitNonInvoice?: number | null
+    shintakuShueki?: number | null
+    shintakuHiyo?: number | null
+    sashihikiShintakuRieki?: number | null
+    shintakuRieki?: number | null
+    bunpaiRieki?: number | null
+    bunpaiSogaku?: number | null
+    bunpaiSogakuNonInvoice?: number | null
+    kurikoshiRieki?: number | null
+    unitShintakuShueki?: number | null
+    unitShintakuHiyo?: number | null
+    unitShintakuHiyoForNonInvoice?: number | null
+    unitSashihikiShintakuRieki?: number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: number | null
+    unitGanponKuriire?: number | null
+    unitBunpai?: number | null
+    unitBunpaiForNonInvoice?: number | null
+    shohiyoRyuhokin?: number | null
+    shuzenTsumitatekin?: number | null
+    azukarikinHenkanJunbikin?: number | null
+    sonotaGenyokin?: number | null
+    futuYokinTokiZandaka?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -27447,10 +28401,36 @@ export namespace Prisma {
     id?: string
     projectId: string
     projectKi: number
+    startAt: Date | string
+    endAt: Date | string
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
     ganponKuriire?: number
+    mlspcMarginIncludeTax?: number | null
+    totalUnit?: number | null
+    totalUnitNonInvoice?: number | null
+    shintakuShueki?: number | null
+    shintakuHiyo?: number | null
+    sashihikiShintakuRieki?: number | null
+    shintakuRieki?: number | null
+    bunpaiRieki?: number | null
+    bunpaiSogaku?: number | null
+    bunpaiSogakuNonInvoice?: number | null
+    kurikoshiRieki?: number | null
+    unitShintakuShueki?: number | null
+    unitShintakuHiyo?: number | null
+    unitShintakuHiyoForNonInvoice?: number | null
+    unitSashihikiShintakuRieki?: number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: number | null
+    unitGanponKuriire?: number | null
+    unitBunpai?: number | null
+    unitBunpaiForNonInvoice?: number | null
+    shohiyoRyuhokin?: number | null
+    shuzenTsumitatekin?: number | null
+    azukarikinHenkanJunbikin?: number | null
+    sonotaGenyokin?: number | null
+    futuYokinTokiZandaka?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -27548,10 +28528,36 @@ export namespace Prisma {
     projectId?: StringFilter<"ProjectKi"> | string
     kiId?: StringFilter<"ProjectKi"> | string
     projectKi?: IntFilter<"ProjectKi"> | number
+    startAt?: DateTimeFilter<"ProjectKi"> | Date | string
+    endAt?: DateTimeFilter<"ProjectKi"> | Date | string
     paymentDate?: DateTimeFilter<"ProjectKi"> | Date | string
     reportDate?: DateTimeFilter<"ProjectKi"> | Date | string
     topic?: StringFilter<"ProjectKi"> | string
     ganponKuriire?: IntFilter<"ProjectKi"> | number
+    mlspcMarginIncludeTax?: IntNullableFilter<"ProjectKi"> | number | null
+    totalUnit?: IntNullableFilter<"ProjectKi"> | number | null
+    totalUnitNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuShueki?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuHiyo?: IntNullableFilter<"ProjectKi"> | number | null
+    sashihikiShintakuRieki?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuRieki?: IntNullableFilter<"ProjectKi"> | number | null
+    bunpaiRieki?: IntNullableFilter<"ProjectKi"> | number | null
+    bunpaiSogaku?: IntNullableFilter<"ProjectKi"> | number | null
+    bunpaiSogakuNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    kurikoshiRieki?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuShueki?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyo?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    unitSashihikiShintakuRieki?: IntNullableFilter<"ProjectKi"> | number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    unitGanponKuriire?: IntNullableFilter<"ProjectKi"> | number | null
+    unitBunpai?: IntNullableFilter<"ProjectKi"> | number | null
+    unitBunpaiForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    shohiyoRyuhokin?: IntNullableFilter<"ProjectKi"> | number | null
+    shuzenTsumitatekin?: IntNullableFilter<"ProjectKi"> | number | null
+    azukarikinHenkanJunbikin?: IntNullableFilter<"ProjectKi"> | number | null
+    sonotaGenyokin?: IntNullableFilter<"ProjectKi"> | number | null
+    futuYokinTokiZandaka?: IntNullableFilter<"ProjectKi"> | number | null
     createdAt?: DateTimeFilter<"ProjectKi"> | Date | string
     createdId?: StringFilter<"ProjectKi"> | string
     createdBy?: StringFilter<"ProjectKi"> | string
@@ -27840,10 +28846,36 @@ export namespace Prisma {
   export type ProjectKiCreateWithoutProjectInput = {
     id?: string
     projectKi: number
+    startAt: Date | string
+    endAt: Date | string
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
     ganponKuriire?: number
+    mlspcMarginIncludeTax?: number | null
+    totalUnit?: number | null
+    totalUnitNonInvoice?: number | null
+    shintakuShueki?: number | null
+    shintakuHiyo?: number | null
+    sashihikiShintakuRieki?: number | null
+    shintakuRieki?: number | null
+    bunpaiRieki?: number | null
+    bunpaiSogaku?: number | null
+    bunpaiSogakuNonInvoice?: number | null
+    kurikoshiRieki?: number | null
+    unitShintakuShueki?: number | null
+    unitShintakuHiyo?: number | null
+    unitShintakuHiyoForNonInvoice?: number | null
+    unitSashihikiShintakuRieki?: number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: number | null
+    unitGanponKuriire?: number | null
+    unitBunpai?: number | null
+    unitBunpaiForNonInvoice?: number | null
+    shohiyoRyuhokin?: number | null
+    shuzenTsumitatekin?: number | null
+    azukarikinHenkanJunbikin?: number | null
+    sonotaGenyokin?: number | null
+    futuYokinTokiZandaka?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -27858,10 +28890,36 @@ export namespace Prisma {
     id?: string
     kiId: string
     projectKi: number
+    startAt: Date | string
+    endAt: Date | string
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
     ganponKuriire?: number
+    mlspcMarginIncludeTax?: number | null
+    totalUnit?: number | null
+    totalUnitNonInvoice?: number | null
+    shintakuShueki?: number | null
+    shintakuHiyo?: number | null
+    sashihikiShintakuRieki?: number | null
+    shintakuRieki?: number | null
+    bunpaiRieki?: number | null
+    bunpaiSogaku?: number | null
+    bunpaiSogakuNonInvoice?: number | null
+    kurikoshiRieki?: number | null
+    unitShintakuShueki?: number | null
+    unitShintakuHiyo?: number | null
+    unitShintakuHiyoForNonInvoice?: number | null
+    unitSashihikiShintakuRieki?: number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: number | null
+    unitGanponKuriire?: number | null
+    unitBunpai?: number | null
+    unitBunpaiForNonInvoice?: number | null
+    shohiyoRyuhokin?: number | null
+    shuzenTsumitatekin?: number | null
+    azukarikinHenkanJunbikin?: number | null
+    sonotaGenyokin?: number | null
+    futuYokinTokiZandaka?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -28423,6 +29481,8 @@ export namespace Prisma {
     fullOccupancyYield: number
     totalKubun?: number
     residenceKubun?: number
+    settlorGkName: string
+    settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     createdAt?: Date | string
@@ -28454,6 +29514,8 @@ export namespace Prisma {
     fullOccupancyYield: number
     totalKubun?: number
     residenceKubun?: number
+    settlorGkName: string
+    settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     reportMainId?: string | null
@@ -28586,6 +29648,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
     totalKubun?: IntFieldUpdateOperationsInput | number
     residenceKubun?: IntFieldUpdateOperationsInput | number
+    settlorGkName?: StringFieldUpdateOperationsInput | string
+    settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -28617,6 +29681,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
     totalKubun?: IntFieldUpdateOperationsInput | number
     residenceKubun?: IntFieldUpdateOperationsInput | number
+    settlorGkName?: StringFieldUpdateOperationsInput | string
+    settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -28728,6 +29794,8 @@ export namespace Prisma {
     fullOccupancyYield: number
     totalKubun?: number
     residenceKubun?: number
+    settlorGkName: string
+    settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     createdAt?: Date | string
@@ -28759,6 +29827,8 @@ export namespace Prisma {
     fullOccupancyYield: number
     totalKubun?: number
     residenceKubun?: number
+    settlorGkName: string
+    settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     reportMainId?: string | null
@@ -28860,6 +29930,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
     totalKubun?: IntFieldUpdateOperationsInput | number
     residenceKubun?: IntFieldUpdateOperationsInput | number
+    settlorGkName?: StringFieldUpdateOperationsInput | string
+    settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -28891,6 +29963,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
     totalKubun?: IntFieldUpdateOperationsInput | number
     residenceKubun?: IntFieldUpdateOperationsInput | number
+    settlorGkName?: StringFieldUpdateOperationsInput | string
+    settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -29102,6 +30176,8 @@ export namespace Prisma {
     fullOccupancyYield: number
     totalKubun?: number
     residenceKubun?: number
+    settlorGkName: string
+    settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     createdAt?: Date | string
@@ -29133,6 +30209,8 @@ export namespace Prisma {
     fullOccupancyYield: number
     totalKubun?: number
     residenceKubun?: number
+    settlorGkName: string
+    settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     reportMainId?: string | null
@@ -29232,6 +30310,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
     totalKubun?: IntFieldUpdateOperationsInput | number
     residenceKubun?: IntFieldUpdateOperationsInput | number
+    settlorGkName?: StringFieldUpdateOperationsInput | string
+    settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -29263,6 +30343,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
     totalKubun?: IntFieldUpdateOperationsInput | number
     residenceKubun?: IntFieldUpdateOperationsInput | number
+    settlorGkName?: StringFieldUpdateOperationsInput | string
+    settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -29392,10 +30474,36 @@ export namespace Prisma {
   export type ProjectKiCreateWithoutCustomerFundsInput = {
     id?: string
     projectKi: number
+    startAt: Date | string
+    endAt: Date | string
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
     ganponKuriire?: number
+    mlspcMarginIncludeTax?: number | null
+    totalUnit?: number | null
+    totalUnitNonInvoice?: number | null
+    shintakuShueki?: number | null
+    shintakuHiyo?: number | null
+    sashihikiShintakuRieki?: number | null
+    shintakuRieki?: number | null
+    bunpaiRieki?: number | null
+    bunpaiSogaku?: number | null
+    bunpaiSogakuNonInvoice?: number | null
+    kurikoshiRieki?: number | null
+    unitShintakuShueki?: number | null
+    unitShintakuHiyo?: number | null
+    unitShintakuHiyoForNonInvoice?: number | null
+    unitSashihikiShintakuRieki?: number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: number | null
+    unitGanponKuriire?: number | null
+    unitBunpai?: number | null
+    unitBunpaiForNonInvoice?: number | null
+    shohiyoRyuhokin?: number | null
+    shuzenTsumitatekin?: number | null
+    azukarikinHenkanJunbikin?: number | null
+    sonotaGenyokin?: number | null
+    futuYokinTokiZandaka?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -29411,10 +30519,36 @@ export namespace Prisma {
     projectId: string
     kiId: string
     projectKi: number
+    startAt: Date | string
+    endAt: Date | string
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
     ganponKuriire?: number
+    mlspcMarginIncludeTax?: number | null
+    totalUnit?: number | null
+    totalUnitNonInvoice?: number | null
+    shintakuShueki?: number | null
+    shintakuHiyo?: number | null
+    sashihikiShintakuRieki?: number | null
+    shintakuRieki?: number | null
+    bunpaiRieki?: number | null
+    bunpaiSogaku?: number | null
+    bunpaiSogakuNonInvoice?: number | null
+    kurikoshiRieki?: number | null
+    unitShintakuShueki?: number | null
+    unitShintakuHiyo?: number | null
+    unitShintakuHiyoForNonInvoice?: number | null
+    unitSashihikiShintakuRieki?: number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: number | null
+    unitGanponKuriire?: number | null
+    unitBunpai?: number | null
+    unitBunpaiForNonInvoice?: number | null
+    shohiyoRyuhokin?: number | null
+    shuzenTsumitatekin?: number | null
+    azukarikinHenkanJunbikin?: number | null
+    sonotaGenyokin?: number | null
+    futuYokinTokiZandaka?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -29541,10 +30675,36 @@ export namespace Prisma {
   export type ProjectKiUpdateWithoutCustomerFundsInput = {
     id?: StringFieldUpdateOperationsInput | string
     projectKi?: IntFieldUpdateOperationsInput | number
+    startAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: IntFieldUpdateOperationsInput | number
+    mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    sashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiSogaku?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiSogakuNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
+    shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
+    azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
+    sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
+    futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -29560,10 +30720,36 @@ export namespace Prisma {
     projectId?: StringFieldUpdateOperationsInput | string
     kiId?: StringFieldUpdateOperationsInput | string
     projectKi?: IntFieldUpdateOperationsInput | number
+    startAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: IntFieldUpdateOperationsInput | number
+    mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    sashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiSogaku?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiSogakuNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
+    shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
+    azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
+    sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
+    futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -29586,6 +30772,8 @@ export namespace Prisma {
     fullOccupancyYield: number
     totalKubun?: number
     residenceKubun?: number
+    settlorGkName: string
+    settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     createdAt?: Date | string
@@ -29617,6 +30805,8 @@ export namespace Prisma {
     fullOccupancyYield: number
     totalKubun?: number
     residenceKubun?: number
+    settlorGkName: string
+    settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     reportAtt2Id?: string | null
@@ -29658,6 +30848,8 @@ export namespace Prisma {
     fullOccupancyYield: number
     totalKubun?: number
     residenceKubun?: number
+    settlorGkName: string
+    settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     createdAt?: Date | string
@@ -29689,6 +30881,8 @@ export namespace Prisma {
     fullOccupancyYield: number
     totalKubun?: number
     residenceKubun?: number
+    settlorGkName: string
+    settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     reportMainId?: string | null
@@ -29730,6 +30924,8 @@ export namespace Prisma {
     fullOccupancyYield: number
     totalKubun?: number
     residenceKubun?: number
+    settlorGkName: string
+    settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     createdAt?: Date | string
@@ -29761,6 +30957,8 @@ export namespace Prisma {
     fullOccupancyYield: number
     totalKubun?: number
     residenceKubun?: number
+    settlorGkName: string
+    settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     reportMainId?: string | null
@@ -29802,6 +31000,8 @@ export namespace Prisma {
     fullOccupancyYield: number
     totalKubun?: number
     residenceKubun?: number
+    settlorGkName: string
+    settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     createdAt?: Date | string
@@ -29833,6 +31033,8 @@ export namespace Prisma {
     fullOccupancyYield: number
     totalKubun?: number
     residenceKubun?: number
+    settlorGkName: string
+    settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     reportMainId?: string | null
@@ -29874,6 +31076,8 @@ export namespace Prisma {
     fullOccupancyYield: number
     totalKubun?: number
     residenceKubun?: number
+    settlorGkName: string
+    settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     createdAt?: Date | string
@@ -29905,6 +31109,8 @@ export namespace Prisma {
     fullOccupancyYield: number
     totalKubun?: number
     residenceKubun?: number
+    settlorGkName: string
+    settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     reportMainId?: string | null
@@ -29965,6 +31171,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatFilter<"Project"> | number
     totalKubun?: IntFilter<"Project"> | number
     residenceKubun?: IntFilter<"Project"> | number
+    settlorGkName?: StringFilter<"Project"> | string
+    settlorGkAddress?: StringFilter<"Project"> | string
     kamiyachoFlag?: BoolFilter<"Project"> | boolean
     mlspcFlag?: BoolFilter<"Project"> | boolean
     reportMainId?: StringNullableFilter<"Project"> | string | null
@@ -30048,10 +31256,36 @@ export namespace Prisma {
     id?: string
     projectId: string
     projectKi: number
+    startAt: Date | string
+    endAt: Date | string
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
     ganponKuriire?: number
+    mlspcMarginIncludeTax?: number | null
+    totalUnit?: number | null
+    totalUnitNonInvoice?: number | null
+    shintakuShueki?: number | null
+    shintakuHiyo?: number | null
+    sashihikiShintakuRieki?: number | null
+    shintakuRieki?: number | null
+    bunpaiRieki?: number | null
+    bunpaiSogaku?: number | null
+    bunpaiSogakuNonInvoice?: number | null
+    kurikoshiRieki?: number | null
+    unitShintakuShueki?: number | null
+    unitShintakuHiyo?: number | null
+    unitShintakuHiyoForNonInvoice?: number | null
+    unitSashihikiShintakuRieki?: number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: number | null
+    unitGanponKuriire?: number | null
+    unitBunpai?: number | null
+    unitBunpaiForNonInvoice?: number | null
+    shohiyoRyuhokin?: number | null
+    shuzenTsumitatekin?: number | null
+    azukarikinHenkanJunbikin?: number | null
+    sonotaGenyokin?: number | null
+    futuYokinTokiZandaka?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -30085,10 +31319,36 @@ export namespace Prisma {
   export type ProjectKiUpdateWithoutKiInput = {
     id?: StringFieldUpdateOperationsInput | string
     projectKi?: IntFieldUpdateOperationsInput | number
+    startAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: IntFieldUpdateOperationsInput | number
+    mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    sashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiSogaku?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiSogakuNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
+    shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
+    azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
+    sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
+    futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -30103,10 +31363,36 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
     projectKi?: IntFieldUpdateOperationsInput | number
+    startAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: IntFieldUpdateOperationsInput | number
+    mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    sashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiSogaku?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiSogakuNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
+    shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
+    azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
+    sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
+    futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -30120,10 +31406,36 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
     projectKi?: IntFieldUpdateOperationsInput | number
+    startAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: IntFieldUpdateOperationsInput | number
+    mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    sashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiSogaku?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiSogakuNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
+    shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
+    azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
+    sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
+    futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -30202,10 +31514,36 @@ export namespace Prisma {
     id?: string
     kiId: string
     projectKi: number
+    startAt: Date | string
+    endAt: Date | string
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
     ganponKuriire?: number
+    mlspcMarginIncludeTax?: number | null
+    totalUnit?: number | null
+    totalUnitNonInvoice?: number | null
+    shintakuShueki?: number | null
+    shintakuHiyo?: number | null
+    sashihikiShintakuRieki?: number | null
+    shintakuRieki?: number | null
+    bunpaiRieki?: number | null
+    bunpaiSogaku?: number | null
+    bunpaiSogakuNonInvoice?: number | null
+    kurikoshiRieki?: number | null
+    unitShintakuShueki?: number | null
+    unitShintakuHiyo?: number | null
+    unitShintakuHiyoForNonInvoice?: number | null
+    unitSashihikiShintakuRieki?: number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: number | null
+    unitGanponKuriire?: number | null
+    unitBunpai?: number | null
+    unitBunpaiForNonInvoice?: number | null
+    shohiyoRyuhokin?: number | null
+    shuzenTsumitatekin?: number | null
+    azukarikinHenkanJunbikin?: number | null
+    sonotaGenyokin?: number | null
+    futuYokinTokiZandaka?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -30278,10 +31616,36 @@ export namespace Prisma {
   export type ProjectKiUpdateWithoutProjectInput = {
     id?: StringFieldUpdateOperationsInput | string
     projectKi?: IntFieldUpdateOperationsInput | number
+    startAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: IntFieldUpdateOperationsInput | number
+    mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    sashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiSogaku?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiSogakuNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
+    shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
+    azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
+    sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
+    futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -30296,10 +31660,36 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     kiId?: StringFieldUpdateOperationsInput | string
     projectKi?: IntFieldUpdateOperationsInput | number
+    startAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: IntFieldUpdateOperationsInput | number
+    mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    sashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiSogaku?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiSogakuNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
+    shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
+    azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
+    sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
+    futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -30313,10 +31703,36 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     kiId?: StringFieldUpdateOperationsInput | string
     projectKi?: IntFieldUpdateOperationsInput | number
+    startAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: IntFieldUpdateOperationsInput | number
+    mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    sashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiSogaku?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiSogakuNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
+    shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
+    azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
+    sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
+    futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -30782,6 +32198,8 @@ export namespace Prisma {
     fullOccupancyYield: number
     totalKubun?: number
     residenceKubun?: number
+    settlorGkName: string
+    settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     reportAtt2Id?: string | null
@@ -30810,6 +32228,8 @@ export namespace Prisma {
     fullOccupancyYield: number
     totalKubun?: number
     residenceKubun?: number
+    settlorGkName: string
+    settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     reportMainId?: string | null
@@ -30838,6 +32258,8 @@ export namespace Prisma {
     fullOccupancyYield: number
     totalKubun?: number
     residenceKubun?: number
+    settlorGkName: string
+    settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     reportMainId?: string | null
@@ -30866,6 +32288,8 @@ export namespace Prisma {
     fullOccupancyYield: number
     totalKubun?: number
     residenceKubun?: number
+    settlorGkName: string
+    settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     reportMainId?: string | null
@@ -30894,6 +32318,8 @@ export namespace Prisma {
     fullOccupancyYield: number
     totalKubun?: number
     residenceKubun?: number
+    settlorGkName: string
+    settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     reportMainId?: string | null
@@ -30922,6 +32348,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
     totalKubun?: IntFieldUpdateOperationsInput | number
     residenceKubun?: IntFieldUpdateOperationsInput | number
+    settlorGkName?: StringFieldUpdateOperationsInput | string
+    settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -30953,6 +32381,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
     totalKubun?: IntFieldUpdateOperationsInput | number
     residenceKubun?: IntFieldUpdateOperationsInput | number
+    settlorGkName?: StringFieldUpdateOperationsInput | string
+    settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -30984,6 +32414,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
     totalKubun?: IntFieldUpdateOperationsInput | number
     residenceKubun?: IntFieldUpdateOperationsInput | number
+    settlorGkName?: StringFieldUpdateOperationsInput | string
+    settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -31012,6 +32444,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
     totalKubun?: IntFieldUpdateOperationsInput | number
     residenceKubun?: IntFieldUpdateOperationsInput | number
+    settlorGkName?: StringFieldUpdateOperationsInput | string
+    settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -31043,6 +32477,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
     totalKubun?: IntFieldUpdateOperationsInput | number
     residenceKubun?: IntFieldUpdateOperationsInput | number
+    settlorGkName?: StringFieldUpdateOperationsInput | string
+    settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -31074,6 +32510,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
     totalKubun?: IntFieldUpdateOperationsInput | number
     residenceKubun?: IntFieldUpdateOperationsInput | number
+    settlorGkName?: StringFieldUpdateOperationsInput | string
+    settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -31102,6 +32540,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
     totalKubun?: IntFieldUpdateOperationsInput | number
     residenceKubun?: IntFieldUpdateOperationsInput | number
+    settlorGkName?: StringFieldUpdateOperationsInput | string
+    settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -31133,6 +32573,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
     totalKubun?: IntFieldUpdateOperationsInput | number
     residenceKubun?: IntFieldUpdateOperationsInput | number
+    settlorGkName?: StringFieldUpdateOperationsInput | string
+    settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -31164,6 +32606,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
     totalKubun?: IntFieldUpdateOperationsInput | number
     residenceKubun?: IntFieldUpdateOperationsInput | number
+    settlorGkName?: StringFieldUpdateOperationsInput | string
+    settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -31192,6 +32636,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
     totalKubun?: IntFieldUpdateOperationsInput | number
     residenceKubun?: IntFieldUpdateOperationsInput | number
+    settlorGkName?: StringFieldUpdateOperationsInput | string
+    settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -31223,6 +32669,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
     totalKubun?: IntFieldUpdateOperationsInput | number
     residenceKubun?: IntFieldUpdateOperationsInput | number
+    settlorGkName?: StringFieldUpdateOperationsInput | string
+    settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -31254,6 +32702,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
     totalKubun?: IntFieldUpdateOperationsInput | number
     residenceKubun?: IntFieldUpdateOperationsInput | number
+    settlorGkName?: StringFieldUpdateOperationsInput | string
+    settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -31282,6 +32732,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
     totalKubun?: IntFieldUpdateOperationsInput | number
     residenceKubun?: IntFieldUpdateOperationsInput | number
+    settlorGkName?: StringFieldUpdateOperationsInput | string
+    settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -31313,6 +32765,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
     totalKubun?: IntFieldUpdateOperationsInput | number
     residenceKubun?: IntFieldUpdateOperationsInput | number
+    settlorGkName?: StringFieldUpdateOperationsInput | string
+    settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -31344,6 +32798,8 @@ export namespace Prisma {
     fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
     totalKubun?: IntFieldUpdateOperationsInput | number
     residenceKubun?: IntFieldUpdateOperationsInput | number
+    settlorGkName?: StringFieldUpdateOperationsInput | string
+    settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
