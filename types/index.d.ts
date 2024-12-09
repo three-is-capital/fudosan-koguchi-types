@@ -8939,6 +8939,9 @@ export namespace Prisma {
   export type ProjectKiAvgAggregateOutputType = {
     projectKi: number | null
     ganponKuriire: number | null
+    yayoiUploadVersion: number | null
+    customerUploadVersion: number | null
+    calculateVersion: number | null
     mlspcMarginIncludeTax: number | null
     totalUnit: number | null
     totalUnitNonInvoice: number | null
@@ -8968,6 +8971,9 @@ export namespace Prisma {
   export type ProjectKiSumAggregateOutputType = {
     projectKi: number | null
     ganponKuriire: number | null
+    yayoiUploadVersion: number | null
+    customerUploadVersion: number | null
+    calculateVersion: number | null
     mlspcMarginIncludeTax: number | null
     totalUnit: number | null
     totalUnitNonInvoice: number | null
@@ -9005,6 +9011,12 @@ export namespace Prisma {
     reportDate: Date | null
     topic: string | null
     ganponKuriire: number | null
+    yayoiUploadVersion: number | null
+    yayoiUploadAt: Date | null
+    customerUploadVersion: number | null
+    customerUploadAt: Date | null
+    calculateVersion: number | null
+    calculateAt: Date | null
     mlspcMarginIncludeTax: number | null
     totalUnit: number | null
     totalUnitNonInvoice: number | null
@@ -9048,6 +9060,12 @@ export namespace Prisma {
     reportDate: Date | null
     topic: string | null
     ganponKuriire: number | null
+    yayoiUploadVersion: number | null
+    yayoiUploadAt: Date | null
+    customerUploadVersion: number | null
+    customerUploadAt: Date | null
+    calculateVersion: number | null
+    calculateAt: Date | null
     mlspcMarginIncludeTax: number | null
     totalUnit: number | null
     totalUnitNonInvoice: number | null
@@ -9091,6 +9109,12 @@ export namespace Prisma {
     reportDate: number
     topic: number
     ganponKuriire: number
+    yayoiUploadVersion: number
+    yayoiUploadAt: number
+    customerUploadVersion: number
+    customerUploadAt: number
+    calculateVersion: number
+    calculateAt: number
     mlspcMarginIncludeTax: number
     totalUnit: number
     totalUnitNonInvoice: number
@@ -9128,6 +9152,9 @@ export namespace Prisma {
   export type ProjectKiAvgAggregateInputType = {
     projectKi?: true
     ganponKuriire?: true
+    yayoiUploadVersion?: true
+    customerUploadVersion?: true
+    calculateVersion?: true
     mlspcMarginIncludeTax?: true
     totalUnit?: true
     totalUnitNonInvoice?: true
@@ -9157,6 +9184,9 @@ export namespace Prisma {
   export type ProjectKiSumAggregateInputType = {
     projectKi?: true
     ganponKuriire?: true
+    yayoiUploadVersion?: true
+    customerUploadVersion?: true
+    calculateVersion?: true
     mlspcMarginIncludeTax?: true
     totalUnit?: true
     totalUnitNonInvoice?: true
@@ -9194,6 +9224,12 @@ export namespace Prisma {
     reportDate?: true
     topic?: true
     ganponKuriire?: true
+    yayoiUploadVersion?: true
+    yayoiUploadAt?: true
+    customerUploadVersion?: true
+    customerUploadAt?: true
+    calculateVersion?: true
+    calculateAt?: true
     mlspcMarginIncludeTax?: true
     totalUnit?: true
     totalUnitNonInvoice?: true
@@ -9237,6 +9273,12 @@ export namespace Prisma {
     reportDate?: true
     topic?: true
     ganponKuriire?: true
+    yayoiUploadVersion?: true
+    yayoiUploadAt?: true
+    customerUploadVersion?: true
+    customerUploadAt?: true
+    calculateVersion?: true
+    calculateAt?: true
     mlspcMarginIncludeTax?: true
     totalUnit?: true
     totalUnitNonInvoice?: true
@@ -9280,6 +9322,12 @@ export namespace Prisma {
     reportDate?: true
     topic?: true
     ganponKuriire?: true
+    yayoiUploadVersion?: true
+    yayoiUploadAt?: true
+    customerUploadVersion?: true
+    customerUploadAt?: true
+    calculateVersion?: true
+    calculateAt?: true
     mlspcMarginIncludeTax?: true
     totalUnit?: true
     totalUnitNonInvoice?: true
@@ -9410,6 +9458,12 @@ export namespace Prisma {
     reportDate: Date
     topic: string
     ganponKuriire: number
+    yayoiUploadVersion: number
+    yayoiUploadAt: Date | null
+    customerUploadVersion: number
+    customerUploadAt: Date | null
+    calculateVersion: number
+    calculateAt: Date | null
     mlspcMarginIncludeTax: number | null
     totalUnit: number | null
     totalUnitNonInvoice: number | null
@@ -9472,6 +9526,12 @@ export namespace Prisma {
     reportDate?: boolean
     topic?: boolean
     ganponKuriire?: boolean
+    yayoiUploadVersion?: boolean
+    yayoiUploadAt?: boolean
+    customerUploadVersion?: boolean
+    customerUploadAt?: boolean
+    calculateVersion?: boolean
+    calculateAt?: boolean
     mlspcMarginIncludeTax?: boolean
     totalUnit?: boolean
     totalUnitNonInvoice?: boolean
@@ -9519,6 +9579,12 @@ export namespace Prisma {
     reportDate?: boolean
     topic?: boolean
     ganponKuriire?: boolean
+    yayoiUploadVersion?: boolean
+    yayoiUploadAt?: boolean
+    customerUploadVersion?: boolean
+    customerUploadAt?: boolean
+    calculateVersion?: boolean
+    calculateAt?: boolean
     mlspcMarginIncludeTax?: boolean
     totalUnit?: boolean
     totalUnitNonInvoice?: boolean
@@ -9564,6 +9630,12 @@ export namespace Prisma {
     reportDate?: boolean
     topic?: boolean
     ganponKuriire?: boolean
+    yayoiUploadVersion?: boolean
+    yayoiUploadAt?: boolean
+    customerUploadVersion?: boolean
+    customerUploadAt?: boolean
+    calculateVersion?: boolean
+    calculateAt?: boolean
     mlspcMarginIncludeTax?: boolean
     totalUnit?: boolean
     totalUnitNonInvoice?: boolean
@@ -9625,6 +9697,12 @@ export namespace Prisma {
       reportDate: Date
       topic: string
       ganponKuriire: number
+      yayoiUploadVersion: number
+      yayoiUploadAt: Date | null
+      customerUploadVersion: number
+      customerUploadAt: Date | null
+      calculateVersion: number
+      calculateAt: Date | null
       mlspcMarginIncludeTax: number | null
       totalUnit: number | null
       totalUnitNonInvoice: number | null
@@ -10061,6 +10139,12 @@ export namespace Prisma {
     readonly reportDate: FieldRef<"ProjectKi", 'DateTime'>
     readonly topic: FieldRef<"ProjectKi", 'String'>
     readonly ganponKuriire: FieldRef<"ProjectKi", 'Int'>
+    readonly yayoiUploadVersion: FieldRef<"ProjectKi", 'Int'>
+    readonly yayoiUploadAt: FieldRef<"ProjectKi", 'DateTime'>
+    readonly customerUploadVersion: FieldRef<"ProjectKi", 'Int'>
+    readonly customerUploadAt: FieldRef<"ProjectKi", 'DateTime'>
+    readonly calculateVersion: FieldRef<"ProjectKi", 'Int'>
+    readonly calculateAt: FieldRef<"ProjectKi", 'DateTime'>
     readonly mlspcMarginIncludeTax: FieldRef<"ProjectKi", 'Int'>
     readonly totalUnit: FieldRef<"ProjectKi", 'Int'>
     readonly totalUnitNonInvoice: FieldRef<"ProjectKi", 'Int'>
@@ -20530,6 +20614,12 @@ export namespace Prisma {
     reportDate: 'reportDate',
     topic: 'topic',
     ganponKuriire: 'ganponKuriire',
+    yayoiUploadVersion: 'yayoiUploadVersion',
+    yayoiUploadAt: 'yayoiUploadAt',
+    customerUploadVersion: 'customerUploadVersion',
+    customerUploadAt: 'customerUploadAt',
+    calculateVersion: 'calculateVersion',
+    calculateAt: 'calculateAt',
     mlspcMarginIncludeTax: 'mlspcMarginIncludeTax',
     totalUnit: 'totalUnit',
     totalUnitNonInvoice: 'totalUnitNonInvoice',
@@ -21682,6 +21772,12 @@ export namespace Prisma {
     reportDate?: DateTimeFilter<"ProjectKi"> | Date | string
     topic?: StringFilter<"ProjectKi"> | string
     ganponKuriire?: IntFilter<"ProjectKi"> | number
+    yayoiUploadVersion?: IntFilter<"ProjectKi"> | number
+    yayoiUploadAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
+    customerUploadVersion?: IntFilter<"ProjectKi"> | number
+    customerUploadAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
+    calculateVersion?: IntFilter<"ProjectKi"> | number
+    calculateAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
     mlspcMarginIncludeTax?: IntNullableFilter<"ProjectKi"> | number | null
     totalUnit?: IntNullableFilter<"ProjectKi"> | number | null
     totalUnitNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
@@ -21728,6 +21824,12 @@ export namespace Prisma {
     reportDate?: SortOrder
     topic?: SortOrder
     ganponKuriire?: SortOrder
+    yayoiUploadVersion?: SortOrder
+    yayoiUploadAt?: SortOrderInput | SortOrder
+    customerUploadVersion?: SortOrder
+    customerUploadAt?: SortOrderInput | SortOrder
+    calculateVersion?: SortOrder
+    calculateAt?: SortOrderInput | SortOrder
     mlspcMarginIncludeTax?: SortOrderInput | SortOrder
     totalUnit?: SortOrderInput | SortOrder
     totalUnitNonInvoice?: SortOrderInput | SortOrder
@@ -21779,6 +21881,12 @@ export namespace Prisma {
     reportDate?: DateTimeFilter<"ProjectKi"> | Date | string
     topic?: StringFilter<"ProjectKi"> | string
     ganponKuriire?: IntFilter<"ProjectKi"> | number
+    yayoiUploadVersion?: IntFilter<"ProjectKi"> | number
+    yayoiUploadAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
+    customerUploadVersion?: IntFilter<"ProjectKi"> | number
+    customerUploadAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
+    calculateVersion?: IntFilter<"ProjectKi"> | number
+    calculateAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
     mlspcMarginIncludeTax?: IntNullableFilter<"ProjectKi"> | number | null
     totalUnit?: IntNullableFilter<"ProjectKi"> | number | null
     totalUnitNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
@@ -21825,6 +21933,12 @@ export namespace Prisma {
     reportDate?: SortOrder
     topic?: SortOrder
     ganponKuriire?: SortOrder
+    yayoiUploadVersion?: SortOrder
+    yayoiUploadAt?: SortOrderInput | SortOrder
+    customerUploadVersion?: SortOrder
+    customerUploadAt?: SortOrderInput | SortOrder
+    calculateVersion?: SortOrder
+    calculateAt?: SortOrderInput | SortOrder
     mlspcMarginIncludeTax?: SortOrderInput | SortOrder
     totalUnit?: SortOrderInput | SortOrder
     totalUnitNonInvoice?: SortOrderInput | SortOrder
@@ -21876,6 +21990,12 @@ export namespace Prisma {
     reportDate?: DateTimeWithAggregatesFilter<"ProjectKi"> | Date | string
     topic?: StringWithAggregatesFilter<"ProjectKi"> | string
     ganponKuriire?: IntWithAggregatesFilter<"ProjectKi"> | number
+    yayoiUploadVersion?: IntWithAggregatesFilter<"ProjectKi"> | number
+    yayoiUploadAt?: DateTimeNullableWithAggregatesFilter<"ProjectKi"> | Date | string | null
+    customerUploadVersion?: IntWithAggregatesFilter<"ProjectKi"> | number
+    customerUploadAt?: DateTimeNullableWithAggregatesFilter<"ProjectKi"> | Date | string | null
+    calculateVersion?: IntWithAggregatesFilter<"ProjectKi"> | number
+    calculateAt?: DateTimeNullableWithAggregatesFilter<"ProjectKi"> | Date | string | null
     mlspcMarginIncludeTax?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     totalUnit?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     totalUnitNonInvoice?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
@@ -23787,6 +23907,12 @@ export namespace Prisma {
     reportDate: Date | string
     topic: string
     ganponKuriire?: number
+    yayoiUploadVersion?: number
+    yayoiUploadAt?: Date | string | null
+    customerUploadVersion?: number
+    customerUploadAt?: Date | string | null
+    calculateVersion?: number
+    calculateAt?: Date | string | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -23833,6 +23959,12 @@ export namespace Prisma {
     reportDate: Date | string
     topic: string
     ganponKuriire?: number
+    yayoiUploadVersion?: number
+    yayoiUploadAt?: Date | string | null
+    customerUploadVersion?: number
+    customerUploadAt?: Date | string | null
+    calculateVersion?: number
+    calculateAt?: Date | string | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -23875,6 +24007,12 @@ export namespace Prisma {
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: IntFieldUpdateOperationsInput | number
+    yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
+    yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerUploadVersion?: IntFieldUpdateOperationsInput | number
+    customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    calculateVersion?: IntFieldUpdateOperationsInput | number
+    calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -23921,6 +24059,12 @@ export namespace Prisma {
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: IntFieldUpdateOperationsInput | number
+    yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
+    yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerUploadVersion?: IntFieldUpdateOperationsInput | number
+    customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    calculateVersion?: IntFieldUpdateOperationsInput | number
+    calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -23965,6 +24109,12 @@ export namespace Prisma {
     reportDate: Date | string
     topic: string
     ganponKuriire?: number
+    yayoiUploadVersion?: number
+    yayoiUploadAt?: Date | string | null
+    customerUploadVersion?: number
+    customerUploadAt?: Date | string | null
+    calculateVersion?: number
+    calculateAt?: Date | string | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -24006,6 +24156,12 @@ export namespace Prisma {
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: IntFieldUpdateOperationsInput | number
+    yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
+    yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerUploadVersion?: IntFieldUpdateOperationsInput | number
+    customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    calculateVersion?: IntFieldUpdateOperationsInput | number
+    calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -24049,6 +24205,12 @@ export namespace Prisma {
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: IntFieldUpdateOperationsInput | number
+    yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
+    yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerUploadVersion?: IntFieldUpdateOperationsInput | number
+    customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    calculateVersion?: IntFieldUpdateOperationsInput | number
+    calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -26027,6 +26189,17 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type IntNullableFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
@@ -26079,6 +26252,12 @@ export namespace Prisma {
     reportDate?: SortOrder
     topic?: SortOrder
     ganponKuriire?: SortOrder
+    yayoiUploadVersion?: SortOrder
+    yayoiUploadAt?: SortOrder
+    customerUploadVersion?: SortOrder
+    customerUploadAt?: SortOrder
+    calculateVersion?: SortOrder
+    calculateAt?: SortOrder
     mlspcMarginIncludeTax?: SortOrder
     totalUnit?: SortOrder
     totalUnitNonInvoice?: SortOrder
@@ -26114,6 +26293,9 @@ export namespace Prisma {
   export type ProjectKiAvgOrderByAggregateInput = {
     projectKi?: SortOrder
     ganponKuriire?: SortOrder
+    yayoiUploadVersion?: SortOrder
+    customerUploadVersion?: SortOrder
+    calculateVersion?: SortOrder
     mlspcMarginIncludeTax?: SortOrder
     totalUnit?: SortOrder
     totalUnitNonInvoice?: SortOrder
@@ -26151,6 +26333,12 @@ export namespace Prisma {
     reportDate?: SortOrder
     topic?: SortOrder
     ganponKuriire?: SortOrder
+    yayoiUploadVersion?: SortOrder
+    yayoiUploadAt?: SortOrder
+    customerUploadVersion?: SortOrder
+    customerUploadAt?: SortOrder
+    calculateVersion?: SortOrder
+    calculateAt?: SortOrder
     mlspcMarginIncludeTax?: SortOrder
     totalUnit?: SortOrder
     totalUnitNonInvoice?: SortOrder
@@ -26194,6 +26382,12 @@ export namespace Prisma {
     reportDate?: SortOrder
     topic?: SortOrder
     ganponKuriire?: SortOrder
+    yayoiUploadVersion?: SortOrder
+    yayoiUploadAt?: SortOrder
+    customerUploadVersion?: SortOrder
+    customerUploadAt?: SortOrder
+    calculateVersion?: SortOrder
+    calculateAt?: SortOrder
     mlspcMarginIncludeTax?: SortOrder
     totalUnit?: SortOrder
     totalUnitNonInvoice?: SortOrder
@@ -26229,6 +26423,9 @@ export namespace Prisma {
   export type ProjectKiSumOrderByAggregateInput = {
     projectKi?: SortOrder
     ganponKuriire?: SortOrder
+    yayoiUploadVersion?: SortOrder
+    customerUploadVersion?: SortOrder
+    calculateVersion?: SortOrder
     mlspcMarginIncludeTax?: SortOrder
     totalUnit?: SortOrder
     totalUnitNonInvoice?: SortOrder
@@ -26253,6 +26450,20 @@ export namespace Prisma {
     azukarikinHenkanJunbikin?: SortOrder
     sonotaGenyokin?: SortOrder
     futuYokinTokiZandaka?: SortOrder
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -26450,17 +26661,6 @@ export namespace Prisma {
     _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
-  export type DateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
-  }
-
   export type EnumCustomerTypeFilter<$PrismaModel = never> = {
     equals?: $Enums.CustomerType | EnumCustomerTypeFieldRefInput<$PrismaModel>
     in?: $Enums.CustomerType[] | ListEnumCustomerTypeFieldRefInput<$PrismaModel>
@@ -26624,20 +26824,6 @@ export namespace Prisma {
     bankCode?: SortOrder
     bankBranchCode?: SortOrder
     bankAccountTypeCode?: SortOrder
-  }
-
-  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type EnumCustomerTypeWithAggregatesFilter<$PrismaModel = never> = {
@@ -27471,6 +27657,10 @@ export namespace Prisma {
     connect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
   }
 
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
   export type NullableIntFieldUpdateOperationsInput = {
     set?: number | null
     increment?: number
@@ -27633,10 +27823,6 @@ export namespace Prisma {
     connectOrCreate?: CustomerFundCreateOrConnectWithoutCustomerInput | CustomerFundCreateOrConnectWithoutCustomerInput[]
     createMany?: CustomerFundCreateManyCustomerInputEnvelope
     connect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
-  }
-
-  export type NullableDateTimeFieldUpdateOperationsInput = {
-    set?: Date | string | null
   }
 
   export type EnumCustomerTypeFieldUpdateOperationsInput = {
@@ -28167,6 +28353,31 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
   export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
@@ -28210,17 +28421,6 @@ export namespace Prisma {
     _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
-  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
-  }
-
   export type NestedEnumCustomerTypeFilter<$PrismaModel = never> = {
     equals?: $Enums.CustomerType | EnumCustomerTypeFieldRefInput<$PrismaModel>
     in?: $Enums.CustomerType[] | ListEnumCustomerTypeFieldRefInput<$PrismaModel>
@@ -28240,20 +28440,6 @@ export namespace Prisma {
     in?: $Enums.HoryuStatusType[] | ListEnumHoryuStatusTypeFieldRefInput<$PrismaModel> | null
     notIn?: $Enums.HoryuStatusType[] | ListEnumHoryuStatusTypeFieldRefInput<$PrismaModel> | null
     not?: NestedEnumHoryuStatusTypeNullableFilter<$PrismaModel> | $Enums.HoryuStatusType | null
-  }
-
-  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type NestedEnumCustomerTypeWithAggregatesFilter<$PrismaModel = never> = {
@@ -28363,6 +28549,12 @@ export namespace Prisma {
     reportDate: Date | string
     topic: string
     ganponKuriire?: number
+    yayoiUploadVersion?: number
+    yayoiUploadAt?: Date | string | null
+    customerUploadVersion?: number
+    customerUploadAt?: Date | string | null
+    calculateVersion?: number
+    calculateAt?: Date | string | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -28407,6 +28599,12 @@ export namespace Prisma {
     reportDate: Date | string
     topic: string
     ganponKuriire?: number
+    yayoiUploadVersion?: number
+    yayoiUploadAt?: Date | string | null
+    customerUploadVersion?: number
+    customerUploadAt?: Date | string | null
+    calculateVersion?: number
+    calculateAt?: Date | string | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -28534,6 +28732,12 @@ export namespace Prisma {
     reportDate?: DateTimeFilter<"ProjectKi"> | Date | string
     topic?: StringFilter<"ProjectKi"> | string
     ganponKuriire?: IntFilter<"ProjectKi"> | number
+    yayoiUploadVersion?: IntFilter<"ProjectKi"> | number
+    yayoiUploadAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
+    customerUploadVersion?: IntFilter<"ProjectKi"> | number
+    customerUploadAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
+    calculateVersion?: IntFilter<"ProjectKi"> | number
+    calculateAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
     mlspcMarginIncludeTax?: IntNullableFilter<"ProjectKi"> | number | null
     totalUnit?: IntNullableFilter<"ProjectKi"> | number | null
     totalUnitNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
@@ -28852,6 +29056,12 @@ export namespace Prisma {
     reportDate: Date | string
     topic: string
     ganponKuriire?: number
+    yayoiUploadVersion?: number
+    yayoiUploadAt?: Date | string | null
+    customerUploadVersion?: number
+    customerUploadAt?: Date | string | null
+    calculateVersion?: number
+    calculateAt?: Date | string | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -28896,6 +29106,12 @@ export namespace Prisma {
     reportDate: Date | string
     topic: string
     ganponKuriire?: number
+    yayoiUploadVersion?: number
+    yayoiUploadAt?: Date | string | null
+    customerUploadVersion?: number
+    customerUploadAt?: Date | string | null
+    calculateVersion?: number
+    calculateAt?: Date | string | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -30480,6 +30696,12 @@ export namespace Prisma {
     reportDate: Date | string
     topic: string
     ganponKuriire?: number
+    yayoiUploadVersion?: number
+    yayoiUploadAt?: Date | string | null
+    customerUploadVersion?: number
+    customerUploadAt?: Date | string | null
+    calculateVersion?: number
+    calculateAt?: Date | string | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -30525,6 +30747,12 @@ export namespace Prisma {
     reportDate: Date | string
     topic: string
     ganponKuriire?: number
+    yayoiUploadVersion?: number
+    yayoiUploadAt?: Date | string | null
+    customerUploadVersion?: number
+    customerUploadAt?: Date | string | null
+    calculateVersion?: number
+    calculateAt?: Date | string | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -30681,6 +30909,12 @@ export namespace Prisma {
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: IntFieldUpdateOperationsInput | number
+    yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
+    yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerUploadVersion?: IntFieldUpdateOperationsInput | number
+    customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    calculateVersion?: IntFieldUpdateOperationsInput | number
+    calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -30726,6 +30960,12 @@ export namespace Prisma {
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: IntFieldUpdateOperationsInput | number
+    yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
+    yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerUploadVersion?: IntFieldUpdateOperationsInput | number
+    customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    calculateVersion?: IntFieldUpdateOperationsInput | number
+    calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -31262,6 +31502,12 @@ export namespace Prisma {
     reportDate: Date | string
     topic: string
     ganponKuriire?: number
+    yayoiUploadVersion?: number
+    yayoiUploadAt?: Date | string | null
+    customerUploadVersion?: number
+    customerUploadAt?: Date | string | null
+    calculateVersion?: number
+    calculateAt?: Date | string | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -31325,6 +31571,12 @@ export namespace Prisma {
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: IntFieldUpdateOperationsInput | number
+    yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
+    yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerUploadVersion?: IntFieldUpdateOperationsInput | number
+    customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    calculateVersion?: IntFieldUpdateOperationsInput | number
+    calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -31369,6 +31621,12 @@ export namespace Prisma {
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: IntFieldUpdateOperationsInput | number
+    yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
+    yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerUploadVersion?: IntFieldUpdateOperationsInput | number
+    customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    calculateVersion?: IntFieldUpdateOperationsInput | number
+    calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -31412,6 +31670,12 @@ export namespace Prisma {
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: IntFieldUpdateOperationsInput | number
+    yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
+    yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerUploadVersion?: IntFieldUpdateOperationsInput | number
+    customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    calculateVersion?: IntFieldUpdateOperationsInput | number
+    calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -31520,6 +31784,12 @@ export namespace Prisma {
     reportDate: Date | string
     topic: string
     ganponKuriire?: number
+    yayoiUploadVersion?: number
+    yayoiUploadAt?: Date | string | null
+    customerUploadVersion?: number
+    customerUploadAt?: Date | string | null
+    calculateVersion?: number
+    calculateAt?: Date | string | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -31622,6 +31892,12 @@ export namespace Prisma {
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: IntFieldUpdateOperationsInput | number
+    yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
+    yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerUploadVersion?: IntFieldUpdateOperationsInput | number
+    customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    calculateVersion?: IntFieldUpdateOperationsInput | number
+    calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -31666,6 +31942,12 @@ export namespace Prisma {
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: IntFieldUpdateOperationsInput | number
+    yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
+    yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerUploadVersion?: IntFieldUpdateOperationsInput | number
+    customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    calculateVersion?: IntFieldUpdateOperationsInput | number
+    calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -31709,6 +31991,12 @@ export namespace Prisma {
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: IntFieldUpdateOperationsInput | number
+    yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
+    yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerUploadVersion?: IntFieldUpdateOperationsInput | number
+    customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    calculateVersion?: IntFieldUpdateOperationsInput | number
+    calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
