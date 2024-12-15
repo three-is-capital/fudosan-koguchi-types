@@ -49,6 +49,16 @@ export type Project = $Result.DefaultSelection<Prisma.$ProjectPayload>
  */
 export type ProjectKi = $Result.DefaultSelection<Prisma.$ProjectKiPayload>
 /**
+ * Model ProjectKiBS
+ * 
+ */
+export type ProjectKiBS = $Result.DefaultSelection<Prisma.$ProjectKiBSPayload>
+/**
+ * Model ProjectKiPL
+ * 
+ */
+export type ProjectKiPL = $Result.DefaultSelection<Prisma.$ProjectKiPLPayload>
+/**
  * Model Asset
  * 
  */
@@ -113,6 +123,24 @@ export const UserType: {
 };
 
 export type UserType = (typeof UserType)[keyof typeof UserType]
+
+
+export const BSType: {
+  Assets: 'Assets',
+  Liabilities: 'Liabilities',
+  Principal: 'Principal',
+  TrustIncome: 'TrustIncome'
+};
+
+export type BSType = (typeof BSType)[keyof typeof BSType]
+
+
+export const PLType: {
+  Profit: 'Profit',
+  Loss: 'Loss'
+};
+
+export type PLType = (typeof PLType)[keyof typeof PLType]
 
 
 export const CustomerType: {
@@ -182,6 +210,14 @@ export const UserRole: typeof $Enums.UserRole
 export type UserType = $Enums.UserType
 
 export const UserType: typeof $Enums.UserType
+
+export type BSType = $Enums.BSType
+
+export const BSType: typeof $Enums.BSType
+
+export type PLType = $Enums.PLType
+
+export const PLType: typeof $Enums.PLType
 
 export type CustomerType = $Enums.CustomerType
 
@@ -399,6 +435,26 @@ export class PrismaClient<
     * ```
     */
   get projectKi(): Prisma.ProjectKiDelegate<ExtArgs>;
+
+  /**
+   * `prisma.projectKiBS`: Exposes CRUD operations for the **ProjectKiBS** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ProjectKiBS
+    * const projectKiBS = await prisma.projectKiBS.findMany()
+    * ```
+    */
+  get projectKiBS(): Prisma.ProjectKiBSDelegate<ExtArgs>;
+
+  /**
+   * `prisma.projectKiPL`: Exposes CRUD operations for the **ProjectKiPL** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ProjectKiPLS
+    * const projectKiPLS = await prisma.projectKiPL.findMany()
+    * ```
+    */
+  get projectKiPL(): Prisma.ProjectKiPLDelegate<ExtArgs>;
 
   /**
    * `prisma.asset`: Exposes CRUD operations for the **Asset** model.
@@ -937,6 +993,8 @@ export namespace Prisma {
     Ki: 'Ki',
     Project: 'Project',
     ProjectKi: 'ProjectKi',
+    ProjectKiBS: 'ProjectKiBS',
+    ProjectKiPL: 'ProjectKiPL',
     Asset: 'Asset',
     AssetKi: 'AssetKi',
     Customer: 'Customer',
@@ -961,7 +1019,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "user" | "sBIMPUser" | "eAJUser" | "company" | "ki" | "project" | "projectKi" | "asset" | "assetKi" | "customer" | "customerFund" | "template" | "templateHistory" | "variableDefinition" | "yayoiCSV" | "yayoiCSVHistory"
+      modelProps: "user" | "sBIMPUser" | "eAJUser" | "company" | "ki" | "project" | "projectKi" | "projectKiBS" | "projectKiPL" | "asset" | "assetKi" | "customer" | "customerFund" | "template" | "templateHistory" | "variableDefinition" | "yayoiCSV" | "yayoiCSVHistory"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1452,6 +1510,146 @@ export namespace Prisma {
           count: {
             args: Prisma.ProjectKiCountArgs<ExtArgs>
             result: $Utils.Optional<ProjectKiCountAggregateOutputType> | number
+          }
+        }
+      }
+      ProjectKiBS: {
+        payload: Prisma.$ProjectKiBSPayload<ExtArgs>
+        fields: Prisma.ProjectKiBSFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ProjectKiBSFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiBSPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ProjectKiBSFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiBSPayload>
+          }
+          findFirst: {
+            args: Prisma.ProjectKiBSFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiBSPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ProjectKiBSFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiBSPayload>
+          }
+          findMany: {
+            args: Prisma.ProjectKiBSFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiBSPayload>[]
+          }
+          create: {
+            args: Prisma.ProjectKiBSCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiBSPayload>
+          }
+          createMany: {
+            args: Prisma.ProjectKiBSCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ProjectKiBSCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiBSPayload>[]
+          }
+          delete: {
+            args: Prisma.ProjectKiBSDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiBSPayload>
+          }
+          update: {
+            args: Prisma.ProjectKiBSUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiBSPayload>
+          }
+          deleteMany: {
+            args: Prisma.ProjectKiBSDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ProjectKiBSUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.ProjectKiBSUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiBSPayload>
+          }
+          aggregate: {
+            args: Prisma.ProjectKiBSAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProjectKiBS>
+          }
+          groupBy: {
+            args: Prisma.ProjectKiBSGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProjectKiBSGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ProjectKiBSCountArgs<ExtArgs>
+            result: $Utils.Optional<ProjectKiBSCountAggregateOutputType> | number
+          }
+        }
+      }
+      ProjectKiPL: {
+        payload: Prisma.$ProjectKiPLPayload<ExtArgs>
+        fields: Prisma.ProjectKiPLFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ProjectKiPLFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiPLPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ProjectKiPLFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiPLPayload>
+          }
+          findFirst: {
+            args: Prisma.ProjectKiPLFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiPLPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ProjectKiPLFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiPLPayload>
+          }
+          findMany: {
+            args: Prisma.ProjectKiPLFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiPLPayload>[]
+          }
+          create: {
+            args: Prisma.ProjectKiPLCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiPLPayload>
+          }
+          createMany: {
+            args: Prisma.ProjectKiPLCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ProjectKiPLCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiPLPayload>[]
+          }
+          delete: {
+            args: Prisma.ProjectKiPLDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiPLPayload>
+          }
+          update: {
+            args: Prisma.ProjectKiPLUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiPLPayload>
+          }
+          deleteMany: {
+            args: Prisma.ProjectKiPLDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ProjectKiPLUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.ProjectKiPLUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiPLPayload>
+          }
+          aggregate: {
+            args: Prisma.ProjectKiPLAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProjectKiPL>
+          }
+          groupBy: {
+            args: Prisma.ProjectKiPLGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProjectKiPLGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ProjectKiPLCountArgs<ExtArgs>
+            result: $Utils.Optional<ProjectKiPLCountAggregateOutputType> | number
           }
         }
       }
@@ -8964,8 +9162,33 @@ export namespace Prisma {
     shohiyoRyuhokin: number | null
     shuzenTsumitatekin: number | null
     azukarikinHenkanJunbikin: number | null
+    zeikinHokenryoJunbiKanjo: number | null
+    kyodoUnyuHiyoJunbiKanjo: number | null
+    risokuShiharaiJunbiKanjo: number | null
+    shihoTekiShishutsuJunbiKanjo: number | null
+    cashTrapJunbiKanjo: number | null
     sonotaGenyokin: number | null
     futuYokinTokiZandaka: number | null
+    zenkiKurikoshiRieki: number | null
+    shuzenTsumitatekinKuriire: number | null
+    currentYearBunpaiRatio: number | null
+    fullYearBunpaiRatio: number | null
+    currentYearBunpaiRatioNonInvoice: number | null
+    fullYearBunpaiRatioNonInvoice: number | null
+    shintakuShuekiKazeiUriage: number | null
+    shintakuShuekiKazeiUriageShohizei: number | null
+    shintakuShuekiHikazeiUriage: number | null
+    shintakuHiyoKazeiShiire: number | null
+    shintakuHiyoKazeiShiireShohizei: number | null
+    shintakuHiyoHikazeiShiire: number | null
+    unitShintakuShuekiKazeiUriage: number | null
+    unitShintakuShuekiKazeiUriageShohizei: number | null
+    unitShintakuShuekiHikazeiUriage: number | null
+    unitShintakuHiyoKazeiShiire: number | null
+    unitShintakuHiyoKazeiShiireShohizei: number | null
+    unitShintakuHiyoHikazeiShiire: number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice: number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice: number | null
   }
 
   export type ProjectKiSumAggregateOutputType = {
@@ -8996,8 +9219,33 @@ export namespace Prisma {
     shohiyoRyuhokin: number | null
     shuzenTsumitatekin: number | null
     azukarikinHenkanJunbikin: number | null
+    zeikinHokenryoJunbiKanjo: number | null
+    kyodoUnyuHiyoJunbiKanjo: number | null
+    risokuShiharaiJunbiKanjo: number | null
+    shihoTekiShishutsuJunbiKanjo: number | null
+    cashTrapJunbiKanjo: number | null
     sonotaGenyokin: number | null
     futuYokinTokiZandaka: number | null
+    zenkiKurikoshiRieki: number | null
+    shuzenTsumitatekinKuriire: number | null
+    currentYearBunpaiRatio: number | null
+    fullYearBunpaiRatio: number | null
+    currentYearBunpaiRatioNonInvoice: number | null
+    fullYearBunpaiRatioNonInvoice: number | null
+    shintakuShuekiKazeiUriage: number | null
+    shintakuShuekiKazeiUriageShohizei: number | null
+    shintakuShuekiHikazeiUriage: number | null
+    shintakuHiyoKazeiShiire: number | null
+    shintakuHiyoKazeiShiireShohizei: number | null
+    shintakuHiyoHikazeiShiire: number | null
+    unitShintakuShuekiKazeiUriage: number | null
+    unitShintakuShuekiKazeiUriageShohizei: number | null
+    unitShintakuShuekiHikazeiUriage: number | null
+    unitShintakuHiyoKazeiShiire: number | null
+    unitShintakuHiyoKazeiShiireShohizei: number | null
+    unitShintakuHiyoHikazeiShiire: number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice: number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice: number | null
   }
 
   export type ProjectKiMinAggregateOutputType = {
@@ -9039,8 +9287,33 @@ export namespace Prisma {
     shohiyoRyuhokin: number | null
     shuzenTsumitatekin: number | null
     azukarikinHenkanJunbikin: number | null
+    zeikinHokenryoJunbiKanjo: number | null
+    kyodoUnyuHiyoJunbiKanjo: number | null
+    risokuShiharaiJunbiKanjo: number | null
+    shihoTekiShishutsuJunbiKanjo: number | null
+    cashTrapJunbiKanjo: number | null
     sonotaGenyokin: number | null
     futuYokinTokiZandaka: number | null
+    zenkiKurikoshiRieki: number | null
+    shuzenTsumitatekinKuriire: number | null
+    currentYearBunpaiRatio: number | null
+    fullYearBunpaiRatio: number | null
+    currentYearBunpaiRatioNonInvoice: number | null
+    fullYearBunpaiRatioNonInvoice: number | null
+    shintakuShuekiKazeiUriage: number | null
+    shintakuShuekiKazeiUriageShohizei: number | null
+    shintakuShuekiHikazeiUriage: number | null
+    shintakuHiyoKazeiShiire: number | null
+    shintakuHiyoKazeiShiireShohizei: number | null
+    shintakuHiyoHikazeiShiire: number | null
+    unitShintakuShuekiKazeiUriage: number | null
+    unitShintakuShuekiKazeiUriageShohizei: number | null
+    unitShintakuShuekiHikazeiUriage: number | null
+    unitShintakuHiyoKazeiShiire: number | null
+    unitShintakuHiyoKazeiShiireShohizei: number | null
+    unitShintakuHiyoHikazeiShiire: number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice: number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice: number | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -9088,8 +9361,33 @@ export namespace Prisma {
     shohiyoRyuhokin: number | null
     shuzenTsumitatekin: number | null
     azukarikinHenkanJunbikin: number | null
+    zeikinHokenryoJunbiKanjo: number | null
+    kyodoUnyuHiyoJunbiKanjo: number | null
+    risokuShiharaiJunbiKanjo: number | null
+    shihoTekiShishutsuJunbiKanjo: number | null
+    cashTrapJunbiKanjo: number | null
     sonotaGenyokin: number | null
     futuYokinTokiZandaka: number | null
+    zenkiKurikoshiRieki: number | null
+    shuzenTsumitatekinKuriire: number | null
+    currentYearBunpaiRatio: number | null
+    fullYearBunpaiRatio: number | null
+    currentYearBunpaiRatioNonInvoice: number | null
+    fullYearBunpaiRatioNonInvoice: number | null
+    shintakuShuekiKazeiUriage: number | null
+    shintakuShuekiKazeiUriageShohizei: number | null
+    shintakuShuekiHikazeiUriage: number | null
+    shintakuHiyoKazeiShiire: number | null
+    shintakuHiyoKazeiShiireShohizei: number | null
+    shintakuHiyoHikazeiShiire: number | null
+    unitShintakuShuekiKazeiUriage: number | null
+    unitShintakuShuekiKazeiUriageShohizei: number | null
+    unitShintakuShuekiHikazeiUriage: number | null
+    unitShintakuHiyoKazeiShiire: number | null
+    unitShintakuHiyoKazeiShiireShohizei: number | null
+    unitShintakuHiyoHikazeiShiire: number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice: number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice: number | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -9137,8 +9435,33 @@ export namespace Prisma {
     shohiyoRyuhokin: number
     shuzenTsumitatekin: number
     azukarikinHenkanJunbikin: number
+    zeikinHokenryoJunbiKanjo: number
+    kyodoUnyuHiyoJunbiKanjo: number
+    risokuShiharaiJunbiKanjo: number
+    shihoTekiShishutsuJunbiKanjo: number
+    cashTrapJunbiKanjo: number
     sonotaGenyokin: number
     futuYokinTokiZandaka: number
+    zenkiKurikoshiRieki: number
+    shuzenTsumitatekinKuriire: number
+    currentYearBunpaiRatio: number
+    fullYearBunpaiRatio: number
+    currentYearBunpaiRatioNonInvoice: number
+    fullYearBunpaiRatioNonInvoice: number
+    shintakuShuekiKazeiUriage: number
+    shintakuShuekiKazeiUriageShohizei: number
+    shintakuShuekiHikazeiUriage: number
+    shintakuHiyoKazeiShiire: number
+    shintakuHiyoKazeiShiireShohizei: number
+    shintakuHiyoHikazeiShiire: number
+    unitShintakuShuekiKazeiUriage: number
+    unitShintakuShuekiKazeiUriageShohizei: number
+    unitShintakuShuekiHikazeiUriage: number
+    unitShintakuHiyoKazeiShiire: number
+    unitShintakuHiyoKazeiShiireShohizei: number
+    unitShintakuHiyoHikazeiShiire: number
+    unitShintakuHiyoKazeiShiireForNonInvoice: number
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice: number
     createdAt: number
     createdId: number
     createdBy: number
@@ -9177,8 +9500,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: true
     shuzenTsumitatekin?: true
     azukarikinHenkanJunbikin?: true
+    zeikinHokenryoJunbiKanjo?: true
+    kyodoUnyuHiyoJunbiKanjo?: true
+    risokuShiharaiJunbiKanjo?: true
+    shihoTekiShishutsuJunbiKanjo?: true
+    cashTrapJunbiKanjo?: true
     sonotaGenyokin?: true
     futuYokinTokiZandaka?: true
+    zenkiKurikoshiRieki?: true
+    shuzenTsumitatekinKuriire?: true
+    currentYearBunpaiRatio?: true
+    fullYearBunpaiRatio?: true
+    currentYearBunpaiRatioNonInvoice?: true
+    fullYearBunpaiRatioNonInvoice?: true
+    shintakuShuekiKazeiUriage?: true
+    shintakuShuekiKazeiUriageShohizei?: true
+    shintakuShuekiHikazeiUriage?: true
+    shintakuHiyoKazeiShiire?: true
+    shintakuHiyoKazeiShiireShohizei?: true
+    shintakuHiyoHikazeiShiire?: true
+    unitShintakuShuekiKazeiUriage?: true
+    unitShintakuShuekiKazeiUriageShohizei?: true
+    unitShintakuShuekiHikazeiUriage?: true
+    unitShintakuHiyoKazeiShiire?: true
+    unitShintakuHiyoKazeiShiireShohizei?: true
+    unitShintakuHiyoHikazeiShiire?: true
+    unitShintakuHiyoKazeiShiireForNonInvoice?: true
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: true
   }
 
   export type ProjectKiSumAggregateInputType = {
@@ -9209,8 +9557,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: true
     shuzenTsumitatekin?: true
     azukarikinHenkanJunbikin?: true
+    zeikinHokenryoJunbiKanjo?: true
+    kyodoUnyuHiyoJunbiKanjo?: true
+    risokuShiharaiJunbiKanjo?: true
+    shihoTekiShishutsuJunbiKanjo?: true
+    cashTrapJunbiKanjo?: true
     sonotaGenyokin?: true
     futuYokinTokiZandaka?: true
+    zenkiKurikoshiRieki?: true
+    shuzenTsumitatekinKuriire?: true
+    currentYearBunpaiRatio?: true
+    fullYearBunpaiRatio?: true
+    currentYearBunpaiRatioNonInvoice?: true
+    fullYearBunpaiRatioNonInvoice?: true
+    shintakuShuekiKazeiUriage?: true
+    shintakuShuekiKazeiUriageShohizei?: true
+    shintakuShuekiHikazeiUriage?: true
+    shintakuHiyoKazeiShiire?: true
+    shintakuHiyoKazeiShiireShohizei?: true
+    shintakuHiyoHikazeiShiire?: true
+    unitShintakuShuekiKazeiUriage?: true
+    unitShintakuShuekiKazeiUriageShohizei?: true
+    unitShintakuShuekiHikazeiUriage?: true
+    unitShintakuHiyoKazeiShiire?: true
+    unitShintakuHiyoKazeiShiireShohizei?: true
+    unitShintakuHiyoHikazeiShiire?: true
+    unitShintakuHiyoKazeiShiireForNonInvoice?: true
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: true
   }
 
   export type ProjectKiMinAggregateInputType = {
@@ -9252,8 +9625,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: true
     shuzenTsumitatekin?: true
     azukarikinHenkanJunbikin?: true
+    zeikinHokenryoJunbiKanjo?: true
+    kyodoUnyuHiyoJunbiKanjo?: true
+    risokuShiharaiJunbiKanjo?: true
+    shihoTekiShishutsuJunbiKanjo?: true
+    cashTrapJunbiKanjo?: true
     sonotaGenyokin?: true
     futuYokinTokiZandaka?: true
+    zenkiKurikoshiRieki?: true
+    shuzenTsumitatekinKuriire?: true
+    currentYearBunpaiRatio?: true
+    fullYearBunpaiRatio?: true
+    currentYearBunpaiRatioNonInvoice?: true
+    fullYearBunpaiRatioNonInvoice?: true
+    shintakuShuekiKazeiUriage?: true
+    shintakuShuekiKazeiUriageShohizei?: true
+    shintakuShuekiHikazeiUriage?: true
+    shintakuHiyoKazeiShiire?: true
+    shintakuHiyoKazeiShiireShohizei?: true
+    shintakuHiyoHikazeiShiire?: true
+    unitShintakuShuekiKazeiUriage?: true
+    unitShintakuShuekiKazeiUriageShohizei?: true
+    unitShintakuShuekiHikazeiUriage?: true
+    unitShintakuHiyoKazeiShiire?: true
+    unitShintakuHiyoKazeiShiireShohizei?: true
+    unitShintakuHiyoHikazeiShiire?: true
+    unitShintakuHiyoKazeiShiireForNonInvoice?: true
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -9301,8 +9699,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: true
     shuzenTsumitatekin?: true
     azukarikinHenkanJunbikin?: true
+    zeikinHokenryoJunbiKanjo?: true
+    kyodoUnyuHiyoJunbiKanjo?: true
+    risokuShiharaiJunbiKanjo?: true
+    shihoTekiShishutsuJunbiKanjo?: true
+    cashTrapJunbiKanjo?: true
     sonotaGenyokin?: true
     futuYokinTokiZandaka?: true
+    zenkiKurikoshiRieki?: true
+    shuzenTsumitatekinKuriire?: true
+    currentYearBunpaiRatio?: true
+    fullYearBunpaiRatio?: true
+    currentYearBunpaiRatioNonInvoice?: true
+    fullYearBunpaiRatioNonInvoice?: true
+    shintakuShuekiKazeiUriage?: true
+    shintakuShuekiKazeiUriageShohizei?: true
+    shintakuShuekiHikazeiUriage?: true
+    shintakuHiyoKazeiShiire?: true
+    shintakuHiyoKazeiShiireShohizei?: true
+    shintakuHiyoHikazeiShiire?: true
+    unitShintakuShuekiKazeiUriage?: true
+    unitShintakuShuekiKazeiUriageShohizei?: true
+    unitShintakuShuekiHikazeiUriage?: true
+    unitShintakuHiyoKazeiShiire?: true
+    unitShintakuHiyoKazeiShiireShohizei?: true
+    unitShintakuHiyoHikazeiShiire?: true
+    unitShintakuHiyoKazeiShiireForNonInvoice?: true
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -9350,8 +9773,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: true
     shuzenTsumitatekin?: true
     azukarikinHenkanJunbikin?: true
+    zeikinHokenryoJunbiKanjo?: true
+    kyodoUnyuHiyoJunbiKanjo?: true
+    risokuShiharaiJunbiKanjo?: true
+    shihoTekiShishutsuJunbiKanjo?: true
+    cashTrapJunbiKanjo?: true
     sonotaGenyokin?: true
     futuYokinTokiZandaka?: true
+    zenkiKurikoshiRieki?: true
+    shuzenTsumitatekinKuriire?: true
+    currentYearBunpaiRatio?: true
+    fullYearBunpaiRatio?: true
+    currentYearBunpaiRatioNonInvoice?: true
+    fullYearBunpaiRatioNonInvoice?: true
+    shintakuShuekiKazeiUriage?: true
+    shintakuShuekiKazeiUriageShohizei?: true
+    shintakuShuekiHikazeiUriage?: true
+    shintakuHiyoKazeiShiire?: true
+    shintakuHiyoKazeiShiireShohizei?: true
+    shintakuHiyoHikazeiShiire?: true
+    unitShintakuShuekiKazeiUriage?: true
+    unitShintakuShuekiKazeiUriageShohizei?: true
+    unitShintakuShuekiHikazeiUriage?: true
+    unitShintakuHiyoKazeiShiire?: true
+    unitShintakuHiyoKazeiShiireShohizei?: true
+    unitShintakuHiyoHikazeiShiire?: true
+    unitShintakuHiyoKazeiShiireForNonInvoice?: true
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -9486,8 +9934,33 @@ export namespace Prisma {
     shohiyoRyuhokin: number | null
     shuzenTsumitatekin: number | null
     azukarikinHenkanJunbikin: number | null
+    zeikinHokenryoJunbiKanjo: number | null
+    kyodoUnyuHiyoJunbiKanjo: number | null
+    risokuShiharaiJunbiKanjo: number | null
+    shihoTekiShishutsuJunbiKanjo: number | null
+    cashTrapJunbiKanjo: number | null
     sonotaGenyokin: number | null
     futuYokinTokiZandaka: number | null
+    zenkiKurikoshiRieki: number | null
+    shuzenTsumitatekinKuriire: number | null
+    currentYearBunpaiRatio: number | null
+    fullYearBunpaiRatio: number | null
+    currentYearBunpaiRatioNonInvoice: number | null
+    fullYearBunpaiRatioNonInvoice: number | null
+    shintakuShuekiKazeiUriage: number | null
+    shintakuShuekiKazeiUriageShohizei: number | null
+    shintakuShuekiHikazeiUriage: number | null
+    shintakuHiyoKazeiShiire: number | null
+    shintakuHiyoKazeiShiireShohizei: number | null
+    shintakuHiyoHikazeiShiire: number | null
+    unitShintakuShuekiKazeiUriage: number | null
+    unitShintakuShuekiKazeiUriageShohizei: number | null
+    unitShintakuShuekiHikazeiUriage: number | null
+    unitShintakuHiyoKazeiShiire: number | null
+    unitShintakuHiyoKazeiShiireShohizei: number | null
+    unitShintakuHiyoHikazeiShiire: number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice: number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice: number | null
     createdAt: Date
     createdId: string
     createdBy: string
@@ -9554,8 +10027,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: boolean
     shuzenTsumitatekin?: boolean
     azukarikinHenkanJunbikin?: boolean
+    zeikinHokenryoJunbiKanjo?: boolean
+    kyodoUnyuHiyoJunbiKanjo?: boolean
+    risokuShiharaiJunbiKanjo?: boolean
+    shihoTekiShishutsuJunbiKanjo?: boolean
+    cashTrapJunbiKanjo?: boolean
     sonotaGenyokin?: boolean
     futuYokinTokiZandaka?: boolean
+    zenkiKurikoshiRieki?: boolean
+    shuzenTsumitatekinKuriire?: boolean
+    currentYearBunpaiRatio?: boolean
+    fullYearBunpaiRatio?: boolean
+    currentYearBunpaiRatioNonInvoice?: boolean
+    fullYearBunpaiRatioNonInvoice?: boolean
+    shintakuShuekiKazeiUriage?: boolean
+    shintakuShuekiKazeiUriageShohizei?: boolean
+    shintakuShuekiHikazeiUriage?: boolean
+    shintakuHiyoKazeiShiire?: boolean
+    shintakuHiyoKazeiShiireShohizei?: boolean
+    shintakuHiyoHikazeiShiire?: boolean
+    unitShintakuShuekiKazeiUriage?: boolean
+    unitShintakuShuekiKazeiUriageShohizei?: boolean
+    unitShintakuShuekiHikazeiUriage?: boolean
+    unitShintakuHiyoKazeiShiire?: boolean
+    unitShintakuHiyoKazeiShiireShohizei?: boolean
+    unitShintakuHiyoHikazeiShiire?: boolean
+    unitShintakuHiyoKazeiShiireForNonInvoice?: boolean
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -9607,8 +10105,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: boolean
     shuzenTsumitatekin?: boolean
     azukarikinHenkanJunbikin?: boolean
+    zeikinHokenryoJunbiKanjo?: boolean
+    kyodoUnyuHiyoJunbiKanjo?: boolean
+    risokuShiharaiJunbiKanjo?: boolean
+    shihoTekiShishutsuJunbiKanjo?: boolean
+    cashTrapJunbiKanjo?: boolean
     sonotaGenyokin?: boolean
     futuYokinTokiZandaka?: boolean
+    zenkiKurikoshiRieki?: boolean
+    shuzenTsumitatekinKuriire?: boolean
+    currentYearBunpaiRatio?: boolean
+    fullYearBunpaiRatio?: boolean
+    currentYearBunpaiRatioNonInvoice?: boolean
+    fullYearBunpaiRatioNonInvoice?: boolean
+    shintakuShuekiKazeiUriage?: boolean
+    shintakuShuekiKazeiUriageShohizei?: boolean
+    shintakuShuekiHikazeiUriage?: boolean
+    shintakuHiyoKazeiShiire?: boolean
+    shintakuHiyoKazeiShiireShohizei?: boolean
+    shintakuHiyoHikazeiShiire?: boolean
+    unitShintakuShuekiKazeiUriage?: boolean
+    unitShintakuShuekiKazeiUriageShohizei?: boolean
+    unitShintakuShuekiHikazeiUriage?: boolean
+    unitShintakuHiyoKazeiShiire?: boolean
+    unitShintakuHiyoKazeiShiireShohizei?: boolean
+    unitShintakuHiyoHikazeiShiire?: boolean
+    unitShintakuHiyoKazeiShiireForNonInvoice?: boolean
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -9658,8 +10181,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: boolean
     shuzenTsumitatekin?: boolean
     azukarikinHenkanJunbikin?: boolean
+    zeikinHokenryoJunbiKanjo?: boolean
+    kyodoUnyuHiyoJunbiKanjo?: boolean
+    risokuShiharaiJunbiKanjo?: boolean
+    shihoTekiShishutsuJunbiKanjo?: boolean
+    cashTrapJunbiKanjo?: boolean
     sonotaGenyokin?: boolean
     futuYokinTokiZandaka?: boolean
+    zenkiKurikoshiRieki?: boolean
+    shuzenTsumitatekinKuriire?: boolean
+    currentYearBunpaiRatio?: boolean
+    fullYearBunpaiRatio?: boolean
+    currentYearBunpaiRatioNonInvoice?: boolean
+    fullYearBunpaiRatioNonInvoice?: boolean
+    shintakuShuekiKazeiUriage?: boolean
+    shintakuShuekiKazeiUriageShohizei?: boolean
+    shintakuShuekiHikazeiUriage?: boolean
+    shintakuHiyoKazeiShiire?: boolean
+    shintakuHiyoKazeiShiireShohizei?: boolean
+    shintakuHiyoHikazeiShiire?: boolean
+    unitShintakuShuekiKazeiUriage?: boolean
+    unitShintakuShuekiKazeiUriageShohizei?: boolean
+    unitShintakuShuekiHikazeiUriage?: boolean
+    unitShintakuHiyoKazeiShiire?: boolean
+    unitShintakuHiyoKazeiShiireShohizei?: boolean
+    unitShintakuHiyoHikazeiShiire?: boolean
+    unitShintakuHiyoKazeiShiireForNonInvoice?: boolean
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -9725,8 +10273,33 @@ export namespace Prisma {
       shohiyoRyuhokin: number | null
       shuzenTsumitatekin: number | null
       azukarikinHenkanJunbikin: number | null
+      zeikinHokenryoJunbiKanjo: number | null
+      kyodoUnyuHiyoJunbiKanjo: number | null
+      risokuShiharaiJunbiKanjo: number | null
+      shihoTekiShishutsuJunbiKanjo: number | null
+      cashTrapJunbiKanjo: number | null
       sonotaGenyokin: number | null
       futuYokinTokiZandaka: number | null
+      zenkiKurikoshiRieki: number | null
+      shuzenTsumitatekinKuriire: number | null
+      currentYearBunpaiRatio: number | null
+      fullYearBunpaiRatio: number | null
+      currentYearBunpaiRatioNonInvoice: number | null
+      fullYearBunpaiRatioNonInvoice: number | null
+      shintakuShuekiKazeiUriage: number | null
+      shintakuShuekiKazeiUriageShohizei: number | null
+      shintakuShuekiHikazeiUriage: number | null
+      shintakuHiyoKazeiShiire: number | null
+      shintakuHiyoKazeiShiireShohizei: number | null
+      shintakuHiyoHikazeiShiire: number | null
+      unitShintakuShuekiKazeiUriage: number | null
+      unitShintakuShuekiKazeiUriageShohizei: number | null
+      unitShintakuShuekiHikazeiUriage: number | null
+      unitShintakuHiyoKazeiShiire: number | null
+      unitShintakuHiyoKazeiShiireShohizei: number | null
+      unitShintakuHiyoHikazeiShiire: number | null
+      unitShintakuHiyoKazeiShiireForNonInvoice: number | null
+      unitShintakuHiyoKazeiShiireShohizeiForNonInvoice: number | null
       createdAt: Date
       createdId: string
       createdBy: string
@@ -10167,8 +10740,33 @@ export namespace Prisma {
     readonly shohiyoRyuhokin: FieldRef<"ProjectKi", 'Int'>
     readonly shuzenTsumitatekin: FieldRef<"ProjectKi", 'Int'>
     readonly azukarikinHenkanJunbikin: FieldRef<"ProjectKi", 'Int'>
+    readonly zeikinHokenryoJunbiKanjo: FieldRef<"ProjectKi", 'Int'>
+    readonly kyodoUnyuHiyoJunbiKanjo: FieldRef<"ProjectKi", 'Int'>
+    readonly risokuShiharaiJunbiKanjo: FieldRef<"ProjectKi", 'Int'>
+    readonly shihoTekiShishutsuJunbiKanjo: FieldRef<"ProjectKi", 'Int'>
+    readonly cashTrapJunbiKanjo: FieldRef<"ProjectKi", 'Int'>
     readonly sonotaGenyokin: FieldRef<"ProjectKi", 'Int'>
     readonly futuYokinTokiZandaka: FieldRef<"ProjectKi", 'Int'>
+    readonly zenkiKurikoshiRieki: FieldRef<"ProjectKi", 'Int'>
+    readonly shuzenTsumitatekinKuriire: FieldRef<"ProjectKi", 'Int'>
+    readonly currentYearBunpaiRatio: FieldRef<"ProjectKi", 'Float'>
+    readonly fullYearBunpaiRatio: FieldRef<"ProjectKi", 'Float'>
+    readonly currentYearBunpaiRatioNonInvoice: FieldRef<"ProjectKi", 'Float'>
+    readonly fullYearBunpaiRatioNonInvoice: FieldRef<"ProjectKi", 'Float'>
+    readonly shintakuShuekiKazeiUriage: FieldRef<"ProjectKi", 'Int'>
+    readonly shintakuShuekiKazeiUriageShohizei: FieldRef<"ProjectKi", 'Int'>
+    readonly shintakuShuekiHikazeiUriage: FieldRef<"ProjectKi", 'Int'>
+    readonly shintakuHiyoKazeiShiire: FieldRef<"ProjectKi", 'Int'>
+    readonly shintakuHiyoKazeiShiireShohizei: FieldRef<"ProjectKi", 'Int'>
+    readonly shintakuHiyoHikazeiShiire: FieldRef<"ProjectKi", 'Int'>
+    readonly unitShintakuShuekiKazeiUriage: FieldRef<"ProjectKi", 'Int'>
+    readonly unitShintakuShuekiKazeiUriageShohizei: FieldRef<"ProjectKi", 'Int'>
+    readonly unitShintakuShuekiHikazeiUriage: FieldRef<"ProjectKi", 'Int'>
+    readonly unitShintakuHiyoKazeiShiire: FieldRef<"ProjectKi", 'Int'>
+    readonly unitShintakuHiyoKazeiShiireShohizei: FieldRef<"ProjectKi", 'Int'>
+    readonly unitShintakuHiyoHikazeiShiire: FieldRef<"ProjectKi", 'Int'>
+    readonly unitShintakuHiyoKazeiShiireForNonInvoice: FieldRef<"ProjectKi", 'Int'>
+    readonly unitShintakuHiyoKazeiShiireShohizeiForNonInvoice: FieldRef<"ProjectKi", 'Int'>
     readonly createdAt: FieldRef<"ProjectKi", 'DateTime'>
     readonly createdId: FieldRef<"ProjectKi", 'String'>
     readonly createdBy: FieldRef<"ProjectKi", 'String'>
@@ -10524,6 +11122,2134 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: ProjectKiInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ProjectKiBS
+   */
+
+  export type AggregateProjectKiBS = {
+    _count: ProjectKiBSCountAggregateOutputType | null
+    _avg: ProjectKiBSAvgAggregateOutputType | null
+    _sum: ProjectKiBSSumAggregateOutputType | null
+    _min: ProjectKiBSMinAggregateOutputType | null
+    _max: ProjectKiBSMaxAggregateOutputType | null
+  }
+
+  export type ProjectKiBSAvgAggregateOutputType = {
+    prevBalance: number | null
+    debit: number | null
+    credit: number | null
+    balance: number | null
+    orderBy: number | null
+    totalUnit: number | null
+  }
+
+  export type ProjectKiBSSumAggregateOutputType = {
+    prevBalance: bigint | null
+    debit: bigint | null
+    credit: bigint | null
+    balance: bigint | null
+    orderBy: number | null
+    totalUnit: number | null
+  }
+
+  export type ProjectKiBSMinAggregateOutputType = {
+    id: string | null
+    projectKiId: string | null
+    projectId: string | null
+    kiId: string | null
+    bsType: $Enums.BSType | null
+    account: string | null
+    prevBalance: bigint | null
+    debit: bigint | null
+    credit: bigint | null
+    balance: bigint | null
+    orderBy: number | null
+    totalUnit: number | null
+    createdAt: Date | null
+    createdId: string | null
+    createdBy: string | null
+    updatedAt: Date | null
+    updatedId: string | null
+    updatedBy: string | null
+  }
+
+  export type ProjectKiBSMaxAggregateOutputType = {
+    id: string | null
+    projectKiId: string | null
+    projectId: string | null
+    kiId: string | null
+    bsType: $Enums.BSType | null
+    account: string | null
+    prevBalance: bigint | null
+    debit: bigint | null
+    credit: bigint | null
+    balance: bigint | null
+    orderBy: number | null
+    totalUnit: number | null
+    createdAt: Date | null
+    createdId: string | null
+    createdBy: string | null
+    updatedAt: Date | null
+    updatedId: string | null
+    updatedBy: string | null
+  }
+
+  export type ProjectKiBSCountAggregateOutputType = {
+    id: number
+    projectKiId: number
+    projectId: number
+    kiId: number
+    bsType: number
+    account: number
+    prevBalance: number
+    debit: number
+    credit: number
+    balance: number
+    orderBy: number
+    totalUnit: number
+    createdAt: number
+    createdId: number
+    createdBy: number
+    updatedAt: number
+    updatedId: number
+    updatedBy: number
+    _all: number
+  }
+
+
+  export type ProjectKiBSAvgAggregateInputType = {
+    prevBalance?: true
+    debit?: true
+    credit?: true
+    balance?: true
+    orderBy?: true
+    totalUnit?: true
+  }
+
+  export type ProjectKiBSSumAggregateInputType = {
+    prevBalance?: true
+    debit?: true
+    credit?: true
+    balance?: true
+    orderBy?: true
+    totalUnit?: true
+  }
+
+  export type ProjectKiBSMinAggregateInputType = {
+    id?: true
+    projectKiId?: true
+    projectId?: true
+    kiId?: true
+    bsType?: true
+    account?: true
+    prevBalance?: true
+    debit?: true
+    credit?: true
+    balance?: true
+    orderBy?: true
+    totalUnit?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+  }
+
+  export type ProjectKiBSMaxAggregateInputType = {
+    id?: true
+    projectKiId?: true
+    projectId?: true
+    kiId?: true
+    bsType?: true
+    account?: true
+    prevBalance?: true
+    debit?: true
+    credit?: true
+    balance?: true
+    orderBy?: true
+    totalUnit?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+  }
+
+  export type ProjectKiBSCountAggregateInputType = {
+    id?: true
+    projectKiId?: true
+    projectId?: true
+    kiId?: true
+    bsType?: true
+    account?: true
+    prevBalance?: true
+    debit?: true
+    credit?: true
+    balance?: true
+    orderBy?: true
+    totalUnit?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+    _all?: true
+  }
+
+  export type ProjectKiBSAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProjectKiBS to aggregate.
+     */
+    where?: ProjectKiBSWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProjectKiBS to fetch.
+     */
+    orderBy?: ProjectKiBSOrderByWithRelationInput | ProjectKiBSOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProjectKiBSWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProjectKiBS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProjectKiBS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ProjectKiBS
+    **/
+    _count?: true | ProjectKiBSCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ProjectKiBSAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ProjectKiBSSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProjectKiBSMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProjectKiBSMaxAggregateInputType
+  }
+
+  export type GetProjectKiBSAggregateType<T extends ProjectKiBSAggregateArgs> = {
+        [P in keyof T & keyof AggregateProjectKiBS]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProjectKiBS[P]>
+      : GetScalarType<T[P], AggregateProjectKiBS[P]>
+  }
+
+
+
+
+  export type ProjectKiBSGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProjectKiBSWhereInput
+    orderBy?: ProjectKiBSOrderByWithAggregationInput | ProjectKiBSOrderByWithAggregationInput[]
+    by: ProjectKiBSScalarFieldEnum[] | ProjectKiBSScalarFieldEnum
+    having?: ProjectKiBSScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProjectKiBSCountAggregateInputType | true
+    _avg?: ProjectKiBSAvgAggregateInputType
+    _sum?: ProjectKiBSSumAggregateInputType
+    _min?: ProjectKiBSMinAggregateInputType
+    _max?: ProjectKiBSMaxAggregateInputType
+  }
+
+  export type ProjectKiBSGroupByOutputType = {
+    id: string
+    projectKiId: string
+    projectId: string
+    kiId: string
+    bsType: $Enums.BSType
+    account: string
+    prevBalance: bigint
+    debit: bigint
+    credit: bigint
+    balance: bigint
+    orderBy: number
+    totalUnit: number
+    createdAt: Date
+    createdId: string
+    createdBy: string
+    updatedAt: Date
+    updatedId: string
+    updatedBy: string
+    _count: ProjectKiBSCountAggregateOutputType | null
+    _avg: ProjectKiBSAvgAggregateOutputType | null
+    _sum: ProjectKiBSSumAggregateOutputType | null
+    _min: ProjectKiBSMinAggregateOutputType | null
+    _max: ProjectKiBSMaxAggregateOutputType | null
+  }
+
+  type GetProjectKiBSGroupByPayload<T extends ProjectKiBSGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProjectKiBSGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProjectKiBSGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProjectKiBSGroupByOutputType[P]>
+            : GetScalarType<T[P], ProjectKiBSGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProjectKiBSSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    projectKiId?: boolean
+    projectId?: boolean
+    kiId?: boolean
+    bsType?: boolean
+    account?: boolean
+    prevBalance?: boolean
+    debit?: boolean
+    credit?: boolean
+    balance?: boolean
+    orderBy?: boolean
+    totalUnit?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }, ExtArgs["result"]["projectKiBS"]>
+
+  export type ProjectKiBSSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    projectKiId?: boolean
+    projectId?: boolean
+    kiId?: boolean
+    bsType?: boolean
+    account?: boolean
+    prevBalance?: boolean
+    debit?: boolean
+    credit?: boolean
+    balance?: boolean
+    orderBy?: boolean
+    totalUnit?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }, ExtArgs["result"]["projectKiBS"]>
+
+  export type ProjectKiBSSelectScalar = {
+    id?: boolean
+    projectKiId?: boolean
+    projectId?: boolean
+    kiId?: boolean
+    bsType?: boolean
+    account?: boolean
+    prevBalance?: boolean
+    debit?: boolean
+    credit?: boolean
+    balance?: boolean
+    orderBy?: boolean
+    totalUnit?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }
+
+
+  export type $ProjectKiBSPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ProjectKiBS"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      projectKiId: string
+      projectId: string
+      kiId: string
+      bsType: $Enums.BSType
+      account: string
+      prevBalance: bigint
+      debit: bigint
+      credit: bigint
+      balance: bigint
+      orderBy: number
+      totalUnit: number
+      createdAt: Date
+      createdId: string
+      createdBy: string
+      updatedAt: Date
+      updatedId: string
+      updatedBy: string
+    }, ExtArgs["result"]["projectKiBS"]>
+    composites: {}
+  }
+
+  type ProjectKiBSGetPayload<S extends boolean | null | undefined | ProjectKiBSDefaultArgs> = $Result.GetResult<Prisma.$ProjectKiBSPayload, S>
+
+  type ProjectKiBSCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<ProjectKiBSFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: ProjectKiBSCountAggregateInputType | true
+    }
+
+  export interface ProjectKiBSDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ProjectKiBS'], meta: { name: 'ProjectKiBS' } }
+    /**
+     * Find zero or one ProjectKiBS that matches the filter.
+     * @param {ProjectKiBSFindUniqueArgs} args - Arguments to find a ProjectKiBS
+     * @example
+     * // Get one ProjectKiBS
+     * const projectKiBS = await prisma.projectKiBS.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProjectKiBSFindUniqueArgs>(args: SelectSubset<T, ProjectKiBSFindUniqueArgs<ExtArgs>>): Prisma__ProjectKiBSClient<$Result.GetResult<Prisma.$ProjectKiBSPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one ProjectKiBS that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {ProjectKiBSFindUniqueOrThrowArgs} args - Arguments to find a ProjectKiBS
+     * @example
+     * // Get one ProjectKiBS
+     * const projectKiBS = await prisma.projectKiBS.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProjectKiBSFindUniqueOrThrowArgs>(args: SelectSubset<T, ProjectKiBSFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProjectKiBSClient<$Result.GetResult<Prisma.$ProjectKiBSPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first ProjectKiBS that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectKiBSFindFirstArgs} args - Arguments to find a ProjectKiBS
+     * @example
+     * // Get one ProjectKiBS
+     * const projectKiBS = await prisma.projectKiBS.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProjectKiBSFindFirstArgs>(args?: SelectSubset<T, ProjectKiBSFindFirstArgs<ExtArgs>>): Prisma__ProjectKiBSClient<$Result.GetResult<Prisma.$ProjectKiBSPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first ProjectKiBS that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectKiBSFindFirstOrThrowArgs} args - Arguments to find a ProjectKiBS
+     * @example
+     * // Get one ProjectKiBS
+     * const projectKiBS = await prisma.projectKiBS.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProjectKiBSFindFirstOrThrowArgs>(args?: SelectSubset<T, ProjectKiBSFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProjectKiBSClient<$Result.GetResult<Prisma.$ProjectKiBSPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more ProjectKiBS that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectKiBSFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ProjectKiBS
+     * const projectKiBS = await prisma.projectKiBS.findMany()
+     * 
+     * // Get first 10 ProjectKiBS
+     * const projectKiBS = await prisma.projectKiBS.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const projectKiBSWithIdOnly = await prisma.projectKiBS.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ProjectKiBSFindManyArgs>(args?: SelectSubset<T, ProjectKiBSFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectKiBSPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a ProjectKiBS.
+     * @param {ProjectKiBSCreateArgs} args - Arguments to create a ProjectKiBS.
+     * @example
+     * // Create one ProjectKiBS
+     * const ProjectKiBS = await prisma.projectKiBS.create({
+     *   data: {
+     *     // ... data to create a ProjectKiBS
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProjectKiBSCreateArgs>(args: SelectSubset<T, ProjectKiBSCreateArgs<ExtArgs>>): Prisma__ProjectKiBSClient<$Result.GetResult<Prisma.$ProjectKiBSPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many ProjectKiBS.
+     * @param {ProjectKiBSCreateManyArgs} args - Arguments to create many ProjectKiBS.
+     * @example
+     * // Create many ProjectKiBS
+     * const projectKiBS = await prisma.projectKiBS.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProjectKiBSCreateManyArgs>(args?: SelectSubset<T, ProjectKiBSCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ProjectKiBS and returns the data saved in the database.
+     * @param {ProjectKiBSCreateManyAndReturnArgs} args - Arguments to create many ProjectKiBS.
+     * @example
+     * // Create many ProjectKiBS
+     * const projectKiBS = await prisma.projectKiBS.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ProjectKiBS and only return the `id`
+     * const projectKiBSWithIdOnly = await prisma.projectKiBS.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ProjectKiBSCreateManyAndReturnArgs>(args?: SelectSubset<T, ProjectKiBSCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectKiBSPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a ProjectKiBS.
+     * @param {ProjectKiBSDeleteArgs} args - Arguments to delete one ProjectKiBS.
+     * @example
+     * // Delete one ProjectKiBS
+     * const ProjectKiBS = await prisma.projectKiBS.delete({
+     *   where: {
+     *     // ... filter to delete one ProjectKiBS
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProjectKiBSDeleteArgs>(args: SelectSubset<T, ProjectKiBSDeleteArgs<ExtArgs>>): Prisma__ProjectKiBSClient<$Result.GetResult<Prisma.$ProjectKiBSPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one ProjectKiBS.
+     * @param {ProjectKiBSUpdateArgs} args - Arguments to update one ProjectKiBS.
+     * @example
+     * // Update one ProjectKiBS
+     * const projectKiBS = await prisma.projectKiBS.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProjectKiBSUpdateArgs>(args: SelectSubset<T, ProjectKiBSUpdateArgs<ExtArgs>>): Prisma__ProjectKiBSClient<$Result.GetResult<Prisma.$ProjectKiBSPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more ProjectKiBS.
+     * @param {ProjectKiBSDeleteManyArgs} args - Arguments to filter ProjectKiBS to delete.
+     * @example
+     * // Delete a few ProjectKiBS
+     * const { count } = await prisma.projectKiBS.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProjectKiBSDeleteManyArgs>(args?: SelectSubset<T, ProjectKiBSDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProjectKiBS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectKiBSUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ProjectKiBS
+     * const projectKiBS = await prisma.projectKiBS.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProjectKiBSUpdateManyArgs>(args: SelectSubset<T, ProjectKiBSUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one ProjectKiBS.
+     * @param {ProjectKiBSUpsertArgs} args - Arguments to update or create a ProjectKiBS.
+     * @example
+     * // Update or create a ProjectKiBS
+     * const projectKiBS = await prisma.projectKiBS.upsert({
+     *   create: {
+     *     // ... data to create a ProjectKiBS
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ProjectKiBS we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProjectKiBSUpsertArgs>(args: SelectSubset<T, ProjectKiBSUpsertArgs<ExtArgs>>): Prisma__ProjectKiBSClient<$Result.GetResult<Prisma.$ProjectKiBSPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of ProjectKiBS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectKiBSCountArgs} args - Arguments to filter ProjectKiBS to count.
+     * @example
+     * // Count the number of ProjectKiBS
+     * const count = await prisma.projectKiBS.count({
+     *   where: {
+     *     // ... the filter for the ProjectKiBS we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProjectKiBSCountArgs>(
+      args?: Subset<T, ProjectKiBSCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProjectKiBSCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ProjectKiBS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectKiBSAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProjectKiBSAggregateArgs>(args: Subset<T, ProjectKiBSAggregateArgs>): Prisma.PrismaPromise<GetProjectKiBSAggregateType<T>>
+
+    /**
+     * Group by ProjectKiBS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectKiBSGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProjectKiBSGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProjectKiBSGroupByArgs['orderBy'] }
+        : { orderBy?: ProjectKiBSGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProjectKiBSGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProjectKiBSGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ProjectKiBS model
+   */
+  readonly fields: ProjectKiBSFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ProjectKiBS.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProjectKiBSClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ProjectKiBS model
+   */ 
+  interface ProjectKiBSFieldRefs {
+    readonly id: FieldRef<"ProjectKiBS", 'String'>
+    readonly projectKiId: FieldRef<"ProjectKiBS", 'String'>
+    readonly projectId: FieldRef<"ProjectKiBS", 'String'>
+    readonly kiId: FieldRef<"ProjectKiBS", 'String'>
+    readonly bsType: FieldRef<"ProjectKiBS", 'BSType'>
+    readonly account: FieldRef<"ProjectKiBS", 'String'>
+    readonly prevBalance: FieldRef<"ProjectKiBS", 'BigInt'>
+    readonly debit: FieldRef<"ProjectKiBS", 'BigInt'>
+    readonly credit: FieldRef<"ProjectKiBS", 'BigInt'>
+    readonly balance: FieldRef<"ProjectKiBS", 'BigInt'>
+    readonly orderBy: FieldRef<"ProjectKiBS", 'Int'>
+    readonly totalUnit: FieldRef<"ProjectKiBS", 'Int'>
+    readonly createdAt: FieldRef<"ProjectKiBS", 'DateTime'>
+    readonly createdId: FieldRef<"ProjectKiBS", 'String'>
+    readonly createdBy: FieldRef<"ProjectKiBS", 'String'>
+    readonly updatedAt: FieldRef<"ProjectKiBS", 'DateTime'>
+    readonly updatedId: FieldRef<"ProjectKiBS", 'String'>
+    readonly updatedBy: FieldRef<"ProjectKiBS", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ProjectKiBS findUnique
+   */
+  export type ProjectKiBSFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiBS
+     */
+    select?: ProjectKiBSSelect<ExtArgs> | null
+    /**
+     * Filter, which ProjectKiBS to fetch.
+     */
+    where: ProjectKiBSWhereUniqueInput
+  }
+
+  /**
+   * ProjectKiBS findUniqueOrThrow
+   */
+  export type ProjectKiBSFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiBS
+     */
+    select?: ProjectKiBSSelect<ExtArgs> | null
+    /**
+     * Filter, which ProjectKiBS to fetch.
+     */
+    where: ProjectKiBSWhereUniqueInput
+  }
+
+  /**
+   * ProjectKiBS findFirst
+   */
+  export type ProjectKiBSFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiBS
+     */
+    select?: ProjectKiBSSelect<ExtArgs> | null
+    /**
+     * Filter, which ProjectKiBS to fetch.
+     */
+    where?: ProjectKiBSWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProjectKiBS to fetch.
+     */
+    orderBy?: ProjectKiBSOrderByWithRelationInput | ProjectKiBSOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProjectKiBS.
+     */
+    cursor?: ProjectKiBSWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProjectKiBS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProjectKiBS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProjectKiBS.
+     */
+    distinct?: ProjectKiBSScalarFieldEnum | ProjectKiBSScalarFieldEnum[]
+  }
+
+  /**
+   * ProjectKiBS findFirstOrThrow
+   */
+  export type ProjectKiBSFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiBS
+     */
+    select?: ProjectKiBSSelect<ExtArgs> | null
+    /**
+     * Filter, which ProjectKiBS to fetch.
+     */
+    where?: ProjectKiBSWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProjectKiBS to fetch.
+     */
+    orderBy?: ProjectKiBSOrderByWithRelationInput | ProjectKiBSOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProjectKiBS.
+     */
+    cursor?: ProjectKiBSWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProjectKiBS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProjectKiBS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProjectKiBS.
+     */
+    distinct?: ProjectKiBSScalarFieldEnum | ProjectKiBSScalarFieldEnum[]
+  }
+
+  /**
+   * ProjectKiBS findMany
+   */
+  export type ProjectKiBSFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiBS
+     */
+    select?: ProjectKiBSSelect<ExtArgs> | null
+    /**
+     * Filter, which ProjectKiBS to fetch.
+     */
+    where?: ProjectKiBSWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProjectKiBS to fetch.
+     */
+    orderBy?: ProjectKiBSOrderByWithRelationInput | ProjectKiBSOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ProjectKiBS.
+     */
+    cursor?: ProjectKiBSWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProjectKiBS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProjectKiBS.
+     */
+    skip?: number
+    distinct?: ProjectKiBSScalarFieldEnum | ProjectKiBSScalarFieldEnum[]
+  }
+
+  /**
+   * ProjectKiBS create
+   */
+  export type ProjectKiBSCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiBS
+     */
+    select?: ProjectKiBSSelect<ExtArgs> | null
+    /**
+     * The data needed to create a ProjectKiBS.
+     */
+    data: XOR<ProjectKiBSCreateInput, ProjectKiBSUncheckedCreateInput>
+  }
+
+  /**
+   * ProjectKiBS createMany
+   */
+  export type ProjectKiBSCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ProjectKiBS.
+     */
+    data: ProjectKiBSCreateManyInput | ProjectKiBSCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ProjectKiBS createManyAndReturn
+   */
+  export type ProjectKiBSCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiBS
+     */
+    select?: ProjectKiBSSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many ProjectKiBS.
+     */
+    data: ProjectKiBSCreateManyInput | ProjectKiBSCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ProjectKiBS update
+   */
+  export type ProjectKiBSUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiBS
+     */
+    select?: ProjectKiBSSelect<ExtArgs> | null
+    /**
+     * The data needed to update a ProjectKiBS.
+     */
+    data: XOR<ProjectKiBSUpdateInput, ProjectKiBSUncheckedUpdateInput>
+    /**
+     * Choose, which ProjectKiBS to update.
+     */
+    where: ProjectKiBSWhereUniqueInput
+  }
+
+  /**
+   * ProjectKiBS updateMany
+   */
+  export type ProjectKiBSUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ProjectKiBS.
+     */
+    data: XOR<ProjectKiBSUpdateManyMutationInput, ProjectKiBSUncheckedUpdateManyInput>
+    /**
+     * Filter which ProjectKiBS to update
+     */
+    where?: ProjectKiBSWhereInput
+  }
+
+  /**
+   * ProjectKiBS upsert
+   */
+  export type ProjectKiBSUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiBS
+     */
+    select?: ProjectKiBSSelect<ExtArgs> | null
+    /**
+     * The filter to search for the ProjectKiBS to update in case it exists.
+     */
+    where: ProjectKiBSWhereUniqueInput
+    /**
+     * In case the ProjectKiBS found by the `where` argument doesn't exist, create a new ProjectKiBS with this data.
+     */
+    create: XOR<ProjectKiBSCreateInput, ProjectKiBSUncheckedCreateInput>
+    /**
+     * In case the ProjectKiBS was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProjectKiBSUpdateInput, ProjectKiBSUncheckedUpdateInput>
+  }
+
+  /**
+   * ProjectKiBS delete
+   */
+  export type ProjectKiBSDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiBS
+     */
+    select?: ProjectKiBSSelect<ExtArgs> | null
+    /**
+     * Filter which ProjectKiBS to delete.
+     */
+    where: ProjectKiBSWhereUniqueInput
+  }
+
+  /**
+   * ProjectKiBS deleteMany
+   */
+  export type ProjectKiBSDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProjectKiBS to delete
+     */
+    where?: ProjectKiBSWhereInput
+  }
+
+  /**
+   * ProjectKiBS without action
+   */
+  export type ProjectKiBSDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiBS
+     */
+    select?: ProjectKiBSSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ProjectKiPL
+   */
+
+  export type AggregateProjectKiPL = {
+    _count: ProjectKiPLCountAggregateOutputType | null
+    _avg: ProjectKiPLAvgAggregateOutputType | null
+    _sum: ProjectKiPLSumAggregateOutputType | null
+    _min: ProjectKiPLMinAggregateOutputType | null
+    _max: ProjectKiPLMaxAggregateOutputType | null
+  }
+
+  export type ProjectKiPLAvgAggregateOutputType = {
+    amount: number | null
+    orderBy: number | null
+    totalUnit: number | null
+  }
+
+  export type ProjectKiPLSumAggregateOutputType = {
+    amount: bigint | null
+    orderBy: number | null
+    totalUnit: number | null
+  }
+
+  export type ProjectKiPLMinAggregateOutputType = {
+    id: string | null
+    projectKiId: string | null
+    projectId: string | null
+    kiId: string | null
+    plType: $Enums.PLType | null
+    account: string | null
+    amount: bigint | null
+    orderBy: number | null
+    totalUnit: number | null
+    createdAt: Date | null
+    createdId: string | null
+    createdBy: string | null
+    updatedAt: Date | null
+    updatedId: string | null
+    updatedBy: string | null
+  }
+
+  export type ProjectKiPLMaxAggregateOutputType = {
+    id: string | null
+    projectKiId: string | null
+    projectId: string | null
+    kiId: string | null
+    plType: $Enums.PLType | null
+    account: string | null
+    amount: bigint | null
+    orderBy: number | null
+    totalUnit: number | null
+    createdAt: Date | null
+    createdId: string | null
+    createdBy: string | null
+    updatedAt: Date | null
+    updatedId: string | null
+    updatedBy: string | null
+  }
+
+  export type ProjectKiPLCountAggregateOutputType = {
+    id: number
+    projectKiId: number
+    projectId: number
+    kiId: number
+    plType: number
+    account: number
+    amount: number
+    orderBy: number
+    totalUnit: number
+    createdAt: number
+    createdId: number
+    createdBy: number
+    updatedAt: number
+    updatedId: number
+    updatedBy: number
+    _all: number
+  }
+
+
+  export type ProjectKiPLAvgAggregateInputType = {
+    amount?: true
+    orderBy?: true
+    totalUnit?: true
+  }
+
+  export type ProjectKiPLSumAggregateInputType = {
+    amount?: true
+    orderBy?: true
+    totalUnit?: true
+  }
+
+  export type ProjectKiPLMinAggregateInputType = {
+    id?: true
+    projectKiId?: true
+    projectId?: true
+    kiId?: true
+    plType?: true
+    account?: true
+    amount?: true
+    orderBy?: true
+    totalUnit?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+  }
+
+  export type ProjectKiPLMaxAggregateInputType = {
+    id?: true
+    projectKiId?: true
+    projectId?: true
+    kiId?: true
+    plType?: true
+    account?: true
+    amount?: true
+    orderBy?: true
+    totalUnit?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+  }
+
+  export type ProjectKiPLCountAggregateInputType = {
+    id?: true
+    projectKiId?: true
+    projectId?: true
+    kiId?: true
+    plType?: true
+    account?: true
+    amount?: true
+    orderBy?: true
+    totalUnit?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+    _all?: true
+  }
+
+  export type ProjectKiPLAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProjectKiPL to aggregate.
+     */
+    where?: ProjectKiPLWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProjectKiPLS to fetch.
+     */
+    orderBy?: ProjectKiPLOrderByWithRelationInput | ProjectKiPLOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProjectKiPLWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProjectKiPLS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProjectKiPLS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ProjectKiPLS
+    **/
+    _count?: true | ProjectKiPLCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ProjectKiPLAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ProjectKiPLSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProjectKiPLMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProjectKiPLMaxAggregateInputType
+  }
+
+  export type GetProjectKiPLAggregateType<T extends ProjectKiPLAggregateArgs> = {
+        [P in keyof T & keyof AggregateProjectKiPL]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProjectKiPL[P]>
+      : GetScalarType<T[P], AggregateProjectKiPL[P]>
+  }
+
+
+
+
+  export type ProjectKiPLGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProjectKiPLWhereInput
+    orderBy?: ProjectKiPLOrderByWithAggregationInput | ProjectKiPLOrderByWithAggregationInput[]
+    by: ProjectKiPLScalarFieldEnum[] | ProjectKiPLScalarFieldEnum
+    having?: ProjectKiPLScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProjectKiPLCountAggregateInputType | true
+    _avg?: ProjectKiPLAvgAggregateInputType
+    _sum?: ProjectKiPLSumAggregateInputType
+    _min?: ProjectKiPLMinAggregateInputType
+    _max?: ProjectKiPLMaxAggregateInputType
+  }
+
+  export type ProjectKiPLGroupByOutputType = {
+    id: string
+    projectKiId: string
+    projectId: string
+    kiId: string
+    plType: $Enums.PLType
+    account: string
+    amount: bigint
+    orderBy: number
+    totalUnit: number
+    createdAt: Date
+    createdId: string
+    createdBy: string
+    updatedAt: Date
+    updatedId: string
+    updatedBy: string
+    _count: ProjectKiPLCountAggregateOutputType | null
+    _avg: ProjectKiPLAvgAggregateOutputType | null
+    _sum: ProjectKiPLSumAggregateOutputType | null
+    _min: ProjectKiPLMinAggregateOutputType | null
+    _max: ProjectKiPLMaxAggregateOutputType | null
+  }
+
+  type GetProjectKiPLGroupByPayload<T extends ProjectKiPLGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProjectKiPLGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProjectKiPLGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProjectKiPLGroupByOutputType[P]>
+            : GetScalarType<T[P], ProjectKiPLGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProjectKiPLSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    projectKiId?: boolean
+    projectId?: boolean
+    kiId?: boolean
+    plType?: boolean
+    account?: boolean
+    amount?: boolean
+    orderBy?: boolean
+    totalUnit?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }, ExtArgs["result"]["projectKiPL"]>
+
+  export type ProjectKiPLSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    projectKiId?: boolean
+    projectId?: boolean
+    kiId?: boolean
+    plType?: boolean
+    account?: boolean
+    amount?: boolean
+    orderBy?: boolean
+    totalUnit?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }, ExtArgs["result"]["projectKiPL"]>
+
+  export type ProjectKiPLSelectScalar = {
+    id?: boolean
+    projectKiId?: boolean
+    projectId?: boolean
+    kiId?: boolean
+    plType?: boolean
+    account?: boolean
+    amount?: boolean
+    orderBy?: boolean
+    totalUnit?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }
+
+
+  export type $ProjectKiPLPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ProjectKiPL"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      projectKiId: string
+      projectId: string
+      kiId: string
+      plType: $Enums.PLType
+      account: string
+      amount: bigint
+      orderBy: number
+      totalUnit: number
+      createdAt: Date
+      createdId: string
+      createdBy: string
+      updatedAt: Date
+      updatedId: string
+      updatedBy: string
+    }, ExtArgs["result"]["projectKiPL"]>
+    composites: {}
+  }
+
+  type ProjectKiPLGetPayload<S extends boolean | null | undefined | ProjectKiPLDefaultArgs> = $Result.GetResult<Prisma.$ProjectKiPLPayload, S>
+
+  type ProjectKiPLCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<ProjectKiPLFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: ProjectKiPLCountAggregateInputType | true
+    }
+
+  export interface ProjectKiPLDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ProjectKiPL'], meta: { name: 'ProjectKiPL' } }
+    /**
+     * Find zero or one ProjectKiPL that matches the filter.
+     * @param {ProjectKiPLFindUniqueArgs} args - Arguments to find a ProjectKiPL
+     * @example
+     * // Get one ProjectKiPL
+     * const projectKiPL = await prisma.projectKiPL.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProjectKiPLFindUniqueArgs>(args: SelectSubset<T, ProjectKiPLFindUniqueArgs<ExtArgs>>): Prisma__ProjectKiPLClient<$Result.GetResult<Prisma.$ProjectKiPLPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one ProjectKiPL that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {ProjectKiPLFindUniqueOrThrowArgs} args - Arguments to find a ProjectKiPL
+     * @example
+     * // Get one ProjectKiPL
+     * const projectKiPL = await prisma.projectKiPL.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProjectKiPLFindUniqueOrThrowArgs>(args: SelectSubset<T, ProjectKiPLFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProjectKiPLClient<$Result.GetResult<Prisma.$ProjectKiPLPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first ProjectKiPL that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectKiPLFindFirstArgs} args - Arguments to find a ProjectKiPL
+     * @example
+     * // Get one ProjectKiPL
+     * const projectKiPL = await prisma.projectKiPL.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProjectKiPLFindFirstArgs>(args?: SelectSubset<T, ProjectKiPLFindFirstArgs<ExtArgs>>): Prisma__ProjectKiPLClient<$Result.GetResult<Prisma.$ProjectKiPLPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first ProjectKiPL that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectKiPLFindFirstOrThrowArgs} args - Arguments to find a ProjectKiPL
+     * @example
+     * // Get one ProjectKiPL
+     * const projectKiPL = await prisma.projectKiPL.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProjectKiPLFindFirstOrThrowArgs>(args?: SelectSubset<T, ProjectKiPLFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProjectKiPLClient<$Result.GetResult<Prisma.$ProjectKiPLPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more ProjectKiPLS that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectKiPLFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ProjectKiPLS
+     * const projectKiPLS = await prisma.projectKiPL.findMany()
+     * 
+     * // Get first 10 ProjectKiPLS
+     * const projectKiPLS = await prisma.projectKiPL.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const projectKiPLWithIdOnly = await prisma.projectKiPL.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ProjectKiPLFindManyArgs>(args?: SelectSubset<T, ProjectKiPLFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectKiPLPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a ProjectKiPL.
+     * @param {ProjectKiPLCreateArgs} args - Arguments to create a ProjectKiPL.
+     * @example
+     * // Create one ProjectKiPL
+     * const ProjectKiPL = await prisma.projectKiPL.create({
+     *   data: {
+     *     // ... data to create a ProjectKiPL
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProjectKiPLCreateArgs>(args: SelectSubset<T, ProjectKiPLCreateArgs<ExtArgs>>): Prisma__ProjectKiPLClient<$Result.GetResult<Prisma.$ProjectKiPLPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many ProjectKiPLS.
+     * @param {ProjectKiPLCreateManyArgs} args - Arguments to create many ProjectKiPLS.
+     * @example
+     * // Create many ProjectKiPLS
+     * const projectKiPL = await prisma.projectKiPL.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProjectKiPLCreateManyArgs>(args?: SelectSubset<T, ProjectKiPLCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ProjectKiPLS and returns the data saved in the database.
+     * @param {ProjectKiPLCreateManyAndReturnArgs} args - Arguments to create many ProjectKiPLS.
+     * @example
+     * // Create many ProjectKiPLS
+     * const projectKiPL = await prisma.projectKiPL.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ProjectKiPLS and only return the `id`
+     * const projectKiPLWithIdOnly = await prisma.projectKiPL.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ProjectKiPLCreateManyAndReturnArgs>(args?: SelectSubset<T, ProjectKiPLCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectKiPLPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a ProjectKiPL.
+     * @param {ProjectKiPLDeleteArgs} args - Arguments to delete one ProjectKiPL.
+     * @example
+     * // Delete one ProjectKiPL
+     * const ProjectKiPL = await prisma.projectKiPL.delete({
+     *   where: {
+     *     // ... filter to delete one ProjectKiPL
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProjectKiPLDeleteArgs>(args: SelectSubset<T, ProjectKiPLDeleteArgs<ExtArgs>>): Prisma__ProjectKiPLClient<$Result.GetResult<Prisma.$ProjectKiPLPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one ProjectKiPL.
+     * @param {ProjectKiPLUpdateArgs} args - Arguments to update one ProjectKiPL.
+     * @example
+     * // Update one ProjectKiPL
+     * const projectKiPL = await prisma.projectKiPL.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProjectKiPLUpdateArgs>(args: SelectSubset<T, ProjectKiPLUpdateArgs<ExtArgs>>): Prisma__ProjectKiPLClient<$Result.GetResult<Prisma.$ProjectKiPLPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more ProjectKiPLS.
+     * @param {ProjectKiPLDeleteManyArgs} args - Arguments to filter ProjectKiPLS to delete.
+     * @example
+     * // Delete a few ProjectKiPLS
+     * const { count } = await prisma.projectKiPL.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProjectKiPLDeleteManyArgs>(args?: SelectSubset<T, ProjectKiPLDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProjectKiPLS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectKiPLUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ProjectKiPLS
+     * const projectKiPL = await prisma.projectKiPL.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProjectKiPLUpdateManyArgs>(args: SelectSubset<T, ProjectKiPLUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one ProjectKiPL.
+     * @param {ProjectKiPLUpsertArgs} args - Arguments to update or create a ProjectKiPL.
+     * @example
+     * // Update or create a ProjectKiPL
+     * const projectKiPL = await prisma.projectKiPL.upsert({
+     *   create: {
+     *     // ... data to create a ProjectKiPL
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ProjectKiPL we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProjectKiPLUpsertArgs>(args: SelectSubset<T, ProjectKiPLUpsertArgs<ExtArgs>>): Prisma__ProjectKiPLClient<$Result.GetResult<Prisma.$ProjectKiPLPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of ProjectKiPLS.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectKiPLCountArgs} args - Arguments to filter ProjectKiPLS to count.
+     * @example
+     * // Count the number of ProjectKiPLS
+     * const count = await prisma.projectKiPL.count({
+     *   where: {
+     *     // ... the filter for the ProjectKiPLS we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProjectKiPLCountArgs>(
+      args?: Subset<T, ProjectKiPLCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProjectKiPLCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ProjectKiPL.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectKiPLAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProjectKiPLAggregateArgs>(args: Subset<T, ProjectKiPLAggregateArgs>): Prisma.PrismaPromise<GetProjectKiPLAggregateType<T>>
+
+    /**
+     * Group by ProjectKiPL.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectKiPLGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProjectKiPLGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProjectKiPLGroupByArgs['orderBy'] }
+        : { orderBy?: ProjectKiPLGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProjectKiPLGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProjectKiPLGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ProjectKiPL model
+   */
+  readonly fields: ProjectKiPLFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ProjectKiPL.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProjectKiPLClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ProjectKiPL model
+   */ 
+  interface ProjectKiPLFieldRefs {
+    readonly id: FieldRef<"ProjectKiPL", 'String'>
+    readonly projectKiId: FieldRef<"ProjectKiPL", 'String'>
+    readonly projectId: FieldRef<"ProjectKiPL", 'String'>
+    readonly kiId: FieldRef<"ProjectKiPL", 'String'>
+    readonly plType: FieldRef<"ProjectKiPL", 'PLType'>
+    readonly account: FieldRef<"ProjectKiPL", 'String'>
+    readonly amount: FieldRef<"ProjectKiPL", 'BigInt'>
+    readonly orderBy: FieldRef<"ProjectKiPL", 'Int'>
+    readonly totalUnit: FieldRef<"ProjectKiPL", 'Int'>
+    readonly createdAt: FieldRef<"ProjectKiPL", 'DateTime'>
+    readonly createdId: FieldRef<"ProjectKiPL", 'String'>
+    readonly createdBy: FieldRef<"ProjectKiPL", 'String'>
+    readonly updatedAt: FieldRef<"ProjectKiPL", 'DateTime'>
+    readonly updatedId: FieldRef<"ProjectKiPL", 'String'>
+    readonly updatedBy: FieldRef<"ProjectKiPL", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ProjectKiPL findUnique
+   */
+  export type ProjectKiPLFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiPL
+     */
+    select?: ProjectKiPLSelect<ExtArgs> | null
+    /**
+     * Filter, which ProjectKiPL to fetch.
+     */
+    where: ProjectKiPLWhereUniqueInput
+  }
+
+  /**
+   * ProjectKiPL findUniqueOrThrow
+   */
+  export type ProjectKiPLFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiPL
+     */
+    select?: ProjectKiPLSelect<ExtArgs> | null
+    /**
+     * Filter, which ProjectKiPL to fetch.
+     */
+    where: ProjectKiPLWhereUniqueInput
+  }
+
+  /**
+   * ProjectKiPL findFirst
+   */
+  export type ProjectKiPLFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiPL
+     */
+    select?: ProjectKiPLSelect<ExtArgs> | null
+    /**
+     * Filter, which ProjectKiPL to fetch.
+     */
+    where?: ProjectKiPLWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProjectKiPLS to fetch.
+     */
+    orderBy?: ProjectKiPLOrderByWithRelationInput | ProjectKiPLOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProjectKiPLS.
+     */
+    cursor?: ProjectKiPLWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProjectKiPLS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProjectKiPLS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProjectKiPLS.
+     */
+    distinct?: ProjectKiPLScalarFieldEnum | ProjectKiPLScalarFieldEnum[]
+  }
+
+  /**
+   * ProjectKiPL findFirstOrThrow
+   */
+  export type ProjectKiPLFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiPL
+     */
+    select?: ProjectKiPLSelect<ExtArgs> | null
+    /**
+     * Filter, which ProjectKiPL to fetch.
+     */
+    where?: ProjectKiPLWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProjectKiPLS to fetch.
+     */
+    orderBy?: ProjectKiPLOrderByWithRelationInput | ProjectKiPLOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProjectKiPLS.
+     */
+    cursor?: ProjectKiPLWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProjectKiPLS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProjectKiPLS.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProjectKiPLS.
+     */
+    distinct?: ProjectKiPLScalarFieldEnum | ProjectKiPLScalarFieldEnum[]
+  }
+
+  /**
+   * ProjectKiPL findMany
+   */
+  export type ProjectKiPLFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiPL
+     */
+    select?: ProjectKiPLSelect<ExtArgs> | null
+    /**
+     * Filter, which ProjectKiPLS to fetch.
+     */
+    where?: ProjectKiPLWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProjectKiPLS to fetch.
+     */
+    orderBy?: ProjectKiPLOrderByWithRelationInput | ProjectKiPLOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ProjectKiPLS.
+     */
+    cursor?: ProjectKiPLWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProjectKiPLS from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProjectKiPLS.
+     */
+    skip?: number
+    distinct?: ProjectKiPLScalarFieldEnum | ProjectKiPLScalarFieldEnum[]
+  }
+
+  /**
+   * ProjectKiPL create
+   */
+  export type ProjectKiPLCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiPL
+     */
+    select?: ProjectKiPLSelect<ExtArgs> | null
+    /**
+     * The data needed to create a ProjectKiPL.
+     */
+    data: XOR<ProjectKiPLCreateInput, ProjectKiPLUncheckedCreateInput>
+  }
+
+  /**
+   * ProjectKiPL createMany
+   */
+  export type ProjectKiPLCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ProjectKiPLS.
+     */
+    data: ProjectKiPLCreateManyInput | ProjectKiPLCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ProjectKiPL createManyAndReturn
+   */
+  export type ProjectKiPLCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiPL
+     */
+    select?: ProjectKiPLSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many ProjectKiPLS.
+     */
+    data: ProjectKiPLCreateManyInput | ProjectKiPLCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ProjectKiPL update
+   */
+  export type ProjectKiPLUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiPL
+     */
+    select?: ProjectKiPLSelect<ExtArgs> | null
+    /**
+     * The data needed to update a ProjectKiPL.
+     */
+    data: XOR<ProjectKiPLUpdateInput, ProjectKiPLUncheckedUpdateInput>
+    /**
+     * Choose, which ProjectKiPL to update.
+     */
+    where: ProjectKiPLWhereUniqueInput
+  }
+
+  /**
+   * ProjectKiPL updateMany
+   */
+  export type ProjectKiPLUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ProjectKiPLS.
+     */
+    data: XOR<ProjectKiPLUpdateManyMutationInput, ProjectKiPLUncheckedUpdateManyInput>
+    /**
+     * Filter which ProjectKiPLS to update
+     */
+    where?: ProjectKiPLWhereInput
+  }
+
+  /**
+   * ProjectKiPL upsert
+   */
+  export type ProjectKiPLUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiPL
+     */
+    select?: ProjectKiPLSelect<ExtArgs> | null
+    /**
+     * The filter to search for the ProjectKiPL to update in case it exists.
+     */
+    where: ProjectKiPLWhereUniqueInput
+    /**
+     * In case the ProjectKiPL found by the `where` argument doesn't exist, create a new ProjectKiPL with this data.
+     */
+    create: XOR<ProjectKiPLCreateInput, ProjectKiPLUncheckedCreateInput>
+    /**
+     * In case the ProjectKiPL was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProjectKiPLUpdateInput, ProjectKiPLUncheckedUpdateInput>
+  }
+
+  /**
+   * ProjectKiPL delete
+   */
+  export type ProjectKiPLDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiPL
+     */
+    select?: ProjectKiPLSelect<ExtArgs> | null
+    /**
+     * Filter which ProjectKiPL to delete.
+     */
+    where: ProjectKiPLWhereUniqueInput
+  }
+
+  /**
+   * ProjectKiPL deleteMany
+   */
+  export type ProjectKiPLDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProjectKiPLS to delete
+     */
+    where?: ProjectKiPLWhereInput
+  }
+
+  /**
+   * ProjectKiPL without action
+   */
+  export type ProjectKiPLDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiPL
+     */
+    select?: ProjectKiPLSelect<ExtArgs> | null
   }
 
 
@@ -11636,6 +14362,7 @@ export namespace Prisma {
     pmPerformanceMoveOut: number | null
     pmPerformanceRate: number | null
     pmPerformanceRatePercent: number | null
+    valuationStatementSize: number | null
   }
 
   export type AssetKiSumAggregateOutputType = {
@@ -11644,6 +14371,7 @@ export namespace Prisma {
     pmPerformanceMoveOut: number | null
     pmPerformanceRate: number | null
     pmPerformanceRatePercent: number | null
+    valuationStatementSize: number | null
   }
 
   export type AssetKiMinAggregateOutputType = {
@@ -11661,6 +14389,9 @@ export namespace Prisma {
     photo2: string | null
     photo3: string | null
     photo4: string | null
+    valuationStatementFile: Buffer | null
+    valuationStatementName: string | null
+    valuationStatementSize: number | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -11684,6 +14415,9 @@ export namespace Prisma {
     photo2: string | null
     photo3: string | null
     photo4: string | null
+    valuationStatementFile: Buffer | null
+    valuationStatementName: string | null
+    valuationStatementSize: number | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -11707,6 +14441,9 @@ export namespace Prisma {
     photo2: number
     photo3: number
     photo4: number
+    valuationStatementFile: number
+    valuationStatementName: number
+    valuationStatementSize: number
     createdAt: number
     createdId: number
     createdBy: number
@@ -11723,6 +14460,7 @@ export namespace Prisma {
     pmPerformanceMoveOut?: true
     pmPerformanceRate?: true
     pmPerformanceRatePercent?: true
+    valuationStatementSize?: true
   }
 
   export type AssetKiSumAggregateInputType = {
@@ -11731,6 +14469,7 @@ export namespace Prisma {
     pmPerformanceMoveOut?: true
     pmPerformanceRate?: true
     pmPerformanceRatePercent?: true
+    valuationStatementSize?: true
   }
 
   export type AssetKiMinAggregateInputType = {
@@ -11748,6 +14487,9 @@ export namespace Prisma {
     photo2?: true
     photo3?: true
     photo4?: true
+    valuationStatementFile?: true
+    valuationStatementName?: true
+    valuationStatementSize?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -11771,6 +14513,9 @@ export namespace Prisma {
     photo2?: true
     photo3?: true
     photo4?: true
+    valuationStatementFile?: true
+    valuationStatementName?: true
+    valuationStatementSize?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -11794,6 +14539,9 @@ export namespace Prisma {
     photo2?: true
     photo3?: true
     photo4?: true
+    valuationStatementFile?: true
+    valuationStatementName?: true
+    valuationStatementSize?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -11904,6 +14652,9 @@ export namespace Prisma {
     photo2: string | null
     photo3: string | null
     photo4: string | null
+    valuationStatementFile: Buffer | null
+    valuationStatementName: string | null
+    valuationStatementSize: number | null
     createdAt: Date
     createdId: string
     createdBy: string
@@ -11946,6 +14697,9 @@ export namespace Prisma {
     photo2?: boolean
     photo3?: boolean
     photo4?: boolean
+    valuationStatementFile?: boolean
+    valuationStatementName?: boolean
+    valuationStatementSize?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -11971,6 +14725,9 @@ export namespace Prisma {
     photo2?: boolean
     photo3?: boolean
     photo4?: boolean
+    valuationStatementFile?: boolean
+    valuationStatementName?: boolean
+    valuationStatementSize?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -11996,6 +14753,9 @@ export namespace Prisma {
     photo2?: boolean
     photo3?: boolean
     photo4?: boolean
+    valuationStatementFile?: boolean
+    valuationStatementName?: boolean
+    valuationStatementSize?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -12034,6 +14794,9 @@ export namespace Prisma {
       photo2: string | null
       photo3: string | null
       photo4: string | null
+      valuationStatementFile: Buffer | null
+      valuationStatementName: string | null
+      valuationStatementSize: number | null
       createdAt: Date
       createdId: string
       createdBy: string
@@ -12449,6 +15212,9 @@ export namespace Prisma {
     readonly photo2: FieldRef<"AssetKi", 'String'>
     readonly photo3: FieldRef<"AssetKi", 'String'>
     readonly photo4: FieldRef<"AssetKi", 'String'>
+    readonly valuationStatementFile: FieldRef<"AssetKi", 'Bytes'>
+    readonly valuationStatementName: FieldRef<"AssetKi", 'String'>
+    readonly valuationStatementSize: FieldRef<"AssetKi", 'Int'>
     readonly createdAt: FieldRef<"AssetKi", 'DateTime'>
     readonly createdId: FieldRef<"AssetKi", 'String'>
     readonly createdBy: FieldRef<"AssetKi", 'String'>
@@ -20642,8 +23408,33 @@ export namespace Prisma {
     shohiyoRyuhokin: 'shohiyoRyuhokin',
     shuzenTsumitatekin: 'shuzenTsumitatekin',
     azukarikinHenkanJunbikin: 'azukarikinHenkanJunbikin',
+    zeikinHokenryoJunbiKanjo: 'zeikinHokenryoJunbiKanjo',
+    kyodoUnyuHiyoJunbiKanjo: 'kyodoUnyuHiyoJunbiKanjo',
+    risokuShiharaiJunbiKanjo: 'risokuShiharaiJunbiKanjo',
+    shihoTekiShishutsuJunbiKanjo: 'shihoTekiShishutsuJunbiKanjo',
+    cashTrapJunbiKanjo: 'cashTrapJunbiKanjo',
     sonotaGenyokin: 'sonotaGenyokin',
     futuYokinTokiZandaka: 'futuYokinTokiZandaka',
+    zenkiKurikoshiRieki: 'zenkiKurikoshiRieki',
+    shuzenTsumitatekinKuriire: 'shuzenTsumitatekinKuriire',
+    currentYearBunpaiRatio: 'currentYearBunpaiRatio',
+    fullYearBunpaiRatio: 'fullYearBunpaiRatio',
+    currentYearBunpaiRatioNonInvoice: 'currentYearBunpaiRatioNonInvoice',
+    fullYearBunpaiRatioNonInvoice: 'fullYearBunpaiRatioNonInvoice',
+    shintakuShuekiKazeiUriage: 'shintakuShuekiKazeiUriage',
+    shintakuShuekiKazeiUriageShohizei: 'shintakuShuekiKazeiUriageShohizei',
+    shintakuShuekiHikazeiUriage: 'shintakuShuekiHikazeiUriage',
+    shintakuHiyoKazeiShiire: 'shintakuHiyoKazeiShiire',
+    shintakuHiyoKazeiShiireShohizei: 'shintakuHiyoKazeiShiireShohizei',
+    shintakuHiyoHikazeiShiire: 'shintakuHiyoHikazeiShiire',
+    unitShintakuShuekiKazeiUriage: 'unitShintakuShuekiKazeiUriage',
+    unitShintakuShuekiKazeiUriageShohizei: 'unitShintakuShuekiKazeiUriageShohizei',
+    unitShintakuShuekiHikazeiUriage: 'unitShintakuShuekiHikazeiUriage',
+    unitShintakuHiyoKazeiShiire: 'unitShintakuHiyoKazeiShiire',
+    unitShintakuHiyoKazeiShiireShohizei: 'unitShintakuHiyoKazeiShiireShohizei',
+    unitShintakuHiyoHikazeiShiire: 'unitShintakuHiyoHikazeiShiire',
+    unitShintakuHiyoKazeiShiireForNonInvoice: 'unitShintakuHiyoKazeiShiireForNonInvoice',
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice: 'unitShintakuHiyoKazeiShiireShohizeiForNonInvoice',
     createdAt: 'createdAt',
     createdId: 'createdId',
     createdBy: 'createdBy',
@@ -20653,6 +23444,51 @@ export namespace Prisma {
   };
 
   export type ProjectKiScalarFieldEnum = (typeof ProjectKiScalarFieldEnum)[keyof typeof ProjectKiScalarFieldEnum]
+
+
+  export const ProjectKiBSScalarFieldEnum: {
+    id: 'id',
+    projectKiId: 'projectKiId',
+    projectId: 'projectId',
+    kiId: 'kiId',
+    bsType: 'bsType',
+    account: 'account',
+    prevBalance: 'prevBalance',
+    debit: 'debit',
+    credit: 'credit',
+    balance: 'balance',
+    orderBy: 'orderBy',
+    totalUnit: 'totalUnit',
+    createdAt: 'createdAt',
+    createdId: 'createdId',
+    createdBy: 'createdBy',
+    updatedAt: 'updatedAt',
+    updatedId: 'updatedId',
+    updatedBy: 'updatedBy'
+  };
+
+  export type ProjectKiBSScalarFieldEnum = (typeof ProjectKiBSScalarFieldEnum)[keyof typeof ProjectKiBSScalarFieldEnum]
+
+
+  export const ProjectKiPLScalarFieldEnum: {
+    id: 'id',
+    projectKiId: 'projectKiId',
+    projectId: 'projectId',
+    kiId: 'kiId',
+    plType: 'plType',
+    account: 'account',
+    amount: 'amount',
+    orderBy: 'orderBy',
+    totalUnit: 'totalUnit',
+    createdAt: 'createdAt',
+    createdId: 'createdId',
+    createdBy: 'createdBy',
+    updatedAt: 'updatedAt',
+    updatedId: 'updatedId',
+    updatedBy: 'updatedBy'
+  };
+
+  export type ProjectKiPLScalarFieldEnum = (typeof ProjectKiPLScalarFieldEnum)[keyof typeof ProjectKiPLScalarFieldEnum]
 
 
   export const AssetScalarFieldEnum: {
@@ -20692,6 +23528,9 @@ export namespace Prisma {
     photo2: 'photo2',
     photo3: 'photo3',
     photo4: 'photo4',
+    valuationStatementFile: 'valuationStatementFile',
+    valuationStatementName: 'valuationStatementName',
+    valuationStatementSize: 'valuationStatementSize',
     createdAt: 'createdAt',
     createdId: 'createdId',
     createdBy: 'createdBy',
@@ -21002,6 +23841,48 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'BSType'
+   */
+  export type EnumBSTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BSType'>
+    
+
+
+  /**
+   * Reference to a field of type 'BSType[]'
+   */
+  export type ListEnumBSTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BSType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'PLType'
+   */
+  export type EnumPLTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PLType'>
+    
+
+
+  /**
+   * Reference to a field of type 'PLType[]'
+   */
+  export type ListEnumPLTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PLType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Bytes'
+   */
+  export type BytesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Bytes'>
+    
+
+
+  /**
+   * Reference to a field of type 'Bytes[]'
+   */
+  export type ListBytesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Bytes[]'>
+    
+
+
+  /**
    * Reference to a field of type 'CustomerType'
    */
   export type EnumCustomerTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CustomerType'>
@@ -21068,20 +23949,6 @@ export namespace Prisma {
    * Reference to a field of type 'TemplateType[]'
    */
   export type ListEnumTemplateTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TemplateType[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'Bytes'
-   */
-  export type BytesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Bytes'>
-    
-
-
-  /**
-   * Reference to a field of type 'Bytes[]'
-   */
-  export type ListBytesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Bytes[]'>
     
 
 
@@ -21800,8 +24667,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: IntNullableFilter<"ProjectKi"> | number | null
     shuzenTsumitatekin?: IntNullableFilter<"ProjectKi"> | number | null
     azukarikinHenkanJunbikin?: IntNullableFilter<"ProjectKi"> | number | null
+    zeikinHokenryoJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
+    kyodoUnyuHiyoJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
+    risokuShiharaiJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
+    shihoTekiShishutsuJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
+    cashTrapJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
     sonotaGenyokin?: IntNullableFilter<"ProjectKi"> | number | null
     futuYokinTokiZandaka?: IntNullableFilter<"ProjectKi"> | number | null
+    zenkiKurikoshiRieki?: IntNullableFilter<"ProjectKi"> | number | null
+    shuzenTsumitatekinKuriire?: IntNullableFilter<"ProjectKi"> | number | null
+    currentYearBunpaiRatio?: FloatNullableFilter<"ProjectKi"> | number | null
+    fullYearBunpaiRatio?: FloatNullableFilter<"ProjectKi"> | number | null
+    currentYearBunpaiRatioNonInvoice?: FloatNullableFilter<"ProjectKi"> | number | null
+    fullYearBunpaiRatioNonInvoice?: FloatNullableFilter<"ProjectKi"> | number | null
+    shintakuShuekiKazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuShuekiKazeiUriageShohizei?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuShuekiHikazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuHiyoKazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuHiyoKazeiShiireShohizei?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuHiyoHikazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuShuekiKazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuShuekiKazeiUriageShohizei?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuShuekiHikazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoKazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoKazeiShiireShohizei?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoHikazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
     createdAt?: DateTimeFilter<"ProjectKi"> | Date | string
     createdId?: StringFilter<"ProjectKi"> | string
     createdBy?: StringFilter<"ProjectKi"> | string
@@ -21852,8 +24744,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: SortOrderInput | SortOrder
     shuzenTsumitatekin?: SortOrderInput | SortOrder
     azukarikinHenkanJunbikin?: SortOrderInput | SortOrder
+    zeikinHokenryoJunbiKanjo?: SortOrderInput | SortOrder
+    kyodoUnyuHiyoJunbiKanjo?: SortOrderInput | SortOrder
+    risokuShiharaiJunbiKanjo?: SortOrderInput | SortOrder
+    shihoTekiShishutsuJunbiKanjo?: SortOrderInput | SortOrder
+    cashTrapJunbiKanjo?: SortOrderInput | SortOrder
     sonotaGenyokin?: SortOrderInput | SortOrder
     futuYokinTokiZandaka?: SortOrderInput | SortOrder
+    zenkiKurikoshiRieki?: SortOrderInput | SortOrder
+    shuzenTsumitatekinKuriire?: SortOrderInput | SortOrder
+    currentYearBunpaiRatio?: SortOrderInput | SortOrder
+    fullYearBunpaiRatio?: SortOrderInput | SortOrder
+    currentYearBunpaiRatioNonInvoice?: SortOrderInput | SortOrder
+    fullYearBunpaiRatioNonInvoice?: SortOrderInput | SortOrder
+    shintakuShuekiKazeiUriage?: SortOrderInput | SortOrder
+    shintakuShuekiKazeiUriageShohizei?: SortOrderInput | SortOrder
+    shintakuShuekiHikazeiUriage?: SortOrderInput | SortOrder
+    shintakuHiyoKazeiShiire?: SortOrderInput | SortOrder
+    shintakuHiyoKazeiShiireShohizei?: SortOrderInput | SortOrder
+    shintakuHiyoHikazeiShiire?: SortOrderInput | SortOrder
+    unitShintakuShuekiKazeiUriage?: SortOrderInput | SortOrder
+    unitShintakuShuekiKazeiUriageShohizei?: SortOrderInput | SortOrder
+    unitShintakuShuekiHikazeiUriage?: SortOrderInput | SortOrder
+    unitShintakuHiyoKazeiShiire?: SortOrderInput | SortOrder
+    unitShintakuHiyoKazeiShiireShohizei?: SortOrderInput | SortOrder
+    unitShintakuHiyoHikazeiShiire?: SortOrderInput | SortOrder
+    unitShintakuHiyoKazeiShiireForNonInvoice?: SortOrderInput | SortOrder
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -21909,8 +24826,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: IntNullableFilter<"ProjectKi"> | number | null
     shuzenTsumitatekin?: IntNullableFilter<"ProjectKi"> | number | null
     azukarikinHenkanJunbikin?: IntNullableFilter<"ProjectKi"> | number | null
+    zeikinHokenryoJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
+    kyodoUnyuHiyoJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
+    risokuShiharaiJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
+    shihoTekiShishutsuJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
+    cashTrapJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
     sonotaGenyokin?: IntNullableFilter<"ProjectKi"> | number | null
     futuYokinTokiZandaka?: IntNullableFilter<"ProjectKi"> | number | null
+    zenkiKurikoshiRieki?: IntNullableFilter<"ProjectKi"> | number | null
+    shuzenTsumitatekinKuriire?: IntNullableFilter<"ProjectKi"> | number | null
+    currentYearBunpaiRatio?: FloatNullableFilter<"ProjectKi"> | number | null
+    fullYearBunpaiRatio?: FloatNullableFilter<"ProjectKi"> | number | null
+    currentYearBunpaiRatioNonInvoice?: FloatNullableFilter<"ProjectKi"> | number | null
+    fullYearBunpaiRatioNonInvoice?: FloatNullableFilter<"ProjectKi"> | number | null
+    shintakuShuekiKazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuShuekiKazeiUriageShohizei?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuShuekiHikazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuHiyoKazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuHiyoKazeiShiireShohizei?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuHiyoHikazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuShuekiKazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuShuekiKazeiUriageShohizei?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuShuekiHikazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoKazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoKazeiShiireShohizei?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoHikazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
     createdAt?: DateTimeFilter<"ProjectKi"> | Date | string
     createdId?: StringFilter<"ProjectKi"> | string
     createdBy?: StringFilter<"ProjectKi"> | string
@@ -21961,8 +24903,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: SortOrderInput | SortOrder
     shuzenTsumitatekin?: SortOrderInput | SortOrder
     azukarikinHenkanJunbikin?: SortOrderInput | SortOrder
+    zeikinHokenryoJunbiKanjo?: SortOrderInput | SortOrder
+    kyodoUnyuHiyoJunbiKanjo?: SortOrderInput | SortOrder
+    risokuShiharaiJunbiKanjo?: SortOrderInput | SortOrder
+    shihoTekiShishutsuJunbiKanjo?: SortOrderInput | SortOrder
+    cashTrapJunbiKanjo?: SortOrderInput | SortOrder
     sonotaGenyokin?: SortOrderInput | SortOrder
     futuYokinTokiZandaka?: SortOrderInput | SortOrder
+    zenkiKurikoshiRieki?: SortOrderInput | SortOrder
+    shuzenTsumitatekinKuriire?: SortOrderInput | SortOrder
+    currentYearBunpaiRatio?: SortOrderInput | SortOrder
+    fullYearBunpaiRatio?: SortOrderInput | SortOrder
+    currentYearBunpaiRatioNonInvoice?: SortOrderInput | SortOrder
+    fullYearBunpaiRatioNonInvoice?: SortOrderInput | SortOrder
+    shintakuShuekiKazeiUriage?: SortOrderInput | SortOrder
+    shintakuShuekiKazeiUriageShohizei?: SortOrderInput | SortOrder
+    shintakuShuekiHikazeiUriage?: SortOrderInput | SortOrder
+    shintakuHiyoKazeiShiire?: SortOrderInput | SortOrder
+    shintakuHiyoKazeiShiireShohizei?: SortOrderInput | SortOrder
+    shintakuHiyoHikazeiShiire?: SortOrderInput | SortOrder
+    unitShintakuShuekiKazeiUriage?: SortOrderInput | SortOrder
+    unitShintakuShuekiKazeiUriageShohizei?: SortOrderInput | SortOrder
+    unitShintakuShuekiHikazeiUriage?: SortOrderInput | SortOrder
+    unitShintakuHiyoKazeiShiire?: SortOrderInput | SortOrder
+    unitShintakuHiyoKazeiShiireShohizei?: SortOrderInput | SortOrder
+    unitShintakuHiyoHikazeiShiire?: SortOrderInput | SortOrder
+    unitShintakuHiyoKazeiShiireForNonInvoice?: SortOrderInput | SortOrder
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -22018,14 +24985,262 @@ export namespace Prisma {
     shohiyoRyuhokin?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     shuzenTsumitatekin?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     azukarikinHenkanJunbikin?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    zeikinHokenryoJunbiKanjo?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    kyodoUnyuHiyoJunbiKanjo?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    risokuShiharaiJunbiKanjo?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    shihoTekiShishutsuJunbiKanjo?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    cashTrapJunbiKanjo?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     sonotaGenyokin?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     futuYokinTokiZandaka?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    zenkiKurikoshiRieki?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    shuzenTsumitatekinKuriire?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    currentYearBunpaiRatio?: FloatNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    fullYearBunpaiRatio?: FloatNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    currentYearBunpaiRatioNonInvoice?: FloatNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    fullYearBunpaiRatioNonInvoice?: FloatNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    shintakuShuekiKazeiUriage?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    shintakuShuekiKazeiUriageShohizei?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    shintakuShuekiHikazeiUriage?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    shintakuHiyoKazeiShiire?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    shintakuHiyoKazeiShiireShohizei?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    shintakuHiyoHikazeiShiire?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    unitShintakuShuekiKazeiUriage?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    unitShintakuShuekiKazeiUriageShohizei?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    unitShintakuShuekiHikazeiUriage?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoKazeiShiire?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoKazeiShiireShohizei?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoHikazeiShiire?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     createdAt?: DateTimeWithAggregatesFilter<"ProjectKi"> | Date | string
     createdId?: StringWithAggregatesFilter<"ProjectKi"> | string
     createdBy?: StringWithAggregatesFilter<"ProjectKi"> | string
     updatedAt?: DateTimeWithAggregatesFilter<"ProjectKi"> | Date | string
     updatedId?: StringWithAggregatesFilter<"ProjectKi"> | string
     updatedBy?: StringWithAggregatesFilter<"ProjectKi"> | string
+  }
+
+  export type ProjectKiBSWhereInput = {
+    AND?: ProjectKiBSWhereInput | ProjectKiBSWhereInput[]
+    OR?: ProjectKiBSWhereInput[]
+    NOT?: ProjectKiBSWhereInput | ProjectKiBSWhereInput[]
+    id?: StringFilter<"ProjectKiBS"> | string
+    projectKiId?: StringFilter<"ProjectKiBS"> | string
+    projectId?: StringFilter<"ProjectKiBS"> | string
+    kiId?: StringFilter<"ProjectKiBS"> | string
+    bsType?: EnumBSTypeFilter<"ProjectKiBS"> | $Enums.BSType
+    account?: StringFilter<"ProjectKiBS"> | string
+    prevBalance?: BigIntFilter<"ProjectKiBS"> | bigint | number
+    debit?: BigIntFilter<"ProjectKiBS"> | bigint | number
+    credit?: BigIntFilter<"ProjectKiBS"> | bigint | number
+    balance?: BigIntFilter<"ProjectKiBS"> | bigint | number
+    orderBy?: IntFilter<"ProjectKiBS"> | number
+    totalUnit?: IntFilter<"ProjectKiBS"> | number
+    createdAt?: DateTimeFilter<"ProjectKiBS"> | Date | string
+    createdId?: StringFilter<"ProjectKiBS"> | string
+    createdBy?: StringFilter<"ProjectKiBS"> | string
+    updatedAt?: DateTimeFilter<"ProjectKiBS"> | Date | string
+    updatedId?: StringFilter<"ProjectKiBS"> | string
+    updatedBy?: StringFilter<"ProjectKiBS"> | string
+  }
+
+  export type ProjectKiBSOrderByWithRelationInput = {
+    id?: SortOrder
+    projectKiId?: SortOrder
+    projectId?: SortOrder
+    kiId?: SortOrder
+    bsType?: SortOrder
+    account?: SortOrder
+    prevBalance?: SortOrder
+    debit?: SortOrder
+    credit?: SortOrder
+    balance?: SortOrder
+    orderBy?: SortOrder
+    totalUnit?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type ProjectKiBSWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ProjectKiBSWhereInput | ProjectKiBSWhereInput[]
+    OR?: ProjectKiBSWhereInput[]
+    NOT?: ProjectKiBSWhereInput | ProjectKiBSWhereInput[]
+    projectKiId?: StringFilter<"ProjectKiBS"> | string
+    projectId?: StringFilter<"ProjectKiBS"> | string
+    kiId?: StringFilter<"ProjectKiBS"> | string
+    bsType?: EnumBSTypeFilter<"ProjectKiBS"> | $Enums.BSType
+    account?: StringFilter<"ProjectKiBS"> | string
+    prevBalance?: BigIntFilter<"ProjectKiBS"> | bigint | number
+    debit?: BigIntFilter<"ProjectKiBS"> | bigint | number
+    credit?: BigIntFilter<"ProjectKiBS"> | bigint | number
+    balance?: BigIntFilter<"ProjectKiBS"> | bigint | number
+    orderBy?: IntFilter<"ProjectKiBS"> | number
+    totalUnit?: IntFilter<"ProjectKiBS"> | number
+    createdAt?: DateTimeFilter<"ProjectKiBS"> | Date | string
+    createdId?: StringFilter<"ProjectKiBS"> | string
+    createdBy?: StringFilter<"ProjectKiBS"> | string
+    updatedAt?: DateTimeFilter<"ProjectKiBS"> | Date | string
+    updatedId?: StringFilter<"ProjectKiBS"> | string
+    updatedBy?: StringFilter<"ProjectKiBS"> | string
+  }, "id">
+
+  export type ProjectKiBSOrderByWithAggregationInput = {
+    id?: SortOrder
+    projectKiId?: SortOrder
+    projectId?: SortOrder
+    kiId?: SortOrder
+    bsType?: SortOrder
+    account?: SortOrder
+    prevBalance?: SortOrder
+    debit?: SortOrder
+    credit?: SortOrder
+    balance?: SortOrder
+    orderBy?: SortOrder
+    totalUnit?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+    _count?: ProjectKiBSCountOrderByAggregateInput
+    _avg?: ProjectKiBSAvgOrderByAggregateInput
+    _max?: ProjectKiBSMaxOrderByAggregateInput
+    _min?: ProjectKiBSMinOrderByAggregateInput
+    _sum?: ProjectKiBSSumOrderByAggregateInput
+  }
+
+  export type ProjectKiBSScalarWhereWithAggregatesInput = {
+    AND?: ProjectKiBSScalarWhereWithAggregatesInput | ProjectKiBSScalarWhereWithAggregatesInput[]
+    OR?: ProjectKiBSScalarWhereWithAggregatesInput[]
+    NOT?: ProjectKiBSScalarWhereWithAggregatesInput | ProjectKiBSScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ProjectKiBS"> | string
+    projectKiId?: StringWithAggregatesFilter<"ProjectKiBS"> | string
+    projectId?: StringWithAggregatesFilter<"ProjectKiBS"> | string
+    kiId?: StringWithAggregatesFilter<"ProjectKiBS"> | string
+    bsType?: EnumBSTypeWithAggregatesFilter<"ProjectKiBS"> | $Enums.BSType
+    account?: StringWithAggregatesFilter<"ProjectKiBS"> | string
+    prevBalance?: BigIntWithAggregatesFilter<"ProjectKiBS"> | bigint | number
+    debit?: BigIntWithAggregatesFilter<"ProjectKiBS"> | bigint | number
+    credit?: BigIntWithAggregatesFilter<"ProjectKiBS"> | bigint | number
+    balance?: BigIntWithAggregatesFilter<"ProjectKiBS"> | bigint | number
+    orderBy?: IntWithAggregatesFilter<"ProjectKiBS"> | number
+    totalUnit?: IntWithAggregatesFilter<"ProjectKiBS"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"ProjectKiBS"> | Date | string
+    createdId?: StringWithAggregatesFilter<"ProjectKiBS"> | string
+    createdBy?: StringWithAggregatesFilter<"ProjectKiBS"> | string
+    updatedAt?: DateTimeWithAggregatesFilter<"ProjectKiBS"> | Date | string
+    updatedId?: StringWithAggregatesFilter<"ProjectKiBS"> | string
+    updatedBy?: StringWithAggregatesFilter<"ProjectKiBS"> | string
+  }
+
+  export type ProjectKiPLWhereInput = {
+    AND?: ProjectKiPLWhereInput | ProjectKiPLWhereInput[]
+    OR?: ProjectKiPLWhereInput[]
+    NOT?: ProjectKiPLWhereInput | ProjectKiPLWhereInput[]
+    id?: StringFilter<"ProjectKiPL"> | string
+    projectKiId?: StringFilter<"ProjectKiPL"> | string
+    projectId?: StringFilter<"ProjectKiPL"> | string
+    kiId?: StringFilter<"ProjectKiPL"> | string
+    plType?: EnumPLTypeFilter<"ProjectKiPL"> | $Enums.PLType
+    account?: StringFilter<"ProjectKiPL"> | string
+    amount?: BigIntFilter<"ProjectKiPL"> | bigint | number
+    orderBy?: IntFilter<"ProjectKiPL"> | number
+    totalUnit?: IntFilter<"ProjectKiPL"> | number
+    createdAt?: DateTimeFilter<"ProjectKiPL"> | Date | string
+    createdId?: StringFilter<"ProjectKiPL"> | string
+    createdBy?: StringFilter<"ProjectKiPL"> | string
+    updatedAt?: DateTimeFilter<"ProjectKiPL"> | Date | string
+    updatedId?: StringFilter<"ProjectKiPL"> | string
+    updatedBy?: StringFilter<"ProjectKiPL"> | string
+  }
+
+  export type ProjectKiPLOrderByWithRelationInput = {
+    id?: SortOrder
+    projectKiId?: SortOrder
+    projectId?: SortOrder
+    kiId?: SortOrder
+    plType?: SortOrder
+    account?: SortOrder
+    amount?: SortOrder
+    orderBy?: SortOrder
+    totalUnit?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type ProjectKiPLWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ProjectKiPLWhereInput | ProjectKiPLWhereInput[]
+    OR?: ProjectKiPLWhereInput[]
+    NOT?: ProjectKiPLWhereInput | ProjectKiPLWhereInput[]
+    projectKiId?: StringFilter<"ProjectKiPL"> | string
+    projectId?: StringFilter<"ProjectKiPL"> | string
+    kiId?: StringFilter<"ProjectKiPL"> | string
+    plType?: EnumPLTypeFilter<"ProjectKiPL"> | $Enums.PLType
+    account?: StringFilter<"ProjectKiPL"> | string
+    amount?: BigIntFilter<"ProjectKiPL"> | bigint | number
+    orderBy?: IntFilter<"ProjectKiPL"> | number
+    totalUnit?: IntFilter<"ProjectKiPL"> | number
+    createdAt?: DateTimeFilter<"ProjectKiPL"> | Date | string
+    createdId?: StringFilter<"ProjectKiPL"> | string
+    createdBy?: StringFilter<"ProjectKiPL"> | string
+    updatedAt?: DateTimeFilter<"ProjectKiPL"> | Date | string
+    updatedId?: StringFilter<"ProjectKiPL"> | string
+    updatedBy?: StringFilter<"ProjectKiPL"> | string
+  }, "id">
+
+  export type ProjectKiPLOrderByWithAggregationInput = {
+    id?: SortOrder
+    projectKiId?: SortOrder
+    projectId?: SortOrder
+    kiId?: SortOrder
+    plType?: SortOrder
+    account?: SortOrder
+    amount?: SortOrder
+    orderBy?: SortOrder
+    totalUnit?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+    _count?: ProjectKiPLCountOrderByAggregateInput
+    _avg?: ProjectKiPLAvgOrderByAggregateInput
+    _max?: ProjectKiPLMaxOrderByAggregateInput
+    _min?: ProjectKiPLMinOrderByAggregateInput
+    _sum?: ProjectKiPLSumOrderByAggregateInput
+  }
+
+  export type ProjectKiPLScalarWhereWithAggregatesInput = {
+    AND?: ProjectKiPLScalarWhereWithAggregatesInput | ProjectKiPLScalarWhereWithAggregatesInput[]
+    OR?: ProjectKiPLScalarWhereWithAggregatesInput[]
+    NOT?: ProjectKiPLScalarWhereWithAggregatesInput | ProjectKiPLScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ProjectKiPL"> | string
+    projectKiId?: StringWithAggregatesFilter<"ProjectKiPL"> | string
+    projectId?: StringWithAggregatesFilter<"ProjectKiPL"> | string
+    kiId?: StringWithAggregatesFilter<"ProjectKiPL"> | string
+    plType?: EnumPLTypeWithAggregatesFilter<"ProjectKiPL"> | $Enums.PLType
+    account?: StringWithAggregatesFilter<"ProjectKiPL"> | string
+    amount?: BigIntWithAggregatesFilter<"ProjectKiPL"> | bigint | number
+    orderBy?: IntWithAggregatesFilter<"ProjectKiPL"> | number
+    totalUnit?: IntWithAggregatesFilter<"ProjectKiPL"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"ProjectKiPL"> | Date | string
+    createdId?: StringWithAggregatesFilter<"ProjectKiPL"> | string
+    createdBy?: StringWithAggregatesFilter<"ProjectKiPL"> | string
+    updatedAt?: DateTimeWithAggregatesFilter<"ProjectKiPL"> | Date | string
+    updatedId?: StringWithAggregatesFilter<"ProjectKiPL"> | string
+    updatedBy?: StringWithAggregatesFilter<"ProjectKiPL"> | string
   }
 
   export type AssetWhereInput = {
@@ -22159,6 +25374,9 @@ export namespace Prisma {
     photo2?: StringNullableFilter<"AssetKi"> | string | null
     photo3?: StringNullableFilter<"AssetKi"> | string | null
     photo4?: StringNullableFilter<"AssetKi"> | string | null
+    valuationStatementFile?: BytesNullableFilter<"AssetKi"> | Buffer | null
+    valuationStatementName?: StringNullableFilter<"AssetKi"> | string | null
+    valuationStatementSize?: IntNullableFilter<"AssetKi"> | number | null
     createdAt?: DateTimeFilter<"AssetKi"> | Date | string
     createdId?: StringFilter<"AssetKi"> | string
     createdBy?: StringFilter<"AssetKi"> | string
@@ -22184,6 +25402,9 @@ export namespace Prisma {
     photo2?: SortOrderInput | SortOrder
     photo3?: SortOrderInput | SortOrder
     photo4?: SortOrderInput | SortOrder
+    valuationStatementFile?: SortOrderInput | SortOrder
+    valuationStatementName?: SortOrderInput | SortOrder
+    valuationStatementSize?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -22213,6 +25434,9 @@ export namespace Prisma {
     photo2?: StringNullableFilter<"AssetKi"> | string | null
     photo3?: StringNullableFilter<"AssetKi"> | string | null
     photo4?: StringNullableFilter<"AssetKi"> | string | null
+    valuationStatementFile?: BytesNullableFilter<"AssetKi"> | Buffer | null
+    valuationStatementName?: StringNullableFilter<"AssetKi"> | string | null
+    valuationStatementSize?: IntNullableFilter<"AssetKi"> | number | null
     createdAt?: DateTimeFilter<"AssetKi"> | Date | string
     createdId?: StringFilter<"AssetKi"> | string
     createdBy?: StringFilter<"AssetKi"> | string
@@ -22238,6 +25462,9 @@ export namespace Prisma {
     photo2?: SortOrderInput | SortOrder
     photo3?: SortOrderInput | SortOrder
     photo4?: SortOrderInput | SortOrder
+    valuationStatementFile?: SortOrderInput | SortOrder
+    valuationStatementName?: SortOrderInput | SortOrder
+    valuationStatementSize?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -22269,6 +25496,9 @@ export namespace Prisma {
     photo2?: StringNullableWithAggregatesFilter<"AssetKi"> | string | null
     photo3?: StringNullableWithAggregatesFilter<"AssetKi"> | string | null
     photo4?: StringNullableWithAggregatesFilter<"AssetKi"> | string | null
+    valuationStatementFile?: BytesNullableWithAggregatesFilter<"AssetKi"> | Buffer | null
+    valuationStatementName?: StringNullableWithAggregatesFilter<"AssetKi"> | string | null
+    valuationStatementSize?: IntNullableWithAggregatesFilter<"AssetKi"> | number | null
     createdAt?: DateTimeWithAggregatesFilter<"AssetKi"> | Date | string
     createdId?: StringWithAggregatesFilter<"AssetKi"> | string
     createdBy?: StringWithAggregatesFilter<"AssetKi"> | string
@@ -23935,8 +27165,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: number | null
     shuzenTsumitatekin?: number | null
     azukarikinHenkanJunbikin?: number | null
+    zeikinHokenryoJunbiKanjo?: number | null
+    kyodoUnyuHiyoJunbiKanjo?: number | null
+    risokuShiharaiJunbiKanjo?: number | null
+    shihoTekiShishutsuJunbiKanjo?: number | null
+    cashTrapJunbiKanjo?: number | null
     sonotaGenyokin?: number | null
     futuYokinTokiZandaka?: number | null
+    zenkiKurikoshiRieki?: number | null
+    shuzenTsumitatekinKuriire?: number | null
+    currentYearBunpaiRatio?: number | null
+    fullYearBunpaiRatio?: number | null
+    currentYearBunpaiRatioNonInvoice?: number | null
+    fullYearBunpaiRatioNonInvoice?: number | null
+    shintakuShuekiKazeiUriage?: number | null
+    shintakuShuekiKazeiUriageShohizei?: number | null
+    shintakuShuekiHikazeiUriage?: number | null
+    shintakuHiyoKazeiShiire?: number | null
+    shintakuHiyoKazeiShiireShohizei?: number | null
+    shintakuHiyoHikazeiShiire?: number | null
+    unitShintakuShuekiKazeiUriage?: number | null
+    unitShintakuShuekiKazeiUriageShohizei?: number | null
+    unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuHiyoKazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireShohizei?: number | null
+    unitShintakuHiyoHikazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -23987,8 +27242,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: number | null
     shuzenTsumitatekin?: number | null
     azukarikinHenkanJunbikin?: number | null
+    zeikinHokenryoJunbiKanjo?: number | null
+    kyodoUnyuHiyoJunbiKanjo?: number | null
+    risokuShiharaiJunbiKanjo?: number | null
+    shihoTekiShishutsuJunbiKanjo?: number | null
+    cashTrapJunbiKanjo?: number | null
     sonotaGenyokin?: number | null
     futuYokinTokiZandaka?: number | null
+    zenkiKurikoshiRieki?: number | null
+    shuzenTsumitatekinKuriire?: number | null
+    currentYearBunpaiRatio?: number | null
+    fullYearBunpaiRatio?: number | null
+    currentYearBunpaiRatioNonInvoice?: number | null
+    fullYearBunpaiRatioNonInvoice?: number | null
+    shintakuShuekiKazeiUriage?: number | null
+    shintakuShuekiKazeiUriageShohizei?: number | null
+    shintakuShuekiHikazeiUriage?: number | null
+    shintakuHiyoKazeiShiire?: number | null
+    shintakuHiyoKazeiShiireShohizei?: number | null
+    shintakuHiyoHikazeiShiire?: number | null
+    unitShintakuShuekiKazeiUriage?: number | null
+    unitShintakuShuekiKazeiUriageShohizei?: number | null
+    unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuHiyoKazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireShohizei?: number | null
+    unitShintakuHiyoHikazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -24035,8 +27315,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
     shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
     azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
+    zeikinHokenryoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    risokuShiharaiJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    cashTrapJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
     sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
     futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
+    zenkiKurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    shuzenTsumitatekinKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -24087,8 +27392,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
     shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
     azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
+    zeikinHokenryoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    risokuShiharaiJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    cashTrapJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
     sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
     futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
+    zenkiKurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    shuzenTsumitatekinKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -24137,8 +27467,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: number | null
     shuzenTsumitatekin?: number | null
     azukarikinHenkanJunbikin?: number | null
+    zeikinHokenryoJunbiKanjo?: number | null
+    kyodoUnyuHiyoJunbiKanjo?: number | null
+    risokuShiharaiJunbiKanjo?: number | null
+    shihoTekiShishutsuJunbiKanjo?: number | null
+    cashTrapJunbiKanjo?: number | null
     sonotaGenyokin?: number | null
     futuYokinTokiZandaka?: number | null
+    zenkiKurikoshiRieki?: number | null
+    shuzenTsumitatekinKuriire?: number | null
+    currentYearBunpaiRatio?: number | null
+    fullYearBunpaiRatio?: number | null
+    currentYearBunpaiRatioNonInvoice?: number | null
+    fullYearBunpaiRatioNonInvoice?: number | null
+    shintakuShuekiKazeiUriage?: number | null
+    shintakuShuekiKazeiUriageShohizei?: number | null
+    shintakuShuekiHikazeiUriage?: number | null
+    shintakuHiyoKazeiShiire?: number | null
+    shintakuHiyoKazeiShiireShohizei?: number | null
+    shintakuHiyoHikazeiShiire?: number | null
+    unitShintakuShuekiKazeiUriage?: number | null
+    unitShintakuShuekiKazeiUriageShohizei?: number | null
+    unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuHiyoKazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireShohizei?: number | null
+    unitShintakuHiyoHikazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -24184,8 +27539,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
     shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
     azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
+    zeikinHokenryoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    risokuShiharaiJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    cashTrapJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
     sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
     futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
+    zenkiKurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    shuzenTsumitatekinKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -24233,8 +27613,306 @@ export namespace Prisma {
     shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
     shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
     azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
+    zeikinHokenryoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    risokuShiharaiJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    cashTrapJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
     sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
     futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
+    zenkiKurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    shuzenTsumitatekinKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectKiBSCreateInput = {
+    id?: string
+    projectKiId: string
+    projectId: string
+    kiId: string
+    bsType: $Enums.BSType
+    account: string
+    prevBalance: bigint | number
+    debit: bigint | number
+    credit: bigint | number
+    balance: bigint | number
+    orderBy: number
+    totalUnit: number
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type ProjectKiBSUncheckedCreateInput = {
+    id?: string
+    projectKiId: string
+    projectId: string
+    kiId: string
+    bsType: $Enums.BSType
+    account: string
+    prevBalance: bigint | number
+    debit: bigint | number
+    credit: bigint | number
+    balance: bigint | number
+    orderBy: number
+    totalUnit: number
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type ProjectKiBSUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectKiId?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    bsType?: EnumBSTypeFieldUpdateOperationsInput | $Enums.BSType
+    account?: StringFieldUpdateOperationsInput | string
+    prevBalance?: BigIntFieldUpdateOperationsInput | bigint | number
+    debit?: BigIntFieldUpdateOperationsInput | bigint | number
+    credit?: BigIntFieldUpdateOperationsInput | bigint | number
+    balance?: BigIntFieldUpdateOperationsInput | bigint | number
+    orderBy?: IntFieldUpdateOperationsInput | number
+    totalUnit?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectKiBSUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectKiId?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    bsType?: EnumBSTypeFieldUpdateOperationsInput | $Enums.BSType
+    account?: StringFieldUpdateOperationsInput | string
+    prevBalance?: BigIntFieldUpdateOperationsInput | bigint | number
+    debit?: BigIntFieldUpdateOperationsInput | bigint | number
+    credit?: BigIntFieldUpdateOperationsInput | bigint | number
+    balance?: BigIntFieldUpdateOperationsInput | bigint | number
+    orderBy?: IntFieldUpdateOperationsInput | number
+    totalUnit?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectKiBSCreateManyInput = {
+    id?: string
+    projectKiId: string
+    projectId: string
+    kiId: string
+    bsType: $Enums.BSType
+    account: string
+    prevBalance: bigint | number
+    debit: bigint | number
+    credit: bigint | number
+    balance: bigint | number
+    orderBy: number
+    totalUnit: number
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type ProjectKiBSUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectKiId?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    bsType?: EnumBSTypeFieldUpdateOperationsInput | $Enums.BSType
+    account?: StringFieldUpdateOperationsInput | string
+    prevBalance?: BigIntFieldUpdateOperationsInput | bigint | number
+    debit?: BigIntFieldUpdateOperationsInput | bigint | number
+    credit?: BigIntFieldUpdateOperationsInput | bigint | number
+    balance?: BigIntFieldUpdateOperationsInput | bigint | number
+    orderBy?: IntFieldUpdateOperationsInput | number
+    totalUnit?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectKiBSUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectKiId?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    bsType?: EnumBSTypeFieldUpdateOperationsInput | $Enums.BSType
+    account?: StringFieldUpdateOperationsInput | string
+    prevBalance?: BigIntFieldUpdateOperationsInput | bigint | number
+    debit?: BigIntFieldUpdateOperationsInput | bigint | number
+    credit?: BigIntFieldUpdateOperationsInput | bigint | number
+    balance?: BigIntFieldUpdateOperationsInput | bigint | number
+    orderBy?: IntFieldUpdateOperationsInput | number
+    totalUnit?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectKiPLCreateInput = {
+    id?: string
+    projectKiId: string
+    projectId: string
+    kiId: string
+    plType: $Enums.PLType
+    account: string
+    amount: bigint | number
+    orderBy: number
+    totalUnit: number
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type ProjectKiPLUncheckedCreateInput = {
+    id?: string
+    projectKiId: string
+    projectId: string
+    kiId: string
+    plType: $Enums.PLType
+    account: string
+    amount: bigint | number
+    orderBy: number
+    totalUnit: number
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type ProjectKiPLUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectKiId?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    plType?: EnumPLTypeFieldUpdateOperationsInput | $Enums.PLType
+    account?: StringFieldUpdateOperationsInput | string
+    amount?: BigIntFieldUpdateOperationsInput | bigint | number
+    orderBy?: IntFieldUpdateOperationsInput | number
+    totalUnit?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectKiPLUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectKiId?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    plType?: EnumPLTypeFieldUpdateOperationsInput | $Enums.PLType
+    account?: StringFieldUpdateOperationsInput | string
+    amount?: BigIntFieldUpdateOperationsInput | bigint | number
+    orderBy?: IntFieldUpdateOperationsInput | number
+    totalUnit?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectKiPLCreateManyInput = {
+    id?: string
+    projectKiId: string
+    projectId: string
+    kiId: string
+    plType: $Enums.PLType
+    account: string
+    amount: bigint | number
+    orderBy: number
+    totalUnit: number
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type ProjectKiPLUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectKiId?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    plType?: EnumPLTypeFieldUpdateOperationsInput | $Enums.PLType
+    account?: StringFieldUpdateOperationsInput | string
+    amount?: BigIntFieldUpdateOperationsInput | bigint | number
+    orderBy?: IntFieldUpdateOperationsInput | number
+    totalUnit?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectKiPLUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectKiId?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    plType?: EnumPLTypeFieldUpdateOperationsInput | $Enums.PLType
+    account?: StringFieldUpdateOperationsInput | string
+    amount?: BigIntFieldUpdateOperationsInput | bigint | number
+    orderBy?: IntFieldUpdateOperationsInput | number
+    totalUnit?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -24392,6 +28070,9 @@ export namespace Prisma {
     photo2?: string | null
     photo3?: string | null
     photo4?: string | null
+    valuationStatementFile?: Buffer | null
+    valuationStatementName?: string | null
+    valuationStatementSize?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -24417,6 +28098,9 @@ export namespace Prisma {
     photo2?: string | null
     photo3?: string | null
     photo4?: string | null
+    valuationStatementFile?: Buffer | null
+    valuationStatementName?: string | null
+    valuationStatementSize?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -24438,6 +28122,9 @@ export namespace Prisma {
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
+    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
+    valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
+    valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -24463,6 +28150,9 @@ export namespace Prisma {
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
+    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
+    valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
+    valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -24486,6 +28176,9 @@ export namespace Prisma {
     photo2?: string | null
     photo3?: string | null
     photo4?: string | null
+    valuationStatementFile?: Buffer | null
+    valuationStatementName?: string | null
+    valuationStatementSize?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -24507,6 +28200,9 @@ export namespace Prisma {
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
+    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
+    valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
+    valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -24530,6 +28226,9 @@ export namespace Prisma {
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
+    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
+    valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
+    valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -26211,6 +29910,17 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
+  export type FloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type ProjectRelationFilter = {
     is?: ProjectWhereInput
     isNot?: ProjectWhereInput
@@ -26280,8 +29990,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: SortOrder
     shuzenTsumitatekin?: SortOrder
     azukarikinHenkanJunbikin?: SortOrder
+    zeikinHokenryoJunbiKanjo?: SortOrder
+    kyodoUnyuHiyoJunbiKanjo?: SortOrder
+    risokuShiharaiJunbiKanjo?: SortOrder
+    shihoTekiShishutsuJunbiKanjo?: SortOrder
+    cashTrapJunbiKanjo?: SortOrder
     sonotaGenyokin?: SortOrder
     futuYokinTokiZandaka?: SortOrder
+    zenkiKurikoshiRieki?: SortOrder
+    shuzenTsumitatekinKuriire?: SortOrder
+    currentYearBunpaiRatio?: SortOrder
+    fullYearBunpaiRatio?: SortOrder
+    currentYearBunpaiRatioNonInvoice?: SortOrder
+    fullYearBunpaiRatioNonInvoice?: SortOrder
+    shintakuShuekiKazeiUriage?: SortOrder
+    shintakuShuekiKazeiUriageShohizei?: SortOrder
+    shintakuShuekiHikazeiUriage?: SortOrder
+    shintakuHiyoKazeiShiire?: SortOrder
+    shintakuHiyoKazeiShiireShohizei?: SortOrder
+    shintakuHiyoHikazeiShiire?: SortOrder
+    unitShintakuShuekiKazeiUriage?: SortOrder
+    unitShintakuShuekiKazeiUriageShohizei?: SortOrder
+    unitShintakuShuekiHikazeiUriage?: SortOrder
+    unitShintakuHiyoKazeiShiire?: SortOrder
+    unitShintakuHiyoKazeiShiireShohizei?: SortOrder
+    unitShintakuHiyoHikazeiShiire?: SortOrder
+    unitShintakuHiyoKazeiShiireForNonInvoice?: SortOrder
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -26318,8 +30053,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: SortOrder
     shuzenTsumitatekin?: SortOrder
     azukarikinHenkanJunbikin?: SortOrder
+    zeikinHokenryoJunbiKanjo?: SortOrder
+    kyodoUnyuHiyoJunbiKanjo?: SortOrder
+    risokuShiharaiJunbiKanjo?: SortOrder
+    shihoTekiShishutsuJunbiKanjo?: SortOrder
+    cashTrapJunbiKanjo?: SortOrder
     sonotaGenyokin?: SortOrder
     futuYokinTokiZandaka?: SortOrder
+    zenkiKurikoshiRieki?: SortOrder
+    shuzenTsumitatekinKuriire?: SortOrder
+    currentYearBunpaiRatio?: SortOrder
+    fullYearBunpaiRatio?: SortOrder
+    currentYearBunpaiRatioNonInvoice?: SortOrder
+    fullYearBunpaiRatioNonInvoice?: SortOrder
+    shintakuShuekiKazeiUriage?: SortOrder
+    shintakuShuekiKazeiUriageShohizei?: SortOrder
+    shintakuShuekiHikazeiUriage?: SortOrder
+    shintakuHiyoKazeiShiire?: SortOrder
+    shintakuHiyoKazeiShiireShohizei?: SortOrder
+    shintakuHiyoHikazeiShiire?: SortOrder
+    unitShintakuShuekiKazeiUriage?: SortOrder
+    unitShintakuShuekiKazeiUriageShohizei?: SortOrder
+    unitShintakuShuekiHikazeiUriage?: SortOrder
+    unitShintakuHiyoKazeiShiire?: SortOrder
+    unitShintakuHiyoKazeiShiireShohizei?: SortOrder
+    unitShintakuHiyoHikazeiShiire?: SortOrder
+    unitShintakuHiyoKazeiShiireForNonInvoice?: SortOrder
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: SortOrder
   }
 
   export type ProjectKiMaxOrderByAggregateInput = {
@@ -26361,8 +30121,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: SortOrder
     shuzenTsumitatekin?: SortOrder
     azukarikinHenkanJunbikin?: SortOrder
+    zeikinHokenryoJunbiKanjo?: SortOrder
+    kyodoUnyuHiyoJunbiKanjo?: SortOrder
+    risokuShiharaiJunbiKanjo?: SortOrder
+    shihoTekiShishutsuJunbiKanjo?: SortOrder
+    cashTrapJunbiKanjo?: SortOrder
     sonotaGenyokin?: SortOrder
     futuYokinTokiZandaka?: SortOrder
+    zenkiKurikoshiRieki?: SortOrder
+    shuzenTsumitatekinKuriire?: SortOrder
+    currentYearBunpaiRatio?: SortOrder
+    fullYearBunpaiRatio?: SortOrder
+    currentYearBunpaiRatioNonInvoice?: SortOrder
+    fullYearBunpaiRatioNonInvoice?: SortOrder
+    shintakuShuekiKazeiUriage?: SortOrder
+    shintakuShuekiKazeiUriageShohizei?: SortOrder
+    shintakuShuekiHikazeiUriage?: SortOrder
+    shintakuHiyoKazeiShiire?: SortOrder
+    shintakuHiyoKazeiShiireShohizei?: SortOrder
+    shintakuHiyoHikazeiShiire?: SortOrder
+    unitShintakuShuekiKazeiUriage?: SortOrder
+    unitShintakuShuekiKazeiUriageShohizei?: SortOrder
+    unitShintakuShuekiHikazeiUriage?: SortOrder
+    unitShintakuHiyoKazeiShiire?: SortOrder
+    unitShintakuHiyoKazeiShiireShohizei?: SortOrder
+    unitShintakuHiyoHikazeiShiire?: SortOrder
+    unitShintakuHiyoKazeiShiireForNonInvoice?: SortOrder
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -26410,8 +30195,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: SortOrder
     shuzenTsumitatekin?: SortOrder
     azukarikinHenkanJunbikin?: SortOrder
+    zeikinHokenryoJunbiKanjo?: SortOrder
+    kyodoUnyuHiyoJunbiKanjo?: SortOrder
+    risokuShiharaiJunbiKanjo?: SortOrder
+    shihoTekiShishutsuJunbiKanjo?: SortOrder
+    cashTrapJunbiKanjo?: SortOrder
     sonotaGenyokin?: SortOrder
     futuYokinTokiZandaka?: SortOrder
+    zenkiKurikoshiRieki?: SortOrder
+    shuzenTsumitatekinKuriire?: SortOrder
+    currentYearBunpaiRatio?: SortOrder
+    fullYearBunpaiRatio?: SortOrder
+    currentYearBunpaiRatioNonInvoice?: SortOrder
+    fullYearBunpaiRatioNonInvoice?: SortOrder
+    shintakuShuekiKazeiUriage?: SortOrder
+    shintakuShuekiKazeiUriageShohizei?: SortOrder
+    shintakuShuekiHikazeiUriage?: SortOrder
+    shintakuHiyoKazeiShiire?: SortOrder
+    shintakuHiyoKazeiShiireShohizei?: SortOrder
+    shintakuHiyoHikazeiShiire?: SortOrder
+    unitShintakuShuekiKazeiUriage?: SortOrder
+    unitShintakuShuekiKazeiUriageShohizei?: SortOrder
+    unitShintakuShuekiHikazeiUriage?: SortOrder
+    unitShintakuHiyoKazeiShiire?: SortOrder
+    unitShintakuHiyoKazeiShiireShohizei?: SortOrder
+    unitShintakuHiyoHikazeiShiire?: SortOrder
+    unitShintakuHiyoKazeiShiireForNonInvoice?: SortOrder
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -26448,8 +30258,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: SortOrder
     shuzenTsumitatekin?: SortOrder
     azukarikinHenkanJunbikin?: SortOrder
+    zeikinHokenryoJunbiKanjo?: SortOrder
+    kyodoUnyuHiyoJunbiKanjo?: SortOrder
+    risokuShiharaiJunbiKanjo?: SortOrder
+    shihoTekiShishutsuJunbiKanjo?: SortOrder
+    cashTrapJunbiKanjo?: SortOrder
     sonotaGenyokin?: SortOrder
     futuYokinTokiZandaka?: SortOrder
+    zenkiKurikoshiRieki?: SortOrder
+    shuzenTsumitatekinKuriire?: SortOrder
+    currentYearBunpaiRatio?: SortOrder
+    fullYearBunpaiRatio?: SortOrder
+    currentYearBunpaiRatioNonInvoice?: SortOrder
+    fullYearBunpaiRatioNonInvoice?: SortOrder
+    shintakuShuekiKazeiUriage?: SortOrder
+    shintakuShuekiKazeiUriageShohizei?: SortOrder
+    shintakuShuekiHikazeiUriage?: SortOrder
+    shintakuHiyoKazeiShiire?: SortOrder
+    shintakuHiyoKazeiShiireShohizei?: SortOrder
+    shintakuHiyoHikazeiShiire?: SortOrder
+    unitShintakuShuekiKazeiUriage?: SortOrder
+    unitShintakuShuekiKazeiUriageShohizei?: SortOrder
+    unitShintakuShuekiHikazeiUriage?: SortOrder
+    unitShintakuHiyoKazeiShiire?: SortOrder
+    unitShintakuHiyoKazeiShiireShohizei?: SortOrder
+    unitShintakuHiyoHikazeiShiire?: SortOrder
+    unitShintakuHiyoKazeiShiireForNonInvoice?: SortOrder
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: SortOrder
   }
 
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -26480,6 +30315,203 @@ export namespace Prisma {
     _sum?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedIntNullableFilter<$PrismaModel>
     _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type EnumBSTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.BSType | EnumBSTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.BSType[] | ListEnumBSTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.BSType[] | ListEnumBSTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumBSTypeFilter<$PrismaModel> | $Enums.BSType
+  }
+
+  export type ProjectKiBSCountOrderByAggregateInput = {
+    id?: SortOrder
+    projectKiId?: SortOrder
+    projectId?: SortOrder
+    kiId?: SortOrder
+    bsType?: SortOrder
+    account?: SortOrder
+    prevBalance?: SortOrder
+    debit?: SortOrder
+    credit?: SortOrder
+    balance?: SortOrder
+    orderBy?: SortOrder
+    totalUnit?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type ProjectKiBSAvgOrderByAggregateInput = {
+    prevBalance?: SortOrder
+    debit?: SortOrder
+    credit?: SortOrder
+    balance?: SortOrder
+    orderBy?: SortOrder
+    totalUnit?: SortOrder
+  }
+
+  export type ProjectKiBSMaxOrderByAggregateInput = {
+    id?: SortOrder
+    projectKiId?: SortOrder
+    projectId?: SortOrder
+    kiId?: SortOrder
+    bsType?: SortOrder
+    account?: SortOrder
+    prevBalance?: SortOrder
+    debit?: SortOrder
+    credit?: SortOrder
+    balance?: SortOrder
+    orderBy?: SortOrder
+    totalUnit?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type ProjectKiBSMinOrderByAggregateInput = {
+    id?: SortOrder
+    projectKiId?: SortOrder
+    projectId?: SortOrder
+    kiId?: SortOrder
+    bsType?: SortOrder
+    account?: SortOrder
+    prevBalance?: SortOrder
+    debit?: SortOrder
+    credit?: SortOrder
+    balance?: SortOrder
+    orderBy?: SortOrder
+    totalUnit?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type ProjectKiBSSumOrderByAggregateInput = {
+    prevBalance?: SortOrder
+    debit?: SortOrder
+    credit?: SortOrder
+    balance?: SortOrder
+    orderBy?: SortOrder
+    totalUnit?: SortOrder
+  }
+
+  export type EnumBSTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.BSType | EnumBSTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.BSType[] | ListEnumBSTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.BSType[] | ListEnumBSTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumBSTypeWithAggregatesFilter<$PrismaModel> | $Enums.BSType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumBSTypeFilter<$PrismaModel>
+    _max?: NestedEnumBSTypeFilter<$PrismaModel>
+  }
+
+  export type EnumPLTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.PLType | EnumPLTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.PLType[] | ListEnumPLTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.PLType[] | ListEnumPLTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumPLTypeFilter<$PrismaModel> | $Enums.PLType
+  }
+
+  export type ProjectKiPLCountOrderByAggregateInput = {
+    id?: SortOrder
+    projectKiId?: SortOrder
+    projectId?: SortOrder
+    kiId?: SortOrder
+    plType?: SortOrder
+    account?: SortOrder
+    amount?: SortOrder
+    orderBy?: SortOrder
+    totalUnit?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type ProjectKiPLAvgOrderByAggregateInput = {
+    amount?: SortOrder
+    orderBy?: SortOrder
+    totalUnit?: SortOrder
+  }
+
+  export type ProjectKiPLMaxOrderByAggregateInput = {
+    id?: SortOrder
+    projectKiId?: SortOrder
+    projectId?: SortOrder
+    kiId?: SortOrder
+    plType?: SortOrder
+    account?: SortOrder
+    amount?: SortOrder
+    orderBy?: SortOrder
+    totalUnit?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type ProjectKiPLMinOrderByAggregateInput = {
+    id?: SortOrder
+    projectKiId?: SortOrder
+    projectId?: SortOrder
+    kiId?: SortOrder
+    plType?: SortOrder
+    account?: SortOrder
+    amount?: SortOrder
+    orderBy?: SortOrder
+    totalUnit?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type ProjectKiPLSumOrderByAggregateInput = {
+    amount?: SortOrder
+    orderBy?: SortOrder
+    totalUnit?: SortOrder
+  }
+
+  export type EnumPLTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.PLType | EnumPLTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.PLType[] | ListEnumPLTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.PLType[] | ListEnumPLTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumPLTypeWithAggregatesFilter<$PrismaModel> | $Enums.PLType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumPLTypeFilter<$PrismaModel>
+    _max?: NestedEnumPLTypeFilter<$PrismaModel>
   }
 
   export type AssetCountOrderByAggregateInput = {
@@ -26539,15 +30571,11 @@ export namespace Prisma {
     updatedBy?: SortOrder
   }
 
-  export type FloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  export type BytesNullableFilter<$PrismaModel = never> = {
+    equals?: Buffer | BytesFieldRefInput<$PrismaModel> | null
+    in?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
+    notIn?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
+    not?: NestedBytesNullableFilter<$PrismaModel> | Buffer | null
   }
 
   export type AssetRelationFilter = {
@@ -26575,6 +30603,9 @@ export namespace Prisma {
     photo2?: SortOrder
     photo3?: SortOrder
     photo4?: SortOrder
+    valuationStatementFile?: SortOrder
+    valuationStatementName?: SortOrder
+    valuationStatementSize?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -26589,6 +30620,7 @@ export namespace Prisma {
     pmPerformanceMoveOut?: SortOrder
     pmPerformanceRate?: SortOrder
     pmPerformanceRatePercent?: SortOrder
+    valuationStatementSize?: SortOrder
   }
 
   export type AssetKiMaxOrderByAggregateInput = {
@@ -26606,6 +30638,9 @@ export namespace Prisma {
     photo2?: SortOrder
     photo3?: SortOrder
     photo4?: SortOrder
+    valuationStatementFile?: SortOrder
+    valuationStatementName?: SortOrder
+    valuationStatementSize?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -26629,6 +30664,9 @@ export namespace Prisma {
     photo2?: SortOrder
     photo3?: SortOrder
     photo4?: SortOrder
+    valuationStatementFile?: SortOrder
+    valuationStatementName?: SortOrder
+    valuationStatementSize?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -26643,22 +30681,17 @@ export namespace Prisma {
     pmPerformanceMoveOut?: SortOrder
     pmPerformanceRate?: SortOrder
     pmPerformanceRatePercent?: SortOrder
+    valuationStatementSize?: SortOrder
   }
 
-  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+  export type BytesNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Buffer | BytesFieldRefInput<$PrismaModel> | null
+    in?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
+    notIn?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
+    not?: NestedBytesNullableWithAggregatesFilter<$PrismaModel> | Buffer | null
     _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedFloatNullableFilter<$PrismaModel>
-    _min?: NestedFloatNullableFilter<$PrismaModel>
-    _max?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedBytesNullableFilter<$PrismaModel>
+    _max?: NestedBytesNullableFilter<$PrismaModel>
   }
 
   export type EnumCustomerTypeFilter<$PrismaModel = never> = {
@@ -27669,6 +31702,14 @@ export namespace Prisma {
     divide?: number
   }
 
+  export type NullableFloatFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type ProjectUpdateOneRequiredWithoutProjectKisNestedInput = {
     create?: XOR<ProjectCreateWithoutProjectKisInput, ProjectUncheckedCreateWithoutProjectKisInput>
     connectOrCreate?: ProjectCreateOrConnectWithoutProjectKisInput
@@ -27711,6 +31752,14 @@ export namespace Prisma {
     update?: CustomerFundUpdateWithWhereUniqueWithoutProjectKiInput | CustomerFundUpdateWithWhereUniqueWithoutProjectKiInput[]
     updateMany?: CustomerFundUpdateManyWithWhereWithoutProjectKiInput | CustomerFundUpdateManyWithWhereWithoutProjectKiInput[]
     deleteMany?: CustomerFundScalarWhereInput | CustomerFundScalarWhereInput[]
+  }
+
+  export type EnumBSTypeFieldUpdateOperationsInput = {
+    set?: $Enums.BSType
+  }
+
+  export type EnumPLTypeFieldUpdateOperationsInput = {
+    set?: $Enums.PLType
   }
 
   export type ProjectCreateNestedOneWithoutAssetsInput = {
@@ -27781,12 +31830,8 @@ export namespace Prisma {
     connect?: KiWhereUniqueInput
   }
 
-  export type NullableFloatFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
+  export type NullableBytesFieldUpdateOperationsInput = {
+    set?: Buffer | null
   }
 
   export type AssetUpdateOneRequiredWithoutAssetKisNestedInput = {
@@ -28364,6 +32409,17 @@ export namespace Prisma {
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -28394,17 +32450,6 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
-  export type NestedFloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
-  }
-
   export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel> | null
     in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
@@ -28419,6 +32464,57 @@ export namespace Prisma {
     _sum?: NestedFloatNullableFilter<$PrismaModel>
     _min?: NestedFloatNullableFilter<$PrismaModel>
     _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type NestedEnumBSTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.BSType | EnumBSTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.BSType[] | ListEnumBSTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.BSType[] | ListEnumBSTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumBSTypeFilter<$PrismaModel> | $Enums.BSType
+  }
+
+  export type NestedEnumBSTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.BSType | EnumBSTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.BSType[] | ListEnumBSTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.BSType[] | ListEnumBSTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumBSTypeWithAggregatesFilter<$PrismaModel> | $Enums.BSType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumBSTypeFilter<$PrismaModel>
+    _max?: NestedEnumBSTypeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumPLTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.PLType | EnumPLTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.PLType[] | ListEnumPLTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.PLType[] | ListEnumPLTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumPLTypeFilter<$PrismaModel> | $Enums.PLType
+  }
+
+  export type NestedEnumPLTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.PLType | EnumPLTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.PLType[] | ListEnumPLTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.PLType[] | ListEnumPLTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumPLTypeWithAggregatesFilter<$PrismaModel> | $Enums.PLType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumPLTypeFilter<$PrismaModel>
+    _max?: NestedEnumPLTypeFilter<$PrismaModel>
+  }
+
+  export type NestedBytesNullableFilter<$PrismaModel = never> = {
+    equals?: Buffer | BytesFieldRefInput<$PrismaModel> | null
+    in?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
+    notIn?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
+    not?: NestedBytesNullableFilter<$PrismaModel> | Buffer | null
+  }
+
+  export type NestedBytesNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Buffer | BytesFieldRefInput<$PrismaModel> | null
+    in?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
+    notIn?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
+    not?: NestedBytesNullableWithAggregatesFilter<$PrismaModel> | Buffer | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBytesNullableFilter<$PrismaModel>
+    _max?: NestedBytesNullableFilter<$PrismaModel>
   }
 
   export type NestedEnumCustomerTypeFilter<$PrismaModel = never> = {
@@ -28577,8 +32673,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: number | null
     shuzenTsumitatekin?: number | null
     azukarikinHenkanJunbikin?: number | null
+    zeikinHokenryoJunbiKanjo?: number | null
+    kyodoUnyuHiyoJunbiKanjo?: number | null
+    risokuShiharaiJunbiKanjo?: number | null
+    shihoTekiShishutsuJunbiKanjo?: number | null
+    cashTrapJunbiKanjo?: number | null
     sonotaGenyokin?: number | null
     futuYokinTokiZandaka?: number | null
+    zenkiKurikoshiRieki?: number | null
+    shuzenTsumitatekinKuriire?: number | null
+    currentYearBunpaiRatio?: number | null
+    fullYearBunpaiRatio?: number | null
+    currentYearBunpaiRatioNonInvoice?: number | null
+    fullYearBunpaiRatioNonInvoice?: number | null
+    shintakuShuekiKazeiUriage?: number | null
+    shintakuShuekiKazeiUriageShohizei?: number | null
+    shintakuShuekiHikazeiUriage?: number | null
+    shintakuHiyoKazeiShiire?: number | null
+    shintakuHiyoKazeiShiireShohizei?: number | null
+    shintakuHiyoHikazeiShiire?: number | null
+    unitShintakuShuekiKazeiUriage?: number | null
+    unitShintakuShuekiKazeiUriageShohizei?: number | null
+    unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuHiyoKazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireShohizei?: number | null
+    unitShintakuHiyoHikazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -28627,8 +32748,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: number | null
     shuzenTsumitatekin?: number | null
     azukarikinHenkanJunbikin?: number | null
+    zeikinHokenryoJunbiKanjo?: number | null
+    kyodoUnyuHiyoJunbiKanjo?: number | null
+    risokuShiharaiJunbiKanjo?: number | null
+    shihoTekiShishutsuJunbiKanjo?: number | null
+    cashTrapJunbiKanjo?: number | null
     sonotaGenyokin?: number | null
     futuYokinTokiZandaka?: number | null
+    zenkiKurikoshiRieki?: number | null
+    shuzenTsumitatekinKuriire?: number | null
+    currentYearBunpaiRatio?: number | null
+    fullYearBunpaiRatio?: number | null
+    currentYearBunpaiRatioNonInvoice?: number | null
+    fullYearBunpaiRatioNonInvoice?: number | null
+    shintakuShuekiKazeiUriage?: number | null
+    shintakuShuekiKazeiUriageShohizei?: number | null
+    shintakuShuekiHikazeiUriage?: number | null
+    shintakuHiyoKazeiShiire?: number | null
+    shintakuHiyoKazeiShiireShohizei?: number | null
+    shintakuHiyoHikazeiShiire?: number | null
+    unitShintakuShuekiKazeiUriage?: number | null
+    unitShintakuShuekiKazeiUriageShohizei?: number | null
+    unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuHiyoKazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireShohizei?: number | null
+    unitShintakuHiyoHikazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -28661,6 +32807,9 @@ export namespace Prisma {
     photo2?: string | null
     photo3?: string | null
     photo4?: string | null
+    valuationStatementFile?: Buffer | null
+    valuationStatementName?: string | null
+    valuationStatementSize?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -28684,6 +32833,9 @@ export namespace Prisma {
     photo2?: string | null
     photo3?: string | null
     photo4?: string | null
+    valuationStatementFile?: Buffer | null
+    valuationStatementName?: string | null
+    valuationStatementSize?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -28760,8 +32912,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: IntNullableFilter<"ProjectKi"> | number | null
     shuzenTsumitatekin?: IntNullableFilter<"ProjectKi"> | number | null
     azukarikinHenkanJunbikin?: IntNullableFilter<"ProjectKi"> | number | null
+    zeikinHokenryoJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
+    kyodoUnyuHiyoJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
+    risokuShiharaiJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
+    shihoTekiShishutsuJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
+    cashTrapJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
     sonotaGenyokin?: IntNullableFilter<"ProjectKi"> | number | null
     futuYokinTokiZandaka?: IntNullableFilter<"ProjectKi"> | number | null
+    zenkiKurikoshiRieki?: IntNullableFilter<"ProjectKi"> | number | null
+    shuzenTsumitatekinKuriire?: IntNullableFilter<"ProjectKi"> | number | null
+    currentYearBunpaiRatio?: FloatNullableFilter<"ProjectKi"> | number | null
+    fullYearBunpaiRatio?: FloatNullableFilter<"ProjectKi"> | number | null
+    currentYearBunpaiRatioNonInvoice?: FloatNullableFilter<"ProjectKi"> | number | null
+    fullYearBunpaiRatioNonInvoice?: FloatNullableFilter<"ProjectKi"> | number | null
+    shintakuShuekiKazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuShuekiKazeiUriageShohizei?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuShuekiHikazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuHiyoKazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuHiyoKazeiShiireShohizei?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuHiyoHikazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuShuekiKazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuShuekiKazeiUriageShohizei?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuShuekiHikazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoKazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoKazeiShiireShohizei?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoHikazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
     createdAt?: DateTimeFilter<"ProjectKi"> | Date | string
     createdId?: StringFilter<"ProjectKi"> | string
     createdBy?: StringFilter<"ProjectKi"> | string
@@ -28804,6 +32981,9 @@ export namespace Prisma {
     photo2?: StringNullableFilter<"AssetKi"> | string | null
     photo3?: StringNullableFilter<"AssetKi"> | string | null
     photo4?: StringNullableFilter<"AssetKi"> | string | null
+    valuationStatementFile?: BytesNullableFilter<"AssetKi"> | Buffer | null
+    valuationStatementName?: StringNullableFilter<"AssetKi"> | string | null
+    valuationStatementSize?: IntNullableFilter<"AssetKi"> | number | null
     createdAt?: DateTimeFilter<"AssetKi"> | Date | string
     createdId?: StringFilter<"AssetKi"> | string
     createdBy?: StringFilter<"AssetKi"> | string
@@ -29084,8 +33264,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: number | null
     shuzenTsumitatekin?: number | null
     azukarikinHenkanJunbikin?: number | null
+    zeikinHokenryoJunbiKanjo?: number | null
+    kyodoUnyuHiyoJunbiKanjo?: number | null
+    risokuShiharaiJunbiKanjo?: number | null
+    shihoTekiShishutsuJunbiKanjo?: number | null
+    cashTrapJunbiKanjo?: number | null
     sonotaGenyokin?: number | null
     futuYokinTokiZandaka?: number | null
+    zenkiKurikoshiRieki?: number | null
+    shuzenTsumitatekinKuriire?: number | null
+    currentYearBunpaiRatio?: number | null
+    fullYearBunpaiRatio?: number | null
+    currentYearBunpaiRatioNonInvoice?: number | null
+    fullYearBunpaiRatioNonInvoice?: number | null
+    shintakuShuekiKazeiUriage?: number | null
+    shintakuShuekiKazeiUriageShohizei?: number | null
+    shintakuShuekiHikazeiUriage?: number | null
+    shintakuHiyoKazeiShiire?: number | null
+    shintakuHiyoKazeiShiireShohizei?: number | null
+    shintakuHiyoHikazeiShiire?: number | null
+    unitShintakuShuekiKazeiUriage?: number | null
+    unitShintakuShuekiKazeiUriageShohizei?: number | null
+    unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuHiyoKazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireShohizei?: number | null
+    unitShintakuHiyoHikazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -29134,8 +33339,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: number | null
     shuzenTsumitatekin?: number | null
     azukarikinHenkanJunbikin?: number | null
+    zeikinHokenryoJunbiKanjo?: number | null
+    kyodoUnyuHiyoJunbiKanjo?: number | null
+    risokuShiharaiJunbiKanjo?: number | null
+    shihoTekiShishutsuJunbiKanjo?: number | null
+    cashTrapJunbiKanjo?: number | null
     sonotaGenyokin?: number | null
     futuYokinTokiZandaka?: number | null
+    zenkiKurikoshiRieki?: number | null
+    shuzenTsumitatekinKuriire?: number | null
+    currentYearBunpaiRatio?: number | null
+    fullYearBunpaiRatio?: number | null
+    currentYearBunpaiRatioNonInvoice?: number | null
+    fullYearBunpaiRatioNonInvoice?: number | null
+    shintakuShuekiKazeiUriage?: number | null
+    shintakuShuekiKazeiUriageShohizei?: number | null
+    shintakuShuekiHikazeiUriage?: number | null
+    shintakuHiyoKazeiShiire?: number | null
+    shintakuHiyoKazeiShiireShohizei?: number | null
+    shintakuHiyoHikazeiShiire?: number | null
+    unitShintakuShuekiKazeiUriage?: number | null
+    unitShintakuShuekiKazeiUriageShohizei?: number | null
+    unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuHiyoKazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireShohizei?: number | null
+    unitShintakuHiyoHikazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -30080,6 +34310,9 @@ export namespace Prisma {
     photo2?: string | null
     photo3?: string | null
     photo4?: string | null
+    valuationStatementFile?: Buffer | null
+    valuationStatementName?: string | null
+    valuationStatementSize?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -30103,6 +34336,9 @@ export namespace Prisma {
     photo2?: string | null
     photo3?: string | null
     photo4?: string | null
+    valuationStatementFile?: Buffer | null
+    valuationStatementName?: string | null
+    valuationStatementSize?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -30724,8 +34960,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: number | null
     shuzenTsumitatekin?: number | null
     azukarikinHenkanJunbikin?: number | null
+    zeikinHokenryoJunbiKanjo?: number | null
+    kyodoUnyuHiyoJunbiKanjo?: number | null
+    risokuShiharaiJunbiKanjo?: number | null
+    shihoTekiShishutsuJunbiKanjo?: number | null
+    cashTrapJunbiKanjo?: number | null
     sonotaGenyokin?: number | null
     futuYokinTokiZandaka?: number | null
+    zenkiKurikoshiRieki?: number | null
+    shuzenTsumitatekinKuriire?: number | null
+    currentYearBunpaiRatio?: number | null
+    fullYearBunpaiRatio?: number | null
+    currentYearBunpaiRatioNonInvoice?: number | null
+    fullYearBunpaiRatioNonInvoice?: number | null
+    shintakuShuekiKazeiUriage?: number | null
+    shintakuShuekiKazeiUriageShohizei?: number | null
+    shintakuShuekiHikazeiUriage?: number | null
+    shintakuHiyoKazeiShiire?: number | null
+    shintakuHiyoKazeiShiireShohizei?: number | null
+    shintakuHiyoHikazeiShiire?: number | null
+    unitShintakuShuekiKazeiUriage?: number | null
+    unitShintakuShuekiKazeiUriageShohizei?: number | null
+    unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuHiyoKazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireShohizei?: number | null
+    unitShintakuHiyoHikazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -30775,8 +35036,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: number | null
     shuzenTsumitatekin?: number | null
     azukarikinHenkanJunbikin?: number | null
+    zeikinHokenryoJunbiKanjo?: number | null
+    kyodoUnyuHiyoJunbiKanjo?: number | null
+    risokuShiharaiJunbiKanjo?: number | null
+    shihoTekiShishutsuJunbiKanjo?: number | null
+    cashTrapJunbiKanjo?: number | null
     sonotaGenyokin?: number | null
     futuYokinTokiZandaka?: number | null
+    zenkiKurikoshiRieki?: number | null
+    shuzenTsumitatekinKuriire?: number | null
+    currentYearBunpaiRatio?: number | null
+    fullYearBunpaiRatio?: number | null
+    currentYearBunpaiRatioNonInvoice?: number | null
+    fullYearBunpaiRatioNonInvoice?: number | null
+    shintakuShuekiKazeiUriage?: number | null
+    shintakuShuekiKazeiUriageShohizei?: number | null
+    shintakuShuekiHikazeiUriage?: number | null
+    shintakuHiyoKazeiShiire?: number | null
+    shintakuHiyoKazeiShiireShohizei?: number | null
+    shintakuHiyoHikazeiShiire?: number | null
+    unitShintakuShuekiKazeiUriage?: number | null
+    unitShintakuShuekiKazeiUriageShohizei?: number | null
+    unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuHiyoKazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireShohizei?: number | null
+    unitShintakuHiyoHikazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -30937,8 +35223,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
     shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
     azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
+    zeikinHokenryoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    risokuShiharaiJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    cashTrapJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
     sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
     futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
+    zenkiKurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    shuzenTsumitatekinKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -30988,8 +35299,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
     shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
     azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
+    zeikinHokenryoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    risokuShiharaiJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    cashTrapJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
     sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
     futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
+    zenkiKurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    shuzenTsumitatekinKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -31530,8 +35866,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: number | null
     shuzenTsumitatekin?: number | null
     azukarikinHenkanJunbikin?: number | null
+    zeikinHokenryoJunbiKanjo?: number | null
+    kyodoUnyuHiyoJunbiKanjo?: number | null
+    risokuShiharaiJunbiKanjo?: number | null
+    shihoTekiShishutsuJunbiKanjo?: number | null
+    cashTrapJunbiKanjo?: number | null
     sonotaGenyokin?: number | null
     futuYokinTokiZandaka?: number | null
+    zenkiKurikoshiRieki?: number | null
+    shuzenTsumitatekinKuriire?: number | null
+    currentYearBunpaiRatio?: number | null
+    fullYearBunpaiRatio?: number | null
+    currentYearBunpaiRatioNonInvoice?: number | null
+    fullYearBunpaiRatioNonInvoice?: number | null
+    shintakuShuekiKazeiUriage?: number | null
+    shintakuShuekiKazeiUriageShohizei?: number | null
+    shintakuShuekiHikazeiUriage?: number | null
+    shintakuHiyoKazeiShiire?: number | null
+    shintakuHiyoKazeiShiireShohizei?: number | null
+    shintakuHiyoHikazeiShiire?: number | null
+    unitShintakuShuekiKazeiUriage?: number | null
+    unitShintakuShuekiKazeiUriageShohizei?: number | null
+    unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuHiyoKazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireShohizei?: number | null
+    unitShintakuHiyoHikazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -31554,6 +35915,9 @@ export namespace Prisma {
     photo2?: string | null
     photo3?: string | null
     photo4?: string | null
+    valuationStatementFile?: Buffer | null
+    valuationStatementName?: string | null
+    valuationStatementSize?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -31599,8 +35963,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
     shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
     azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
+    zeikinHokenryoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    risokuShiharaiJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    cashTrapJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
     sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
     futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
+    zenkiKurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    shuzenTsumitatekinKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -31649,8 +36038,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
     shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
     azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
+    zeikinHokenryoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    risokuShiharaiJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    cashTrapJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
     sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
     futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
+    zenkiKurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    shuzenTsumitatekinKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -31698,8 +36112,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
     shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
     azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
+    zeikinHokenryoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    risokuShiharaiJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    cashTrapJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
     sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
     futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
+    zenkiKurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    shuzenTsumitatekinKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -31721,6 +36160,9 @@ export namespace Prisma {
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
+    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
+    valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
+    valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -31744,6 +36186,9 @@ export namespace Prisma {
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
+    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
+    valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
+    valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -31766,6 +36211,9 @@ export namespace Prisma {
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
+    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
+    valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
+    valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -31812,8 +36260,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: number | null
     shuzenTsumitatekin?: number | null
     azukarikinHenkanJunbikin?: number | null
+    zeikinHokenryoJunbiKanjo?: number | null
+    kyodoUnyuHiyoJunbiKanjo?: number | null
+    risokuShiharaiJunbiKanjo?: number | null
+    shihoTekiShishutsuJunbiKanjo?: number | null
+    cashTrapJunbiKanjo?: number | null
     sonotaGenyokin?: number | null
     futuYokinTokiZandaka?: number | null
+    zenkiKurikoshiRieki?: number | null
+    shuzenTsumitatekinKuriire?: number | null
+    currentYearBunpaiRatio?: number | null
+    fullYearBunpaiRatio?: number | null
+    currentYearBunpaiRatioNonInvoice?: number | null
+    fullYearBunpaiRatioNonInvoice?: number | null
+    shintakuShuekiKazeiUriage?: number | null
+    shintakuShuekiKazeiUriageShohizei?: number | null
+    shintakuShuekiHikazeiUriage?: number | null
+    shintakuHiyoKazeiShiire?: number | null
+    shintakuHiyoKazeiShiireShohizei?: number | null
+    shintakuHiyoHikazeiShiire?: number | null
+    unitShintakuShuekiKazeiUriage?: number | null
+    unitShintakuShuekiKazeiUriageShohizei?: number | null
+    unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuHiyoKazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireShohizei?: number | null
+    unitShintakuHiyoHikazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -31920,8 +36393,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
     shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
     azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
+    zeikinHokenryoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    risokuShiharaiJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    cashTrapJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
     sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
     futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
+    zenkiKurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    shuzenTsumitatekinKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -31970,8 +36468,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
     shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
     azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
+    zeikinHokenryoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    risokuShiharaiJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    cashTrapJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
     sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
     futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
+    zenkiKurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    shuzenTsumitatekinKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -32019,8 +36542,33 @@ export namespace Prisma {
     shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
     shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
     azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
+    zeikinHokenryoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    risokuShiharaiJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
+    cashTrapJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
     sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
     futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
+    zenkiKurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    shuzenTsumitatekinKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -32314,6 +36862,9 @@ export namespace Prisma {
     photo2?: string | null
     photo3?: string | null
     photo4?: string | null
+    valuationStatementFile?: Buffer | null
+    valuationStatementName?: string | null
+    valuationStatementSize?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -32335,6 +36886,9 @@ export namespace Prisma {
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
+    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
+    valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
+    valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -32358,6 +36912,9 @@ export namespace Prisma {
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
+    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
+    valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
+    valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -32380,6 +36937,9 @@ export namespace Prisma {
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
+    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
+    valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
+    valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -33159,6 +37719,14 @@ export namespace Prisma {
      * @deprecated Use ProjectKiDefaultArgs instead
      */
     export type ProjectKiArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ProjectKiDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use ProjectKiBSDefaultArgs instead
+     */
+    export type ProjectKiBSArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ProjectKiBSDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use ProjectKiPLDefaultArgs instead
+     */
+    export type ProjectKiPLArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ProjectKiPLDefaultArgs<ExtArgs>
     /**
      * @deprecated Use AssetDefaultArgs instead
      */
