@@ -7732,6 +7732,8 @@ export namespace Prisma {
     settlorGkAddress: string | null
     kamiyachoFlag: boolean | null
     mlspcFlag: boolean | null
+    leverageFlag: boolean | null
+    unitResidenceFlag: boolean | null
     reportMainId: string | null
     reportAtt2Id: string | null
     reportAtt3Id: string | null
@@ -7763,6 +7765,8 @@ export namespace Prisma {
     settlorGkAddress: string | null
     kamiyachoFlag: boolean | null
     mlspcFlag: boolean | null
+    leverageFlag: boolean | null
+    unitResidenceFlag: boolean | null
     reportMainId: string | null
     reportAtt2Id: string | null
     reportAtt3Id: string | null
@@ -7794,6 +7798,8 @@ export namespace Prisma {
     settlorGkAddress: number
     kamiyachoFlag: number
     mlspcFlag: number
+    leverageFlag: number
+    unitResidenceFlag: number
     reportMainId: number
     reportAtt2Id: number
     reportAtt3Id: number
@@ -7847,6 +7853,8 @@ export namespace Prisma {
     settlorGkAddress?: true
     kamiyachoFlag?: true
     mlspcFlag?: true
+    leverageFlag?: true
+    unitResidenceFlag?: true
     reportMainId?: true
     reportAtt2Id?: true
     reportAtt3Id?: true
@@ -7878,6 +7886,8 @@ export namespace Prisma {
     settlorGkAddress?: true
     kamiyachoFlag?: true
     mlspcFlag?: true
+    leverageFlag?: true
+    unitResidenceFlag?: true
     reportMainId?: true
     reportAtt2Id?: true
     reportAtt3Id?: true
@@ -7909,6 +7919,8 @@ export namespace Prisma {
     settlorGkAddress?: true
     kamiyachoFlag?: true
     mlspcFlag?: true
+    leverageFlag?: true
+    unitResidenceFlag?: true
     reportMainId?: true
     reportAtt2Id?: true
     reportAtt3Id?: true
@@ -8027,6 +8039,8 @@ export namespace Prisma {
     settlorGkAddress: string
     kamiyachoFlag: boolean
     mlspcFlag: boolean
+    leverageFlag: boolean
+    unitResidenceFlag: boolean
     reportMainId: string | null
     reportAtt2Id: string | null
     reportAtt3Id: string | null
@@ -8077,6 +8091,8 @@ export namespace Prisma {
     settlorGkAddress?: boolean
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
     reportMainId?: boolean
     reportAtt2Id?: boolean
     reportAtt3Id?: boolean
@@ -8117,6 +8133,8 @@ export namespace Prisma {
     settlorGkAddress?: boolean
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
     reportMainId?: boolean
     reportAtt2Id?: boolean
     reportAtt3Id?: boolean
@@ -8153,6 +8171,8 @@ export namespace Prisma {
     settlorGkAddress?: boolean
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
     reportMainId?: boolean
     reportAtt2Id?: boolean
     reportAtt3Id?: boolean
@@ -8215,6 +8235,8 @@ export namespace Prisma {
       settlorGkAddress: string
       kamiyachoFlag: boolean
       mlspcFlag: boolean
+      leverageFlag: boolean
+      unitResidenceFlag: boolean
       reportMainId: string | null
       reportAtt2Id: string | null
       reportAtt3Id: string | null
@@ -8644,6 +8666,8 @@ export namespace Prisma {
     readonly settlorGkAddress: FieldRef<"Project", 'String'>
     readonly kamiyachoFlag: FieldRef<"Project", 'Boolean'>
     readonly mlspcFlag: FieldRef<"Project", 'Boolean'>
+    readonly leverageFlag: FieldRef<"Project", 'Boolean'>
+    readonly unitResidenceFlag: FieldRef<"Project", 'Boolean'>
     readonly reportMainId: FieldRef<"Project", 'String'>
     readonly reportAtt2Id: FieldRef<"Project", 'String'>
     readonly reportAtt3Id: FieldRef<"Project", 'String'>
@@ -9171,6 +9195,8 @@ export namespace Prisma {
     futuYokinTokiZandaka: number | null
     zenkiKurikoshiRieki: number | null
     shuzenTsumitatekinKuriire: number | null
+    mibaraiHiyo: number | null
+    chokiKariire: number | null
     currentYearBunpaiRatio: number | null
     fullYearBunpaiRatio: number | null
     currentYearBunpaiRatioNonInvoice: number | null
@@ -9189,6 +9215,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice: number | null
+    kazeiUriageSashihiki08: number | null
+    kazeiUriageSashihiki10: number | null
+    kazeiUriageHontai08: number | null
+    kazeiUriageHontai10: number | null
+    kazeiShiire100Kojo: number | null
+    kazeiShiire100KojoNoTax: number | null
+    kazeiShiire8050Kojo: number | null
+    kazeiShiire8050KojoNoTax: number | null
+    kazeiUriageOnlyApplyTax7p8: number | null
+    kazeiUriageCommonApplyTax7p8: number | null
+    koteiShisan80Kojo: number | null
+    koteiShisan80KojoNoTax: number | null
   }
 
   export type ProjectKiSumAggregateOutputType = {
@@ -9200,13 +9238,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax: number | null
     totalUnit: number | null
     totalUnitNonInvoice: number | null
-    shintakuShueki: number | null
-    shintakuHiyo: number | null
-    sashihikiShintakuRieki: number | null
-    shintakuRieki: number | null
-    bunpaiRieki: number | null
-    bunpaiSogaku: number | null
-    bunpaiSogakuNonInvoice: number | null
+    shintakuShueki: bigint | null
+    shintakuHiyo: bigint | null
+    sashihikiShintakuRieki: bigint | null
+    shintakuRieki: bigint | null
+    bunpaiRieki: bigint | null
+    bunpaiSogaku: bigint | null
+    bunpaiSogakuNonInvoice: bigint | null
     kurikoshiRieki: number | null
     unitShintakuShueki: number | null
     unitShintakuHiyo: number | null
@@ -9216,28 +9254,30 @@ export namespace Prisma {
     unitGanponKuriire: number | null
     unitBunpai: number | null
     unitBunpaiForNonInvoice: number | null
-    shohiyoRyuhokin: number | null
-    shuzenTsumitatekin: number | null
-    azukarikinHenkanJunbikin: number | null
-    zeikinHokenryoJunbiKanjo: number | null
-    kyodoUnyuHiyoJunbiKanjo: number | null
-    risokuShiharaiJunbiKanjo: number | null
-    shihoTekiShishutsuJunbiKanjo: number | null
-    cashTrapJunbiKanjo: number | null
-    sonotaGenyokin: number | null
-    futuYokinTokiZandaka: number | null
-    zenkiKurikoshiRieki: number | null
-    shuzenTsumitatekinKuriire: number | null
+    shohiyoRyuhokin: bigint | null
+    shuzenTsumitatekin: bigint | null
+    azukarikinHenkanJunbikin: bigint | null
+    zeikinHokenryoJunbiKanjo: bigint | null
+    kyodoUnyuHiyoJunbiKanjo: bigint | null
+    risokuShiharaiJunbiKanjo: bigint | null
+    shihoTekiShishutsuJunbiKanjo: bigint | null
+    cashTrapJunbiKanjo: bigint | null
+    sonotaGenyokin: bigint | null
+    futuYokinTokiZandaka: bigint | null
+    zenkiKurikoshiRieki: bigint | null
+    shuzenTsumitatekinKuriire: bigint | null
+    mibaraiHiyo: bigint | null
+    chokiKariire: bigint | null
     currentYearBunpaiRatio: number | null
     fullYearBunpaiRatio: number | null
     currentYearBunpaiRatioNonInvoice: number | null
     fullYearBunpaiRatioNonInvoice: number | null
-    shintakuShuekiKazeiUriage: number | null
-    shintakuShuekiKazeiUriageShohizei: number | null
-    shintakuShuekiHikazeiUriage: number | null
-    shintakuHiyoKazeiShiire: number | null
-    shintakuHiyoKazeiShiireShohizei: number | null
-    shintakuHiyoHikazeiShiire: number | null
+    shintakuShuekiKazeiUriage: bigint | null
+    shintakuShuekiKazeiUriageShohizei: bigint | null
+    shintakuShuekiHikazeiUriage: bigint | null
+    shintakuHiyoKazeiShiire: bigint | null
+    shintakuHiyoKazeiShiireShohizei: bigint | null
+    shintakuHiyoHikazeiShiire: bigint | null
     unitShintakuShuekiKazeiUriage: number | null
     unitShintakuShuekiKazeiUriageShohizei: number | null
     unitShintakuShuekiHikazeiUriage: number | null
@@ -9246,6 +9286,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice: number | null
+    kazeiUriageSashihiki08: bigint | null
+    kazeiUriageSashihiki10: bigint | null
+    kazeiUriageHontai08: bigint | null
+    kazeiUriageHontai10: bigint | null
+    kazeiShiire100Kojo: bigint | null
+    kazeiShiire100KojoNoTax: bigint | null
+    kazeiShiire8050Kojo: bigint | null
+    kazeiShiire8050KojoNoTax: bigint | null
+    kazeiUriageOnlyApplyTax7p8: bigint | null
+    kazeiUriageCommonApplyTax7p8: bigint | null
+    koteiShisan80Kojo: bigint | null
+    koteiShisan80KojoNoTax: bigint | null
   }
 
   export type ProjectKiMinAggregateOutputType = {
@@ -9268,13 +9320,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax: number | null
     totalUnit: number | null
     totalUnitNonInvoice: number | null
-    shintakuShueki: number | null
-    shintakuHiyo: number | null
-    sashihikiShintakuRieki: number | null
-    shintakuRieki: number | null
-    bunpaiRieki: number | null
-    bunpaiSogaku: number | null
-    bunpaiSogakuNonInvoice: number | null
+    shintakuShueki: bigint | null
+    shintakuHiyo: bigint | null
+    sashihikiShintakuRieki: bigint | null
+    shintakuRieki: bigint | null
+    bunpaiRieki: bigint | null
+    bunpaiSogaku: bigint | null
+    bunpaiSogakuNonInvoice: bigint | null
     kurikoshiRieki: number | null
     unitShintakuShueki: number | null
     unitShintakuHiyo: number | null
@@ -9284,28 +9336,30 @@ export namespace Prisma {
     unitGanponKuriire: number | null
     unitBunpai: number | null
     unitBunpaiForNonInvoice: number | null
-    shohiyoRyuhokin: number | null
-    shuzenTsumitatekin: number | null
-    azukarikinHenkanJunbikin: number | null
-    zeikinHokenryoJunbiKanjo: number | null
-    kyodoUnyuHiyoJunbiKanjo: number | null
-    risokuShiharaiJunbiKanjo: number | null
-    shihoTekiShishutsuJunbiKanjo: number | null
-    cashTrapJunbiKanjo: number | null
-    sonotaGenyokin: number | null
-    futuYokinTokiZandaka: number | null
-    zenkiKurikoshiRieki: number | null
-    shuzenTsumitatekinKuriire: number | null
+    shohiyoRyuhokin: bigint | null
+    shuzenTsumitatekin: bigint | null
+    azukarikinHenkanJunbikin: bigint | null
+    zeikinHokenryoJunbiKanjo: bigint | null
+    kyodoUnyuHiyoJunbiKanjo: bigint | null
+    risokuShiharaiJunbiKanjo: bigint | null
+    shihoTekiShishutsuJunbiKanjo: bigint | null
+    cashTrapJunbiKanjo: bigint | null
+    sonotaGenyokin: bigint | null
+    futuYokinTokiZandaka: bigint | null
+    zenkiKurikoshiRieki: bigint | null
+    shuzenTsumitatekinKuriire: bigint | null
+    mibaraiHiyo: bigint | null
+    chokiKariire: bigint | null
     currentYearBunpaiRatio: number | null
     fullYearBunpaiRatio: number | null
     currentYearBunpaiRatioNonInvoice: number | null
     fullYearBunpaiRatioNonInvoice: number | null
-    shintakuShuekiKazeiUriage: number | null
-    shintakuShuekiKazeiUriageShohizei: number | null
-    shintakuShuekiHikazeiUriage: number | null
-    shintakuHiyoKazeiShiire: number | null
-    shintakuHiyoKazeiShiireShohizei: number | null
-    shintakuHiyoHikazeiShiire: number | null
+    shintakuShuekiKazeiUriage: bigint | null
+    shintakuShuekiKazeiUriageShohizei: bigint | null
+    shintakuShuekiHikazeiUriage: bigint | null
+    shintakuHiyoKazeiShiire: bigint | null
+    shintakuHiyoKazeiShiireShohizei: bigint | null
+    shintakuHiyoHikazeiShiire: bigint | null
     unitShintakuShuekiKazeiUriage: number | null
     unitShintakuShuekiKazeiUriageShohizei: number | null
     unitShintakuShuekiHikazeiUriage: number | null
@@ -9314,6 +9368,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice: number | null
+    kazeiUriageSashihiki08: bigint | null
+    kazeiUriageSashihiki10: bigint | null
+    kazeiUriageHontai08: bigint | null
+    kazeiUriageHontai10: bigint | null
+    kazeiShiire100Kojo: bigint | null
+    kazeiShiire100KojoNoTax: bigint | null
+    kazeiShiire8050Kojo: bigint | null
+    kazeiShiire8050KojoNoTax: bigint | null
+    kazeiUriageOnlyApplyTax7p8: bigint | null
+    kazeiUriageCommonApplyTax7p8: bigint | null
+    koteiShisan80Kojo: bigint | null
+    koteiShisan80KojoNoTax: bigint | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -9342,13 +9408,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax: number | null
     totalUnit: number | null
     totalUnitNonInvoice: number | null
-    shintakuShueki: number | null
-    shintakuHiyo: number | null
-    sashihikiShintakuRieki: number | null
-    shintakuRieki: number | null
-    bunpaiRieki: number | null
-    bunpaiSogaku: number | null
-    bunpaiSogakuNonInvoice: number | null
+    shintakuShueki: bigint | null
+    shintakuHiyo: bigint | null
+    sashihikiShintakuRieki: bigint | null
+    shintakuRieki: bigint | null
+    bunpaiRieki: bigint | null
+    bunpaiSogaku: bigint | null
+    bunpaiSogakuNonInvoice: bigint | null
     kurikoshiRieki: number | null
     unitShintakuShueki: number | null
     unitShintakuHiyo: number | null
@@ -9358,28 +9424,30 @@ export namespace Prisma {
     unitGanponKuriire: number | null
     unitBunpai: number | null
     unitBunpaiForNonInvoice: number | null
-    shohiyoRyuhokin: number | null
-    shuzenTsumitatekin: number | null
-    azukarikinHenkanJunbikin: number | null
-    zeikinHokenryoJunbiKanjo: number | null
-    kyodoUnyuHiyoJunbiKanjo: number | null
-    risokuShiharaiJunbiKanjo: number | null
-    shihoTekiShishutsuJunbiKanjo: number | null
-    cashTrapJunbiKanjo: number | null
-    sonotaGenyokin: number | null
-    futuYokinTokiZandaka: number | null
-    zenkiKurikoshiRieki: number | null
-    shuzenTsumitatekinKuriire: number | null
+    shohiyoRyuhokin: bigint | null
+    shuzenTsumitatekin: bigint | null
+    azukarikinHenkanJunbikin: bigint | null
+    zeikinHokenryoJunbiKanjo: bigint | null
+    kyodoUnyuHiyoJunbiKanjo: bigint | null
+    risokuShiharaiJunbiKanjo: bigint | null
+    shihoTekiShishutsuJunbiKanjo: bigint | null
+    cashTrapJunbiKanjo: bigint | null
+    sonotaGenyokin: bigint | null
+    futuYokinTokiZandaka: bigint | null
+    zenkiKurikoshiRieki: bigint | null
+    shuzenTsumitatekinKuriire: bigint | null
+    mibaraiHiyo: bigint | null
+    chokiKariire: bigint | null
     currentYearBunpaiRatio: number | null
     fullYearBunpaiRatio: number | null
     currentYearBunpaiRatioNonInvoice: number | null
     fullYearBunpaiRatioNonInvoice: number | null
-    shintakuShuekiKazeiUriage: number | null
-    shintakuShuekiKazeiUriageShohizei: number | null
-    shintakuShuekiHikazeiUriage: number | null
-    shintakuHiyoKazeiShiire: number | null
-    shintakuHiyoKazeiShiireShohizei: number | null
-    shintakuHiyoHikazeiShiire: number | null
+    shintakuShuekiKazeiUriage: bigint | null
+    shintakuShuekiKazeiUriageShohizei: bigint | null
+    shintakuShuekiHikazeiUriage: bigint | null
+    shintakuHiyoKazeiShiire: bigint | null
+    shintakuHiyoKazeiShiireShohizei: bigint | null
+    shintakuHiyoHikazeiShiire: bigint | null
     unitShintakuShuekiKazeiUriage: number | null
     unitShintakuShuekiKazeiUriageShohizei: number | null
     unitShintakuShuekiHikazeiUriage: number | null
@@ -9388,6 +9456,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice: number | null
+    kazeiUriageSashihiki08: bigint | null
+    kazeiUriageSashihiki10: bigint | null
+    kazeiUriageHontai08: bigint | null
+    kazeiUriageHontai10: bigint | null
+    kazeiShiire100Kojo: bigint | null
+    kazeiShiire100KojoNoTax: bigint | null
+    kazeiShiire8050Kojo: bigint | null
+    kazeiShiire8050KojoNoTax: bigint | null
+    kazeiUriageOnlyApplyTax7p8: bigint | null
+    kazeiUriageCommonApplyTax7p8: bigint | null
+    koteiShisan80Kojo: bigint | null
+    koteiShisan80KojoNoTax: bigint | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -9444,6 +9524,8 @@ export namespace Prisma {
     futuYokinTokiZandaka: number
     zenkiKurikoshiRieki: number
     shuzenTsumitatekinKuriire: number
+    mibaraiHiyo: number
+    chokiKariire: number
     currentYearBunpaiRatio: number
     fullYearBunpaiRatio: number
     currentYearBunpaiRatioNonInvoice: number
@@ -9462,6 +9544,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire: number
     unitShintakuHiyoKazeiShiireForNonInvoice: number
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice: number
+    kazeiUriageSashihiki08: number
+    kazeiUriageSashihiki10: number
+    kazeiUriageHontai08: number
+    kazeiUriageHontai10: number
+    kazeiShiire100Kojo: number
+    kazeiShiire100KojoNoTax: number
+    kazeiShiire8050Kojo: number
+    kazeiShiire8050KojoNoTax: number
+    kazeiUriageOnlyApplyTax7p8: number
+    kazeiUriageCommonApplyTax7p8: number
+    koteiShisan80Kojo: number
+    koteiShisan80KojoNoTax: number
     createdAt: number
     createdId: number
     createdBy: number
@@ -9509,6 +9603,8 @@ export namespace Prisma {
     futuYokinTokiZandaka?: true
     zenkiKurikoshiRieki?: true
     shuzenTsumitatekinKuriire?: true
+    mibaraiHiyo?: true
+    chokiKariire?: true
     currentYearBunpaiRatio?: true
     fullYearBunpaiRatio?: true
     currentYearBunpaiRatioNonInvoice?: true
@@ -9527,6 +9623,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: true
     unitShintakuHiyoKazeiShiireForNonInvoice?: true
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: true
+    kazeiUriageSashihiki08?: true
+    kazeiUriageSashihiki10?: true
+    kazeiUriageHontai08?: true
+    kazeiUriageHontai10?: true
+    kazeiShiire100Kojo?: true
+    kazeiShiire100KojoNoTax?: true
+    kazeiShiire8050Kojo?: true
+    kazeiShiire8050KojoNoTax?: true
+    kazeiUriageOnlyApplyTax7p8?: true
+    kazeiUriageCommonApplyTax7p8?: true
+    koteiShisan80Kojo?: true
+    koteiShisan80KojoNoTax?: true
   }
 
   export type ProjectKiSumAggregateInputType = {
@@ -9566,6 +9674,8 @@ export namespace Prisma {
     futuYokinTokiZandaka?: true
     zenkiKurikoshiRieki?: true
     shuzenTsumitatekinKuriire?: true
+    mibaraiHiyo?: true
+    chokiKariire?: true
     currentYearBunpaiRatio?: true
     fullYearBunpaiRatio?: true
     currentYearBunpaiRatioNonInvoice?: true
@@ -9584,6 +9694,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: true
     unitShintakuHiyoKazeiShiireForNonInvoice?: true
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: true
+    kazeiUriageSashihiki08?: true
+    kazeiUriageSashihiki10?: true
+    kazeiUriageHontai08?: true
+    kazeiUriageHontai10?: true
+    kazeiShiire100Kojo?: true
+    kazeiShiire100KojoNoTax?: true
+    kazeiShiire8050Kojo?: true
+    kazeiShiire8050KojoNoTax?: true
+    kazeiUriageOnlyApplyTax7p8?: true
+    kazeiUriageCommonApplyTax7p8?: true
+    koteiShisan80Kojo?: true
+    koteiShisan80KojoNoTax?: true
   }
 
   export type ProjectKiMinAggregateInputType = {
@@ -9634,6 +9756,8 @@ export namespace Prisma {
     futuYokinTokiZandaka?: true
     zenkiKurikoshiRieki?: true
     shuzenTsumitatekinKuriire?: true
+    mibaraiHiyo?: true
+    chokiKariire?: true
     currentYearBunpaiRatio?: true
     fullYearBunpaiRatio?: true
     currentYearBunpaiRatioNonInvoice?: true
@@ -9652,6 +9776,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: true
     unitShintakuHiyoKazeiShiireForNonInvoice?: true
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: true
+    kazeiUriageSashihiki08?: true
+    kazeiUriageSashihiki10?: true
+    kazeiUriageHontai08?: true
+    kazeiUriageHontai10?: true
+    kazeiShiire100Kojo?: true
+    kazeiShiire100KojoNoTax?: true
+    kazeiShiire8050Kojo?: true
+    kazeiShiire8050KojoNoTax?: true
+    kazeiUriageOnlyApplyTax7p8?: true
+    kazeiUriageCommonApplyTax7p8?: true
+    koteiShisan80Kojo?: true
+    koteiShisan80KojoNoTax?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -9708,6 +9844,8 @@ export namespace Prisma {
     futuYokinTokiZandaka?: true
     zenkiKurikoshiRieki?: true
     shuzenTsumitatekinKuriire?: true
+    mibaraiHiyo?: true
+    chokiKariire?: true
     currentYearBunpaiRatio?: true
     fullYearBunpaiRatio?: true
     currentYearBunpaiRatioNonInvoice?: true
@@ -9726,6 +9864,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: true
     unitShintakuHiyoKazeiShiireForNonInvoice?: true
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: true
+    kazeiUriageSashihiki08?: true
+    kazeiUriageSashihiki10?: true
+    kazeiUriageHontai08?: true
+    kazeiUriageHontai10?: true
+    kazeiShiire100Kojo?: true
+    kazeiShiire100KojoNoTax?: true
+    kazeiShiire8050Kojo?: true
+    kazeiShiire8050KojoNoTax?: true
+    kazeiUriageOnlyApplyTax7p8?: true
+    kazeiUriageCommonApplyTax7p8?: true
+    koteiShisan80Kojo?: true
+    koteiShisan80KojoNoTax?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -9782,6 +9932,8 @@ export namespace Prisma {
     futuYokinTokiZandaka?: true
     zenkiKurikoshiRieki?: true
     shuzenTsumitatekinKuriire?: true
+    mibaraiHiyo?: true
+    chokiKariire?: true
     currentYearBunpaiRatio?: true
     fullYearBunpaiRatio?: true
     currentYearBunpaiRatioNonInvoice?: true
@@ -9800,6 +9952,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: true
     unitShintakuHiyoKazeiShiireForNonInvoice?: true
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: true
+    kazeiUriageSashihiki08?: true
+    kazeiUriageSashihiki10?: true
+    kazeiUriageHontai08?: true
+    kazeiUriageHontai10?: true
+    kazeiShiire100Kojo?: true
+    kazeiShiire100KojoNoTax?: true
+    kazeiShiire8050Kojo?: true
+    kazeiShiire8050KojoNoTax?: true
+    kazeiUriageOnlyApplyTax7p8?: true
+    kazeiUriageCommonApplyTax7p8?: true
+    koteiShisan80Kojo?: true
+    koteiShisan80KojoNoTax?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -9915,13 +10079,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax: number | null
     totalUnit: number | null
     totalUnitNonInvoice: number | null
-    shintakuShueki: number | null
-    shintakuHiyo: number | null
-    sashihikiShintakuRieki: number | null
-    shintakuRieki: number | null
-    bunpaiRieki: number | null
-    bunpaiSogaku: number | null
-    bunpaiSogakuNonInvoice: number | null
+    shintakuShueki: bigint | null
+    shintakuHiyo: bigint | null
+    sashihikiShintakuRieki: bigint | null
+    shintakuRieki: bigint | null
+    bunpaiRieki: bigint | null
+    bunpaiSogaku: bigint | null
+    bunpaiSogakuNonInvoice: bigint | null
     kurikoshiRieki: number | null
     unitShintakuShueki: number | null
     unitShintakuHiyo: number | null
@@ -9931,28 +10095,30 @@ export namespace Prisma {
     unitGanponKuriire: number | null
     unitBunpai: number | null
     unitBunpaiForNonInvoice: number | null
-    shohiyoRyuhokin: number | null
-    shuzenTsumitatekin: number | null
-    azukarikinHenkanJunbikin: number | null
-    zeikinHokenryoJunbiKanjo: number | null
-    kyodoUnyuHiyoJunbiKanjo: number | null
-    risokuShiharaiJunbiKanjo: number | null
-    shihoTekiShishutsuJunbiKanjo: number | null
-    cashTrapJunbiKanjo: number | null
-    sonotaGenyokin: number | null
-    futuYokinTokiZandaka: number | null
-    zenkiKurikoshiRieki: number | null
-    shuzenTsumitatekinKuriire: number | null
+    shohiyoRyuhokin: bigint | null
+    shuzenTsumitatekin: bigint | null
+    azukarikinHenkanJunbikin: bigint | null
+    zeikinHokenryoJunbiKanjo: bigint | null
+    kyodoUnyuHiyoJunbiKanjo: bigint | null
+    risokuShiharaiJunbiKanjo: bigint | null
+    shihoTekiShishutsuJunbiKanjo: bigint | null
+    cashTrapJunbiKanjo: bigint | null
+    sonotaGenyokin: bigint | null
+    futuYokinTokiZandaka: bigint | null
+    zenkiKurikoshiRieki: bigint | null
+    shuzenTsumitatekinKuriire: bigint | null
+    mibaraiHiyo: bigint | null
+    chokiKariire: bigint | null
     currentYearBunpaiRatio: number | null
     fullYearBunpaiRatio: number | null
     currentYearBunpaiRatioNonInvoice: number | null
     fullYearBunpaiRatioNonInvoice: number | null
-    shintakuShuekiKazeiUriage: number | null
-    shintakuShuekiKazeiUriageShohizei: number | null
-    shintakuShuekiHikazeiUriage: number | null
-    shintakuHiyoKazeiShiire: number | null
-    shintakuHiyoKazeiShiireShohizei: number | null
-    shintakuHiyoHikazeiShiire: number | null
+    shintakuShuekiKazeiUriage: bigint | null
+    shintakuShuekiKazeiUriageShohizei: bigint | null
+    shintakuShuekiHikazeiUriage: bigint | null
+    shintakuHiyoKazeiShiire: bigint | null
+    shintakuHiyoKazeiShiireShohizei: bigint | null
+    shintakuHiyoHikazeiShiire: bigint | null
     unitShintakuShuekiKazeiUriage: number | null
     unitShintakuShuekiKazeiUriageShohizei: number | null
     unitShintakuShuekiHikazeiUriage: number | null
@@ -9961,6 +10127,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice: number | null
+    kazeiUriageSashihiki08: bigint | null
+    kazeiUriageSashihiki10: bigint | null
+    kazeiUriageHontai08: bigint | null
+    kazeiUriageHontai10: bigint | null
+    kazeiShiire100Kojo: bigint | null
+    kazeiShiire100KojoNoTax: bigint | null
+    kazeiShiire8050Kojo: bigint | null
+    kazeiShiire8050KojoNoTax: bigint | null
+    kazeiUriageOnlyApplyTax7p8: bigint | null
+    kazeiUriageCommonApplyTax7p8: bigint | null
+    koteiShisan80Kojo: bigint | null
+    koteiShisan80KojoNoTax: bigint | null
     createdAt: Date
     createdId: string
     createdBy: string
@@ -10036,6 +10214,8 @@ export namespace Prisma {
     futuYokinTokiZandaka?: boolean
     zenkiKurikoshiRieki?: boolean
     shuzenTsumitatekinKuriire?: boolean
+    mibaraiHiyo?: boolean
+    chokiKariire?: boolean
     currentYearBunpaiRatio?: boolean
     fullYearBunpaiRatio?: boolean
     currentYearBunpaiRatioNonInvoice?: boolean
@@ -10054,6 +10234,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: boolean
     unitShintakuHiyoKazeiShiireForNonInvoice?: boolean
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: boolean
+    kazeiUriageSashihiki08?: boolean
+    kazeiUriageSashihiki10?: boolean
+    kazeiUriageHontai08?: boolean
+    kazeiUriageHontai10?: boolean
+    kazeiShiire100Kojo?: boolean
+    kazeiShiire100KojoNoTax?: boolean
+    kazeiShiire8050Kojo?: boolean
+    kazeiShiire8050KojoNoTax?: boolean
+    kazeiUriageOnlyApplyTax7p8?: boolean
+    kazeiUriageCommonApplyTax7p8?: boolean
+    koteiShisan80Kojo?: boolean
+    koteiShisan80KojoNoTax?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -10114,6 +10306,8 @@ export namespace Prisma {
     futuYokinTokiZandaka?: boolean
     zenkiKurikoshiRieki?: boolean
     shuzenTsumitatekinKuriire?: boolean
+    mibaraiHiyo?: boolean
+    chokiKariire?: boolean
     currentYearBunpaiRatio?: boolean
     fullYearBunpaiRatio?: boolean
     currentYearBunpaiRatioNonInvoice?: boolean
@@ -10132,6 +10326,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: boolean
     unitShintakuHiyoKazeiShiireForNonInvoice?: boolean
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: boolean
+    kazeiUriageSashihiki08?: boolean
+    kazeiUriageSashihiki10?: boolean
+    kazeiUriageHontai08?: boolean
+    kazeiUriageHontai10?: boolean
+    kazeiShiire100Kojo?: boolean
+    kazeiShiire100KojoNoTax?: boolean
+    kazeiShiire8050Kojo?: boolean
+    kazeiShiire8050KojoNoTax?: boolean
+    kazeiUriageOnlyApplyTax7p8?: boolean
+    kazeiUriageCommonApplyTax7p8?: boolean
+    koteiShisan80Kojo?: boolean
+    koteiShisan80KojoNoTax?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -10190,6 +10396,8 @@ export namespace Prisma {
     futuYokinTokiZandaka?: boolean
     zenkiKurikoshiRieki?: boolean
     shuzenTsumitatekinKuriire?: boolean
+    mibaraiHiyo?: boolean
+    chokiKariire?: boolean
     currentYearBunpaiRatio?: boolean
     fullYearBunpaiRatio?: boolean
     currentYearBunpaiRatioNonInvoice?: boolean
@@ -10208,6 +10416,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: boolean
     unitShintakuHiyoKazeiShiireForNonInvoice?: boolean
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: boolean
+    kazeiUriageSashihiki08?: boolean
+    kazeiUriageSashihiki10?: boolean
+    kazeiUriageHontai08?: boolean
+    kazeiUriageHontai10?: boolean
+    kazeiShiire100Kojo?: boolean
+    kazeiShiire100KojoNoTax?: boolean
+    kazeiShiire8050Kojo?: boolean
+    kazeiShiire8050KojoNoTax?: boolean
+    kazeiUriageOnlyApplyTax7p8?: boolean
+    kazeiUriageCommonApplyTax7p8?: boolean
+    koteiShisan80Kojo?: boolean
+    koteiShisan80KojoNoTax?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -10254,13 +10474,13 @@ export namespace Prisma {
       mlspcMarginIncludeTax: number | null
       totalUnit: number | null
       totalUnitNonInvoice: number | null
-      shintakuShueki: number | null
-      shintakuHiyo: number | null
-      sashihikiShintakuRieki: number | null
-      shintakuRieki: number | null
-      bunpaiRieki: number | null
-      bunpaiSogaku: number | null
-      bunpaiSogakuNonInvoice: number | null
+      shintakuShueki: bigint | null
+      shintakuHiyo: bigint | null
+      sashihikiShintakuRieki: bigint | null
+      shintakuRieki: bigint | null
+      bunpaiRieki: bigint | null
+      bunpaiSogaku: bigint | null
+      bunpaiSogakuNonInvoice: bigint | null
       kurikoshiRieki: number | null
       unitShintakuShueki: number | null
       unitShintakuHiyo: number | null
@@ -10270,28 +10490,30 @@ export namespace Prisma {
       unitGanponKuriire: number | null
       unitBunpai: number | null
       unitBunpaiForNonInvoice: number | null
-      shohiyoRyuhokin: number | null
-      shuzenTsumitatekin: number | null
-      azukarikinHenkanJunbikin: number | null
-      zeikinHokenryoJunbiKanjo: number | null
-      kyodoUnyuHiyoJunbiKanjo: number | null
-      risokuShiharaiJunbiKanjo: number | null
-      shihoTekiShishutsuJunbiKanjo: number | null
-      cashTrapJunbiKanjo: number | null
-      sonotaGenyokin: number | null
-      futuYokinTokiZandaka: number | null
-      zenkiKurikoshiRieki: number | null
-      shuzenTsumitatekinKuriire: number | null
+      shohiyoRyuhokin: bigint | null
+      shuzenTsumitatekin: bigint | null
+      azukarikinHenkanJunbikin: bigint | null
+      zeikinHokenryoJunbiKanjo: bigint | null
+      kyodoUnyuHiyoJunbiKanjo: bigint | null
+      risokuShiharaiJunbiKanjo: bigint | null
+      shihoTekiShishutsuJunbiKanjo: bigint | null
+      cashTrapJunbiKanjo: bigint | null
+      sonotaGenyokin: bigint | null
+      futuYokinTokiZandaka: bigint | null
+      zenkiKurikoshiRieki: bigint | null
+      shuzenTsumitatekinKuriire: bigint | null
+      mibaraiHiyo: bigint | null
+      chokiKariire: bigint | null
       currentYearBunpaiRatio: number | null
       fullYearBunpaiRatio: number | null
       currentYearBunpaiRatioNonInvoice: number | null
       fullYearBunpaiRatioNonInvoice: number | null
-      shintakuShuekiKazeiUriage: number | null
-      shintakuShuekiKazeiUriageShohizei: number | null
-      shintakuShuekiHikazeiUriage: number | null
-      shintakuHiyoKazeiShiire: number | null
-      shintakuHiyoKazeiShiireShohizei: number | null
-      shintakuHiyoHikazeiShiire: number | null
+      shintakuShuekiKazeiUriage: bigint | null
+      shintakuShuekiKazeiUriageShohizei: bigint | null
+      shintakuShuekiHikazeiUriage: bigint | null
+      shintakuHiyoKazeiShiire: bigint | null
+      shintakuHiyoKazeiShiireShohizei: bigint | null
+      shintakuHiyoHikazeiShiire: bigint | null
       unitShintakuShuekiKazeiUriage: number | null
       unitShintakuShuekiKazeiUriageShohizei: number | null
       unitShintakuShuekiHikazeiUriage: number | null
@@ -10300,6 +10522,18 @@ export namespace Prisma {
       unitShintakuHiyoHikazeiShiire: number | null
       unitShintakuHiyoKazeiShiireForNonInvoice: number | null
       unitShintakuHiyoKazeiShiireShohizeiForNonInvoice: number | null
+      kazeiUriageSashihiki08: bigint | null
+      kazeiUriageSashihiki10: bigint | null
+      kazeiUriageHontai08: bigint | null
+      kazeiUriageHontai10: bigint | null
+      kazeiShiire100Kojo: bigint | null
+      kazeiShiire100KojoNoTax: bigint | null
+      kazeiShiire8050Kojo: bigint | null
+      kazeiShiire8050KojoNoTax: bigint | null
+      kazeiUriageOnlyApplyTax7p8: bigint | null
+      kazeiUriageCommonApplyTax7p8: bigint | null
+      koteiShisan80Kojo: bigint | null
+      koteiShisan80KojoNoTax: bigint | null
       createdAt: Date
       createdId: string
       createdBy: string
@@ -10721,13 +10955,13 @@ export namespace Prisma {
     readonly mlspcMarginIncludeTax: FieldRef<"ProjectKi", 'Int'>
     readonly totalUnit: FieldRef<"ProjectKi", 'Int'>
     readonly totalUnitNonInvoice: FieldRef<"ProjectKi", 'Int'>
-    readonly shintakuShueki: FieldRef<"ProjectKi", 'Int'>
-    readonly shintakuHiyo: FieldRef<"ProjectKi", 'Int'>
-    readonly sashihikiShintakuRieki: FieldRef<"ProjectKi", 'Int'>
-    readonly shintakuRieki: FieldRef<"ProjectKi", 'Int'>
-    readonly bunpaiRieki: FieldRef<"ProjectKi", 'Int'>
-    readonly bunpaiSogaku: FieldRef<"ProjectKi", 'Int'>
-    readonly bunpaiSogakuNonInvoice: FieldRef<"ProjectKi", 'Int'>
+    readonly shintakuShueki: FieldRef<"ProjectKi", 'BigInt'>
+    readonly shintakuHiyo: FieldRef<"ProjectKi", 'BigInt'>
+    readonly sashihikiShintakuRieki: FieldRef<"ProjectKi", 'BigInt'>
+    readonly shintakuRieki: FieldRef<"ProjectKi", 'BigInt'>
+    readonly bunpaiRieki: FieldRef<"ProjectKi", 'BigInt'>
+    readonly bunpaiSogaku: FieldRef<"ProjectKi", 'BigInt'>
+    readonly bunpaiSogakuNonInvoice: FieldRef<"ProjectKi", 'BigInt'>
     readonly kurikoshiRieki: FieldRef<"ProjectKi", 'Int'>
     readonly unitShintakuShueki: FieldRef<"ProjectKi", 'Int'>
     readonly unitShintakuHiyo: FieldRef<"ProjectKi", 'Int'>
@@ -10737,28 +10971,30 @@ export namespace Prisma {
     readonly unitGanponKuriire: FieldRef<"ProjectKi", 'Int'>
     readonly unitBunpai: FieldRef<"ProjectKi", 'Int'>
     readonly unitBunpaiForNonInvoice: FieldRef<"ProjectKi", 'Int'>
-    readonly shohiyoRyuhokin: FieldRef<"ProjectKi", 'Int'>
-    readonly shuzenTsumitatekin: FieldRef<"ProjectKi", 'Int'>
-    readonly azukarikinHenkanJunbikin: FieldRef<"ProjectKi", 'Int'>
-    readonly zeikinHokenryoJunbiKanjo: FieldRef<"ProjectKi", 'Int'>
-    readonly kyodoUnyuHiyoJunbiKanjo: FieldRef<"ProjectKi", 'Int'>
-    readonly risokuShiharaiJunbiKanjo: FieldRef<"ProjectKi", 'Int'>
-    readonly shihoTekiShishutsuJunbiKanjo: FieldRef<"ProjectKi", 'Int'>
-    readonly cashTrapJunbiKanjo: FieldRef<"ProjectKi", 'Int'>
-    readonly sonotaGenyokin: FieldRef<"ProjectKi", 'Int'>
-    readonly futuYokinTokiZandaka: FieldRef<"ProjectKi", 'Int'>
-    readonly zenkiKurikoshiRieki: FieldRef<"ProjectKi", 'Int'>
-    readonly shuzenTsumitatekinKuriire: FieldRef<"ProjectKi", 'Int'>
+    readonly shohiyoRyuhokin: FieldRef<"ProjectKi", 'BigInt'>
+    readonly shuzenTsumitatekin: FieldRef<"ProjectKi", 'BigInt'>
+    readonly azukarikinHenkanJunbikin: FieldRef<"ProjectKi", 'BigInt'>
+    readonly zeikinHokenryoJunbiKanjo: FieldRef<"ProjectKi", 'BigInt'>
+    readonly kyodoUnyuHiyoJunbiKanjo: FieldRef<"ProjectKi", 'BigInt'>
+    readonly risokuShiharaiJunbiKanjo: FieldRef<"ProjectKi", 'BigInt'>
+    readonly shihoTekiShishutsuJunbiKanjo: FieldRef<"ProjectKi", 'BigInt'>
+    readonly cashTrapJunbiKanjo: FieldRef<"ProjectKi", 'BigInt'>
+    readonly sonotaGenyokin: FieldRef<"ProjectKi", 'BigInt'>
+    readonly futuYokinTokiZandaka: FieldRef<"ProjectKi", 'BigInt'>
+    readonly zenkiKurikoshiRieki: FieldRef<"ProjectKi", 'BigInt'>
+    readonly shuzenTsumitatekinKuriire: FieldRef<"ProjectKi", 'BigInt'>
+    readonly mibaraiHiyo: FieldRef<"ProjectKi", 'BigInt'>
+    readonly chokiKariire: FieldRef<"ProjectKi", 'BigInt'>
     readonly currentYearBunpaiRatio: FieldRef<"ProjectKi", 'Float'>
     readonly fullYearBunpaiRatio: FieldRef<"ProjectKi", 'Float'>
     readonly currentYearBunpaiRatioNonInvoice: FieldRef<"ProjectKi", 'Float'>
     readonly fullYearBunpaiRatioNonInvoice: FieldRef<"ProjectKi", 'Float'>
-    readonly shintakuShuekiKazeiUriage: FieldRef<"ProjectKi", 'Int'>
-    readonly shintakuShuekiKazeiUriageShohizei: FieldRef<"ProjectKi", 'Int'>
-    readonly shintakuShuekiHikazeiUriage: FieldRef<"ProjectKi", 'Int'>
-    readonly shintakuHiyoKazeiShiire: FieldRef<"ProjectKi", 'Int'>
-    readonly shintakuHiyoKazeiShiireShohizei: FieldRef<"ProjectKi", 'Int'>
-    readonly shintakuHiyoHikazeiShiire: FieldRef<"ProjectKi", 'Int'>
+    readonly shintakuShuekiKazeiUriage: FieldRef<"ProjectKi", 'BigInt'>
+    readonly shintakuShuekiKazeiUriageShohizei: FieldRef<"ProjectKi", 'BigInt'>
+    readonly shintakuShuekiHikazeiUriage: FieldRef<"ProjectKi", 'BigInt'>
+    readonly shintakuHiyoKazeiShiire: FieldRef<"ProjectKi", 'BigInt'>
+    readonly shintakuHiyoKazeiShiireShohizei: FieldRef<"ProjectKi", 'BigInt'>
+    readonly shintakuHiyoHikazeiShiire: FieldRef<"ProjectKi", 'BigInt'>
     readonly unitShintakuShuekiKazeiUriage: FieldRef<"ProjectKi", 'Int'>
     readonly unitShintakuShuekiKazeiUriageShohizei: FieldRef<"ProjectKi", 'Int'>
     readonly unitShintakuShuekiHikazeiUriage: FieldRef<"ProjectKi", 'Int'>
@@ -10767,6 +11003,18 @@ export namespace Prisma {
     readonly unitShintakuHiyoHikazeiShiire: FieldRef<"ProjectKi", 'Int'>
     readonly unitShintakuHiyoKazeiShiireForNonInvoice: FieldRef<"ProjectKi", 'Int'>
     readonly unitShintakuHiyoKazeiShiireShohizeiForNonInvoice: FieldRef<"ProjectKi", 'Int'>
+    readonly kazeiUriageSashihiki08: FieldRef<"ProjectKi", 'BigInt'>
+    readonly kazeiUriageSashihiki10: FieldRef<"ProjectKi", 'BigInt'>
+    readonly kazeiUriageHontai08: FieldRef<"ProjectKi", 'BigInt'>
+    readonly kazeiUriageHontai10: FieldRef<"ProjectKi", 'BigInt'>
+    readonly kazeiShiire100Kojo: FieldRef<"ProjectKi", 'BigInt'>
+    readonly kazeiShiire100KojoNoTax: FieldRef<"ProjectKi", 'BigInt'>
+    readonly kazeiShiire8050Kojo: FieldRef<"ProjectKi", 'BigInt'>
+    readonly kazeiShiire8050KojoNoTax: FieldRef<"ProjectKi", 'BigInt'>
+    readonly kazeiUriageOnlyApplyTax7p8: FieldRef<"ProjectKi", 'BigInt'>
+    readonly kazeiUriageCommonApplyTax7p8: FieldRef<"ProjectKi", 'BigInt'>
+    readonly koteiShisan80Kojo: FieldRef<"ProjectKi", 'BigInt'>
+    readonly koteiShisan80KojoNoTax: FieldRef<"ProjectKi", 'BigInt'>
     readonly createdAt: FieldRef<"ProjectKi", 'DateTime'>
     readonly createdId: FieldRef<"ProjectKi", 'String'>
     readonly createdBy: FieldRef<"ProjectKi", 'String'>
@@ -11142,6 +11390,10 @@ export namespace Prisma {
     debit: number | null
     credit: number | null
     balance: number | null
+    prevBalanceNoTax: number | null
+    debitNoTax: number | null
+    creditNoTax: number | null
+    balanceNoTax: number | null
     orderBy: number | null
     totalUnit: number | null
   }
@@ -11151,6 +11403,10 @@ export namespace Prisma {
     debit: bigint | null
     credit: bigint | null
     balance: bigint | null
+    prevBalanceNoTax: bigint | null
+    debitNoTax: bigint | null
+    creditNoTax: bigint | null
+    balanceNoTax: bigint | null
     orderBy: number | null
     totalUnit: number | null
   }
@@ -11166,6 +11422,10 @@ export namespace Prisma {
     debit: bigint | null
     credit: bigint | null
     balance: bigint | null
+    prevBalanceNoTax: bigint | null
+    debitNoTax: bigint | null
+    creditNoTax: bigint | null
+    balanceNoTax: bigint | null
     orderBy: number | null
     totalUnit: number | null
     createdAt: Date | null
@@ -11187,6 +11447,10 @@ export namespace Prisma {
     debit: bigint | null
     credit: bigint | null
     balance: bigint | null
+    prevBalanceNoTax: bigint | null
+    debitNoTax: bigint | null
+    creditNoTax: bigint | null
+    balanceNoTax: bigint | null
     orderBy: number | null
     totalUnit: number | null
     createdAt: Date | null
@@ -11208,6 +11472,10 @@ export namespace Prisma {
     debit: number
     credit: number
     balance: number
+    prevBalanceNoTax: number
+    debitNoTax: number
+    creditNoTax: number
+    balanceNoTax: number
     orderBy: number
     totalUnit: number
     createdAt: number
@@ -11225,6 +11493,10 @@ export namespace Prisma {
     debit?: true
     credit?: true
     balance?: true
+    prevBalanceNoTax?: true
+    debitNoTax?: true
+    creditNoTax?: true
+    balanceNoTax?: true
     orderBy?: true
     totalUnit?: true
   }
@@ -11234,6 +11506,10 @@ export namespace Prisma {
     debit?: true
     credit?: true
     balance?: true
+    prevBalanceNoTax?: true
+    debitNoTax?: true
+    creditNoTax?: true
+    balanceNoTax?: true
     orderBy?: true
     totalUnit?: true
   }
@@ -11249,6 +11525,10 @@ export namespace Prisma {
     debit?: true
     credit?: true
     balance?: true
+    prevBalanceNoTax?: true
+    debitNoTax?: true
+    creditNoTax?: true
+    balanceNoTax?: true
     orderBy?: true
     totalUnit?: true
     createdAt?: true
@@ -11270,6 +11550,10 @@ export namespace Prisma {
     debit?: true
     credit?: true
     balance?: true
+    prevBalanceNoTax?: true
+    debitNoTax?: true
+    creditNoTax?: true
+    balanceNoTax?: true
     orderBy?: true
     totalUnit?: true
     createdAt?: true
@@ -11291,6 +11575,10 @@ export namespace Prisma {
     debit?: true
     credit?: true
     balance?: true
+    prevBalanceNoTax?: true
+    debitNoTax?: true
+    creditNoTax?: true
+    balanceNoTax?: true
     orderBy?: true
     totalUnit?: true
     createdAt?: true
@@ -11399,6 +11687,10 @@ export namespace Prisma {
     debit: bigint
     credit: bigint
     balance: bigint
+    prevBalanceNoTax: bigint
+    debitNoTax: bigint
+    creditNoTax: bigint
+    balanceNoTax: bigint
     orderBy: number
     totalUnit: number
     createdAt: Date
@@ -11439,6 +11731,10 @@ export namespace Prisma {
     debit?: boolean
     credit?: boolean
     balance?: boolean
+    prevBalanceNoTax?: boolean
+    debitNoTax?: boolean
+    creditNoTax?: boolean
+    balanceNoTax?: boolean
     orderBy?: boolean
     totalUnit?: boolean
     createdAt?: boolean
@@ -11460,6 +11756,10 @@ export namespace Prisma {
     debit?: boolean
     credit?: boolean
     balance?: boolean
+    prevBalanceNoTax?: boolean
+    debitNoTax?: boolean
+    creditNoTax?: boolean
+    balanceNoTax?: boolean
     orderBy?: boolean
     totalUnit?: boolean
     createdAt?: boolean
@@ -11481,6 +11781,10 @@ export namespace Prisma {
     debit?: boolean
     credit?: boolean
     balance?: boolean
+    prevBalanceNoTax?: boolean
+    debitNoTax?: boolean
+    creditNoTax?: boolean
+    balanceNoTax?: boolean
     orderBy?: boolean
     totalUnit?: boolean
     createdAt?: boolean
@@ -11506,6 +11810,10 @@ export namespace Prisma {
       debit: bigint
       credit: bigint
       balance: bigint
+      prevBalanceNoTax: bigint
+      debitNoTax: bigint
+      creditNoTax: bigint
+      balanceNoTax: bigint
       orderBy: number
       totalUnit: number
       createdAt: Date
@@ -11917,6 +12225,10 @@ export namespace Prisma {
     readonly debit: FieldRef<"ProjectKiBS", 'BigInt'>
     readonly credit: FieldRef<"ProjectKiBS", 'BigInt'>
     readonly balance: FieldRef<"ProjectKiBS", 'BigInt'>
+    readonly prevBalanceNoTax: FieldRef<"ProjectKiBS", 'BigInt'>
+    readonly debitNoTax: FieldRef<"ProjectKiBS", 'BigInt'>
+    readonly creditNoTax: FieldRef<"ProjectKiBS", 'BigInt'>
+    readonly balanceNoTax: FieldRef<"ProjectKiBS", 'BigInt'>
     readonly orderBy: FieldRef<"ProjectKiBS", 'Int'>
     readonly totalUnit: FieldRef<"ProjectKiBS", 'Int'>
     readonly createdAt: FieldRef<"ProjectKiBS", 'DateTime'>
@@ -12227,12 +12539,14 @@ export namespace Prisma {
 
   export type ProjectKiPLAvgAggregateOutputType = {
     amount: number | null
+    amountNoTax: number | null
     orderBy: number | null
     totalUnit: number | null
   }
 
   export type ProjectKiPLSumAggregateOutputType = {
     amount: bigint | null
+    amountNoTax: bigint | null
     orderBy: number | null
     totalUnit: number | null
   }
@@ -12245,6 +12559,7 @@ export namespace Prisma {
     plType: $Enums.PLType | null
     account: string | null
     amount: bigint | null
+    amountNoTax: bigint | null
     orderBy: number | null
     totalUnit: number | null
     createdAt: Date | null
@@ -12263,6 +12578,7 @@ export namespace Prisma {
     plType: $Enums.PLType | null
     account: string | null
     amount: bigint | null
+    amountNoTax: bigint | null
     orderBy: number | null
     totalUnit: number | null
     createdAt: Date | null
@@ -12281,6 +12597,7 @@ export namespace Prisma {
     plType: number
     account: number
     amount: number
+    amountNoTax: number
     orderBy: number
     totalUnit: number
     createdAt: number
@@ -12295,12 +12612,14 @@ export namespace Prisma {
 
   export type ProjectKiPLAvgAggregateInputType = {
     amount?: true
+    amountNoTax?: true
     orderBy?: true
     totalUnit?: true
   }
 
   export type ProjectKiPLSumAggregateInputType = {
     amount?: true
+    amountNoTax?: true
     orderBy?: true
     totalUnit?: true
   }
@@ -12313,6 +12632,7 @@ export namespace Prisma {
     plType?: true
     account?: true
     amount?: true
+    amountNoTax?: true
     orderBy?: true
     totalUnit?: true
     createdAt?: true
@@ -12331,6 +12651,7 @@ export namespace Prisma {
     plType?: true
     account?: true
     amount?: true
+    amountNoTax?: true
     orderBy?: true
     totalUnit?: true
     createdAt?: true
@@ -12349,6 +12670,7 @@ export namespace Prisma {
     plType?: true
     account?: true
     amount?: true
+    amountNoTax?: true
     orderBy?: true
     totalUnit?: true
     createdAt?: true
@@ -12454,6 +12776,7 @@ export namespace Prisma {
     plType: $Enums.PLType
     account: string
     amount: bigint
+    amountNoTax: bigint
     orderBy: number
     totalUnit: number
     createdAt: Date
@@ -12491,6 +12814,7 @@ export namespace Prisma {
     plType?: boolean
     account?: boolean
     amount?: boolean
+    amountNoTax?: boolean
     orderBy?: boolean
     totalUnit?: boolean
     createdAt?: boolean
@@ -12509,6 +12833,7 @@ export namespace Prisma {
     plType?: boolean
     account?: boolean
     amount?: boolean
+    amountNoTax?: boolean
     orderBy?: boolean
     totalUnit?: boolean
     createdAt?: boolean
@@ -12527,6 +12852,7 @@ export namespace Prisma {
     plType?: boolean
     account?: boolean
     amount?: boolean
+    amountNoTax?: boolean
     orderBy?: boolean
     totalUnit?: boolean
     createdAt?: boolean
@@ -12549,6 +12875,7 @@ export namespace Prisma {
       plType: $Enums.PLType
       account: string
       amount: bigint
+      amountNoTax: bigint
       orderBy: number
       totalUnit: number
       createdAt: Date
@@ -12957,6 +13284,7 @@ export namespace Prisma {
     readonly plType: FieldRef<"ProjectKiPL", 'PLType'>
     readonly account: FieldRef<"ProjectKiPL", 'String'>
     readonly amount: FieldRef<"ProjectKiPL", 'BigInt'>
+    readonly amountNoTax: FieldRef<"ProjectKiPL", 'BigInt'>
     readonly orderBy: FieldRef<"ProjectKiPL", 'Int'>
     readonly totalUnit: FieldRef<"ProjectKiPL", 'Int'>
     readonly createdAt: FieldRef<"ProjectKiPL", 'DateTime'>
@@ -13259,8 +13587,18 @@ export namespace Prisma {
 
   export type AggregateAsset = {
     _count: AssetCountAggregateOutputType | null
+    _avg: AssetAvgAggregateOutputType | null
+    _sum: AssetSumAggregateOutputType | null
     _min: AssetMinAggregateOutputType | null
     _max: AssetMaxAggregateOutputType | null
+  }
+
+  export type AssetAvgAggregateOutputType = {
+    leaseArea: number | null
+  }
+
+  export type AssetSumAggregateOutputType = {
+    leaseArea: number | null
   }
 
   export type AssetMinAggregateOutputType = {
@@ -13274,6 +13612,11 @@ export namespace Prisma {
     BuildingValuationPos: string | null
     LandEquityValuationPos: string | null
     LandSelfValuationPos: string | null
+    UnitResidenceLandValuationStartPos: string | null
+    UnitResidenceBuildingValuationStartPos: string | null
+    leaseType: string | null
+    landUseZone: string | null
+    leaseArea: number | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -13293,6 +13636,11 @@ export namespace Prisma {
     BuildingValuationPos: string | null
     LandEquityValuationPos: string | null
     LandSelfValuationPos: string | null
+    UnitResidenceLandValuationStartPos: string | null
+    UnitResidenceBuildingValuationStartPos: string | null
+    leaseType: string | null
+    landUseZone: string | null
+    leaseArea: number | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -13312,6 +13660,11 @@ export namespace Prisma {
     BuildingValuationPos: number
     LandEquityValuationPos: number
     LandSelfValuationPos: number
+    UnitResidenceLandValuationStartPos: number
+    UnitResidenceBuildingValuationStartPos: number
+    leaseType: number
+    landUseZone: number
+    leaseArea: number
     createdAt: number
     createdId: number
     createdBy: number
@@ -13321,6 +13674,14 @@ export namespace Prisma {
     _all: number
   }
 
+
+  export type AssetAvgAggregateInputType = {
+    leaseArea?: true
+  }
+
+  export type AssetSumAggregateInputType = {
+    leaseArea?: true
+  }
 
   export type AssetMinAggregateInputType = {
     id?: true
@@ -13333,6 +13694,11 @@ export namespace Prisma {
     BuildingValuationPos?: true
     LandEquityValuationPos?: true
     LandSelfValuationPos?: true
+    UnitResidenceLandValuationStartPos?: true
+    UnitResidenceBuildingValuationStartPos?: true
+    leaseType?: true
+    landUseZone?: true
+    leaseArea?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -13352,6 +13718,11 @@ export namespace Prisma {
     BuildingValuationPos?: true
     LandEquityValuationPos?: true
     LandSelfValuationPos?: true
+    UnitResidenceLandValuationStartPos?: true
+    UnitResidenceBuildingValuationStartPos?: true
+    leaseType?: true
+    landUseZone?: true
+    leaseArea?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -13371,6 +13742,11 @@ export namespace Prisma {
     BuildingValuationPos?: true
     LandEquityValuationPos?: true
     LandSelfValuationPos?: true
+    UnitResidenceLandValuationStartPos?: true
+    UnitResidenceBuildingValuationStartPos?: true
+    leaseType?: true
+    landUseZone?: true
+    leaseArea?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -13418,6 +13794,18 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
+     * Select which fields to average
+    **/
+    _avg?: AssetAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AssetSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
      * Select which fields to find the minimum value
     **/
     _min?: AssetMinAggregateInputType
@@ -13448,6 +13836,8 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: AssetCountAggregateInputType | true
+    _avg?: AssetAvgAggregateInputType
+    _sum?: AssetSumAggregateInputType
     _min?: AssetMinAggregateInputType
     _max?: AssetMaxAggregateInputType
   }
@@ -13463,6 +13853,11 @@ export namespace Prisma {
     BuildingValuationPos: string
     LandEquityValuationPos: string
     LandSelfValuationPos: string
+    UnitResidenceLandValuationStartPos: string
+    UnitResidenceBuildingValuationStartPos: string
+    leaseType: string
+    landUseZone: string
+    leaseArea: number | null
     createdAt: Date
     createdId: string
     createdBy: string
@@ -13470,6 +13865,8 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     _count: AssetCountAggregateOutputType | null
+    _avg: AssetAvgAggregateOutputType | null
+    _sum: AssetSumAggregateOutputType | null
     _min: AssetMinAggregateOutputType | null
     _max: AssetMaxAggregateOutputType | null
   }
@@ -13499,6 +13896,11 @@ export namespace Prisma {
     BuildingValuationPos?: boolean
     LandEquityValuationPos?: boolean
     LandSelfValuationPos?: boolean
+    UnitResidenceLandValuationStartPos?: boolean
+    UnitResidenceBuildingValuationStartPos?: boolean
+    leaseType?: boolean
+    landUseZone?: boolean
+    leaseArea?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -13521,6 +13923,11 @@ export namespace Prisma {
     BuildingValuationPos?: boolean
     LandEquityValuationPos?: boolean
     LandSelfValuationPos?: boolean
+    UnitResidenceLandValuationStartPos?: boolean
+    UnitResidenceBuildingValuationStartPos?: boolean
+    leaseType?: boolean
+    landUseZone?: boolean
+    leaseArea?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -13541,6 +13948,11 @@ export namespace Prisma {
     BuildingValuationPos?: boolean
     LandEquityValuationPos?: boolean
     LandSelfValuationPos?: boolean
+    UnitResidenceLandValuationStartPos?: boolean
+    UnitResidenceBuildingValuationStartPos?: boolean
+    leaseType?: boolean
+    landUseZone?: boolean
+    leaseArea?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -13575,6 +13987,11 @@ export namespace Prisma {
       BuildingValuationPos: string
       LandEquityValuationPos: string
       LandSelfValuationPos: string
+      UnitResidenceLandValuationStartPos: string
+      UnitResidenceBuildingValuationStartPos: string
+      leaseType: string
+      landUseZone: string
+      leaseArea: number | null
       createdAt: Date
       createdId: string
       createdBy: string
@@ -13986,6 +14403,11 @@ export namespace Prisma {
     readonly BuildingValuationPos: FieldRef<"Asset", 'String'>
     readonly LandEquityValuationPos: FieldRef<"Asset", 'String'>
     readonly LandSelfValuationPos: FieldRef<"Asset", 'String'>
+    readonly UnitResidenceLandValuationStartPos: FieldRef<"Asset", 'String'>
+    readonly UnitResidenceBuildingValuationStartPos: FieldRef<"Asset", 'String'>
+    readonly leaseType: FieldRef<"Asset", 'String'>
+    readonly landUseZone: FieldRef<"Asset", 'String'>
+    readonly leaseArea: FieldRef<"Asset", 'Float'>
     readonly createdAt: FieldRef<"Asset", 'DateTime'>
     readonly createdId: FieldRef<"Asset", 'String'>
     readonly createdBy: FieldRef<"Asset", 'String'>
@@ -14363,6 +14785,18 @@ export namespace Prisma {
     pmPerformanceRate: number | null
     pmPerformanceRatePercent: number | null
     valuationStatementSize: number | null
+    landEvaluation: number | null
+    buildingEvaluation: number | null
+    rent: number | null
+    rentNoTax: number | null
+    keyMoney: number | null
+    keyMoneyNoTax: number | null
+    renewalFee: number | null
+    renewalFeeNoTax: number | null
+    otherFee: number | null
+    otherFeeNoTax: number | null
+    deposit: number | null
+    depositNoTax: number | null
   }
 
   export type AssetKiSumAggregateOutputType = {
@@ -14372,6 +14806,18 @@ export namespace Prisma {
     pmPerformanceRate: number | null
     pmPerformanceRatePercent: number | null
     valuationStatementSize: number | null
+    landEvaluation: bigint | null
+    buildingEvaluation: bigint | null
+    rent: bigint | null
+    rentNoTax: bigint | null
+    keyMoney: bigint | null
+    keyMoneyNoTax: bigint | null
+    renewalFee: bigint | null
+    renewalFeeNoTax: bigint | null
+    otherFee: bigint | null
+    otherFeeNoTax: bigint | null
+    deposit: bigint | null
+    depositNoTax: bigint | null
   }
 
   export type AssetKiMinAggregateOutputType = {
@@ -14392,6 +14838,18 @@ export namespace Prisma {
     valuationStatementFile: Buffer | null
     valuationStatementName: string | null
     valuationStatementSize: number | null
+    landEvaluation: bigint | null
+    buildingEvaluation: bigint | null
+    rent: bigint | null
+    rentNoTax: bigint | null
+    keyMoney: bigint | null
+    keyMoneyNoTax: bigint | null
+    renewalFee: bigint | null
+    renewalFeeNoTax: bigint | null
+    otherFee: bigint | null
+    otherFeeNoTax: bigint | null
+    deposit: bigint | null
+    depositNoTax: bigint | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -14418,6 +14876,18 @@ export namespace Prisma {
     valuationStatementFile: Buffer | null
     valuationStatementName: string | null
     valuationStatementSize: number | null
+    landEvaluation: bigint | null
+    buildingEvaluation: bigint | null
+    rent: bigint | null
+    rentNoTax: bigint | null
+    keyMoney: bigint | null
+    keyMoneyNoTax: bigint | null
+    renewalFee: bigint | null
+    renewalFeeNoTax: bigint | null
+    otherFee: bigint | null
+    otherFeeNoTax: bigint | null
+    deposit: bigint | null
+    depositNoTax: bigint | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -14444,6 +14914,18 @@ export namespace Prisma {
     valuationStatementFile: number
     valuationStatementName: number
     valuationStatementSize: number
+    landEvaluation: number
+    buildingEvaluation: number
+    rent: number
+    rentNoTax: number
+    keyMoney: number
+    keyMoneyNoTax: number
+    renewalFee: number
+    renewalFeeNoTax: number
+    otherFee: number
+    otherFeeNoTax: number
+    deposit: number
+    depositNoTax: number
     createdAt: number
     createdId: number
     createdBy: number
@@ -14461,6 +14943,18 @@ export namespace Prisma {
     pmPerformanceRate?: true
     pmPerformanceRatePercent?: true
     valuationStatementSize?: true
+    landEvaluation?: true
+    buildingEvaluation?: true
+    rent?: true
+    rentNoTax?: true
+    keyMoney?: true
+    keyMoneyNoTax?: true
+    renewalFee?: true
+    renewalFeeNoTax?: true
+    otherFee?: true
+    otherFeeNoTax?: true
+    deposit?: true
+    depositNoTax?: true
   }
 
   export type AssetKiSumAggregateInputType = {
@@ -14470,6 +14964,18 @@ export namespace Prisma {
     pmPerformanceRate?: true
     pmPerformanceRatePercent?: true
     valuationStatementSize?: true
+    landEvaluation?: true
+    buildingEvaluation?: true
+    rent?: true
+    rentNoTax?: true
+    keyMoney?: true
+    keyMoneyNoTax?: true
+    renewalFee?: true
+    renewalFeeNoTax?: true
+    otherFee?: true
+    otherFeeNoTax?: true
+    deposit?: true
+    depositNoTax?: true
   }
 
   export type AssetKiMinAggregateInputType = {
@@ -14490,6 +14996,18 @@ export namespace Prisma {
     valuationStatementFile?: true
     valuationStatementName?: true
     valuationStatementSize?: true
+    landEvaluation?: true
+    buildingEvaluation?: true
+    rent?: true
+    rentNoTax?: true
+    keyMoney?: true
+    keyMoneyNoTax?: true
+    renewalFee?: true
+    renewalFeeNoTax?: true
+    otherFee?: true
+    otherFeeNoTax?: true
+    deposit?: true
+    depositNoTax?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -14516,6 +15034,18 @@ export namespace Prisma {
     valuationStatementFile?: true
     valuationStatementName?: true
     valuationStatementSize?: true
+    landEvaluation?: true
+    buildingEvaluation?: true
+    rent?: true
+    rentNoTax?: true
+    keyMoney?: true
+    keyMoneyNoTax?: true
+    renewalFee?: true
+    renewalFeeNoTax?: true
+    otherFee?: true
+    otherFeeNoTax?: true
+    deposit?: true
+    depositNoTax?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -14542,6 +15072,18 @@ export namespace Prisma {
     valuationStatementFile?: true
     valuationStatementName?: true
     valuationStatementSize?: true
+    landEvaluation?: true
+    buildingEvaluation?: true
+    rent?: true
+    rentNoTax?: true
+    keyMoney?: true
+    keyMoneyNoTax?: true
+    renewalFee?: true
+    renewalFeeNoTax?: true
+    otherFee?: true
+    otherFeeNoTax?: true
+    deposit?: true
+    depositNoTax?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -14655,6 +15197,18 @@ export namespace Prisma {
     valuationStatementFile: Buffer | null
     valuationStatementName: string | null
     valuationStatementSize: number | null
+    landEvaluation: bigint | null
+    buildingEvaluation: bigint | null
+    rent: bigint | null
+    rentNoTax: bigint | null
+    keyMoney: bigint | null
+    keyMoneyNoTax: bigint | null
+    renewalFee: bigint | null
+    renewalFeeNoTax: bigint | null
+    otherFee: bigint | null
+    otherFeeNoTax: bigint | null
+    deposit: bigint | null
+    depositNoTax: bigint | null
     createdAt: Date
     createdId: string
     createdBy: string
@@ -14700,6 +15254,18 @@ export namespace Prisma {
     valuationStatementFile?: boolean
     valuationStatementName?: boolean
     valuationStatementSize?: boolean
+    landEvaluation?: boolean
+    buildingEvaluation?: boolean
+    rent?: boolean
+    rentNoTax?: boolean
+    keyMoney?: boolean
+    keyMoneyNoTax?: boolean
+    renewalFee?: boolean
+    renewalFeeNoTax?: boolean
+    otherFee?: boolean
+    otherFeeNoTax?: boolean
+    deposit?: boolean
+    depositNoTax?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -14728,6 +15294,18 @@ export namespace Prisma {
     valuationStatementFile?: boolean
     valuationStatementName?: boolean
     valuationStatementSize?: boolean
+    landEvaluation?: boolean
+    buildingEvaluation?: boolean
+    rent?: boolean
+    rentNoTax?: boolean
+    keyMoney?: boolean
+    keyMoneyNoTax?: boolean
+    renewalFee?: boolean
+    renewalFeeNoTax?: boolean
+    otherFee?: boolean
+    otherFeeNoTax?: boolean
+    deposit?: boolean
+    depositNoTax?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -14756,6 +15334,18 @@ export namespace Prisma {
     valuationStatementFile?: boolean
     valuationStatementName?: boolean
     valuationStatementSize?: boolean
+    landEvaluation?: boolean
+    buildingEvaluation?: boolean
+    rent?: boolean
+    rentNoTax?: boolean
+    keyMoney?: boolean
+    keyMoneyNoTax?: boolean
+    renewalFee?: boolean
+    renewalFeeNoTax?: boolean
+    otherFee?: boolean
+    otherFeeNoTax?: boolean
+    deposit?: boolean
+    depositNoTax?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -14797,6 +15387,18 @@ export namespace Prisma {
       valuationStatementFile: Buffer | null
       valuationStatementName: string | null
       valuationStatementSize: number | null
+      landEvaluation: bigint | null
+      buildingEvaluation: bigint | null
+      rent: bigint | null
+      rentNoTax: bigint | null
+      keyMoney: bigint | null
+      keyMoneyNoTax: bigint | null
+      renewalFee: bigint | null
+      renewalFeeNoTax: bigint | null
+      otherFee: bigint | null
+      otherFeeNoTax: bigint | null
+      deposit: bigint | null
+      depositNoTax: bigint | null
       createdAt: Date
       createdId: string
       createdBy: string
@@ -15215,6 +15817,18 @@ export namespace Prisma {
     readonly valuationStatementFile: FieldRef<"AssetKi", 'Bytes'>
     readonly valuationStatementName: FieldRef<"AssetKi", 'String'>
     readonly valuationStatementSize: FieldRef<"AssetKi", 'Int'>
+    readonly landEvaluation: FieldRef<"AssetKi", 'BigInt'>
+    readonly buildingEvaluation: FieldRef<"AssetKi", 'BigInt'>
+    readonly rent: FieldRef<"AssetKi", 'BigInt'>
+    readonly rentNoTax: FieldRef<"AssetKi", 'BigInt'>
+    readonly keyMoney: FieldRef<"AssetKi", 'BigInt'>
+    readonly keyMoneyNoTax: FieldRef<"AssetKi", 'BigInt'>
+    readonly renewalFee: FieldRef<"AssetKi", 'BigInt'>
+    readonly renewalFeeNoTax: FieldRef<"AssetKi", 'BigInt'>
+    readonly otherFee: FieldRef<"AssetKi", 'BigInt'>
+    readonly otherFeeNoTax: FieldRef<"AssetKi", 'BigInt'>
+    readonly deposit: FieldRef<"AssetKi", 'BigInt'>
+    readonly depositNoTax: FieldRef<"AssetKi", 'BigInt'>
     readonly createdAt: FieldRef<"AssetKi", 'DateTime'>
     readonly createdId: FieldRef<"AssetKi", 'String'>
     readonly createdBy: FieldRef<"AssetKi", 'String'>
@@ -23353,6 +23967,8 @@ export namespace Prisma {
     settlorGkAddress: 'settlorGkAddress',
     kamiyachoFlag: 'kamiyachoFlag',
     mlspcFlag: 'mlspcFlag',
+    leverageFlag: 'leverageFlag',
+    unitResidenceFlag: 'unitResidenceFlag',
     reportMainId: 'reportMainId',
     reportAtt2Id: 'reportAtt2Id',
     reportAtt3Id: 'reportAtt3Id',
@@ -23417,6 +24033,8 @@ export namespace Prisma {
     futuYokinTokiZandaka: 'futuYokinTokiZandaka',
     zenkiKurikoshiRieki: 'zenkiKurikoshiRieki',
     shuzenTsumitatekinKuriire: 'shuzenTsumitatekinKuriire',
+    mibaraiHiyo: 'mibaraiHiyo',
+    chokiKariire: 'chokiKariire',
     currentYearBunpaiRatio: 'currentYearBunpaiRatio',
     fullYearBunpaiRatio: 'fullYearBunpaiRatio',
     currentYearBunpaiRatioNonInvoice: 'currentYearBunpaiRatioNonInvoice',
@@ -23435,6 +24053,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire: 'unitShintakuHiyoHikazeiShiire',
     unitShintakuHiyoKazeiShiireForNonInvoice: 'unitShintakuHiyoKazeiShiireForNonInvoice',
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice: 'unitShintakuHiyoKazeiShiireShohizeiForNonInvoice',
+    kazeiUriageSashihiki08: 'kazeiUriageSashihiki08',
+    kazeiUriageSashihiki10: 'kazeiUriageSashihiki10',
+    kazeiUriageHontai08: 'kazeiUriageHontai08',
+    kazeiUriageHontai10: 'kazeiUriageHontai10',
+    kazeiShiire100Kojo: 'kazeiShiire100Kojo',
+    kazeiShiire100KojoNoTax: 'kazeiShiire100KojoNoTax',
+    kazeiShiire8050Kojo: 'kazeiShiire8050Kojo',
+    kazeiShiire8050KojoNoTax: 'kazeiShiire8050KojoNoTax',
+    kazeiUriageOnlyApplyTax7p8: 'kazeiUriageOnlyApplyTax7p8',
+    kazeiUriageCommonApplyTax7p8: 'kazeiUriageCommonApplyTax7p8',
+    koteiShisan80Kojo: 'koteiShisan80Kojo',
+    koteiShisan80KojoNoTax: 'koteiShisan80KojoNoTax',
     createdAt: 'createdAt',
     createdId: 'createdId',
     createdBy: 'createdBy',
@@ -23457,6 +24087,10 @@ export namespace Prisma {
     debit: 'debit',
     credit: 'credit',
     balance: 'balance',
+    prevBalanceNoTax: 'prevBalanceNoTax',
+    debitNoTax: 'debitNoTax',
+    creditNoTax: 'creditNoTax',
+    balanceNoTax: 'balanceNoTax',
     orderBy: 'orderBy',
     totalUnit: 'totalUnit',
     createdAt: 'createdAt',
@@ -23478,6 +24112,7 @@ export namespace Prisma {
     plType: 'plType',
     account: 'account',
     amount: 'amount',
+    amountNoTax: 'amountNoTax',
     orderBy: 'orderBy',
     totalUnit: 'totalUnit',
     createdAt: 'createdAt',
@@ -23502,6 +24137,11 @@ export namespace Prisma {
     BuildingValuationPos: 'BuildingValuationPos',
     LandEquityValuationPos: 'LandEquityValuationPos',
     LandSelfValuationPos: 'LandSelfValuationPos',
+    UnitResidenceLandValuationStartPos: 'UnitResidenceLandValuationStartPos',
+    UnitResidenceBuildingValuationStartPos: 'UnitResidenceBuildingValuationStartPos',
+    leaseType: 'leaseType',
+    landUseZone: 'landUseZone',
+    leaseArea: 'leaseArea',
     createdAt: 'createdAt',
     createdId: 'createdId',
     createdBy: 'createdBy',
@@ -23531,6 +24171,18 @@ export namespace Prisma {
     valuationStatementFile: 'valuationStatementFile',
     valuationStatementName: 'valuationStatementName',
     valuationStatementSize: 'valuationStatementSize',
+    landEvaluation: 'landEvaluation',
+    buildingEvaluation: 'buildingEvaluation',
+    rent: 'rent',
+    rentNoTax: 'rentNoTax',
+    keyMoney: 'keyMoney',
+    keyMoneyNoTax: 'keyMoneyNoTax',
+    renewalFee: 'renewalFee',
+    renewalFeeNoTax: 'renewalFeeNoTax',
+    otherFee: 'otherFee',
+    otherFeeNoTax: 'otherFeeNoTax',
+    deposit: 'deposit',
+    depositNoTax: 'depositNoTax',
     createdAt: 'createdAt',
     createdId: 'createdId',
     createdBy: 'createdBy',
@@ -24453,6 +25105,8 @@ export namespace Prisma {
     settlorGkAddress?: StringFilter<"Project"> | string
     kamiyachoFlag?: BoolFilter<"Project"> | boolean
     mlspcFlag?: BoolFilter<"Project"> | boolean
+    leverageFlag?: BoolFilter<"Project"> | boolean
+    unitResidenceFlag?: BoolFilter<"Project"> | boolean
     reportMainId?: StringNullableFilter<"Project"> | string | null
     reportAtt2Id?: StringNullableFilter<"Project"> | string | null
     reportAtt3Id?: StringNullableFilter<"Project"> | string | null
@@ -24492,6 +25146,8 @@ export namespace Prisma {
     settlorGkAddress?: SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
+    leverageFlag?: SortOrder
+    unitResidenceFlag?: SortOrder
     reportMainId?: SortOrderInput | SortOrder
     reportAtt2Id?: SortOrderInput | SortOrder
     reportAtt3Id?: SortOrderInput | SortOrder
@@ -24534,6 +25190,8 @@ export namespace Prisma {
     settlorGkAddress?: StringFilter<"Project"> | string
     kamiyachoFlag?: BoolFilter<"Project"> | boolean
     mlspcFlag?: BoolFilter<"Project"> | boolean
+    leverageFlag?: BoolFilter<"Project"> | boolean
+    unitResidenceFlag?: BoolFilter<"Project"> | boolean
     reportMainId?: StringNullableFilter<"Project"> | string | null
     reportAtt2Id?: StringNullableFilter<"Project"> | string | null
     reportAtt3Id?: StringNullableFilter<"Project"> | string | null
@@ -24573,6 +25231,8 @@ export namespace Prisma {
     settlorGkAddress?: SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
+    leverageFlag?: SortOrder
+    unitResidenceFlag?: SortOrder
     reportMainId?: SortOrderInput | SortOrder
     reportAtt2Id?: SortOrderInput | SortOrder
     reportAtt3Id?: SortOrderInput | SortOrder
@@ -24612,6 +25272,8 @@ export namespace Prisma {
     settlorGkAddress?: StringWithAggregatesFilter<"Project"> | string
     kamiyachoFlag?: BoolWithAggregatesFilter<"Project"> | boolean
     mlspcFlag?: BoolWithAggregatesFilter<"Project"> | boolean
+    leverageFlag?: BoolWithAggregatesFilter<"Project"> | boolean
+    unitResidenceFlag?: BoolWithAggregatesFilter<"Project"> | boolean
     reportMainId?: StringNullableWithAggregatesFilter<"Project"> | string | null
     reportAtt2Id?: StringNullableWithAggregatesFilter<"Project"> | string | null
     reportAtt3Id?: StringNullableWithAggregatesFilter<"Project"> | string | null
@@ -24648,13 +25310,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax?: IntNullableFilter<"ProjectKi"> | number | null
     totalUnit?: IntNullableFilter<"ProjectKi"> | number | null
     totalUnitNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
-    shintakuShueki?: IntNullableFilter<"ProjectKi"> | number | null
-    shintakuHiyo?: IntNullableFilter<"ProjectKi"> | number | null
-    sashihikiShintakuRieki?: IntNullableFilter<"ProjectKi"> | number | null
-    shintakuRieki?: IntNullableFilter<"ProjectKi"> | number | null
-    bunpaiRieki?: IntNullableFilter<"ProjectKi"> | number | null
-    bunpaiSogaku?: IntNullableFilter<"ProjectKi"> | number | null
-    bunpaiSogakuNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuShueki?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuHiyo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    sashihikiShintakuRieki?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuRieki?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    bunpaiRieki?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    bunpaiSogaku?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    bunpaiSogakuNonInvoice?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     kurikoshiRieki?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuShueki?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyo?: IntNullableFilter<"ProjectKi"> | number | null
@@ -24664,28 +25326,30 @@ export namespace Prisma {
     unitGanponKuriire?: IntNullableFilter<"ProjectKi"> | number | null
     unitBunpai?: IntNullableFilter<"ProjectKi"> | number | null
     unitBunpaiForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
-    shohiyoRyuhokin?: IntNullableFilter<"ProjectKi"> | number | null
-    shuzenTsumitatekin?: IntNullableFilter<"ProjectKi"> | number | null
-    azukarikinHenkanJunbikin?: IntNullableFilter<"ProjectKi"> | number | null
-    zeikinHokenryoJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
-    kyodoUnyuHiyoJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
-    risokuShiharaiJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
-    shihoTekiShishutsuJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
-    cashTrapJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
-    sonotaGenyokin?: IntNullableFilter<"ProjectKi"> | number | null
-    futuYokinTokiZandaka?: IntNullableFilter<"ProjectKi"> | number | null
-    zenkiKurikoshiRieki?: IntNullableFilter<"ProjectKi"> | number | null
-    shuzenTsumitatekinKuriire?: IntNullableFilter<"ProjectKi"> | number | null
+    shohiyoRyuhokin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shuzenTsumitatekin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    azukarikinHenkanJunbikin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    zeikinHokenryoJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    risokuShiharaiJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    cashTrapJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    sonotaGenyokin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    futuYokinTokiZandaka?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    zenkiKurikoshiRieki?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shuzenTsumitatekinKuriire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    mibaraiHiyo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    chokiKariire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     currentYearBunpaiRatio?: FloatNullableFilter<"ProjectKi"> | number | null
     fullYearBunpaiRatio?: FloatNullableFilter<"ProjectKi"> | number | null
     currentYearBunpaiRatioNonInvoice?: FloatNullableFilter<"ProjectKi"> | number | null
     fullYearBunpaiRatioNonInvoice?: FloatNullableFilter<"ProjectKi"> | number | null
-    shintakuShuekiKazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
-    shintakuShuekiKazeiUriageShohizei?: IntNullableFilter<"ProjectKi"> | number | null
-    shintakuShuekiHikazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
-    shintakuHiyoKazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
-    shintakuHiyoKazeiShiireShohizei?: IntNullableFilter<"ProjectKi"> | number | null
-    shintakuHiyoHikazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuShuekiKazeiUriage?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuShuekiHikazeiUriage?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuHiyoKazeiShiire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuHiyoHikazeiShiire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     unitShintakuShuekiKazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuShuekiKazeiUriageShohizei?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuShuekiHikazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
@@ -24694,6 +25358,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    kazeiUriageSashihiki08?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiUriageSashihiki10?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiUriageHontai08?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiUriageHontai10?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire100Kojo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire100KojoNoTax?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire8050Kojo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire8050KojoNoTax?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiUriageOnlyApplyTax7p8?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiUriageCommonApplyTax7p8?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    koteiShisan80Kojo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    koteiShisan80KojoNoTax?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     createdAt?: DateTimeFilter<"ProjectKi"> | Date | string
     createdId?: StringFilter<"ProjectKi"> | string
     createdBy?: StringFilter<"ProjectKi"> | string
@@ -24753,6 +25429,8 @@ export namespace Prisma {
     futuYokinTokiZandaka?: SortOrderInput | SortOrder
     zenkiKurikoshiRieki?: SortOrderInput | SortOrder
     shuzenTsumitatekinKuriire?: SortOrderInput | SortOrder
+    mibaraiHiyo?: SortOrderInput | SortOrder
+    chokiKariire?: SortOrderInput | SortOrder
     currentYearBunpaiRatio?: SortOrderInput | SortOrder
     fullYearBunpaiRatio?: SortOrderInput | SortOrder
     currentYearBunpaiRatioNonInvoice?: SortOrderInput | SortOrder
@@ -24771,6 +25449,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: SortOrderInput | SortOrder
     unitShintakuHiyoKazeiShiireForNonInvoice?: SortOrderInput | SortOrder
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: SortOrderInput | SortOrder
+    kazeiUriageSashihiki08?: SortOrderInput | SortOrder
+    kazeiUriageSashihiki10?: SortOrderInput | SortOrder
+    kazeiUriageHontai08?: SortOrderInput | SortOrder
+    kazeiUriageHontai10?: SortOrderInput | SortOrder
+    kazeiShiire100Kojo?: SortOrderInput | SortOrder
+    kazeiShiire100KojoNoTax?: SortOrderInput | SortOrder
+    kazeiShiire8050Kojo?: SortOrderInput | SortOrder
+    kazeiShiire8050KojoNoTax?: SortOrderInput | SortOrder
+    kazeiUriageOnlyApplyTax7p8?: SortOrderInput | SortOrder
+    kazeiUriageCommonApplyTax7p8?: SortOrderInput | SortOrder
+    koteiShisan80Kojo?: SortOrderInput | SortOrder
+    koteiShisan80KojoNoTax?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -24807,13 +25497,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax?: IntNullableFilter<"ProjectKi"> | number | null
     totalUnit?: IntNullableFilter<"ProjectKi"> | number | null
     totalUnitNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
-    shintakuShueki?: IntNullableFilter<"ProjectKi"> | number | null
-    shintakuHiyo?: IntNullableFilter<"ProjectKi"> | number | null
-    sashihikiShintakuRieki?: IntNullableFilter<"ProjectKi"> | number | null
-    shintakuRieki?: IntNullableFilter<"ProjectKi"> | number | null
-    bunpaiRieki?: IntNullableFilter<"ProjectKi"> | number | null
-    bunpaiSogaku?: IntNullableFilter<"ProjectKi"> | number | null
-    bunpaiSogakuNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuShueki?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuHiyo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    sashihikiShintakuRieki?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuRieki?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    bunpaiRieki?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    bunpaiSogaku?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    bunpaiSogakuNonInvoice?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     kurikoshiRieki?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuShueki?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyo?: IntNullableFilter<"ProjectKi"> | number | null
@@ -24823,28 +25513,30 @@ export namespace Prisma {
     unitGanponKuriire?: IntNullableFilter<"ProjectKi"> | number | null
     unitBunpai?: IntNullableFilter<"ProjectKi"> | number | null
     unitBunpaiForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
-    shohiyoRyuhokin?: IntNullableFilter<"ProjectKi"> | number | null
-    shuzenTsumitatekin?: IntNullableFilter<"ProjectKi"> | number | null
-    azukarikinHenkanJunbikin?: IntNullableFilter<"ProjectKi"> | number | null
-    zeikinHokenryoJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
-    kyodoUnyuHiyoJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
-    risokuShiharaiJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
-    shihoTekiShishutsuJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
-    cashTrapJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
-    sonotaGenyokin?: IntNullableFilter<"ProjectKi"> | number | null
-    futuYokinTokiZandaka?: IntNullableFilter<"ProjectKi"> | number | null
-    zenkiKurikoshiRieki?: IntNullableFilter<"ProjectKi"> | number | null
-    shuzenTsumitatekinKuriire?: IntNullableFilter<"ProjectKi"> | number | null
+    shohiyoRyuhokin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shuzenTsumitatekin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    azukarikinHenkanJunbikin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    zeikinHokenryoJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    risokuShiharaiJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    cashTrapJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    sonotaGenyokin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    futuYokinTokiZandaka?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    zenkiKurikoshiRieki?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shuzenTsumitatekinKuriire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    mibaraiHiyo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    chokiKariire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     currentYearBunpaiRatio?: FloatNullableFilter<"ProjectKi"> | number | null
     fullYearBunpaiRatio?: FloatNullableFilter<"ProjectKi"> | number | null
     currentYearBunpaiRatioNonInvoice?: FloatNullableFilter<"ProjectKi"> | number | null
     fullYearBunpaiRatioNonInvoice?: FloatNullableFilter<"ProjectKi"> | number | null
-    shintakuShuekiKazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
-    shintakuShuekiKazeiUriageShohizei?: IntNullableFilter<"ProjectKi"> | number | null
-    shintakuShuekiHikazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
-    shintakuHiyoKazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
-    shintakuHiyoKazeiShiireShohizei?: IntNullableFilter<"ProjectKi"> | number | null
-    shintakuHiyoHikazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuShuekiKazeiUriage?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuShuekiHikazeiUriage?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuHiyoKazeiShiire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuHiyoHikazeiShiire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     unitShintakuShuekiKazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuShuekiKazeiUriageShohizei?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuShuekiHikazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
@@ -24853,6 +25545,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    kazeiUriageSashihiki08?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiUriageSashihiki10?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiUriageHontai08?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiUriageHontai10?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire100Kojo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire100KojoNoTax?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire8050Kojo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire8050KojoNoTax?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiUriageOnlyApplyTax7p8?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiUriageCommonApplyTax7p8?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    koteiShisan80Kojo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    koteiShisan80KojoNoTax?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     createdAt?: DateTimeFilter<"ProjectKi"> | Date | string
     createdId?: StringFilter<"ProjectKi"> | string
     createdBy?: StringFilter<"ProjectKi"> | string
@@ -24912,6 +25616,8 @@ export namespace Prisma {
     futuYokinTokiZandaka?: SortOrderInput | SortOrder
     zenkiKurikoshiRieki?: SortOrderInput | SortOrder
     shuzenTsumitatekinKuriire?: SortOrderInput | SortOrder
+    mibaraiHiyo?: SortOrderInput | SortOrder
+    chokiKariire?: SortOrderInput | SortOrder
     currentYearBunpaiRatio?: SortOrderInput | SortOrder
     fullYearBunpaiRatio?: SortOrderInput | SortOrder
     currentYearBunpaiRatioNonInvoice?: SortOrderInput | SortOrder
@@ -24930,6 +25636,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: SortOrderInput | SortOrder
     unitShintakuHiyoKazeiShiireForNonInvoice?: SortOrderInput | SortOrder
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: SortOrderInput | SortOrder
+    kazeiUriageSashihiki08?: SortOrderInput | SortOrder
+    kazeiUriageSashihiki10?: SortOrderInput | SortOrder
+    kazeiUriageHontai08?: SortOrderInput | SortOrder
+    kazeiUriageHontai10?: SortOrderInput | SortOrder
+    kazeiShiire100Kojo?: SortOrderInput | SortOrder
+    kazeiShiire100KojoNoTax?: SortOrderInput | SortOrder
+    kazeiShiire8050Kojo?: SortOrderInput | SortOrder
+    kazeiShiire8050KojoNoTax?: SortOrderInput | SortOrder
+    kazeiUriageOnlyApplyTax7p8?: SortOrderInput | SortOrder
+    kazeiUriageCommonApplyTax7p8?: SortOrderInput | SortOrder
+    koteiShisan80Kojo?: SortOrderInput | SortOrder
+    koteiShisan80KojoNoTax?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -24966,13 +25684,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     totalUnit?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     totalUnitNonInvoice?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
-    shintakuShueki?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
-    shintakuHiyo?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
-    sashihikiShintakuRieki?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
-    shintakuRieki?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
-    bunpaiRieki?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
-    bunpaiSogaku?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
-    bunpaiSogakuNonInvoice?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    shintakuShueki?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    shintakuHiyo?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    sashihikiShintakuRieki?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    shintakuRieki?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    bunpaiRieki?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    bunpaiSogaku?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    bunpaiSogakuNonInvoice?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     kurikoshiRieki?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     unitShintakuShueki?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     unitShintakuHiyo?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
@@ -24982,28 +25700,30 @@ export namespace Prisma {
     unitGanponKuriire?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     unitBunpai?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     unitBunpaiForNonInvoice?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
-    shohiyoRyuhokin?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
-    shuzenTsumitatekin?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
-    azukarikinHenkanJunbikin?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
-    zeikinHokenryoJunbiKanjo?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
-    kyodoUnyuHiyoJunbiKanjo?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
-    risokuShiharaiJunbiKanjo?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
-    shihoTekiShishutsuJunbiKanjo?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
-    cashTrapJunbiKanjo?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
-    sonotaGenyokin?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
-    futuYokinTokiZandaka?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
-    zenkiKurikoshiRieki?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
-    shuzenTsumitatekinKuriire?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    shohiyoRyuhokin?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    shuzenTsumitatekin?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    azukarikinHenkanJunbikin?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    zeikinHokenryoJunbiKanjo?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    risokuShiharaiJunbiKanjo?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    cashTrapJunbiKanjo?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    sonotaGenyokin?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    futuYokinTokiZandaka?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    zenkiKurikoshiRieki?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    shuzenTsumitatekinKuriire?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    mibaraiHiyo?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    chokiKariire?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     currentYearBunpaiRatio?: FloatNullableWithAggregatesFilter<"ProjectKi"> | number | null
     fullYearBunpaiRatio?: FloatNullableWithAggregatesFilter<"ProjectKi"> | number | null
     currentYearBunpaiRatioNonInvoice?: FloatNullableWithAggregatesFilter<"ProjectKi"> | number | null
     fullYearBunpaiRatioNonInvoice?: FloatNullableWithAggregatesFilter<"ProjectKi"> | number | null
-    shintakuShuekiKazeiUriage?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
-    shintakuShuekiKazeiUriageShohizei?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
-    shintakuShuekiHikazeiUriage?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
-    shintakuHiyoKazeiShiire?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
-    shintakuHiyoKazeiShiireShohizei?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
-    shintakuHiyoHikazeiShiire?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    shintakuShuekiKazeiUriage?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    shintakuShuekiHikazeiUriage?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    shintakuHiyoKazeiShiire?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    shintakuHiyoHikazeiShiire?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     unitShintakuShuekiKazeiUriage?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     unitShintakuShuekiKazeiUriageShohizei?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     unitShintakuShuekiHikazeiUriage?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
@@ -25012,6 +25732,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    kazeiUriageSashihiki08?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    kazeiUriageSashihiki10?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    kazeiUriageHontai08?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    kazeiUriageHontai10?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire100Kojo?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire100KojoNoTax?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire8050Kojo?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire8050KojoNoTax?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    kazeiUriageOnlyApplyTax7p8?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    kazeiUriageCommonApplyTax7p8?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    koteiShisan80Kojo?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    koteiShisan80KojoNoTax?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     createdAt?: DateTimeWithAggregatesFilter<"ProjectKi"> | Date | string
     createdId?: StringWithAggregatesFilter<"ProjectKi"> | string
     createdBy?: StringWithAggregatesFilter<"ProjectKi"> | string
@@ -25034,6 +25766,10 @@ export namespace Prisma {
     debit?: BigIntFilter<"ProjectKiBS"> | bigint | number
     credit?: BigIntFilter<"ProjectKiBS"> | bigint | number
     balance?: BigIntFilter<"ProjectKiBS"> | bigint | number
+    prevBalanceNoTax?: BigIntFilter<"ProjectKiBS"> | bigint | number
+    debitNoTax?: BigIntFilter<"ProjectKiBS"> | bigint | number
+    creditNoTax?: BigIntFilter<"ProjectKiBS"> | bigint | number
+    balanceNoTax?: BigIntFilter<"ProjectKiBS"> | bigint | number
     orderBy?: IntFilter<"ProjectKiBS"> | number
     totalUnit?: IntFilter<"ProjectKiBS"> | number
     createdAt?: DateTimeFilter<"ProjectKiBS"> | Date | string
@@ -25055,6 +25791,10 @@ export namespace Prisma {
     debit?: SortOrder
     credit?: SortOrder
     balance?: SortOrder
+    prevBalanceNoTax?: SortOrder
+    debitNoTax?: SortOrder
+    creditNoTax?: SortOrder
+    balanceNoTax?: SortOrder
     orderBy?: SortOrder
     totalUnit?: SortOrder
     createdAt?: SortOrder
@@ -25079,6 +25819,10 @@ export namespace Prisma {
     debit?: BigIntFilter<"ProjectKiBS"> | bigint | number
     credit?: BigIntFilter<"ProjectKiBS"> | bigint | number
     balance?: BigIntFilter<"ProjectKiBS"> | bigint | number
+    prevBalanceNoTax?: BigIntFilter<"ProjectKiBS"> | bigint | number
+    debitNoTax?: BigIntFilter<"ProjectKiBS"> | bigint | number
+    creditNoTax?: BigIntFilter<"ProjectKiBS"> | bigint | number
+    balanceNoTax?: BigIntFilter<"ProjectKiBS"> | bigint | number
     orderBy?: IntFilter<"ProjectKiBS"> | number
     totalUnit?: IntFilter<"ProjectKiBS"> | number
     createdAt?: DateTimeFilter<"ProjectKiBS"> | Date | string
@@ -25100,6 +25844,10 @@ export namespace Prisma {
     debit?: SortOrder
     credit?: SortOrder
     balance?: SortOrder
+    prevBalanceNoTax?: SortOrder
+    debitNoTax?: SortOrder
+    creditNoTax?: SortOrder
+    balanceNoTax?: SortOrder
     orderBy?: SortOrder
     totalUnit?: SortOrder
     createdAt?: SortOrder
@@ -25129,6 +25877,10 @@ export namespace Prisma {
     debit?: BigIntWithAggregatesFilter<"ProjectKiBS"> | bigint | number
     credit?: BigIntWithAggregatesFilter<"ProjectKiBS"> | bigint | number
     balance?: BigIntWithAggregatesFilter<"ProjectKiBS"> | bigint | number
+    prevBalanceNoTax?: BigIntWithAggregatesFilter<"ProjectKiBS"> | bigint | number
+    debitNoTax?: BigIntWithAggregatesFilter<"ProjectKiBS"> | bigint | number
+    creditNoTax?: BigIntWithAggregatesFilter<"ProjectKiBS"> | bigint | number
+    balanceNoTax?: BigIntWithAggregatesFilter<"ProjectKiBS"> | bigint | number
     orderBy?: IntWithAggregatesFilter<"ProjectKiBS"> | number
     totalUnit?: IntWithAggregatesFilter<"ProjectKiBS"> | number
     createdAt?: DateTimeWithAggregatesFilter<"ProjectKiBS"> | Date | string
@@ -25150,6 +25902,7 @@ export namespace Prisma {
     plType?: EnumPLTypeFilter<"ProjectKiPL"> | $Enums.PLType
     account?: StringFilter<"ProjectKiPL"> | string
     amount?: BigIntFilter<"ProjectKiPL"> | bigint | number
+    amountNoTax?: BigIntFilter<"ProjectKiPL"> | bigint | number
     orderBy?: IntFilter<"ProjectKiPL"> | number
     totalUnit?: IntFilter<"ProjectKiPL"> | number
     createdAt?: DateTimeFilter<"ProjectKiPL"> | Date | string
@@ -25168,6 +25921,7 @@ export namespace Prisma {
     plType?: SortOrder
     account?: SortOrder
     amount?: SortOrder
+    amountNoTax?: SortOrder
     orderBy?: SortOrder
     totalUnit?: SortOrder
     createdAt?: SortOrder
@@ -25189,6 +25943,7 @@ export namespace Prisma {
     plType?: EnumPLTypeFilter<"ProjectKiPL"> | $Enums.PLType
     account?: StringFilter<"ProjectKiPL"> | string
     amount?: BigIntFilter<"ProjectKiPL"> | bigint | number
+    amountNoTax?: BigIntFilter<"ProjectKiPL"> | bigint | number
     orderBy?: IntFilter<"ProjectKiPL"> | number
     totalUnit?: IntFilter<"ProjectKiPL"> | number
     createdAt?: DateTimeFilter<"ProjectKiPL"> | Date | string
@@ -25207,6 +25962,7 @@ export namespace Prisma {
     plType?: SortOrder
     account?: SortOrder
     amount?: SortOrder
+    amountNoTax?: SortOrder
     orderBy?: SortOrder
     totalUnit?: SortOrder
     createdAt?: SortOrder
@@ -25233,6 +25989,7 @@ export namespace Prisma {
     plType?: EnumPLTypeWithAggregatesFilter<"ProjectKiPL"> | $Enums.PLType
     account?: StringWithAggregatesFilter<"ProjectKiPL"> | string
     amount?: BigIntWithAggregatesFilter<"ProjectKiPL"> | bigint | number
+    amountNoTax?: BigIntWithAggregatesFilter<"ProjectKiPL"> | bigint | number
     orderBy?: IntWithAggregatesFilter<"ProjectKiPL"> | number
     totalUnit?: IntWithAggregatesFilter<"ProjectKiPL"> | number
     createdAt?: DateTimeWithAggregatesFilter<"ProjectKiPL"> | Date | string
@@ -25257,6 +26014,11 @@ export namespace Prisma {
     BuildingValuationPos?: StringFilter<"Asset"> | string
     LandEquityValuationPos?: StringFilter<"Asset"> | string
     LandSelfValuationPos?: StringFilter<"Asset"> | string
+    UnitResidenceLandValuationStartPos?: StringFilter<"Asset"> | string
+    UnitResidenceBuildingValuationStartPos?: StringFilter<"Asset"> | string
+    leaseType?: StringFilter<"Asset"> | string
+    landUseZone?: StringFilter<"Asset"> | string
+    leaseArea?: FloatNullableFilter<"Asset"> | number | null
     createdAt?: DateTimeFilter<"Asset"> | Date | string
     createdId?: StringFilter<"Asset"> | string
     createdBy?: StringFilter<"Asset"> | string
@@ -25278,6 +26040,11 @@ export namespace Prisma {
     BuildingValuationPos?: SortOrder
     LandEquityValuationPos?: SortOrder
     LandSelfValuationPos?: SortOrder
+    UnitResidenceLandValuationStartPos?: SortOrder
+    UnitResidenceBuildingValuationStartPos?: SortOrder
+    leaseType?: SortOrder
+    landUseZone?: SortOrder
+    leaseArea?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -25302,6 +26069,11 @@ export namespace Prisma {
     BuildingValuationPos?: StringFilter<"Asset"> | string
     LandEquityValuationPos?: StringFilter<"Asset"> | string
     LandSelfValuationPos?: StringFilter<"Asset"> | string
+    UnitResidenceLandValuationStartPos?: StringFilter<"Asset"> | string
+    UnitResidenceBuildingValuationStartPos?: StringFilter<"Asset"> | string
+    leaseType?: StringFilter<"Asset"> | string
+    landUseZone?: StringFilter<"Asset"> | string
+    leaseArea?: FloatNullableFilter<"Asset"> | number | null
     createdAt?: DateTimeFilter<"Asset"> | Date | string
     createdId?: StringFilter<"Asset"> | string
     createdBy?: StringFilter<"Asset"> | string
@@ -25323,6 +26095,11 @@ export namespace Prisma {
     BuildingValuationPos?: SortOrder
     LandEquityValuationPos?: SortOrder
     LandSelfValuationPos?: SortOrder
+    UnitResidenceLandValuationStartPos?: SortOrder
+    UnitResidenceBuildingValuationStartPos?: SortOrder
+    leaseType?: SortOrder
+    landUseZone?: SortOrder
+    leaseArea?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -25330,8 +26107,10 @@ export namespace Prisma {
     updatedId?: SortOrder
     updatedBy?: SortOrder
     _count?: AssetCountOrderByAggregateInput
+    _avg?: AssetAvgOrderByAggregateInput
     _max?: AssetMaxOrderByAggregateInput
     _min?: AssetMinOrderByAggregateInput
+    _sum?: AssetSumOrderByAggregateInput
   }
 
   export type AssetScalarWhereWithAggregatesInput = {
@@ -25348,6 +26127,11 @@ export namespace Prisma {
     BuildingValuationPos?: StringWithAggregatesFilter<"Asset"> | string
     LandEquityValuationPos?: StringWithAggregatesFilter<"Asset"> | string
     LandSelfValuationPos?: StringWithAggregatesFilter<"Asset"> | string
+    UnitResidenceLandValuationStartPos?: StringWithAggregatesFilter<"Asset"> | string
+    UnitResidenceBuildingValuationStartPos?: StringWithAggregatesFilter<"Asset"> | string
+    leaseType?: StringWithAggregatesFilter<"Asset"> | string
+    landUseZone?: StringWithAggregatesFilter<"Asset"> | string
+    leaseArea?: FloatNullableWithAggregatesFilter<"Asset"> | number | null
     createdAt?: DateTimeWithAggregatesFilter<"Asset"> | Date | string
     createdId?: StringWithAggregatesFilter<"Asset"> | string
     createdBy?: StringWithAggregatesFilter<"Asset"> | string
@@ -25377,6 +26161,18 @@ export namespace Prisma {
     valuationStatementFile?: BytesNullableFilter<"AssetKi"> | Buffer | null
     valuationStatementName?: StringNullableFilter<"AssetKi"> | string | null
     valuationStatementSize?: IntNullableFilter<"AssetKi"> | number | null
+    landEvaluation?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    buildingEvaluation?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    rent?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    rentNoTax?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    keyMoney?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    keyMoneyNoTax?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    renewalFee?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    renewalFeeNoTax?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    otherFee?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    otherFeeNoTax?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    deposit?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    depositNoTax?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
     createdAt?: DateTimeFilter<"AssetKi"> | Date | string
     createdId?: StringFilter<"AssetKi"> | string
     createdBy?: StringFilter<"AssetKi"> | string
@@ -25405,6 +26201,18 @@ export namespace Prisma {
     valuationStatementFile?: SortOrderInput | SortOrder
     valuationStatementName?: SortOrderInput | SortOrder
     valuationStatementSize?: SortOrderInput | SortOrder
+    landEvaluation?: SortOrderInput | SortOrder
+    buildingEvaluation?: SortOrderInput | SortOrder
+    rent?: SortOrderInput | SortOrder
+    rentNoTax?: SortOrderInput | SortOrder
+    keyMoney?: SortOrderInput | SortOrder
+    keyMoneyNoTax?: SortOrderInput | SortOrder
+    renewalFee?: SortOrderInput | SortOrder
+    renewalFeeNoTax?: SortOrderInput | SortOrder
+    otherFee?: SortOrderInput | SortOrder
+    otherFeeNoTax?: SortOrderInput | SortOrder
+    deposit?: SortOrderInput | SortOrder
+    depositNoTax?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -25437,6 +26245,18 @@ export namespace Prisma {
     valuationStatementFile?: BytesNullableFilter<"AssetKi"> | Buffer | null
     valuationStatementName?: StringNullableFilter<"AssetKi"> | string | null
     valuationStatementSize?: IntNullableFilter<"AssetKi"> | number | null
+    landEvaluation?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    buildingEvaluation?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    rent?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    rentNoTax?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    keyMoney?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    keyMoneyNoTax?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    renewalFee?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    renewalFeeNoTax?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    otherFee?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    otherFeeNoTax?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    deposit?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    depositNoTax?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
     createdAt?: DateTimeFilter<"AssetKi"> | Date | string
     createdId?: StringFilter<"AssetKi"> | string
     createdBy?: StringFilter<"AssetKi"> | string
@@ -25465,6 +26285,18 @@ export namespace Prisma {
     valuationStatementFile?: SortOrderInput | SortOrder
     valuationStatementName?: SortOrderInput | SortOrder
     valuationStatementSize?: SortOrderInput | SortOrder
+    landEvaluation?: SortOrderInput | SortOrder
+    buildingEvaluation?: SortOrderInput | SortOrder
+    rent?: SortOrderInput | SortOrder
+    rentNoTax?: SortOrderInput | SortOrder
+    keyMoney?: SortOrderInput | SortOrder
+    keyMoneyNoTax?: SortOrderInput | SortOrder
+    renewalFee?: SortOrderInput | SortOrder
+    renewalFeeNoTax?: SortOrderInput | SortOrder
+    otherFee?: SortOrderInput | SortOrder
+    otherFeeNoTax?: SortOrderInput | SortOrder
+    deposit?: SortOrderInput | SortOrder
+    depositNoTax?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -25499,6 +26331,18 @@ export namespace Prisma {
     valuationStatementFile?: BytesNullableWithAggregatesFilter<"AssetKi"> | Buffer | null
     valuationStatementName?: StringNullableWithAggregatesFilter<"AssetKi"> | string | null
     valuationStatementSize?: IntNullableWithAggregatesFilter<"AssetKi"> | number | null
+    landEvaluation?: BigIntNullableWithAggregatesFilter<"AssetKi"> | bigint | number | null
+    buildingEvaluation?: BigIntNullableWithAggregatesFilter<"AssetKi"> | bigint | number | null
+    rent?: BigIntNullableWithAggregatesFilter<"AssetKi"> | bigint | number | null
+    rentNoTax?: BigIntNullableWithAggregatesFilter<"AssetKi"> | bigint | number | null
+    keyMoney?: BigIntNullableWithAggregatesFilter<"AssetKi"> | bigint | number | null
+    keyMoneyNoTax?: BigIntNullableWithAggregatesFilter<"AssetKi"> | bigint | number | null
+    renewalFee?: BigIntNullableWithAggregatesFilter<"AssetKi"> | bigint | number | null
+    renewalFeeNoTax?: BigIntNullableWithAggregatesFilter<"AssetKi"> | bigint | number | null
+    otherFee?: BigIntNullableWithAggregatesFilter<"AssetKi"> | bigint | number | null
+    otherFeeNoTax?: BigIntNullableWithAggregatesFilter<"AssetKi"> | bigint | number | null
+    deposit?: BigIntNullableWithAggregatesFilter<"AssetKi"> | bigint | number | null
+    depositNoTax?: BigIntNullableWithAggregatesFilter<"AssetKi"> | bigint | number | null
     createdAt?: DateTimeWithAggregatesFilter<"AssetKi"> | Date | string
     createdId?: StringWithAggregatesFilter<"AssetKi"> | string
     createdBy?: StringWithAggregatesFilter<"AssetKi"> | string
@@ -26922,6 +27766,8 @@ export namespace Prisma {
     settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -26956,6 +27802,8 @@ export namespace Prisma {
     settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
     reportMainId?: string | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
@@ -26990,6 +27838,8 @@ export namespace Prisma {
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    leverageFlag?: BoolFieldUpdateOperationsInput | boolean
+    unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -27024,6 +27874,8 @@ export namespace Prisma {
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    leverageFlag?: BoolFieldUpdateOperationsInput | boolean
+    unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -27058,6 +27910,8 @@ export namespace Prisma {
     settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
     reportMainId?: string | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
@@ -27089,6 +27943,8 @@ export namespace Prisma {
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    leverageFlag?: BoolFieldUpdateOperationsInput | boolean
+    unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -27115,6 +27971,8 @@ export namespace Prisma {
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    leverageFlag?: BoolFieldUpdateOperationsInput | boolean
+    unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -27146,13 +28004,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
-    shintakuShueki?: number | null
-    shintakuHiyo?: number | null
-    sashihikiShintakuRieki?: number | null
-    shintakuRieki?: number | null
-    bunpaiRieki?: number | null
-    bunpaiSogaku?: number | null
-    bunpaiSogakuNonInvoice?: number | null
+    shintakuShueki?: bigint | number | null
+    shintakuHiyo?: bigint | number | null
+    sashihikiShintakuRieki?: bigint | number | null
+    shintakuRieki?: bigint | number | null
+    bunpaiRieki?: bigint | number | null
+    bunpaiSogaku?: bigint | number | null
+    bunpaiSogakuNonInvoice?: bigint | number | null
     kurikoshiRieki?: number | null
     unitShintakuShueki?: number | null
     unitShintakuHiyo?: number | null
@@ -27162,28 +28020,30 @@ export namespace Prisma {
     unitGanponKuriire?: number | null
     unitBunpai?: number | null
     unitBunpaiForNonInvoice?: number | null
-    shohiyoRyuhokin?: number | null
-    shuzenTsumitatekin?: number | null
-    azukarikinHenkanJunbikin?: number | null
-    zeikinHokenryoJunbiKanjo?: number | null
-    kyodoUnyuHiyoJunbiKanjo?: number | null
-    risokuShiharaiJunbiKanjo?: number | null
-    shihoTekiShishutsuJunbiKanjo?: number | null
-    cashTrapJunbiKanjo?: number | null
-    sonotaGenyokin?: number | null
-    futuYokinTokiZandaka?: number | null
-    zenkiKurikoshiRieki?: number | null
-    shuzenTsumitatekinKuriire?: number | null
+    shohiyoRyuhokin?: bigint | number | null
+    shuzenTsumitatekin?: bigint | number | null
+    azukarikinHenkanJunbikin?: bigint | number | null
+    zeikinHokenryoJunbiKanjo?: bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
+    risokuShiharaiJunbiKanjo?: bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: bigint | number | null
+    cashTrapJunbiKanjo?: bigint | number | null
+    sonotaGenyokin?: bigint | number | null
+    futuYokinTokiZandaka?: bigint | number | null
+    zenkiKurikoshiRieki?: bigint | number | null
+    shuzenTsumitatekinKuriire?: bigint | number | null
+    mibaraiHiyo?: bigint | number | null
+    chokiKariire?: bigint | number | null
     currentYearBunpaiRatio?: number | null
     fullYearBunpaiRatio?: number | null
     currentYearBunpaiRatioNonInvoice?: number | null
     fullYearBunpaiRatioNonInvoice?: number | null
-    shintakuShuekiKazeiUriage?: number | null
-    shintakuShuekiKazeiUriageShohizei?: number | null
-    shintakuShuekiHikazeiUriage?: number | null
-    shintakuHiyoKazeiShiire?: number | null
-    shintakuHiyoKazeiShiireShohizei?: number | null
-    shintakuHiyoHikazeiShiire?: number | null
+    shintakuShuekiKazeiUriage?: bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: bigint | number | null
+    shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuHiyoKazeiShiire?: bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: bigint | number | null
+    shintakuHiyoHikazeiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
@@ -27192,6 +28052,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    kazeiUriageSashihiki08?: bigint | number | null
+    kazeiUriageSashihiki10?: bigint | number | null
+    kazeiUriageHontai08?: bigint | number | null
+    kazeiUriageHontai10?: bigint | number | null
+    kazeiShiire100Kojo?: bigint | number | null
+    kazeiShiire100KojoNoTax?: bigint | number | null
+    kazeiShiire8050Kojo?: bigint | number | null
+    kazeiShiire8050KojoNoTax?: bigint | number | null
+    kazeiUriageOnlyApplyTax7p8?: bigint | number | null
+    kazeiUriageCommonApplyTax7p8?: bigint | number | null
+    koteiShisan80Kojo?: bigint | number | null
+    koteiShisan80KojoNoTax?: bigint | number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -27223,13 +28095,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
-    shintakuShueki?: number | null
-    shintakuHiyo?: number | null
-    sashihikiShintakuRieki?: number | null
-    shintakuRieki?: number | null
-    bunpaiRieki?: number | null
-    bunpaiSogaku?: number | null
-    bunpaiSogakuNonInvoice?: number | null
+    shintakuShueki?: bigint | number | null
+    shintakuHiyo?: bigint | number | null
+    sashihikiShintakuRieki?: bigint | number | null
+    shintakuRieki?: bigint | number | null
+    bunpaiRieki?: bigint | number | null
+    bunpaiSogaku?: bigint | number | null
+    bunpaiSogakuNonInvoice?: bigint | number | null
     kurikoshiRieki?: number | null
     unitShintakuShueki?: number | null
     unitShintakuHiyo?: number | null
@@ -27239,28 +28111,30 @@ export namespace Prisma {
     unitGanponKuriire?: number | null
     unitBunpai?: number | null
     unitBunpaiForNonInvoice?: number | null
-    shohiyoRyuhokin?: number | null
-    shuzenTsumitatekin?: number | null
-    azukarikinHenkanJunbikin?: number | null
-    zeikinHokenryoJunbiKanjo?: number | null
-    kyodoUnyuHiyoJunbiKanjo?: number | null
-    risokuShiharaiJunbiKanjo?: number | null
-    shihoTekiShishutsuJunbiKanjo?: number | null
-    cashTrapJunbiKanjo?: number | null
-    sonotaGenyokin?: number | null
-    futuYokinTokiZandaka?: number | null
-    zenkiKurikoshiRieki?: number | null
-    shuzenTsumitatekinKuriire?: number | null
+    shohiyoRyuhokin?: bigint | number | null
+    shuzenTsumitatekin?: bigint | number | null
+    azukarikinHenkanJunbikin?: bigint | number | null
+    zeikinHokenryoJunbiKanjo?: bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
+    risokuShiharaiJunbiKanjo?: bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: bigint | number | null
+    cashTrapJunbiKanjo?: bigint | number | null
+    sonotaGenyokin?: bigint | number | null
+    futuYokinTokiZandaka?: bigint | number | null
+    zenkiKurikoshiRieki?: bigint | number | null
+    shuzenTsumitatekinKuriire?: bigint | number | null
+    mibaraiHiyo?: bigint | number | null
+    chokiKariire?: bigint | number | null
     currentYearBunpaiRatio?: number | null
     fullYearBunpaiRatio?: number | null
     currentYearBunpaiRatioNonInvoice?: number | null
     fullYearBunpaiRatioNonInvoice?: number | null
-    shintakuShuekiKazeiUriage?: number | null
-    shintakuShuekiKazeiUriageShohizei?: number | null
-    shintakuShuekiHikazeiUriage?: number | null
-    shintakuHiyoKazeiShiire?: number | null
-    shintakuHiyoKazeiShiireShohizei?: number | null
-    shintakuHiyoHikazeiShiire?: number | null
+    shintakuShuekiKazeiUriage?: bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: bigint | number | null
+    shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuHiyoKazeiShiire?: bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: bigint | number | null
+    shintakuHiyoHikazeiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
@@ -27269,6 +28143,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    kazeiUriageSashihiki08?: bigint | number | null
+    kazeiUriageSashihiki10?: bigint | number | null
+    kazeiUriageHontai08?: bigint | number | null
+    kazeiUriageHontai10?: bigint | number | null
+    kazeiShiire100Kojo?: bigint | number | null
+    kazeiShiire100KojoNoTax?: bigint | number | null
+    kazeiShiire8050Kojo?: bigint | number | null
+    kazeiShiire8050KojoNoTax?: bigint | number | null
+    kazeiUriageOnlyApplyTax7p8?: bigint | number | null
+    kazeiUriageCommonApplyTax7p8?: bigint | number | null
+    koteiShisan80Kojo?: bigint | number | null
+    koteiShisan80KojoNoTax?: bigint | number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -27296,13 +28182,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
-    sashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiSogaku?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiSogakuNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sashihikiShintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
@@ -27312,28 +28198,30 @@ export namespace Prisma {
     unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
     unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
-    shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
-    shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
-    azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
-    zeikinHokenryoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    kyodoUnyuHiyoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    risokuShiharaiJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    shihoTekiShishutsuJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    cashTrapJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
-    futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
-    zenkiKurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    shuzenTsumitatekinKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinKuriire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    mibaraiHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    chokiKariire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
     fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
     currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
     fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
-    shintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
@@ -27342,6 +28230,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageOnlyApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageCommonApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -27373,13 +28273,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
-    sashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiSogaku?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiSogakuNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sashihikiShintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
@@ -27389,28 +28289,30 @@ export namespace Prisma {
     unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
     unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
-    shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
-    shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
-    azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
-    zeikinHokenryoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    kyodoUnyuHiyoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    risokuShiharaiJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    shihoTekiShishutsuJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    cashTrapJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
-    futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
-    zenkiKurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    shuzenTsumitatekinKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinKuriire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    mibaraiHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    chokiKariire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
     fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
     currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
     fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
-    shintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
@@ -27419,6 +28321,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageOnlyApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageCommonApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -27448,13 +28362,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
-    shintakuShueki?: number | null
-    shintakuHiyo?: number | null
-    sashihikiShintakuRieki?: number | null
-    shintakuRieki?: number | null
-    bunpaiRieki?: number | null
-    bunpaiSogaku?: number | null
-    bunpaiSogakuNonInvoice?: number | null
+    shintakuShueki?: bigint | number | null
+    shintakuHiyo?: bigint | number | null
+    sashihikiShintakuRieki?: bigint | number | null
+    shintakuRieki?: bigint | number | null
+    bunpaiRieki?: bigint | number | null
+    bunpaiSogaku?: bigint | number | null
+    bunpaiSogakuNonInvoice?: bigint | number | null
     kurikoshiRieki?: number | null
     unitShintakuShueki?: number | null
     unitShintakuHiyo?: number | null
@@ -27464,28 +28378,30 @@ export namespace Prisma {
     unitGanponKuriire?: number | null
     unitBunpai?: number | null
     unitBunpaiForNonInvoice?: number | null
-    shohiyoRyuhokin?: number | null
-    shuzenTsumitatekin?: number | null
-    azukarikinHenkanJunbikin?: number | null
-    zeikinHokenryoJunbiKanjo?: number | null
-    kyodoUnyuHiyoJunbiKanjo?: number | null
-    risokuShiharaiJunbiKanjo?: number | null
-    shihoTekiShishutsuJunbiKanjo?: number | null
-    cashTrapJunbiKanjo?: number | null
-    sonotaGenyokin?: number | null
-    futuYokinTokiZandaka?: number | null
-    zenkiKurikoshiRieki?: number | null
-    shuzenTsumitatekinKuriire?: number | null
+    shohiyoRyuhokin?: bigint | number | null
+    shuzenTsumitatekin?: bigint | number | null
+    azukarikinHenkanJunbikin?: bigint | number | null
+    zeikinHokenryoJunbiKanjo?: bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
+    risokuShiharaiJunbiKanjo?: bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: bigint | number | null
+    cashTrapJunbiKanjo?: bigint | number | null
+    sonotaGenyokin?: bigint | number | null
+    futuYokinTokiZandaka?: bigint | number | null
+    zenkiKurikoshiRieki?: bigint | number | null
+    shuzenTsumitatekinKuriire?: bigint | number | null
+    mibaraiHiyo?: bigint | number | null
+    chokiKariire?: bigint | number | null
     currentYearBunpaiRatio?: number | null
     fullYearBunpaiRatio?: number | null
     currentYearBunpaiRatioNonInvoice?: number | null
     fullYearBunpaiRatioNonInvoice?: number | null
-    shintakuShuekiKazeiUriage?: number | null
-    shintakuShuekiKazeiUriageShohizei?: number | null
-    shintakuShuekiHikazeiUriage?: number | null
-    shintakuHiyoKazeiShiire?: number | null
-    shintakuHiyoKazeiShiireShohizei?: number | null
-    shintakuHiyoHikazeiShiire?: number | null
+    shintakuShuekiKazeiUriage?: bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: bigint | number | null
+    shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuHiyoKazeiShiire?: bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: bigint | number | null
+    shintakuHiyoHikazeiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
@@ -27494,6 +28410,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    kazeiUriageSashihiki08?: bigint | number | null
+    kazeiUriageSashihiki10?: bigint | number | null
+    kazeiUriageHontai08?: bigint | number | null
+    kazeiUriageHontai10?: bigint | number | null
+    kazeiShiire100Kojo?: bigint | number | null
+    kazeiShiire100KojoNoTax?: bigint | number | null
+    kazeiShiire8050Kojo?: bigint | number | null
+    kazeiShiire8050KojoNoTax?: bigint | number | null
+    kazeiUriageOnlyApplyTax7p8?: bigint | number | null
+    kazeiUriageCommonApplyTax7p8?: bigint | number | null
+    koteiShisan80Kojo?: bigint | number | null
+    koteiShisan80KojoNoTax?: bigint | number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -27520,13 +28448,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
-    sashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiSogaku?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiSogakuNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sashihikiShintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
@@ -27536,28 +28464,30 @@ export namespace Prisma {
     unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
     unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
-    shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
-    shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
-    azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
-    zeikinHokenryoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    kyodoUnyuHiyoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    risokuShiharaiJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    shihoTekiShishutsuJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    cashTrapJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
-    futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
-    zenkiKurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    shuzenTsumitatekinKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinKuriire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    mibaraiHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    chokiKariire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
     fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
     currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
     fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
-    shintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
@@ -27566,6 +28496,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageOnlyApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageCommonApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -27594,13 +28536,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
-    sashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiSogaku?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiSogakuNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sashihikiShintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
@@ -27610,28 +28552,30 @@ export namespace Prisma {
     unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
     unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
-    shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
-    shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
-    azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
-    zeikinHokenryoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    kyodoUnyuHiyoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    risokuShiharaiJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    shihoTekiShishutsuJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    cashTrapJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
-    futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
-    zenkiKurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    shuzenTsumitatekinKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinKuriire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    mibaraiHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    chokiKariire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
     fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
     currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
     fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
-    shintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
@@ -27640,6 +28584,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageOnlyApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageCommonApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -27655,10 +28611,14 @@ export namespace Prisma {
     kiId: string
     bsType: $Enums.BSType
     account: string
-    prevBalance: bigint | number
-    debit: bigint | number
-    credit: bigint | number
-    balance: bigint | number
+    prevBalance?: bigint | number
+    debit?: bigint | number
+    credit?: bigint | number
+    balance?: bigint | number
+    prevBalanceNoTax?: bigint | number
+    debitNoTax?: bigint | number
+    creditNoTax?: bigint | number
+    balanceNoTax?: bigint | number
     orderBy: number
     totalUnit: number
     createdAt?: Date | string
@@ -27676,10 +28636,14 @@ export namespace Prisma {
     kiId: string
     bsType: $Enums.BSType
     account: string
-    prevBalance: bigint | number
-    debit: bigint | number
-    credit: bigint | number
-    balance: bigint | number
+    prevBalance?: bigint | number
+    debit?: bigint | number
+    credit?: bigint | number
+    balance?: bigint | number
+    prevBalanceNoTax?: bigint | number
+    debitNoTax?: bigint | number
+    creditNoTax?: bigint | number
+    balanceNoTax?: bigint | number
     orderBy: number
     totalUnit: number
     createdAt?: Date | string
@@ -27701,6 +28665,10 @@ export namespace Prisma {
     debit?: BigIntFieldUpdateOperationsInput | bigint | number
     credit?: BigIntFieldUpdateOperationsInput | bigint | number
     balance?: BigIntFieldUpdateOperationsInput | bigint | number
+    prevBalanceNoTax?: BigIntFieldUpdateOperationsInput | bigint | number
+    debitNoTax?: BigIntFieldUpdateOperationsInput | bigint | number
+    creditNoTax?: BigIntFieldUpdateOperationsInput | bigint | number
+    balanceNoTax?: BigIntFieldUpdateOperationsInput | bigint | number
     orderBy?: IntFieldUpdateOperationsInput | number
     totalUnit?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -27722,6 +28690,10 @@ export namespace Prisma {
     debit?: BigIntFieldUpdateOperationsInput | bigint | number
     credit?: BigIntFieldUpdateOperationsInput | bigint | number
     balance?: BigIntFieldUpdateOperationsInput | bigint | number
+    prevBalanceNoTax?: BigIntFieldUpdateOperationsInput | bigint | number
+    debitNoTax?: BigIntFieldUpdateOperationsInput | bigint | number
+    creditNoTax?: BigIntFieldUpdateOperationsInput | bigint | number
+    balanceNoTax?: BigIntFieldUpdateOperationsInput | bigint | number
     orderBy?: IntFieldUpdateOperationsInput | number
     totalUnit?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -27739,10 +28711,14 @@ export namespace Prisma {
     kiId: string
     bsType: $Enums.BSType
     account: string
-    prevBalance: bigint | number
-    debit: bigint | number
-    credit: bigint | number
-    balance: bigint | number
+    prevBalance?: bigint | number
+    debit?: bigint | number
+    credit?: bigint | number
+    balance?: bigint | number
+    prevBalanceNoTax?: bigint | number
+    debitNoTax?: bigint | number
+    creditNoTax?: bigint | number
+    balanceNoTax?: bigint | number
     orderBy: number
     totalUnit: number
     createdAt?: Date | string
@@ -27764,6 +28740,10 @@ export namespace Prisma {
     debit?: BigIntFieldUpdateOperationsInput | bigint | number
     credit?: BigIntFieldUpdateOperationsInput | bigint | number
     balance?: BigIntFieldUpdateOperationsInput | bigint | number
+    prevBalanceNoTax?: BigIntFieldUpdateOperationsInput | bigint | number
+    debitNoTax?: BigIntFieldUpdateOperationsInput | bigint | number
+    creditNoTax?: BigIntFieldUpdateOperationsInput | bigint | number
+    balanceNoTax?: BigIntFieldUpdateOperationsInput | bigint | number
     orderBy?: IntFieldUpdateOperationsInput | number
     totalUnit?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -27785,6 +28765,10 @@ export namespace Prisma {
     debit?: BigIntFieldUpdateOperationsInput | bigint | number
     credit?: BigIntFieldUpdateOperationsInput | bigint | number
     balance?: BigIntFieldUpdateOperationsInput | bigint | number
+    prevBalanceNoTax?: BigIntFieldUpdateOperationsInput | bigint | number
+    debitNoTax?: BigIntFieldUpdateOperationsInput | bigint | number
+    creditNoTax?: BigIntFieldUpdateOperationsInput | bigint | number
+    balanceNoTax?: BigIntFieldUpdateOperationsInput | bigint | number
     orderBy?: IntFieldUpdateOperationsInput | number
     totalUnit?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -27802,7 +28786,8 @@ export namespace Prisma {
     kiId: string
     plType: $Enums.PLType
     account: string
-    amount: bigint | number
+    amount?: bigint | number
+    amountNoTax?: bigint | number
     orderBy: number
     totalUnit: number
     createdAt?: Date | string
@@ -27820,7 +28805,8 @@ export namespace Prisma {
     kiId: string
     plType: $Enums.PLType
     account: string
-    amount: bigint | number
+    amount?: bigint | number
+    amountNoTax?: bigint | number
     orderBy: number
     totalUnit: number
     createdAt?: Date | string
@@ -27839,6 +28825,7 @@ export namespace Prisma {
     plType?: EnumPLTypeFieldUpdateOperationsInput | $Enums.PLType
     account?: StringFieldUpdateOperationsInput | string
     amount?: BigIntFieldUpdateOperationsInput | bigint | number
+    amountNoTax?: BigIntFieldUpdateOperationsInput | bigint | number
     orderBy?: IntFieldUpdateOperationsInput | number
     totalUnit?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -27857,6 +28844,7 @@ export namespace Prisma {
     plType?: EnumPLTypeFieldUpdateOperationsInput | $Enums.PLType
     account?: StringFieldUpdateOperationsInput | string
     amount?: BigIntFieldUpdateOperationsInput | bigint | number
+    amountNoTax?: BigIntFieldUpdateOperationsInput | bigint | number
     orderBy?: IntFieldUpdateOperationsInput | number
     totalUnit?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -27874,7 +28862,8 @@ export namespace Prisma {
     kiId: string
     plType: $Enums.PLType
     account: string
-    amount: bigint | number
+    amount?: bigint | number
+    amountNoTax?: bigint | number
     orderBy: number
     totalUnit: number
     createdAt?: Date | string
@@ -27893,6 +28882,7 @@ export namespace Prisma {
     plType?: EnumPLTypeFieldUpdateOperationsInput | $Enums.PLType
     account?: StringFieldUpdateOperationsInput | string
     amount?: BigIntFieldUpdateOperationsInput | bigint | number
+    amountNoTax?: BigIntFieldUpdateOperationsInput | bigint | number
     orderBy?: IntFieldUpdateOperationsInput | number
     totalUnit?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -27911,6 +28901,7 @@ export namespace Prisma {
     plType?: EnumPLTypeFieldUpdateOperationsInput | $Enums.PLType
     account?: StringFieldUpdateOperationsInput | string
     amount?: BigIntFieldUpdateOperationsInput | bigint | number
+    amountNoTax?: BigIntFieldUpdateOperationsInput | bigint | number
     orderBy?: IntFieldUpdateOperationsInput | number
     totalUnit?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -27931,6 +28922,11 @@ export namespace Prisma {
     BuildingValuationPos?: string
     LandEquityValuationPos?: string
     LandSelfValuationPos?: string
+    UnitResidenceLandValuationStartPos?: string
+    UnitResidenceBuildingValuationStartPos?: string
+    leaseType?: string
+    landUseZone?: string
+    leaseArea?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -27952,6 +28948,11 @@ export namespace Prisma {
     BuildingValuationPos?: string
     LandEquityValuationPos?: string
     LandSelfValuationPos?: string
+    UnitResidenceLandValuationStartPos?: string
+    UnitResidenceBuildingValuationStartPos?: string
+    leaseType?: string
+    landUseZone?: string
+    leaseArea?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -27971,6 +28972,11 @@ export namespace Prisma {
     BuildingValuationPos?: StringFieldUpdateOperationsInput | string
     LandEquityValuationPos?: StringFieldUpdateOperationsInput | string
     LandSelfValuationPos?: StringFieldUpdateOperationsInput | string
+    UnitResidenceLandValuationStartPos?: StringFieldUpdateOperationsInput | string
+    UnitResidenceBuildingValuationStartPos?: StringFieldUpdateOperationsInput | string
+    leaseType?: StringFieldUpdateOperationsInput | string
+    landUseZone?: StringFieldUpdateOperationsInput | string
+    leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -27992,6 +28998,11 @@ export namespace Prisma {
     BuildingValuationPos?: StringFieldUpdateOperationsInput | string
     LandEquityValuationPos?: StringFieldUpdateOperationsInput | string
     LandSelfValuationPos?: StringFieldUpdateOperationsInput | string
+    UnitResidenceLandValuationStartPos?: StringFieldUpdateOperationsInput | string
+    UnitResidenceBuildingValuationStartPos?: StringFieldUpdateOperationsInput | string
+    leaseType?: StringFieldUpdateOperationsInput | string
+    landUseZone?: StringFieldUpdateOperationsInput | string
+    leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -28012,6 +29023,11 @@ export namespace Prisma {
     BuildingValuationPos?: string
     LandEquityValuationPos?: string
     LandSelfValuationPos?: string
+    UnitResidenceLandValuationStartPos?: string
+    UnitResidenceBuildingValuationStartPos?: string
+    leaseType?: string
+    landUseZone?: string
+    leaseArea?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -28030,6 +29046,11 @@ export namespace Prisma {
     BuildingValuationPos?: StringFieldUpdateOperationsInput | string
     LandEquityValuationPos?: StringFieldUpdateOperationsInput | string
     LandSelfValuationPos?: StringFieldUpdateOperationsInput | string
+    UnitResidenceLandValuationStartPos?: StringFieldUpdateOperationsInput | string
+    UnitResidenceBuildingValuationStartPos?: StringFieldUpdateOperationsInput | string
+    leaseType?: StringFieldUpdateOperationsInput | string
+    landUseZone?: StringFieldUpdateOperationsInput | string
+    leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -28049,6 +29070,11 @@ export namespace Prisma {
     BuildingValuationPos?: StringFieldUpdateOperationsInput | string
     LandEquityValuationPos?: StringFieldUpdateOperationsInput | string
     LandSelfValuationPos?: StringFieldUpdateOperationsInput | string
+    UnitResidenceLandValuationStartPos?: StringFieldUpdateOperationsInput | string
+    UnitResidenceBuildingValuationStartPos?: StringFieldUpdateOperationsInput | string
+    leaseType?: StringFieldUpdateOperationsInput | string
+    landUseZone?: StringFieldUpdateOperationsInput | string
+    leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -28073,6 +29099,18 @@ export namespace Prisma {
     valuationStatementFile?: Buffer | null
     valuationStatementName?: string | null
     valuationStatementSize?: number | null
+    landEvaluation?: bigint | number | null
+    buildingEvaluation?: bigint | number | null
+    rent?: bigint | number | null
+    rentNoTax?: bigint | number | null
+    keyMoney?: bigint | number | null
+    keyMoneyNoTax?: bigint | number | null
+    renewalFee?: bigint | number | null
+    renewalFeeNoTax?: bigint | number | null
+    otherFee?: bigint | number | null
+    otherFeeNoTax?: bigint | number | null
+    deposit?: bigint | number | null
+    depositNoTax?: bigint | number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -28101,6 +29139,18 @@ export namespace Prisma {
     valuationStatementFile?: Buffer | null
     valuationStatementName?: string | null
     valuationStatementSize?: number | null
+    landEvaluation?: bigint | number | null
+    buildingEvaluation?: bigint | number | null
+    rent?: bigint | number | null
+    rentNoTax?: bigint | number | null
+    keyMoney?: bigint | number | null
+    keyMoneyNoTax?: bigint | number | null
+    renewalFee?: bigint | number | null
+    renewalFeeNoTax?: bigint | number | null
+    otherFee?: bigint | number | null
+    otherFeeNoTax?: bigint | number | null
+    deposit?: bigint | number | null
+    depositNoTax?: bigint | number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -28125,6 +29175,18 @@ export namespace Prisma {
     valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
+    landEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    buildingEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    rent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    rentNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    keyMoney?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    keyMoneyNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    renewalFee?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    renewalFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    otherFee?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    otherFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    deposit?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    depositNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -28153,6 +29215,18 @@ export namespace Prisma {
     valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
+    landEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    buildingEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    rent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    rentNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    keyMoney?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    keyMoneyNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    renewalFee?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    renewalFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    otherFee?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    otherFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    deposit?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    depositNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -28179,6 +29253,18 @@ export namespace Prisma {
     valuationStatementFile?: Buffer | null
     valuationStatementName?: string | null
     valuationStatementSize?: number | null
+    landEvaluation?: bigint | number | null
+    buildingEvaluation?: bigint | number | null
+    rent?: bigint | number | null
+    rentNoTax?: bigint | number | null
+    keyMoney?: bigint | number | null
+    keyMoneyNoTax?: bigint | number | null
+    renewalFee?: bigint | number | null
+    renewalFeeNoTax?: bigint | number | null
+    otherFee?: bigint | number | null
+    otherFeeNoTax?: bigint | number | null
+    deposit?: bigint | number | null
+    depositNoTax?: bigint | number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -28203,6 +29289,18 @@ export namespace Prisma {
     valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
+    landEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    buildingEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    rent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    rentNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    keyMoney?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    keyMoneyNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    renewalFee?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    renewalFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    otherFee?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    otherFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    deposit?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    depositNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -28229,6 +29327,18 @@ export namespace Prisma {
     valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
+    landEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    buildingEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    rent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    rentNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    keyMoney?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    keyMoneyNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    renewalFee?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    renewalFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    otherFee?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    otherFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    deposit?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    depositNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -29761,6 +30871,8 @@ export namespace Prisma {
     settlorGkAddress?: SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
+    leverageFlag?: SortOrder
+    unitResidenceFlag?: SortOrder
     reportMainId?: SortOrder
     reportAtt2Id?: SortOrder
     reportAtt3Id?: SortOrder
@@ -29802,6 +30914,8 @@ export namespace Prisma {
     settlorGkAddress?: SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
+    leverageFlag?: SortOrder
+    unitResidenceFlag?: SortOrder
     reportMainId?: SortOrder
     reportAtt2Id?: SortOrder
     reportAtt3Id?: SortOrder
@@ -29833,6 +30947,8 @@ export namespace Prisma {
     settlorGkAddress?: SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
+    leverageFlag?: SortOrder
+    unitResidenceFlag?: SortOrder
     reportMainId?: SortOrder
     reportAtt2Id?: SortOrder
     reportAtt3Id?: SortOrder
@@ -29908,6 +31024,17 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type BigIntNullableFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
   }
 
   export type FloatNullableFilter<$PrismaModel = never> = {
@@ -29999,6 +31126,8 @@ export namespace Prisma {
     futuYokinTokiZandaka?: SortOrder
     zenkiKurikoshiRieki?: SortOrder
     shuzenTsumitatekinKuriire?: SortOrder
+    mibaraiHiyo?: SortOrder
+    chokiKariire?: SortOrder
     currentYearBunpaiRatio?: SortOrder
     fullYearBunpaiRatio?: SortOrder
     currentYearBunpaiRatioNonInvoice?: SortOrder
@@ -30017,6 +31146,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: SortOrder
     unitShintakuHiyoKazeiShiireForNonInvoice?: SortOrder
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: SortOrder
+    kazeiUriageSashihiki08?: SortOrder
+    kazeiUriageSashihiki10?: SortOrder
+    kazeiUriageHontai08?: SortOrder
+    kazeiUriageHontai10?: SortOrder
+    kazeiShiire100Kojo?: SortOrder
+    kazeiShiire100KojoNoTax?: SortOrder
+    kazeiShiire8050Kojo?: SortOrder
+    kazeiShiire8050KojoNoTax?: SortOrder
+    kazeiUriageOnlyApplyTax7p8?: SortOrder
+    kazeiUriageCommonApplyTax7p8?: SortOrder
+    koteiShisan80Kojo?: SortOrder
+    koteiShisan80KojoNoTax?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -30062,6 +31203,8 @@ export namespace Prisma {
     futuYokinTokiZandaka?: SortOrder
     zenkiKurikoshiRieki?: SortOrder
     shuzenTsumitatekinKuriire?: SortOrder
+    mibaraiHiyo?: SortOrder
+    chokiKariire?: SortOrder
     currentYearBunpaiRatio?: SortOrder
     fullYearBunpaiRatio?: SortOrder
     currentYearBunpaiRatioNonInvoice?: SortOrder
@@ -30080,6 +31223,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: SortOrder
     unitShintakuHiyoKazeiShiireForNonInvoice?: SortOrder
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: SortOrder
+    kazeiUriageSashihiki08?: SortOrder
+    kazeiUriageSashihiki10?: SortOrder
+    kazeiUriageHontai08?: SortOrder
+    kazeiUriageHontai10?: SortOrder
+    kazeiShiire100Kojo?: SortOrder
+    kazeiShiire100KojoNoTax?: SortOrder
+    kazeiShiire8050Kojo?: SortOrder
+    kazeiShiire8050KojoNoTax?: SortOrder
+    kazeiUriageOnlyApplyTax7p8?: SortOrder
+    kazeiUriageCommonApplyTax7p8?: SortOrder
+    koteiShisan80Kojo?: SortOrder
+    koteiShisan80KojoNoTax?: SortOrder
   }
 
   export type ProjectKiMaxOrderByAggregateInput = {
@@ -30130,6 +31285,8 @@ export namespace Prisma {
     futuYokinTokiZandaka?: SortOrder
     zenkiKurikoshiRieki?: SortOrder
     shuzenTsumitatekinKuriire?: SortOrder
+    mibaraiHiyo?: SortOrder
+    chokiKariire?: SortOrder
     currentYearBunpaiRatio?: SortOrder
     fullYearBunpaiRatio?: SortOrder
     currentYearBunpaiRatioNonInvoice?: SortOrder
@@ -30148,6 +31305,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: SortOrder
     unitShintakuHiyoKazeiShiireForNonInvoice?: SortOrder
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: SortOrder
+    kazeiUriageSashihiki08?: SortOrder
+    kazeiUriageSashihiki10?: SortOrder
+    kazeiUriageHontai08?: SortOrder
+    kazeiUriageHontai10?: SortOrder
+    kazeiShiire100Kojo?: SortOrder
+    kazeiShiire100KojoNoTax?: SortOrder
+    kazeiShiire8050Kojo?: SortOrder
+    kazeiShiire8050KojoNoTax?: SortOrder
+    kazeiUriageOnlyApplyTax7p8?: SortOrder
+    kazeiUriageCommonApplyTax7p8?: SortOrder
+    koteiShisan80Kojo?: SortOrder
+    koteiShisan80KojoNoTax?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -30204,6 +31373,8 @@ export namespace Prisma {
     futuYokinTokiZandaka?: SortOrder
     zenkiKurikoshiRieki?: SortOrder
     shuzenTsumitatekinKuriire?: SortOrder
+    mibaraiHiyo?: SortOrder
+    chokiKariire?: SortOrder
     currentYearBunpaiRatio?: SortOrder
     fullYearBunpaiRatio?: SortOrder
     currentYearBunpaiRatioNonInvoice?: SortOrder
@@ -30222,6 +31393,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: SortOrder
     unitShintakuHiyoKazeiShiireForNonInvoice?: SortOrder
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: SortOrder
+    kazeiUriageSashihiki08?: SortOrder
+    kazeiUriageSashihiki10?: SortOrder
+    kazeiUriageHontai08?: SortOrder
+    kazeiUriageHontai10?: SortOrder
+    kazeiShiire100Kojo?: SortOrder
+    kazeiShiire100KojoNoTax?: SortOrder
+    kazeiShiire8050Kojo?: SortOrder
+    kazeiShiire8050KojoNoTax?: SortOrder
+    kazeiUriageOnlyApplyTax7p8?: SortOrder
+    kazeiUriageCommonApplyTax7p8?: SortOrder
+    koteiShisan80Kojo?: SortOrder
+    koteiShisan80KojoNoTax?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -30267,6 +31450,8 @@ export namespace Prisma {
     futuYokinTokiZandaka?: SortOrder
     zenkiKurikoshiRieki?: SortOrder
     shuzenTsumitatekinKuriire?: SortOrder
+    mibaraiHiyo?: SortOrder
+    chokiKariire?: SortOrder
     currentYearBunpaiRatio?: SortOrder
     fullYearBunpaiRatio?: SortOrder
     currentYearBunpaiRatioNonInvoice?: SortOrder
@@ -30285,6 +31470,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: SortOrder
     unitShintakuHiyoKazeiShiireForNonInvoice?: SortOrder
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: SortOrder
+    kazeiUriageSashihiki08?: SortOrder
+    kazeiUriageSashihiki10?: SortOrder
+    kazeiUriageHontai08?: SortOrder
+    kazeiUriageHontai10?: SortOrder
+    kazeiShiire100Kojo?: SortOrder
+    kazeiShiire100KojoNoTax?: SortOrder
+    kazeiShiire8050Kojo?: SortOrder
+    kazeiShiire8050KojoNoTax?: SortOrder
+    kazeiUriageOnlyApplyTax7p8?: SortOrder
+    kazeiUriageCommonApplyTax7p8?: SortOrder
+    koteiShisan80Kojo?: SortOrder
+    koteiShisan80KojoNoTax?: SortOrder
   }
 
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -30315,6 +31512,22 @@ export namespace Prisma {
     _sum?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedIntNullableFilter<$PrismaModel>
     _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type BigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntNullableWithAggregatesFilter<$PrismaModel> | bigint | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedBigIntNullableFilter<$PrismaModel>
+    _min?: NestedBigIntNullableFilter<$PrismaModel>
+    _max?: NestedBigIntNullableFilter<$PrismaModel>
   }
 
   export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -30351,6 +31564,10 @@ export namespace Prisma {
     debit?: SortOrder
     credit?: SortOrder
     balance?: SortOrder
+    prevBalanceNoTax?: SortOrder
+    debitNoTax?: SortOrder
+    creditNoTax?: SortOrder
+    balanceNoTax?: SortOrder
     orderBy?: SortOrder
     totalUnit?: SortOrder
     createdAt?: SortOrder
@@ -30366,6 +31583,10 @@ export namespace Prisma {
     debit?: SortOrder
     credit?: SortOrder
     balance?: SortOrder
+    prevBalanceNoTax?: SortOrder
+    debitNoTax?: SortOrder
+    creditNoTax?: SortOrder
+    balanceNoTax?: SortOrder
     orderBy?: SortOrder
     totalUnit?: SortOrder
   }
@@ -30381,6 +31602,10 @@ export namespace Prisma {
     debit?: SortOrder
     credit?: SortOrder
     balance?: SortOrder
+    prevBalanceNoTax?: SortOrder
+    debitNoTax?: SortOrder
+    creditNoTax?: SortOrder
+    balanceNoTax?: SortOrder
     orderBy?: SortOrder
     totalUnit?: SortOrder
     createdAt?: SortOrder
@@ -30402,6 +31627,10 @@ export namespace Prisma {
     debit?: SortOrder
     credit?: SortOrder
     balance?: SortOrder
+    prevBalanceNoTax?: SortOrder
+    debitNoTax?: SortOrder
+    creditNoTax?: SortOrder
+    balanceNoTax?: SortOrder
     orderBy?: SortOrder
     totalUnit?: SortOrder
     createdAt?: SortOrder
@@ -30417,6 +31646,10 @@ export namespace Prisma {
     debit?: SortOrder
     credit?: SortOrder
     balance?: SortOrder
+    prevBalanceNoTax?: SortOrder
+    debitNoTax?: SortOrder
+    creditNoTax?: SortOrder
+    balanceNoTax?: SortOrder
     orderBy?: SortOrder
     totalUnit?: SortOrder
   }
@@ -30446,6 +31679,7 @@ export namespace Prisma {
     plType?: SortOrder
     account?: SortOrder
     amount?: SortOrder
+    amountNoTax?: SortOrder
     orderBy?: SortOrder
     totalUnit?: SortOrder
     createdAt?: SortOrder
@@ -30458,6 +31692,7 @@ export namespace Prisma {
 
   export type ProjectKiPLAvgOrderByAggregateInput = {
     amount?: SortOrder
+    amountNoTax?: SortOrder
     orderBy?: SortOrder
     totalUnit?: SortOrder
   }
@@ -30470,6 +31705,7 @@ export namespace Prisma {
     plType?: SortOrder
     account?: SortOrder
     amount?: SortOrder
+    amountNoTax?: SortOrder
     orderBy?: SortOrder
     totalUnit?: SortOrder
     createdAt?: SortOrder
@@ -30488,6 +31724,7 @@ export namespace Prisma {
     plType?: SortOrder
     account?: SortOrder
     amount?: SortOrder
+    amountNoTax?: SortOrder
     orderBy?: SortOrder
     totalUnit?: SortOrder
     createdAt?: SortOrder
@@ -30500,6 +31737,7 @@ export namespace Prisma {
 
   export type ProjectKiPLSumOrderByAggregateInput = {
     amount?: SortOrder
+    amountNoTax?: SortOrder
     orderBy?: SortOrder
     totalUnit?: SortOrder
   }
@@ -30525,12 +31763,21 @@ export namespace Prisma {
     BuildingValuationPos?: SortOrder
     LandEquityValuationPos?: SortOrder
     LandSelfValuationPos?: SortOrder
+    UnitResidenceLandValuationStartPos?: SortOrder
+    UnitResidenceBuildingValuationStartPos?: SortOrder
+    leaseType?: SortOrder
+    landUseZone?: SortOrder
+    leaseArea?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
     updatedAt?: SortOrder
     updatedId?: SortOrder
     updatedBy?: SortOrder
+  }
+
+  export type AssetAvgOrderByAggregateInput = {
+    leaseArea?: SortOrder
   }
 
   export type AssetMaxOrderByAggregateInput = {
@@ -30544,6 +31791,11 @@ export namespace Prisma {
     BuildingValuationPos?: SortOrder
     LandEquityValuationPos?: SortOrder
     LandSelfValuationPos?: SortOrder
+    UnitResidenceLandValuationStartPos?: SortOrder
+    UnitResidenceBuildingValuationStartPos?: SortOrder
+    leaseType?: SortOrder
+    landUseZone?: SortOrder
+    leaseArea?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -30563,12 +31815,21 @@ export namespace Prisma {
     BuildingValuationPos?: SortOrder
     LandEquityValuationPos?: SortOrder
     LandSelfValuationPos?: SortOrder
+    UnitResidenceLandValuationStartPos?: SortOrder
+    UnitResidenceBuildingValuationStartPos?: SortOrder
+    leaseType?: SortOrder
+    landUseZone?: SortOrder
+    leaseArea?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
     updatedAt?: SortOrder
     updatedId?: SortOrder
     updatedBy?: SortOrder
+  }
+
+  export type AssetSumOrderByAggregateInput = {
+    leaseArea?: SortOrder
   }
 
   export type BytesNullableFilter<$PrismaModel = never> = {
@@ -30606,6 +31867,18 @@ export namespace Prisma {
     valuationStatementFile?: SortOrder
     valuationStatementName?: SortOrder
     valuationStatementSize?: SortOrder
+    landEvaluation?: SortOrder
+    buildingEvaluation?: SortOrder
+    rent?: SortOrder
+    rentNoTax?: SortOrder
+    keyMoney?: SortOrder
+    keyMoneyNoTax?: SortOrder
+    renewalFee?: SortOrder
+    renewalFeeNoTax?: SortOrder
+    otherFee?: SortOrder
+    otherFeeNoTax?: SortOrder
+    deposit?: SortOrder
+    depositNoTax?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -30621,6 +31894,18 @@ export namespace Prisma {
     pmPerformanceRate?: SortOrder
     pmPerformanceRatePercent?: SortOrder
     valuationStatementSize?: SortOrder
+    landEvaluation?: SortOrder
+    buildingEvaluation?: SortOrder
+    rent?: SortOrder
+    rentNoTax?: SortOrder
+    keyMoney?: SortOrder
+    keyMoneyNoTax?: SortOrder
+    renewalFee?: SortOrder
+    renewalFeeNoTax?: SortOrder
+    otherFee?: SortOrder
+    otherFeeNoTax?: SortOrder
+    deposit?: SortOrder
+    depositNoTax?: SortOrder
   }
 
   export type AssetKiMaxOrderByAggregateInput = {
@@ -30641,6 +31926,18 @@ export namespace Prisma {
     valuationStatementFile?: SortOrder
     valuationStatementName?: SortOrder
     valuationStatementSize?: SortOrder
+    landEvaluation?: SortOrder
+    buildingEvaluation?: SortOrder
+    rent?: SortOrder
+    rentNoTax?: SortOrder
+    keyMoney?: SortOrder
+    keyMoneyNoTax?: SortOrder
+    renewalFee?: SortOrder
+    renewalFeeNoTax?: SortOrder
+    otherFee?: SortOrder
+    otherFeeNoTax?: SortOrder
+    deposit?: SortOrder
+    depositNoTax?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -30667,6 +31964,18 @@ export namespace Prisma {
     valuationStatementFile?: SortOrder
     valuationStatementName?: SortOrder
     valuationStatementSize?: SortOrder
+    landEvaluation?: SortOrder
+    buildingEvaluation?: SortOrder
+    rent?: SortOrder
+    rentNoTax?: SortOrder
+    keyMoney?: SortOrder
+    keyMoneyNoTax?: SortOrder
+    renewalFee?: SortOrder
+    renewalFeeNoTax?: SortOrder
+    otherFee?: SortOrder
+    otherFeeNoTax?: SortOrder
+    deposit?: SortOrder
+    depositNoTax?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -30682,6 +31991,18 @@ export namespace Prisma {
     pmPerformanceRate?: SortOrder
     pmPerformanceRatePercent?: SortOrder
     valuationStatementSize?: SortOrder
+    landEvaluation?: SortOrder
+    buildingEvaluation?: SortOrder
+    rent?: SortOrder
+    rentNoTax?: SortOrder
+    keyMoney?: SortOrder
+    keyMoneyNoTax?: SortOrder
+    renewalFee?: SortOrder
+    renewalFeeNoTax?: SortOrder
+    otherFee?: SortOrder
+    otherFeeNoTax?: SortOrder
+    deposit?: SortOrder
+    depositNoTax?: SortOrder
   }
 
   export type BytesNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -31702,6 +33023,14 @@ export namespace Prisma {
     divide?: number
   }
 
+  export type NullableBigIntFieldUpdateOperationsInput = {
+    set?: bigint | number | null
+    increment?: bigint | number
+    decrement?: bigint | number
+    multiply?: bigint | number
+    divide?: bigint | number
+  }
+
   export type NullableFloatFieldUpdateOperationsInput = {
     set?: number | null
     increment?: number
@@ -32409,6 +33738,17 @@ export namespace Prisma {
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
+  export type NestedBigIntNullableFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
+  }
+
   export type NestedFloatNullableFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel> | null
     in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
@@ -32448,6 +33788,22 @@ export namespace Prisma {
     _sum?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedIntNullableFilter<$PrismaModel>
     _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedBigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntNullableWithAggregatesFilter<$PrismaModel> | bigint | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedBigIntNullableFilter<$PrismaModel>
+    _min?: NestedBigIntNullableFilter<$PrismaModel>
+    _max?: NestedBigIntNullableFilter<$PrismaModel>
   }
 
   export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -32654,13 +34010,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
-    shintakuShueki?: number | null
-    shintakuHiyo?: number | null
-    sashihikiShintakuRieki?: number | null
-    shintakuRieki?: number | null
-    bunpaiRieki?: number | null
-    bunpaiSogaku?: number | null
-    bunpaiSogakuNonInvoice?: number | null
+    shintakuShueki?: bigint | number | null
+    shintakuHiyo?: bigint | number | null
+    sashihikiShintakuRieki?: bigint | number | null
+    shintakuRieki?: bigint | number | null
+    bunpaiRieki?: bigint | number | null
+    bunpaiSogaku?: bigint | number | null
+    bunpaiSogakuNonInvoice?: bigint | number | null
     kurikoshiRieki?: number | null
     unitShintakuShueki?: number | null
     unitShintakuHiyo?: number | null
@@ -32670,28 +34026,30 @@ export namespace Prisma {
     unitGanponKuriire?: number | null
     unitBunpai?: number | null
     unitBunpaiForNonInvoice?: number | null
-    shohiyoRyuhokin?: number | null
-    shuzenTsumitatekin?: number | null
-    azukarikinHenkanJunbikin?: number | null
-    zeikinHokenryoJunbiKanjo?: number | null
-    kyodoUnyuHiyoJunbiKanjo?: number | null
-    risokuShiharaiJunbiKanjo?: number | null
-    shihoTekiShishutsuJunbiKanjo?: number | null
-    cashTrapJunbiKanjo?: number | null
-    sonotaGenyokin?: number | null
-    futuYokinTokiZandaka?: number | null
-    zenkiKurikoshiRieki?: number | null
-    shuzenTsumitatekinKuriire?: number | null
+    shohiyoRyuhokin?: bigint | number | null
+    shuzenTsumitatekin?: bigint | number | null
+    azukarikinHenkanJunbikin?: bigint | number | null
+    zeikinHokenryoJunbiKanjo?: bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
+    risokuShiharaiJunbiKanjo?: bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: bigint | number | null
+    cashTrapJunbiKanjo?: bigint | number | null
+    sonotaGenyokin?: bigint | number | null
+    futuYokinTokiZandaka?: bigint | number | null
+    zenkiKurikoshiRieki?: bigint | number | null
+    shuzenTsumitatekinKuriire?: bigint | number | null
+    mibaraiHiyo?: bigint | number | null
+    chokiKariire?: bigint | number | null
     currentYearBunpaiRatio?: number | null
     fullYearBunpaiRatio?: number | null
     currentYearBunpaiRatioNonInvoice?: number | null
     fullYearBunpaiRatioNonInvoice?: number | null
-    shintakuShuekiKazeiUriage?: number | null
-    shintakuShuekiKazeiUriageShohizei?: number | null
-    shintakuShuekiHikazeiUriage?: number | null
-    shintakuHiyoKazeiShiire?: number | null
-    shintakuHiyoKazeiShiireShohizei?: number | null
-    shintakuHiyoHikazeiShiire?: number | null
+    shintakuShuekiKazeiUriage?: bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: bigint | number | null
+    shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuHiyoKazeiShiire?: bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: bigint | number | null
+    shintakuHiyoHikazeiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
@@ -32700,6 +34058,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    kazeiUriageSashihiki08?: bigint | number | null
+    kazeiUriageSashihiki10?: bigint | number | null
+    kazeiUriageHontai08?: bigint | number | null
+    kazeiUriageHontai10?: bigint | number | null
+    kazeiShiire100Kojo?: bigint | number | null
+    kazeiShiire100KojoNoTax?: bigint | number | null
+    kazeiShiire8050Kojo?: bigint | number | null
+    kazeiShiire8050KojoNoTax?: bigint | number | null
+    kazeiUriageOnlyApplyTax7p8?: bigint | number | null
+    kazeiUriageCommonApplyTax7p8?: bigint | number | null
+    koteiShisan80Kojo?: bigint | number | null
+    koteiShisan80KojoNoTax?: bigint | number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -32729,13 +34099,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
-    shintakuShueki?: number | null
-    shintakuHiyo?: number | null
-    sashihikiShintakuRieki?: number | null
-    shintakuRieki?: number | null
-    bunpaiRieki?: number | null
-    bunpaiSogaku?: number | null
-    bunpaiSogakuNonInvoice?: number | null
+    shintakuShueki?: bigint | number | null
+    shintakuHiyo?: bigint | number | null
+    sashihikiShintakuRieki?: bigint | number | null
+    shintakuRieki?: bigint | number | null
+    bunpaiRieki?: bigint | number | null
+    bunpaiSogaku?: bigint | number | null
+    bunpaiSogakuNonInvoice?: bigint | number | null
     kurikoshiRieki?: number | null
     unitShintakuShueki?: number | null
     unitShintakuHiyo?: number | null
@@ -32745,28 +34115,30 @@ export namespace Prisma {
     unitGanponKuriire?: number | null
     unitBunpai?: number | null
     unitBunpaiForNonInvoice?: number | null
-    shohiyoRyuhokin?: number | null
-    shuzenTsumitatekin?: number | null
-    azukarikinHenkanJunbikin?: number | null
-    zeikinHokenryoJunbiKanjo?: number | null
-    kyodoUnyuHiyoJunbiKanjo?: number | null
-    risokuShiharaiJunbiKanjo?: number | null
-    shihoTekiShishutsuJunbiKanjo?: number | null
-    cashTrapJunbiKanjo?: number | null
-    sonotaGenyokin?: number | null
-    futuYokinTokiZandaka?: number | null
-    zenkiKurikoshiRieki?: number | null
-    shuzenTsumitatekinKuriire?: number | null
+    shohiyoRyuhokin?: bigint | number | null
+    shuzenTsumitatekin?: bigint | number | null
+    azukarikinHenkanJunbikin?: bigint | number | null
+    zeikinHokenryoJunbiKanjo?: bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
+    risokuShiharaiJunbiKanjo?: bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: bigint | number | null
+    cashTrapJunbiKanjo?: bigint | number | null
+    sonotaGenyokin?: bigint | number | null
+    futuYokinTokiZandaka?: bigint | number | null
+    zenkiKurikoshiRieki?: bigint | number | null
+    shuzenTsumitatekinKuriire?: bigint | number | null
+    mibaraiHiyo?: bigint | number | null
+    chokiKariire?: bigint | number | null
     currentYearBunpaiRatio?: number | null
     fullYearBunpaiRatio?: number | null
     currentYearBunpaiRatioNonInvoice?: number | null
     fullYearBunpaiRatioNonInvoice?: number | null
-    shintakuShuekiKazeiUriage?: number | null
-    shintakuShuekiKazeiUriageShohizei?: number | null
-    shintakuShuekiHikazeiUriage?: number | null
-    shintakuHiyoKazeiShiire?: number | null
-    shintakuHiyoKazeiShiireShohizei?: number | null
-    shintakuHiyoHikazeiShiire?: number | null
+    shintakuShuekiKazeiUriage?: bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: bigint | number | null
+    shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuHiyoKazeiShiire?: bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: bigint | number | null
+    shintakuHiyoHikazeiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
@@ -32775,6 +34147,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    kazeiUriageSashihiki08?: bigint | number | null
+    kazeiUriageSashihiki10?: bigint | number | null
+    kazeiUriageHontai08?: bigint | number | null
+    kazeiUriageHontai10?: bigint | number | null
+    kazeiShiire100Kojo?: bigint | number | null
+    kazeiShiire100KojoNoTax?: bigint | number | null
+    kazeiShiire8050Kojo?: bigint | number | null
+    kazeiShiire8050KojoNoTax?: bigint | number | null
+    kazeiUriageOnlyApplyTax7p8?: bigint | number | null
+    kazeiUriageCommonApplyTax7p8?: bigint | number | null
+    koteiShisan80Kojo?: bigint | number | null
+    koteiShisan80KojoNoTax?: bigint | number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -32810,6 +34194,18 @@ export namespace Prisma {
     valuationStatementFile?: Buffer | null
     valuationStatementName?: string | null
     valuationStatementSize?: number | null
+    landEvaluation?: bigint | number | null
+    buildingEvaluation?: bigint | number | null
+    rent?: bigint | number | null
+    rentNoTax?: bigint | number | null
+    keyMoney?: bigint | number | null
+    keyMoneyNoTax?: bigint | number | null
+    renewalFee?: bigint | number | null
+    renewalFeeNoTax?: bigint | number | null
+    otherFee?: bigint | number | null
+    otherFeeNoTax?: bigint | number | null
+    deposit?: bigint | number | null
+    depositNoTax?: bigint | number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -32836,6 +34232,18 @@ export namespace Prisma {
     valuationStatementFile?: Buffer | null
     valuationStatementName?: string | null
     valuationStatementSize?: number | null
+    landEvaluation?: bigint | number | null
+    buildingEvaluation?: bigint | number | null
+    rent?: bigint | number | null
+    rentNoTax?: bigint | number | null
+    keyMoney?: bigint | number | null
+    keyMoneyNoTax?: bigint | number | null
+    renewalFee?: bigint | number | null
+    renewalFeeNoTax?: bigint | number | null
+    otherFee?: bigint | number | null
+    otherFeeNoTax?: bigint | number | null
+    deposit?: bigint | number | null
+    depositNoTax?: bigint | number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -32893,13 +34301,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax?: IntNullableFilter<"ProjectKi"> | number | null
     totalUnit?: IntNullableFilter<"ProjectKi"> | number | null
     totalUnitNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
-    shintakuShueki?: IntNullableFilter<"ProjectKi"> | number | null
-    shintakuHiyo?: IntNullableFilter<"ProjectKi"> | number | null
-    sashihikiShintakuRieki?: IntNullableFilter<"ProjectKi"> | number | null
-    shintakuRieki?: IntNullableFilter<"ProjectKi"> | number | null
-    bunpaiRieki?: IntNullableFilter<"ProjectKi"> | number | null
-    bunpaiSogaku?: IntNullableFilter<"ProjectKi"> | number | null
-    bunpaiSogakuNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuShueki?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuHiyo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    sashihikiShintakuRieki?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuRieki?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    bunpaiRieki?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    bunpaiSogaku?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    bunpaiSogakuNonInvoice?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     kurikoshiRieki?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuShueki?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyo?: IntNullableFilter<"ProjectKi"> | number | null
@@ -32909,28 +34317,30 @@ export namespace Prisma {
     unitGanponKuriire?: IntNullableFilter<"ProjectKi"> | number | null
     unitBunpai?: IntNullableFilter<"ProjectKi"> | number | null
     unitBunpaiForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
-    shohiyoRyuhokin?: IntNullableFilter<"ProjectKi"> | number | null
-    shuzenTsumitatekin?: IntNullableFilter<"ProjectKi"> | number | null
-    azukarikinHenkanJunbikin?: IntNullableFilter<"ProjectKi"> | number | null
-    zeikinHokenryoJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
-    kyodoUnyuHiyoJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
-    risokuShiharaiJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
-    shihoTekiShishutsuJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
-    cashTrapJunbiKanjo?: IntNullableFilter<"ProjectKi"> | number | null
-    sonotaGenyokin?: IntNullableFilter<"ProjectKi"> | number | null
-    futuYokinTokiZandaka?: IntNullableFilter<"ProjectKi"> | number | null
-    zenkiKurikoshiRieki?: IntNullableFilter<"ProjectKi"> | number | null
-    shuzenTsumitatekinKuriire?: IntNullableFilter<"ProjectKi"> | number | null
+    shohiyoRyuhokin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shuzenTsumitatekin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    azukarikinHenkanJunbikin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    zeikinHokenryoJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    risokuShiharaiJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    cashTrapJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    sonotaGenyokin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    futuYokinTokiZandaka?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    zenkiKurikoshiRieki?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shuzenTsumitatekinKuriire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    mibaraiHiyo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    chokiKariire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     currentYearBunpaiRatio?: FloatNullableFilter<"ProjectKi"> | number | null
     fullYearBunpaiRatio?: FloatNullableFilter<"ProjectKi"> | number | null
     currentYearBunpaiRatioNonInvoice?: FloatNullableFilter<"ProjectKi"> | number | null
     fullYearBunpaiRatioNonInvoice?: FloatNullableFilter<"ProjectKi"> | number | null
-    shintakuShuekiKazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
-    shintakuShuekiKazeiUriageShohizei?: IntNullableFilter<"ProjectKi"> | number | null
-    shintakuShuekiHikazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
-    shintakuHiyoKazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
-    shintakuHiyoKazeiShiireShohizei?: IntNullableFilter<"ProjectKi"> | number | null
-    shintakuHiyoHikazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuShuekiKazeiUriage?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuShuekiHikazeiUriage?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuHiyoKazeiShiire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuHiyoHikazeiShiire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     unitShintakuShuekiKazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuShuekiKazeiUriageShohizei?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuShuekiHikazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
@@ -32939,6 +34349,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    kazeiUriageSashihiki08?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiUriageSashihiki10?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiUriageHontai08?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiUriageHontai10?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire100Kojo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire100KojoNoTax?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire8050Kojo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire8050KojoNoTax?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiUriageOnlyApplyTax7p8?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiUriageCommonApplyTax7p8?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    koteiShisan80Kojo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    koteiShisan80KojoNoTax?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     createdAt?: DateTimeFilter<"ProjectKi"> | Date | string
     createdId?: StringFilter<"ProjectKi"> | string
     createdBy?: StringFilter<"ProjectKi"> | string
@@ -32984,6 +34406,18 @@ export namespace Prisma {
     valuationStatementFile?: BytesNullableFilter<"AssetKi"> | Buffer | null
     valuationStatementName?: StringNullableFilter<"AssetKi"> | string | null
     valuationStatementSize?: IntNullableFilter<"AssetKi"> | number | null
+    landEvaluation?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    buildingEvaluation?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    rent?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    rentNoTax?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    keyMoney?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    keyMoneyNoTax?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    renewalFee?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    renewalFeeNoTax?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    otherFee?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    otherFeeNoTax?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    deposit?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    depositNoTax?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
     createdAt?: DateTimeFilter<"AssetKi"> | Date | string
     createdId?: StringFilter<"AssetKi"> | string
     createdBy?: StringFilter<"AssetKi"> | string
@@ -33245,13 +34679,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
-    shintakuShueki?: number | null
-    shintakuHiyo?: number | null
-    sashihikiShintakuRieki?: number | null
-    shintakuRieki?: number | null
-    bunpaiRieki?: number | null
-    bunpaiSogaku?: number | null
-    bunpaiSogakuNonInvoice?: number | null
+    shintakuShueki?: bigint | number | null
+    shintakuHiyo?: bigint | number | null
+    sashihikiShintakuRieki?: bigint | number | null
+    shintakuRieki?: bigint | number | null
+    bunpaiRieki?: bigint | number | null
+    bunpaiSogaku?: bigint | number | null
+    bunpaiSogakuNonInvoice?: bigint | number | null
     kurikoshiRieki?: number | null
     unitShintakuShueki?: number | null
     unitShintakuHiyo?: number | null
@@ -33261,28 +34695,30 @@ export namespace Prisma {
     unitGanponKuriire?: number | null
     unitBunpai?: number | null
     unitBunpaiForNonInvoice?: number | null
-    shohiyoRyuhokin?: number | null
-    shuzenTsumitatekin?: number | null
-    azukarikinHenkanJunbikin?: number | null
-    zeikinHokenryoJunbiKanjo?: number | null
-    kyodoUnyuHiyoJunbiKanjo?: number | null
-    risokuShiharaiJunbiKanjo?: number | null
-    shihoTekiShishutsuJunbiKanjo?: number | null
-    cashTrapJunbiKanjo?: number | null
-    sonotaGenyokin?: number | null
-    futuYokinTokiZandaka?: number | null
-    zenkiKurikoshiRieki?: number | null
-    shuzenTsumitatekinKuriire?: number | null
+    shohiyoRyuhokin?: bigint | number | null
+    shuzenTsumitatekin?: bigint | number | null
+    azukarikinHenkanJunbikin?: bigint | number | null
+    zeikinHokenryoJunbiKanjo?: bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
+    risokuShiharaiJunbiKanjo?: bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: bigint | number | null
+    cashTrapJunbiKanjo?: bigint | number | null
+    sonotaGenyokin?: bigint | number | null
+    futuYokinTokiZandaka?: bigint | number | null
+    zenkiKurikoshiRieki?: bigint | number | null
+    shuzenTsumitatekinKuriire?: bigint | number | null
+    mibaraiHiyo?: bigint | number | null
+    chokiKariire?: bigint | number | null
     currentYearBunpaiRatio?: number | null
     fullYearBunpaiRatio?: number | null
     currentYearBunpaiRatioNonInvoice?: number | null
     fullYearBunpaiRatioNonInvoice?: number | null
-    shintakuShuekiKazeiUriage?: number | null
-    shintakuShuekiKazeiUriageShohizei?: number | null
-    shintakuShuekiHikazeiUriage?: number | null
-    shintakuHiyoKazeiShiire?: number | null
-    shintakuHiyoKazeiShiireShohizei?: number | null
-    shintakuHiyoHikazeiShiire?: number | null
+    shintakuShuekiKazeiUriage?: bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: bigint | number | null
+    shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuHiyoKazeiShiire?: bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: bigint | number | null
+    shintakuHiyoHikazeiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
@@ -33291,6 +34727,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    kazeiUriageSashihiki08?: bigint | number | null
+    kazeiUriageSashihiki10?: bigint | number | null
+    kazeiUriageHontai08?: bigint | number | null
+    kazeiUriageHontai10?: bigint | number | null
+    kazeiShiire100Kojo?: bigint | number | null
+    kazeiShiire100KojoNoTax?: bigint | number | null
+    kazeiShiire8050Kojo?: bigint | number | null
+    kazeiShiire8050KojoNoTax?: bigint | number | null
+    kazeiUriageOnlyApplyTax7p8?: bigint | number | null
+    kazeiUriageCommonApplyTax7p8?: bigint | number | null
+    koteiShisan80Kojo?: bigint | number | null
+    koteiShisan80KojoNoTax?: bigint | number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -33320,13 +34768,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
-    shintakuShueki?: number | null
-    shintakuHiyo?: number | null
-    sashihikiShintakuRieki?: number | null
-    shintakuRieki?: number | null
-    bunpaiRieki?: number | null
-    bunpaiSogaku?: number | null
-    bunpaiSogakuNonInvoice?: number | null
+    shintakuShueki?: bigint | number | null
+    shintakuHiyo?: bigint | number | null
+    sashihikiShintakuRieki?: bigint | number | null
+    shintakuRieki?: bigint | number | null
+    bunpaiRieki?: bigint | number | null
+    bunpaiSogaku?: bigint | number | null
+    bunpaiSogakuNonInvoice?: bigint | number | null
     kurikoshiRieki?: number | null
     unitShintakuShueki?: number | null
     unitShintakuHiyo?: number | null
@@ -33336,28 +34784,30 @@ export namespace Prisma {
     unitGanponKuriire?: number | null
     unitBunpai?: number | null
     unitBunpaiForNonInvoice?: number | null
-    shohiyoRyuhokin?: number | null
-    shuzenTsumitatekin?: number | null
-    azukarikinHenkanJunbikin?: number | null
-    zeikinHokenryoJunbiKanjo?: number | null
-    kyodoUnyuHiyoJunbiKanjo?: number | null
-    risokuShiharaiJunbiKanjo?: number | null
-    shihoTekiShishutsuJunbiKanjo?: number | null
-    cashTrapJunbiKanjo?: number | null
-    sonotaGenyokin?: number | null
-    futuYokinTokiZandaka?: number | null
-    zenkiKurikoshiRieki?: number | null
-    shuzenTsumitatekinKuriire?: number | null
+    shohiyoRyuhokin?: bigint | number | null
+    shuzenTsumitatekin?: bigint | number | null
+    azukarikinHenkanJunbikin?: bigint | number | null
+    zeikinHokenryoJunbiKanjo?: bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
+    risokuShiharaiJunbiKanjo?: bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: bigint | number | null
+    cashTrapJunbiKanjo?: bigint | number | null
+    sonotaGenyokin?: bigint | number | null
+    futuYokinTokiZandaka?: bigint | number | null
+    zenkiKurikoshiRieki?: bigint | number | null
+    shuzenTsumitatekinKuriire?: bigint | number | null
+    mibaraiHiyo?: bigint | number | null
+    chokiKariire?: bigint | number | null
     currentYearBunpaiRatio?: number | null
     fullYearBunpaiRatio?: number | null
     currentYearBunpaiRatioNonInvoice?: number | null
     fullYearBunpaiRatioNonInvoice?: number | null
-    shintakuShuekiKazeiUriage?: number | null
-    shintakuShuekiKazeiUriageShohizei?: number | null
-    shintakuShuekiHikazeiUriage?: number | null
-    shintakuHiyoKazeiShiire?: number | null
-    shintakuHiyoKazeiShiireShohizei?: number | null
-    shintakuHiyoHikazeiShiire?: number | null
+    shintakuShuekiKazeiUriage?: bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: bigint | number | null
+    shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuHiyoKazeiShiire?: bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: bigint | number | null
+    shintakuHiyoHikazeiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
@@ -33366,6 +34816,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    kazeiUriageSashihiki08?: bigint | number | null
+    kazeiUriageSashihiki10?: bigint | number | null
+    kazeiUriageHontai08?: bigint | number | null
+    kazeiUriageHontai10?: bigint | number | null
+    kazeiShiire100Kojo?: bigint | number | null
+    kazeiShiire100KojoNoTax?: bigint | number | null
+    kazeiShiire8050Kojo?: bigint | number | null
+    kazeiShiire8050KojoNoTax?: bigint | number | null
+    kazeiUriageOnlyApplyTax7p8?: bigint | number | null
+    kazeiUriageCommonApplyTax7p8?: bigint | number | null
+    koteiShisan80Kojo?: bigint | number | null
+    koteiShisan80KojoNoTax?: bigint | number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -33395,6 +34857,11 @@ export namespace Prisma {
     BuildingValuationPos?: string
     LandEquityValuationPos?: string
     LandSelfValuationPos?: string
+    UnitResidenceLandValuationStartPos?: string
+    UnitResidenceBuildingValuationStartPos?: string
+    leaseType?: string
+    landUseZone?: string
+    leaseArea?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -33414,6 +34881,11 @@ export namespace Prisma {
     BuildingValuationPos?: string
     LandEquityValuationPos?: string
     LandSelfValuationPos?: string
+    UnitResidenceLandValuationStartPos?: string
+    UnitResidenceBuildingValuationStartPos?: string
+    leaseType?: string
+    landUseZone?: string
+    leaseArea?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -33842,6 +35314,11 @@ export namespace Prisma {
     BuildingValuationPos?: StringFilter<"Asset"> | string
     LandEquityValuationPos?: StringFilter<"Asset"> | string
     LandSelfValuationPos?: StringFilter<"Asset"> | string
+    UnitResidenceLandValuationStartPos?: StringFilter<"Asset"> | string
+    UnitResidenceBuildingValuationStartPos?: StringFilter<"Asset"> | string
+    leaseType?: StringFilter<"Asset"> | string
+    landUseZone?: StringFilter<"Asset"> | string
+    leaseArea?: FloatNullableFilter<"Asset"> | number | null
     createdAt?: DateTimeFilter<"Asset"> | Date | string
     createdId?: StringFilter<"Asset"> | string
     createdBy?: StringFilter<"Asset"> | string
@@ -33931,6 +35408,8 @@ export namespace Prisma {
     settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -33964,6 +35443,8 @@ export namespace Prisma {
     settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
     reportMainId?: string | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
@@ -34098,6 +35579,8 @@ export namespace Prisma {
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    leverageFlag?: BoolFieldUpdateOperationsInput | boolean
+    unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -34131,6 +35614,8 @@ export namespace Prisma {
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    leverageFlag?: BoolFieldUpdateOperationsInput | boolean
+    unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -34244,6 +35729,8 @@ export namespace Prisma {
     settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -34277,6 +35764,8 @@ export namespace Prisma {
     settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
     reportMainId?: string | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
@@ -34313,6 +35802,18 @@ export namespace Prisma {
     valuationStatementFile?: Buffer | null
     valuationStatementName?: string | null
     valuationStatementSize?: number | null
+    landEvaluation?: bigint | number | null
+    buildingEvaluation?: bigint | number | null
+    rent?: bigint | number | null
+    rentNoTax?: bigint | number | null
+    keyMoney?: bigint | number | null
+    keyMoneyNoTax?: bigint | number | null
+    renewalFee?: bigint | number | null
+    renewalFeeNoTax?: bigint | number | null
+    otherFee?: bigint | number | null
+    otherFeeNoTax?: bigint | number | null
+    deposit?: bigint | number | null
+    depositNoTax?: bigint | number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -34339,6 +35840,18 @@ export namespace Prisma {
     valuationStatementFile?: Buffer | null
     valuationStatementName?: string | null
     valuationStatementSize?: number | null
+    landEvaluation?: bigint | number | null
+    buildingEvaluation?: bigint | number | null
+    rent?: bigint | number | null
+    rentNoTax?: bigint | number | null
+    keyMoney?: bigint | number | null
+    keyMoneyNoTax?: bigint | number | null
+    renewalFee?: bigint | number | null
+    renewalFeeNoTax?: bigint | number | null
+    otherFee?: bigint | number | null
+    otherFeeNoTax?: bigint | number | null
+    deposit?: bigint | number | null
+    depositNoTax?: bigint | number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -34386,6 +35899,8 @@ export namespace Prisma {
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    leverageFlag?: BoolFieldUpdateOperationsInput | boolean
+    unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -34419,6 +35934,8 @@ export namespace Prisma {
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    leverageFlag?: BoolFieldUpdateOperationsInput | boolean
+    unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -34460,6 +35977,11 @@ export namespace Prisma {
     BuildingValuationPos?: string
     LandEquityValuationPos?: string
     LandSelfValuationPos?: string
+    UnitResidenceLandValuationStartPos?: string
+    UnitResidenceBuildingValuationStartPos?: string
+    leaseType?: string
+    landUseZone?: string
+    leaseArea?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -34480,6 +36002,11 @@ export namespace Prisma {
     BuildingValuationPos?: string
     LandEquityValuationPos?: string
     LandSelfValuationPos?: string
+    UnitResidenceLandValuationStartPos?: string
+    UnitResidenceBuildingValuationStartPos?: string
+    leaseType?: string
+    landUseZone?: string
+    leaseArea?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -34547,6 +36074,11 @@ export namespace Prisma {
     BuildingValuationPos?: StringFieldUpdateOperationsInput | string
     LandEquityValuationPos?: StringFieldUpdateOperationsInput | string
     LandSelfValuationPos?: StringFieldUpdateOperationsInput | string
+    UnitResidenceLandValuationStartPos?: StringFieldUpdateOperationsInput | string
+    UnitResidenceBuildingValuationStartPos?: StringFieldUpdateOperationsInput | string
+    leaseType?: StringFieldUpdateOperationsInput | string
+    landUseZone?: StringFieldUpdateOperationsInput | string
+    leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -34567,6 +36099,11 @@ export namespace Prisma {
     BuildingValuationPos?: StringFieldUpdateOperationsInput | string
     LandEquityValuationPos?: StringFieldUpdateOperationsInput | string
     LandSelfValuationPos?: StringFieldUpdateOperationsInput | string
+    UnitResidenceLandValuationStartPos?: StringFieldUpdateOperationsInput | string
+    UnitResidenceBuildingValuationStartPos?: StringFieldUpdateOperationsInput | string
+    leaseType?: StringFieldUpdateOperationsInput | string
+    landUseZone?: StringFieldUpdateOperationsInput | string
+    leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -34632,6 +36169,8 @@ export namespace Prisma {
     settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -34665,6 +36204,8 @@ export namespace Prisma {
     settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
     reportMainId?: string | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
@@ -34766,6 +36307,8 @@ export namespace Prisma {
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    leverageFlag?: BoolFieldUpdateOperationsInput | boolean
+    unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -34799,6 +36342,8 @@ export namespace Prisma {
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    leverageFlag?: BoolFieldUpdateOperationsInput | boolean
+    unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -34941,13 +36486,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
-    shintakuShueki?: number | null
-    shintakuHiyo?: number | null
-    sashihikiShintakuRieki?: number | null
-    shintakuRieki?: number | null
-    bunpaiRieki?: number | null
-    bunpaiSogaku?: number | null
-    bunpaiSogakuNonInvoice?: number | null
+    shintakuShueki?: bigint | number | null
+    shintakuHiyo?: bigint | number | null
+    sashihikiShintakuRieki?: bigint | number | null
+    shintakuRieki?: bigint | number | null
+    bunpaiRieki?: bigint | number | null
+    bunpaiSogaku?: bigint | number | null
+    bunpaiSogakuNonInvoice?: bigint | number | null
     kurikoshiRieki?: number | null
     unitShintakuShueki?: number | null
     unitShintakuHiyo?: number | null
@@ -34957,28 +36502,30 @@ export namespace Prisma {
     unitGanponKuriire?: number | null
     unitBunpai?: number | null
     unitBunpaiForNonInvoice?: number | null
-    shohiyoRyuhokin?: number | null
-    shuzenTsumitatekin?: number | null
-    azukarikinHenkanJunbikin?: number | null
-    zeikinHokenryoJunbiKanjo?: number | null
-    kyodoUnyuHiyoJunbiKanjo?: number | null
-    risokuShiharaiJunbiKanjo?: number | null
-    shihoTekiShishutsuJunbiKanjo?: number | null
-    cashTrapJunbiKanjo?: number | null
-    sonotaGenyokin?: number | null
-    futuYokinTokiZandaka?: number | null
-    zenkiKurikoshiRieki?: number | null
-    shuzenTsumitatekinKuriire?: number | null
+    shohiyoRyuhokin?: bigint | number | null
+    shuzenTsumitatekin?: bigint | number | null
+    azukarikinHenkanJunbikin?: bigint | number | null
+    zeikinHokenryoJunbiKanjo?: bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
+    risokuShiharaiJunbiKanjo?: bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: bigint | number | null
+    cashTrapJunbiKanjo?: bigint | number | null
+    sonotaGenyokin?: bigint | number | null
+    futuYokinTokiZandaka?: bigint | number | null
+    zenkiKurikoshiRieki?: bigint | number | null
+    shuzenTsumitatekinKuriire?: bigint | number | null
+    mibaraiHiyo?: bigint | number | null
+    chokiKariire?: bigint | number | null
     currentYearBunpaiRatio?: number | null
     fullYearBunpaiRatio?: number | null
     currentYearBunpaiRatioNonInvoice?: number | null
     fullYearBunpaiRatioNonInvoice?: number | null
-    shintakuShuekiKazeiUriage?: number | null
-    shintakuShuekiKazeiUriageShohizei?: number | null
-    shintakuShuekiHikazeiUriage?: number | null
-    shintakuHiyoKazeiShiire?: number | null
-    shintakuHiyoKazeiShiireShohizei?: number | null
-    shintakuHiyoHikazeiShiire?: number | null
+    shintakuShuekiKazeiUriage?: bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: bigint | number | null
+    shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuHiyoKazeiShiire?: bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: bigint | number | null
+    shintakuHiyoHikazeiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
@@ -34987,6 +36534,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    kazeiUriageSashihiki08?: bigint | number | null
+    kazeiUriageSashihiki10?: bigint | number | null
+    kazeiUriageHontai08?: bigint | number | null
+    kazeiUriageHontai10?: bigint | number | null
+    kazeiShiire100Kojo?: bigint | number | null
+    kazeiShiire100KojoNoTax?: bigint | number | null
+    kazeiShiire8050Kojo?: bigint | number | null
+    kazeiShiire8050KojoNoTax?: bigint | number | null
+    kazeiUriageOnlyApplyTax7p8?: bigint | number | null
+    kazeiUriageCommonApplyTax7p8?: bigint | number | null
+    koteiShisan80Kojo?: bigint | number | null
+    koteiShisan80KojoNoTax?: bigint | number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -35017,13 +36576,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
-    shintakuShueki?: number | null
-    shintakuHiyo?: number | null
-    sashihikiShintakuRieki?: number | null
-    shintakuRieki?: number | null
-    bunpaiRieki?: number | null
-    bunpaiSogaku?: number | null
-    bunpaiSogakuNonInvoice?: number | null
+    shintakuShueki?: bigint | number | null
+    shintakuHiyo?: bigint | number | null
+    sashihikiShintakuRieki?: bigint | number | null
+    shintakuRieki?: bigint | number | null
+    bunpaiRieki?: bigint | number | null
+    bunpaiSogaku?: bigint | number | null
+    bunpaiSogakuNonInvoice?: bigint | number | null
     kurikoshiRieki?: number | null
     unitShintakuShueki?: number | null
     unitShintakuHiyo?: number | null
@@ -35033,28 +36592,30 @@ export namespace Prisma {
     unitGanponKuriire?: number | null
     unitBunpai?: number | null
     unitBunpaiForNonInvoice?: number | null
-    shohiyoRyuhokin?: number | null
-    shuzenTsumitatekin?: number | null
-    azukarikinHenkanJunbikin?: number | null
-    zeikinHokenryoJunbiKanjo?: number | null
-    kyodoUnyuHiyoJunbiKanjo?: number | null
-    risokuShiharaiJunbiKanjo?: number | null
-    shihoTekiShishutsuJunbiKanjo?: number | null
-    cashTrapJunbiKanjo?: number | null
-    sonotaGenyokin?: number | null
-    futuYokinTokiZandaka?: number | null
-    zenkiKurikoshiRieki?: number | null
-    shuzenTsumitatekinKuriire?: number | null
+    shohiyoRyuhokin?: bigint | number | null
+    shuzenTsumitatekin?: bigint | number | null
+    azukarikinHenkanJunbikin?: bigint | number | null
+    zeikinHokenryoJunbiKanjo?: bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
+    risokuShiharaiJunbiKanjo?: bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: bigint | number | null
+    cashTrapJunbiKanjo?: bigint | number | null
+    sonotaGenyokin?: bigint | number | null
+    futuYokinTokiZandaka?: bigint | number | null
+    zenkiKurikoshiRieki?: bigint | number | null
+    shuzenTsumitatekinKuriire?: bigint | number | null
+    mibaraiHiyo?: bigint | number | null
+    chokiKariire?: bigint | number | null
     currentYearBunpaiRatio?: number | null
     fullYearBunpaiRatio?: number | null
     currentYearBunpaiRatioNonInvoice?: number | null
     fullYearBunpaiRatioNonInvoice?: number | null
-    shintakuShuekiKazeiUriage?: number | null
-    shintakuShuekiKazeiUriageShohizei?: number | null
-    shintakuShuekiHikazeiUriage?: number | null
-    shintakuHiyoKazeiShiire?: number | null
-    shintakuHiyoKazeiShiireShohizei?: number | null
-    shintakuHiyoHikazeiShiire?: number | null
+    shintakuShuekiKazeiUriage?: bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: bigint | number | null
+    shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuHiyoKazeiShiire?: bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: bigint | number | null
+    shintakuHiyoHikazeiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
@@ -35063,6 +36624,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    kazeiUriageSashihiki08?: bigint | number | null
+    kazeiUriageSashihiki10?: bigint | number | null
+    kazeiUriageHontai08?: bigint | number | null
+    kazeiUriageHontai10?: bigint | number | null
+    kazeiShiire100Kojo?: bigint | number | null
+    kazeiShiire100KojoNoTax?: bigint | number | null
+    kazeiShiire8050Kojo?: bigint | number | null
+    kazeiShiire8050KojoNoTax?: bigint | number | null
+    kazeiUriageOnlyApplyTax7p8?: bigint | number | null
+    kazeiUriageCommonApplyTax7p8?: bigint | number | null
+    koteiShisan80Kojo?: bigint | number | null
+    koteiShisan80KojoNoTax?: bigint | number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -35204,13 +36777,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
-    sashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiSogaku?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiSogakuNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sashihikiShintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
@@ -35220,28 +36793,30 @@ export namespace Prisma {
     unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
     unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
-    shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
-    shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
-    azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
-    zeikinHokenryoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    kyodoUnyuHiyoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    risokuShiharaiJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    shihoTekiShishutsuJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    cashTrapJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
-    futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
-    zenkiKurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    shuzenTsumitatekinKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinKuriire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    mibaraiHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    chokiKariire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
     fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
     currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
     fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
-    shintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
@@ -35250,6 +36825,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageOnlyApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageCommonApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -35280,13 +36867,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
-    sashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiSogaku?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiSogakuNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sashihikiShintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
@@ -35296,28 +36883,30 @@ export namespace Prisma {
     unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
     unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
-    shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
-    shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
-    azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
-    zeikinHokenryoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    kyodoUnyuHiyoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    risokuShiharaiJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    shihoTekiShishutsuJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    cashTrapJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
-    futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
-    zenkiKurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    shuzenTsumitatekinKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinKuriire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    mibaraiHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    chokiKariire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
     fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
     currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
     fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
-    shintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
@@ -35326,6 +36915,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageOnlyApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageCommonApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -35352,6 +36953,8 @@ export namespace Prisma {
     settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -35385,6 +36988,8 @@ export namespace Prisma {
     settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
     bunpaiId?: string | null
@@ -35428,6 +37033,8 @@ export namespace Prisma {
     settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -35461,6 +37068,8 @@ export namespace Prisma {
     settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
     reportMainId?: string | null
     reportAtt3Id?: string | null
     bunpaiId?: string | null
@@ -35504,6 +37113,8 @@ export namespace Prisma {
     settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -35537,6 +37148,8 @@ export namespace Prisma {
     settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
     reportMainId?: string | null
     reportAtt2Id?: string | null
     bunpaiId?: string | null
@@ -35580,6 +37193,8 @@ export namespace Prisma {
     settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -35613,6 +37228,8 @@ export namespace Prisma {
     settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
     reportMainId?: string | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
@@ -35656,6 +37273,8 @@ export namespace Prisma {
     settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -35689,6 +37308,8 @@ export namespace Prisma {
     settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
     reportMainId?: string | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
@@ -35751,6 +37372,8 @@ export namespace Prisma {
     settlorGkAddress?: StringFilter<"Project"> | string
     kamiyachoFlag?: BoolFilter<"Project"> | boolean
     mlspcFlag?: BoolFilter<"Project"> | boolean
+    leverageFlag?: BoolFilter<"Project"> | boolean
+    unitResidenceFlag?: BoolFilter<"Project"> | boolean
     reportMainId?: StringNullableFilter<"Project"> | string | null
     reportAtt2Id?: StringNullableFilter<"Project"> | string | null
     reportAtt3Id?: StringNullableFilter<"Project"> | string | null
@@ -35847,13 +37470,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
-    shintakuShueki?: number | null
-    shintakuHiyo?: number | null
-    sashihikiShintakuRieki?: number | null
-    shintakuRieki?: number | null
-    bunpaiRieki?: number | null
-    bunpaiSogaku?: number | null
-    bunpaiSogakuNonInvoice?: number | null
+    shintakuShueki?: bigint | number | null
+    shintakuHiyo?: bigint | number | null
+    sashihikiShintakuRieki?: bigint | number | null
+    shintakuRieki?: bigint | number | null
+    bunpaiRieki?: bigint | number | null
+    bunpaiSogaku?: bigint | number | null
+    bunpaiSogakuNonInvoice?: bigint | number | null
     kurikoshiRieki?: number | null
     unitShintakuShueki?: number | null
     unitShintakuHiyo?: number | null
@@ -35863,28 +37486,30 @@ export namespace Prisma {
     unitGanponKuriire?: number | null
     unitBunpai?: number | null
     unitBunpaiForNonInvoice?: number | null
-    shohiyoRyuhokin?: number | null
-    shuzenTsumitatekin?: number | null
-    azukarikinHenkanJunbikin?: number | null
-    zeikinHokenryoJunbiKanjo?: number | null
-    kyodoUnyuHiyoJunbiKanjo?: number | null
-    risokuShiharaiJunbiKanjo?: number | null
-    shihoTekiShishutsuJunbiKanjo?: number | null
-    cashTrapJunbiKanjo?: number | null
-    sonotaGenyokin?: number | null
-    futuYokinTokiZandaka?: number | null
-    zenkiKurikoshiRieki?: number | null
-    shuzenTsumitatekinKuriire?: number | null
+    shohiyoRyuhokin?: bigint | number | null
+    shuzenTsumitatekin?: bigint | number | null
+    azukarikinHenkanJunbikin?: bigint | number | null
+    zeikinHokenryoJunbiKanjo?: bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
+    risokuShiharaiJunbiKanjo?: bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: bigint | number | null
+    cashTrapJunbiKanjo?: bigint | number | null
+    sonotaGenyokin?: bigint | number | null
+    futuYokinTokiZandaka?: bigint | number | null
+    zenkiKurikoshiRieki?: bigint | number | null
+    shuzenTsumitatekinKuriire?: bigint | number | null
+    mibaraiHiyo?: bigint | number | null
+    chokiKariire?: bigint | number | null
     currentYearBunpaiRatio?: number | null
     fullYearBunpaiRatio?: number | null
     currentYearBunpaiRatioNonInvoice?: number | null
     fullYearBunpaiRatioNonInvoice?: number | null
-    shintakuShuekiKazeiUriage?: number | null
-    shintakuShuekiKazeiUriageShohizei?: number | null
-    shintakuShuekiHikazeiUriage?: number | null
-    shintakuHiyoKazeiShiire?: number | null
-    shintakuHiyoKazeiShiireShohizei?: number | null
-    shintakuHiyoHikazeiShiire?: number | null
+    shintakuShuekiKazeiUriage?: bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: bigint | number | null
+    shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuHiyoKazeiShiire?: bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: bigint | number | null
+    shintakuHiyoHikazeiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
@@ -35893,6 +37518,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    kazeiUriageSashihiki08?: bigint | number | null
+    kazeiUriageSashihiki10?: bigint | number | null
+    kazeiUriageHontai08?: bigint | number | null
+    kazeiUriageHontai10?: bigint | number | null
+    kazeiShiire100Kojo?: bigint | number | null
+    kazeiShiire100KojoNoTax?: bigint | number | null
+    kazeiShiire8050Kojo?: bigint | number | null
+    kazeiShiire8050KojoNoTax?: bigint | number | null
+    kazeiUriageOnlyApplyTax7p8?: bigint | number | null
+    kazeiUriageCommonApplyTax7p8?: bigint | number | null
+    koteiShisan80Kojo?: bigint | number | null
+    koteiShisan80KojoNoTax?: bigint | number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -35918,6 +37555,18 @@ export namespace Prisma {
     valuationStatementFile?: Buffer | null
     valuationStatementName?: string | null
     valuationStatementSize?: number | null
+    landEvaluation?: bigint | number | null
+    buildingEvaluation?: bigint | number | null
+    rent?: bigint | number | null
+    rentNoTax?: bigint | number | null
+    keyMoney?: bigint | number | null
+    keyMoneyNoTax?: bigint | number | null
+    renewalFee?: bigint | number | null
+    renewalFeeNoTax?: bigint | number | null
+    otherFee?: bigint | number | null
+    otherFeeNoTax?: bigint | number | null
+    deposit?: bigint | number | null
+    depositNoTax?: bigint | number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -35944,13 +37593,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
-    sashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiSogaku?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiSogakuNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sashihikiShintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
@@ -35960,28 +37609,30 @@ export namespace Prisma {
     unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
     unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
-    shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
-    shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
-    azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
-    zeikinHokenryoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    kyodoUnyuHiyoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    risokuShiharaiJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    shihoTekiShishutsuJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    cashTrapJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
-    futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
-    zenkiKurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    shuzenTsumitatekinKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinKuriire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    mibaraiHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    chokiKariire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
     fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
     currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
     fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
-    shintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
@@ -35990,6 +37641,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageOnlyApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageCommonApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -36019,13 +37682,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
-    sashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiSogaku?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiSogakuNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sashihikiShintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
@@ -36035,28 +37698,30 @@ export namespace Prisma {
     unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
     unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
-    shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
-    shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
-    azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
-    zeikinHokenryoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    kyodoUnyuHiyoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    risokuShiharaiJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    shihoTekiShishutsuJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    cashTrapJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
-    futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
-    zenkiKurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    shuzenTsumitatekinKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinKuriire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    mibaraiHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    chokiKariire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
     fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
     currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
     fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
-    shintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
@@ -36065,6 +37730,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageOnlyApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageCommonApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -36093,13 +37770,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
-    sashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiSogaku?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiSogakuNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sashihikiShintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
@@ -36109,28 +37786,30 @@ export namespace Prisma {
     unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
     unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
-    shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
-    shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
-    azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
-    zeikinHokenryoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    kyodoUnyuHiyoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    risokuShiharaiJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    shihoTekiShishutsuJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    cashTrapJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
-    futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
-    zenkiKurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    shuzenTsumitatekinKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinKuriire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    mibaraiHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    chokiKariire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
     fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
     currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
     fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
-    shintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
@@ -36139,6 +37818,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageOnlyApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageCommonApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -36163,6 +37854,18 @@ export namespace Prisma {
     valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
+    landEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    buildingEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    rent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    rentNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    keyMoney?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    keyMoneyNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    renewalFee?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    renewalFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    otherFee?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    otherFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    deposit?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    depositNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -36189,6 +37892,18 @@ export namespace Prisma {
     valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
+    landEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    buildingEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    rent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    rentNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    keyMoney?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    keyMoneyNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    renewalFee?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    renewalFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    otherFee?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    otherFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    deposit?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    depositNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -36214,6 +37929,18 @@ export namespace Prisma {
     valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
+    landEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    buildingEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    rent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    rentNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    keyMoney?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    keyMoneyNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    renewalFee?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    renewalFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    otherFee?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    otherFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    deposit?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    depositNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -36241,13 +37968,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
-    shintakuShueki?: number | null
-    shintakuHiyo?: number | null
-    sashihikiShintakuRieki?: number | null
-    shintakuRieki?: number | null
-    bunpaiRieki?: number | null
-    bunpaiSogaku?: number | null
-    bunpaiSogakuNonInvoice?: number | null
+    shintakuShueki?: bigint | number | null
+    shintakuHiyo?: bigint | number | null
+    sashihikiShintakuRieki?: bigint | number | null
+    shintakuRieki?: bigint | number | null
+    bunpaiRieki?: bigint | number | null
+    bunpaiSogaku?: bigint | number | null
+    bunpaiSogakuNonInvoice?: bigint | number | null
     kurikoshiRieki?: number | null
     unitShintakuShueki?: number | null
     unitShintakuHiyo?: number | null
@@ -36257,28 +37984,30 @@ export namespace Prisma {
     unitGanponKuriire?: number | null
     unitBunpai?: number | null
     unitBunpaiForNonInvoice?: number | null
-    shohiyoRyuhokin?: number | null
-    shuzenTsumitatekin?: number | null
-    azukarikinHenkanJunbikin?: number | null
-    zeikinHokenryoJunbiKanjo?: number | null
-    kyodoUnyuHiyoJunbiKanjo?: number | null
-    risokuShiharaiJunbiKanjo?: number | null
-    shihoTekiShishutsuJunbiKanjo?: number | null
-    cashTrapJunbiKanjo?: number | null
-    sonotaGenyokin?: number | null
-    futuYokinTokiZandaka?: number | null
-    zenkiKurikoshiRieki?: number | null
-    shuzenTsumitatekinKuriire?: number | null
+    shohiyoRyuhokin?: bigint | number | null
+    shuzenTsumitatekin?: bigint | number | null
+    azukarikinHenkanJunbikin?: bigint | number | null
+    zeikinHokenryoJunbiKanjo?: bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
+    risokuShiharaiJunbiKanjo?: bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: bigint | number | null
+    cashTrapJunbiKanjo?: bigint | number | null
+    sonotaGenyokin?: bigint | number | null
+    futuYokinTokiZandaka?: bigint | number | null
+    zenkiKurikoshiRieki?: bigint | number | null
+    shuzenTsumitatekinKuriire?: bigint | number | null
+    mibaraiHiyo?: bigint | number | null
+    chokiKariire?: bigint | number | null
     currentYearBunpaiRatio?: number | null
     fullYearBunpaiRatio?: number | null
     currentYearBunpaiRatioNonInvoice?: number | null
     fullYearBunpaiRatioNonInvoice?: number | null
-    shintakuShuekiKazeiUriage?: number | null
-    shintakuShuekiKazeiUriageShohizei?: number | null
-    shintakuShuekiHikazeiUriage?: number | null
-    shintakuHiyoKazeiShiire?: number | null
-    shintakuHiyoKazeiShiireShohizei?: number | null
-    shintakuHiyoHikazeiShiire?: number | null
+    shintakuShuekiKazeiUriage?: bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: bigint | number | null
+    shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuHiyoKazeiShiire?: bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: bigint | number | null
+    shintakuHiyoHikazeiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
@@ -36287,6 +38016,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    kazeiUriageSashihiki08?: bigint | number | null
+    kazeiUriageSashihiki10?: bigint | number | null
+    kazeiUriageHontai08?: bigint | number | null
+    kazeiUriageHontai10?: bigint | number | null
+    kazeiShiire100Kojo?: bigint | number | null
+    kazeiShiire100KojoNoTax?: bigint | number | null
+    kazeiShiire8050Kojo?: bigint | number | null
+    kazeiShiire8050KojoNoTax?: bigint | number | null
+    kazeiUriageOnlyApplyTax7p8?: bigint | number | null
+    kazeiUriageCommonApplyTax7p8?: bigint | number | null
+    koteiShisan80Kojo?: bigint | number | null
+    koteiShisan80KojoNoTax?: bigint | number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -36305,6 +38046,11 @@ export namespace Prisma {
     BuildingValuationPos?: string
     LandEquityValuationPos?: string
     LandSelfValuationPos?: string
+    UnitResidenceLandValuationStartPos?: string
+    UnitResidenceBuildingValuationStartPos?: string
+    leaseType?: string
+    landUseZone?: string
+    leaseArea?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -36374,13 +38120,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
-    sashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiSogaku?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiSogakuNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sashihikiShintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
@@ -36390,28 +38136,30 @@ export namespace Prisma {
     unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
     unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
-    shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
-    shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
-    azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
-    zeikinHokenryoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    kyodoUnyuHiyoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    risokuShiharaiJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    shihoTekiShishutsuJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    cashTrapJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
-    futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
-    zenkiKurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    shuzenTsumitatekinKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinKuriire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    mibaraiHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    chokiKariire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
     fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
     currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
     fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
-    shintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
@@ -36420,6 +38168,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageOnlyApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageCommonApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -36449,13 +38209,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
-    sashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiSogaku?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiSogakuNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sashihikiShintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
@@ -36465,28 +38225,30 @@ export namespace Prisma {
     unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
     unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
-    shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
-    shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
-    azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
-    zeikinHokenryoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    kyodoUnyuHiyoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    risokuShiharaiJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    shihoTekiShishutsuJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    cashTrapJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
-    futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
-    zenkiKurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    shuzenTsumitatekinKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinKuriire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    mibaraiHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    chokiKariire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
     fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
     currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
     fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
-    shintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
@@ -36495,6 +38257,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageOnlyApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageCommonApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -36523,13 +38297,13 @@ export namespace Prisma {
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
-    sashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiSogaku?: NullableIntFieldUpdateOperationsInput | number | null
-    bunpaiSogakuNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sashihikiShintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
@@ -36539,28 +38313,30 @@ export namespace Prisma {
     unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
     unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
-    shohiyoRyuhokin?: NullableIntFieldUpdateOperationsInput | number | null
-    shuzenTsumitatekin?: NullableIntFieldUpdateOperationsInput | number | null
-    azukarikinHenkanJunbikin?: NullableIntFieldUpdateOperationsInput | number | null
-    zeikinHokenryoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    kyodoUnyuHiyoJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    risokuShiharaiJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    shihoTekiShishutsuJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    cashTrapJunbiKanjo?: NullableIntFieldUpdateOperationsInput | number | null
-    sonotaGenyokin?: NullableIntFieldUpdateOperationsInput | number | null
-    futuYokinTokiZandaka?: NullableIntFieldUpdateOperationsInput | number | null
-    zenkiKurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
-    shuzenTsumitatekinKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinKuriire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    mibaraiHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    chokiKariire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
     fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
     currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
     fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
-    shintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
-    shintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
@@ -36569,6 +38345,18 @@ export namespace Prisma {
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageOnlyApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageCommonApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -36587,6 +38375,11 @@ export namespace Prisma {
     BuildingValuationPos?: StringFieldUpdateOperationsInput | string
     LandEquityValuationPos?: StringFieldUpdateOperationsInput | string
     LandSelfValuationPos?: StringFieldUpdateOperationsInput | string
+    UnitResidenceLandValuationStartPos?: StringFieldUpdateOperationsInput | string
+    UnitResidenceBuildingValuationStartPos?: StringFieldUpdateOperationsInput | string
+    leaseType?: StringFieldUpdateOperationsInput | string
+    landUseZone?: StringFieldUpdateOperationsInput | string
+    leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -36606,6 +38399,11 @@ export namespace Prisma {
     BuildingValuationPos?: StringFieldUpdateOperationsInput | string
     LandEquityValuationPos?: StringFieldUpdateOperationsInput | string
     LandSelfValuationPos?: StringFieldUpdateOperationsInput | string
+    UnitResidenceLandValuationStartPos?: StringFieldUpdateOperationsInput | string
+    UnitResidenceBuildingValuationStartPos?: StringFieldUpdateOperationsInput | string
+    leaseType?: StringFieldUpdateOperationsInput | string
+    landUseZone?: StringFieldUpdateOperationsInput | string
+    leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -36625,6 +38423,11 @@ export namespace Prisma {
     BuildingValuationPos?: StringFieldUpdateOperationsInput | string
     LandEquityValuationPos?: StringFieldUpdateOperationsInput | string
     LandSelfValuationPos?: StringFieldUpdateOperationsInput | string
+    UnitResidenceLandValuationStartPos?: StringFieldUpdateOperationsInput | string
+    UnitResidenceBuildingValuationStartPos?: StringFieldUpdateOperationsInput | string
+    leaseType?: StringFieldUpdateOperationsInput | string
+    landUseZone?: StringFieldUpdateOperationsInput | string
+    leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -36865,6 +38668,18 @@ export namespace Prisma {
     valuationStatementFile?: Buffer | null
     valuationStatementName?: string | null
     valuationStatementSize?: number | null
+    landEvaluation?: bigint | number | null
+    buildingEvaluation?: bigint | number | null
+    rent?: bigint | number | null
+    rentNoTax?: bigint | number | null
+    keyMoney?: bigint | number | null
+    keyMoneyNoTax?: bigint | number | null
+    renewalFee?: bigint | number | null
+    renewalFeeNoTax?: bigint | number | null
+    otherFee?: bigint | number | null
+    otherFeeNoTax?: bigint | number | null
+    deposit?: bigint | number | null
+    depositNoTax?: bigint | number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -36889,6 +38704,18 @@ export namespace Prisma {
     valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
+    landEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    buildingEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    rent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    rentNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    keyMoney?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    keyMoneyNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    renewalFee?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    renewalFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    otherFee?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    otherFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    deposit?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    depositNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -36915,6 +38742,18 @@ export namespace Prisma {
     valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
+    landEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    buildingEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    rent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    rentNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    keyMoney?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    keyMoneyNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    renewalFee?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    renewalFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    otherFee?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    otherFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    deposit?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    depositNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -36940,6 +38779,18 @@ export namespace Prisma {
     valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
+    landEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    buildingEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    rent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    rentNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    keyMoney?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    keyMoneyNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    renewalFee?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    renewalFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    otherFee?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    otherFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    deposit?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    depositNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -37050,6 +38901,8 @@ export namespace Prisma {
     settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
     bunpaiId?: string | null
@@ -37080,6 +38933,8 @@ export namespace Prisma {
     settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
     reportMainId?: string | null
     reportAtt3Id?: string | null
     bunpaiId?: string | null
@@ -37110,6 +38965,8 @@ export namespace Prisma {
     settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
     reportMainId?: string | null
     reportAtt2Id?: string | null
     bunpaiId?: string | null
@@ -37140,6 +38997,8 @@ export namespace Prisma {
     settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
     reportMainId?: string | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
@@ -37170,6 +39029,8 @@ export namespace Prisma {
     settlorGkAddress: string
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
     reportMainId?: string | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
@@ -37200,6 +39061,8 @@ export namespace Prisma {
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    leverageFlag?: BoolFieldUpdateOperationsInput | boolean
+    unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -37233,6 +39096,8 @@ export namespace Prisma {
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    leverageFlag?: BoolFieldUpdateOperationsInput | boolean
+    unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -37266,6 +39131,8 @@ export namespace Prisma {
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    leverageFlag?: BoolFieldUpdateOperationsInput | boolean
+    unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -37296,6 +39163,8 @@ export namespace Prisma {
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    leverageFlag?: BoolFieldUpdateOperationsInput | boolean
+    unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -37329,6 +39198,8 @@ export namespace Prisma {
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    leverageFlag?: BoolFieldUpdateOperationsInput | boolean
+    unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -37362,6 +39233,8 @@ export namespace Prisma {
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    leverageFlag?: BoolFieldUpdateOperationsInput | boolean
+    unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -37392,6 +39265,8 @@ export namespace Prisma {
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    leverageFlag?: BoolFieldUpdateOperationsInput | boolean
+    unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -37425,6 +39300,8 @@ export namespace Prisma {
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    leverageFlag?: BoolFieldUpdateOperationsInput | boolean
+    unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -37458,6 +39335,8 @@ export namespace Prisma {
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    leverageFlag?: BoolFieldUpdateOperationsInput | boolean
+    unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -37488,6 +39367,8 @@ export namespace Prisma {
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    leverageFlag?: BoolFieldUpdateOperationsInput | boolean
+    unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -37521,6 +39402,8 @@ export namespace Prisma {
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    leverageFlag?: BoolFieldUpdateOperationsInput | boolean
+    unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -37554,6 +39437,8 @@ export namespace Prisma {
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    leverageFlag?: BoolFieldUpdateOperationsInput | boolean
+    unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -37584,6 +39469,8 @@ export namespace Prisma {
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    leverageFlag?: BoolFieldUpdateOperationsInput | boolean
+    unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -37617,6 +39504,8 @@ export namespace Prisma {
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    leverageFlag?: BoolFieldUpdateOperationsInput | boolean
+    unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -37650,6 +39539,8 @@ export namespace Prisma {
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    leverageFlag?: BoolFieldUpdateOperationsInput | boolean
+    unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
