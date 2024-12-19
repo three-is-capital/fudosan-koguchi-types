@@ -13617,6 +13617,7 @@ export namespace Prisma {
     leaseType: string | null
     landUseZone: string | null
     leaseArea: number | null
+    depreciableAssetFile: Buffer | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -13641,6 +13642,7 @@ export namespace Prisma {
     leaseType: string | null
     landUseZone: string | null
     leaseArea: number | null
+    depreciableAssetFile: Buffer | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -13665,6 +13667,8 @@ export namespace Prisma {
     leaseType: number
     landUseZone: number
     leaseArea: number
+    depreciableAssetFile: number
+    depreciableAssetJson: number
     createdAt: number
     createdId: number
     createdBy: number
@@ -13699,6 +13703,7 @@ export namespace Prisma {
     leaseType?: true
     landUseZone?: true
     leaseArea?: true
+    depreciableAssetFile?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -13723,6 +13728,7 @@ export namespace Prisma {
     leaseType?: true
     landUseZone?: true
     leaseArea?: true
+    depreciableAssetFile?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -13747,6 +13753,8 @@ export namespace Prisma {
     leaseType?: true
     landUseZone?: true
     leaseArea?: true
+    depreciableAssetFile?: true
+    depreciableAssetJson?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -13858,6 +13866,8 @@ export namespace Prisma {
     leaseType: string
     landUseZone: string
     leaseArea: number | null
+    depreciableAssetFile: Buffer | null
+    depreciableAssetJson: JsonValue | null
     createdAt: Date
     createdId: string
     createdBy: string
@@ -13901,6 +13911,8 @@ export namespace Prisma {
     leaseType?: boolean
     landUseZone?: boolean
     leaseArea?: boolean
+    depreciableAssetFile?: boolean
+    depreciableAssetJson?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -13928,6 +13940,8 @@ export namespace Prisma {
     leaseType?: boolean
     landUseZone?: boolean
     leaseArea?: boolean
+    depreciableAssetFile?: boolean
+    depreciableAssetJson?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -13953,6 +13967,8 @@ export namespace Prisma {
     leaseType?: boolean
     landUseZone?: boolean
     leaseArea?: boolean
+    depreciableAssetFile?: boolean
+    depreciableAssetJson?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -13992,6 +14008,8 @@ export namespace Prisma {
       leaseType: string
       landUseZone: string
       leaseArea: number | null
+      depreciableAssetFile: Buffer | null
+      depreciableAssetJson: Prisma.JsonValue | null
       createdAt: Date
       createdId: string
       createdBy: string
@@ -14408,6 +14426,8 @@ export namespace Prisma {
     readonly leaseType: FieldRef<"Asset", 'String'>
     readonly landUseZone: FieldRef<"Asset", 'String'>
     readonly leaseArea: FieldRef<"Asset", 'Float'>
+    readonly depreciableAssetFile: FieldRef<"Asset", 'Bytes'>
+    readonly depreciableAssetJson: FieldRef<"Asset", 'Json'>
     readonly createdAt: FieldRef<"Asset", 'DateTime'>
     readonly createdId: FieldRef<"Asset", 'String'>
     readonly createdBy: FieldRef<"Asset", 'String'>
@@ -24142,6 +24162,8 @@ export namespace Prisma {
     leaseType: 'leaseType',
     landUseZone: 'landUseZone',
     leaseArea: 'leaseArea',
+    depreciableAssetFile: 'depreciableAssetFile',
+    depreciableAssetJson: 'depreciableAssetJson',
     createdAt: 'createdAt',
     createdId: 'createdId',
     createdBy: 'createdBy',
@@ -24366,6 +24388,14 @@ export namespace Prisma {
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
+  export const NullableJsonNullValueInput: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull
+  };
+
+  export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
+
+
   export const QueryMode: {
     default: 'default',
     insensitive: 'insensitive'
@@ -24380,6 +24410,15 @@ export namespace Prisma {
   };
 
   export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+  export const JsonNullValueFilter: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull,
+    AnyNull: typeof AnyNull
+  };
+
+  export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 
 
   /**
@@ -24531,6 +24570,13 @@ export namespace Prisma {
    * Reference to a field of type 'Bytes[]'
    */
   export type ListBytesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Bytes[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Json'
+   */
+  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
     
 
 
@@ -26019,6 +26065,8 @@ export namespace Prisma {
     leaseType?: StringFilter<"Asset"> | string
     landUseZone?: StringFilter<"Asset"> | string
     leaseArea?: FloatNullableFilter<"Asset"> | number | null
+    depreciableAssetFile?: BytesNullableFilter<"Asset"> | Buffer | null
+    depreciableAssetJson?: JsonNullableFilter<"Asset">
     createdAt?: DateTimeFilter<"Asset"> | Date | string
     createdId?: StringFilter<"Asset"> | string
     createdBy?: StringFilter<"Asset"> | string
@@ -26045,6 +26093,8 @@ export namespace Prisma {
     leaseType?: SortOrder
     landUseZone?: SortOrder
     leaseArea?: SortOrderInput | SortOrder
+    depreciableAssetFile?: SortOrderInput | SortOrder
+    depreciableAssetJson?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -26074,6 +26124,8 @@ export namespace Prisma {
     leaseType?: StringFilter<"Asset"> | string
     landUseZone?: StringFilter<"Asset"> | string
     leaseArea?: FloatNullableFilter<"Asset"> | number | null
+    depreciableAssetFile?: BytesNullableFilter<"Asset"> | Buffer | null
+    depreciableAssetJson?: JsonNullableFilter<"Asset">
     createdAt?: DateTimeFilter<"Asset"> | Date | string
     createdId?: StringFilter<"Asset"> | string
     createdBy?: StringFilter<"Asset"> | string
@@ -26100,6 +26152,8 @@ export namespace Prisma {
     leaseType?: SortOrder
     landUseZone?: SortOrder
     leaseArea?: SortOrderInput | SortOrder
+    depreciableAssetFile?: SortOrderInput | SortOrder
+    depreciableAssetJson?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -26132,6 +26186,8 @@ export namespace Prisma {
     leaseType?: StringWithAggregatesFilter<"Asset"> | string
     landUseZone?: StringWithAggregatesFilter<"Asset"> | string
     leaseArea?: FloatNullableWithAggregatesFilter<"Asset"> | number | null
+    depreciableAssetFile?: BytesNullableWithAggregatesFilter<"Asset"> | Buffer | null
+    depreciableAssetJson?: JsonNullableWithAggregatesFilter<"Asset">
     createdAt?: DateTimeWithAggregatesFilter<"Asset"> | Date | string
     createdId?: StringWithAggregatesFilter<"Asset"> | string
     createdBy?: StringWithAggregatesFilter<"Asset"> | string
@@ -28927,6 +28983,8 @@ export namespace Prisma {
     leaseType?: string
     landUseZone?: string
     leaseArea?: number | null
+    depreciableAssetFile?: Buffer | null
+    depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -28953,6 +29011,8 @@ export namespace Prisma {
     leaseType?: string
     landUseZone?: string
     leaseArea?: number | null
+    depreciableAssetFile?: Buffer | null
+    depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -28977,6 +29037,8 @@ export namespace Prisma {
     leaseType?: StringFieldUpdateOperationsInput | string
     landUseZone?: StringFieldUpdateOperationsInput | string
     leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
+    depreciableAssetFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
+    depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -29003,6 +29065,8 @@ export namespace Prisma {
     leaseType?: StringFieldUpdateOperationsInput | string
     landUseZone?: StringFieldUpdateOperationsInput | string
     leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
+    depreciableAssetFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
+    depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -29028,6 +29092,8 @@ export namespace Prisma {
     leaseType?: string
     landUseZone?: string
     leaseArea?: number | null
+    depreciableAssetFile?: Buffer | null
+    depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -29051,6 +29117,8 @@ export namespace Prisma {
     leaseType?: StringFieldUpdateOperationsInput | string
     landUseZone?: StringFieldUpdateOperationsInput | string
     leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
+    depreciableAssetFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
+    depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -29075,6 +29143,8 @@ export namespace Prisma {
     leaseType?: StringFieldUpdateOperationsInput | string
     landUseZone?: StringFieldUpdateOperationsInput | string
     leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
+    depreciableAssetFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
+    depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -31752,6 +31822,35 @@ export namespace Prisma {
     _max?: NestedEnumPLTypeFilter<$PrismaModel>
   }
 
+  export type BytesNullableFilter<$PrismaModel = never> = {
+    equals?: Buffer | BytesFieldRefInput<$PrismaModel> | null
+    in?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
+    notIn?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
+    not?: NestedBytesNullableFilter<$PrismaModel> | Buffer | null
+  }
+  export type JsonNullableFilter<$PrismaModel = never> = 
+    | PatchUndefined<
+        Either<Required<JsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
   export type AssetCountOrderByAggregateInput = {
     id?: SortOrder
     projectId?: SortOrder
@@ -31768,6 +31867,8 @@ export namespace Prisma {
     leaseType?: SortOrder
     landUseZone?: SortOrder
     leaseArea?: SortOrder
+    depreciableAssetFile?: SortOrder
+    depreciableAssetJson?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -31796,6 +31897,7 @@ export namespace Prisma {
     leaseType?: SortOrder
     landUseZone?: SortOrder
     leaseArea?: SortOrder
+    depreciableAssetFile?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -31820,6 +31922,7 @@ export namespace Prisma {
     leaseType?: SortOrder
     landUseZone?: SortOrder
     leaseArea?: SortOrder
+    depreciableAssetFile?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -31832,11 +31935,39 @@ export namespace Prisma {
     leaseArea?: SortOrder
   }
 
-  export type BytesNullableFilter<$PrismaModel = never> = {
+  export type BytesNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Buffer | BytesFieldRefInput<$PrismaModel> | null
     in?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
     notIn?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
-    not?: NestedBytesNullableFilter<$PrismaModel> | Buffer | null
+    not?: NestedBytesNullableWithAggregatesFilter<$PrismaModel> | Buffer | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBytesNullableFilter<$PrismaModel>
+    _max?: NestedBytesNullableFilter<$PrismaModel>
+  }
+  export type JsonNullableWithAggregatesFilter<$PrismaModel = never> = 
+    | PatchUndefined<
+        Either<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedJsonNullableFilter<$PrismaModel>
+    _max?: NestedJsonNullableFilter<$PrismaModel>
   }
 
   export type AssetRelationFilter = {
@@ -32003,16 +32134,6 @@ export namespace Prisma {
     otherFeeNoTax?: SortOrder
     deposit?: SortOrder
     depositNoTax?: SortOrder
-  }
-
-  export type BytesNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Buffer | BytesFieldRefInput<$PrismaModel> | null
-    in?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
-    notIn?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
-    not?: NestedBytesNullableWithAggregatesFilter<$PrismaModel> | Buffer | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedBytesNullableFilter<$PrismaModel>
-    _max?: NestedBytesNullableFilter<$PrismaModel>
   }
 
   export type EnumCustomerTypeFilter<$PrismaModel = never> = {
@@ -33111,6 +33232,10 @@ export namespace Prisma {
     connect?: AssetKiWhereUniqueInput | AssetKiWhereUniqueInput[]
   }
 
+  export type NullableBytesFieldUpdateOperationsInput = {
+    set?: Buffer | null
+  }
+
   export type ProjectUpdateOneRequiredWithoutAssetsNestedInput = {
     create?: XOR<ProjectCreateWithoutAssetsInput, ProjectUncheckedCreateWithoutAssetsInput>
     connectOrCreate?: ProjectCreateOrConnectWithoutAssetsInput
@@ -33157,10 +33282,6 @@ export namespace Prisma {
     create?: XOR<KiCreateWithoutAssetKisInput, KiUncheckedCreateWithoutAssetKisInput>
     connectOrCreate?: KiCreateOrConnectWithoutAssetKisInput
     connect?: KiWhereUniqueInput
-  }
-
-  export type NullableBytesFieldUpdateOperationsInput = {
-    set?: Buffer | null
   }
 
   export type AssetUpdateOneRequiredWithoutAssetKisNestedInput = {
@@ -33871,6 +33992,28 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedBytesNullableFilter<$PrismaModel>
     _max?: NestedBytesNullableFilter<$PrismaModel>
+  }
+  export type NestedJsonNullableFilter<$PrismaModel = never> = 
+    | PatchUndefined<
+        Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
   export type NestedEnumCustomerTypeFilter<$PrismaModel = never> = {
@@ -34862,6 +35005,8 @@ export namespace Prisma {
     leaseType?: string
     landUseZone?: string
     leaseArea?: number | null
+    depreciableAssetFile?: Buffer | null
+    depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -34886,6 +35031,8 @@ export namespace Prisma {
     leaseType?: string
     landUseZone?: string
     leaseArea?: number | null
+    depreciableAssetFile?: Buffer | null
+    depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -35319,6 +35466,8 @@ export namespace Prisma {
     leaseType?: StringFilter<"Asset"> | string
     landUseZone?: StringFilter<"Asset"> | string
     leaseArea?: FloatNullableFilter<"Asset"> | number | null
+    depreciableAssetFile?: BytesNullableFilter<"Asset"> | Buffer | null
+    depreciableAssetJson?: JsonNullableFilter<"Asset">
     createdAt?: DateTimeFilter<"Asset"> | Date | string
     createdId?: StringFilter<"Asset"> | string
     createdBy?: StringFilter<"Asset"> | string
@@ -35982,6 +36131,8 @@ export namespace Prisma {
     leaseType?: string
     landUseZone?: string
     leaseArea?: number | null
+    depreciableAssetFile?: Buffer | null
+    depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -36007,6 +36158,8 @@ export namespace Prisma {
     leaseType?: string
     landUseZone?: string
     leaseArea?: number | null
+    depreciableAssetFile?: Buffer | null
+    depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -36079,6 +36232,8 @@ export namespace Prisma {
     leaseType?: StringFieldUpdateOperationsInput | string
     landUseZone?: StringFieldUpdateOperationsInput | string
     leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
+    depreciableAssetFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
+    depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -36104,6 +36259,8 @@ export namespace Prisma {
     leaseType?: StringFieldUpdateOperationsInput | string
     landUseZone?: StringFieldUpdateOperationsInput | string
     leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
+    depreciableAssetFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
+    depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -38051,6 +38208,8 @@ export namespace Prisma {
     leaseType?: string
     landUseZone?: string
     leaseArea?: number | null
+    depreciableAssetFile?: Buffer | null
+    depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -38380,6 +38539,8 @@ export namespace Prisma {
     leaseType?: StringFieldUpdateOperationsInput | string
     landUseZone?: StringFieldUpdateOperationsInput | string
     leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
+    depreciableAssetFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
+    depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -38404,6 +38565,8 @@ export namespace Prisma {
     leaseType?: StringFieldUpdateOperationsInput | string
     landUseZone?: StringFieldUpdateOperationsInput | string
     leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
+    depreciableAssetFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
+    depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -38428,6 +38591,8 @@ export namespace Prisma {
     leaseType?: StringFieldUpdateOperationsInput | string
     landUseZone?: StringFieldUpdateOperationsInput | string
     leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
+    depreciableAssetFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
+    depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
