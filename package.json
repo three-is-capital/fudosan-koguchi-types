@@ -1,6 +1,6 @@
 {
   "name": "fudosan-koguchi-types",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "main": "types/index.d.ts",
   "files": [
     "types"

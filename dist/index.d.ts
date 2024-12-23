@@ -7730,6 +7730,11 @@ export namespace Prisma {
     residenceKubun: number | null
     settlorGkName: string | null
     settlorGkAddress: string | null
+    bankName: string | null
+    branchName: string | null
+    bankAccountType: string | null
+    bankAccount: string | null
+    bankAccountHolder: string | null
     kamiyachoFlag: boolean | null
     mlspcFlag: boolean | null
     leverageFlag: boolean | null
@@ -7763,6 +7768,11 @@ export namespace Prisma {
     residenceKubun: number | null
     settlorGkName: string | null
     settlorGkAddress: string | null
+    bankName: string | null
+    branchName: string | null
+    bankAccountType: string | null
+    bankAccount: string | null
+    bankAccountHolder: string | null
     kamiyachoFlag: boolean | null
     mlspcFlag: boolean | null
     leverageFlag: boolean | null
@@ -7796,6 +7806,11 @@ export namespace Prisma {
     residenceKubun: number
     settlorGkName: number
     settlorGkAddress: number
+    bankName: number
+    branchName: number
+    bankAccountType: number
+    bankAccount: number
+    bankAccountHolder: number
     kamiyachoFlag: number
     mlspcFlag: number
     leverageFlag: number
@@ -7851,6 +7866,11 @@ export namespace Prisma {
     residenceKubun?: true
     settlorGkName?: true
     settlorGkAddress?: true
+    bankName?: true
+    branchName?: true
+    bankAccountType?: true
+    bankAccount?: true
+    bankAccountHolder?: true
     kamiyachoFlag?: true
     mlspcFlag?: true
     leverageFlag?: true
@@ -7884,6 +7904,11 @@ export namespace Prisma {
     residenceKubun?: true
     settlorGkName?: true
     settlorGkAddress?: true
+    bankName?: true
+    branchName?: true
+    bankAccountType?: true
+    bankAccount?: true
+    bankAccountHolder?: true
     kamiyachoFlag?: true
     mlspcFlag?: true
     leverageFlag?: true
@@ -7917,6 +7942,11 @@ export namespace Prisma {
     residenceKubun?: true
     settlorGkName?: true
     settlorGkAddress?: true
+    bankName?: true
+    branchName?: true
+    bankAccountType?: true
+    bankAccount?: true
+    bankAccountHolder?: true
     kamiyachoFlag?: true
     mlspcFlag?: true
     leverageFlag?: true
@@ -8037,6 +8067,11 @@ export namespace Prisma {
     residenceKubun: number
     settlorGkName: string
     settlorGkAddress: string
+    bankName: string
+    branchName: string
+    bankAccountType: string
+    bankAccount: string | null
+    bankAccountHolder: string | null
     kamiyachoFlag: boolean
     mlspcFlag: boolean
     leverageFlag: boolean
@@ -8089,6 +8124,11 @@ export namespace Prisma {
     residenceKubun?: boolean
     settlorGkName?: boolean
     settlorGkAddress?: boolean
+    bankName?: boolean
+    branchName?: boolean
+    bankAccountType?: boolean
+    bankAccount?: boolean
+    bankAccountHolder?: boolean
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -8131,6 +8171,11 @@ export namespace Prisma {
     residenceKubun?: boolean
     settlorGkName?: boolean
     settlorGkAddress?: boolean
+    bankName?: boolean
+    branchName?: boolean
+    bankAccountType?: boolean
+    bankAccount?: boolean
+    bankAccountHolder?: boolean
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -8169,6 +8214,11 @@ export namespace Prisma {
     residenceKubun?: boolean
     settlorGkName?: boolean
     settlorGkAddress?: boolean
+    bankName?: boolean
+    branchName?: boolean
+    bankAccountType?: boolean
+    bankAccount?: boolean
+    bankAccountHolder?: boolean
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -8233,6 +8283,11 @@ export namespace Prisma {
       residenceKubun: number
       settlorGkName: string
       settlorGkAddress: string
+      bankName: string
+      branchName: string
+      bankAccountType: string
+      bankAccount: string | null
+      bankAccountHolder: string | null
       kamiyachoFlag: boolean
       mlspcFlag: boolean
       leverageFlag: boolean
@@ -8664,6 +8719,11 @@ export namespace Prisma {
     readonly residenceKubun: FieldRef<"Project", 'Int'>
     readonly settlorGkName: FieldRef<"Project", 'String'>
     readonly settlorGkAddress: FieldRef<"Project", 'String'>
+    readonly bankName: FieldRef<"Project", 'String'>
+    readonly branchName: FieldRef<"Project", 'String'>
+    readonly bankAccountType: FieldRef<"Project", 'String'>
+    readonly bankAccount: FieldRef<"Project", 'String'>
+    readonly bankAccountHolder: FieldRef<"Project", 'String'>
     readonly kamiyachoFlag: FieldRef<"Project", 'Boolean'>
     readonly mlspcFlag: FieldRef<"Project", 'Boolean'>
     readonly leverageFlag: FieldRef<"Project", 'Boolean'>
@@ -23985,6 +24045,11 @@ export namespace Prisma {
     residenceKubun: 'residenceKubun',
     settlorGkName: 'settlorGkName',
     settlorGkAddress: 'settlorGkAddress',
+    bankName: 'bankName',
+    branchName: 'branchName',
+    bankAccountType: 'bankAccountType',
+    bankAccount: 'bankAccount',
+    bankAccountHolder: 'bankAccountHolder',
     kamiyachoFlag: 'kamiyachoFlag',
     mlspcFlag: 'mlspcFlag',
     leverageFlag: 'leverageFlag',
@@ -25149,6 +25214,11 @@ export namespace Prisma {
     residenceKubun?: IntFilter<"Project"> | number
     settlorGkName?: StringFilter<"Project"> | string
     settlorGkAddress?: StringFilter<"Project"> | string
+    bankName?: StringFilter<"Project"> | string
+    branchName?: StringFilter<"Project"> | string
+    bankAccountType?: StringFilter<"Project"> | string
+    bankAccount?: StringNullableFilter<"Project"> | string | null
+    bankAccountHolder?: StringNullableFilter<"Project"> | string | null
     kamiyachoFlag?: BoolFilter<"Project"> | boolean
     mlspcFlag?: BoolFilter<"Project"> | boolean
     leverageFlag?: BoolFilter<"Project"> | boolean
@@ -25190,6 +25260,11 @@ export namespace Prisma {
     residenceKubun?: SortOrder
     settlorGkName?: SortOrder
     settlorGkAddress?: SortOrder
+    bankName?: SortOrder
+    branchName?: SortOrder
+    bankAccountType?: SortOrder
+    bankAccount?: SortOrderInput | SortOrder
+    bankAccountHolder?: SortOrderInput | SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
     leverageFlag?: SortOrder
@@ -25234,6 +25309,11 @@ export namespace Prisma {
     residenceKubun?: IntFilter<"Project"> | number
     settlorGkName?: StringFilter<"Project"> | string
     settlorGkAddress?: StringFilter<"Project"> | string
+    bankName?: StringFilter<"Project"> | string
+    branchName?: StringFilter<"Project"> | string
+    bankAccountType?: StringFilter<"Project"> | string
+    bankAccount?: StringNullableFilter<"Project"> | string | null
+    bankAccountHolder?: StringNullableFilter<"Project"> | string | null
     kamiyachoFlag?: BoolFilter<"Project"> | boolean
     mlspcFlag?: BoolFilter<"Project"> | boolean
     leverageFlag?: BoolFilter<"Project"> | boolean
@@ -25275,6 +25355,11 @@ export namespace Prisma {
     residenceKubun?: SortOrder
     settlorGkName?: SortOrder
     settlorGkAddress?: SortOrder
+    bankName?: SortOrder
+    branchName?: SortOrder
+    bankAccountType?: SortOrder
+    bankAccount?: SortOrderInput | SortOrder
+    bankAccountHolder?: SortOrderInput | SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
     leverageFlag?: SortOrder
@@ -25316,6 +25401,11 @@ export namespace Prisma {
     residenceKubun?: IntWithAggregatesFilter<"Project"> | number
     settlorGkName?: StringWithAggregatesFilter<"Project"> | string
     settlorGkAddress?: StringWithAggregatesFilter<"Project"> | string
+    bankName?: StringWithAggregatesFilter<"Project"> | string
+    branchName?: StringWithAggregatesFilter<"Project"> | string
+    bankAccountType?: StringWithAggregatesFilter<"Project"> | string
+    bankAccount?: StringNullableWithAggregatesFilter<"Project"> | string | null
+    bankAccountHolder?: StringNullableWithAggregatesFilter<"Project"> | string | null
     kamiyachoFlag?: BoolWithAggregatesFilter<"Project"> | boolean
     mlspcFlag?: BoolWithAggregatesFilter<"Project"> | boolean
     leverageFlag?: BoolWithAggregatesFilter<"Project"> | boolean
@@ -27820,6 +27910,11 @@ export namespace Prisma {
     residenceKubun?: number
     settlorGkName: string
     settlorGkAddress: string
+    bankName?: string
+    branchName?: string
+    bankAccountType?: string
+    bankAccount?: string | null
+    bankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -27856,6 +27951,11 @@ export namespace Prisma {
     residenceKubun?: number
     settlorGkName: string
     settlorGkAddress: string
+    bankName?: string
+    branchName?: string
+    bankAccountType?: string
+    bankAccount?: string | null
+    bankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -27892,6 +27992,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     settlorGkName?: StringFieldUpdateOperationsInput | string
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
+    bankName?: StringFieldUpdateOperationsInput | string
+    branchName?: StringFieldUpdateOperationsInput | string
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -27928,6 +28033,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     settlorGkName?: StringFieldUpdateOperationsInput | string
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
+    bankName?: StringFieldUpdateOperationsInput | string
+    branchName?: StringFieldUpdateOperationsInput | string
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -27964,6 +28074,11 @@ export namespace Prisma {
     residenceKubun?: number
     settlorGkName: string
     settlorGkAddress: string
+    bankName?: string
+    branchName?: string
+    bankAccountType?: string
+    bankAccount?: string | null
+    bankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -27997,6 +28112,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     settlorGkName?: StringFieldUpdateOperationsInput | string
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
+    bankName?: StringFieldUpdateOperationsInput | string
+    branchName?: StringFieldUpdateOperationsInput | string
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -28025,6 +28145,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     settlorGkName?: StringFieldUpdateOperationsInput | string
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
+    bankName?: StringFieldUpdateOperationsInput | string
+    branchName?: StringFieldUpdateOperationsInput | string
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -30939,6 +31064,11 @@ export namespace Prisma {
     residenceKubun?: SortOrder
     settlorGkName?: SortOrder
     settlorGkAddress?: SortOrder
+    bankName?: SortOrder
+    branchName?: SortOrder
+    bankAccountType?: SortOrder
+    bankAccount?: SortOrder
+    bankAccountHolder?: SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
     leverageFlag?: SortOrder
@@ -30982,6 +31112,11 @@ export namespace Prisma {
     residenceKubun?: SortOrder
     settlorGkName?: SortOrder
     settlorGkAddress?: SortOrder
+    bankName?: SortOrder
+    branchName?: SortOrder
+    bankAccountType?: SortOrder
+    bankAccount?: SortOrder
+    bankAccountHolder?: SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
     leverageFlag?: SortOrder
@@ -31015,6 +31150,11 @@ export namespace Prisma {
     residenceKubun?: SortOrder
     settlorGkName?: SortOrder
     settlorGkAddress?: SortOrder
+    bankName?: SortOrder
+    branchName?: SortOrder
+    bankAccountType?: SortOrder
+    bankAccount?: SortOrder
+    bankAccountHolder?: SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
     leverageFlag?: SortOrder
@@ -35555,6 +35695,11 @@ export namespace Prisma {
     residenceKubun?: number
     settlorGkName: string
     settlorGkAddress: string
+    bankName?: string
+    branchName?: string
+    bankAccountType?: string
+    bankAccount?: string | null
+    bankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -35590,6 +35735,11 @@ export namespace Prisma {
     residenceKubun?: number
     settlorGkName: string
     settlorGkAddress: string
+    bankName?: string
+    branchName?: string
+    bankAccountType?: string
+    bankAccount?: string | null
+    bankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -35726,6 +35876,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     settlorGkName?: StringFieldUpdateOperationsInput | string
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
+    bankName?: StringFieldUpdateOperationsInput | string
+    branchName?: StringFieldUpdateOperationsInput | string
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -35761,6 +35916,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     settlorGkName?: StringFieldUpdateOperationsInput | string
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
+    bankName?: StringFieldUpdateOperationsInput | string
+    branchName?: StringFieldUpdateOperationsInput | string
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -35876,6 +36036,11 @@ export namespace Prisma {
     residenceKubun?: number
     settlorGkName: string
     settlorGkAddress: string
+    bankName?: string
+    branchName?: string
+    bankAccountType?: string
+    bankAccount?: string | null
+    bankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -35911,6 +36076,11 @@ export namespace Prisma {
     residenceKubun?: number
     settlorGkName: string
     settlorGkAddress: string
+    bankName?: string
+    branchName?: string
+    bankAccountType?: string
+    bankAccount?: string | null
+    bankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -36046,6 +36216,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     settlorGkName?: StringFieldUpdateOperationsInput | string
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
+    bankName?: StringFieldUpdateOperationsInput | string
+    branchName?: StringFieldUpdateOperationsInput | string
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -36081,6 +36256,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     settlorGkName?: StringFieldUpdateOperationsInput | string
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
+    bankName?: StringFieldUpdateOperationsInput | string
+    branchName?: StringFieldUpdateOperationsInput | string
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -36324,6 +36504,11 @@ export namespace Prisma {
     residenceKubun?: number
     settlorGkName: string
     settlorGkAddress: string
+    bankName?: string
+    branchName?: string
+    bankAccountType?: string
+    bankAccount?: string | null
+    bankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -36359,6 +36544,11 @@ export namespace Prisma {
     residenceKubun?: number
     settlorGkName: string
     settlorGkAddress: string
+    bankName?: string
+    branchName?: string
+    bankAccountType?: string
+    bankAccount?: string | null
+    bankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -36462,6 +36652,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     settlorGkName?: StringFieldUpdateOperationsInput | string
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
+    bankName?: StringFieldUpdateOperationsInput | string
+    branchName?: StringFieldUpdateOperationsInput | string
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -36497,6 +36692,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     settlorGkName?: StringFieldUpdateOperationsInput | string
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
+    bankName?: StringFieldUpdateOperationsInput | string
+    branchName?: StringFieldUpdateOperationsInput | string
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -37108,6 +37308,11 @@ export namespace Prisma {
     residenceKubun?: number
     settlorGkName: string
     settlorGkAddress: string
+    bankName?: string
+    branchName?: string
+    bankAccountType?: string
+    bankAccount?: string | null
+    bankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -37143,6 +37348,11 @@ export namespace Prisma {
     residenceKubun?: number
     settlorGkName: string
     settlorGkAddress: string
+    bankName?: string
+    branchName?: string
+    bankAccountType?: string
+    bankAccount?: string | null
+    bankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -37188,6 +37398,11 @@ export namespace Prisma {
     residenceKubun?: number
     settlorGkName: string
     settlorGkAddress: string
+    bankName?: string
+    branchName?: string
+    bankAccountType?: string
+    bankAccount?: string | null
+    bankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -37223,6 +37438,11 @@ export namespace Prisma {
     residenceKubun?: number
     settlorGkName: string
     settlorGkAddress: string
+    bankName?: string
+    branchName?: string
+    bankAccountType?: string
+    bankAccount?: string | null
+    bankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -37268,6 +37488,11 @@ export namespace Prisma {
     residenceKubun?: number
     settlorGkName: string
     settlorGkAddress: string
+    bankName?: string
+    branchName?: string
+    bankAccountType?: string
+    bankAccount?: string | null
+    bankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -37303,6 +37528,11 @@ export namespace Prisma {
     residenceKubun?: number
     settlorGkName: string
     settlorGkAddress: string
+    bankName?: string
+    branchName?: string
+    bankAccountType?: string
+    bankAccount?: string | null
+    bankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -37348,6 +37578,11 @@ export namespace Prisma {
     residenceKubun?: number
     settlorGkName: string
     settlorGkAddress: string
+    bankName?: string
+    branchName?: string
+    bankAccountType?: string
+    bankAccount?: string | null
+    bankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -37383,6 +37618,11 @@ export namespace Prisma {
     residenceKubun?: number
     settlorGkName: string
     settlorGkAddress: string
+    bankName?: string
+    branchName?: string
+    bankAccountType?: string
+    bankAccount?: string | null
+    bankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -37428,6 +37668,11 @@ export namespace Prisma {
     residenceKubun?: number
     settlorGkName: string
     settlorGkAddress: string
+    bankName?: string
+    branchName?: string
+    bankAccountType?: string
+    bankAccount?: string | null
+    bankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -37463,6 +37708,11 @@ export namespace Prisma {
     residenceKubun?: number
     settlorGkName: string
     settlorGkAddress: string
+    bankName?: string
+    branchName?: string
+    bankAccountType?: string
+    bankAccount?: string | null
+    bankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -37527,6 +37777,11 @@ export namespace Prisma {
     residenceKubun?: IntFilter<"Project"> | number
     settlorGkName?: StringFilter<"Project"> | string
     settlorGkAddress?: StringFilter<"Project"> | string
+    bankName?: StringFilter<"Project"> | string
+    branchName?: StringFilter<"Project"> | string
+    bankAccountType?: StringFilter<"Project"> | string
+    bankAccount?: StringNullableFilter<"Project"> | string | null
+    bankAccountHolder?: StringNullableFilter<"Project"> | string | null
     kamiyachoFlag?: BoolFilter<"Project"> | boolean
     mlspcFlag?: BoolFilter<"Project"> | boolean
     leverageFlag?: BoolFilter<"Project"> | boolean
@@ -39064,6 +39319,11 @@ export namespace Prisma {
     residenceKubun?: number
     settlorGkName: string
     settlorGkAddress: string
+    bankName?: string
+    branchName?: string
+    bankAccountType?: string
+    bankAccount?: string | null
+    bankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -39096,6 +39356,11 @@ export namespace Prisma {
     residenceKubun?: number
     settlorGkName: string
     settlorGkAddress: string
+    bankName?: string
+    branchName?: string
+    bankAccountType?: string
+    bankAccount?: string | null
+    bankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -39128,6 +39393,11 @@ export namespace Prisma {
     residenceKubun?: number
     settlorGkName: string
     settlorGkAddress: string
+    bankName?: string
+    branchName?: string
+    bankAccountType?: string
+    bankAccount?: string | null
+    bankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -39160,6 +39430,11 @@ export namespace Prisma {
     residenceKubun?: number
     settlorGkName: string
     settlorGkAddress: string
+    bankName?: string
+    branchName?: string
+    bankAccountType?: string
+    bankAccount?: string | null
+    bankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -39192,6 +39467,11 @@ export namespace Prisma {
     residenceKubun?: number
     settlorGkName: string
     settlorGkAddress: string
+    bankName?: string
+    branchName?: string
+    bankAccountType?: string
+    bankAccount?: string | null
+    bankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -39224,6 +39504,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     settlorGkName?: StringFieldUpdateOperationsInput | string
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
+    bankName?: StringFieldUpdateOperationsInput | string
+    branchName?: StringFieldUpdateOperationsInput | string
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39259,6 +39544,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     settlorGkName?: StringFieldUpdateOperationsInput | string
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
+    bankName?: StringFieldUpdateOperationsInput | string
+    branchName?: StringFieldUpdateOperationsInput | string
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39294,6 +39584,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     settlorGkName?: StringFieldUpdateOperationsInput | string
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
+    bankName?: StringFieldUpdateOperationsInput | string
+    branchName?: StringFieldUpdateOperationsInput | string
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39326,6 +39621,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     settlorGkName?: StringFieldUpdateOperationsInput | string
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
+    bankName?: StringFieldUpdateOperationsInput | string
+    branchName?: StringFieldUpdateOperationsInput | string
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39361,6 +39661,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     settlorGkName?: StringFieldUpdateOperationsInput | string
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
+    bankName?: StringFieldUpdateOperationsInput | string
+    branchName?: StringFieldUpdateOperationsInput | string
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39396,6 +39701,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     settlorGkName?: StringFieldUpdateOperationsInput | string
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
+    bankName?: StringFieldUpdateOperationsInput | string
+    branchName?: StringFieldUpdateOperationsInput | string
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39428,6 +39738,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     settlorGkName?: StringFieldUpdateOperationsInput | string
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
+    bankName?: StringFieldUpdateOperationsInput | string
+    branchName?: StringFieldUpdateOperationsInput | string
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39463,6 +39778,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     settlorGkName?: StringFieldUpdateOperationsInput | string
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
+    bankName?: StringFieldUpdateOperationsInput | string
+    branchName?: StringFieldUpdateOperationsInput | string
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39498,6 +39818,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     settlorGkName?: StringFieldUpdateOperationsInput | string
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
+    bankName?: StringFieldUpdateOperationsInput | string
+    branchName?: StringFieldUpdateOperationsInput | string
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39530,6 +39855,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     settlorGkName?: StringFieldUpdateOperationsInput | string
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
+    bankName?: StringFieldUpdateOperationsInput | string
+    branchName?: StringFieldUpdateOperationsInput | string
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39565,6 +39895,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     settlorGkName?: StringFieldUpdateOperationsInput | string
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
+    bankName?: StringFieldUpdateOperationsInput | string
+    branchName?: StringFieldUpdateOperationsInput | string
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39600,6 +39935,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     settlorGkName?: StringFieldUpdateOperationsInput | string
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
+    bankName?: StringFieldUpdateOperationsInput | string
+    branchName?: StringFieldUpdateOperationsInput | string
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39632,6 +39972,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     settlorGkName?: StringFieldUpdateOperationsInput | string
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
+    bankName?: StringFieldUpdateOperationsInput | string
+    branchName?: StringFieldUpdateOperationsInput | string
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39667,6 +40012,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     settlorGkName?: StringFieldUpdateOperationsInput | string
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
+    bankName?: StringFieldUpdateOperationsInput | string
+    branchName?: StringFieldUpdateOperationsInput | string
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39702,6 +40052,11 @@ export namespace Prisma {
     residenceKubun?: IntFieldUpdateOperationsInput | number
     settlorGkName?: StringFieldUpdateOperationsInput | string
     settlorGkAddress?: StringFieldUpdateOperationsInput | string
+    bankName?: StringFieldUpdateOperationsInput | string
+    branchName?: StringFieldUpdateOperationsInput | string
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
