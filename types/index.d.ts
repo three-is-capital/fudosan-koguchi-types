@@ -7735,6 +7735,11 @@ export namespace Prisma {
     bankAccountType: string | null
     bankAccount: string | null
     bankAccountHolder: string | null
+    cashManBankName: string | null
+    cashManBranchName: string | null
+    cashManBankAccountType: string | null
+    cashManBankAccount: string | null
+    cashManBankAccountHolder: string | null
     kamiyachoFlag: boolean | null
     mlspcFlag: boolean | null
     leverageFlag: boolean | null
@@ -7773,6 +7778,11 @@ export namespace Prisma {
     bankAccountType: string | null
     bankAccount: string | null
     bankAccountHolder: string | null
+    cashManBankName: string | null
+    cashManBranchName: string | null
+    cashManBankAccountType: string | null
+    cashManBankAccount: string | null
+    cashManBankAccountHolder: string | null
     kamiyachoFlag: boolean | null
     mlspcFlag: boolean | null
     leverageFlag: boolean | null
@@ -7811,6 +7821,11 @@ export namespace Prisma {
     bankAccountType: number
     bankAccount: number
     bankAccountHolder: number
+    cashManBankName: number
+    cashManBranchName: number
+    cashManBankAccountType: number
+    cashManBankAccount: number
+    cashManBankAccountHolder: number
     kamiyachoFlag: number
     mlspcFlag: number
     leverageFlag: number
@@ -7871,6 +7886,11 @@ export namespace Prisma {
     bankAccountType?: true
     bankAccount?: true
     bankAccountHolder?: true
+    cashManBankName?: true
+    cashManBranchName?: true
+    cashManBankAccountType?: true
+    cashManBankAccount?: true
+    cashManBankAccountHolder?: true
     kamiyachoFlag?: true
     mlspcFlag?: true
     leverageFlag?: true
@@ -7909,6 +7929,11 @@ export namespace Prisma {
     bankAccountType?: true
     bankAccount?: true
     bankAccountHolder?: true
+    cashManBankName?: true
+    cashManBranchName?: true
+    cashManBankAccountType?: true
+    cashManBankAccount?: true
+    cashManBankAccountHolder?: true
     kamiyachoFlag?: true
     mlspcFlag?: true
     leverageFlag?: true
@@ -7947,6 +7972,11 @@ export namespace Prisma {
     bankAccountType?: true
     bankAccount?: true
     bankAccountHolder?: true
+    cashManBankName?: true
+    cashManBranchName?: true
+    cashManBankAccountType?: true
+    cashManBankAccount?: true
+    cashManBankAccountHolder?: true
     kamiyachoFlag?: true
     mlspcFlag?: true
     leverageFlag?: true
@@ -8072,6 +8102,11 @@ export namespace Prisma {
     bankAccountType: string
     bankAccount: string | null
     bankAccountHolder: string | null
+    cashManBankName: string
+    cashManBranchName: string
+    cashManBankAccountType: string
+    cashManBankAccount: string | null
+    cashManBankAccountHolder: string | null
     kamiyachoFlag: boolean
     mlspcFlag: boolean
     leverageFlag: boolean
@@ -8129,6 +8164,11 @@ export namespace Prisma {
     bankAccountType?: boolean
     bankAccount?: boolean
     bankAccountHolder?: boolean
+    cashManBankName?: boolean
+    cashManBranchName?: boolean
+    cashManBankAccountType?: boolean
+    cashManBankAccount?: boolean
+    cashManBankAccountHolder?: boolean
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -8176,6 +8216,11 @@ export namespace Prisma {
     bankAccountType?: boolean
     bankAccount?: boolean
     bankAccountHolder?: boolean
+    cashManBankName?: boolean
+    cashManBranchName?: boolean
+    cashManBankAccountType?: boolean
+    cashManBankAccount?: boolean
+    cashManBankAccountHolder?: boolean
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -8219,6 +8264,11 @@ export namespace Prisma {
     bankAccountType?: boolean
     bankAccount?: boolean
     bankAccountHolder?: boolean
+    cashManBankName?: boolean
+    cashManBranchName?: boolean
+    cashManBankAccountType?: boolean
+    cashManBankAccount?: boolean
+    cashManBankAccountHolder?: boolean
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -8288,6 +8338,11 @@ export namespace Prisma {
       bankAccountType: string
       bankAccount: string | null
       bankAccountHolder: string | null
+      cashManBankName: string
+      cashManBranchName: string
+      cashManBankAccountType: string
+      cashManBankAccount: string | null
+      cashManBankAccountHolder: string | null
       kamiyachoFlag: boolean
       mlspcFlag: boolean
       leverageFlag: boolean
@@ -8724,6 +8779,11 @@ export namespace Prisma {
     readonly bankAccountType: FieldRef<"Project", 'String'>
     readonly bankAccount: FieldRef<"Project", 'String'>
     readonly bankAccountHolder: FieldRef<"Project", 'String'>
+    readonly cashManBankName: FieldRef<"Project", 'String'>
+    readonly cashManBranchName: FieldRef<"Project", 'String'>
+    readonly cashManBankAccountType: FieldRef<"Project", 'String'>
+    readonly cashManBankAccount: FieldRef<"Project", 'String'>
+    readonly cashManBankAccountHolder: FieldRef<"Project", 'String'>
     readonly kamiyachoFlag: FieldRef<"Project", 'Boolean'>
     readonly mlspcFlag: FieldRef<"Project", 'Boolean'>
     readonly leverageFlag: FieldRef<"Project", 'Boolean'>
@@ -13677,7 +13737,6 @@ export namespace Prisma {
     leaseType: string | null
     landUseZone: string | null
     leaseArea: number | null
-    depreciableAssetFile: Buffer | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -13702,7 +13761,6 @@ export namespace Prisma {
     leaseType: string | null
     landUseZone: string | null
     leaseArea: number | null
-    depreciableAssetFile: Buffer | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -13727,7 +13785,6 @@ export namespace Prisma {
     leaseType: number
     landUseZone: number
     leaseArea: number
-    depreciableAssetFile: number
     depreciableAssetJson: number
     createdAt: number
     createdId: number
@@ -13763,7 +13820,6 @@ export namespace Prisma {
     leaseType?: true
     landUseZone?: true
     leaseArea?: true
-    depreciableAssetFile?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -13788,7 +13844,6 @@ export namespace Prisma {
     leaseType?: true
     landUseZone?: true
     leaseArea?: true
-    depreciableAssetFile?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -13813,7 +13868,6 @@ export namespace Prisma {
     leaseType?: true
     landUseZone?: true
     leaseArea?: true
-    depreciableAssetFile?: true
     depreciableAssetJson?: true
     createdAt?: true
     createdId?: true
@@ -13926,7 +13980,6 @@ export namespace Prisma {
     leaseType: string
     landUseZone: string
     leaseArea: number | null
-    depreciableAssetFile: Buffer | null
     depreciableAssetJson: JsonValue | null
     createdAt: Date
     createdId: string
@@ -13971,7 +14024,6 @@ export namespace Prisma {
     leaseType?: boolean
     landUseZone?: boolean
     leaseArea?: boolean
-    depreciableAssetFile?: boolean
     depreciableAssetJson?: boolean
     createdAt?: boolean
     createdId?: boolean
@@ -14000,7 +14052,6 @@ export namespace Prisma {
     leaseType?: boolean
     landUseZone?: boolean
     leaseArea?: boolean
-    depreciableAssetFile?: boolean
     depreciableAssetJson?: boolean
     createdAt?: boolean
     createdId?: boolean
@@ -14027,7 +14078,6 @@ export namespace Prisma {
     leaseType?: boolean
     landUseZone?: boolean
     leaseArea?: boolean
-    depreciableAssetFile?: boolean
     depreciableAssetJson?: boolean
     createdAt?: boolean
     createdId?: boolean
@@ -14068,7 +14118,6 @@ export namespace Prisma {
       leaseType: string
       landUseZone: string
       leaseArea: number | null
-      depreciableAssetFile: Buffer | null
       depreciableAssetJson: Prisma.JsonValue | null
       createdAt: Date
       createdId: string
@@ -14486,7 +14535,6 @@ export namespace Prisma {
     readonly leaseType: FieldRef<"Asset", 'String'>
     readonly landUseZone: FieldRef<"Asset", 'String'>
     readonly leaseArea: FieldRef<"Asset", 'Float'>
-    readonly depreciableAssetFile: FieldRef<"Asset", 'Bytes'>
     readonly depreciableAssetJson: FieldRef<"Asset", 'Json'>
     readonly createdAt: FieldRef<"Asset", 'DateTime'>
     readonly createdId: FieldRef<"Asset", 'String'>
@@ -24050,6 +24098,11 @@ export namespace Prisma {
     bankAccountType: 'bankAccountType',
     bankAccount: 'bankAccount',
     bankAccountHolder: 'bankAccountHolder',
+    cashManBankName: 'cashManBankName',
+    cashManBranchName: 'cashManBranchName',
+    cashManBankAccountType: 'cashManBankAccountType',
+    cashManBankAccount: 'cashManBankAccount',
+    cashManBankAccountHolder: 'cashManBankAccountHolder',
     kamiyachoFlag: 'kamiyachoFlag',
     mlspcFlag: 'mlspcFlag',
     leverageFlag: 'leverageFlag',
@@ -24227,7 +24280,6 @@ export namespace Prisma {
     leaseType: 'leaseType',
     landUseZone: 'landUseZone',
     leaseArea: 'leaseArea',
-    depreciableAssetFile: 'depreciableAssetFile',
     depreciableAssetJson: 'depreciableAssetJson',
     createdAt: 'createdAt',
     createdId: 'createdId',
@@ -24625,6 +24677,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Json'
+   */
+  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+  /**
    * Reference to a field of type 'Bytes'
    */
   export type BytesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Bytes'>
@@ -24635,13 +24694,6 @@ export namespace Prisma {
    * Reference to a field of type 'Bytes[]'
    */
   export type ListBytesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Bytes[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'Json'
-   */
-  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
     
 
 
@@ -25219,6 +25271,11 @@ export namespace Prisma {
     bankAccountType?: StringFilter<"Project"> | string
     bankAccount?: StringNullableFilter<"Project"> | string | null
     bankAccountHolder?: StringNullableFilter<"Project"> | string | null
+    cashManBankName?: StringFilter<"Project"> | string
+    cashManBranchName?: StringFilter<"Project"> | string
+    cashManBankAccountType?: StringFilter<"Project"> | string
+    cashManBankAccount?: StringNullableFilter<"Project"> | string | null
+    cashManBankAccountHolder?: StringNullableFilter<"Project"> | string | null
     kamiyachoFlag?: BoolFilter<"Project"> | boolean
     mlspcFlag?: BoolFilter<"Project"> | boolean
     leverageFlag?: BoolFilter<"Project"> | boolean
@@ -25265,6 +25322,11 @@ export namespace Prisma {
     bankAccountType?: SortOrder
     bankAccount?: SortOrderInput | SortOrder
     bankAccountHolder?: SortOrderInput | SortOrder
+    cashManBankName?: SortOrder
+    cashManBranchName?: SortOrder
+    cashManBankAccountType?: SortOrder
+    cashManBankAccount?: SortOrderInput | SortOrder
+    cashManBankAccountHolder?: SortOrderInput | SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
     leverageFlag?: SortOrder
@@ -25314,6 +25376,11 @@ export namespace Prisma {
     bankAccountType?: StringFilter<"Project"> | string
     bankAccount?: StringNullableFilter<"Project"> | string | null
     bankAccountHolder?: StringNullableFilter<"Project"> | string | null
+    cashManBankName?: StringFilter<"Project"> | string
+    cashManBranchName?: StringFilter<"Project"> | string
+    cashManBankAccountType?: StringFilter<"Project"> | string
+    cashManBankAccount?: StringNullableFilter<"Project"> | string | null
+    cashManBankAccountHolder?: StringNullableFilter<"Project"> | string | null
     kamiyachoFlag?: BoolFilter<"Project"> | boolean
     mlspcFlag?: BoolFilter<"Project"> | boolean
     leverageFlag?: BoolFilter<"Project"> | boolean
@@ -25360,6 +25427,11 @@ export namespace Prisma {
     bankAccountType?: SortOrder
     bankAccount?: SortOrderInput | SortOrder
     bankAccountHolder?: SortOrderInput | SortOrder
+    cashManBankName?: SortOrder
+    cashManBranchName?: SortOrder
+    cashManBankAccountType?: SortOrder
+    cashManBankAccount?: SortOrderInput | SortOrder
+    cashManBankAccountHolder?: SortOrderInput | SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
     leverageFlag?: SortOrder
@@ -25406,6 +25478,11 @@ export namespace Prisma {
     bankAccountType?: StringWithAggregatesFilter<"Project"> | string
     bankAccount?: StringNullableWithAggregatesFilter<"Project"> | string | null
     bankAccountHolder?: StringNullableWithAggregatesFilter<"Project"> | string | null
+    cashManBankName?: StringWithAggregatesFilter<"Project"> | string
+    cashManBranchName?: StringWithAggregatesFilter<"Project"> | string
+    cashManBankAccountType?: StringWithAggregatesFilter<"Project"> | string
+    cashManBankAccount?: StringNullableWithAggregatesFilter<"Project"> | string | null
+    cashManBankAccountHolder?: StringNullableWithAggregatesFilter<"Project"> | string | null
     kamiyachoFlag?: BoolWithAggregatesFilter<"Project"> | boolean
     mlspcFlag?: BoolWithAggregatesFilter<"Project"> | boolean
     leverageFlag?: BoolWithAggregatesFilter<"Project"> | boolean
@@ -26155,7 +26232,6 @@ export namespace Prisma {
     leaseType?: StringFilter<"Asset"> | string
     landUseZone?: StringFilter<"Asset"> | string
     leaseArea?: FloatNullableFilter<"Asset"> | number | null
-    depreciableAssetFile?: BytesNullableFilter<"Asset"> | Buffer | null
     depreciableAssetJson?: JsonNullableFilter<"Asset">
     createdAt?: DateTimeFilter<"Asset"> | Date | string
     createdId?: StringFilter<"Asset"> | string
@@ -26183,7 +26259,6 @@ export namespace Prisma {
     leaseType?: SortOrder
     landUseZone?: SortOrder
     leaseArea?: SortOrderInput | SortOrder
-    depreciableAssetFile?: SortOrderInput | SortOrder
     depreciableAssetJson?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
@@ -26214,7 +26289,6 @@ export namespace Prisma {
     leaseType?: StringFilter<"Asset"> | string
     landUseZone?: StringFilter<"Asset"> | string
     leaseArea?: FloatNullableFilter<"Asset"> | number | null
-    depreciableAssetFile?: BytesNullableFilter<"Asset"> | Buffer | null
     depreciableAssetJson?: JsonNullableFilter<"Asset">
     createdAt?: DateTimeFilter<"Asset"> | Date | string
     createdId?: StringFilter<"Asset"> | string
@@ -26242,7 +26316,6 @@ export namespace Prisma {
     leaseType?: SortOrder
     landUseZone?: SortOrder
     leaseArea?: SortOrderInput | SortOrder
-    depreciableAssetFile?: SortOrderInput | SortOrder
     depreciableAssetJson?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
@@ -26276,7 +26349,6 @@ export namespace Prisma {
     leaseType?: StringWithAggregatesFilter<"Asset"> | string
     landUseZone?: StringWithAggregatesFilter<"Asset"> | string
     leaseArea?: FloatNullableWithAggregatesFilter<"Asset"> | number | null
-    depreciableAssetFile?: BytesNullableWithAggregatesFilter<"Asset"> | Buffer | null
     depreciableAssetJson?: JsonNullableWithAggregatesFilter<"Asset">
     createdAt?: DateTimeWithAggregatesFilter<"Asset"> | Date | string
     createdId?: StringWithAggregatesFilter<"Asset"> | string
@@ -27915,6 +27987,11 @@ export namespace Prisma {
     bankAccountType?: string
     bankAccount?: string | null
     bankAccountHolder?: string | null
+    cashManBankName?: string
+    cashManBranchName?: string
+    cashManBankAccountType?: string
+    cashManBankAccount?: string | null
+    cashManBankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -27956,6 +28033,11 @@ export namespace Prisma {
     bankAccountType?: string
     bankAccount?: string | null
     bankAccountHolder?: string | null
+    cashManBankName?: string
+    cashManBranchName?: string
+    cashManBankAccountType?: string
+    cashManBankAccount?: string | null
+    cashManBankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -27997,6 +28079,11 @@ export namespace Prisma {
     bankAccountType?: StringFieldUpdateOperationsInput | string
     bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankName?: StringFieldUpdateOperationsInput | string
+    cashManBranchName?: StringFieldUpdateOperationsInput | string
+    cashManBankAccountType?: StringFieldUpdateOperationsInput | string
+    cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -28038,6 +28125,11 @@ export namespace Prisma {
     bankAccountType?: StringFieldUpdateOperationsInput | string
     bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankName?: StringFieldUpdateOperationsInput | string
+    cashManBranchName?: StringFieldUpdateOperationsInput | string
+    cashManBankAccountType?: StringFieldUpdateOperationsInput | string
+    cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -28079,6 +28171,11 @@ export namespace Prisma {
     bankAccountType?: string
     bankAccount?: string | null
     bankAccountHolder?: string | null
+    cashManBankName?: string
+    cashManBranchName?: string
+    cashManBankAccountType?: string
+    cashManBankAccount?: string | null
+    cashManBankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -28117,6 +28214,11 @@ export namespace Prisma {
     bankAccountType?: StringFieldUpdateOperationsInput | string
     bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankName?: StringFieldUpdateOperationsInput | string
+    cashManBranchName?: StringFieldUpdateOperationsInput | string
+    cashManBankAccountType?: StringFieldUpdateOperationsInput | string
+    cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -28150,6 +28252,11 @@ export namespace Prisma {
     bankAccountType?: StringFieldUpdateOperationsInput | string
     bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankName?: StringFieldUpdateOperationsInput | string
+    cashManBranchName?: StringFieldUpdateOperationsInput | string
+    cashManBankAccountType?: StringFieldUpdateOperationsInput | string
+    cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -29108,7 +29215,6 @@ export namespace Prisma {
     leaseType?: string
     landUseZone?: string
     leaseArea?: number | null
-    depreciableAssetFile?: Buffer | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     createdId: string
@@ -29136,7 +29242,6 @@ export namespace Prisma {
     leaseType?: string
     landUseZone?: string
     leaseArea?: number | null
-    depreciableAssetFile?: Buffer | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     createdId: string
@@ -29162,7 +29267,6 @@ export namespace Prisma {
     leaseType?: StringFieldUpdateOperationsInput | string
     landUseZone?: StringFieldUpdateOperationsInput | string
     leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
-    depreciableAssetFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
@@ -29190,7 +29294,6 @@ export namespace Prisma {
     leaseType?: StringFieldUpdateOperationsInput | string
     landUseZone?: StringFieldUpdateOperationsInput | string
     leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
-    depreciableAssetFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
@@ -29217,7 +29320,6 @@ export namespace Prisma {
     leaseType?: string
     landUseZone?: string
     leaseArea?: number | null
-    depreciableAssetFile?: Buffer | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     createdId: string
@@ -29242,7 +29344,6 @@ export namespace Prisma {
     leaseType?: StringFieldUpdateOperationsInput | string
     landUseZone?: StringFieldUpdateOperationsInput | string
     leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
-    depreciableAssetFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
@@ -29268,7 +29369,6 @@ export namespace Prisma {
     leaseType?: StringFieldUpdateOperationsInput | string
     landUseZone?: StringFieldUpdateOperationsInput | string
     leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
-    depreciableAssetFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
@@ -31069,6 +31169,11 @@ export namespace Prisma {
     bankAccountType?: SortOrder
     bankAccount?: SortOrder
     bankAccountHolder?: SortOrder
+    cashManBankName?: SortOrder
+    cashManBranchName?: SortOrder
+    cashManBankAccountType?: SortOrder
+    cashManBankAccount?: SortOrder
+    cashManBankAccountHolder?: SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
     leverageFlag?: SortOrder
@@ -31117,6 +31222,11 @@ export namespace Prisma {
     bankAccountType?: SortOrder
     bankAccount?: SortOrder
     bankAccountHolder?: SortOrder
+    cashManBankName?: SortOrder
+    cashManBranchName?: SortOrder
+    cashManBankAccountType?: SortOrder
+    cashManBankAccount?: SortOrder
+    cashManBankAccountHolder?: SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
     leverageFlag?: SortOrder
@@ -31155,6 +31265,11 @@ export namespace Prisma {
     bankAccountType?: SortOrder
     bankAccount?: SortOrder
     bankAccountHolder?: SortOrder
+    cashManBankName?: SortOrder
+    cashManBranchName?: SortOrder
+    cashManBankAccountType?: SortOrder
+    cashManBankAccount?: SortOrder
+    cashManBankAccountHolder?: SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
     leverageFlag?: SortOrder
@@ -31961,13 +32076,6 @@ export namespace Prisma {
     _min?: NestedEnumPLTypeFilter<$PrismaModel>
     _max?: NestedEnumPLTypeFilter<$PrismaModel>
   }
-
-  export type BytesNullableFilter<$PrismaModel = never> = {
-    equals?: Buffer | BytesFieldRefInput<$PrismaModel> | null
-    in?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
-    notIn?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
-    not?: NestedBytesNullableFilter<$PrismaModel> | Buffer | null
-  }
   export type JsonNullableFilter<$PrismaModel = never> = 
     | PatchUndefined<
         Either<Required<JsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>,
@@ -32007,7 +32115,6 @@ export namespace Prisma {
     leaseType?: SortOrder
     landUseZone?: SortOrder
     leaseArea?: SortOrder
-    depreciableAssetFile?: SortOrder
     depreciableAssetJson?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
@@ -32037,7 +32144,6 @@ export namespace Prisma {
     leaseType?: SortOrder
     landUseZone?: SortOrder
     leaseArea?: SortOrder
-    depreciableAssetFile?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -32062,7 +32168,6 @@ export namespace Prisma {
     leaseType?: SortOrder
     landUseZone?: SortOrder
     leaseArea?: SortOrder
-    depreciableAssetFile?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -32073,16 +32178,6 @@ export namespace Prisma {
 
   export type AssetSumOrderByAggregateInput = {
     leaseArea?: SortOrder
-  }
-
-  export type BytesNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Buffer | BytesFieldRefInput<$PrismaModel> | null
-    in?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
-    notIn?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
-    not?: NestedBytesNullableWithAggregatesFilter<$PrismaModel> | Buffer | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedBytesNullableFilter<$PrismaModel>
-    _max?: NestedBytesNullableFilter<$PrismaModel>
   }
   export type JsonNullableWithAggregatesFilter<$PrismaModel = never> = 
     | PatchUndefined<
@@ -32108,6 +32203,13 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedJsonNullableFilter<$PrismaModel>
     _max?: NestedJsonNullableFilter<$PrismaModel>
+  }
+
+  export type BytesNullableFilter<$PrismaModel = never> = {
+    equals?: Buffer | BytesFieldRefInput<$PrismaModel> | null
+    in?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
+    notIn?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
+    not?: NestedBytesNullableFilter<$PrismaModel> | Buffer | null
   }
 
   export type AssetRelationFilter = {
@@ -32274,6 +32376,16 @@ export namespace Prisma {
     otherFeeNoTax?: SortOrder
     deposit?: SortOrder
     depositNoTax?: SortOrder
+  }
+
+  export type BytesNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Buffer | BytesFieldRefInput<$PrismaModel> | null
+    in?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
+    notIn?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
+    not?: NestedBytesNullableWithAggregatesFilter<$PrismaModel> | Buffer | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBytesNullableFilter<$PrismaModel>
+    _max?: NestedBytesNullableFilter<$PrismaModel>
   }
 
   export type EnumCustomerTypeFilter<$PrismaModel = never> = {
@@ -33372,10 +33484,6 @@ export namespace Prisma {
     connect?: AssetKiWhereUniqueInput | AssetKiWhereUniqueInput[]
   }
 
-  export type NullableBytesFieldUpdateOperationsInput = {
-    set?: Buffer | null
-  }
-
   export type ProjectUpdateOneRequiredWithoutAssetsNestedInput = {
     create?: XOR<ProjectCreateWithoutAssetsInput, ProjectUncheckedCreateWithoutAssetsInput>
     connectOrCreate?: ProjectCreateOrConnectWithoutAssetsInput
@@ -33422,6 +33530,10 @@ export namespace Prisma {
     create?: XOR<KiCreateWithoutAssetKisInput, KiUncheckedCreateWithoutAssetKisInput>
     connectOrCreate?: KiCreateOrConnectWithoutAssetKisInput
     connect?: KiWhereUniqueInput
+  }
+
+  export type NullableBytesFieldUpdateOperationsInput = {
+    set?: Buffer | null
   }
 
   export type AssetUpdateOneRequiredWithoutAssetKisNestedInput = {
@@ -34116,23 +34228,6 @@ export namespace Prisma {
     _min?: NestedEnumPLTypeFilter<$PrismaModel>
     _max?: NestedEnumPLTypeFilter<$PrismaModel>
   }
-
-  export type NestedBytesNullableFilter<$PrismaModel = never> = {
-    equals?: Buffer | BytesFieldRefInput<$PrismaModel> | null
-    in?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
-    notIn?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
-    not?: NestedBytesNullableFilter<$PrismaModel> | Buffer | null
-  }
-
-  export type NestedBytesNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Buffer | BytesFieldRefInput<$PrismaModel> | null
-    in?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
-    notIn?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
-    not?: NestedBytesNullableWithAggregatesFilter<$PrismaModel> | Buffer | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedBytesNullableFilter<$PrismaModel>
-    _max?: NestedBytesNullableFilter<$PrismaModel>
-  }
   export type NestedJsonNullableFilter<$PrismaModel = never> = 
     | PatchUndefined<
         Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
@@ -34154,6 +34249,23 @@ export namespace Prisma {
     gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type NestedBytesNullableFilter<$PrismaModel = never> = {
+    equals?: Buffer | BytesFieldRefInput<$PrismaModel> | null
+    in?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
+    notIn?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
+    not?: NestedBytesNullableFilter<$PrismaModel> | Buffer | null
+  }
+
+  export type NestedBytesNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Buffer | BytesFieldRefInput<$PrismaModel> | null
+    in?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
+    notIn?: Buffer[] | ListBytesFieldRefInput<$PrismaModel> | null
+    not?: NestedBytesNullableWithAggregatesFilter<$PrismaModel> | Buffer | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBytesNullableFilter<$PrismaModel>
+    _max?: NestedBytesNullableFilter<$PrismaModel>
   }
 
   export type NestedEnumCustomerTypeFilter<$PrismaModel = never> = {
@@ -35145,7 +35257,6 @@ export namespace Prisma {
     leaseType?: string
     landUseZone?: string
     leaseArea?: number | null
-    depreciableAssetFile?: Buffer | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     createdId: string
@@ -35171,7 +35282,6 @@ export namespace Prisma {
     leaseType?: string
     landUseZone?: string
     leaseArea?: number | null
-    depreciableAssetFile?: Buffer | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     createdId: string
@@ -35606,7 +35716,6 @@ export namespace Prisma {
     leaseType?: StringFilter<"Asset"> | string
     landUseZone?: StringFilter<"Asset"> | string
     leaseArea?: FloatNullableFilter<"Asset"> | number | null
-    depreciableAssetFile?: BytesNullableFilter<"Asset"> | Buffer | null
     depreciableAssetJson?: JsonNullableFilter<"Asset">
     createdAt?: DateTimeFilter<"Asset"> | Date | string
     createdId?: StringFilter<"Asset"> | string
@@ -35700,6 +35809,11 @@ export namespace Prisma {
     bankAccountType?: string
     bankAccount?: string | null
     bankAccountHolder?: string | null
+    cashManBankName?: string
+    cashManBranchName?: string
+    cashManBankAccountType?: string
+    cashManBankAccount?: string | null
+    cashManBankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -35740,6 +35854,11 @@ export namespace Prisma {
     bankAccountType?: string
     bankAccount?: string | null
     bankAccountHolder?: string | null
+    cashManBankName?: string
+    cashManBranchName?: string
+    cashManBankAccountType?: string
+    cashManBankAccount?: string | null
+    cashManBankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -35881,6 +36000,11 @@ export namespace Prisma {
     bankAccountType?: StringFieldUpdateOperationsInput | string
     bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankName?: StringFieldUpdateOperationsInput | string
+    cashManBranchName?: StringFieldUpdateOperationsInput | string
+    cashManBankAccountType?: StringFieldUpdateOperationsInput | string
+    cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -35921,6 +36045,11 @@ export namespace Prisma {
     bankAccountType?: StringFieldUpdateOperationsInput | string
     bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankName?: StringFieldUpdateOperationsInput | string
+    cashManBranchName?: StringFieldUpdateOperationsInput | string
+    cashManBankAccountType?: StringFieldUpdateOperationsInput | string
+    cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -36041,6 +36170,11 @@ export namespace Prisma {
     bankAccountType?: string
     bankAccount?: string | null
     bankAccountHolder?: string | null
+    cashManBankName?: string
+    cashManBranchName?: string
+    cashManBankAccountType?: string
+    cashManBankAccount?: string | null
+    cashManBankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -36081,6 +36215,11 @@ export namespace Prisma {
     bankAccountType?: string
     bankAccount?: string | null
     bankAccountHolder?: string | null
+    cashManBankName?: string
+    cashManBranchName?: string
+    cashManBankAccountType?: string
+    cashManBankAccount?: string | null
+    cashManBankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -36221,6 +36360,11 @@ export namespace Prisma {
     bankAccountType?: StringFieldUpdateOperationsInput | string
     bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankName?: StringFieldUpdateOperationsInput | string
+    cashManBranchName?: StringFieldUpdateOperationsInput | string
+    cashManBankAccountType?: StringFieldUpdateOperationsInput | string
+    cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -36261,6 +36405,11 @@ export namespace Prisma {
     bankAccountType?: StringFieldUpdateOperationsInput | string
     bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankName?: StringFieldUpdateOperationsInput | string
+    cashManBranchName?: StringFieldUpdateOperationsInput | string
+    cashManBankAccountType?: StringFieldUpdateOperationsInput | string
+    cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -36311,7 +36460,6 @@ export namespace Prisma {
     leaseType?: string
     landUseZone?: string
     leaseArea?: number | null
-    depreciableAssetFile?: Buffer | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     createdId: string
@@ -36338,7 +36486,6 @@ export namespace Prisma {
     leaseType?: string
     landUseZone?: string
     leaseArea?: number | null
-    depreciableAssetFile?: Buffer | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     createdId: string
@@ -36412,7 +36559,6 @@ export namespace Prisma {
     leaseType?: StringFieldUpdateOperationsInput | string
     landUseZone?: StringFieldUpdateOperationsInput | string
     leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
-    depreciableAssetFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
@@ -36439,7 +36585,6 @@ export namespace Prisma {
     leaseType?: StringFieldUpdateOperationsInput | string
     landUseZone?: StringFieldUpdateOperationsInput | string
     leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
-    depreciableAssetFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
@@ -36509,6 +36654,11 @@ export namespace Prisma {
     bankAccountType?: string
     bankAccount?: string | null
     bankAccountHolder?: string | null
+    cashManBankName?: string
+    cashManBranchName?: string
+    cashManBankAccountType?: string
+    cashManBankAccount?: string | null
+    cashManBankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -36549,6 +36699,11 @@ export namespace Prisma {
     bankAccountType?: string
     bankAccount?: string | null
     bankAccountHolder?: string | null
+    cashManBankName?: string
+    cashManBranchName?: string
+    cashManBankAccountType?: string
+    cashManBankAccount?: string | null
+    cashManBankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -36657,6 +36812,11 @@ export namespace Prisma {
     bankAccountType?: StringFieldUpdateOperationsInput | string
     bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankName?: StringFieldUpdateOperationsInput | string
+    cashManBranchName?: StringFieldUpdateOperationsInput | string
+    cashManBankAccountType?: StringFieldUpdateOperationsInput | string
+    cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -36697,6 +36857,11 @@ export namespace Prisma {
     bankAccountType?: StringFieldUpdateOperationsInput | string
     bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankName?: StringFieldUpdateOperationsInput | string
+    cashManBranchName?: StringFieldUpdateOperationsInput | string
+    cashManBankAccountType?: StringFieldUpdateOperationsInput | string
+    cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -37313,6 +37478,11 @@ export namespace Prisma {
     bankAccountType?: string
     bankAccount?: string | null
     bankAccountHolder?: string | null
+    cashManBankName?: string
+    cashManBranchName?: string
+    cashManBankAccountType?: string
+    cashManBankAccount?: string | null
+    cashManBankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -37353,6 +37523,11 @@ export namespace Prisma {
     bankAccountType?: string
     bankAccount?: string | null
     bankAccountHolder?: string | null
+    cashManBankName?: string
+    cashManBranchName?: string
+    cashManBankAccountType?: string
+    cashManBankAccount?: string | null
+    cashManBankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -37403,6 +37578,11 @@ export namespace Prisma {
     bankAccountType?: string
     bankAccount?: string | null
     bankAccountHolder?: string | null
+    cashManBankName?: string
+    cashManBranchName?: string
+    cashManBankAccountType?: string
+    cashManBankAccount?: string | null
+    cashManBankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -37443,6 +37623,11 @@ export namespace Prisma {
     bankAccountType?: string
     bankAccount?: string | null
     bankAccountHolder?: string | null
+    cashManBankName?: string
+    cashManBranchName?: string
+    cashManBankAccountType?: string
+    cashManBankAccount?: string | null
+    cashManBankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -37493,6 +37678,11 @@ export namespace Prisma {
     bankAccountType?: string
     bankAccount?: string | null
     bankAccountHolder?: string | null
+    cashManBankName?: string
+    cashManBranchName?: string
+    cashManBankAccountType?: string
+    cashManBankAccount?: string | null
+    cashManBankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -37533,6 +37723,11 @@ export namespace Prisma {
     bankAccountType?: string
     bankAccount?: string | null
     bankAccountHolder?: string | null
+    cashManBankName?: string
+    cashManBranchName?: string
+    cashManBankAccountType?: string
+    cashManBankAccount?: string | null
+    cashManBankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -37583,6 +37778,11 @@ export namespace Prisma {
     bankAccountType?: string
     bankAccount?: string | null
     bankAccountHolder?: string | null
+    cashManBankName?: string
+    cashManBranchName?: string
+    cashManBankAccountType?: string
+    cashManBankAccount?: string | null
+    cashManBankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -37623,6 +37823,11 @@ export namespace Prisma {
     bankAccountType?: string
     bankAccount?: string | null
     bankAccountHolder?: string | null
+    cashManBankName?: string
+    cashManBranchName?: string
+    cashManBankAccountType?: string
+    cashManBankAccount?: string | null
+    cashManBankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -37673,6 +37878,11 @@ export namespace Prisma {
     bankAccountType?: string
     bankAccount?: string | null
     bankAccountHolder?: string | null
+    cashManBankName?: string
+    cashManBranchName?: string
+    cashManBankAccountType?: string
+    cashManBankAccount?: string | null
+    cashManBankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -37713,6 +37923,11 @@ export namespace Prisma {
     bankAccountType?: string
     bankAccount?: string | null
     bankAccountHolder?: string | null
+    cashManBankName?: string
+    cashManBranchName?: string
+    cashManBankAccountType?: string
+    cashManBankAccount?: string | null
+    cashManBankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -37782,6 +37997,11 @@ export namespace Prisma {
     bankAccountType?: StringFilter<"Project"> | string
     bankAccount?: StringNullableFilter<"Project"> | string | null
     bankAccountHolder?: StringNullableFilter<"Project"> | string | null
+    cashManBankName?: StringFilter<"Project"> | string
+    cashManBranchName?: StringFilter<"Project"> | string
+    cashManBankAccountType?: StringFilter<"Project"> | string
+    cashManBankAccount?: StringNullableFilter<"Project"> | string | null
+    cashManBankAccountHolder?: StringNullableFilter<"Project"> | string | null
     kamiyachoFlag?: BoolFilter<"Project"> | boolean
     mlspcFlag?: BoolFilter<"Project"> | boolean
     leverageFlag?: BoolFilter<"Project"> | boolean
@@ -38463,7 +38683,6 @@ export namespace Prisma {
     leaseType?: string
     landUseZone?: string
     leaseArea?: number | null
-    depreciableAssetFile?: Buffer | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     createdId: string
@@ -38794,7 +39013,6 @@ export namespace Prisma {
     leaseType?: StringFieldUpdateOperationsInput | string
     landUseZone?: StringFieldUpdateOperationsInput | string
     leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
-    depreciableAssetFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
@@ -38820,7 +39038,6 @@ export namespace Prisma {
     leaseType?: StringFieldUpdateOperationsInput | string
     landUseZone?: StringFieldUpdateOperationsInput | string
     leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
-    depreciableAssetFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
@@ -38846,7 +39063,6 @@ export namespace Prisma {
     leaseType?: StringFieldUpdateOperationsInput | string
     landUseZone?: StringFieldUpdateOperationsInput | string
     leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
-    depreciableAssetFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
@@ -39324,6 +39540,11 @@ export namespace Prisma {
     bankAccountType?: string
     bankAccount?: string | null
     bankAccountHolder?: string | null
+    cashManBankName?: string
+    cashManBranchName?: string
+    cashManBankAccountType?: string
+    cashManBankAccount?: string | null
+    cashManBankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -39361,6 +39582,11 @@ export namespace Prisma {
     bankAccountType?: string
     bankAccount?: string | null
     bankAccountHolder?: string | null
+    cashManBankName?: string
+    cashManBranchName?: string
+    cashManBankAccountType?: string
+    cashManBankAccount?: string | null
+    cashManBankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -39398,6 +39624,11 @@ export namespace Prisma {
     bankAccountType?: string
     bankAccount?: string | null
     bankAccountHolder?: string | null
+    cashManBankName?: string
+    cashManBranchName?: string
+    cashManBankAccountType?: string
+    cashManBankAccount?: string | null
+    cashManBankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -39435,6 +39666,11 @@ export namespace Prisma {
     bankAccountType?: string
     bankAccount?: string | null
     bankAccountHolder?: string | null
+    cashManBankName?: string
+    cashManBranchName?: string
+    cashManBankAccountType?: string
+    cashManBankAccount?: string | null
+    cashManBankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -39472,6 +39708,11 @@ export namespace Prisma {
     bankAccountType?: string
     bankAccount?: string | null
     bankAccountHolder?: string | null
+    cashManBankName?: string
+    cashManBranchName?: string
+    cashManBankAccountType?: string
+    cashManBankAccount?: string | null
+    cashManBankAccountHolder?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -39509,6 +39750,11 @@ export namespace Prisma {
     bankAccountType?: StringFieldUpdateOperationsInput | string
     bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankName?: StringFieldUpdateOperationsInput | string
+    cashManBranchName?: StringFieldUpdateOperationsInput | string
+    cashManBankAccountType?: StringFieldUpdateOperationsInput | string
+    cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39549,6 +39795,11 @@ export namespace Prisma {
     bankAccountType?: StringFieldUpdateOperationsInput | string
     bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankName?: StringFieldUpdateOperationsInput | string
+    cashManBranchName?: StringFieldUpdateOperationsInput | string
+    cashManBankAccountType?: StringFieldUpdateOperationsInput | string
+    cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39589,6 +39840,11 @@ export namespace Prisma {
     bankAccountType?: StringFieldUpdateOperationsInput | string
     bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankName?: StringFieldUpdateOperationsInput | string
+    cashManBranchName?: StringFieldUpdateOperationsInput | string
+    cashManBankAccountType?: StringFieldUpdateOperationsInput | string
+    cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39626,6 +39882,11 @@ export namespace Prisma {
     bankAccountType?: StringFieldUpdateOperationsInput | string
     bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankName?: StringFieldUpdateOperationsInput | string
+    cashManBranchName?: StringFieldUpdateOperationsInput | string
+    cashManBankAccountType?: StringFieldUpdateOperationsInput | string
+    cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39666,6 +39927,11 @@ export namespace Prisma {
     bankAccountType?: StringFieldUpdateOperationsInput | string
     bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankName?: StringFieldUpdateOperationsInput | string
+    cashManBranchName?: StringFieldUpdateOperationsInput | string
+    cashManBankAccountType?: StringFieldUpdateOperationsInput | string
+    cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39706,6 +39972,11 @@ export namespace Prisma {
     bankAccountType?: StringFieldUpdateOperationsInput | string
     bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankName?: StringFieldUpdateOperationsInput | string
+    cashManBranchName?: StringFieldUpdateOperationsInput | string
+    cashManBankAccountType?: StringFieldUpdateOperationsInput | string
+    cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39743,6 +40014,11 @@ export namespace Prisma {
     bankAccountType?: StringFieldUpdateOperationsInput | string
     bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankName?: StringFieldUpdateOperationsInput | string
+    cashManBranchName?: StringFieldUpdateOperationsInput | string
+    cashManBankAccountType?: StringFieldUpdateOperationsInput | string
+    cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39783,6 +40059,11 @@ export namespace Prisma {
     bankAccountType?: StringFieldUpdateOperationsInput | string
     bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankName?: StringFieldUpdateOperationsInput | string
+    cashManBranchName?: StringFieldUpdateOperationsInput | string
+    cashManBankAccountType?: StringFieldUpdateOperationsInput | string
+    cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39823,6 +40104,11 @@ export namespace Prisma {
     bankAccountType?: StringFieldUpdateOperationsInput | string
     bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankName?: StringFieldUpdateOperationsInput | string
+    cashManBranchName?: StringFieldUpdateOperationsInput | string
+    cashManBankAccountType?: StringFieldUpdateOperationsInput | string
+    cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39860,6 +40146,11 @@ export namespace Prisma {
     bankAccountType?: StringFieldUpdateOperationsInput | string
     bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankName?: StringFieldUpdateOperationsInput | string
+    cashManBranchName?: StringFieldUpdateOperationsInput | string
+    cashManBankAccountType?: StringFieldUpdateOperationsInput | string
+    cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39900,6 +40191,11 @@ export namespace Prisma {
     bankAccountType?: StringFieldUpdateOperationsInput | string
     bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankName?: StringFieldUpdateOperationsInput | string
+    cashManBranchName?: StringFieldUpdateOperationsInput | string
+    cashManBankAccountType?: StringFieldUpdateOperationsInput | string
+    cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39940,6 +40236,11 @@ export namespace Prisma {
     bankAccountType?: StringFieldUpdateOperationsInput | string
     bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankName?: StringFieldUpdateOperationsInput | string
+    cashManBranchName?: StringFieldUpdateOperationsInput | string
+    cashManBankAccountType?: StringFieldUpdateOperationsInput | string
+    cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39977,6 +40278,11 @@ export namespace Prisma {
     bankAccountType?: StringFieldUpdateOperationsInput | string
     bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankName?: StringFieldUpdateOperationsInput | string
+    cashManBranchName?: StringFieldUpdateOperationsInput | string
+    cashManBankAccountType?: StringFieldUpdateOperationsInput | string
+    cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -40017,6 +40323,11 @@ export namespace Prisma {
     bankAccountType?: StringFieldUpdateOperationsInput | string
     bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankName?: StringFieldUpdateOperationsInput | string
+    cashManBranchName?: StringFieldUpdateOperationsInput | string
+    cashManBankAccountType?: StringFieldUpdateOperationsInput | string
+    cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -40057,6 +40368,11 @@ export namespace Prisma {
     bankAccountType?: StringFieldUpdateOperationsInput | string
     bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankName?: StringFieldUpdateOperationsInput | string
+    cashManBranchName?: StringFieldUpdateOperationsInput | string
+    cashManBankAccountType?: StringFieldUpdateOperationsInput | string
+    cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
