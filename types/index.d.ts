@@ -59,6 +59,11 @@ export type ProjectKiBS = $Result.DefaultSelection<Prisma.$ProjectKiBSPayload>
  */
 export type ProjectKiPL = $Result.DefaultSelection<Prisma.$ProjectKiPLPayload>
 /**
+ * Model PLOrderBy
+ * 
+ */
+export type PLOrderBy = $Result.DefaultSelection<Prisma.$PLOrderByPayload>
+/**
  * Model Asset
  * 
  */
@@ -455,6 +460,16 @@ export class PrismaClient<
     * ```
     */
   get projectKiPL(): Prisma.ProjectKiPLDelegate<ExtArgs>;
+
+  /**
+   * `prisma.pLOrderBy`: Exposes CRUD operations for the **PLOrderBy** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more PLOrderBies
+    * const pLOrderBies = await prisma.pLOrderBy.findMany()
+    * ```
+    */
+  get pLOrderBy(): Prisma.PLOrderByDelegate<ExtArgs>;
 
   /**
    * `prisma.asset`: Exposes CRUD operations for the **Asset** model.
@@ -995,6 +1010,7 @@ export namespace Prisma {
     ProjectKi: 'ProjectKi',
     ProjectKiBS: 'ProjectKiBS',
     ProjectKiPL: 'ProjectKiPL',
+    PLOrderBy: 'PLOrderBy',
     Asset: 'Asset',
     AssetKi: 'AssetKi',
     Customer: 'Customer',
@@ -1019,7 +1035,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "user" | "sBIMPUser" | "eAJUser" | "company" | "ki" | "project" | "projectKi" | "projectKiBS" | "projectKiPL" | "asset" | "assetKi" | "customer" | "customerFund" | "template" | "templateHistory" | "variableDefinition" | "yayoiCSV" | "yayoiCSVHistory"
+      modelProps: "user" | "sBIMPUser" | "eAJUser" | "company" | "ki" | "project" | "projectKi" | "projectKiBS" | "projectKiPL" | "pLOrderBy" | "asset" | "assetKi" | "customer" | "customerFund" | "template" | "templateHistory" | "variableDefinition" | "yayoiCSV" | "yayoiCSVHistory"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1650,6 +1666,76 @@ export namespace Prisma {
           count: {
             args: Prisma.ProjectKiPLCountArgs<ExtArgs>
             result: $Utils.Optional<ProjectKiPLCountAggregateOutputType> | number
+          }
+        }
+      }
+      PLOrderBy: {
+        payload: Prisma.$PLOrderByPayload<ExtArgs>
+        fields: Prisma.PLOrderByFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PLOrderByFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PLOrderByPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PLOrderByFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PLOrderByPayload>
+          }
+          findFirst: {
+            args: Prisma.PLOrderByFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PLOrderByPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PLOrderByFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PLOrderByPayload>
+          }
+          findMany: {
+            args: Prisma.PLOrderByFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PLOrderByPayload>[]
+          }
+          create: {
+            args: Prisma.PLOrderByCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PLOrderByPayload>
+          }
+          createMany: {
+            args: Prisma.PLOrderByCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PLOrderByCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PLOrderByPayload>[]
+          }
+          delete: {
+            args: Prisma.PLOrderByDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PLOrderByPayload>
+          }
+          update: {
+            args: Prisma.PLOrderByUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PLOrderByPayload>
+          }
+          deleteMany: {
+            args: Prisma.PLOrderByDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PLOrderByUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.PLOrderByUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PLOrderByPayload>
+          }
+          aggregate: {
+            args: Prisma.PLOrderByAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePLOrderBy>
+          }
+          groupBy: {
+            args: Prisma.PLOrderByGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PLOrderByGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PLOrderByCountArgs<ExtArgs>
+            result: $Utils.Optional<PLOrderByCountAggregateOutputType> | number
           }
         }
       }
@@ -9343,8 +9429,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax: number | null
     kazeiShiire8050Kojo: number | null
     kazeiShiire8050KojoNoTax: number | null
-    kazeiUriageOnlyApplyTax7p8: number | null
-    kazeiUriageCommonApplyTax7p8: number | null
+    kazeiShiire100KojoKazeiUriageHontai: number | null
+    kazeiShiire8050KojoKazeiUriageHontai: number | null
+    kazeiShiire100KojoKyotsuHontai: number | null
+    kazeiShiire8050KojoKyotsuHontai: number | null
     koteiShisan80Kojo: number | null
     koteiShisan80KojoNoTax: number | null
   }
@@ -9414,8 +9502,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax: bigint | null
     kazeiShiire8050Kojo: bigint | null
     kazeiShiire8050KojoNoTax: bigint | null
-    kazeiUriageOnlyApplyTax7p8: bigint | null
-    kazeiUriageCommonApplyTax7p8: bigint | null
+    kazeiShiire100KojoKazeiUriageHontai: bigint | null
+    kazeiShiire8050KojoKazeiUriageHontai: bigint | null
+    kazeiShiire100KojoKyotsuHontai: bigint | null
+    kazeiShiire8050KojoKyotsuHontai: bigint | null
     koteiShisan80Kojo: bigint | null
     koteiShisan80KojoNoTax: bigint | null
   }
@@ -9496,8 +9586,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax: bigint | null
     kazeiShiire8050Kojo: bigint | null
     kazeiShiire8050KojoNoTax: bigint | null
-    kazeiUriageOnlyApplyTax7p8: bigint | null
-    kazeiUriageCommonApplyTax7p8: bigint | null
+    kazeiShiire100KojoKazeiUriageHontai: bigint | null
+    kazeiShiire8050KojoKazeiUriageHontai: bigint | null
+    kazeiShiire100KojoKyotsuHontai: bigint | null
+    kazeiShiire8050KojoKyotsuHontai: bigint | null
     koteiShisan80Kojo: bigint | null
     koteiShisan80KojoNoTax: bigint | null
     createdAt: Date | null
@@ -9584,8 +9676,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax: bigint | null
     kazeiShiire8050Kojo: bigint | null
     kazeiShiire8050KojoNoTax: bigint | null
-    kazeiUriageOnlyApplyTax7p8: bigint | null
-    kazeiUriageCommonApplyTax7p8: bigint | null
+    kazeiShiire100KojoKazeiUriageHontai: bigint | null
+    kazeiShiire8050KojoKazeiUriageHontai: bigint | null
+    kazeiShiire100KojoKyotsuHontai: bigint | null
+    kazeiShiire8050KojoKyotsuHontai: bigint | null
     koteiShisan80Kojo: bigint | null
     koteiShisan80KojoNoTax: bigint | null
     createdAt: Date | null
@@ -9672,8 +9766,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax: number
     kazeiShiire8050Kojo: number
     kazeiShiire8050KojoNoTax: number
-    kazeiUriageOnlyApplyTax7p8: number
-    kazeiUriageCommonApplyTax7p8: number
+    kazeiShiire100KojoKazeiUriageHontai: number
+    kazeiShiire8050KojoKazeiUriageHontai: number
+    kazeiShiire100KojoKyotsuHontai: number
+    kazeiShiire8050KojoKyotsuHontai: number
     koteiShisan80Kojo: number
     koteiShisan80KojoNoTax: number
     createdAt: number
@@ -9751,8 +9847,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: true
     kazeiShiire8050Kojo?: true
     kazeiShiire8050KojoNoTax?: true
-    kazeiUriageOnlyApplyTax7p8?: true
-    kazeiUriageCommonApplyTax7p8?: true
+    kazeiShiire100KojoKazeiUriageHontai?: true
+    kazeiShiire8050KojoKazeiUriageHontai?: true
+    kazeiShiire100KojoKyotsuHontai?: true
+    kazeiShiire8050KojoKyotsuHontai?: true
     koteiShisan80Kojo?: true
     koteiShisan80KojoNoTax?: true
   }
@@ -9822,8 +9920,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: true
     kazeiShiire8050Kojo?: true
     kazeiShiire8050KojoNoTax?: true
-    kazeiUriageOnlyApplyTax7p8?: true
-    kazeiUriageCommonApplyTax7p8?: true
+    kazeiShiire100KojoKazeiUriageHontai?: true
+    kazeiShiire8050KojoKazeiUriageHontai?: true
+    kazeiShiire100KojoKyotsuHontai?: true
+    kazeiShiire8050KojoKyotsuHontai?: true
     koteiShisan80Kojo?: true
     koteiShisan80KojoNoTax?: true
   }
@@ -9904,8 +10004,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: true
     kazeiShiire8050Kojo?: true
     kazeiShiire8050KojoNoTax?: true
-    kazeiUriageOnlyApplyTax7p8?: true
-    kazeiUriageCommonApplyTax7p8?: true
+    kazeiShiire100KojoKazeiUriageHontai?: true
+    kazeiShiire8050KojoKazeiUriageHontai?: true
+    kazeiShiire100KojoKyotsuHontai?: true
+    kazeiShiire8050KojoKyotsuHontai?: true
     koteiShisan80Kojo?: true
     koteiShisan80KojoNoTax?: true
     createdAt?: true
@@ -9992,8 +10094,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: true
     kazeiShiire8050Kojo?: true
     kazeiShiire8050KojoNoTax?: true
-    kazeiUriageOnlyApplyTax7p8?: true
-    kazeiUriageCommonApplyTax7p8?: true
+    kazeiShiire100KojoKazeiUriageHontai?: true
+    kazeiShiire8050KojoKazeiUriageHontai?: true
+    kazeiShiire100KojoKyotsuHontai?: true
+    kazeiShiire8050KojoKyotsuHontai?: true
     koteiShisan80Kojo?: true
     koteiShisan80KojoNoTax?: true
     createdAt?: true
@@ -10080,8 +10184,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: true
     kazeiShiire8050Kojo?: true
     kazeiShiire8050KojoNoTax?: true
-    kazeiUriageOnlyApplyTax7p8?: true
-    kazeiUriageCommonApplyTax7p8?: true
+    kazeiShiire100KojoKazeiUriageHontai?: true
+    kazeiShiire8050KojoKazeiUriageHontai?: true
+    kazeiShiire100KojoKyotsuHontai?: true
+    kazeiShiire8050KojoKyotsuHontai?: true
     koteiShisan80Kojo?: true
     koteiShisan80KojoNoTax?: true
     createdAt?: true
@@ -10255,8 +10361,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax: bigint | null
     kazeiShiire8050Kojo: bigint | null
     kazeiShiire8050KojoNoTax: bigint | null
-    kazeiUriageOnlyApplyTax7p8: bigint | null
-    kazeiUriageCommonApplyTax7p8: bigint | null
+    kazeiShiire100KojoKazeiUriageHontai: bigint | null
+    kazeiShiire8050KojoKazeiUriageHontai: bigint | null
+    kazeiShiire100KojoKyotsuHontai: bigint | null
+    kazeiShiire8050KojoKyotsuHontai: bigint | null
     koteiShisan80Kojo: bigint | null
     koteiShisan80KojoNoTax: bigint | null
     createdAt: Date
@@ -10362,8 +10470,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: boolean
     kazeiShiire8050Kojo?: boolean
     kazeiShiire8050KojoNoTax?: boolean
-    kazeiUriageOnlyApplyTax7p8?: boolean
-    kazeiUriageCommonApplyTax7p8?: boolean
+    kazeiShiire100KojoKazeiUriageHontai?: boolean
+    kazeiShiire8050KojoKazeiUriageHontai?: boolean
+    kazeiShiire100KojoKyotsuHontai?: boolean
+    kazeiShiire8050KojoKyotsuHontai?: boolean
     koteiShisan80Kojo?: boolean
     koteiShisan80KojoNoTax?: boolean
     createdAt?: boolean
@@ -10454,8 +10564,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: boolean
     kazeiShiire8050Kojo?: boolean
     kazeiShiire8050KojoNoTax?: boolean
-    kazeiUriageOnlyApplyTax7p8?: boolean
-    kazeiUriageCommonApplyTax7p8?: boolean
+    kazeiShiire100KojoKazeiUriageHontai?: boolean
+    kazeiShiire8050KojoKazeiUriageHontai?: boolean
+    kazeiShiire100KojoKyotsuHontai?: boolean
+    kazeiShiire8050KojoKyotsuHontai?: boolean
     koteiShisan80Kojo?: boolean
     koteiShisan80KojoNoTax?: boolean
     createdAt?: boolean
@@ -10544,8 +10656,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: boolean
     kazeiShiire8050Kojo?: boolean
     kazeiShiire8050KojoNoTax?: boolean
-    kazeiUriageOnlyApplyTax7p8?: boolean
-    kazeiUriageCommonApplyTax7p8?: boolean
+    kazeiShiire100KojoKazeiUriageHontai?: boolean
+    kazeiShiire8050KojoKazeiUriageHontai?: boolean
+    kazeiShiire100KojoKyotsuHontai?: boolean
+    kazeiShiire8050KojoKyotsuHontai?: boolean
     koteiShisan80Kojo?: boolean
     koteiShisan80KojoNoTax?: boolean
     createdAt?: boolean
@@ -10650,8 +10764,10 @@ export namespace Prisma {
       kazeiShiire100KojoNoTax: bigint | null
       kazeiShiire8050Kojo: bigint | null
       kazeiShiire8050KojoNoTax: bigint | null
-      kazeiUriageOnlyApplyTax7p8: bigint | null
-      kazeiUriageCommonApplyTax7p8: bigint | null
+      kazeiShiire100KojoKazeiUriageHontai: bigint | null
+      kazeiShiire8050KojoKazeiUriageHontai: bigint | null
+      kazeiShiire100KojoKyotsuHontai: bigint | null
+      kazeiShiire8050KojoKyotsuHontai: bigint | null
       koteiShisan80Kojo: bigint | null
       koteiShisan80KojoNoTax: bigint | null
       createdAt: Date
@@ -11131,8 +11247,10 @@ export namespace Prisma {
     readonly kazeiShiire100KojoNoTax: FieldRef<"ProjectKi", 'BigInt'>
     readonly kazeiShiire8050Kojo: FieldRef<"ProjectKi", 'BigInt'>
     readonly kazeiShiire8050KojoNoTax: FieldRef<"ProjectKi", 'BigInt'>
-    readonly kazeiUriageOnlyApplyTax7p8: FieldRef<"ProjectKi", 'BigInt'>
-    readonly kazeiUriageCommonApplyTax7p8: FieldRef<"ProjectKi", 'BigInt'>
+    readonly kazeiShiire100KojoKazeiUriageHontai: FieldRef<"ProjectKi", 'BigInt'>
+    readonly kazeiShiire8050KojoKazeiUriageHontai: FieldRef<"ProjectKi", 'BigInt'>
+    readonly kazeiShiire100KojoKyotsuHontai: FieldRef<"ProjectKi", 'BigInt'>
+    readonly kazeiShiire8050KojoKyotsuHontai: FieldRef<"ProjectKi", 'BigInt'>
     readonly koteiShisan80Kojo: FieldRef<"ProjectKi", 'BigInt'>
     readonly koteiShisan80KojoNoTax: FieldRef<"ProjectKi", 'BigInt'>
     readonly createdAt: FieldRef<"ProjectKi", 'DateTime'>
@@ -13698,6 +13816,1002 @@ export namespace Prisma {
      * Select specific fields to fetch from the ProjectKiPL
      */
     select?: ProjectKiPLSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * Model PLOrderBy
+   */
+
+  export type AggregatePLOrderBy = {
+    _count: PLOrderByCountAggregateOutputType | null
+    _avg: PLOrderByAvgAggregateOutputType | null
+    _sum: PLOrderBySumAggregateOutputType | null
+    _min: PLOrderByMinAggregateOutputType | null
+    _max: PLOrderByMaxAggregateOutputType | null
+  }
+
+  export type PLOrderByAvgAggregateOutputType = {
+    orderBy: number | null
+  }
+
+  export type PLOrderBySumAggregateOutputType = {
+    orderBy: number | null
+  }
+
+  export type PLOrderByMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    plType: $Enums.PLType | null
+    searchKey: string | null
+    orderBy: number | null
+    note: string | null
+    createdAt: Date | null
+    createdId: string | null
+    createdBy: string | null
+    updatedAt: Date | null
+    updatedId: string | null
+    updatedBy: string | null
+  }
+
+  export type PLOrderByMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    plType: $Enums.PLType | null
+    searchKey: string | null
+    orderBy: number | null
+    note: string | null
+    createdAt: Date | null
+    createdId: string | null
+    createdBy: string | null
+    updatedAt: Date | null
+    updatedId: string | null
+    updatedBy: string | null
+  }
+
+  export type PLOrderByCountAggregateOutputType = {
+    id: number
+    name: number
+    plType: number
+    searchKey: number
+    orderBy: number
+    note: number
+    createdAt: number
+    createdId: number
+    createdBy: number
+    updatedAt: number
+    updatedId: number
+    updatedBy: number
+    _all: number
+  }
+
+
+  export type PLOrderByAvgAggregateInputType = {
+    orderBy?: true
+  }
+
+  export type PLOrderBySumAggregateInputType = {
+    orderBy?: true
+  }
+
+  export type PLOrderByMinAggregateInputType = {
+    id?: true
+    name?: true
+    plType?: true
+    searchKey?: true
+    orderBy?: true
+    note?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+  }
+
+  export type PLOrderByMaxAggregateInputType = {
+    id?: true
+    name?: true
+    plType?: true
+    searchKey?: true
+    orderBy?: true
+    note?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+  }
+
+  export type PLOrderByCountAggregateInputType = {
+    id?: true
+    name?: true
+    plType?: true
+    searchKey?: true
+    orderBy?: true
+    note?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+    _all?: true
+  }
+
+  export type PLOrderByAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PLOrderBy to aggregate.
+     */
+    where?: PLOrderByWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PLOrderBies to fetch.
+     */
+    orderBy?: PLOrderByOrderByWithRelationInput | PLOrderByOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PLOrderByWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PLOrderBies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PLOrderBies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned PLOrderBies
+    **/
+    _count?: true | PLOrderByCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PLOrderByAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PLOrderBySumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PLOrderByMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PLOrderByMaxAggregateInputType
+  }
+
+  export type GetPLOrderByAggregateType<T extends PLOrderByAggregateArgs> = {
+        [P in keyof T & keyof AggregatePLOrderBy]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePLOrderBy[P]>
+      : GetScalarType<T[P], AggregatePLOrderBy[P]>
+  }
+
+
+
+
+  export type PLOrderByGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PLOrderByWhereInput
+    orderBy?: PLOrderByOrderByWithAggregationInput | PLOrderByOrderByWithAggregationInput[]
+    by: PLOrderByScalarFieldEnum[] | PLOrderByScalarFieldEnum
+    having?: PLOrderByScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PLOrderByCountAggregateInputType | true
+    _avg?: PLOrderByAvgAggregateInputType
+    _sum?: PLOrderBySumAggregateInputType
+    _min?: PLOrderByMinAggregateInputType
+    _max?: PLOrderByMaxAggregateInputType
+  }
+
+  export type PLOrderByGroupByOutputType = {
+    id: string
+    name: string
+    plType: $Enums.PLType
+    searchKey: string
+    orderBy: number
+    note: string | null
+    createdAt: Date
+    createdId: string
+    createdBy: string
+    updatedAt: Date
+    updatedId: string
+    updatedBy: string
+    _count: PLOrderByCountAggregateOutputType | null
+    _avg: PLOrderByAvgAggregateOutputType | null
+    _sum: PLOrderBySumAggregateOutputType | null
+    _min: PLOrderByMinAggregateOutputType | null
+    _max: PLOrderByMaxAggregateOutputType | null
+  }
+
+  type GetPLOrderByGroupByPayload<T extends PLOrderByGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PLOrderByGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PLOrderByGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PLOrderByGroupByOutputType[P]>
+            : GetScalarType<T[P], PLOrderByGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PLOrderBySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    plType?: boolean
+    searchKey?: boolean
+    orderBy?: boolean
+    note?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }, ExtArgs["result"]["pLOrderBy"]>
+
+  export type PLOrderBySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    plType?: boolean
+    searchKey?: boolean
+    orderBy?: boolean
+    note?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }, ExtArgs["result"]["pLOrderBy"]>
+
+  export type PLOrderBySelectScalar = {
+    id?: boolean
+    name?: boolean
+    plType?: boolean
+    searchKey?: boolean
+    orderBy?: boolean
+    note?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }
+
+
+  export type $PLOrderByPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "PLOrderBy"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      plType: $Enums.PLType
+      searchKey: string
+      orderBy: number
+      note: string | null
+      createdAt: Date
+      createdId: string
+      createdBy: string
+      updatedAt: Date
+      updatedId: string
+      updatedBy: string
+    }, ExtArgs["result"]["pLOrderBy"]>
+    composites: {}
+  }
+
+  type PLOrderByGetPayload<S extends boolean | null | undefined | PLOrderByDefaultArgs> = $Result.GetResult<Prisma.$PLOrderByPayload, S>
+
+  type PLOrderByCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<PLOrderByFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: PLOrderByCountAggregateInputType | true
+    }
+
+  export interface PLOrderByDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PLOrderBy'], meta: { name: 'PLOrderBy' } }
+    /**
+     * Find zero or one PLOrderBy that matches the filter.
+     * @param {PLOrderByFindUniqueArgs} args - Arguments to find a PLOrderBy
+     * @example
+     * // Get one PLOrderBy
+     * const pLOrderBy = await prisma.pLOrderBy.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PLOrderByFindUniqueArgs>(args: SelectSubset<T, PLOrderByFindUniqueArgs<ExtArgs>>): Prisma__PLOrderByClient<$Result.GetResult<Prisma.$PLOrderByPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one PLOrderBy that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {PLOrderByFindUniqueOrThrowArgs} args - Arguments to find a PLOrderBy
+     * @example
+     * // Get one PLOrderBy
+     * const pLOrderBy = await prisma.pLOrderBy.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PLOrderByFindUniqueOrThrowArgs>(args: SelectSubset<T, PLOrderByFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PLOrderByClient<$Result.GetResult<Prisma.$PLOrderByPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first PLOrderBy that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PLOrderByFindFirstArgs} args - Arguments to find a PLOrderBy
+     * @example
+     * // Get one PLOrderBy
+     * const pLOrderBy = await prisma.pLOrderBy.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PLOrderByFindFirstArgs>(args?: SelectSubset<T, PLOrderByFindFirstArgs<ExtArgs>>): Prisma__PLOrderByClient<$Result.GetResult<Prisma.$PLOrderByPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first PLOrderBy that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PLOrderByFindFirstOrThrowArgs} args - Arguments to find a PLOrderBy
+     * @example
+     * // Get one PLOrderBy
+     * const pLOrderBy = await prisma.pLOrderBy.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PLOrderByFindFirstOrThrowArgs>(args?: SelectSubset<T, PLOrderByFindFirstOrThrowArgs<ExtArgs>>): Prisma__PLOrderByClient<$Result.GetResult<Prisma.$PLOrderByPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more PLOrderBies that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PLOrderByFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all PLOrderBies
+     * const pLOrderBies = await prisma.pLOrderBy.findMany()
+     * 
+     * // Get first 10 PLOrderBies
+     * const pLOrderBies = await prisma.pLOrderBy.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const pLOrderByWithIdOnly = await prisma.pLOrderBy.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PLOrderByFindManyArgs>(args?: SelectSubset<T, PLOrderByFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PLOrderByPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a PLOrderBy.
+     * @param {PLOrderByCreateArgs} args - Arguments to create a PLOrderBy.
+     * @example
+     * // Create one PLOrderBy
+     * const PLOrderBy = await prisma.pLOrderBy.create({
+     *   data: {
+     *     // ... data to create a PLOrderBy
+     *   }
+     * })
+     * 
+     */
+    create<T extends PLOrderByCreateArgs>(args: SelectSubset<T, PLOrderByCreateArgs<ExtArgs>>): Prisma__PLOrderByClient<$Result.GetResult<Prisma.$PLOrderByPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many PLOrderBies.
+     * @param {PLOrderByCreateManyArgs} args - Arguments to create many PLOrderBies.
+     * @example
+     * // Create many PLOrderBies
+     * const pLOrderBy = await prisma.pLOrderBy.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PLOrderByCreateManyArgs>(args?: SelectSubset<T, PLOrderByCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many PLOrderBies and returns the data saved in the database.
+     * @param {PLOrderByCreateManyAndReturnArgs} args - Arguments to create many PLOrderBies.
+     * @example
+     * // Create many PLOrderBies
+     * const pLOrderBy = await prisma.pLOrderBy.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many PLOrderBies and only return the `id`
+     * const pLOrderByWithIdOnly = await prisma.pLOrderBy.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PLOrderByCreateManyAndReturnArgs>(args?: SelectSubset<T, PLOrderByCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PLOrderByPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a PLOrderBy.
+     * @param {PLOrderByDeleteArgs} args - Arguments to delete one PLOrderBy.
+     * @example
+     * // Delete one PLOrderBy
+     * const PLOrderBy = await prisma.pLOrderBy.delete({
+     *   where: {
+     *     // ... filter to delete one PLOrderBy
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PLOrderByDeleteArgs>(args: SelectSubset<T, PLOrderByDeleteArgs<ExtArgs>>): Prisma__PLOrderByClient<$Result.GetResult<Prisma.$PLOrderByPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one PLOrderBy.
+     * @param {PLOrderByUpdateArgs} args - Arguments to update one PLOrderBy.
+     * @example
+     * // Update one PLOrderBy
+     * const pLOrderBy = await prisma.pLOrderBy.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PLOrderByUpdateArgs>(args: SelectSubset<T, PLOrderByUpdateArgs<ExtArgs>>): Prisma__PLOrderByClient<$Result.GetResult<Prisma.$PLOrderByPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more PLOrderBies.
+     * @param {PLOrderByDeleteManyArgs} args - Arguments to filter PLOrderBies to delete.
+     * @example
+     * // Delete a few PLOrderBies
+     * const { count } = await prisma.pLOrderBy.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PLOrderByDeleteManyArgs>(args?: SelectSubset<T, PLOrderByDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more PLOrderBies.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PLOrderByUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many PLOrderBies
+     * const pLOrderBy = await prisma.pLOrderBy.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PLOrderByUpdateManyArgs>(args: SelectSubset<T, PLOrderByUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one PLOrderBy.
+     * @param {PLOrderByUpsertArgs} args - Arguments to update or create a PLOrderBy.
+     * @example
+     * // Update or create a PLOrderBy
+     * const pLOrderBy = await prisma.pLOrderBy.upsert({
+     *   create: {
+     *     // ... data to create a PLOrderBy
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the PLOrderBy we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PLOrderByUpsertArgs>(args: SelectSubset<T, PLOrderByUpsertArgs<ExtArgs>>): Prisma__PLOrderByClient<$Result.GetResult<Prisma.$PLOrderByPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of PLOrderBies.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PLOrderByCountArgs} args - Arguments to filter PLOrderBies to count.
+     * @example
+     * // Count the number of PLOrderBies
+     * const count = await prisma.pLOrderBy.count({
+     *   where: {
+     *     // ... the filter for the PLOrderBies we want to count
+     *   }
+     * })
+    **/
+    count<T extends PLOrderByCountArgs>(
+      args?: Subset<T, PLOrderByCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PLOrderByCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a PLOrderBy.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PLOrderByAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PLOrderByAggregateArgs>(args: Subset<T, PLOrderByAggregateArgs>): Prisma.PrismaPromise<GetPLOrderByAggregateType<T>>
+
+    /**
+     * Group by PLOrderBy.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PLOrderByGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PLOrderByGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PLOrderByGroupByArgs['orderBy'] }
+        : { orderBy?: PLOrderByGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PLOrderByGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPLOrderByGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the PLOrderBy model
+   */
+  readonly fields: PLOrderByFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for PLOrderBy.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PLOrderByClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the PLOrderBy model
+   */ 
+  interface PLOrderByFieldRefs {
+    readonly id: FieldRef<"PLOrderBy", 'String'>
+    readonly name: FieldRef<"PLOrderBy", 'String'>
+    readonly plType: FieldRef<"PLOrderBy", 'PLType'>
+    readonly searchKey: FieldRef<"PLOrderBy", 'String'>
+    readonly orderBy: FieldRef<"PLOrderBy", 'Int'>
+    readonly note: FieldRef<"PLOrderBy", 'String'>
+    readonly createdAt: FieldRef<"PLOrderBy", 'DateTime'>
+    readonly createdId: FieldRef<"PLOrderBy", 'String'>
+    readonly createdBy: FieldRef<"PLOrderBy", 'String'>
+    readonly updatedAt: FieldRef<"PLOrderBy", 'DateTime'>
+    readonly updatedId: FieldRef<"PLOrderBy", 'String'>
+    readonly updatedBy: FieldRef<"PLOrderBy", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * PLOrderBy findUnique
+   */
+  export type PLOrderByFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PLOrderBy
+     */
+    select?: PLOrderBySelect<ExtArgs> | null
+    /**
+     * Filter, which PLOrderBy to fetch.
+     */
+    where: PLOrderByWhereUniqueInput
+  }
+
+  /**
+   * PLOrderBy findUniqueOrThrow
+   */
+  export type PLOrderByFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PLOrderBy
+     */
+    select?: PLOrderBySelect<ExtArgs> | null
+    /**
+     * Filter, which PLOrderBy to fetch.
+     */
+    where: PLOrderByWhereUniqueInput
+  }
+
+  /**
+   * PLOrderBy findFirst
+   */
+  export type PLOrderByFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PLOrderBy
+     */
+    select?: PLOrderBySelect<ExtArgs> | null
+    /**
+     * Filter, which PLOrderBy to fetch.
+     */
+    where?: PLOrderByWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PLOrderBies to fetch.
+     */
+    orderBy?: PLOrderByOrderByWithRelationInput | PLOrderByOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PLOrderBies.
+     */
+    cursor?: PLOrderByWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PLOrderBies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PLOrderBies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PLOrderBies.
+     */
+    distinct?: PLOrderByScalarFieldEnum | PLOrderByScalarFieldEnum[]
+  }
+
+  /**
+   * PLOrderBy findFirstOrThrow
+   */
+  export type PLOrderByFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PLOrderBy
+     */
+    select?: PLOrderBySelect<ExtArgs> | null
+    /**
+     * Filter, which PLOrderBy to fetch.
+     */
+    where?: PLOrderByWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PLOrderBies to fetch.
+     */
+    orderBy?: PLOrderByOrderByWithRelationInput | PLOrderByOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for PLOrderBies.
+     */
+    cursor?: PLOrderByWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PLOrderBies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PLOrderBies.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of PLOrderBies.
+     */
+    distinct?: PLOrderByScalarFieldEnum | PLOrderByScalarFieldEnum[]
+  }
+
+  /**
+   * PLOrderBy findMany
+   */
+  export type PLOrderByFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PLOrderBy
+     */
+    select?: PLOrderBySelect<ExtArgs> | null
+    /**
+     * Filter, which PLOrderBies to fetch.
+     */
+    where?: PLOrderByWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of PLOrderBies to fetch.
+     */
+    orderBy?: PLOrderByOrderByWithRelationInput | PLOrderByOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing PLOrderBies.
+     */
+    cursor?: PLOrderByWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` PLOrderBies from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` PLOrderBies.
+     */
+    skip?: number
+    distinct?: PLOrderByScalarFieldEnum | PLOrderByScalarFieldEnum[]
+  }
+
+  /**
+   * PLOrderBy create
+   */
+  export type PLOrderByCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PLOrderBy
+     */
+    select?: PLOrderBySelect<ExtArgs> | null
+    /**
+     * The data needed to create a PLOrderBy.
+     */
+    data: XOR<PLOrderByCreateInput, PLOrderByUncheckedCreateInput>
+  }
+
+  /**
+   * PLOrderBy createMany
+   */
+  export type PLOrderByCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many PLOrderBies.
+     */
+    data: PLOrderByCreateManyInput | PLOrderByCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * PLOrderBy createManyAndReturn
+   */
+  export type PLOrderByCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PLOrderBy
+     */
+    select?: PLOrderBySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many PLOrderBies.
+     */
+    data: PLOrderByCreateManyInput | PLOrderByCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * PLOrderBy update
+   */
+  export type PLOrderByUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PLOrderBy
+     */
+    select?: PLOrderBySelect<ExtArgs> | null
+    /**
+     * The data needed to update a PLOrderBy.
+     */
+    data: XOR<PLOrderByUpdateInput, PLOrderByUncheckedUpdateInput>
+    /**
+     * Choose, which PLOrderBy to update.
+     */
+    where: PLOrderByWhereUniqueInput
+  }
+
+  /**
+   * PLOrderBy updateMany
+   */
+  export type PLOrderByUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update PLOrderBies.
+     */
+    data: XOR<PLOrderByUpdateManyMutationInput, PLOrderByUncheckedUpdateManyInput>
+    /**
+     * Filter which PLOrderBies to update
+     */
+    where?: PLOrderByWhereInput
+  }
+
+  /**
+   * PLOrderBy upsert
+   */
+  export type PLOrderByUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PLOrderBy
+     */
+    select?: PLOrderBySelect<ExtArgs> | null
+    /**
+     * The filter to search for the PLOrderBy to update in case it exists.
+     */
+    where: PLOrderByWhereUniqueInput
+    /**
+     * In case the PLOrderBy found by the `where` argument doesn't exist, create a new PLOrderBy with this data.
+     */
+    create: XOR<PLOrderByCreateInput, PLOrderByUncheckedCreateInput>
+    /**
+     * In case the PLOrderBy was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PLOrderByUpdateInput, PLOrderByUncheckedUpdateInput>
+  }
+
+  /**
+   * PLOrderBy delete
+   */
+  export type PLOrderByDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PLOrderBy
+     */
+    select?: PLOrderBySelect<ExtArgs> | null
+    /**
+     * Filter which PLOrderBy to delete.
+     */
+    where: PLOrderByWhereUniqueInput
+  }
+
+  /**
+   * PLOrderBy deleteMany
+   */
+  export type PLOrderByDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which PLOrderBies to delete
+     */
+    where?: PLOrderByWhereInput
+  }
+
+  /**
+   * PLOrderBy without action
+   */
+  export type PLOrderByDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PLOrderBy
+     */
+    select?: PLOrderBySelect<ExtArgs> | null
   }
 
 
@@ -16321,6 +17435,7 @@ export namespace Prisma {
 
   export type CustomerMinAggregateOutputType = {
     id: string | null
+    fundId: string | null
     projectId: string | null
     sbimpId: string | null
     fundStatus: string | null
@@ -16365,6 +17480,7 @@ export namespace Prisma {
 
   export type CustomerMaxAggregateOutputType = {
     id: string | null
+    fundId: string | null
     projectId: string | null
     sbimpId: string | null
     fundStatus: string | null
@@ -16409,6 +17525,7 @@ export namespace Prisma {
 
   export type CustomerCountAggregateOutputType = {
     id: number
+    fundId: number
     projectId: number
     sbimpId: number
     fundStatus: number
@@ -16467,6 +17584,7 @@ export namespace Prisma {
 
   export type CustomerMinAggregateInputType = {
     id?: true
+    fundId?: true
     projectId?: true
     sbimpId?: true
     fundStatus?: true
@@ -16511,6 +17629,7 @@ export namespace Prisma {
 
   export type CustomerMaxAggregateInputType = {
     id?: true
+    fundId?: true
     projectId?: true
     sbimpId?: true
     fundStatus?: true
@@ -16555,6 +17674,7 @@ export namespace Prisma {
 
   export type CustomerCountAggregateInputType = {
     id?: true
+    fundId?: true
     projectId?: true
     sbimpId?: true
     fundStatus?: true
@@ -16686,6 +17806,7 @@ export namespace Prisma {
 
   export type CustomerGroupByOutputType = {
     id: string
+    fundId: string
     projectId: string
     sbimpId: string | null
     fundStatus: string
@@ -16749,6 +17870,7 @@ export namespace Prisma {
 
   export type CustomerSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    fundId?: boolean
     projectId?: boolean
     sbimpId?: boolean
     fundStatus?: boolean
@@ -16796,6 +17918,7 @@ export namespace Prisma {
 
   export type CustomerSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    fundId?: boolean
     projectId?: boolean
     sbimpId?: boolean
     fundStatus?: boolean
@@ -16841,6 +17964,7 @@ export namespace Prisma {
 
   export type CustomerSelectScalar = {
     id?: boolean
+    fundId?: boolean
     projectId?: boolean
     sbimpId?: boolean
     fundStatus?: boolean
@@ -16900,6 +18024,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
+      fundId: string
       projectId: string
       sbimpId: string | null
       fundStatus: string
@@ -17336,6 +18461,7 @@ export namespace Prisma {
    */ 
   interface CustomerFieldRefs {
     readonly id: FieldRef<"Customer", 'String'>
+    readonly fundId: FieldRef<"Customer", 'String'>
     readonly projectId: FieldRef<"Customer", 'String'>
     readonly sbimpId: FieldRef<"Customer", 'String'>
     readonly fundStatus: FieldRef<"Customer", 'String'>
@@ -17762,7 +18888,6 @@ export namespace Prisma {
 
   export type CustomerFundMinAggregateOutputType = {
     id: string | null
-    fundId: string | null
     customerId: string | null
     projectKiId: string | null
     applyUnit: number | null
@@ -17784,7 +18909,6 @@ export namespace Prisma {
 
   export type CustomerFundMaxAggregateOutputType = {
     id: string | null
-    fundId: string | null
     customerId: string | null
     projectKiId: string | null
     applyUnit: number | null
@@ -17806,7 +18930,6 @@ export namespace Prisma {
 
   export type CustomerFundCountAggregateOutputType = {
     id: number
-    fundId: number
     customerId: number
     projectKiId: number
     applyUnit: number
@@ -17850,7 +18973,6 @@ export namespace Prisma {
 
   export type CustomerFundMinAggregateInputType = {
     id?: true
-    fundId?: true
     customerId?: true
     projectKiId?: true
     applyUnit?: true
@@ -17872,7 +18994,6 @@ export namespace Prisma {
 
   export type CustomerFundMaxAggregateInputType = {
     id?: true
-    fundId?: true
     customerId?: true
     projectKiId?: true
     applyUnit?: true
@@ -17894,7 +19015,6 @@ export namespace Prisma {
 
   export type CustomerFundCountAggregateInputType = {
     id?: true
-    fundId?: true
     customerId?: true
     projectKiId?: true
     applyUnit?: true
@@ -18003,7 +19123,6 @@ export namespace Prisma {
 
   export type CustomerFundGroupByOutputType = {
     id: string
-    fundId: string
     customerId: string
     projectKiId: string
     applyUnit: number
@@ -18044,7 +19163,6 @@ export namespace Prisma {
 
   export type CustomerFundSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    fundId?: boolean
     customerId?: boolean
     projectKiId?: boolean
     applyUnit?: boolean
@@ -18068,7 +19186,6 @@ export namespace Prisma {
 
   export type CustomerFundSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    fundId?: boolean
     customerId?: boolean
     projectKiId?: boolean
     applyUnit?: boolean
@@ -18092,7 +19209,6 @@ export namespace Prisma {
 
   export type CustomerFundSelectScalar = {
     id?: boolean
-    fundId?: boolean
     customerId?: boolean
     projectKiId?: boolean
     applyUnit?: boolean
@@ -18129,7 +19245,6 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      fundId: string
       customerId: string
       projectKiId: string
       applyUnit: number
@@ -18543,7 +19658,6 @@ export namespace Prisma {
    */ 
   interface CustomerFundFieldRefs {
     readonly id: FieldRef<"CustomerFund", 'String'>
-    readonly fundId: FieldRef<"CustomerFund", 'String'>
     readonly customerId: FieldRef<"CustomerFund", 'String'>
     readonly projectKiId: FieldRef<"CustomerFund", 'String'>
     readonly applyUnit: FieldRef<"CustomerFund", 'Int'>
@@ -24199,8 +25313,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax: 'kazeiShiire100KojoNoTax',
     kazeiShiire8050Kojo: 'kazeiShiire8050Kojo',
     kazeiShiire8050KojoNoTax: 'kazeiShiire8050KojoNoTax',
-    kazeiUriageOnlyApplyTax7p8: 'kazeiUriageOnlyApplyTax7p8',
-    kazeiUriageCommonApplyTax7p8: 'kazeiUriageCommonApplyTax7p8',
+    kazeiShiire100KojoKazeiUriageHontai: 'kazeiShiire100KojoKazeiUriageHontai',
+    kazeiShiire8050KojoKazeiUriageHontai: 'kazeiShiire8050KojoKazeiUriageHontai',
+    kazeiShiire100KojoKyotsuHontai: 'kazeiShiire100KojoKyotsuHontai',
+    kazeiShiire8050KojoKyotsuHontai: 'kazeiShiire8050KojoKyotsuHontai',
     koteiShisan80Kojo: 'koteiShisan80Kojo',
     koteiShisan80KojoNoTax: 'koteiShisan80KojoNoTax',
     createdAt: 'createdAt',
@@ -24262,6 +25378,24 @@ export namespace Prisma {
   };
 
   export type ProjectKiPLScalarFieldEnum = (typeof ProjectKiPLScalarFieldEnum)[keyof typeof ProjectKiPLScalarFieldEnum]
+
+
+  export const PLOrderByScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    plType: 'plType',
+    searchKey: 'searchKey',
+    orderBy: 'orderBy',
+    note: 'note',
+    createdAt: 'createdAt',
+    createdId: 'createdId',
+    createdBy: 'createdBy',
+    updatedAt: 'updatedAt',
+    updatedId: 'updatedId',
+    updatedBy: 'updatedBy'
+  };
+
+  export type PLOrderByScalarFieldEnum = (typeof PLOrderByScalarFieldEnum)[keyof typeof PLOrderByScalarFieldEnum]
 
 
   export const AssetScalarFieldEnum: {
@@ -24335,6 +25469,7 @@ export namespace Prisma {
 
   export const CustomerScalarFieldEnum: {
     id: 'id',
+    fundId: 'fundId',
     projectId: 'projectId',
     sbimpId: 'sbimpId',
     fundStatus: 'fundStatus',
@@ -24382,7 +25517,6 @@ export namespace Prisma {
 
   export const CustomerFundScalarFieldEnum: {
     id: 'id',
-    fundId: 'fundId',
     customerId: 'customerId',
     projectKiId: 'projectKiId',
     applyUnit: 'applyUnit',
@@ -25579,8 +26713,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     kazeiShiire8050Kojo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     kazeiShiire8050KojoNoTax?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    kazeiUriageOnlyApplyTax7p8?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    kazeiUriageCommonApplyTax7p8?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     koteiShisan80Kojo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     koteiShisan80KojoNoTax?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     createdAt?: DateTimeFilter<"ProjectKi"> | Date | string
@@ -25670,8 +26806,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: SortOrderInput | SortOrder
     kazeiShiire8050Kojo?: SortOrderInput | SortOrder
     kazeiShiire8050KojoNoTax?: SortOrderInput | SortOrder
-    kazeiUriageOnlyApplyTax7p8?: SortOrderInput | SortOrder
-    kazeiUriageCommonApplyTax7p8?: SortOrderInput | SortOrder
+    kazeiShiire100KojoKazeiUriageHontai?: SortOrderInput | SortOrder
+    kazeiShiire8050KojoKazeiUriageHontai?: SortOrderInput | SortOrder
+    kazeiShiire100KojoKyotsuHontai?: SortOrderInput | SortOrder
+    kazeiShiire8050KojoKyotsuHontai?: SortOrderInput | SortOrder
     koteiShisan80Kojo?: SortOrderInput | SortOrder
     koteiShisan80KojoNoTax?: SortOrderInput | SortOrder
     createdAt?: SortOrder
@@ -25766,8 +26904,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     kazeiShiire8050Kojo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     kazeiShiire8050KojoNoTax?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    kazeiUriageOnlyApplyTax7p8?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    kazeiUriageCommonApplyTax7p8?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     koteiShisan80Kojo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     koteiShisan80KojoNoTax?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     createdAt?: DateTimeFilter<"ProjectKi"> | Date | string
@@ -25857,8 +26997,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: SortOrderInput | SortOrder
     kazeiShiire8050Kojo?: SortOrderInput | SortOrder
     kazeiShiire8050KojoNoTax?: SortOrderInput | SortOrder
-    kazeiUriageOnlyApplyTax7p8?: SortOrderInput | SortOrder
-    kazeiUriageCommonApplyTax7p8?: SortOrderInput | SortOrder
+    kazeiShiire100KojoKazeiUriageHontai?: SortOrderInput | SortOrder
+    kazeiShiire8050KojoKazeiUriageHontai?: SortOrderInput | SortOrder
+    kazeiShiire100KojoKyotsuHontai?: SortOrderInput | SortOrder
+    kazeiShiire8050KojoKyotsuHontai?: SortOrderInput | SortOrder
     koteiShisan80Kojo?: SortOrderInput | SortOrder
     koteiShisan80KojoNoTax?: SortOrderInput | SortOrder
     createdAt?: SortOrder
@@ -25953,8 +27095,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     kazeiShiire8050Kojo?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     kazeiShiire8050KojoNoTax?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
-    kazeiUriageOnlyApplyTax7p8?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
-    kazeiUriageCommonApplyTax7p8?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     koteiShisan80Kojo?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     koteiShisan80KojoNoTax?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     createdAt?: DateTimeWithAggregatesFilter<"ProjectKi"> | Date | string
@@ -26211,6 +27355,95 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"ProjectKiPL"> | Date | string
     updatedId?: StringWithAggregatesFilter<"ProjectKiPL"> | string
     updatedBy?: StringWithAggregatesFilter<"ProjectKiPL"> | string
+  }
+
+  export type PLOrderByWhereInput = {
+    AND?: PLOrderByWhereInput | PLOrderByWhereInput[]
+    OR?: PLOrderByWhereInput[]
+    NOT?: PLOrderByWhereInput | PLOrderByWhereInput[]
+    id?: StringFilter<"PLOrderBy"> | string
+    name?: StringFilter<"PLOrderBy"> | string
+    plType?: EnumPLTypeFilter<"PLOrderBy"> | $Enums.PLType
+    searchKey?: StringFilter<"PLOrderBy"> | string
+    orderBy?: IntFilter<"PLOrderBy"> | number
+    note?: StringNullableFilter<"PLOrderBy"> | string | null
+    createdAt?: DateTimeFilter<"PLOrderBy"> | Date | string
+    createdId?: StringFilter<"PLOrderBy"> | string
+    createdBy?: StringFilter<"PLOrderBy"> | string
+    updatedAt?: DateTimeFilter<"PLOrderBy"> | Date | string
+    updatedId?: StringFilter<"PLOrderBy"> | string
+    updatedBy?: StringFilter<"PLOrderBy"> | string
+  }
+
+  export type PLOrderByOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    plType?: SortOrder
+    searchKey?: SortOrder
+    orderBy?: SortOrder
+    note?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type PLOrderByWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: PLOrderByWhereInput | PLOrderByWhereInput[]
+    OR?: PLOrderByWhereInput[]
+    NOT?: PLOrderByWhereInput | PLOrderByWhereInput[]
+    name?: StringFilter<"PLOrderBy"> | string
+    plType?: EnumPLTypeFilter<"PLOrderBy"> | $Enums.PLType
+    searchKey?: StringFilter<"PLOrderBy"> | string
+    orderBy?: IntFilter<"PLOrderBy"> | number
+    note?: StringNullableFilter<"PLOrderBy"> | string | null
+    createdAt?: DateTimeFilter<"PLOrderBy"> | Date | string
+    createdId?: StringFilter<"PLOrderBy"> | string
+    createdBy?: StringFilter<"PLOrderBy"> | string
+    updatedAt?: DateTimeFilter<"PLOrderBy"> | Date | string
+    updatedId?: StringFilter<"PLOrderBy"> | string
+    updatedBy?: StringFilter<"PLOrderBy"> | string
+  }, "id">
+
+  export type PLOrderByOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    plType?: SortOrder
+    searchKey?: SortOrder
+    orderBy?: SortOrder
+    note?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+    _count?: PLOrderByCountOrderByAggregateInput
+    _avg?: PLOrderByAvgOrderByAggregateInput
+    _max?: PLOrderByMaxOrderByAggregateInput
+    _min?: PLOrderByMinOrderByAggregateInput
+    _sum?: PLOrderBySumOrderByAggregateInput
+  }
+
+  export type PLOrderByScalarWhereWithAggregatesInput = {
+    AND?: PLOrderByScalarWhereWithAggregatesInput | PLOrderByScalarWhereWithAggregatesInput[]
+    OR?: PLOrderByScalarWhereWithAggregatesInput[]
+    NOT?: PLOrderByScalarWhereWithAggregatesInput | PLOrderByScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"PLOrderBy"> | string
+    name?: StringWithAggregatesFilter<"PLOrderBy"> | string
+    plType?: EnumPLTypeWithAggregatesFilter<"PLOrderBy"> | $Enums.PLType
+    searchKey?: StringWithAggregatesFilter<"PLOrderBy"> | string
+    orderBy?: IntWithAggregatesFilter<"PLOrderBy"> | number
+    note?: StringNullableWithAggregatesFilter<"PLOrderBy"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"PLOrderBy"> | Date | string
+    createdId?: StringWithAggregatesFilter<"PLOrderBy"> | string
+    createdBy?: StringWithAggregatesFilter<"PLOrderBy"> | string
+    updatedAt?: DateTimeWithAggregatesFilter<"PLOrderBy"> | Date | string
+    updatedId?: StringWithAggregatesFilter<"PLOrderBy"> | string
+    updatedBy?: StringWithAggregatesFilter<"PLOrderBy"> | string
   }
 
   export type AssetWhereInput = {
@@ -26574,6 +27807,7 @@ export namespace Prisma {
     OR?: CustomerWhereInput[]
     NOT?: CustomerWhereInput | CustomerWhereInput[]
     id?: StringFilter<"Customer"> | string
+    fundId?: StringFilter<"Customer"> | string
     projectId?: StringFilter<"Customer"> | string
     sbimpId?: StringNullableFilter<"Customer"> | string | null
     fundStatus?: StringFilter<"Customer"> | string
@@ -26620,6 +27854,7 @@ export namespace Prisma {
 
   export type CustomerOrderByWithRelationInput = {
     id?: SortOrder
+    fundId?: SortOrder
     projectId?: SortOrder
     sbimpId?: SortOrderInput | SortOrder
     fundStatus?: SortOrder
@@ -26669,6 +27904,7 @@ export namespace Prisma {
     AND?: CustomerWhereInput | CustomerWhereInput[]
     OR?: CustomerWhereInput[]
     NOT?: CustomerWhereInput | CustomerWhereInput[]
+    fundId?: StringFilter<"Customer"> | string
     projectId?: StringFilter<"Customer"> | string
     sbimpId?: StringNullableFilter<"Customer"> | string | null
     fundStatus?: StringFilter<"Customer"> | string
@@ -26715,6 +27951,7 @@ export namespace Prisma {
 
   export type CustomerOrderByWithAggregationInput = {
     id?: SortOrder
+    fundId?: SortOrder
     projectId?: SortOrder
     sbimpId?: SortOrderInput | SortOrder
     fundStatus?: SortOrder
@@ -26767,6 +28004,7 @@ export namespace Prisma {
     OR?: CustomerScalarWhereWithAggregatesInput[]
     NOT?: CustomerScalarWhereWithAggregatesInput | CustomerScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Customer"> | string
+    fundId?: StringWithAggregatesFilter<"Customer"> | string
     projectId?: StringWithAggregatesFilter<"Customer"> | string
     sbimpId?: StringNullableWithAggregatesFilter<"Customer"> | string | null
     fundStatus?: StringWithAggregatesFilter<"Customer"> | string
@@ -26814,7 +28052,6 @@ export namespace Prisma {
     OR?: CustomerFundWhereInput[]
     NOT?: CustomerFundWhereInput | CustomerFundWhereInput[]
     id?: StringFilter<"CustomerFund"> | string
-    fundId?: StringFilter<"CustomerFund"> | string
     customerId?: StringFilter<"CustomerFund"> | string
     projectKiId?: StringFilter<"CustomerFund"> | string
     applyUnit?: IntFilter<"CustomerFund"> | number
@@ -26838,7 +28075,6 @@ export namespace Prisma {
 
   export type CustomerFundOrderByWithRelationInput = {
     id?: SortOrder
-    fundId?: SortOrder
     customerId?: SortOrder
     projectKiId?: SortOrder
     applyUnit?: SortOrder
@@ -26862,11 +28098,10 @@ export namespace Prisma {
 
   export type CustomerFundWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    fund_projectKi_identifier?: CustomerFundFund_projectKi_identifierCompoundUniqueInput
+    customer_projectKi_identifier?: CustomerFundCustomer_projectKi_identifierCompoundUniqueInput
     AND?: CustomerFundWhereInput | CustomerFundWhereInput[]
     OR?: CustomerFundWhereInput[]
     NOT?: CustomerFundWhereInput | CustomerFundWhereInput[]
-    fundId?: StringFilter<"CustomerFund"> | string
     customerId?: StringFilter<"CustomerFund"> | string
     projectKiId?: StringFilter<"CustomerFund"> | string
     applyUnit?: IntFilter<"CustomerFund"> | number
@@ -26886,11 +28121,10 @@ export namespace Prisma {
     updatedBy?: StringFilter<"CustomerFund"> | string
     Customer?: XOR<CustomerRelationFilter, CustomerWhereInput>
     ProjectKi?: XOR<ProjectKiRelationFilter, ProjectKiWhereInput>
-  }, "id" | "fund_projectKi_identifier">
+  }, "id" | "customer_projectKi_identifier">
 
   export type CustomerFundOrderByWithAggregationInput = {
     id?: SortOrder
-    fundId?: SortOrder
     customerId?: SortOrder
     projectKiId?: SortOrder
     applyUnit?: SortOrder
@@ -26920,7 +28154,6 @@ export namespace Prisma {
     OR?: CustomerFundScalarWhereWithAggregatesInput[]
     NOT?: CustomerFundScalarWhereWithAggregatesInput | CustomerFundScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"CustomerFund"> | string
-    fundId?: StringWithAggregatesFilter<"CustomerFund"> | string
     customerId?: StringWithAggregatesFilter<"CustomerFund"> | string
     projectKiId?: StringWithAggregatesFilter<"CustomerFund"> | string
     applyUnit?: IntWithAggregatesFilter<"CustomerFund"> | number
@@ -28348,8 +29581,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: bigint | number | null
     kazeiShiire8050Kojo?: bigint | number | null
     kazeiShiire8050KojoNoTax?: bigint | number | null
-    kazeiUriageOnlyApplyTax7p8?: bigint | number | null
-    kazeiUriageCommonApplyTax7p8?: bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: bigint | number | null
     koteiShisan80Kojo?: bigint | number | null
     koteiShisan80KojoNoTax?: bigint | number | null
     createdAt?: Date | string
@@ -28439,8 +29674,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: bigint | number | null
     kazeiShiire8050Kojo?: bigint | number | null
     kazeiShiire8050KojoNoTax?: bigint | number | null
-    kazeiUriageOnlyApplyTax7p8?: bigint | number | null
-    kazeiUriageCommonApplyTax7p8?: bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: bigint | number | null
     koteiShisan80Kojo?: bigint | number | null
     koteiShisan80KojoNoTax?: bigint | number | null
     createdAt?: Date | string
@@ -28526,8 +29763,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    kazeiUriageOnlyApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    kazeiUriageCommonApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -28617,8 +29856,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    kazeiUriageOnlyApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    kazeiUriageCommonApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -28706,8 +29947,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: bigint | number | null
     kazeiShiire8050Kojo?: bigint | number | null
     kazeiShiire8050KojoNoTax?: bigint | number | null
-    kazeiUriageOnlyApplyTax7p8?: bigint | number | null
-    kazeiUriageCommonApplyTax7p8?: bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: bigint | number | null
     koteiShisan80Kojo?: bigint | number | null
     koteiShisan80KojoNoTax?: bigint | number | null
     createdAt?: Date | string
@@ -28792,8 +30035,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    kazeiUriageOnlyApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    kazeiUriageCommonApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -28880,8 +30125,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    kazeiUriageOnlyApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    kazeiUriageCommonApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -29192,6 +30439,111 @@ export namespace Prisma {
     amountNoTax?: BigIntFieldUpdateOperationsInput | bigint | number
     orderBy?: IntFieldUpdateOperationsInput | number
     totalUnit?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PLOrderByCreateInput = {
+    id?: string
+    name: string
+    plType: $Enums.PLType
+    searchKey: string
+    orderBy: number
+    note?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type PLOrderByUncheckedCreateInput = {
+    id?: string
+    name: string
+    plType: $Enums.PLType
+    searchKey: string
+    orderBy: number
+    note?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type PLOrderByUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    plType?: EnumPLTypeFieldUpdateOperationsInput | $Enums.PLType
+    searchKey?: StringFieldUpdateOperationsInput | string
+    orderBy?: IntFieldUpdateOperationsInput | number
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PLOrderByUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    plType?: EnumPLTypeFieldUpdateOperationsInput | $Enums.PLType
+    searchKey?: StringFieldUpdateOperationsInput | string
+    orderBy?: IntFieldUpdateOperationsInput | number
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PLOrderByCreateManyInput = {
+    id?: string
+    name: string
+    plType: $Enums.PLType
+    searchKey: string
+    orderBy: number
+    note?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type PLOrderByUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    plType?: EnumPLTypeFieldUpdateOperationsInput | $Enums.PLType
+    searchKey?: StringFieldUpdateOperationsInput | string
+    orderBy?: IntFieldUpdateOperationsInput | number
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type PLOrderByUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    plType?: EnumPLTypeFieldUpdateOperationsInput | $Enums.PLType
+    searchKey?: StringFieldUpdateOperationsInput | string
+    orderBy?: IntFieldUpdateOperationsInput | number
+    note?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -29644,6 +30996,7 @@ export namespace Prisma {
 
   export type CustomerCreateInput = {
     id?: string
+    fundId?: string
     sbimpId?: string | null
     fundStatus: string
     name: string
@@ -29689,6 +31042,7 @@ export namespace Prisma {
 
   export type CustomerUncheckedCreateInput = {
     id?: string
+    fundId?: string
     projectId: string
     sbimpId?: string | null
     fundStatus: string
@@ -29734,6 +31088,7 @@ export namespace Prisma {
 
   export type CustomerUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    fundId?: StringFieldUpdateOperationsInput | string
     sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
     fundStatus?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
@@ -29779,6 +31134,7 @@ export namespace Prisma {
 
   export type CustomerUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    fundId?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
     sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
     fundStatus?: StringFieldUpdateOperationsInput | string
@@ -29824,6 +31180,7 @@ export namespace Prisma {
 
   export type CustomerCreateManyInput = {
     id?: string
+    fundId?: string
     projectId: string
     sbimpId?: string | null
     fundStatus: string
@@ -29868,6 +31225,7 @@ export namespace Prisma {
 
   export type CustomerUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
+    fundId?: StringFieldUpdateOperationsInput | string
     sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
     fundStatus?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
@@ -29911,6 +31269,7 @@ export namespace Prisma {
 
   export type CustomerUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
+    fundId?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
     sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
     fundStatus?: StringFieldUpdateOperationsInput | string
@@ -29955,7 +31314,6 @@ export namespace Prisma {
 
   export type CustomerFundCreateInput = {
     id?: string
-    fundId: string
     applyUnit: number
     bunpaiThisKi?: number | null
     bunpaiYear?: number | null
@@ -29977,7 +31335,6 @@ export namespace Prisma {
 
   export type CustomerFundUncheckedCreateInput = {
     id?: string
-    fundId: string
     customerId: string
     projectKiId: string
     applyUnit: number
@@ -29999,7 +31356,6 @@ export namespace Prisma {
 
   export type CustomerFundUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    fundId?: StringFieldUpdateOperationsInput | string
     applyUnit?: IntFieldUpdateOperationsInput | number
     bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
@@ -30021,7 +31377,6 @@ export namespace Prisma {
 
   export type CustomerFundUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    fundId?: StringFieldUpdateOperationsInput | string
     customerId?: StringFieldUpdateOperationsInput | string
     projectKiId?: StringFieldUpdateOperationsInput | string
     applyUnit?: IntFieldUpdateOperationsInput | number
@@ -30043,7 +31398,6 @@ export namespace Prisma {
 
   export type CustomerFundCreateManyInput = {
     id?: string
-    fundId: string
     customerId: string
     projectKiId: string
     applyUnit: number
@@ -30065,7 +31419,6 @@ export namespace Prisma {
 
   export type CustomerFundUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    fundId?: StringFieldUpdateOperationsInput | string
     applyUnit?: IntFieldUpdateOperationsInput | number
     bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
@@ -30085,7 +31438,6 @@ export namespace Prisma {
 
   export type CustomerFundUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    fundId?: StringFieldUpdateOperationsInput | string
     customerId?: StringFieldUpdateOperationsInput | string
     projectKiId?: StringFieldUpdateOperationsInput | string
     applyUnit?: IntFieldUpdateOperationsInput | number
@@ -31479,8 +32831,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: SortOrder
     kazeiShiire8050Kojo?: SortOrder
     kazeiShiire8050KojoNoTax?: SortOrder
-    kazeiUriageOnlyApplyTax7p8?: SortOrder
-    kazeiUriageCommonApplyTax7p8?: SortOrder
+    kazeiShiire100KojoKazeiUriageHontai?: SortOrder
+    kazeiShiire8050KojoKazeiUriageHontai?: SortOrder
+    kazeiShiire100KojoKyotsuHontai?: SortOrder
+    kazeiShiire8050KojoKyotsuHontai?: SortOrder
     koteiShisan80Kojo?: SortOrder
     koteiShisan80KojoNoTax?: SortOrder
     createdAt?: SortOrder
@@ -31556,8 +32910,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: SortOrder
     kazeiShiire8050Kojo?: SortOrder
     kazeiShiire8050KojoNoTax?: SortOrder
-    kazeiUriageOnlyApplyTax7p8?: SortOrder
-    kazeiUriageCommonApplyTax7p8?: SortOrder
+    kazeiShiire100KojoKazeiUriageHontai?: SortOrder
+    kazeiShiire8050KojoKazeiUriageHontai?: SortOrder
+    kazeiShiire100KojoKyotsuHontai?: SortOrder
+    kazeiShiire8050KojoKyotsuHontai?: SortOrder
     koteiShisan80Kojo?: SortOrder
     koteiShisan80KojoNoTax?: SortOrder
   }
@@ -31638,8 +32994,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: SortOrder
     kazeiShiire8050Kojo?: SortOrder
     kazeiShiire8050KojoNoTax?: SortOrder
-    kazeiUriageOnlyApplyTax7p8?: SortOrder
-    kazeiUriageCommonApplyTax7p8?: SortOrder
+    kazeiShiire100KojoKazeiUriageHontai?: SortOrder
+    kazeiShiire8050KojoKazeiUriageHontai?: SortOrder
+    kazeiShiire100KojoKyotsuHontai?: SortOrder
+    kazeiShiire8050KojoKyotsuHontai?: SortOrder
     koteiShisan80Kojo?: SortOrder
     koteiShisan80KojoNoTax?: SortOrder
     createdAt?: SortOrder
@@ -31726,8 +33084,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: SortOrder
     kazeiShiire8050Kojo?: SortOrder
     kazeiShiire8050KojoNoTax?: SortOrder
-    kazeiUriageOnlyApplyTax7p8?: SortOrder
-    kazeiUriageCommonApplyTax7p8?: SortOrder
+    kazeiShiire100KojoKazeiUriageHontai?: SortOrder
+    kazeiShiire8050KojoKazeiUriageHontai?: SortOrder
+    kazeiShiire100KojoKyotsuHontai?: SortOrder
+    kazeiShiire8050KojoKyotsuHontai?: SortOrder
     koteiShisan80Kojo?: SortOrder
     koteiShisan80KojoNoTax?: SortOrder
     createdAt?: SortOrder
@@ -31803,8 +33163,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: SortOrder
     kazeiShiire8050Kojo?: SortOrder
     kazeiShiire8050KojoNoTax?: SortOrder
-    kazeiUriageOnlyApplyTax7p8?: SortOrder
-    kazeiUriageCommonApplyTax7p8?: SortOrder
+    kazeiShiire100KojoKazeiUriageHontai?: SortOrder
+    kazeiShiire8050KojoKazeiUriageHontai?: SortOrder
+    kazeiShiire100KojoKyotsuHontai?: SortOrder
+    kazeiShiire8050KojoKyotsuHontai?: SortOrder
     koteiShisan80Kojo?: SortOrder
     koteiShisan80KojoNoTax?: SortOrder
   }
@@ -32075,6 +33437,59 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumPLTypeFilter<$PrismaModel>
     _max?: NestedEnumPLTypeFilter<$PrismaModel>
+  }
+
+  export type PLOrderByCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    plType?: SortOrder
+    searchKey?: SortOrder
+    orderBy?: SortOrder
+    note?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type PLOrderByAvgOrderByAggregateInput = {
+    orderBy?: SortOrder
+  }
+
+  export type PLOrderByMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    plType?: SortOrder
+    searchKey?: SortOrder
+    orderBy?: SortOrder
+    note?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type PLOrderByMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    plType?: SortOrder
+    searchKey?: SortOrder
+    orderBy?: SortOrder
+    note?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type PLOrderBySumOrderByAggregateInput = {
+    orderBy?: SortOrder
   }
   export type JsonNullableFilter<$PrismaModel = never> = 
     | PatchUndefined<
@@ -32411,6 +33826,7 @@ export namespace Prisma {
 
   export type CustomerCountOrderByAggregateInput = {
     id?: SortOrder
+    fundId?: SortOrder
     projectId?: SortOrder
     sbimpId?: SortOrder
     fundStatus?: SortOrder
@@ -32461,6 +33877,7 @@ export namespace Prisma {
 
   export type CustomerMaxOrderByAggregateInput = {
     id?: SortOrder
+    fundId?: SortOrder
     projectId?: SortOrder
     sbimpId?: SortOrder
     fundStatus?: SortOrder
@@ -32505,6 +33922,7 @@ export namespace Prisma {
 
   export type CustomerMinOrderByAggregateInput = {
     id?: SortOrder
+    fundId?: SortOrder
     projectId?: SortOrder
     sbimpId?: SortOrder
     fundStatus?: SortOrder
@@ -32593,14 +34011,13 @@ export namespace Prisma {
     isNot?: ProjectKiWhereInput
   }
 
-  export type CustomerFundFund_projectKi_identifierCompoundUniqueInput = {
-    fundId: string
+  export type CustomerFundCustomer_projectKi_identifierCompoundUniqueInput = {
+    customerId: string
     projectKiId: string
   }
 
   export type CustomerFundCountOrderByAggregateInput = {
     id?: SortOrder
-    fundId?: SortOrder
     customerId?: SortOrder
     projectKiId?: SortOrder
     applyUnit?: SortOrder
@@ -32632,7 +34049,6 @@ export namespace Prisma {
 
   export type CustomerFundMaxOrderByAggregateInput = {
     id?: SortOrder
-    fundId?: SortOrder
     customerId?: SortOrder
     projectKiId?: SortOrder
     applyUnit?: SortOrder
@@ -32654,7 +34070,6 @@ export namespace Prisma {
 
   export type CustomerFundMinOrderByAggregateInput = {
     id?: SortOrder
-    fundId?: SortOrder
     customerId?: SortOrder
     projectKiId?: SortOrder
     applyUnit?: SortOrder
@@ -34461,8 +35876,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: bigint | number | null
     kazeiShiire8050Kojo?: bigint | number | null
     kazeiShiire8050KojoNoTax?: bigint | number | null
-    kazeiUriageOnlyApplyTax7p8?: bigint | number | null
-    kazeiUriageCommonApplyTax7p8?: bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: bigint | number | null
     koteiShisan80Kojo?: bigint | number | null
     koteiShisan80KojoNoTax?: bigint | number | null
     createdAt?: Date | string
@@ -34550,8 +35967,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: bigint | number | null
     kazeiShiire8050Kojo?: bigint | number | null
     kazeiShiire8050KojoNoTax?: bigint | number | null
-    kazeiUriageOnlyApplyTax7p8?: bigint | number | null
-    kazeiUriageCommonApplyTax7p8?: bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: bigint | number | null
     koteiShisan80Kojo?: bigint | number | null
     koteiShisan80KojoNoTax?: bigint | number | null
     createdAt?: Date | string
@@ -34752,8 +36171,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     kazeiShiire8050Kojo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     kazeiShiire8050KojoNoTax?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    kazeiUriageOnlyApplyTax7p8?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    kazeiUriageCommonApplyTax7p8?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     koteiShisan80Kojo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     koteiShisan80KojoNoTax?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     createdAt?: DateTimeFilter<"ProjectKi"> | Date | string
@@ -35130,8 +36551,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: bigint | number | null
     kazeiShiire8050Kojo?: bigint | number | null
     kazeiShiire8050KojoNoTax?: bigint | number | null
-    kazeiUriageOnlyApplyTax7p8?: bigint | number | null
-    kazeiUriageCommonApplyTax7p8?: bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: bigint | number | null
     koteiShisan80Kojo?: bigint | number | null
     koteiShisan80KojoNoTax?: bigint | number | null
     createdAt?: Date | string
@@ -35219,8 +36642,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: bigint | number | null
     kazeiShiire8050Kojo?: bigint | number | null
     kazeiShiire8050KojoNoTax?: bigint | number | null
-    kazeiUriageOnlyApplyTax7p8?: bigint | number | null
-    kazeiUriageCommonApplyTax7p8?: bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: bigint | number | null
     koteiShisan80Kojo?: bigint | number | null
     koteiShisan80KojoNoTax?: bigint | number | null
     createdAt?: Date | string
@@ -35304,6 +36729,7 @@ export namespace Prisma {
 
   export type CustomerCreateWithoutProjectInput = {
     id?: string
+    fundId?: string
     sbimpId?: string | null
     fundStatus: string
     name: string
@@ -35348,6 +36774,7 @@ export namespace Prisma {
 
   export type CustomerUncheckedCreateWithoutProjectInput = {
     id?: string
+    fundId?: string
     sbimpId?: string | null
     fundStatus: string
     name: string
@@ -35746,6 +37173,7 @@ export namespace Prisma {
     OR?: CustomerScalarWhereInput[]
     NOT?: CustomerScalarWhereInput | CustomerScalarWhereInput[]
     id?: StringFilter<"Customer"> | string
+    fundId?: StringFilter<"Customer"> | string
     projectId?: StringFilter<"Customer"> | string
     sbimpId?: StringNullableFilter<"Customer"> | string | null
     fundStatus?: StringFilter<"Customer"> | string
@@ -35918,7 +37346,6 @@ export namespace Prisma {
 
   export type CustomerFundCreateWithoutProjectKiInput = {
     id?: string
-    fundId: string
     applyUnit: number
     bunpaiThisKi?: number | null
     bunpaiYear?: number | null
@@ -35939,7 +37366,6 @@ export namespace Prisma {
 
   export type CustomerFundUncheckedCreateWithoutProjectKiInput = {
     id?: string
-    fundId: string
     customerId: string
     applyUnit: number
     bunpaiThisKi?: number | null
@@ -36129,7 +37555,6 @@ export namespace Prisma {
     OR?: CustomerFundScalarWhereInput[]
     NOT?: CustomerFundScalarWhereInput | CustomerFundScalarWhereInput[]
     id?: StringFilter<"CustomerFund"> | string
-    fundId?: StringFilter<"CustomerFund"> | string
     customerId?: StringFilter<"CustomerFund"> | string
     projectKiId?: StringFilter<"CustomerFund"> | string
     applyUnit?: IntFilter<"CustomerFund"> | number
@@ -36730,7 +38155,6 @@ export namespace Prisma {
 
   export type CustomerFundCreateWithoutCustomerInput = {
     id?: string
-    fundId: string
     applyUnit: number
     bunpaiThisKi?: number | null
     bunpaiYear?: number | null
@@ -36751,7 +38175,6 @@ export namespace Prisma {
 
   export type CustomerFundUncheckedCreateWithoutCustomerInput = {
     id?: string
-    fundId: string
     projectKiId: string
     applyUnit: number
     bunpaiThisKi?: number | null
@@ -36899,6 +38322,7 @@ export namespace Prisma {
 
   export type CustomerCreateWithoutCustomerFundsInput = {
     id?: string
+    fundId?: string
     sbimpId?: string | null
     fundStatus: string
     name: string
@@ -36943,6 +38367,7 @@ export namespace Prisma {
 
   export type CustomerUncheckedCreateWithoutCustomerFundsInput = {
     id?: string
+    fundId?: string
     projectId: string
     sbimpId?: string | null
     fundStatus: string
@@ -37064,8 +38489,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: bigint | number | null
     kazeiShiire8050Kojo?: bigint | number | null
     kazeiShiire8050KojoNoTax?: bigint | number | null
-    kazeiUriageOnlyApplyTax7p8?: bigint | number | null
-    kazeiUriageCommonApplyTax7p8?: bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: bigint | number | null
     koteiShisan80Kojo?: bigint | number | null
     koteiShisan80KojoNoTax?: bigint | number | null
     createdAt?: Date | string
@@ -37154,8 +38581,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: bigint | number | null
     kazeiShiire8050Kojo?: bigint | number | null
     kazeiShiire8050KojoNoTax?: bigint | number | null
-    kazeiUriageOnlyApplyTax7p8?: bigint | number | null
-    kazeiUriageCommonApplyTax7p8?: bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: bigint | number | null
     koteiShisan80Kojo?: bigint | number | null
     koteiShisan80KojoNoTax?: bigint | number | null
     createdAt?: Date | string
@@ -37184,6 +38613,7 @@ export namespace Prisma {
 
   export type CustomerUpdateWithoutCustomerFundsInput = {
     id?: StringFieldUpdateOperationsInput | string
+    fundId?: StringFieldUpdateOperationsInput | string
     sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
     fundStatus?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
@@ -37228,6 +38658,7 @@ export namespace Prisma {
 
   export type CustomerUncheckedUpdateWithoutCustomerFundsInput = {
     id?: StringFieldUpdateOperationsInput | string
+    fundId?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
     sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
     fundStatus?: StringFieldUpdateOperationsInput | string
@@ -37355,8 +38786,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    kazeiUriageOnlyApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    kazeiUriageCommonApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -37445,8 +38878,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    kazeiUriageOnlyApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    kazeiUriageCommonApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -38158,8 +39593,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: bigint | number | null
     kazeiShiire8050Kojo?: bigint | number | null
     kazeiShiire8050KojoNoTax?: bigint | number | null
-    kazeiUriageOnlyApplyTax7p8?: bigint | number | null
-    kazeiUriageCommonApplyTax7p8?: bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: bigint | number | null
     koteiShisan80Kojo?: bigint | number | null
     koteiShisan80KojoNoTax?: bigint | number | null
     createdAt?: Date | string
@@ -38281,8 +39718,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    kazeiUriageOnlyApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    kazeiUriageCommonApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -38370,8 +39809,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    kazeiUriageOnlyApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    kazeiUriageCommonApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -38458,8 +39899,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    kazeiUriageOnlyApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    kazeiUriageCommonApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -38656,8 +40099,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: bigint | number | null
     kazeiShiire8050Kojo?: bigint | number | null
     kazeiShiire8050KojoNoTax?: bigint | number | null
-    kazeiUriageOnlyApplyTax7p8?: bigint | number | null
-    kazeiUriageCommonApplyTax7p8?: bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: bigint | number | null
     koteiShisan80Kojo?: bigint | number | null
     koteiShisan80KojoNoTax?: bigint | number | null
     createdAt?: Date | string
@@ -38694,6 +40139,7 @@ export namespace Prisma {
 
   export type CustomerCreateManyProjectInput = {
     id?: string
+    fundId?: string
     sbimpId?: string | null
     fundStatus: string
     name: string
@@ -38809,8 +40255,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    kazeiUriageOnlyApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    kazeiUriageCommonApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -38898,8 +40346,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    kazeiUriageOnlyApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    kazeiUriageCommonApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -38986,8 +40436,10 @@ export namespace Prisma {
     kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    kazeiUriageOnlyApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-    kazeiUriageCommonApplyTax7p8?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -39074,6 +40526,7 @@ export namespace Prisma {
 
   export type CustomerUpdateWithoutProjectInput = {
     id?: StringFieldUpdateOperationsInput | string
+    fundId?: StringFieldUpdateOperationsInput | string
     sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
     fundStatus?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
@@ -39118,6 +40571,7 @@ export namespace Prisma {
 
   export type CustomerUncheckedUpdateWithoutProjectInput = {
     id?: StringFieldUpdateOperationsInput | string
+    fundId?: StringFieldUpdateOperationsInput | string
     sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
     fundStatus?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
@@ -39162,6 +40616,7 @@ export namespace Prisma {
 
   export type CustomerUncheckedUpdateManyWithoutProjectInput = {
     id?: StringFieldUpdateOperationsInput | string
+    fundId?: StringFieldUpdateOperationsInput | string
     sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
     fundStatus?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
@@ -39205,7 +40660,6 @@ export namespace Prisma {
 
   export type CustomerFundCreateManyProjectKiInput = {
     id?: string
-    fundId: string
     customerId: string
     applyUnit: number
     bunpaiThisKi?: number | null
@@ -39226,7 +40680,6 @@ export namespace Prisma {
 
   export type CustomerFundUpdateWithoutProjectKiInput = {
     id?: StringFieldUpdateOperationsInput | string
-    fundId?: StringFieldUpdateOperationsInput | string
     applyUnit?: IntFieldUpdateOperationsInput | number
     bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
@@ -39247,7 +40700,6 @@ export namespace Prisma {
 
   export type CustomerFundUncheckedUpdateWithoutProjectKiInput = {
     id?: StringFieldUpdateOperationsInput | string
-    fundId?: StringFieldUpdateOperationsInput | string
     customerId?: StringFieldUpdateOperationsInput | string
     applyUnit?: IntFieldUpdateOperationsInput | number
     bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
@@ -39268,7 +40720,6 @@ export namespace Prisma {
 
   export type CustomerFundUncheckedUpdateManyWithoutProjectKiInput = {
     id?: StringFieldUpdateOperationsInput | string
-    fundId?: StringFieldUpdateOperationsInput | string
     customerId?: StringFieldUpdateOperationsInput | string
     applyUnit?: IntFieldUpdateOperationsInput | number
     bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
@@ -39437,7 +40888,6 @@ export namespace Prisma {
 
   export type CustomerFundCreateManyCustomerInput = {
     id?: string
-    fundId: string
     projectKiId: string
     applyUnit: number
     bunpaiThisKi?: number | null
@@ -39458,7 +40908,6 @@ export namespace Prisma {
 
   export type CustomerFundUpdateWithoutCustomerInput = {
     id?: StringFieldUpdateOperationsInput | string
-    fundId?: StringFieldUpdateOperationsInput | string
     applyUnit?: IntFieldUpdateOperationsInput | number
     bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
@@ -39479,7 +40928,6 @@ export namespace Prisma {
 
   export type CustomerFundUncheckedUpdateWithoutCustomerInput = {
     id?: StringFieldUpdateOperationsInput | string
-    fundId?: StringFieldUpdateOperationsInput | string
     projectKiId?: StringFieldUpdateOperationsInput | string
     applyUnit?: IntFieldUpdateOperationsInput | number
     bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
@@ -39500,7 +40948,6 @@ export namespace Prisma {
 
   export type CustomerFundUncheckedUpdateManyWithoutCustomerInput = {
     id?: StringFieldUpdateOperationsInput | string
-    fundId?: StringFieldUpdateOperationsInput | string
     projectKiId?: StringFieldUpdateOperationsInput | string
     applyUnit?: IntFieldUpdateOperationsInput | number
     bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
@@ -40454,6 +41901,10 @@ export namespace Prisma {
      * @deprecated Use ProjectKiPLDefaultArgs instead
      */
     export type ProjectKiPLArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ProjectKiPLDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use PLOrderByDefaultArgs instead
+     */
+    export type PLOrderByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = PLOrderByDefaultArgs<ExtArgs>
     /**
      * @deprecated Use AssetDefaultArgs instead
      */
