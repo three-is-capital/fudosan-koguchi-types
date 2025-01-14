@@ -7830,6 +7830,7 @@ export namespace Prisma {
     mlspcFlag: boolean | null
     leverageFlag: boolean | null
     unitResidenceFlag: boolean | null
+    completedFlag: boolean | null
     reportMainId: string | null
     reportAtt2Id: string | null
     reportAtt3Id: string | null
@@ -7873,6 +7874,7 @@ export namespace Prisma {
     mlspcFlag: boolean | null
     leverageFlag: boolean | null
     unitResidenceFlag: boolean | null
+    completedFlag: boolean | null
     reportMainId: string | null
     reportAtt2Id: string | null
     reportAtt3Id: string | null
@@ -7916,6 +7918,7 @@ export namespace Prisma {
     mlspcFlag: number
     leverageFlag: number
     unitResidenceFlag: number
+    completedFlag: number
     reportMainId: number
     reportAtt2Id: number
     reportAtt3Id: number
@@ -7981,6 +7984,7 @@ export namespace Prisma {
     mlspcFlag?: true
     leverageFlag?: true
     unitResidenceFlag?: true
+    completedFlag?: true
     reportMainId?: true
     reportAtt2Id?: true
     reportAtt3Id?: true
@@ -8024,6 +8028,7 @@ export namespace Prisma {
     mlspcFlag?: true
     leverageFlag?: true
     unitResidenceFlag?: true
+    completedFlag?: true
     reportMainId?: true
     reportAtt2Id?: true
     reportAtt3Id?: true
@@ -8067,6 +8072,7 @@ export namespace Prisma {
     mlspcFlag?: true
     leverageFlag?: true
     unitResidenceFlag?: true
+    completedFlag?: true
     reportMainId?: true
     reportAtt2Id?: true
     reportAtt3Id?: true
@@ -8197,6 +8203,7 @@ export namespace Prisma {
     mlspcFlag: boolean
     leverageFlag: boolean
     unitResidenceFlag: boolean
+    completedFlag: boolean
     reportMainId: string | null
     reportAtt2Id: string | null
     reportAtt3Id: string | null
@@ -8259,6 +8266,7 @@ export namespace Prisma {
     mlspcFlag?: boolean
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
+    completedFlag?: boolean
     reportMainId?: boolean
     reportAtt2Id?: boolean
     reportAtt3Id?: boolean
@@ -8311,6 +8319,7 @@ export namespace Prisma {
     mlspcFlag?: boolean
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
+    completedFlag?: boolean
     reportMainId?: boolean
     reportAtt2Id?: boolean
     reportAtt3Id?: boolean
@@ -8359,6 +8368,7 @@ export namespace Prisma {
     mlspcFlag?: boolean
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
+    completedFlag?: boolean
     reportMainId?: boolean
     reportAtt2Id?: boolean
     reportAtt3Id?: boolean
@@ -8433,6 +8443,7 @@ export namespace Prisma {
       mlspcFlag: boolean
       leverageFlag: boolean
       unitResidenceFlag: boolean
+      completedFlag: boolean
       reportMainId: string | null
       reportAtt2Id: string | null
       reportAtt3Id: string | null
@@ -8874,6 +8885,7 @@ export namespace Prisma {
     readonly mlspcFlag: FieldRef<"Project", 'Boolean'>
     readonly leverageFlag: FieldRef<"Project", 'Boolean'>
     readonly unitResidenceFlag: FieldRef<"Project", 'Boolean'>
+    readonly completedFlag: FieldRef<"Project", 'Boolean'>
     readonly reportMainId: FieldRef<"Project", 'String'>
     readonly reportAtt2Id: FieldRef<"Project", 'String'>
     readonly reportAtt3Id: FieldRef<"Project", 'String'>
@@ -9527,6 +9539,7 @@ export namespace Prisma {
     customerUploadAt: Date | null
     calculateVersion: number | null
     calculateAt: Date | null
+    finalKiFlag: boolean | null
     mlspcMarginIncludeTax: number | null
     totalUnit: number | null
     totalUnitNonInvoice: number | null
@@ -9617,6 +9630,7 @@ export namespace Prisma {
     customerUploadAt: Date | null
     calculateVersion: number | null
     calculateAt: Date | null
+    finalKiFlag: boolean | null
     mlspcMarginIncludeTax: number | null
     totalUnit: number | null
     totalUnitNonInvoice: number | null
@@ -9707,6 +9721,7 @@ export namespace Prisma {
     customerUploadAt: number
     calculateVersion: number
     calculateAt: number
+    finalKiFlag: number
     mlspcMarginIncludeTax: number
     totalUnit: number
     totalUnitNonInvoice: number
@@ -9945,6 +9960,7 @@ export namespace Prisma {
     customerUploadAt?: true
     calculateVersion?: true
     calculateAt?: true
+    finalKiFlag?: true
     mlspcMarginIncludeTax?: true
     totalUnit?: true
     totalUnitNonInvoice?: true
@@ -10035,6 +10051,7 @@ export namespace Prisma {
     customerUploadAt?: true
     calculateVersion?: true
     calculateAt?: true
+    finalKiFlag?: true
     mlspcMarginIncludeTax?: true
     totalUnit?: true
     totalUnitNonInvoice?: true
@@ -10125,6 +10142,7 @@ export namespace Prisma {
     customerUploadAt?: true
     calculateVersion?: true
     calculateAt?: true
+    finalKiFlag?: true
     mlspcMarginIncludeTax?: true
     totalUnit?: true
     totalUnitNonInvoice?: true
@@ -10302,6 +10320,7 @@ export namespace Prisma {
     customerUploadAt: Date | null
     calculateVersion: number
     calculateAt: Date | null
+    finalKiFlag: boolean
     mlspcMarginIncludeTax: number | null
     totalUnit: number | null
     totalUnitNonInvoice: number | null
@@ -10411,6 +10430,7 @@ export namespace Prisma {
     customerUploadAt?: boolean
     calculateVersion?: boolean
     calculateAt?: boolean
+    finalKiFlag?: boolean
     mlspcMarginIncludeTax?: boolean
     totalUnit?: boolean
     totalUnitNonInvoice?: boolean
@@ -10505,6 +10525,7 @@ export namespace Prisma {
     customerUploadAt?: boolean
     calculateVersion?: boolean
     calculateAt?: boolean
+    finalKiFlag?: boolean
     mlspcMarginIncludeTax?: boolean
     totalUnit?: boolean
     totalUnitNonInvoice?: boolean
@@ -10597,6 +10618,7 @@ export namespace Prisma {
     customerUploadAt?: boolean
     calculateVersion?: boolean
     calculateAt?: boolean
+    finalKiFlag?: boolean
     mlspcMarginIncludeTax?: boolean
     totalUnit?: boolean
     totalUnitNonInvoice?: boolean
@@ -10705,6 +10727,7 @@ export namespace Prisma {
       customerUploadAt: Date | null
       calculateVersion: number
       calculateAt: Date | null
+      finalKiFlag: boolean
       mlspcMarginIncludeTax: number | null
       totalUnit: number | null
       totalUnitNonInvoice: number | null
@@ -11188,6 +11211,7 @@ export namespace Prisma {
     readonly customerUploadAt: FieldRef<"ProjectKi", 'DateTime'>
     readonly calculateVersion: FieldRef<"ProjectKi", 'Int'>
     readonly calculateAt: FieldRef<"ProjectKi", 'DateTime'>
+    readonly finalKiFlag: FieldRef<"ProjectKi", 'Boolean'>
     readonly mlspcMarginIncludeTax: FieldRef<"ProjectKi", 'Int'>
     readonly totalUnit: FieldRef<"ProjectKi", 'Int'>
     readonly totalUnitNonInvoice: FieldRef<"ProjectKi", 'Int'>
@@ -25237,6 +25261,7 @@ export namespace Prisma {
     mlspcFlag: 'mlspcFlag',
     leverageFlag: 'leverageFlag',
     unitResidenceFlag: 'unitResidenceFlag',
+    completedFlag: 'completedFlag',
     reportMainId: 'reportMainId',
     reportAtt2Id: 'reportAtt2Id',
     reportAtt3Id: 'reportAtt3Id',
@@ -25270,6 +25295,7 @@ export namespace Prisma {
     customerUploadAt: 'customerUploadAt',
     calculateVersion: 'calculateVersion',
     calculateAt: 'calculateAt',
+    finalKiFlag: 'finalKiFlag',
     mlspcMarginIncludeTax: 'mlspcMarginIncludeTax',
     totalUnit: 'totalUnit',
     totalUnitNonInvoice: 'totalUnitNonInvoice',
@@ -26431,6 +26457,7 @@ export namespace Prisma {
     mlspcFlag?: BoolFilter<"Project"> | boolean
     leverageFlag?: BoolFilter<"Project"> | boolean
     unitResidenceFlag?: BoolFilter<"Project"> | boolean
+    completedFlag?: BoolFilter<"Project"> | boolean
     reportMainId?: StringNullableFilter<"Project"> | string | null
     reportAtt2Id?: StringNullableFilter<"Project"> | string | null
     reportAtt3Id?: StringNullableFilter<"Project"> | string | null
@@ -26482,6 +26509,7 @@ export namespace Prisma {
     mlspcFlag?: SortOrder
     leverageFlag?: SortOrder
     unitResidenceFlag?: SortOrder
+    completedFlag?: SortOrder
     reportMainId?: SortOrderInput | SortOrder
     reportAtt2Id?: SortOrderInput | SortOrder
     reportAtt3Id?: SortOrderInput | SortOrder
@@ -26536,6 +26564,7 @@ export namespace Prisma {
     mlspcFlag?: BoolFilter<"Project"> | boolean
     leverageFlag?: BoolFilter<"Project"> | boolean
     unitResidenceFlag?: BoolFilter<"Project"> | boolean
+    completedFlag?: BoolFilter<"Project"> | boolean
     reportMainId?: StringNullableFilter<"Project"> | string | null
     reportAtt2Id?: StringNullableFilter<"Project"> | string | null
     reportAtt3Id?: StringNullableFilter<"Project"> | string | null
@@ -26587,6 +26616,7 @@ export namespace Prisma {
     mlspcFlag?: SortOrder
     leverageFlag?: SortOrder
     unitResidenceFlag?: SortOrder
+    completedFlag?: SortOrder
     reportMainId?: SortOrderInput | SortOrder
     reportAtt2Id?: SortOrderInput | SortOrder
     reportAtt3Id?: SortOrderInput | SortOrder
@@ -26638,6 +26668,7 @@ export namespace Prisma {
     mlspcFlag?: BoolWithAggregatesFilter<"Project"> | boolean
     leverageFlag?: BoolWithAggregatesFilter<"Project"> | boolean
     unitResidenceFlag?: BoolWithAggregatesFilter<"Project"> | boolean
+    completedFlag?: BoolWithAggregatesFilter<"Project"> | boolean
     reportMainId?: StringNullableWithAggregatesFilter<"Project"> | string | null
     reportAtt2Id?: StringNullableWithAggregatesFilter<"Project"> | string | null
     reportAtt3Id?: StringNullableWithAggregatesFilter<"Project"> | string | null
@@ -26671,6 +26702,7 @@ export namespace Prisma {
     customerUploadAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
     calculateVersion?: IntFilter<"ProjectKi"> | number
     calculateAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
+    finalKiFlag?: BoolFilter<"ProjectKi"> | boolean
     mlspcMarginIncludeTax?: IntNullableFilter<"ProjectKi"> | number | null
     totalUnit?: IntNullableFilter<"ProjectKi"> | number | null
     totalUnitNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
@@ -26764,6 +26796,7 @@ export namespace Prisma {
     customerUploadAt?: SortOrderInput | SortOrder
     calculateVersion?: SortOrder
     calculateAt?: SortOrderInput | SortOrder
+    finalKiFlag?: SortOrder
     mlspcMarginIncludeTax?: SortOrderInput | SortOrder
     totalUnit?: SortOrderInput | SortOrder
     totalUnitNonInvoice?: SortOrderInput | SortOrder
@@ -26862,6 +26895,7 @@ export namespace Prisma {
     customerUploadAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
     calculateVersion?: IntFilter<"ProjectKi"> | number
     calculateAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
+    finalKiFlag?: BoolFilter<"ProjectKi"> | boolean
     mlspcMarginIncludeTax?: IntNullableFilter<"ProjectKi"> | number | null
     totalUnit?: IntNullableFilter<"ProjectKi"> | number | null
     totalUnitNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
@@ -26955,6 +26989,7 @@ export namespace Prisma {
     customerUploadAt?: SortOrderInput | SortOrder
     calculateVersion?: SortOrder
     calculateAt?: SortOrderInput | SortOrder
+    finalKiFlag?: SortOrder
     mlspcMarginIncludeTax?: SortOrderInput | SortOrder
     totalUnit?: SortOrderInput | SortOrder
     totalUnitNonInvoice?: SortOrderInput | SortOrder
@@ -27053,6 +27088,7 @@ export namespace Prisma {
     customerUploadAt?: DateTimeNullableWithAggregatesFilter<"ProjectKi"> | Date | string | null
     calculateVersion?: IntWithAggregatesFilter<"ProjectKi"> | number
     calculateAt?: DateTimeNullableWithAggregatesFilter<"ProjectKi"> | Date | string | null
+    finalKiFlag?: BoolWithAggregatesFilter<"ProjectKi"> | boolean
     mlspcMarginIncludeTax?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     totalUnit?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     totalUnitNonInvoice?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
@@ -29251,6 +29287,7 @@ export namespace Prisma {
     mlspcFlag?: boolean
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
+    completedFlag?: boolean
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -29297,6 +29334,7 @@ export namespace Prisma {
     mlspcFlag?: boolean
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
+    completedFlag?: boolean
     reportMainId?: string | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
@@ -29343,6 +29381,7 @@ export namespace Prisma {
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
+    completedFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -29389,6 +29428,7 @@ export namespace Prisma {
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
+    completedFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -29435,6 +29475,7 @@ export namespace Prisma {
     mlspcFlag?: boolean
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
+    completedFlag?: boolean
     reportMainId?: string | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
@@ -29478,6 +29519,7 @@ export namespace Prisma {
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
+    completedFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -29516,6 +29558,7 @@ export namespace Prisma {
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
+    completedFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -29544,6 +29587,7 @@ export namespace Prisma {
     customerUploadAt?: Date | string | null
     calculateVersion?: number
     calculateAt?: Date | string | null
+    finalKiFlag?: boolean
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -29637,6 +29681,7 @@ export namespace Prisma {
     customerUploadAt?: Date | string | null
     calculateVersion?: number
     calculateAt?: Date | string | null
+    finalKiFlag?: boolean
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -29726,6 +29771,7 @@ export namespace Prisma {
     customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -29819,6 +29865,7 @@ export namespace Prisma {
     customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -29910,6 +29957,7 @@ export namespace Prisma {
     customerUploadAt?: Date | string | null
     calculateVersion?: number
     calculateAt?: Date | string | null
+    finalKiFlag?: boolean
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -29998,6 +30046,7 @@ export namespace Prisma {
     customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -30088,6 +30137,7 @@ export namespace Prisma {
     customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -32559,6 +32609,7 @@ export namespace Prisma {
     mlspcFlag?: SortOrder
     leverageFlag?: SortOrder
     unitResidenceFlag?: SortOrder
+    completedFlag?: SortOrder
     reportMainId?: SortOrder
     reportAtt2Id?: SortOrder
     reportAtt3Id?: SortOrder
@@ -32612,6 +32663,7 @@ export namespace Prisma {
     mlspcFlag?: SortOrder
     leverageFlag?: SortOrder
     unitResidenceFlag?: SortOrder
+    completedFlag?: SortOrder
     reportMainId?: SortOrder
     reportAtt2Id?: SortOrder
     reportAtt3Id?: SortOrder
@@ -32655,6 +32707,7 @@ export namespace Prisma {
     mlspcFlag?: SortOrder
     leverageFlag?: SortOrder
     unitResidenceFlag?: SortOrder
+    completedFlag?: SortOrder
     reportMainId?: SortOrder
     reportAtt2Id?: SortOrder
     reportAtt3Id?: SortOrder
@@ -32801,6 +32854,7 @@ export namespace Prisma {
     customerUploadAt?: SortOrder
     calculateVersion?: SortOrder
     calculateAt?: SortOrder
+    finalKiFlag?: SortOrder
     mlspcMarginIncludeTax?: SortOrder
     totalUnit?: SortOrder
     totalUnitNonInvoice?: SortOrder
@@ -32964,6 +33018,7 @@ export namespace Prisma {
     customerUploadAt?: SortOrder
     calculateVersion?: SortOrder
     calculateAt?: SortOrder
+    finalKiFlag?: SortOrder
     mlspcMarginIncludeTax?: SortOrder
     totalUnit?: SortOrder
     totalUnitNonInvoice?: SortOrder
@@ -33054,6 +33109,7 @@ export namespace Prisma {
     customerUploadAt?: SortOrder
     calculateVersion?: SortOrder
     calculateAt?: SortOrder
+    finalKiFlag?: SortOrder
     mlspcMarginIncludeTax?: SortOrder
     totalUnit?: SortOrder
     totalUnitNonInvoice?: SortOrder
@@ -35851,6 +35907,7 @@ export namespace Prisma {
     customerUploadAt?: Date | string | null
     calculateVersion?: number
     calculateAt?: Date | string | null
+    finalKiFlag?: boolean
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -35942,6 +35999,7 @@ export namespace Prisma {
     customerUploadAt?: Date | string | null
     calculateVersion?: number
     calculateAt?: Date | string | null
+    finalKiFlag?: boolean
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -36148,6 +36206,7 @@ export namespace Prisma {
     customerUploadAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
     calculateVersion?: IntFilter<"ProjectKi"> | number
     calculateAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
+    finalKiFlag?: BoolFilter<"ProjectKi"> | boolean
     mlspcMarginIncludeTax?: IntNullableFilter<"ProjectKi"> | number | null
     totalUnit?: IntNullableFilter<"ProjectKi"> | number | null
     totalUnitNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
@@ -36529,6 +36588,7 @@ export namespace Prisma {
     customerUploadAt?: Date | string | null
     calculateVersion?: number
     calculateAt?: Date | string | null
+    finalKiFlag?: boolean
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -36620,6 +36680,7 @@ export namespace Prisma {
     customerUploadAt?: Date | string | null
     calculateVersion?: number
     calculateAt?: Date | string | null
+    finalKiFlag?: boolean
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -37283,6 +37344,7 @@ export namespace Prisma {
     mlspcFlag?: boolean
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
+    completedFlag?: boolean
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -37328,6 +37390,7 @@ export namespace Prisma {
     mlspcFlag?: boolean
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
+    completedFlag?: boolean
     reportMainId?: string | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
@@ -37472,6 +37535,7 @@ export namespace Prisma {
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
+    completedFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -37517,6 +37581,7 @@ export namespace Prisma {
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
+    completedFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -37641,6 +37706,7 @@ export namespace Prisma {
     mlspcFlag?: boolean
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
+    completedFlag?: boolean
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -37686,6 +37752,7 @@ export namespace Prisma {
     mlspcFlag?: boolean
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
+    completedFlag?: boolean
     reportMainId?: string | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
@@ -37833,6 +37900,7 @@ export namespace Prisma {
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
+    completedFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -37878,6 +37946,7 @@ export namespace Prisma {
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
+    completedFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -38127,6 +38196,7 @@ export namespace Prisma {
     mlspcFlag?: boolean
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
+    completedFlag?: boolean
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -38172,6 +38242,7 @@ export namespace Prisma {
     mlspcFlag?: boolean
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
+    completedFlag?: boolean
     reportMainId?: string | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
@@ -38283,6 +38354,7 @@ export namespace Prisma {
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
+    completedFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -38328,6 +38400,7 @@ export namespace Prisma {
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
+    completedFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -38469,6 +38542,7 @@ export namespace Prisma {
     customerUploadAt?: Date | string | null
     calculateVersion?: number
     calculateAt?: Date | string | null
+    finalKiFlag?: boolean
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -38561,6 +38635,7 @@ export namespace Prisma {
     customerUploadAt?: Date | string | null
     calculateVersion?: number
     calculateAt?: Date | string | null
+    finalKiFlag?: boolean
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -38766,6 +38841,7 @@ export namespace Prisma {
     customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -38858,6 +38934,7 @@ export namespace Prisma {
     customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -38961,6 +39038,7 @@ export namespace Prisma {
     mlspcFlag?: boolean
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
+    completedFlag?: boolean
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -39006,6 +39084,7 @@ export namespace Prisma {
     mlspcFlag?: boolean
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
+    completedFlag?: boolean
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
     bunpaiId?: string | null
@@ -39061,6 +39140,7 @@ export namespace Prisma {
     mlspcFlag?: boolean
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
+    completedFlag?: boolean
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -39106,6 +39186,7 @@ export namespace Prisma {
     mlspcFlag?: boolean
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
+    completedFlag?: boolean
     reportMainId?: string | null
     reportAtt3Id?: string | null
     bunpaiId?: string | null
@@ -39161,6 +39242,7 @@ export namespace Prisma {
     mlspcFlag?: boolean
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
+    completedFlag?: boolean
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -39206,6 +39288,7 @@ export namespace Prisma {
     mlspcFlag?: boolean
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
+    completedFlag?: boolean
     reportMainId?: string | null
     reportAtt2Id?: string | null
     bunpaiId?: string | null
@@ -39261,6 +39344,7 @@ export namespace Prisma {
     mlspcFlag?: boolean
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
+    completedFlag?: boolean
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -39306,6 +39390,7 @@ export namespace Prisma {
     mlspcFlag?: boolean
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
+    completedFlag?: boolean
     reportMainId?: string | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
@@ -39361,6 +39446,7 @@ export namespace Prisma {
     mlspcFlag?: boolean
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
+    completedFlag?: boolean
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -39406,6 +39492,7 @@ export namespace Prisma {
     mlspcFlag?: boolean
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
+    completedFlag?: boolean
     reportMainId?: string | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
@@ -39480,6 +39567,7 @@ export namespace Prisma {
     mlspcFlag?: BoolFilter<"Project"> | boolean
     leverageFlag?: BoolFilter<"Project"> | boolean
     unitResidenceFlag?: BoolFilter<"Project"> | boolean
+    completedFlag?: BoolFilter<"Project"> | boolean
     reportMainId?: StringNullableFilter<"Project"> | string | null
     reportAtt2Id?: StringNullableFilter<"Project"> | string | null
     reportAtt3Id?: StringNullableFilter<"Project"> | string | null
@@ -39573,6 +39661,7 @@ export namespace Prisma {
     customerUploadAt?: Date | string | null
     calculateVersion?: number
     calculateAt?: Date | string | null
+    finalKiFlag?: boolean
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -39699,6 +39788,7 @@ export namespace Prisma {
     customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -39790,6 +39880,7 @@ export namespace Prisma {
     customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -39880,6 +39971,7 @@ export namespace Prisma {
     customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -40083,6 +40175,7 @@ export namespace Prisma {
     customerUploadAt?: Date | string | null
     calculateVersion?: number
     calculateAt?: Date | string | null
+    finalKiFlag?: boolean
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -40239,6 +40332,7 @@ export namespace Prisma {
     customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -40330,6 +40424,7 @@ export namespace Prisma {
     customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -40420,6 +40515,7 @@ export namespace Prisma {
     customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -41043,6 +41139,7 @@ export namespace Prisma {
     mlspcFlag?: boolean
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
+    completedFlag?: boolean
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
     bunpaiId?: string | null
@@ -41085,6 +41182,7 @@ export namespace Prisma {
     mlspcFlag?: boolean
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
+    completedFlag?: boolean
     reportMainId?: string | null
     reportAtt3Id?: string | null
     bunpaiId?: string | null
@@ -41127,6 +41225,7 @@ export namespace Prisma {
     mlspcFlag?: boolean
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
+    completedFlag?: boolean
     reportMainId?: string | null
     reportAtt2Id?: string | null
     bunpaiId?: string | null
@@ -41169,6 +41268,7 @@ export namespace Prisma {
     mlspcFlag?: boolean
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
+    completedFlag?: boolean
     reportMainId?: string | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
@@ -41211,6 +41311,7 @@ export namespace Prisma {
     mlspcFlag?: boolean
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
+    completedFlag?: boolean
     reportMainId?: string | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
@@ -41253,6 +41354,7 @@ export namespace Prisma {
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
+    completedFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -41298,6 +41400,7 @@ export namespace Prisma {
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
+    completedFlag?: BoolFieldUpdateOperationsInput | boolean
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -41343,6 +41446,7 @@ export namespace Prisma {
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
+    completedFlag?: BoolFieldUpdateOperationsInput | boolean
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -41385,6 +41489,7 @@ export namespace Prisma {
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
+    completedFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -41430,6 +41535,7 @@ export namespace Prisma {
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
+    completedFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -41475,6 +41581,7 @@ export namespace Prisma {
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
+    completedFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -41517,6 +41624,7 @@ export namespace Prisma {
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
+    completedFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -41562,6 +41670,7 @@ export namespace Prisma {
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
+    completedFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -41607,6 +41716,7 @@ export namespace Prisma {
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
+    completedFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -41649,6 +41759,7 @@ export namespace Prisma {
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
+    completedFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -41694,6 +41805,7 @@ export namespace Prisma {
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
+    completedFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -41739,6 +41851,7 @@ export namespace Prisma {
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
+    completedFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -41781,6 +41894,7 @@ export namespace Prisma {
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
+    completedFlag?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -41826,6 +41940,7 @@ export namespace Prisma {
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
+    completedFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -41871,6 +41986,7 @@ export namespace Prisma {
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
+    completedFlag?: BoolFieldUpdateOperationsInput | boolean
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
