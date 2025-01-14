@@ -10295,7 +10295,7 @@ export namespace Prisma {
     paymentDate: Date
     reportDate: Date
     topic: string
-    ganponKuriire: number
+    ganponKuriire: number | null
     yayoiUploadVersion: number
     yayoiUploadAt: Date | null
     customerUploadVersion: number
@@ -10698,7 +10698,7 @@ export namespace Prisma {
       paymentDate: Date
       reportDate: Date
       topic: string
-      ganponKuriire: number
+      ganponKuriire: number | null
       yayoiUploadVersion: number
       yayoiUploadAt: Date | null
       customerUploadVersion: number
@@ -16026,6 +16026,7 @@ export namespace Prisma {
     pmPerformanceMoveOut: number | null
     pmPerformanceRate: number | null
     pmPerformanceRatePercent: number | null
+    photoCount: number | null
     valuationStatementSize: number | null
     landEvaluation: number | null
     buildingEvaluation: number | null
@@ -16047,6 +16048,7 @@ export namespace Prisma {
     pmPerformanceMoveOut: number | null
     pmPerformanceRate: number | null
     pmPerformanceRatePercent: number | null
+    photoCount: number | null
     valuationStatementSize: number | null
     landEvaluation: bigint | null
     buildingEvaluation: bigint | null
@@ -16077,6 +16079,7 @@ export namespace Prisma {
     photo2: string | null
     photo3: string | null
     photo4: string | null
+    photoCount: number | null
     valuationStatementFile: Buffer | null
     valuationStatementName: string | null
     valuationStatementSize: number | null
@@ -16115,6 +16118,7 @@ export namespace Prisma {
     photo2: string | null
     photo3: string | null
     photo4: string | null
+    photoCount: number | null
     valuationStatementFile: Buffer | null
     valuationStatementName: string | null
     valuationStatementSize: number | null
@@ -16153,6 +16157,7 @@ export namespace Prisma {
     photo2: number
     photo3: number
     photo4: number
+    photoCount: number
     valuationStatementFile: number
     valuationStatementName: number
     valuationStatementSize: number
@@ -16184,6 +16189,7 @@ export namespace Prisma {
     pmPerformanceMoveOut?: true
     pmPerformanceRate?: true
     pmPerformanceRatePercent?: true
+    photoCount?: true
     valuationStatementSize?: true
     landEvaluation?: true
     buildingEvaluation?: true
@@ -16205,6 +16211,7 @@ export namespace Prisma {
     pmPerformanceMoveOut?: true
     pmPerformanceRate?: true
     pmPerformanceRatePercent?: true
+    photoCount?: true
     valuationStatementSize?: true
     landEvaluation?: true
     buildingEvaluation?: true
@@ -16235,6 +16242,7 @@ export namespace Prisma {
     photo2?: true
     photo3?: true
     photo4?: true
+    photoCount?: true
     valuationStatementFile?: true
     valuationStatementName?: true
     valuationStatementSize?: true
@@ -16273,6 +16281,7 @@ export namespace Prisma {
     photo2?: true
     photo3?: true
     photo4?: true
+    photoCount?: true
     valuationStatementFile?: true
     valuationStatementName?: true
     valuationStatementSize?: true
@@ -16311,6 +16320,7 @@ export namespace Prisma {
     photo2?: true
     photo3?: true
     photo4?: true
+    photoCount?: true
     valuationStatementFile?: true
     valuationStatementName?: true
     valuationStatementSize?: true
@@ -16436,6 +16446,7 @@ export namespace Prisma {
     photo2: string | null
     photo3: string | null
     photo4: string | null
+    photoCount: number
     valuationStatementFile: Buffer | null
     valuationStatementName: string | null
     valuationStatementSize: number | null
@@ -16493,6 +16504,7 @@ export namespace Prisma {
     photo2?: boolean
     photo3?: boolean
     photo4?: boolean
+    photoCount?: boolean
     valuationStatementFile?: boolean
     valuationStatementName?: boolean
     valuationStatementSize?: boolean
@@ -16533,6 +16545,7 @@ export namespace Prisma {
     photo2?: boolean
     photo3?: boolean
     photo4?: boolean
+    photoCount?: boolean
     valuationStatementFile?: boolean
     valuationStatementName?: boolean
     valuationStatementSize?: boolean
@@ -16573,6 +16586,7 @@ export namespace Prisma {
     photo2?: boolean
     photo3?: boolean
     photo4?: boolean
+    photoCount?: boolean
     valuationStatementFile?: boolean
     valuationStatementName?: boolean
     valuationStatementSize?: boolean
@@ -16626,6 +16640,7 @@ export namespace Prisma {
       photo2: string | null
       photo3: string | null
       photo4: string | null
+      photoCount: number
       valuationStatementFile: Buffer | null
       valuationStatementName: string | null
       valuationStatementSize: number | null
@@ -17056,6 +17071,7 @@ export namespace Prisma {
     readonly photo2: FieldRef<"AssetKi", 'String'>
     readonly photo3: FieldRef<"AssetKi", 'String'>
     readonly photo4: FieldRef<"AssetKi", 'String'>
+    readonly photoCount: FieldRef<"AssetKi", 'Int'>
     readonly valuationStatementFile: FieldRef<"AssetKi", 'Bytes'>
     readonly valuationStatementName: FieldRef<"AssetKi", 'String'>
     readonly valuationStatementSize: FieldRef<"AssetKi", 'Int'>
@@ -25441,6 +25457,7 @@ export namespace Prisma {
     photo2: 'photo2',
     photo3: 'photo3',
     photo4: 'photo4',
+    photoCount: 'photoCount',
     valuationStatementFile: 'valuationStatementFile',
     valuationStatementName: 'valuationStatementName',
     valuationStatementSize: 'valuationStatementSize',
@@ -26647,7 +26664,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFilter<"ProjectKi"> | Date | string
     reportDate?: DateTimeFilter<"ProjectKi"> | Date | string
     topic?: StringFilter<"ProjectKi"> | string
-    ganponKuriire?: IntFilter<"ProjectKi"> | number
+    ganponKuriire?: IntNullableFilter<"ProjectKi"> | number | null
     yayoiUploadVersion?: IntFilter<"ProjectKi"> | number
     yayoiUploadAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
     customerUploadVersion?: IntFilter<"ProjectKi"> | number
@@ -26740,7 +26757,7 @@ export namespace Prisma {
     paymentDate?: SortOrder
     reportDate?: SortOrder
     topic?: SortOrder
-    ganponKuriire?: SortOrder
+    ganponKuriire?: SortOrderInput | SortOrder
     yayoiUploadVersion?: SortOrder
     yayoiUploadAt?: SortOrderInput | SortOrder
     customerUploadVersion?: SortOrder
@@ -26838,7 +26855,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFilter<"ProjectKi"> | Date | string
     reportDate?: DateTimeFilter<"ProjectKi"> | Date | string
     topic?: StringFilter<"ProjectKi"> | string
-    ganponKuriire?: IntFilter<"ProjectKi"> | number
+    ganponKuriire?: IntNullableFilter<"ProjectKi"> | number | null
     yayoiUploadVersion?: IntFilter<"ProjectKi"> | number
     yayoiUploadAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
     customerUploadVersion?: IntFilter<"ProjectKi"> | number
@@ -26931,7 +26948,7 @@ export namespace Prisma {
     paymentDate?: SortOrder
     reportDate?: SortOrder
     topic?: SortOrder
-    ganponKuriire?: SortOrder
+    ganponKuriire?: SortOrderInput | SortOrder
     yayoiUploadVersion?: SortOrder
     yayoiUploadAt?: SortOrderInput | SortOrder
     customerUploadVersion?: SortOrder
@@ -27029,7 +27046,7 @@ export namespace Prisma {
     paymentDate?: DateTimeWithAggregatesFilter<"ProjectKi"> | Date | string
     reportDate?: DateTimeWithAggregatesFilter<"ProjectKi"> | Date | string
     topic?: StringWithAggregatesFilter<"ProjectKi"> | string
-    ganponKuriire?: IntWithAggregatesFilter<"ProjectKi"> | number
+    ganponKuriire?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     yayoiUploadVersion?: IntWithAggregatesFilter<"ProjectKi"> | number
     yayoiUploadAt?: DateTimeNullableWithAggregatesFilter<"ProjectKi"> | Date | string | null
     customerUploadVersion?: IntWithAggregatesFilter<"ProjectKi"> | number
@@ -27609,6 +27626,7 @@ export namespace Prisma {
     photo2?: StringNullableFilter<"AssetKi"> | string | null
     photo3?: StringNullableFilter<"AssetKi"> | string | null
     photo4?: StringNullableFilter<"AssetKi"> | string | null
+    photoCount?: IntFilter<"AssetKi"> | number
     valuationStatementFile?: BytesNullableFilter<"AssetKi"> | Buffer | null
     valuationStatementName?: StringNullableFilter<"AssetKi"> | string | null
     valuationStatementSize?: IntNullableFilter<"AssetKi"> | number | null
@@ -27649,6 +27667,7 @@ export namespace Prisma {
     photo2?: SortOrderInput | SortOrder
     photo3?: SortOrderInput | SortOrder
     photo4?: SortOrderInput | SortOrder
+    photoCount?: SortOrder
     valuationStatementFile?: SortOrderInput | SortOrder
     valuationStatementName?: SortOrderInput | SortOrder
     valuationStatementSize?: SortOrderInput | SortOrder
@@ -27693,6 +27712,7 @@ export namespace Prisma {
     photo2?: StringNullableFilter<"AssetKi"> | string | null
     photo3?: StringNullableFilter<"AssetKi"> | string | null
     photo4?: StringNullableFilter<"AssetKi"> | string | null
+    photoCount?: IntFilter<"AssetKi"> | number
     valuationStatementFile?: BytesNullableFilter<"AssetKi"> | Buffer | null
     valuationStatementName?: StringNullableFilter<"AssetKi"> | string | null
     valuationStatementSize?: IntNullableFilter<"AssetKi"> | number | null
@@ -27733,6 +27753,7 @@ export namespace Prisma {
     photo2?: SortOrderInput | SortOrder
     photo3?: SortOrderInput | SortOrder
     photo4?: SortOrderInput | SortOrder
+    photoCount?: SortOrder
     valuationStatementFile?: SortOrderInput | SortOrder
     valuationStatementName?: SortOrderInput | SortOrder
     valuationStatementSize?: SortOrderInput | SortOrder
@@ -27779,6 +27800,7 @@ export namespace Prisma {
     photo2?: StringNullableWithAggregatesFilter<"AssetKi"> | string | null
     photo3?: StringNullableWithAggregatesFilter<"AssetKi"> | string | null
     photo4?: StringNullableWithAggregatesFilter<"AssetKi"> | string | null
+    photoCount?: IntWithAggregatesFilter<"AssetKi"> | number
     valuationStatementFile?: BytesNullableWithAggregatesFilter<"AssetKi"> | Buffer | null
     valuationStatementName?: StringNullableWithAggregatesFilter<"AssetKi"> | string | null
     valuationStatementSize?: IntNullableWithAggregatesFilter<"AssetKi"> | number | null
@@ -29515,7 +29537,7 @@ export namespace Prisma {
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
-    ganponKuriire?: number
+    ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
     customerUploadVersion?: number
@@ -29608,7 +29630,7 @@ export namespace Prisma {
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
-    ganponKuriire?: number
+    ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
     customerUploadVersion?: number
@@ -29697,7 +29719,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
-    ganponKuriire?: IntFieldUpdateOperationsInput | number
+    ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customerUploadVersion?: IntFieldUpdateOperationsInput | number
@@ -29790,7 +29812,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
-    ganponKuriire?: IntFieldUpdateOperationsInput | number
+    ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customerUploadVersion?: IntFieldUpdateOperationsInput | number
@@ -29881,7 +29903,7 @@ export namespace Prisma {
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
-    ganponKuriire?: number
+    ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
     customerUploadVersion?: number
@@ -29969,7 +29991,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
-    ganponKuriire?: IntFieldUpdateOperationsInput | number
+    ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customerUploadVersion?: IntFieldUpdateOperationsInput | number
@@ -30059,7 +30081,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
-    ganponKuriire?: IntFieldUpdateOperationsInput | number
+    ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customerUploadVersion?: IntFieldUpdateOperationsInput | number
@@ -30743,6 +30765,7 @@ export namespace Prisma {
     photo2?: string | null
     photo3?: string | null
     photo4?: string | null
+    photoCount?: number
     valuationStatementFile?: Buffer | null
     valuationStatementName?: string | null
     valuationStatementSize?: number | null
@@ -30783,6 +30806,7 @@ export namespace Prisma {
     photo2?: string | null
     photo3?: string | null
     photo4?: string | null
+    photoCount?: number
     valuationStatementFile?: Buffer | null
     valuationStatementName?: string | null
     valuationStatementSize?: number | null
@@ -30819,6 +30843,7 @@ export namespace Prisma {
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
+    photoCount?: IntFieldUpdateOperationsInput | number
     valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
@@ -30859,6 +30884,7 @@ export namespace Prisma {
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
+    photoCount?: IntFieldUpdateOperationsInput | number
     valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
@@ -30897,6 +30923,7 @@ export namespace Prisma {
     photo2?: string | null
     photo3?: string | null
     photo4?: string | null
+    photoCount?: number
     valuationStatementFile?: Buffer | null
     valuationStatementName?: string | null
     valuationStatementSize?: number | null
@@ -30933,6 +30960,7 @@ export namespace Prisma {
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
+    photoCount?: IntFieldUpdateOperationsInput | number
     valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
@@ -30971,6 +30999,7 @@ export namespace Prisma {
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
+    photoCount?: IntFieldUpdateOperationsInput | number
     valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
@@ -32681,17 +32710,6 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
-  export type DateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
-  }
-
   export type IntNullableFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
@@ -32701,6 +32719,17 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
   export type BigIntNullableFilter<$PrismaModel = never> = {
@@ -33171,20 +33200,6 @@ export namespace Prisma {
     koteiShisan80KojoNoTax?: SortOrder
   }
 
-  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
-  }
-
   export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
@@ -33199,6 +33214,20 @@ export namespace Prisma {
     _sum?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedIntNullableFilter<$PrismaModel>
     _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type BigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -33652,6 +33681,7 @@ export namespace Prisma {
     photo2?: SortOrder
     photo3?: SortOrder
     photo4?: SortOrder
+    photoCount?: SortOrder
     valuationStatementFile?: SortOrder
     valuationStatementName?: SortOrder
     valuationStatementSize?: SortOrder
@@ -33681,6 +33711,7 @@ export namespace Prisma {
     pmPerformanceMoveOut?: SortOrder
     pmPerformanceRate?: SortOrder
     pmPerformanceRatePercent?: SortOrder
+    photoCount?: SortOrder
     valuationStatementSize?: SortOrder
     landEvaluation?: SortOrder
     buildingEvaluation?: SortOrder
@@ -33711,6 +33742,7 @@ export namespace Prisma {
     photo2?: SortOrder
     photo3?: SortOrder
     photo4?: SortOrder
+    photoCount?: SortOrder
     valuationStatementFile?: SortOrder
     valuationStatementName?: SortOrder
     valuationStatementSize?: SortOrder
@@ -33749,6 +33781,7 @@ export namespace Prisma {
     photo2?: SortOrder
     photo3?: SortOrder
     photo4?: SortOrder
+    photoCount?: SortOrder
     valuationStatementFile?: SortOrder
     valuationStatementName?: SortOrder
     valuationStatementSize?: SortOrder
@@ -33778,6 +33811,7 @@ export namespace Prisma {
     pmPerformanceMoveOut?: SortOrder
     pmPerformanceRate?: SortOrder
     pmPerformanceRatePercent?: SortOrder
+    photoCount?: SortOrder
     valuationStatementSize?: SortOrder
     landEvaluation?: SortOrder
     buildingEvaluation?: SortOrder
@@ -34799,16 +34833,16 @@ export namespace Prisma {
     connect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
   }
 
-  export type NullableDateTimeFieldUpdateOperationsInput = {
-    set?: Date | string | null
-  }
-
   export type NullableIntFieldUpdateOperationsInput = {
     set?: number | null
     increment?: number
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
   }
 
   export type NullableBigIntFieldUpdateOperationsInput = {
@@ -35548,20 +35582,6 @@ export namespace Prisma {
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
-  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
-  }
-
   export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
@@ -35576,6 +35596,20 @@ export namespace Prisma {
     _sum?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedIntNullableFilter<$PrismaModel>
     _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type NestedBigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -35810,7 +35844,7 @@ export namespace Prisma {
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
-    ganponKuriire?: number
+    ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
     customerUploadVersion?: number
@@ -35901,7 +35935,7 @@ export namespace Prisma {
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
-    ganponKuriire?: number
+    ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
     customerUploadVersion?: number
@@ -36005,6 +36039,7 @@ export namespace Prisma {
     photo2?: string | null
     photo3?: string | null
     photo4?: string | null
+    photoCount?: number
     valuationStatementFile?: Buffer | null
     valuationStatementName?: string | null
     valuationStatementSize?: number | null
@@ -36043,6 +36078,7 @@ export namespace Prisma {
     photo2?: string | null
     photo3?: string | null
     photo4?: string | null
+    photoCount?: number
     valuationStatementFile?: Buffer | null
     valuationStatementName?: string | null
     valuationStatementSize?: number | null
@@ -36105,7 +36141,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFilter<"ProjectKi"> | Date | string
     reportDate?: DateTimeFilter<"ProjectKi"> | Date | string
     topic?: StringFilter<"ProjectKi"> | string
-    ganponKuriire?: IntFilter<"ProjectKi"> | number
+    ganponKuriire?: IntNullableFilter<"ProjectKi"> | number | null
     yayoiUploadVersion?: IntFilter<"ProjectKi"> | number
     yayoiUploadAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
     customerUploadVersion?: IntFilter<"ProjectKi"> | number
@@ -36219,6 +36255,7 @@ export namespace Prisma {
     photo2?: StringNullableFilter<"AssetKi"> | string | null
     photo3?: StringNullableFilter<"AssetKi"> | string | null
     photo4?: StringNullableFilter<"AssetKi"> | string | null
+    photoCount?: IntFilter<"AssetKi"> | number
     valuationStatementFile?: BytesNullableFilter<"AssetKi"> | Buffer | null
     valuationStatementName?: StringNullableFilter<"AssetKi"> | string | null
     valuationStatementSize?: IntNullableFilter<"AssetKi"> | number | null
@@ -36485,7 +36522,7 @@ export namespace Prisma {
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
-    ganponKuriire?: number
+    ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
     customerUploadVersion?: number
@@ -36576,7 +36613,7 @@ export namespace Prisma {
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
-    ganponKuriire?: number
+    ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
     customerUploadVersion?: number
@@ -37682,6 +37719,7 @@ export namespace Prisma {
     photo2?: string | null
     photo3?: string | null
     photo4?: string | null
+    photoCount?: number
     valuationStatementFile?: Buffer | null
     valuationStatementName?: string | null
     valuationStatementSize?: number | null
@@ -37720,6 +37758,7 @@ export namespace Prisma {
     photo2?: string | null
     photo3?: string | null
     photo4?: string | null
+    photoCount?: number
     valuationStatementFile?: Buffer | null
     valuationStatementName?: string | null
     valuationStatementSize?: number | null
@@ -38423,7 +38462,7 @@ export namespace Prisma {
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
-    ganponKuriire?: number
+    ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
     customerUploadVersion?: number
@@ -38515,7 +38554,7 @@ export namespace Prisma {
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
-    ganponKuriire?: number
+    ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
     customerUploadVersion?: number
@@ -38720,7 +38759,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
-    ganponKuriire?: IntFieldUpdateOperationsInput | number
+    ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customerUploadVersion?: IntFieldUpdateOperationsInput | number
@@ -38812,7 +38851,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
-    ganponKuriire?: IntFieldUpdateOperationsInput | number
+    ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customerUploadVersion?: IntFieldUpdateOperationsInput | number
@@ -39527,7 +39566,7 @@ export namespace Prisma {
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
-    ganponKuriire?: number
+    ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
     customerUploadVersion?: number
@@ -39621,6 +39660,7 @@ export namespace Prisma {
     photo2?: string | null
     photo3?: string | null
     photo4?: string | null
+    photoCount?: number
     valuationStatementFile?: Buffer | null
     valuationStatementName?: string | null
     valuationStatementSize?: number | null
@@ -39652,7 +39692,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
-    ganponKuriire?: IntFieldUpdateOperationsInput | number
+    ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customerUploadVersion?: IntFieldUpdateOperationsInput | number
@@ -39743,7 +39783,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
-    ganponKuriire?: IntFieldUpdateOperationsInput | number
+    ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customerUploadVersion?: IntFieldUpdateOperationsInput | number
@@ -39833,7 +39873,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
-    ganponKuriire?: IntFieldUpdateOperationsInput | number
+    ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customerUploadVersion?: IntFieldUpdateOperationsInput | number
@@ -39926,6 +39966,7 @@ export namespace Prisma {
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
+    photoCount?: IntFieldUpdateOperationsInput | number
     valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
@@ -39964,6 +40005,7 @@ export namespace Prisma {
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
+    photoCount?: IntFieldUpdateOperationsInput | number
     valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
@@ -40001,6 +40043,7 @@ export namespace Prisma {
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
+    photoCount?: IntFieldUpdateOperationsInput | number
     valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
@@ -40033,7 +40076,7 @@ export namespace Prisma {
     paymentDate: Date | string
     reportDate: Date | string
     topic: string
-    ganponKuriire?: number
+    ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
     customerUploadVersion?: number
@@ -40189,7 +40232,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
-    ganponKuriire?: IntFieldUpdateOperationsInput | number
+    ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customerUploadVersion?: IntFieldUpdateOperationsInput | number
@@ -40280,7 +40323,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
-    ganponKuriire?: IntFieldUpdateOperationsInput | number
+    ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customerUploadVersion?: IntFieldUpdateOperationsInput | number
@@ -40370,7 +40413,7 @@ export namespace Prisma {
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
-    ganponKuriire?: IntFieldUpdateOperationsInput | number
+    ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customerUploadVersion?: IntFieldUpdateOperationsInput | number
@@ -40752,6 +40795,7 @@ export namespace Prisma {
     photo2?: string | null
     photo3?: string | null
     photo4?: string | null
+    photoCount?: number
     valuationStatementFile?: Buffer | null
     valuationStatementName?: string | null
     valuationStatementSize?: number | null
@@ -40788,6 +40832,7 @@ export namespace Prisma {
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
+    photoCount?: IntFieldUpdateOperationsInput | number
     valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
@@ -40826,6 +40871,7 @@ export namespace Prisma {
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
+    photoCount?: IntFieldUpdateOperationsInput | number
     valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
@@ -40863,6 +40909,7 @@ export namespace Prisma {
     photo2?: NullableStringFieldUpdateOperationsInput | string | null
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
+    photoCount?: IntFieldUpdateOperationsInput | number
     valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Buffer | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
