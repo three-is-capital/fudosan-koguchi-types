@@ -89,11 +89,6 @@ export type CustomerFund = $Result.DefaultSelection<Prisma.$CustomerFundPayload>
  */
 export type Template = $Result.DefaultSelection<Prisma.$TemplatePayload>
 /**
- * Model TemplateHistory
- * 
- */
-export type TemplateHistory = $Result.DefaultSelection<Prisma.$TemplateHistoryPayload>
-/**
  * Model VariableDefinition
  * 
  */
@@ -520,16 +515,6 @@ export class PrismaClient<
     * ```
     */
   get template(): Prisma.TemplateDelegate<ExtArgs>;
-
-  /**
-   * `prisma.templateHistory`: Exposes CRUD operations for the **TemplateHistory** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more TemplateHistories
-    * const templateHistories = await prisma.templateHistory.findMany()
-    * ```
-    */
-  get templateHistory(): Prisma.TemplateHistoryDelegate<ExtArgs>;
 
   /**
    * `prisma.variableDefinition`: Exposes CRUD operations for the **VariableDefinition** model.
@@ -1016,7 +1001,6 @@ export namespace Prisma {
     Customer: 'Customer',
     CustomerFund: 'CustomerFund',
     Template: 'Template',
-    TemplateHistory: 'TemplateHistory',
     VariableDefinition: 'VariableDefinition',
     YayoiCSV: 'YayoiCSV',
     YayoiCSVHistory: 'YayoiCSVHistory'
@@ -1035,7 +1019,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "user" | "sBIMPUser" | "eAJUser" | "company" | "ki" | "project" | "projectKi" | "projectKiBS" | "projectKiPL" | "pLOrderBy" | "asset" | "assetKi" | "customer" | "customerFund" | "template" | "templateHistory" | "variableDefinition" | "yayoiCSV" | "yayoiCSVHistory"
+      modelProps: "user" | "sBIMPUser" | "eAJUser" | "company" | "ki" | "project" | "projectKi" | "projectKiBS" | "projectKiPL" | "pLOrderBy" | "asset" | "assetKi" | "customer" | "customerFund" | "template" | "variableDefinition" | "yayoiCSV" | "yayoiCSVHistory"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2086,76 +2070,6 @@ export namespace Prisma {
           count: {
             args: Prisma.TemplateCountArgs<ExtArgs>
             result: $Utils.Optional<TemplateCountAggregateOutputType> | number
-          }
-        }
-      }
-      TemplateHistory: {
-        payload: Prisma.$TemplateHistoryPayload<ExtArgs>
-        fields: Prisma.TemplateHistoryFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.TemplateHistoryFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TemplateHistoryPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.TemplateHistoryFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TemplateHistoryPayload>
-          }
-          findFirst: {
-            args: Prisma.TemplateHistoryFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TemplateHistoryPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.TemplateHistoryFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TemplateHistoryPayload>
-          }
-          findMany: {
-            args: Prisma.TemplateHistoryFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TemplateHistoryPayload>[]
-          }
-          create: {
-            args: Prisma.TemplateHistoryCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TemplateHistoryPayload>
-          }
-          createMany: {
-            args: Prisma.TemplateHistoryCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.TemplateHistoryCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TemplateHistoryPayload>[]
-          }
-          delete: {
-            args: Prisma.TemplateHistoryDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TemplateHistoryPayload>
-          }
-          update: {
-            args: Prisma.TemplateHistoryUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TemplateHistoryPayload>
-          }
-          deleteMany: {
-            args: Prisma.TemplateHistoryDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.TemplateHistoryUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          upsert: {
-            args: Prisma.TemplateHistoryUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$TemplateHistoryPayload>
-          }
-          aggregate: {
-            args: Prisma.TemplateHistoryAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateTemplateHistory>
-          }
-          groupBy: {
-            args: Prisma.TemplateHistoryGroupByArgs<ExtArgs>
-            result: $Utils.Optional<TemplateHistoryGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.TemplateHistoryCountArgs<ExtArgs>
-            result: $Utils.Optional<TemplateHistoryCountAggregateOutputType> | number
           }
         }
       }
@@ -9393,6 +9307,8 @@ export namespace Prisma {
     bunpaiSogaku: number | null
     bunpaiSogakuNonInvoice: number | null
     kurikoshiRieki: number | null
+    capitalGain: number | null
+    unitCapitalGain: number | null
     unitShintakuShueki: number | null
     unitShintakuHiyo: number | null
     unitShintakuHiyoForNonInvoice: number | null
@@ -9403,6 +9319,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice: number | null
     shohiyoRyuhokin: number | null
     shuzenTsumitatekin: number | null
+    shohiyoRyuhokinTorikuzushi: number | null
+    shuzenTsumitatekinTorikuzushi: number | null
     azukarikinHenkanJunbikin: number | null
     zeikinHokenryoJunbiKanjo: number | null
     kyodoUnyuHiyoJunbiKanjo: number | null
@@ -9466,6 +9384,8 @@ export namespace Prisma {
     bunpaiSogaku: bigint | null
     bunpaiSogakuNonInvoice: bigint | null
     kurikoshiRieki: number | null
+    capitalGain: bigint | null
+    unitCapitalGain: bigint | null
     unitShintakuShueki: number | null
     unitShintakuHiyo: number | null
     unitShintakuHiyoForNonInvoice: number | null
@@ -9476,6 +9396,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice: number | null
     shohiyoRyuhokin: bigint | null
     shuzenTsumitatekin: bigint | null
+    shohiyoRyuhokinTorikuzushi: bigint | null
+    shuzenTsumitatekinTorikuzushi: bigint | null
     azukarikinHenkanJunbikin: bigint | null
     zeikinHokenryoJunbiKanjo: bigint | null
     kyodoUnyuHiyoJunbiKanjo: bigint | null
@@ -9551,6 +9473,8 @@ export namespace Prisma {
     bunpaiSogaku: bigint | null
     bunpaiSogakuNonInvoice: bigint | null
     kurikoshiRieki: number | null
+    capitalGain: bigint | null
+    unitCapitalGain: bigint | null
     unitShintakuShueki: number | null
     unitShintakuHiyo: number | null
     unitShintakuHiyoForNonInvoice: number | null
@@ -9561,6 +9485,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice: number | null
     shohiyoRyuhokin: bigint | null
     shuzenTsumitatekin: bigint | null
+    shohiyoRyuhokinTorikuzushi: bigint | null
+    shuzenTsumitatekinTorikuzushi: bigint | null
     azukarikinHenkanJunbikin: bigint | null
     zeikinHokenryoJunbiKanjo: bigint | null
     kyodoUnyuHiyoJunbiKanjo: bigint | null
@@ -9642,6 +9568,8 @@ export namespace Prisma {
     bunpaiSogaku: bigint | null
     bunpaiSogakuNonInvoice: bigint | null
     kurikoshiRieki: number | null
+    capitalGain: bigint | null
+    unitCapitalGain: bigint | null
     unitShintakuShueki: number | null
     unitShintakuHiyo: number | null
     unitShintakuHiyoForNonInvoice: number | null
@@ -9652,6 +9580,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice: number | null
     shohiyoRyuhokin: bigint | null
     shuzenTsumitatekin: bigint | null
+    shohiyoRyuhokinTorikuzushi: bigint | null
+    shuzenTsumitatekinTorikuzushi: bigint | null
     azukarikinHenkanJunbikin: bigint | null
     zeikinHokenryoJunbiKanjo: bigint | null
     kyodoUnyuHiyoJunbiKanjo: bigint | null
@@ -9733,6 +9663,8 @@ export namespace Prisma {
     bunpaiSogaku: number
     bunpaiSogakuNonInvoice: number
     kurikoshiRieki: number
+    capitalGain: number
+    unitCapitalGain: number
     unitShintakuShueki: number
     unitShintakuHiyo: number
     unitShintakuHiyoForNonInvoice: number
@@ -9743,6 +9675,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice: number
     shohiyoRyuhokin: number
     shuzenTsumitatekin: number
+    shohiyoRyuhokinTorikuzushi: number
+    shuzenTsumitatekinTorikuzushi: number
     azukarikinHenkanJunbikin: number
     zeikinHokenryoJunbiKanjo: number
     kyodoUnyuHiyoJunbiKanjo: number
@@ -9814,6 +9748,8 @@ export namespace Prisma {
     bunpaiSogaku?: true
     bunpaiSogakuNonInvoice?: true
     kurikoshiRieki?: true
+    capitalGain?: true
+    unitCapitalGain?: true
     unitShintakuShueki?: true
     unitShintakuHiyo?: true
     unitShintakuHiyoForNonInvoice?: true
@@ -9824,6 +9760,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: true
     shohiyoRyuhokin?: true
     shuzenTsumitatekin?: true
+    shohiyoRyuhokinTorikuzushi?: true
+    shuzenTsumitatekinTorikuzushi?: true
     azukarikinHenkanJunbikin?: true
     zeikinHokenryoJunbiKanjo?: true
     kyodoUnyuHiyoJunbiKanjo?: true
@@ -9887,6 +9825,8 @@ export namespace Prisma {
     bunpaiSogaku?: true
     bunpaiSogakuNonInvoice?: true
     kurikoshiRieki?: true
+    capitalGain?: true
+    unitCapitalGain?: true
     unitShintakuShueki?: true
     unitShintakuHiyo?: true
     unitShintakuHiyoForNonInvoice?: true
@@ -9897,6 +9837,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: true
     shohiyoRyuhokin?: true
     shuzenTsumitatekin?: true
+    shohiyoRyuhokinTorikuzushi?: true
+    shuzenTsumitatekinTorikuzushi?: true
     azukarikinHenkanJunbikin?: true
     zeikinHokenryoJunbiKanjo?: true
     kyodoUnyuHiyoJunbiKanjo?: true
@@ -9972,6 +9914,8 @@ export namespace Prisma {
     bunpaiSogaku?: true
     bunpaiSogakuNonInvoice?: true
     kurikoshiRieki?: true
+    capitalGain?: true
+    unitCapitalGain?: true
     unitShintakuShueki?: true
     unitShintakuHiyo?: true
     unitShintakuHiyoForNonInvoice?: true
@@ -9982,6 +9926,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: true
     shohiyoRyuhokin?: true
     shuzenTsumitatekin?: true
+    shohiyoRyuhokinTorikuzushi?: true
+    shuzenTsumitatekinTorikuzushi?: true
     azukarikinHenkanJunbikin?: true
     zeikinHokenryoJunbiKanjo?: true
     kyodoUnyuHiyoJunbiKanjo?: true
@@ -10063,6 +10009,8 @@ export namespace Prisma {
     bunpaiSogaku?: true
     bunpaiSogakuNonInvoice?: true
     kurikoshiRieki?: true
+    capitalGain?: true
+    unitCapitalGain?: true
     unitShintakuShueki?: true
     unitShintakuHiyo?: true
     unitShintakuHiyoForNonInvoice?: true
@@ -10073,6 +10021,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: true
     shohiyoRyuhokin?: true
     shuzenTsumitatekin?: true
+    shohiyoRyuhokinTorikuzushi?: true
+    shuzenTsumitatekinTorikuzushi?: true
     azukarikinHenkanJunbikin?: true
     zeikinHokenryoJunbiKanjo?: true
     kyodoUnyuHiyoJunbiKanjo?: true
@@ -10154,6 +10104,8 @@ export namespace Prisma {
     bunpaiSogaku?: true
     bunpaiSogakuNonInvoice?: true
     kurikoshiRieki?: true
+    capitalGain?: true
+    unitCapitalGain?: true
     unitShintakuShueki?: true
     unitShintakuHiyo?: true
     unitShintakuHiyoForNonInvoice?: true
@@ -10164,6 +10116,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: true
     shohiyoRyuhokin?: true
     shuzenTsumitatekin?: true
+    shohiyoRyuhokinTorikuzushi?: true
+    shuzenTsumitatekinTorikuzushi?: true
     azukarikinHenkanJunbikin?: true
     zeikinHokenryoJunbiKanjo?: true
     kyodoUnyuHiyoJunbiKanjo?: true
@@ -10332,6 +10286,8 @@ export namespace Prisma {
     bunpaiSogaku: bigint | null
     bunpaiSogakuNonInvoice: bigint | null
     kurikoshiRieki: number | null
+    capitalGain: bigint | null
+    unitCapitalGain: bigint | null
     unitShintakuShueki: number | null
     unitShintakuHiyo: number | null
     unitShintakuHiyoForNonInvoice: number | null
@@ -10342,6 +10298,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice: number | null
     shohiyoRyuhokin: bigint | null
     shuzenTsumitatekin: bigint | null
+    shohiyoRyuhokinTorikuzushi: bigint | null
+    shuzenTsumitatekinTorikuzushi: bigint | null
     azukarikinHenkanJunbikin: bigint | null
     zeikinHokenryoJunbiKanjo: bigint | null
     kyodoUnyuHiyoJunbiKanjo: bigint | null
@@ -10442,6 +10400,8 @@ export namespace Prisma {
     bunpaiSogaku?: boolean
     bunpaiSogakuNonInvoice?: boolean
     kurikoshiRieki?: boolean
+    capitalGain?: boolean
+    unitCapitalGain?: boolean
     unitShintakuShueki?: boolean
     unitShintakuHiyo?: boolean
     unitShintakuHiyoForNonInvoice?: boolean
@@ -10452,6 +10412,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: boolean
     shohiyoRyuhokin?: boolean
     shuzenTsumitatekin?: boolean
+    shohiyoRyuhokinTorikuzushi?: boolean
+    shuzenTsumitatekinTorikuzushi?: boolean
     azukarikinHenkanJunbikin?: boolean
     zeikinHokenryoJunbiKanjo?: boolean
     kyodoUnyuHiyoJunbiKanjo?: boolean
@@ -10537,6 +10499,8 @@ export namespace Prisma {
     bunpaiSogaku?: boolean
     bunpaiSogakuNonInvoice?: boolean
     kurikoshiRieki?: boolean
+    capitalGain?: boolean
+    unitCapitalGain?: boolean
     unitShintakuShueki?: boolean
     unitShintakuHiyo?: boolean
     unitShintakuHiyoForNonInvoice?: boolean
@@ -10547,6 +10511,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: boolean
     shohiyoRyuhokin?: boolean
     shuzenTsumitatekin?: boolean
+    shohiyoRyuhokinTorikuzushi?: boolean
+    shuzenTsumitatekinTorikuzushi?: boolean
     azukarikinHenkanJunbikin?: boolean
     zeikinHokenryoJunbiKanjo?: boolean
     kyodoUnyuHiyoJunbiKanjo?: boolean
@@ -10630,6 +10596,8 @@ export namespace Prisma {
     bunpaiSogaku?: boolean
     bunpaiSogakuNonInvoice?: boolean
     kurikoshiRieki?: boolean
+    capitalGain?: boolean
+    unitCapitalGain?: boolean
     unitShintakuShueki?: boolean
     unitShintakuHiyo?: boolean
     unitShintakuHiyoForNonInvoice?: boolean
@@ -10640,6 +10608,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: boolean
     shohiyoRyuhokin?: boolean
     shuzenTsumitatekin?: boolean
+    shohiyoRyuhokinTorikuzushi?: boolean
+    shuzenTsumitatekinTorikuzushi?: boolean
     azukarikinHenkanJunbikin?: boolean
     zeikinHokenryoJunbiKanjo?: boolean
     kyodoUnyuHiyoJunbiKanjo?: boolean
@@ -10739,6 +10709,8 @@ export namespace Prisma {
       bunpaiSogaku: bigint | null
       bunpaiSogakuNonInvoice: bigint | null
       kurikoshiRieki: number | null
+      capitalGain: bigint | null
+      unitCapitalGain: bigint | null
       unitShintakuShueki: number | null
       unitShintakuHiyo: number | null
       unitShintakuHiyoForNonInvoice: number | null
@@ -10749,6 +10721,8 @@ export namespace Prisma {
       unitBunpaiForNonInvoice: number | null
       shohiyoRyuhokin: bigint | null
       shuzenTsumitatekin: bigint | null
+      shohiyoRyuhokinTorikuzushi: bigint | null
+      shuzenTsumitatekinTorikuzushi: bigint | null
       azukarikinHenkanJunbikin: bigint | null
       zeikinHokenryoJunbiKanjo: bigint | null
       kyodoUnyuHiyoJunbiKanjo: bigint | null
@@ -11223,6 +11197,8 @@ export namespace Prisma {
     readonly bunpaiSogaku: FieldRef<"ProjectKi", 'BigInt'>
     readonly bunpaiSogakuNonInvoice: FieldRef<"ProjectKi", 'BigInt'>
     readonly kurikoshiRieki: FieldRef<"ProjectKi", 'Int'>
+    readonly capitalGain: FieldRef<"ProjectKi", 'BigInt'>
+    readonly unitCapitalGain: FieldRef<"ProjectKi", 'BigInt'>
     readonly unitShintakuShueki: FieldRef<"ProjectKi", 'Int'>
     readonly unitShintakuHiyo: FieldRef<"ProjectKi", 'Int'>
     readonly unitShintakuHiyoForNonInvoice: FieldRef<"ProjectKi", 'Int'>
@@ -11233,6 +11209,8 @@ export namespace Prisma {
     readonly unitBunpaiForNonInvoice: FieldRef<"ProjectKi", 'Int'>
     readonly shohiyoRyuhokin: FieldRef<"ProjectKi", 'BigInt'>
     readonly shuzenTsumitatekin: FieldRef<"ProjectKi", 'BigInt'>
+    readonly shohiyoRyuhokinTorikuzushi: FieldRef<"ProjectKi", 'BigInt'>
+    readonly shuzenTsumitatekinTorikuzushi: FieldRef<"ProjectKi", 'BigInt'>
     readonly azukarikinHenkanJunbikin: FieldRef<"ProjectKi", 'BigInt'>
     readonly zeikinHokenryoJunbiKanjo: FieldRef<"ProjectKi", 'BigInt'>
     readonly kyodoUnyuHiyoJunbiKanjo: FieldRef<"ProjectKi", 'BigInt'>
@@ -18930,6 +18908,7 @@ export namespace Prisma {
     id: string | null
     customerId: string | null
     projectKiId: string | null
+    invoice: boolean | null
     applyUnit: number | null
     bunpaiThisKi: number | null
     bunpaiYear: number | null
@@ -18951,6 +18930,7 @@ export namespace Prisma {
     id: string | null
     customerId: string | null
     projectKiId: string | null
+    invoice: boolean | null
     applyUnit: number | null
     bunpaiThisKi: number | null
     bunpaiYear: number | null
@@ -18972,6 +18952,7 @@ export namespace Prisma {
     id: number
     customerId: number
     projectKiId: number
+    invoice: number
     applyUnit: number
     bunpaiThisKi: number
     bunpaiYear: number
@@ -19015,6 +18996,7 @@ export namespace Prisma {
     id?: true
     customerId?: true
     projectKiId?: true
+    invoice?: true
     applyUnit?: true
     bunpaiThisKi?: true
     bunpaiYear?: true
@@ -19036,6 +19018,7 @@ export namespace Prisma {
     id?: true
     customerId?: true
     projectKiId?: true
+    invoice?: true
     applyUnit?: true
     bunpaiThisKi?: true
     bunpaiYear?: true
@@ -19057,6 +19040,7 @@ export namespace Prisma {
     id?: true
     customerId?: true
     projectKiId?: true
+    invoice?: true
     applyUnit?: true
     bunpaiThisKi?: true
     bunpaiYear?: true
@@ -19165,6 +19149,7 @@ export namespace Prisma {
     id: string
     customerId: string
     projectKiId: string
+    invoice: boolean
     applyUnit: number
     bunpaiThisKi: number | null
     bunpaiYear: number | null
@@ -19205,6 +19190,7 @@ export namespace Prisma {
     id?: boolean
     customerId?: boolean
     projectKiId?: boolean
+    invoice?: boolean
     applyUnit?: boolean
     bunpaiThisKi?: boolean
     bunpaiYear?: boolean
@@ -19228,6 +19214,7 @@ export namespace Prisma {
     id?: boolean
     customerId?: boolean
     projectKiId?: boolean
+    invoice?: boolean
     applyUnit?: boolean
     bunpaiThisKi?: boolean
     bunpaiYear?: boolean
@@ -19251,6 +19238,7 @@ export namespace Prisma {
     id?: boolean
     customerId?: boolean
     projectKiId?: boolean
+    invoice?: boolean
     applyUnit?: boolean
     bunpaiThisKi?: boolean
     bunpaiYear?: boolean
@@ -19287,6 +19275,7 @@ export namespace Prisma {
       id: string
       customerId: string
       projectKiId: string
+      invoice: boolean
       applyUnit: number
       bunpaiThisKi: number | null
       bunpaiYear: number | null
@@ -19700,6 +19689,7 @@ export namespace Prisma {
     readonly id: FieldRef<"CustomerFund", 'String'>
     readonly customerId: FieldRef<"CustomerFund", 'String'>
     readonly projectKiId: FieldRef<"CustomerFund", 'String'>
+    readonly invoice: FieldRef<"CustomerFund", 'Boolean'>
     readonly applyUnit: FieldRef<"CustomerFund", 'Int'>
     readonly bunpaiThisKi: FieldRef<"CustomerFund", 'Int'>
     readonly bunpaiYear: FieldRef<"CustomerFund", 'Int'>
@@ -21234,1006 +21224,6 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: TemplateInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model TemplateHistory
-   */
-
-  export type AggregateTemplateHistory = {
-    _count: TemplateHistoryCountAggregateOutputType | null
-    _avg: TemplateHistoryAvgAggregateOutputType | null
-    _sum: TemplateHistorySumAggregateOutputType | null
-    _min: TemplateHistoryMinAggregateOutputType | null
-    _max: TemplateHistoryMaxAggregateOutputType | null
-  }
-
-  export type TemplateHistoryAvgAggregateOutputType = {
-    size: number | null
-    version: number | null
-  }
-
-  export type TemplateHistorySumAggregateOutputType = {
-    size: number | null
-    version: number | null
-  }
-
-  export type TemplateHistoryMinAggregateOutputType = {
-    id: string | null
-    templateId: string | null
-    name: string | null
-    contentType: string | null
-    ext: $Enums.ExtType | null
-    size: number | null
-    templateType: $Enums.TemplateType | null
-    file: Buffer | null
-    version: number | null
-    updatedAt: Date | null
-    updatedId: string | null
-    updatedBy: string | null
-  }
-
-  export type TemplateHistoryMaxAggregateOutputType = {
-    id: string | null
-    templateId: string | null
-    name: string | null
-    contentType: string | null
-    ext: $Enums.ExtType | null
-    size: number | null
-    templateType: $Enums.TemplateType | null
-    file: Buffer | null
-    version: number | null
-    updatedAt: Date | null
-    updatedId: string | null
-    updatedBy: string | null
-  }
-
-  export type TemplateHistoryCountAggregateOutputType = {
-    id: number
-    templateId: number
-    name: number
-    contentType: number
-    ext: number
-    size: number
-    templateType: number
-    file: number
-    version: number
-    updatedAt: number
-    updatedId: number
-    updatedBy: number
-    _all: number
-  }
-
-
-  export type TemplateHistoryAvgAggregateInputType = {
-    size?: true
-    version?: true
-  }
-
-  export type TemplateHistorySumAggregateInputType = {
-    size?: true
-    version?: true
-  }
-
-  export type TemplateHistoryMinAggregateInputType = {
-    id?: true
-    templateId?: true
-    name?: true
-    contentType?: true
-    ext?: true
-    size?: true
-    templateType?: true
-    file?: true
-    version?: true
-    updatedAt?: true
-    updatedId?: true
-    updatedBy?: true
-  }
-
-  export type TemplateHistoryMaxAggregateInputType = {
-    id?: true
-    templateId?: true
-    name?: true
-    contentType?: true
-    ext?: true
-    size?: true
-    templateType?: true
-    file?: true
-    version?: true
-    updatedAt?: true
-    updatedId?: true
-    updatedBy?: true
-  }
-
-  export type TemplateHistoryCountAggregateInputType = {
-    id?: true
-    templateId?: true
-    name?: true
-    contentType?: true
-    ext?: true
-    size?: true
-    templateType?: true
-    file?: true
-    version?: true
-    updatedAt?: true
-    updatedId?: true
-    updatedBy?: true
-    _all?: true
-  }
-
-  export type TemplateHistoryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which TemplateHistory to aggregate.
-     */
-    where?: TemplateHistoryWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of TemplateHistories to fetch.
-     */
-    orderBy?: TemplateHistoryOrderByWithRelationInput | TemplateHistoryOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: TemplateHistoryWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` TemplateHistories from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` TemplateHistories.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned TemplateHistories
-    **/
-    _count?: true | TemplateHistoryCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: TemplateHistoryAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: TemplateHistorySumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: TemplateHistoryMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: TemplateHistoryMaxAggregateInputType
-  }
-
-  export type GetTemplateHistoryAggregateType<T extends TemplateHistoryAggregateArgs> = {
-        [P in keyof T & keyof AggregateTemplateHistory]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateTemplateHistory[P]>
-      : GetScalarType<T[P], AggregateTemplateHistory[P]>
-  }
-
-
-
-
-  export type TemplateHistoryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: TemplateHistoryWhereInput
-    orderBy?: TemplateHistoryOrderByWithAggregationInput | TemplateHistoryOrderByWithAggregationInput[]
-    by: TemplateHistoryScalarFieldEnum[] | TemplateHistoryScalarFieldEnum
-    having?: TemplateHistoryScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: TemplateHistoryCountAggregateInputType | true
-    _avg?: TemplateHistoryAvgAggregateInputType
-    _sum?: TemplateHistorySumAggregateInputType
-    _min?: TemplateHistoryMinAggregateInputType
-    _max?: TemplateHistoryMaxAggregateInputType
-  }
-
-  export type TemplateHistoryGroupByOutputType = {
-    id: string
-    templateId: string
-    name: string
-    contentType: string
-    ext: $Enums.ExtType
-    size: number
-    templateType: $Enums.TemplateType
-    file: Buffer
-    version: number
-    updatedAt: Date
-    updatedId: string
-    updatedBy: string
-    _count: TemplateHistoryCountAggregateOutputType | null
-    _avg: TemplateHistoryAvgAggregateOutputType | null
-    _sum: TemplateHistorySumAggregateOutputType | null
-    _min: TemplateHistoryMinAggregateOutputType | null
-    _max: TemplateHistoryMaxAggregateOutputType | null
-  }
-
-  type GetTemplateHistoryGroupByPayload<T extends TemplateHistoryGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<TemplateHistoryGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof TemplateHistoryGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], TemplateHistoryGroupByOutputType[P]>
-            : GetScalarType<T[P], TemplateHistoryGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type TemplateHistorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    templateId?: boolean
-    name?: boolean
-    contentType?: boolean
-    ext?: boolean
-    size?: boolean
-    templateType?: boolean
-    file?: boolean
-    version?: boolean
-    updatedAt?: boolean
-    updatedId?: boolean
-    updatedBy?: boolean
-  }, ExtArgs["result"]["templateHistory"]>
-
-  export type TemplateHistorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    templateId?: boolean
-    name?: boolean
-    contentType?: boolean
-    ext?: boolean
-    size?: boolean
-    templateType?: boolean
-    file?: boolean
-    version?: boolean
-    updatedAt?: boolean
-    updatedId?: boolean
-    updatedBy?: boolean
-  }, ExtArgs["result"]["templateHistory"]>
-
-  export type TemplateHistorySelectScalar = {
-    id?: boolean
-    templateId?: boolean
-    name?: boolean
-    contentType?: boolean
-    ext?: boolean
-    size?: boolean
-    templateType?: boolean
-    file?: boolean
-    version?: boolean
-    updatedAt?: boolean
-    updatedId?: boolean
-    updatedBy?: boolean
-  }
-
-
-  export type $TemplateHistoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "TemplateHistory"
-    objects: {}
-    scalars: $Extensions.GetPayloadResult<{
-      id: string
-      templateId: string
-      name: string
-      contentType: string
-      ext: $Enums.ExtType
-      size: number
-      templateType: $Enums.TemplateType
-      file: Buffer
-      version: number
-      updatedAt: Date
-      updatedId: string
-      updatedBy: string
-    }, ExtArgs["result"]["templateHistory"]>
-    composites: {}
-  }
-
-  type TemplateHistoryGetPayload<S extends boolean | null | undefined | TemplateHistoryDefaultArgs> = $Result.GetResult<Prisma.$TemplateHistoryPayload, S>
-
-  type TemplateHistoryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<TemplateHistoryFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: TemplateHistoryCountAggregateInputType | true
-    }
-
-  export interface TemplateHistoryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['TemplateHistory'], meta: { name: 'TemplateHistory' } }
-    /**
-     * Find zero or one TemplateHistory that matches the filter.
-     * @param {TemplateHistoryFindUniqueArgs} args - Arguments to find a TemplateHistory
-     * @example
-     * // Get one TemplateHistory
-     * const templateHistory = await prisma.templateHistory.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends TemplateHistoryFindUniqueArgs>(args: SelectSubset<T, TemplateHistoryFindUniqueArgs<ExtArgs>>): Prisma__TemplateHistoryClient<$Result.GetResult<Prisma.$TemplateHistoryPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
-
-    /**
-     * Find one TemplateHistory that matches the filter or throw an error with `error.code='P2025'` 
-     * if no matches were found.
-     * @param {TemplateHistoryFindUniqueOrThrowArgs} args - Arguments to find a TemplateHistory
-     * @example
-     * // Get one TemplateHistory
-     * const templateHistory = await prisma.templateHistory.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends TemplateHistoryFindUniqueOrThrowArgs>(args: SelectSubset<T, TemplateHistoryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TemplateHistoryClient<$Result.GetResult<Prisma.$TemplateHistoryPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
-
-    /**
-     * Find the first TemplateHistory that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TemplateHistoryFindFirstArgs} args - Arguments to find a TemplateHistory
-     * @example
-     * // Get one TemplateHistory
-     * const templateHistory = await prisma.templateHistory.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends TemplateHistoryFindFirstArgs>(args?: SelectSubset<T, TemplateHistoryFindFirstArgs<ExtArgs>>): Prisma__TemplateHistoryClient<$Result.GetResult<Prisma.$TemplateHistoryPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
-
-    /**
-     * Find the first TemplateHistory that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TemplateHistoryFindFirstOrThrowArgs} args - Arguments to find a TemplateHistory
-     * @example
-     * // Get one TemplateHistory
-     * const templateHistory = await prisma.templateHistory.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends TemplateHistoryFindFirstOrThrowArgs>(args?: SelectSubset<T, TemplateHistoryFindFirstOrThrowArgs<ExtArgs>>): Prisma__TemplateHistoryClient<$Result.GetResult<Prisma.$TemplateHistoryPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
-
-    /**
-     * Find zero or more TemplateHistories that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TemplateHistoryFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all TemplateHistories
-     * const templateHistories = await prisma.templateHistory.findMany()
-     * 
-     * // Get first 10 TemplateHistories
-     * const templateHistories = await prisma.templateHistory.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const templateHistoryWithIdOnly = await prisma.templateHistory.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends TemplateHistoryFindManyArgs>(args?: SelectSubset<T, TemplateHistoryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TemplateHistoryPayload<ExtArgs>, T, "findMany">>
-
-    /**
-     * Create a TemplateHistory.
-     * @param {TemplateHistoryCreateArgs} args - Arguments to create a TemplateHistory.
-     * @example
-     * // Create one TemplateHistory
-     * const TemplateHistory = await prisma.templateHistory.create({
-     *   data: {
-     *     // ... data to create a TemplateHistory
-     *   }
-     * })
-     * 
-     */
-    create<T extends TemplateHistoryCreateArgs>(args: SelectSubset<T, TemplateHistoryCreateArgs<ExtArgs>>): Prisma__TemplateHistoryClient<$Result.GetResult<Prisma.$TemplateHistoryPayload<ExtArgs>, T, "create">, never, ExtArgs>
-
-    /**
-     * Create many TemplateHistories.
-     * @param {TemplateHistoryCreateManyArgs} args - Arguments to create many TemplateHistories.
-     * @example
-     * // Create many TemplateHistories
-     * const templateHistory = await prisma.templateHistory.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends TemplateHistoryCreateManyArgs>(args?: SelectSubset<T, TemplateHistoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many TemplateHistories and returns the data saved in the database.
-     * @param {TemplateHistoryCreateManyAndReturnArgs} args - Arguments to create many TemplateHistories.
-     * @example
-     * // Create many TemplateHistories
-     * const templateHistory = await prisma.templateHistory.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many TemplateHistories and only return the `id`
-     * const templateHistoryWithIdOnly = await prisma.templateHistory.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends TemplateHistoryCreateManyAndReturnArgs>(args?: SelectSubset<T, TemplateHistoryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TemplateHistoryPayload<ExtArgs>, T, "createManyAndReturn">>
-
-    /**
-     * Delete a TemplateHistory.
-     * @param {TemplateHistoryDeleteArgs} args - Arguments to delete one TemplateHistory.
-     * @example
-     * // Delete one TemplateHistory
-     * const TemplateHistory = await prisma.templateHistory.delete({
-     *   where: {
-     *     // ... filter to delete one TemplateHistory
-     *   }
-     * })
-     * 
-     */
-    delete<T extends TemplateHistoryDeleteArgs>(args: SelectSubset<T, TemplateHistoryDeleteArgs<ExtArgs>>): Prisma__TemplateHistoryClient<$Result.GetResult<Prisma.$TemplateHistoryPayload<ExtArgs>, T, "delete">, never, ExtArgs>
-
-    /**
-     * Update one TemplateHistory.
-     * @param {TemplateHistoryUpdateArgs} args - Arguments to update one TemplateHistory.
-     * @example
-     * // Update one TemplateHistory
-     * const templateHistory = await prisma.templateHistory.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends TemplateHistoryUpdateArgs>(args: SelectSubset<T, TemplateHistoryUpdateArgs<ExtArgs>>): Prisma__TemplateHistoryClient<$Result.GetResult<Prisma.$TemplateHistoryPayload<ExtArgs>, T, "update">, never, ExtArgs>
-
-    /**
-     * Delete zero or more TemplateHistories.
-     * @param {TemplateHistoryDeleteManyArgs} args - Arguments to filter TemplateHistories to delete.
-     * @example
-     * // Delete a few TemplateHistories
-     * const { count } = await prisma.templateHistory.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends TemplateHistoryDeleteManyArgs>(args?: SelectSubset<T, TemplateHistoryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more TemplateHistories.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TemplateHistoryUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many TemplateHistories
-     * const templateHistory = await prisma.templateHistory.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends TemplateHistoryUpdateManyArgs>(args: SelectSubset<T, TemplateHistoryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create or update one TemplateHistory.
-     * @param {TemplateHistoryUpsertArgs} args - Arguments to update or create a TemplateHistory.
-     * @example
-     * // Update or create a TemplateHistory
-     * const templateHistory = await prisma.templateHistory.upsert({
-     *   create: {
-     *     // ... data to create a TemplateHistory
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the TemplateHistory we want to update
-     *   }
-     * })
-     */
-    upsert<T extends TemplateHistoryUpsertArgs>(args: SelectSubset<T, TemplateHistoryUpsertArgs<ExtArgs>>): Prisma__TemplateHistoryClient<$Result.GetResult<Prisma.$TemplateHistoryPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
-
-
-    /**
-     * Count the number of TemplateHistories.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TemplateHistoryCountArgs} args - Arguments to filter TemplateHistories to count.
-     * @example
-     * // Count the number of TemplateHistories
-     * const count = await prisma.templateHistory.count({
-     *   where: {
-     *     // ... the filter for the TemplateHistories we want to count
-     *   }
-     * })
-    **/
-    count<T extends TemplateHistoryCountArgs>(
-      args?: Subset<T, TemplateHistoryCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], TemplateHistoryCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a TemplateHistory.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TemplateHistoryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends TemplateHistoryAggregateArgs>(args: Subset<T, TemplateHistoryAggregateArgs>): Prisma.PrismaPromise<GetTemplateHistoryAggregateType<T>>
-
-    /**
-     * Group by TemplateHistory.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {TemplateHistoryGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends TemplateHistoryGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: TemplateHistoryGroupByArgs['orderBy'] }
-        : { orderBy?: TemplateHistoryGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, TemplateHistoryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTemplateHistoryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the TemplateHistory model
-   */
-  readonly fields: TemplateHistoryFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for TemplateHistory.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__TemplateHistoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the TemplateHistory model
-   */ 
-  interface TemplateHistoryFieldRefs {
-    readonly id: FieldRef<"TemplateHistory", 'String'>
-    readonly templateId: FieldRef<"TemplateHistory", 'String'>
-    readonly name: FieldRef<"TemplateHistory", 'String'>
-    readonly contentType: FieldRef<"TemplateHistory", 'String'>
-    readonly ext: FieldRef<"TemplateHistory", 'ExtType'>
-    readonly size: FieldRef<"TemplateHistory", 'Int'>
-    readonly templateType: FieldRef<"TemplateHistory", 'TemplateType'>
-    readonly file: FieldRef<"TemplateHistory", 'Bytes'>
-    readonly version: FieldRef<"TemplateHistory", 'Int'>
-    readonly updatedAt: FieldRef<"TemplateHistory", 'DateTime'>
-    readonly updatedId: FieldRef<"TemplateHistory", 'String'>
-    readonly updatedBy: FieldRef<"TemplateHistory", 'String'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * TemplateHistory findUnique
-   */
-  export type TemplateHistoryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TemplateHistory
-     */
-    select?: TemplateHistorySelect<ExtArgs> | null
-    /**
-     * Filter, which TemplateHistory to fetch.
-     */
-    where: TemplateHistoryWhereUniqueInput
-  }
-
-  /**
-   * TemplateHistory findUniqueOrThrow
-   */
-  export type TemplateHistoryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TemplateHistory
-     */
-    select?: TemplateHistorySelect<ExtArgs> | null
-    /**
-     * Filter, which TemplateHistory to fetch.
-     */
-    where: TemplateHistoryWhereUniqueInput
-  }
-
-  /**
-   * TemplateHistory findFirst
-   */
-  export type TemplateHistoryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TemplateHistory
-     */
-    select?: TemplateHistorySelect<ExtArgs> | null
-    /**
-     * Filter, which TemplateHistory to fetch.
-     */
-    where?: TemplateHistoryWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of TemplateHistories to fetch.
-     */
-    orderBy?: TemplateHistoryOrderByWithRelationInput | TemplateHistoryOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for TemplateHistories.
-     */
-    cursor?: TemplateHistoryWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` TemplateHistories from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` TemplateHistories.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of TemplateHistories.
-     */
-    distinct?: TemplateHistoryScalarFieldEnum | TemplateHistoryScalarFieldEnum[]
-  }
-
-  /**
-   * TemplateHistory findFirstOrThrow
-   */
-  export type TemplateHistoryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TemplateHistory
-     */
-    select?: TemplateHistorySelect<ExtArgs> | null
-    /**
-     * Filter, which TemplateHistory to fetch.
-     */
-    where?: TemplateHistoryWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of TemplateHistories to fetch.
-     */
-    orderBy?: TemplateHistoryOrderByWithRelationInput | TemplateHistoryOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for TemplateHistories.
-     */
-    cursor?: TemplateHistoryWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` TemplateHistories from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` TemplateHistories.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of TemplateHistories.
-     */
-    distinct?: TemplateHistoryScalarFieldEnum | TemplateHistoryScalarFieldEnum[]
-  }
-
-  /**
-   * TemplateHistory findMany
-   */
-  export type TemplateHistoryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TemplateHistory
-     */
-    select?: TemplateHistorySelect<ExtArgs> | null
-    /**
-     * Filter, which TemplateHistories to fetch.
-     */
-    where?: TemplateHistoryWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of TemplateHistories to fetch.
-     */
-    orderBy?: TemplateHistoryOrderByWithRelationInput | TemplateHistoryOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing TemplateHistories.
-     */
-    cursor?: TemplateHistoryWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` TemplateHistories from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` TemplateHistories.
-     */
-    skip?: number
-    distinct?: TemplateHistoryScalarFieldEnum | TemplateHistoryScalarFieldEnum[]
-  }
-
-  /**
-   * TemplateHistory create
-   */
-  export type TemplateHistoryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TemplateHistory
-     */
-    select?: TemplateHistorySelect<ExtArgs> | null
-    /**
-     * The data needed to create a TemplateHistory.
-     */
-    data: XOR<TemplateHistoryCreateInput, TemplateHistoryUncheckedCreateInput>
-  }
-
-  /**
-   * TemplateHistory createMany
-   */
-  export type TemplateHistoryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many TemplateHistories.
-     */
-    data: TemplateHistoryCreateManyInput | TemplateHistoryCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * TemplateHistory createManyAndReturn
-   */
-  export type TemplateHistoryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TemplateHistory
-     */
-    select?: TemplateHistorySelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many TemplateHistories.
-     */
-    data: TemplateHistoryCreateManyInput | TemplateHistoryCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * TemplateHistory update
-   */
-  export type TemplateHistoryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TemplateHistory
-     */
-    select?: TemplateHistorySelect<ExtArgs> | null
-    /**
-     * The data needed to update a TemplateHistory.
-     */
-    data: XOR<TemplateHistoryUpdateInput, TemplateHistoryUncheckedUpdateInput>
-    /**
-     * Choose, which TemplateHistory to update.
-     */
-    where: TemplateHistoryWhereUniqueInput
-  }
-
-  /**
-   * TemplateHistory updateMany
-   */
-  export type TemplateHistoryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update TemplateHistories.
-     */
-    data: XOR<TemplateHistoryUpdateManyMutationInput, TemplateHistoryUncheckedUpdateManyInput>
-    /**
-     * Filter which TemplateHistories to update
-     */
-    where?: TemplateHistoryWhereInput
-  }
-
-  /**
-   * TemplateHistory upsert
-   */
-  export type TemplateHistoryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TemplateHistory
-     */
-    select?: TemplateHistorySelect<ExtArgs> | null
-    /**
-     * The filter to search for the TemplateHistory to update in case it exists.
-     */
-    where: TemplateHistoryWhereUniqueInput
-    /**
-     * In case the TemplateHistory found by the `where` argument doesn't exist, create a new TemplateHistory with this data.
-     */
-    create: XOR<TemplateHistoryCreateInput, TemplateHistoryUncheckedCreateInput>
-    /**
-     * In case the TemplateHistory was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<TemplateHistoryUpdateInput, TemplateHistoryUncheckedUpdateInput>
-  }
-
-  /**
-   * TemplateHistory delete
-   */
-  export type TemplateHistoryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TemplateHistory
-     */
-    select?: TemplateHistorySelect<ExtArgs> | null
-    /**
-     * Filter which TemplateHistory to delete.
-     */
-    where: TemplateHistoryWhereUniqueInput
-  }
-
-  /**
-   * TemplateHistory deleteMany
-   */
-  export type TemplateHistoryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which TemplateHistories to delete
-     */
-    where?: TemplateHistoryWhereInput
-  }
-
-  /**
-   * TemplateHistory without action
-   */
-  export type TemplateHistoryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TemplateHistory
-     */
-    select?: TemplateHistorySelect<ExtArgs> | null
   }
 
 
@@ -25307,6 +24297,8 @@ export namespace Prisma {
     bunpaiSogaku: 'bunpaiSogaku',
     bunpaiSogakuNonInvoice: 'bunpaiSogakuNonInvoice',
     kurikoshiRieki: 'kurikoshiRieki',
+    capitalGain: 'capitalGain',
+    unitCapitalGain: 'unitCapitalGain',
     unitShintakuShueki: 'unitShintakuShueki',
     unitShintakuHiyo: 'unitShintakuHiyo',
     unitShintakuHiyoForNonInvoice: 'unitShintakuHiyoForNonInvoice',
@@ -25317,6 +24309,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice: 'unitBunpaiForNonInvoice',
     shohiyoRyuhokin: 'shohiyoRyuhokin',
     shuzenTsumitatekin: 'shuzenTsumitatekin',
+    shohiyoRyuhokinTorikuzushi: 'shohiyoRyuhokinTorikuzushi',
+    shuzenTsumitatekinTorikuzushi: 'shuzenTsumitatekinTorikuzushi',
     azukarikinHenkanJunbikin: 'azukarikinHenkanJunbikin',
     zeikinHokenryoJunbiKanjo: 'zeikinHokenryoJunbiKanjo',
     kyodoUnyuHiyoJunbiKanjo: 'kyodoUnyuHiyoJunbiKanjo',
@@ -25562,6 +24556,7 @@ export namespace Prisma {
     id: 'id',
     customerId: 'customerId',
     projectKiId: 'projectKiId',
+    invoice: 'invoice',
     applyUnit: 'applyUnit',
     bunpaiThisKi: 'bunpaiThisKi',
     bunpaiYear: 'bunpaiYear',
@@ -25600,24 +24595,6 @@ export namespace Prisma {
   };
 
   export type TemplateScalarFieldEnum = (typeof TemplateScalarFieldEnum)[keyof typeof TemplateScalarFieldEnum]
-
-
-  export const TemplateHistoryScalarFieldEnum: {
-    id: 'id',
-    templateId: 'templateId',
-    name: 'name',
-    contentType: 'contentType',
-    ext: 'ext',
-    size: 'size',
-    templateType: 'templateType',
-    file: 'file',
-    version: 'version',
-    updatedAt: 'updatedAt',
-    updatedId: 'updatedId',
-    updatedBy: 'updatedBy'
-  };
-
-  export type TemplateHistoryScalarFieldEnum = (typeof TemplateHistoryScalarFieldEnum)[keyof typeof TemplateHistoryScalarFieldEnum]
 
 
   export const VariableDefinitionScalarFieldEnum: {
@@ -26714,6 +25691,8 @@ export namespace Prisma {
     bunpaiSogaku?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     bunpaiSogakuNonInvoice?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     kurikoshiRieki?: IntNullableFilter<"ProjectKi"> | number | null
+    capitalGain?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    unitCapitalGain?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     unitShintakuShueki?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyo?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyoForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
@@ -26724,6 +25703,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
     shohiyoRyuhokin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     shuzenTsumitatekin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     azukarikinHenkanJunbikin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     zeikinHokenryoJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     kyodoUnyuHiyoJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
@@ -26808,6 +25789,8 @@ export namespace Prisma {
     bunpaiSogaku?: SortOrderInput | SortOrder
     bunpaiSogakuNonInvoice?: SortOrderInput | SortOrder
     kurikoshiRieki?: SortOrderInput | SortOrder
+    capitalGain?: SortOrderInput | SortOrder
+    unitCapitalGain?: SortOrderInput | SortOrder
     unitShintakuShueki?: SortOrderInput | SortOrder
     unitShintakuHiyo?: SortOrderInput | SortOrder
     unitShintakuHiyoForNonInvoice?: SortOrderInput | SortOrder
@@ -26818,6 +25801,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: SortOrderInput | SortOrder
     shohiyoRyuhokin?: SortOrderInput | SortOrder
     shuzenTsumitatekin?: SortOrderInput | SortOrder
+    shohiyoRyuhokinTorikuzushi?: SortOrderInput | SortOrder
+    shuzenTsumitatekinTorikuzushi?: SortOrderInput | SortOrder
     azukarikinHenkanJunbikin?: SortOrderInput | SortOrder
     zeikinHokenryoJunbiKanjo?: SortOrderInput | SortOrder
     kyodoUnyuHiyoJunbiKanjo?: SortOrderInput | SortOrder
@@ -26907,6 +25892,8 @@ export namespace Prisma {
     bunpaiSogaku?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     bunpaiSogakuNonInvoice?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     kurikoshiRieki?: IntNullableFilter<"ProjectKi"> | number | null
+    capitalGain?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    unitCapitalGain?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     unitShintakuShueki?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyo?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyoForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
@@ -26917,6 +25904,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
     shohiyoRyuhokin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     shuzenTsumitatekin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     azukarikinHenkanJunbikin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     zeikinHokenryoJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     kyodoUnyuHiyoJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
@@ -27001,6 +25990,8 @@ export namespace Prisma {
     bunpaiSogaku?: SortOrderInput | SortOrder
     bunpaiSogakuNonInvoice?: SortOrderInput | SortOrder
     kurikoshiRieki?: SortOrderInput | SortOrder
+    capitalGain?: SortOrderInput | SortOrder
+    unitCapitalGain?: SortOrderInput | SortOrder
     unitShintakuShueki?: SortOrderInput | SortOrder
     unitShintakuHiyo?: SortOrderInput | SortOrder
     unitShintakuHiyoForNonInvoice?: SortOrderInput | SortOrder
@@ -27011,6 +26002,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: SortOrderInput | SortOrder
     shohiyoRyuhokin?: SortOrderInput | SortOrder
     shuzenTsumitatekin?: SortOrderInput | SortOrder
+    shohiyoRyuhokinTorikuzushi?: SortOrderInput | SortOrder
+    shuzenTsumitatekinTorikuzushi?: SortOrderInput | SortOrder
     azukarikinHenkanJunbikin?: SortOrderInput | SortOrder
     zeikinHokenryoJunbiKanjo?: SortOrderInput | SortOrder
     kyodoUnyuHiyoJunbiKanjo?: SortOrderInput | SortOrder
@@ -27100,6 +26093,8 @@ export namespace Prisma {
     bunpaiSogaku?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     bunpaiSogakuNonInvoice?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     kurikoshiRieki?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    capitalGain?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    unitCapitalGain?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     unitShintakuShueki?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     unitShintakuHiyo?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     unitShintakuHiyoForNonInvoice?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
@@ -27110,6 +26105,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     shohiyoRyuhokin?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     shuzenTsumitatekin?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     azukarikinHenkanJunbikin?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     zeikinHokenryoJunbiKanjo?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     kyodoUnyuHiyoJunbiKanjo?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
@@ -28112,6 +27109,7 @@ export namespace Prisma {
     id?: StringFilter<"CustomerFund"> | string
     customerId?: StringFilter<"CustomerFund"> | string
     projectKiId?: StringFilter<"CustomerFund"> | string
+    invoice?: BoolFilter<"CustomerFund"> | boolean
     applyUnit?: IntFilter<"CustomerFund"> | number
     bunpaiThisKi?: IntNullableFilter<"CustomerFund"> | number | null
     bunpaiYear?: IntNullableFilter<"CustomerFund"> | number | null
@@ -28135,6 +27133,7 @@ export namespace Prisma {
     id?: SortOrder
     customerId?: SortOrder
     projectKiId?: SortOrder
+    invoice?: SortOrder
     applyUnit?: SortOrder
     bunpaiThisKi?: SortOrderInput | SortOrder
     bunpaiYear?: SortOrderInput | SortOrder
@@ -28162,6 +27161,7 @@ export namespace Prisma {
     NOT?: CustomerFundWhereInput | CustomerFundWhereInput[]
     customerId?: StringFilter<"CustomerFund"> | string
     projectKiId?: StringFilter<"CustomerFund"> | string
+    invoice?: BoolFilter<"CustomerFund"> | boolean
     applyUnit?: IntFilter<"CustomerFund"> | number
     bunpaiThisKi?: IntNullableFilter<"CustomerFund"> | number | null
     bunpaiYear?: IntNullableFilter<"CustomerFund"> | number | null
@@ -28185,6 +27185,7 @@ export namespace Prisma {
     id?: SortOrder
     customerId?: SortOrder
     projectKiId?: SortOrder
+    invoice?: SortOrder
     applyUnit?: SortOrder
     bunpaiThisKi?: SortOrderInput | SortOrder
     bunpaiYear?: SortOrderInput | SortOrder
@@ -28214,6 +27215,7 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"CustomerFund"> | string
     customerId?: StringWithAggregatesFilter<"CustomerFund"> | string
     projectKiId?: StringWithAggregatesFilter<"CustomerFund"> | string
+    invoice?: BoolWithAggregatesFilter<"CustomerFund"> | boolean
     applyUnit?: IntWithAggregatesFilter<"CustomerFund"> | number
     bunpaiThisKi?: IntNullableWithAggregatesFilter<"CustomerFund"> | number | null
     bunpaiYear?: IntNullableWithAggregatesFilter<"CustomerFund"> | number | null
@@ -28343,95 +27345,6 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"Template"> | Date | string
     updatedId?: StringWithAggregatesFilter<"Template"> | string
     updatedBy?: StringWithAggregatesFilter<"Template"> | string
-  }
-
-  export type TemplateHistoryWhereInput = {
-    AND?: TemplateHistoryWhereInput | TemplateHistoryWhereInput[]
-    OR?: TemplateHistoryWhereInput[]
-    NOT?: TemplateHistoryWhereInput | TemplateHistoryWhereInput[]
-    id?: StringFilter<"TemplateHistory"> | string
-    templateId?: StringFilter<"TemplateHistory"> | string
-    name?: StringFilter<"TemplateHistory"> | string
-    contentType?: StringFilter<"TemplateHistory"> | string
-    ext?: EnumExtTypeFilter<"TemplateHistory"> | $Enums.ExtType
-    size?: IntFilter<"TemplateHistory"> | number
-    templateType?: EnumTemplateTypeFilter<"TemplateHistory"> | $Enums.TemplateType
-    file?: BytesFilter<"TemplateHistory"> | Buffer
-    version?: IntFilter<"TemplateHistory"> | number
-    updatedAt?: DateTimeFilter<"TemplateHistory"> | Date | string
-    updatedId?: StringFilter<"TemplateHistory"> | string
-    updatedBy?: StringFilter<"TemplateHistory"> | string
-  }
-
-  export type TemplateHistoryOrderByWithRelationInput = {
-    id?: SortOrder
-    templateId?: SortOrder
-    name?: SortOrder
-    contentType?: SortOrder
-    ext?: SortOrder
-    size?: SortOrder
-    templateType?: SortOrder
-    file?: SortOrder
-    version?: SortOrder
-    updatedAt?: SortOrder
-    updatedId?: SortOrder
-    updatedBy?: SortOrder
-  }
-
-  export type TemplateHistoryWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
-    AND?: TemplateHistoryWhereInput | TemplateHistoryWhereInput[]
-    OR?: TemplateHistoryWhereInput[]
-    NOT?: TemplateHistoryWhereInput | TemplateHistoryWhereInput[]
-    templateId?: StringFilter<"TemplateHistory"> | string
-    name?: StringFilter<"TemplateHistory"> | string
-    contentType?: StringFilter<"TemplateHistory"> | string
-    ext?: EnumExtTypeFilter<"TemplateHistory"> | $Enums.ExtType
-    size?: IntFilter<"TemplateHistory"> | number
-    templateType?: EnumTemplateTypeFilter<"TemplateHistory"> | $Enums.TemplateType
-    file?: BytesFilter<"TemplateHistory"> | Buffer
-    version?: IntFilter<"TemplateHistory"> | number
-    updatedAt?: DateTimeFilter<"TemplateHistory"> | Date | string
-    updatedId?: StringFilter<"TemplateHistory"> | string
-    updatedBy?: StringFilter<"TemplateHistory"> | string
-  }, "id">
-
-  export type TemplateHistoryOrderByWithAggregationInput = {
-    id?: SortOrder
-    templateId?: SortOrder
-    name?: SortOrder
-    contentType?: SortOrder
-    ext?: SortOrder
-    size?: SortOrder
-    templateType?: SortOrder
-    file?: SortOrder
-    version?: SortOrder
-    updatedAt?: SortOrder
-    updatedId?: SortOrder
-    updatedBy?: SortOrder
-    _count?: TemplateHistoryCountOrderByAggregateInput
-    _avg?: TemplateHistoryAvgOrderByAggregateInput
-    _max?: TemplateHistoryMaxOrderByAggregateInput
-    _min?: TemplateHistoryMinOrderByAggregateInput
-    _sum?: TemplateHistorySumOrderByAggregateInput
-  }
-
-  export type TemplateHistoryScalarWhereWithAggregatesInput = {
-    AND?: TemplateHistoryScalarWhereWithAggregatesInput | TemplateHistoryScalarWhereWithAggregatesInput[]
-    OR?: TemplateHistoryScalarWhereWithAggregatesInput[]
-    NOT?: TemplateHistoryScalarWhereWithAggregatesInput | TemplateHistoryScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"TemplateHistory"> | string
-    templateId?: StringWithAggregatesFilter<"TemplateHistory"> | string
-    name?: StringWithAggregatesFilter<"TemplateHistory"> | string
-    contentType?: StringWithAggregatesFilter<"TemplateHistory"> | string
-    ext?: EnumExtTypeWithAggregatesFilter<"TemplateHistory"> | $Enums.ExtType
-    size?: IntWithAggregatesFilter<"TemplateHistory"> | number
-    templateType?: EnumTemplateTypeWithAggregatesFilter<"TemplateHistory"> | $Enums.TemplateType
-    file?: BytesWithAggregatesFilter<"TemplateHistory"> | Buffer
-    version?: IntWithAggregatesFilter<"TemplateHistory"> | number
-    updatedAt?: DateTimeWithAggregatesFilter<"TemplateHistory"> | Date | string
-    updatedId?: StringWithAggregatesFilter<"TemplateHistory"> | string
-    updatedBy?: StringWithAggregatesFilter<"TemplateHistory"> | string
   }
 
   export type VariableDefinitionWhereInput = {
@@ -29599,6 +28512,8 @@ export namespace Prisma {
     bunpaiSogaku?: bigint | number | null
     bunpaiSogakuNonInvoice?: bigint | number | null
     kurikoshiRieki?: number | null
+    capitalGain?: bigint | number | null
+    unitCapitalGain?: bigint | number | null
     unitShintakuShueki?: number | null
     unitShintakuHiyo?: number | null
     unitShintakuHiyoForNonInvoice?: number | null
@@ -29609,6 +28524,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: number | null
     shohiyoRyuhokin?: bigint | number | null
     shuzenTsumitatekin?: bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: bigint | number | null
     azukarikinHenkanJunbikin?: bigint | number | null
     zeikinHokenryoJunbiKanjo?: bigint | number | null
     kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
@@ -29693,6 +28610,8 @@ export namespace Prisma {
     bunpaiSogaku?: bigint | number | null
     bunpaiSogakuNonInvoice?: bigint | number | null
     kurikoshiRieki?: number | null
+    capitalGain?: bigint | number | null
+    unitCapitalGain?: bigint | number | null
     unitShintakuShueki?: number | null
     unitShintakuHiyo?: number | null
     unitShintakuHiyoForNonInvoice?: number | null
@@ -29703,6 +28622,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: number | null
     shohiyoRyuhokin?: bigint | number | null
     shuzenTsumitatekin?: bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: bigint | number | null
     azukarikinHenkanJunbikin?: bigint | number | null
     zeikinHokenryoJunbiKanjo?: bigint | number | null
     kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
@@ -29783,6 +28704,8 @@ export namespace Prisma {
     bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    capitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitCapitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -29793,6 +28716,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -29877,6 +28802,8 @@ export namespace Prisma {
     bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    capitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitCapitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -29887,6 +28814,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -29969,6 +28898,8 @@ export namespace Prisma {
     bunpaiSogaku?: bigint | number | null
     bunpaiSogakuNonInvoice?: bigint | number | null
     kurikoshiRieki?: number | null
+    capitalGain?: bigint | number | null
+    unitCapitalGain?: bigint | number | null
     unitShintakuShueki?: number | null
     unitShintakuHiyo?: number | null
     unitShintakuHiyoForNonInvoice?: number | null
@@ -29979,6 +28910,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: number | null
     shohiyoRyuhokin?: bigint | number | null
     shuzenTsumitatekin?: bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: bigint | number | null
     azukarikinHenkanJunbikin?: bigint | number | null
     zeikinHokenryoJunbiKanjo?: bigint | number | null
     kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
@@ -30058,6 +28991,8 @@ export namespace Prisma {
     bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    capitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitCapitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -30068,6 +29003,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -30149,6 +29086,8 @@ export namespace Prisma {
     bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    capitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitCapitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -30159,6 +29098,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -31393,6 +30334,7 @@ export namespace Prisma {
 
   export type CustomerFundCreateInput = {
     id?: string
+    invoice?: boolean
     applyUnit: number
     bunpaiThisKi?: number | null
     bunpaiYear?: number | null
@@ -31416,6 +30358,7 @@ export namespace Prisma {
     id?: string
     customerId: string
     projectKiId: string
+    invoice?: boolean
     applyUnit: number
     bunpaiThisKi?: number | null
     bunpaiYear?: number | null
@@ -31435,6 +30378,7 @@ export namespace Prisma {
 
   export type CustomerFundUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    invoice?: BoolFieldUpdateOperationsInput | boolean
     applyUnit?: IntFieldUpdateOperationsInput | number
     bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
@@ -31458,6 +30402,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     customerId?: StringFieldUpdateOperationsInput | string
     projectKiId?: StringFieldUpdateOperationsInput | string
+    invoice?: BoolFieldUpdateOperationsInput | boolean
     applyUnit?: IntFieldUpdateOperationsInput | number
     bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
@@ -31479,6 +30424,7 @@ export namespace Prisma {
     id?: string
     customerId: string
     projectKiId: string
+    invoice?: boolean
     applyUnit: number
     bunpaiThisKi?: number | null
     bunpaiYear?: number | null
@@ -31498,6 +30444,7 @@ export namespace Prisma {
 
   export type CustomerFundUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
+    invoice?: BoolFieldUpdateOperationsInput | boolean
     applyUnit?: IntFieldUpdateOperationsInput | number
     bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
@@ -31519,6 +30466,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     customerId?: StringFieldUpdateOperationsInput | string
     projectKiId?: StringFieldUpdateOperationsInput | string
+    invoice?: BoolFieldUpdateOperationsInput | boolean
     applyUnit?: IntFieldUpdateOperationsInput | number
     bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
@@ -31670,111 +30618,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: StringFieldUpdateOperationsInput | string
-    updatedBy?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type TemplateHistoryCreateInput = {
-    id?: string
-    templateId: string
-    name: string
-    contentType: string
-    ext: $Enums.ExtType
-    size: number
-    templateType: $Enums.TemplateType
-    file: Buffer
-    version: number
-    updatedAt?: Date | string
-    updatedId: string
-    updatedBy: string
-  }
-
-  export type TemplateHistoryUncheckedCreateInput = {
-    id?: string
-    templateId: string
-    name: string
-    contentType: string
-    ext: $Enums.ExtType
-    size: number
-    templateType: $Enums.TemplateType
-    file: Buffer
-    version: number
-    updatedAt?: Date | string
-    updatedId: string
-    updatedBy: string
-  }
-
-  export type TemplateHistoryUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    templateId?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    contentType?: StringFieldUpdateOperationsInput | string
-    ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
-    size?: IntFieldUpdateOperationsInput | number
-    templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
-    file?: BytesFieldUpdateOperationsInput | Buffer
-    version?: IntFieldUpdateOperationsInput | number
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: StringFieldUpdateOperationsInput | string
-    updatedBy?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type TemplateHistoryUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    templateId?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    contentType?: StringFieldUpdateOperationsInput | string
-    ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
-    size?: IntFieldUpdateOperationsInput | number
-    templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
-    file?: BytesFieldUpdateOperationsInput | Buffer
-    version?: IntFieldUpdateOperationsInput | number
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: StringFieldUpdateOperationsInput | string
-    updatedBy?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type TemplateHistoryCreateManyInput = {
-    id?: string
-    templateId: string
-    name: string
-    contentType: string
-    ext: $Enums.ExtType
-    size: number
-    templateType: $Enums.TemplateType
-    file: Buffer
-    version: number
-    updatedAt?: Date | string
-    updatedId: string
-    updatedBy: string
-  }
-
-  export type TemplateHistoryUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    templateId?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    contentType?: StringFieldUpdateOperationsInput | string
-    ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
-    size?: IntFieldUpdateOperationsInput | number
-    templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
-    file?: BytesFieldUpdateOperationsInput | Buffer
-    version?: IntFieldUpdateOperationsInput | number
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedId?: StringFieldUpdateOperationsInput | string
-    updatedBy?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type TemplateHistoryUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    templateId?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    contentType?: StringFieldUpdateOperationsInput | string
-    ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
-    size?: IntFieldUpdateOperationsInput | number
-    templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
-    file?: BytesFieldUpdateOperationsInput | Buffer
-    version?: IntFieldUpdateOperationsInput | number
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
@@ -32866,6 +31709,8 @@ export namespace Prisma {
     bunpaiSogaku?: SortOrder
     bunpaiSogakuNonInvoice?: SortOrder
     kurikoshiRieki?: SortOrder
+    capitalGain?: SortOrder
+    unitCapitalGain?: SortOrder
     unitShintakuShueki?: SortOrder
     unitShintakuHiyo?: SortOrder
     unitShintakuHiyoForNonInvoice?: SortOrder
@@ -32876,6 +31721,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: SortOrder
     shohiyoRyuhokin?: SortOrder
     shuzenTsumitatekin?: SortOrder
+    shohiyoRyuhokinTorikuzushi?: SortOrder
+    shuzenTsumitatekinTorikuzushi?: SortOrder
     azukarikinHenkanJunbikin?: SortOrder
     zeikinHokenryoJunbiKanjo?: SortOrder
     kyodoUnyuHiyoJunbiKanjo?: SortOrder
@@ -32945,6 +31792,8 @@ export namespace Prisma {
     bunpaiSogaku?: SortOrder
     bunpaiSogakuNonInvoice?: SortOrder
     kurikoshiRieki?: SortOrder
+    capitalGain?: SortOrder
+    unitCapitalGain?: SortOrder
     unitShintakuShueki?: SortOrder
     unitShintakuHiyo?: SortOrder
     unitShintakuHiyoForNonInvoice?: SortOrder
@@ -32955,6 +31804,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: SortOrder
     shohiyoRyuhokin?: SortOrder
     shuzenTsumitatekin?: SortOrder
+    shohiyoRyuhokinTorikuzushi?: SortOrder
+    shuzenTsumitatekinTorikuzushi?: SortOrder
     azukarikinHenkanJunbikin?: SortOrder
     zeikinHokenryoJunbiKanjo?: SortOrder
     kyodoUnyuHiyoJunbiKanjo?: SortOrder
@@ -33030,6 +31881,8 @@ export namespace Prisma {
     bunpaiSogaku?: SortOrder
     bunpaiSogakuNonInvoice?: SortOrder
     kurikoshiRieki?: SortOrder
+    capitalGain?: SortOrder
+    unitCapitalGain?: SortOrder
     unitShintakuShueki?: SortOrder
     unitShintakuHiyo?: SortOrder
     unitShintakuHiyoForNonInvoice?: SortOrder
@@ -33040,6 +31893,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: SortOrder
     shohiyoRyuhokin?: SortOrder
     shuzenTsumitatekin?: SortOrder
+    shohiyoRyuhokinTorikuzushi?: SortOrder
+    shuzenTsumitatekinTorikuzushi?: SortOrder
     azukarikinHenkanJunbikin?: SortOrder
     zeikinHokenryoJunbiKanjo?: SortOrder
     kyodoUnyuHiyoJunbiKanjo?: SortOrder
@@ -33121,6 +31976,8 @@ export namespace Prisma {
     bunpaiSogaku?: SortOrder
     bunpaiSogakuNonInvoice?: SortOrder
     kurikoshiRieki?: SortOrder
+    capitalGain?: SortOrder
+    unitCapitalGain?: SortOrder
     unitShintakuShueki?: SortOrder
     unitShintakuHiyo?: SortOrder
     unitShintakuHiyoForNonInvoice?: SortOrder
@@ -33131,6 +31988,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: SortOrder
     shohiyoRyuhokin?: SortOrder
     shuzenTsumitatekin?: SortOrder
+    shohiyoRyuhokinTorikuzushi?: SortOrder
+    shuzenTsumitatekinTorikuzushi?: SortOrder
     azukarikinHenkanJunbikin?: SortOrder
     zeikinHokenryoJunbiKanjo?: SortOrder
     kyodoUnyuHiyoJunbiKanjo?: SortOrder
@@ -33200,6 +32059,8 @@ export namespace Prisma {
     bunpaiSogaku?: SortOrder
     bunpaiSogakuNonInvoice?: SortOrder
     kurikoshiRieki?: SortOrder
+    capitalGain?: SortOrder
+    unitCapitalGain?: SortOrder
     unitShintakuShueki?: SortOrder
     unitShintakuHiyo?: SortOrder
     unitShintakuHiyoForNonInvoice?: SortOrder
@@ -33210,6 +32071,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: SortOrder
     shohiyoRyuhokin?: SortOrder
     shuzenTsumitatekin?: SortOrder
+    shohiyoRyuhokinTorikuzushi?: SortOrder
+    shuzenTsumitatekinTorikuzushi?: SortOrder
     azukarikinHenkanJunbikin?: SortOrder
     zeikinHokenryoJunbiKanjo?: SortOrder
     kyodoUnyuHiyoJunbiKanjo?: SortOrder
@@ -34110,6 +32973,7 @@ export namespace Prisma {
     id?: SortOrder
     customerId?: SortOrder
     projectKiId?: SortOrder
+    invoice?: SortOrder
     applyUnit?: SortOrder
     bunpaiThisKi?: SortOrder
     bunpaiYear?: SortOrder
@@ -34141,6 +33005,7 @@ export namespace Prisma {
     id?: SortOrder
     customerId?: SortOrder
     projectKiId?: SortOrder
+    invoice?: SortOrder
     applyUnit?: SortOrder
     bunpaiThisKi?: SortOrder
     bunpaiYear?: SortOrder
@@ -34162,6 +33027,7 @@ export namespace Prisma {
     id?: SortOrder
     customerId?: SortOrder
     projectKiId?: SortOrder
+    invoice?: SortOrder
     applyUnit?: SortOrder
     bunpaiThisKi?: SortOrder
     bunpaiYear?: SortOrder
@@ -34309,61 +33175,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedBytesFilter<$PrismaModel>
     _max?: NestedBytesFilter<$PrismaModel>
-  }
-
-  export type TemplateHistoryCountOrderByAggregateInput = {
-    id?: SortOrder
-    templateId?: SortOrder
-    name?: SortOrder
-    contentType?: SortOrder
-    ext?: SortOrder
-    size?: SortOrder
-    templateType?: SortOrder
-    file?: SortOrder
-    version?: SortOrder
-    updatedAt?: SortOrder
-    updatedId?: SortOrder
-    updatedBy?: SortOrder
-  }
-
-  export type TemplateHistoryAvgOrderByAggregateInput = {
-    size?: SortOrder
-    version?: SortOrder
-  }
-
-  export type TemplateHistoryMaxOrderByAggregateInput = {
-    id?: SortOrder
-    templateId?: SortOrder
-    name?: SortOrder
-    contentType?: SortOrder
-    ext?: SortOrder
-    size?: SortOrder
-    templateType?: SortOrder
-    file?: SortOrder
-    version?: SortOrder
-    updatedAt?: SortOrder
-    updatedId?: SortOrder
-    updatedBy?: SortOrder
-  }
-
-  export type TemplateHistoryMinOrderByAggregateInput = {
-    id?: SortOrder
-    templateId?: SortOrder
-    name?: SortOrder
-    contentType?: SortOrder
-    ext?: SortOrder
-    size?: SortOrder
-    templateType?: SortOrder
-    file?: SortOrder
-    version?: SortOrder
-    updatedAt?: SortOrder
-    updatedId?: SortOrder
-    updatedBy?: SortOrder
-  }
-
-  export type TemplateHistorySumOrderByAggregateInput = {
-    size?: SortOrder
-    version?: SortOrder
   }
 
   export type EnumVariableTypeFilter<$PrismaModel = never> = {
@@ -35919,6 +34730,8 @@ export namespace Prisma {
     bunpaiSogaku?: bigint | number | null
     bunpaiSogakuNonInvoice?: bigint | number | null
     kurikoshiRieki?: number | null
+    capitalGain?: bigint | number | null
+    unitCapitalGain?: bigint | number | null
     unitShintakuShueki?: number | null
     unitShintakuHiyo?: number | null
     unitShintakuHiyoForNonInvoice?: number | null
@@ -35929,6 +34742,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: number | null
     shohiyoRyuhokin?: bigint | number | null
     shuzenTsumitatekin?: bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: bigint | number | null
     azukarikinHenkanJunbikin?: bigint | number | null
     zeikinHokenryoJunbiKanjo?: bigint | number | null
     kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
@@ -36011,6 +34826,8 @@ export namespace Prisma {
     bunpaiSogaku?: bigint | number | null
     bunpaiSogakuNonInvoice?: bigint | number | null
     kurikoshiRieki?: number | null
+    capitalGain?: bigint | number | null
+    unitCapitalGain?: bigint | number | null
     unitShintakuShueki?: number | null
     unitShintakuHiyo?: number | null
     unitShintakuHiyoForNonInvoice?: number | null
@@ -36021,6 +34838,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: number | null
     shohiyoRyuhokin?: bigint | number | null
     shuzenTsumitatekin?: bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: bigint | number | null
     azukarikinHenkanJunbikin?: bigint | number | null
     zeikinHokenryoJunbiKanjo?: bigint | number | null
     kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
@@ -36218,6 +35037,8 @@ export namespace Prisma {
     bunpaiSogaku?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     bunpaiSogakuNonInvoice?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     kurikoshiRieki?: IntNullableFilter<"ProjectKi"> | number | null
+    capitalGain?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    unitCapitalGain?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     unitShintakuShueki?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyo?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyoForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
@@ -36228,6 +35049,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
     shohiyoRyuhokin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     shuzenTsumitatekin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     azukarikinHenkanJunbikin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     zeikinHokenryoJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     kyodoUnyuHiyoJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
@@ -36600,6 +35423,8 @@ export namespace Prisma {
     bunpaiSogaku?: bigint | number | null
     bunpaiSogakuNonInvoice?: bigint | number | null
     kurikoshiRieki?: number | null
+    capitalGain?: bigint | number | null
+    unitCapitalGain?: bigint | number | null
     unitShintakuShueki?: number | null
     unitShintakuHiyo?: number | null
     unitShintakuHiyoForNonInvoice?: number | null
@@ -36610,6 +35435,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: number | null
     shohiyoRyuhokin?: bigint | number | null
     shuzenTsumitatekin?: bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: bigint | number | null
     azukarikinHenkanJunbikin?: bigint | number | null
     zeikinHokenryoJunbiKanjo?: bigint | number | null
     kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
@@ -36692,6 +35519,8 @@ export namespace Prisma {
     bunpaiSogaku?: bigint | number | null
     bunpaiSogakuNonInvoice?: bigint | number | null
     kurikoshiRieki?: number | null
+    capitalGain?: bigint | number | null
+    unitCapitalGain?: bigint | number | null
     unitShintakuShueki?: number | null
     unitShintakuHiyo?: number | null
     unitShintakuHiyoForNonInvoice?: number | null
@@ -36702,6 +35531,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: number | null
     shohiyoRyuhokin?: bigint | number | null
     shuzenTsumitatekin?: bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: bigint | number | null
     azukarikinHenkanJunbikin?: bigint | number | null
     zeikinHokenryoJunbiKanjo?: bigint | number | null
     kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
@@ -37446,6 +36277,7 @@ export namespace Prisma {
 
   export type CustomerFundCreateWithoutProjectKiInput = {
     id?: string
+    invoice?: boolean
     applyUnit: number
     bunpaiThisKi?: number | null
     bunpaiYear?: number | null
@@ -37467,6 +36299,7 @@ export namespace Prisma {
   export type CustomerFundUncheckedCreateWithoutProjectKiInput = {
     id?: string
     customerId: string
+    invoice?: boolean
     applyUnit: number
     bunpaiThisKi?: number | null
     bunpaiYear?: number | null
@@ -37659,6 +36492,7 @@ export namespace Prisma {
     id?: StringFilter<"CustomerFund"> | string
     customerId?: StringFilter<"CustomerFund"> | string
     projectKiId?: StringFilter<"CustomerFund"> | string
+    invoice?: BoolFilter<"CustomerFund"> | boolean
     applyUnit?: IntFilter<"CustomerFund"> | number
     bunpaiThisKi?: IntNullableFilter<"CustomerFund"> | number | null
     bunpaiYear?: IntNullableFilter<"CustomerFund"> | number | null
@@ -38265,6 +37099,7 @@ export namespace Prisma {
 
   export type CustomerFundCreateWithoutCustomerInput = {
     id?: string
+    invoice?: boolean
     applyUnit: number
     bunpaiThisKi?: number | null
     bunpaiYear?: number | null
@@ -38286,6 +37121,7 @@ export namespace Prisma {
   export type CustomerFundUncheckedCreateWithoutCustomerInput = {
     id?: string
     projectKiId: string
+    invoice?: boolean
     applyUnit: number
     bunpaiThisKi?: number | null
     bunpaiYear?: number | null
@@ -38554,6 +37390,8 @@ export namespace Prisma {
     bunpaiSogaku?: bigint | number | null
     bunpaiSogakuNonInvoice?: bigint | number | null
     kurikoshiRieki?: number | null
+    capitalGain?: bigint | number | null
+    unitCapitalGain?: bigint | number | null
     unitShintakuShueki?: number | null
     unitShintakuHiyo?: number | null
     unitShintakuHiyoForNonInvoice?: number | null
@@ -38564,6 +37402,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: number | null
     shohiyoRyuhokin?: bigint | number | null
     shuzenTsumitatekin?: bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: bigint | number | null
     azukarikinHenkanJunbikin?: bigint | number | null
     zeikinHokenryoJunbiKanjo?: bigint | number | null
     kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
@@ -38647,6 +37487,8 @@ export namespace Prisma {
     bunpaiSogaku?: bigint | number | null
     bunpaiSogakuNonInvoice?: bigint | number | null
     kurikoshiRieki?: number | null
+    capitalGain?: bigint | number | null
+    unitCapitalGain?: bigint | number | null
     unitShintakuShueki?: number | null
     unitShintakuHiyo?: number | null
     unitShintakuHiyoForNonInvoice?: number | null
@@ -38657,6 +37499,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: number | null
     shohiyoRyuhokin?: bigint | number | null
     shuzenTsumitatekin?: bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: bigint | number | null
     azukarikinHenkanJunbikin?: bigint | number | null
     zeikinHokenryoJunbiKanjo?: bigint | number | null
     kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
@@ -38853,6 +37697,8 @@ export namespace Prisma {
     bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    capitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitCapitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -38863,6 +37709,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -38946,6 +37794,8 @@ export namespace Prisma {
     bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    capitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitCapitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -38956,6 +37806,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -39673,6 +38525,8 @@ export namespace Prisma {
     bunpaiSogaku?: bigint | number | null
     bunpaiSogakuNonInvoice?: bigint | number | null
     kurikoshiRieki?: number | null
+    capitalGain?: bigint | number | null
+    unitCapitalGain?: bigint | number | null
     unitShintakuShueki?: number | null
     unitShintakuHiyo?: number | null
     unitShintakuHiyoForNonInvoice?: number | null
@@ -39683,6 +38537,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: number | null
     shohiyoRyuhokin?: bigint | number | null
     shuzenTsumitatekin?: bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: bigint | number | null
     azukarikinHenkanJunbikin?: bigint | number | null
     zeikinHokenryoJunbiKanjo?: bigint | number | null
     kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
@@ -39800,6 +38656,8 @@ export namespace Prisma {
     bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    capitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitCapitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -39810,6 +38668,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -39892,6 +38752,8 @@ export namespace Prisma {
     bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    capitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitCapitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -39902,6 +38764,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -39983,6 +38847,8 @@ export namespace Prisma {
     bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    capitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitCapitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -39993,6 +38859,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -40187,6 +39055,8 @@ export namespace Prisma {
     bunpaiSogaku?: bigint | number | null
     bunpaiSogakuNonInvoice?: bigint | number | null
     kurikoshiRieki?: number | null
+    capitalGain?: bigint | number | null
+    unitCapitalGain?: bigint | number | null
     unitShintakuShueki?: number | null
     unitShintakuHiyo?: number | null
     unitShintakuHiyoForNonInvoice?: number | null
@@ -40197,6 +39067,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: number | null
     shohiyoRyuhokin?: bigint | number | null
     shuzenTsumitatekin?: bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: bigint | number | null
     azukarikinHenkanJunbikin?: bigint | number | null
     zeikinHokenryoJunbiKanjo?: bigint | number | null
     kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
@@ -40344,6 +39216,8 @@ export namespace Prisma {
     bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    capitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitCapitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -40354,6 +39228,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -40436,6 +39312,8 @@ export namespace Prisma {
     bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    capitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitCapitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -40446,6 +39324,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -40527,6 +39407,8 @@ export namespace Prisma {
     bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    capitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitCapitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -40537,6 +39419,8 @@ export namespace Prisma {
     unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -40800,6 +39684,7 @@ export namespace Prisma {
   export type CustomerFundCreateManyProjectKiInput = {
     id?: string
     customerId: string
+    invoice?: boolean
     applyUnit: number
     bunpaiThisKi?: number | null
     bunpaiYear?: number | null
@@ -40819,6 +39704,7 @@ export namespace Prisma {
 
   export type CustomerFundUpdateWithoutProjectKiInput = {
     id?: StringFieldUpdateOperationsInput | string
+    invoice?: BoolFieldUpdateOperationsInput | boolean
     applyUnit?: IntFieldUpdateOperationsInput | number
     bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
@@ -40840,6 +39726,7 @@ export namespace Prisma {
   export type CustomerFundUncheckedUpdateWithoutProjectKiInput = {
     id?: StringFieldUpdateOperationsInput | string
     customerId?: StringFieldUpdateOperationsInput | string
+    invoice?: BoolFieldUpdateOperationsInput | boolean
     applyUnit?: IntFieldUpdateOperationsInput | number
     bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
@@ -40860,6 +39747,7 @@ export namespace Prisma {
   export type CustomerFundUncheckedUpdateManyWithoutProjectKiInput = {
     id?: StringFieldUpdateOperationsInput | string
     customerId?: StringFieldUpdateOperationsInput | string
+    invoice?: BoolFieldUpdateOperationsInput | boolean
     applyUnit?: IntFieldUpdateOperationsInput | number
     bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
@@ -41032,6 +39920,7 @@ export namespace Prisma {
   export type CustomerFundCreateManyCustomerInput = {
     id?: string
     projectKiId: string
+    invoice?: boolean
     applyUnit: number
     bunpaiThisKi?: number | null
     bunpaiYear?: number | null
@@ -41051,6 +39940,7 @@ export namespace Prisma {
 
   export type CustomerFundUpdateWithoutCustomerInput = {
     id?: StringFieldUpdateOperationsInput | string
+    invoice?: BoolFieldUpdateOperationsInput | boolean
     applyUnit?: IntFieldUpdateOperationsInput | number
     bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
@@ -41072,6 +39962,7 @@ export namespace Prisma {
   export type CustomerFundUncheckedUpdateWithoutCustomerInput = {
     id?: StringFieldUpdateOperationsInput | string
     projectKiId?: StringFieldUpdateOperationsInput | string
+    invoice?: BoolFieldUpdateOperationsInput | boolean
     applyUnit?: IntFieldUpdateOperationsInput | number
     bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
@@ -41092,6 +39983,7 @@ export namespace Prisma {
   export type CustomerFundUncheckedUpdateManyWithoutCustomerInput = {
     id?: StringFieldUpdateOperationsInput | string
     projectKiId?: StringFieldUpdateOperationsInput | string
+    invoice?: BoolFieldUpdateOperationsInput | boolean
     applyUnit?: IntFieldUpdateOperationsInput | number
     bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
@@ -42088,10 +40980,6 @@ export namespace Prisma {
      * @deprecated Use TemplateDefaultArgs instead
      */
     export type TemplateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TemplateDefaultArgs<ExtArgs>
-    /**
-     * @deprecated Use TemplateHistoryDefaultArgs instead
-     */
-    export type TemplateHistoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TemplateHistoryDefaultArgs<ExtArgs>
     /**
      * @deprecated Use VariableDefinitionDefaultArgs instead
      */
