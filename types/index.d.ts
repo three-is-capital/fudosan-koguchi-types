@@ -2622,6 +2622,37 @@ export namespace Prisma {
 
 
   /**
+   * Count Type CustomerFundCountOutputType
+   */
+
+  export type CustomerFundCountOutputType = {
+    destinationCustomerFunds: number
+  }
+
+  export type CustomerFundCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    destinationCustomerFunds?: boolean | CustomerFundCountOutputTypeCountDestinationCustomerFundsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * CustomerFundCountOutputType without action
+   */
+  export type CustomerFundCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFundCountOutputType
+     */
+    select?: CustomerFundCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * CustomerFundCountOutputType without action
+   */
+  export type CustomerFundCountOutputTypeCountDestinationCustomerFundsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CustomerFundWhereInput
+  }
+
+
+  /**
    * Count Type TemplateCountOutputType
    */
 
@@ -18918,6 +18949,7 @@ export namespace Prisma {
     otherBunpaiTotal: number | null
     paymentDate: Date | null
     holdPayment: boolean | null
+    sourceCustomerFundId: string | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -18940,6 +18972,7 @@ export namespace Prisma {
     otherBunpaiTotal: number | null
     paymentDate: Date | null
     holdPayment: boolean | null
+    sourceCustomerFundId: string | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -18962,6 +18995,7 @@ export namespace Prisma {
     otherBunpaiTotal: number
     paymentDate: number
     holdPayment: number
+    sourceCustomerFundId: number
     createdAt: number
     createdId: number
     createdBy: number
@@ -19006,6 +19040,7 @@ export namespace Prisma {
     otherBunpaiTotal?: true
     paymentDate?: true
     holdPayment?: true
+    sourceCustomerFundId?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -19028,6 +19063,7 @@ export namespace Prisma {
     otherBunpaiTotal?: true
     paymentDate?: true
     holdPayment?: true
+    sourceCustomerFundId?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -19050,6 +19086,7 @@ export namespace Prisma {
     otherBunpaiTotal?: true
     paymentDate?: true
     holdPayment?: true
+    sourceCustomerFundId?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -19159,6 +19196,7 @@ export namespace Prisma {
     otherBunpaiTotal: number | null
     paymentDate: Date | null
     holdPayment: boolean
+    sourceCustomerFundId: string | null
     createdAt: Date
     createdId: string
     createdBy: string
@@ -19200,6 +19238,7 @@ export namespace Prisma {
     otherBunpaiTotal?: boolean
     paymentDate?: boolean
     holdPayment?: boolean
+    sourceCustomerFundId?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -19208,6 +19247,9 @@ export namespace Prisma {
     updatedBy?: boolean
     Customer?: boolean | CustomerDefaultArgs<ExtArgs>
     ProjectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
+    sourceCustomerFund?: boolean | CustomerFund$sourceCustomerFundArgs<ExtArgs>
+    destinationCustomerFunds?: boolean | CustomerFund$destinationCustomerFundsArgs<ExtArgs>
+    _count?: boolean | CustomerFundCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["customerFund"]>
 
   export type CustomerFundSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -19224,6 +19266,7 @@ export namespace Prisma {
     otherBunpaiTotal?: boolean
     paymentDate?: boolean
     holdPayment?: boolean
+    sourceCustomerFundId?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -19232,6 +19275,7 @@ export namespace Prisma {
     updatedBy?: boolean
     Customer?: boolean | CustomerDefaultArgs<ExtArgs>
     ProjectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
+    sourceCustomerFund?: boolean | CustomerFund$sourceCustomerFundArgs<ExtArgs>
   }, ExtArgs["result"]["customerFund"]>
 
   export type CustomerFundSelectScalar = {
@@ -19248,6 +19292,7 @@ export namespace Prisma {
     otherBunpaiTotal?: boolean
     paymentDate?: boolean
     holdPayment?: boolean
+    sourceCustomerFundId?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -19259,10 +19304,14 @@ export namespace Prisma {
   export type CustomerFundInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Customer?: boolean | CustomerDefaultArgs<ExtArgs>
     ProjectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
+    sourceCustomerFund?: boolean | CustomerFund$sourceCustomerFundArgs<ExtArgs>
+    destinationCustomerFunds?: boolean | CustomerFund$destinationCustomerFundsArgs<ExtArgs>
+    _count?: boolean | CustomerFundCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type CustomerFundIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Customer?: boolean | CustomerDefaultArgs<ExtArgs>
     ProjectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
+    sourceCustomerFund?: boolean | CustomerFund$sourceCustomerFundArgs<ExtArgs>
   }
 
   export type $CustomerFundPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -19270,6 +19319,8 @@ export namespace Prisma {
     objects: {
       Customer: Prisma.$CustomerPayload<ExtArgs>
       ProjectKi: Prisma.$ProjectKiPayload<ExtArgs>
+      sourceCustomerFund: Prisma.$CustomerFundPayload<ExtArgs> | null
+      destinationCustomerFunds: Prisma.$CustomerFundPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -19285,6 +19336,7 @@ export namespace Prisma {
       otherBunpaiTotal: number | null
       paymentDate: Date | null
       holdPayment: boolean
+      sourceCustomerFundId: string | null
       createdAt: Date
       createdId: string
       createdBy: string
@@ -19657,6 +19709,8 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     Customer<T extends CustomerDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CustomerDefaultArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
     ProjectKi<T extends ProjectKiDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectKiDefaultArgs<ExtArgs>>): Prisma__ProjectKiClient<$Result.GetResult<Prisma.$ProjectKiPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    sourceCustomerFund<T extends CustomerFund$sourceCustomerFundArgs<ExtArgs> = {}>(args?: Subset<T, CustomerFund$sourceCustomerFundArgs<ExtArgs>>): Prisma__CustomerFundClient<$Result.GetResult<Prisma.$CustomerFundPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    destinationCustomerFunds<T extends CustomerFund$destinationCustomerFundsArgs<ExtArgs> = {}>(args?: Subset<T, CustomerFund$destinationCustomerFundsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerFundPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -19699,6 +19753,7 @@ export namespace Prisma {
     readonly otherBunpaiTotal: FieldRef<"CustomerFund", 'Int'>
     readonly paymentDate: FieldRef<"CustomerFund", 'DateTime'>
     readonly holdPayment: FieldRef<"CustomerFund", 'Boolean'>
+    readonly sourceCustomerFundId: FieldRef<"CustomerFund", 'String'>
     readonly createdAt: FieldRef<"CustomerFund", 'DateTime'>
     readonly createdId: FieldRef<"CustomerFund", 'String'>
     readonly createdBy: FieldRef<"CustomerFund", 'String'>
@@ -20020,6 +20075,41 @@ export namespace Prisma {
      * Filter which CustomerFunds to delete
      */
     where?: CustomerFundWhereInput
+  }
+
+  /**
+   * CustomerFund.sourceCustomerFund
+   */
+  export type CustomerFund$sourceCustomerFundArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFund
+     */
+    select?: CustomerFundSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundInclude<ExtArgs> | null
+    where?: CustomerFundWhereInput
+  }
+
+  /**
+   * CustomerFund.destinationCustomerFunds
+   */
+  export type CustomerFund$destinationCustomerFundsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFund
+     */
+    select?: CustomerFundSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundInclude<ExtArgs> | null
+    where?: CustomerFundWhereInput
+    orderBy?: CustomerFundOrderByWithRelationInput | CustomerFundOrderByWithRelationInput[]
+    cursor?: CustomerFundWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CustomerFundScalarFieldEnum | CustomerFundScalarFieldEnum[]
   }
 
   /**
@@ -24566,6 +24656,7 @@ export namespace Prisma {
     otherBunpaiTotal: 'otherBunpaiTotal',
     paymentDate: 'paymentDate',
     holdPayment: 'holdPayment',
+    sourceCustomerFundId: 'sourceCustomerFundId',
     createdAt: 'createdAt',
     createdId: 'createdId',
     createdBy: 'createdBy',
@@ -27119,6 +27210,7 @@ export namespace Prisma {
     otherBunpaiTotal?: IntNullableFilter<"CustomerFund"> | number | null
     paymentDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
     holdPayment?: BoolFilter<"CustomerFund"> | boolean
+    sourceCustomerFundId?: StringNullableFilter<"CustomerFund"> | string | null
     createdAt?: DateTimeFilter<"CustomerFund"> | Date | string
     createdId?: StringFilter<"CustomerFund"> | string
     createdBy?: StringFilter<"CustomerFund"> | string
@@ -27127,6 +27219,8 @@ export namespace Prisma {
     updatedBy?: StringFilter<"CustomerFund"> | string
     Customer?: XOR<CustomerRelationFilter, CustomerWhereInput>
     ProjectKi?: XOR<ProjectKiRelationFilter, ProjectKiWhereInput>
+    sourceCustomerFund?: XOR<CustomerFundNullableRelationFilter, CustomerFundWhereInput> | null
+    destinationCustomerFunds?: CustomerFundListRelationFilter
   }
 
   export type CustomerFundOrderByWithRelationInput = {
@@ -27143,6 +27237,7 @@ export namespace Prisma {
     otherBunpaiTotal?: SortOrderInput | SortOrder
     paymentDate?: SortOrderInput | SortOrder
     holdPayment?: SortOrder
+    sourceCustomerFundId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -27151,6 +27246,8 @@ export namespace Prisma {
     updatedBy?: SortOrder
     Customer?: CustomerOrderByWithRelationInput
     ProjectKi?: ProjectKiOrderByWithRelationInput
+    sourceCustomerFund?: CustomerFundOrderByWithRelationInput
+    destinationCustomerFunds?: CustomerFundOrderByRelationAggregateInput
   }
 
   export type CustomerFundWhereUniqueInput = Prisma.AtLeast<{
@@ -27171,6 +27268,7 @@ export namespace Prisma {
     otherBunpaiTotal?: IntNullableFilter<"CustomerFund"> | number | null
     paymentDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
     holdPayment?: BoolFilter<"CustomerFund"> | boolean
+    sourceCustomerFundId?: StringNullableFilter<"CustomerFund"> | string | null
     createdAt?: DateTimeFilter<"CustomerFund"> | Date | string
     createdId?: StringFilter<"CustomerFund"> | string
     createdBy?: StringFilter<"CustomerFund"> | string
@@ -27179,6 +27277,8 @@ export namespace Prisma {
     updatedBy?: StringFilter<"CustomerFund"> | string
     Customer?: XOR<CustomerRelationFilter, CustomerWhereInput>
     ProjectKi?: XOR<ProjectKiRelationFilter, ProjectKiWhereInput>
+    sourceCustomerFund?: XOR<CustomerFundNullableRelationFilter, CustomerFundWhereInput> | null
+    destinationCustomerFunds?: CustomerFundListRelationFilter
   }, "id" | "customer_projectKi_identifier">
 
   export type CustomerFundOrderByWithAggregationInput = {
@@ -27195,6 +27295,7 @@ export namespace Prisma {
     otherBunpaiTotal?: SortOrderInput | SortOrder
     paymentDate?: SortOrderInput | SortOrder
     holdPayment?: SortOrder
+    sourceCustomerFundId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -27225,6 +27326,7 @@ export namespace Prisma {
     otherBunpaiTotal?: IntNullableWithAggregatesFilter<"CustomerFund"> | number | null
     paymentDate?: DateTimeNullableWithAggregatesFilter<"CustomerFund"> | Date | string | null
     holdPayment?: BoolWithAggregatesFilter<"CustomerFund"> | boolean
+    sourceCustomerFundId?: StringNullableWithAggregatesFilter<"CustomerFund"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"CustomerFund"> | Date | string
     createdId?: StringWithAggregatesFilter<"CustomerFund"> | string
     createdBy?: StringWithAggregatesFilter<"CustomerFund"> | string
@@ -30352,6 +30454,8 @@ export namespace Prisma {
     updatedBy: string
     Customer: CustomerCreateNestedOneWithoutCustomerFundsInput
     ProjectKi: ProjectKiCreateNestedOneWithoutCustomerFundsInput
+    sourceCustomerFund?: CustomerFundCreateNestedOneWithoutDestinationCustomerFundsInput
+    destinationCustomerFunds?: CustomerFundCreateNestedManyWithoutSourceCustomerFundInput
   }
 
   export type CustomerFundUncheckedCreateInput = {
@@ -30368,12 +30472,14 @@ export namespace Prisma {
     otherBunpaiTotal?: number | null
     paymentDate?: Date | string | null
     holdPayment?: boolean
+    sourceCustomerFundId?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
     updatedAt?: Date | string
     updatedId: string
     updatedBy: string
+    destinationCustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutSourceCustomerFundInput
   }
 
   export type CustomerFundUpdateInput = {
@@ -30396,6 +30502,8 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
     Customer?: CustomerUpdateOneRequiredWithoutCustomerFundsNestedInput
     ProjectKi?: ProjectKiUpdateOneRequiredWithoutCustomerFundsNestedInput
+    sourceCustomerFund?: CustomerFundUpdateOneWithoutDestinationCustomerFundsNestedInput
+    destinationCustomerFunds?: CustomerFundUpdateManyWithoutSourceCustomerFundNestedInput
   }
 
   export type CustomerFundUncheckedUpdateInput = {
@@ -30412,12 +30520,14 @@ export namespace Prisma {
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    sourceCustomerFundId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
+    destinationCustomerFunds?: CustomerFundUncheckedUpdateManyWithoutSourceCustomerFundNestedInput
   }
 
   export type CustomerFundCreateManyInput = {
@@ -30434,6 +30544,7 @@ export namespace Prisma {
     otherBunpaiTotal?: number | null
     paymentDate?: Date | string | null
     holdPayment?: boolean
+    sourceCustomerFundId?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -30476,6 +30587,7 @@ export namespace Prisma {
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    sourceCustomerFundId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -32964,9 +33076,15 @@ export namespace Prisma {
     isNot?: ProjectKiWhereInput
   }
 
+  export type CustomerFundNullableRelationFilter = {
+    is?: CustomerFundWhereInput | null
+    isNot?: CustomerFundWhereInput | null
+  }
+
   export type CustomerFundCustomer_projectKi_identifierCompoundUniqueInput = {
     customerId: string
     projectKiId: string
+    sourceCustomerFundId: string
   }
 
   export type CustomerFundCountOrderByAggregateInput = {
@@ -32983,6 +33101,7 @@ export namespace Prisma {
     otherBunpaiTotal?: SortOrder
     paymentDate?: SortOrder
     holdPayment?: SortOrder
+    sourceCustomerFundId?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -33015,6 +33134,7 @@ export namespace Prisma {
     otherBunpaiTotal?: SortOrder
     paymentDate?: SortOrder
     holdPayment?: SortOrder
+    sourceCustomerFundId?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -33037,6 +33157,7 @@ export namespace Prisma {
     otherBunpaiTotal?: SortOrder
     paymentDate?: SortOrder
     holdPayment?: SortOrder
+    sourceCustomerFundId?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -33948,6 +34069,26 @@ export namespace Prisma {
     connect?: ProjectKiWhereUniqueInput
   }
 
+  export type CustomerFundCreateNestedOneWithoutDestinationCustomerFundsInput = {
+    create?: XOR<CustomerFundCreateWithoutDestinationCustomerFundsInput, CustomerFundUncheckedCreateWithoutDestinationCustomerFundsInput>
+    connectOrCreate?: CustomerFundCreateOrConnectWithoutDestinationCustomerFundsInput
+    connect?: CustomerFundWhereUniqueInput
+  }
+
+  export type CustomerFundCreateNestedManyWithoutSourceCustomerFundInput = {
+    create?: XOR<CustomerFundCreateWithoutSourceCustomerFundInput, CustomerFundUncheckedCreateWithoutSourceCustomerFundInput> | CustomerFundCreateWithoutSourceCustomerFundInput[] | CustomerFundUncheckedCreateWithoutSourceCustomerFundInput[]
+    connectOrCreate?: CustomerFundCreateOrConnectWithoutSourceCustomerFundInput | CustomerFundCreateOrConnectWithoutSourceCustomerFundInput[]
+    createMany?: CustomerFundCreateManySourceCustomerFundInputEnvelope
+    connect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+  }
+
+  export type CustomerFundUncheckedCreateNestedManyWithoutSourceCustomerFundInput = {
+    create?: XOR<CustomerFundCreateWithoutSourceCustomerFundInput, CustomerFundUncheckedCreateWithoutSourceCustomerFundInput> | CustomerFundCreateWithoutSourceCustomerFundInput[] | CustomerFundUncheckedCreateWithoutSourceCustomerFundInput[]
+    connectOrCreate?: CustomerFundCreateOrConnectWithoutSourceCustomerFundInput | CustomerFundCreateOrConnectWithoutSourceCustomerFundInput[]
+    createMany?: CustomerFundCreateManySourceCustomerFundInputEnvelope
+    connect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+  }
+
   export type CustomerUpdateOneRequiredWithoutCustomerFundsNestedInput = {
     create?: XOR<CustomerCreateWithoutCustomerFundsInput, CustomerUncheckedCreateWithoutCustomerFundsInput>
     connectOrCreate?: CustomerCreateOrConnectWithoutCustomerFundsInput
@@ -33962,6 +34103,44 @@ export namespace Prisma {
     upsert?: ProjectKiUpsertWithoutCustomerFundsInput
     connect?: ProjectKiWhereUniqueInput
     update?: XOR<XOR<ProjectKiUpdateToOneWithWhereWithoutCustomerFundsInput, ProjectKiUpdateWithoutCustomerFundsInput>, ProjectKiUncheckedUpdateWithoutCustomerFundsInput>
+  }
+
+  export type CustomerFundUpdateOneWithoutDestinationCustomerFundsNestedInput = {
+    create?: XOR<CustomerFundCreateWithoutDestinationCustomerFundsInput, CustomerFundUncheckedCreateWithoutDestinationCustomerFundsInput>
+    connectOrCreate?: CustomerFundCreateOrConnectWithoutDestinationCustomerFundsInput
+    upsert?: CustomerFundUpsertWithoutDestinationCustomerFundsInput
+    disconnect?: CustomerFundWhereInput | boolean
+    delete?: CustomerFundWhereInput | boolean
+    connect?: CustomerFundWhereUniqueInput
+    update?: XOR<XOR<CustomerFundUpdateToOneWithWhereWithoutDestinationCustomerFundsInput, CustomerFundUpdateWithoutDestinationCustomerFundsInput>, CustomerFundUncheckedUpdateWithoutDestinationCustomerFundsInput>
+  }
+
+  export type CustomerFundUpdateManyWithoutSourceCustomerFundNestedInput = {
+    create?: XOR<CustomerFundCreateWithoutSourceCustomerFundInput, CustomerFundUncheckedCreateWithoutSourceCustomerFundInput> | CustomerFundCreateWithoutSourceCustomerFundInput[] | CustomerFundUncheckedCreateWithoutSourceCustomerFundInput[]
+    connectOrCreate?: CustomerFundCreateOrConnectWithoutSourceCustomerFundInput | CustomerFundCreateOrConnectWithoutSourceCustomerFundInput[]
+    upsert?: CustomerFundUpsertWithWhereUniqueWithoutSourceCustomerFundInput | CustomerFundUpsertWithWhereUniqueWithoutSourceCustomerFundInput[]
+    createMany?: CustomerFundCreateManySourceCustomerFundInputEnvelope
+    set?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+    disconnect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+    delete?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+    connect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+    update?: CustomerFundUpdateWithWhereUniqueWithoutSourceCustomerFundInput | CustomerFundUpdateWithWhereUniqueWithoutSourceCustomerFundInput[]
+    updateMany?: CustomerFundUpdateManyWithWhereWithoutSourceCustomerFundInput | CustomerFundUpdateManyWithWhereWithoutSourceCustomerFundInput[]
+    deleteMany?: CustomerFundScalarWhereInput | CustomerFundScalarWhereInput[]
+  }
+
+  export type CustomerFundUncheckedUpdateManyWithoutSourceCustomerFundNestedInput = {
+    create?: XOR<CustomerFundCreateWithoutSourceCustomerFundInput, CustomerFundUncheckedCreateWithoutSourceCustomerFundInput> | CustomerFundCreateWithoutSourceCustomerFundInput[] | CustomerFundUncheckedCreateWithoutSourceCustomerFundInput[]
+    connectOrCreate?: CustomerFundCreateOrConnectWithoutSourceCustomerFundInput | CustomerFundCreateOrConnectWithoutSourceCustomerFundInput[]
+    upsert?: CustomerFundUpsertWithWhereUniqueWithoutSourceCustomerFundInput | CustomerFundUpsertWithWhereUniqueWithoutSourceCustomerFundInput[]
+    createMany?: CustomerFundCreateManySourceCustomerFundInputEnvelope
+    set?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+    disconnect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+    delete?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+    connect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+    update?: CustomerFundUpdateWithWhereUniqueWithoutSourceCustomerFundInput | CustomerFundUpdateWithWhereUniqueWithoutSourceCustomerFundInput[]
+    updateMany?: CustomerFundUpdateManyWithWhereWithoutSourceCustomerFundInput | CustomerFundUpdateManyWithWhereWithoutSourceCustomerFundInput[]
+    deleteMany?: CustomerFundScalarWhereInput | CustomerFundScalarWhereInput[]
   }
 
   export type ProjectCreateNestedManyWithoutReportMainInput = {
@@ -36294,6 +36473,8 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     Customer: CustomerCreateNestedOneWithoutCustomerFundsInput
+    sourceCustomerFund?: CustomerFundCreateNestedOneWithoutDestinationCustomerFundsInput
+    destinationCustomerFunds?: CustomerFundCreateNestedManyWithoutSourceCustomerFundInput
   }
 
   export type CustomerFundUncheckedCreateWithoutProjectKiInput = {
@@ -36309,12 +36490,14 @@ export namespace Prisma {
     otherBunpaiTotal?: number | null
     paymentDate?: Date | string | null
     holdPayment?: boolean
+    sourceCustomerFundId?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
     updatedAt?: Date | string
     updatedId: string
     updatedBy: string
+    destinationCustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutSourceCustomerFundInput
   }
 
   export type CustomerFundCreateOrConnectWithoutProjectKiInput = {
@@ -36502,6 +36685,7 @@ export namespace Prisma {
     otherBunpaiTotal?: IntNullableFilter<"CustomerFund"> | number | null
     paymentDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
     holdPayment?: BoolFilter<"CustomerFund"> | boolean
+    sourceCustomerFundId?: StringNullableFilter<"CustomerFund"> | string | null
     createdAt?: DateTimeFilter<"CustomerFund"> | Date | string
     createdId?: StringFilter<"CustomerFund"> | string
     createdBy?: StringFilter<"CustomerFund"> | string
@@ -37116,6 +37300,8 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     ProjectKi: ProjectKiCreateNestedOneWithoutCustomerFundsInput
+    sourceCustomerFund?: CustomerFundCreateNestedOneWithoutDestinationCustomerFundsInput
+    destinationCustomerFunds?: CustomerFundCreateNestedManyWithoutSourceCustomerFundInput
   }
 
   export type CustomerFundUncheckedCreateWithoutCustomerInput = {
@@ -37131,12 +37317,14 @@ export namespace Prisma {
     otherBunpaiTotal?: number | null
     paymentDate?: Date | string | null
     holdPayment?: boolean
+    sourceCustomerFundId?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
     updatedAt?: Date | string
     updatedId: string
     updatedBy: string
+    destinationCustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutSourceCustomerFundInput
   }
 
   export type CustomerFundCreateOrConnectWithoutCustomerInput = {
@@ -37558,6 +37746,113 @@ export namespace Prisma {
     create: XOR<ProjectKiCreateWithoutCustomerFundsInput, ProjectKiUncheckedCreateWithoutCustomerFundsInput>
   }
 
+  export type CustomerFundCreateWithoutDestinationCustomerFundsInput = {
+    id?: string
+    invoice?: boolean
+    applyUnit: number
+    bunpaiThisKi?: number | null
+    bunpaiYear?: number | null
+    bunpaiTotal?: number | null
+    otherBunpaiThisKi?: number | null
+    otherBunpaiYear?: number | null
+    otherBunpaiTotal?: number | null
+    paymentDate?: Date | string | null
+    holdPayment?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    Customer: CustomerCreateNestedOneWithoutCustomerFundsInput
+    ProjectKi: ProjectKiCreateNestedOneWithoutCustomerFundsInput
+    sourceCustomerFund?: CustomerFundCreateNestedOneWithoutDestinationCustomerFundsInput
+  }
+
+  export type CustomerFundUncheckedCreateWithoutDestinationCustomerFundsInput = {
+    id?: string
+    customerId: string
+    projectKiId: string
+    invoice?: boolean
+    applyUnit: number
+    bunpaiThisKi?: number | null
+    bunpaiYear?: number | null
+    bunpaiTotal?: number | null
+    otherBunpaiThisKi?: number | null
+    otherBunpaiYear?: number | null
+    otherBunpaiTotal?: number | null
+    paymentDate?: Date | string | null
+    holdPayment?: boolean
+    sourceCustomerFundId?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type CustomerFundCreateOrConnectWithoutDestinationCustomerFundsInput = {
+    where: CustomerFundWhereUniqueInput
+    create: XOR<CustomerFundCreateWithoutDestinationCustomerFundsInput, CustomerFundUncheckedCreateWithoutDestinationCustomerFundsInput>
+  }
+
+  export type CustomerFundCreateWithoutSourceCustomerFundInput = {
+    id?: string
+    invoice?: boolean
+    applyUnit: number
+    bunpaiThisKi?: number | null
+    bunpaiYear?: number | null
+    bunpaiTotal?: number | null
+    otherBunpaiThisKi?: number | null
+    otherBunpaiYear?: number | null
+    otherBunpaiTotal?: number | null
+    paymentDate?: Date | string | null
+    holdPayment?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    Customer: CustomerCreateNestedOneWithoutCustomerFundsInput
+    ProjectKi: ProjectKiCreateNestedOneWithoutCustomerFundsInput
+    destinationCustomerFunds?: CustomerFundCreateNestedManyWithoutSourceCustomerFundInput
+  }
+
+  export type CustomerFundUncheckedCreateWithoutSourceCustomerFundInput = {
+    id?: string
+    customerId: string
+    projectKiId: string
+    invoice?: boolean
+    applyUnit: number
+    bunpaiThisKi?: number | null
+    bunpaiYear?: number | null
+    bunpaiTotal?: number | null
+    otherBunpaiThisKi?: number | null
+    otherBunpaiYear?: number | null
+    otherBunpaiTotal?: number | null
+    paymentDate?: Date | string | null
+    holdPayment?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    destinationCustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutSourceCustomerFundInput
+  }
+
+  export type CustomerFundCreateOrConnectWithoutSourceCustomerFundInput = {
+    where: CustomerFundWhereUniqueInput
+    create: XOR<CustomerFundCreateWithoutSourceCustomerFundInput, CustomerFundUncheckedCreateWithoutSourceCustomerFundInput>
+  }
+
+  export type CustomerFundCreateManySourceCustomerFundInputEnvelope = {
+    data: CustomerFundCreateManySourceCustomerFundInput | CustomerFundCreateManySourceCustomerFundInput[]
+    skipDuplicates?: boolean
+  }
+
   export type CustomerUpsertWithoutCustomerFundsInput = {
     update: XOR<CustomerUpdateWithoutCustomerFundsInput, CustomerUncheckedUpdateWithoutCustomerFundsInput>
     create: XOR<CustomerCreateWithoutCustomerFundsInput, CustomerUncheckedCreateWithoutCustomerFundsInput>
@@ -37858,6 +38153,79 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CustomerFundUpsertWithoutDestinationCustomerFundsInput = {
+    update: XOR<CustomerFundUpdateWithoutDestinationCustomerFundsInput, CustomerFundUncheckedUpdateWithoutDestinationCustomerFundsInput>
+    create: XOR<CustomerFundCreateWithoutDestinationCustomerFundsInput, CustomerFundUncheckedCreateWithoutDestinationCustomerFundsInput>
+    where?: CustomerFundWhereInput
+  }
+
+  export type CustomerFundUpdateToOneWithWhereWithoutDestinationCustomerFundsInput = {
+    where?: CustomerFundWhereInput
+    data: XOR<CustomerFundUpdateWithoutDestinationCustomerFundsInput, CustomerFundUncheckedUpdateWithoutDestinationCustomerFundsInput>
+  }
+
+  export type CustomerFundUpdateWithoutDestinationCustomerFundsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    invoice?: BoolFieldUpdateOperationsInput | boolean
+    applyUnit?: IntFieldUpdateOperationsInput | number
+    bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    Customer?: CustomerUpdateOneRequiredWithoutCustomerFundsNestedInput
+    ProjectKi?: ProjectKiUpdateOneRequiredWithoutCustomerFundsNestedInput
+    sourceCustomerFund?: CustomerFundUpdateOneWithoutDestinationCustomerFundsNestedInput
+  }
+
+  export type CustomerFundUncheckedUpdateWithoutDestinationCustomerFundsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    customerId?: StringFieldUpdateOperationsInput | string
+    projectKiId?: StringFieldUpdateOperationsInput | string
+    invoice?: BoolFieldUpdateOperationsInput | boolean
+    applyUnit?: IntFieldUpdateOperationsInput | number
+    bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    sourceCustomerFundId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CustomerFundUpsertWithWhereUniqueWithoutSourceCustomerFundInput = {
+    where: CustomerFundWhereUniqueInput
+    update: XOR<CustomerFundUpdateWithoutSourceCustomerFundInput, CustomerFundUncheckedUpdateWithoutSourceCustomerFundInput>
+    create: XOR<CustomerFundCreateWithoutSourceCustomerFundInput, CustomerFundUncheckedCreateWithoutSourceCustomerFundInput>
+  }
+
+  export type CustomerFundUpdateWithWhereUniqueWithoutSourceCustomerFundInput = {
+    where: CustomerFundWhereUniqueInput
+    data: XOR<CustomerFundUpdateWithoutSourceCustomerFundInput, CustomerFundUncheckedUpdateWithoutSourceCustomerFundInput>
+  }
+
+  export type CustomerFundUpdateManyWithWhereWithoutSourceCustomerFundInput = {
+    where: CustomerFundScalarWhereInput
+    data: XOR<CustomerFundUpdateManyMutationInput, CustomerFundUncheckedUpdateManyWithoutSourceCustomerFundInput>
   }
 
   export type ProjectCreateWithoutReportMainInput = {
@@ -39694,6 +40062,7 @@ export namespace Prisma {
     otherBunpaiTotal?: number | null
     paymentDate?: Date | string | null
     holdPayment?: boolean
+    sourceCustomerFundId?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -39721,6 +40090,8 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     Customer?: CustomerUpdateOneRequiredWithoutCustomerFundsNestedInput
+    sourceCustomerFund?: CustomerFundUpdateOneWithoutDestinationCustomerFundsNestedInput
+    destinationCustomerFunds?: CustomerFundUpdateManyWithoutSourceCustomerFundNestedInput
   }
 
   export type CustomerFundUncheckedUpdateWithoutProjectKiInput = {
@@ -39736,12 +40107,14 @@ export namespace Prisma {
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    sourceCustomerFundId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
+    destinationCustomerFunds?: CustomerFundUncheckedUpdateManyWithoutSourceCustomerFundNestedInput
   }
 
   export type CustomerFundUncheckedUpdateManyWithoutProjectKiInput = {
@@ -39757,6 +40130,7 @@ export namespace Prisma {
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    sourceCustomerFundId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -39930,6 +40304,7 @@ export namespace Prisma {
     otherBunpaiTotal?: number | null
     paymentDate?: Date | string | null
     holdPayment?: boolean
+    sourceCustomerFundId?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -39957,10 +40332,103 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     ProjectKi?: ProjectKiUpdateOneRequiredWithoutCustomerFundsNestedInput
+    sourceCustomerFund?: CustomerFundUpdateOneWithoutDestinationCustomerFundsNestedInput
+    destinationCustomerFunds?: CustomerFundUpdateManyWithoutSourceCustomerFundNestedInput
   }
 
   export type CustomerFundUncheckedUpdateWithoutCustomerInput = {
     id?: StringFieldUpdateOperationsInput | string
+    projectKiId?: StringFieldUpdateOperationsInput | string
+    invoice?: BoolFieldUpdateOperationsInput | boolean
+    applyUnit?: IntFieldUpdateOperationsInput | number
+    bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    sourceCustomerFundId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    destinationCustomerFunds?: CustomerFundUncheckedUpdateManyWithoutSourceCustomerFundNestedInput
+  }
+
+  export type CustomerFundUncheckedUpdateManyWithoutCustomerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectKiId?: StringFieldUpdateOperationsInput | string
+    invoice?: BoolFieldUpdateOperationsInput | boolean
+    applyUnit?: IntFieldUpdateOperationsInput | number
+    bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    sourceCustomerFundId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CustomerFundCreateManySourceCustomerFundInput = {
+    id?: string
+    customerId: string
+    projectKiId: string
+    invoice?: boolean
+    applyUnit: number
+    bunpaiThisKi?: number | null
+    bunpaiYear?: number | null
+    bunpaiTotal?: number | null
+    otherBunpaiThisKi?: number | null
+    otherBunpaiYear?: number | null
+    otherBunpaiTotal?: number | null
+    paymentDate?: Date | string | null
+    holdPayment?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type CustomerFundUpdateWithoutSourceCustomerFundInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    invoice?: BoolFieldUpdateOperationsInput | boolean
+    applyUnit?: IntFieldUpdateOperationsInput | number
+    bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    Customer?: CustomerUpdateOneRequiredWithoutCustomerFundsNestedInput
+    ProjectKi?: ProjectKiUpdateOneRequiredWithoutCustomerFundsNestedInput
+    destinationCustomerFunds?: CustomerFundUpdateManyWithoutSourceCustomerFundNestedInput
+  }
+
+  export type CustomerFundUncheckedUpdateWithoutSourceCustomerFundInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    customerId?: StringFieldUpdateOperationsInput | string
     projectKiId?: StringFieldUpdateOperationsInput | string
     invoice?: BoolFieldUpdateOperationsInput | boolean
     applyUnit?: IntFieldUpdateOperationsInput | number
@@ -39978,10 +40446,12 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
+    destinationCustomerFunds?: CustomerFundUncheckedUpdateManyWithoutSourceCustomerFundNestedInput
   }
 
-  export type CustomerFundUncheckedUpdateManyWithoutCustomerInput = {
+  export type CustomerFundUncheckedUpdateManyWithoutSourceCustomerFundInput = {
     id?: StringFieldUpdateOperationsInput | string
+    customerId?: StringFieldUpdateOperationsInput | string
     projectKiId?: StringFieldUpdateOperationsInput | string
     invoice?: BoolFieldUpdateOperationsInput | boolean
     applyUnit?: IntFieldUpdateOperationsInput | number
@@ -40916,6 +41386,10 @@ export namespace Prisma {
      * @deprecated Use CustomerCountOutputTypeDefaultArgs instead
      */
     export type CustomerCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = CustomerCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use CustomerFundCountOutputTypeDefaultArgs instead
+     */
+    export type CustomerFundCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = CustomerFundCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use TemplateCountOutputTypeDefaultArgs instead
      */
