@@ -19433,6 +19433,7 @@ export namespace Prisma {
     newBunpaiStartDate: Date | null
     horyuStatus: $Enums.HoryuStatusType | null
     instructionDueDate: Date | null
+    instructionDate: Date | null
     paymentDueDate: Date | null
     holdMemo: string | null
     isDeleted: boolean | null
@@ -19478,6 +19479,7 @@ export namespace Prisma {
     newBunpaiStartDate: Date | null
     horyuStatus: $Enums.HoryuStatusType | null
     instructionDueDate: Date | null
+    instructionDate: Date | null
     paymentDueDate: Date | null
     holdMemo: string | null
     isDeleted: boolean | null
@@ -19523,6 +19525,7 @@ export namespace Prisma {
     newBunpaiStartDate: number
     horyuStatus: number
     instructionDueDate: number
+    instructionDate: number
     paymentDueDate: number
     holdMemo: number
     isDeleted: number
@@ -19582,6 +19585,7 @@ export namespace Prisma {
     newBunpaiStartDate?: true
     horyuStatus?: true
     instructionDueDate?: true
+    instructionDate?: true
     paymentDueDate?: true
     holdMemo?: true
     isDeleted?: true
@@ -19627,6 +19631,7 @@ export namespace Prisma {
     newBunpaiStartDate?: true
     horyuStatus?: true
     instructionDueDate?: true
+    instructionDate?: true
     paymentDueDate?: true
     holdMemo?: true
     isDeleted?: true
@@ -19672,6 +19677,7 @@ export namespace Prisma {
     newBunpaiStartDate?: true
     horyuStatus?: true
     instructionDueDate?: true
+    instructionDate?: true
     paymentDueDate?: true
     holdMemo?: true
     isDeleted?: true
@@ -19804,6 +19810,7 @@ export namespace Prisma {
     newBunpaiStartDate: Date | null
     horyuStatus: $Enums.HoryuStatusType | null
     instructionDueDate: Date | null
+    instructionDate: Date | null
     paymentDueDate: Date | null
     holdMemo: string | null
     isDeleted: boolean
@@ -19868,6 +19875,7 @@ export namespace Prisma {
     newBunpaiStartDate?: boolean
     horyuStatus?: boolean
     instructionDueDate?: boolean
+    instructionDate?: boolean
     paymentDueDate?: boolean
     holdMemo?: boolean
     isDeleted?: boolean
@@ -19916,6 +19924,7 @@ export namespace Prisma {
     newBunpaiStartDate?: boolean
     horyuStatus?: boolean
     instructionDueDate?: boolean
+    instructionDate?: boolean
     paymentDueDate?: boolean
     holdMemo?: boolean
     isDeleted?: boolean
@@ -19962,6 +19971,7 @@ export namespace Prisma {
     newBunpaiStartDate?: boolean
     horyuStatus?: boolean
     instructionDueDate?: boolean
+    instructionDate?: boolean
     paymentDueDate?: boolean
     holdMemo?: boolean
     isDeleted?: boolean
@@ -20008,6 +20018,7 @@ export namespace Prisma {
     newBunpaiStartDate?: boolean
     horyuStatus?: boolean
     instructionDueDate?: boolean
+    instructionDate?: boolean
     paymentDueDate?: boolean
     holdMemo?: boolean
     isDeleted?: boolean
@@ -20019,7 +20030,7 @@ export namespace Prisma {
     updatedBy?: boolean
   }
 
-  export type CustomerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fundId" | "projectId" | "sbimpId" | "fundStatus" | "name" | "nameFurigana" | "birthday" | "customerType" | "invoice" | "postName" | "zip" | "fullAddress" | "prefecture" | "city" | "address" | "transferName" | "transferNameFurigana" | "bankCode" | "bankName" | "bankBranchCode" | "bankBranchName" | "bankAccountTypeCode" | "bankAccountType" | "bankAccount" | "inheritanceType" | "inheritanceStatus" | "giftContractDate" | "trustTransferDate" | "oldBunpaiEndDate" | "newBunpaiStartDate" | "horyuStatus" | "instructionDueDate" | "paymentDueDate" | "holdMemo" | "isDeleted" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["customer"]>
+  export type CustomerOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fundId" | "projectId" | "sbimpId" | "fundStatus" | "name" | "nameFurigana" | "birthday" | "customerType" | "invoice" | "postName" | "zip" | "fullAddress" | "prefecture" | "city" | "address" | "transferName" | "transferNameFurigana" | "bankCode" | "bankName" | "bankBranchCode" | "bankBranchName" | "bankAccountTypeCode" | "bankAccountType" | "bankAccount" | "inheritanceType" | "inheritanceStatus" | "giftContractDate" | "trustTransferDate" | "oldBunpaiEndDate" | "newBunpaiStartDate" | "horyuStatus" | "instructionDueDate" | "instructionDate" | "paymentDueDate" | "holdMemo" | "isDeleted" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["customer"]>
   export type CustomerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Project?: boolean | ProjectDefaultArgs<ExtArgs>
     CustomerFunds?: boolean | Customer$CustomerFundsArgs<ExtArgs>
@@ -20072,6 +20083,7 @@ export namespace Prisma {
       newBunpaiStartDate: Date | null
       horyuStatus: $Enums.HoryuStatusType | null
       instructionDueDate: Date | null
+      instructionDate: Date | null
       paymentDueDate: Date | null
       holdMemo: string | null
       isDeleted: boolean
@@ -20539,6 +20551,7 @@ export namespace Prisma {
     readonly newBunpaiStartDate: FieldRef<"Customer", 'DateTime'>
     readonly horyuStatus: FieldRef<"Customer", 'HoryuStatusType'>
     readonly instructionDueDate: FieldRef<"Customer", 'DateTime'>
+    readonly instructionDate: FieldRef<"Customer", 'DateTime'>
     readonly paymentDueDate: FieldRef<"Customer", 'DateTime'>
     readonly holdMemo: FieldRef<"Customer", 'String'>
     readonly isDeleted: FieldRef<"Customer", 'Boolean'>
@@ -27398,6 +27411,7 @@ export namespace Prisma {
     newBunpaiStartDate: 'newBunpaiStartDate',
     horyuStatus: 'horyuStatus',
     instructionDueDate: 'instructionDueDate',
+    instructionDate: 'instructionDate',
     paymentDueDate: 'paymentDueDate',
     holdMemo: 'holdMemo',
     isDeleted: 'isDeleted',
@@ -29792,6 +29806,7 @@ export namespace Prisma {
     newBunpaiStartDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
     horyuStatus?: EnumHoryuStatusTypeNullableFilter<"Customer"> | $Enums.HoryuStatusType | null
     instructionDueDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
+    instructionDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
     paymentDueDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
     holdMemo?: StringNullableFilter<"Customer"> | string | null
     isDeleted?: BoolFilter<"Customer"> | boolean
@@ -29839,6 +29854,7 @@ export namespace Prisma {
     newBunpaiStartDate?: SortOrderInput | SortOrder
     horyuStatus?: SortOrderInput | SortOrder
     instructionDueDate?: SortOrderInput | SortOrder
+    instructionDate?: SortOrderInput | SortOrder
     paymentDueDate?: SortOrderInput | SortOrder
     holdMemo?: SortOrderInput | SortOrder
     isDeleted?: SortOrder
@@ -29889,6 +29905,7 @@ export namespace Prisma {
     newBunpaiStartDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
     horyuStatus?: EnumHoryuStatusTypeNullableFilter<"Customer"> | $Enums.HoryuStatusType | null
     instructionDueDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
+    instructionDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
     paymentDueDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
     holdMemo?: StringNullableFilter<"Customer"> | string | null
     isDeleted?: BoolFilter<"Customer"> | boolean
@@ -29936,6 +29953,7 @@ export namespace Prisma {
     newBunpaiStartDate?: SortOrderInput | SortOrder
     horyuStatus?: SortOrderInput | SortOrder
     instructionDueDate?: SortOrderInput | SortOrder
+    instructionDate?: SortOrderInput | SortOrder
     paymentDueDate?: SortOrderInput | SortOrder
     holdMemo?: SortOrderInput | SortOrder
     isDeleted?: SortOrder
@@ -29989,6 +30007,7 @@ export namespace Prisma {
     newBunpaiStartDate?: DateTimeNullableWithAggregatesFilter<"Customer"> | Date | string | null
     horyuStatus?: EnumHoryuStatusTypeNullableWithAggregatesFilter<"Customer"> | $Enums.HoryuStatusType | null
     instructionDueDate?: DateTimeNullableWithAggregatesFilter<"Customer"> | Date | string | null
+    instructionDate?: DateTimeNullableWithAggregatesFilter<"Customer"> | Date | string | null
     paymentDueDate?: DateTimeNullableWithAggregatesFilter<"Customer"> | Date | string | null
     holdMemo?: StringNullableWithAggregatesFilter<"Customer"> | string | null
     isDeleted?: BoolWithAggregatesFilter<"Customer"> | boolean
@@ -32982,6 +33001,7 @@ export namespace Prisma {
     newBunpaiStartDate?: Date | string | null
     horyuStatus?: $Enums.HoryuStatusType | null
     instructionDueDate?: Date | string | null
+    instructionDate?: Date | string | null
     paymentDueDate?: Date | string | null
     holdMemo?: string | null
     isDeleted?: boolean
@@ -33029,6 +33049,7 @@ export namespace Prisma {
     newBunpaiStartDate?: Date | string | null
     horyuStatus?: $Enums.HoryuStatusType | null
     instructionDueDate?: Date | string | null
+    instructionDate?: Date | string | null
     paymentDueDate?: Date | string | null
     holdMemo?: string | null
     isDeleted?: boolean
@@ -33074,6 +33095,7 @@ export namespace Prisma {
     newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
     instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
@@ -33121,6 +33143,7 @@ export namespace Prisma {
     newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
     instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
@@ -33167,6 +33190,7 @@ export namespace Prisma {
     newBunpaiStartDate?: Date | string | null
     horyuStatus?: $Enums.HoryuStatusType | null
     instructionDueDate?: Date | string | null
+    instructionDate?: Date | string | null
     paymentDueDate?: Date | string | null
     holdMemo?: string | null
     isDeleted?: boolean
@@ -33211,6 +33235,7 @@ export namespace Prisma {
     newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
     instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
@@ -33256,6 +33281,7 @@ export namespace Prisma {
     newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
     instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
@@ -35780,6 +35806,7 @@ export namespace Prisma {
     newBunpaiStartDate?: SortOrder
     horyuStatus?: SortOrder
     instructionDueDate?: SortOrder
+    instructionDate?: SortOrder
     paymentDueDate?: SortOrder
     holdMemo?: SortOrder
     isDeleted?: SortOrder
@@ -35831,6 +35858,7 @@ export namespace Prisma {
     newBunpaiStartDate?: SortOrder
     horyuStatus?: SortOrder
     instructionDueDate?: SortOrder
+    instructionDate?: SortOrder
     paymentDueDate?: SortOrder
     holdMemo?: SortOrder
     isDeleted?: SortOrder
@@ -35876,6 +35904,7 @@ export namespace Prisma {
     newBunpaiStartDate?: SortOrder
     horyuStatus?: SortOrder
     instructionDueDate?: SortOrder
+    instructionDate?: SortOrder
     paymentDueDate?: SortOrder
     holdMemo?: SortOrder
     isDeleted?: SortOrder
@@ -38779,6 +38808,7 @@ export namespace Prisma {
     newBunpaiStartDate?: Date | string | null
     horyuStatus?: $Enums.HoryuStatusType | null
     instructionDueDate?: Date | string | null
+    instructionDate?: Date | string | null
     paymentDueDate?: Date | string | null
     holdMemo?: string | null
     isDeleted?: boolean
@@ -38824,6 +38854,7 @@ export namespace Prisma {
     newBunpaiStartDate?: Date | string | null
     horyuStatus?: $Enums.HoryuStatusType | null
     instructionDueDate?: Date | string | null
+    instructionDate?: Date | string | null
     paymentDueDate?: Date | string | null
     holdMemo?: string | null
     isDeleted?: boolean
@@ -39225,6 +39256,7 @@ export namespace Prisma {
     newBunpaiStartDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
     horyuStatus?: EnumHoryuStatusTypeNullableFilter<"Customer"> | $Enums.HoryuStatusType | null
     instructionDueDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
+    instructionDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
     paymentDueDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
     holdMemo?: StringNullableFilter<"Customer"> | string | null
     isDeleted?: BoolFilter<"Customer"> | boolean
@@ -40410,6 +40442,7 @@ export namespace Prisma {
     newBunpaiStartDate?: Date | string | null
     horyuStatus?: $Enums.HoryuStatusType | null
     instructionDueDate?: Date | string | null
+    instructionDate?: Date | string | null
     paymentDueDate?: Date | string | null
     holdMemo?: string | null
     isDeleted?: boolean
@@ -40456,6 +40489,7 @@ export namespace Prisma {
     newBunpaiStartDate?: Date | string | null
     horyuStatus?: $Enums.HoryuStatusType | null
     instructionDueDate?: Date | string | null
+    instructionDate?: Date | string | null
     paymentDueDate?: Date | string | null
     holdMemo?: string | null
     isDeleted?: boolean
@@ -40826,6 +40860,7 @@ export namespace Prisma {
     newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
     instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
@@ -40872,6 +40907,7 @@ export namespace Prisma {
     newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
     instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
@@ -42492,6 +42528,7 @@ export namespace Prisma {
     newBunpaiStartDate?: Date | string | null
     horyuStatus?: $Enums.HoryuStatusType | null
     instructionDueDate?: Date | string | null
+    instructionDate?: Date | string | null
     paymentDueDate?: Date | string | null
     holdMemo?: string | null
     isDeleted?: boolean
@@ -42903,6 +42940,7 @@ export namespace Prisma {
     newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
     instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
@@ -42948,6 +42986,7 @@ export namespace Prisma {
     newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
     instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
@@ -42993,6 +43032,7 @@ export namespace Prisma {
     newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
     instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
