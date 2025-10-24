@@ -8528,6 +8528,7 @@ export namespace Prisma {
     cashManBankAccountType: string | null
     cashManBankAccount: string | null
     cashManBankAccountHolder: string | null
+    shintakuContractNum: string | null
     kamiyachoFlag: boolean | null
     mlspcFlag: boolean | null
     leverageFlag: boolean | null
@@ -8572,6 +8573,7 @@ export namespace Prisma {
     cashManBankAccountType: string | null
     cashManBankAccount: string | null
     cashManBankAccountHolder: string | null
+    shintakuContractNum: string | null
     kamiyachoFlag: boolean | null
     mlspcFlag: boolean | null
     leverageFlag: boolean | null
@@ -8616,6 +8618,7 @@ export namespace Prisma {
     cashManBankAccountType: number
     cashManBankAccount: number
     cashManBankAccountHolder: number
+    shintakuContractNum: number
     kamiyachoFlag: number
     mlspcFlag: number
     leverageFlag: number
@@ -8682,6 +8685,7 @@ export namespace Prisma {
     cashManBankAccountType?: true
     cashManBankAccount?: true
     cashManBankAccountHolder?: true
+    shintakuContractNum?: true
     kamiyachoFlag?: true
     mlspcFlag?: true
     leverageFlag?: true
@@ -8726,6 +8730,7 @@ export namespace Prisma {
     cashManBankAccountType?: true
     cashManBankAccount?: true
     cashManBankAccountHolder?: true
+    shintakuContractNum?: true
     kamiyachoFlag?: true
     mlspcFlag?: true
     leverageFlag?: true
@@ -8770,6 +8775,7 @@ export namespace Prisma {
     cashManBankAccountType?: true
     cashManBankAccount?: true
     cashManBankAccountHolder?: true
+    shintakuContractNum?: true
     kamiyachoFlag?: true
     mlspcFlag?: true
     leverageFlag?: true
@@ -8901,6 +8907,7 @@ export namespace Prisma {
     cashManBankAccountType: string
     cashManBankAccount: string | null
     cashManBankAccountHolder: string | null
+    shintakuContractNum: string | null
     kamiyachoFlag: boolean
     mlspcFlag: boolean
     leverageFlag: boolean
@@ -8964,6 +8971,7 @@ export namespace Prisma {
     cashManBankAccountType?: boolean
     cashManBankAccount?: boolean
     cashManBankAccountHolder?: boolean
+    shintakuContractNum?: boolean
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -9017,6 +9025,7 @@ export namespace Prisma {
     cashManBankAccountType?: boolean
     cashManBankAccount?: boolean
     cashManBankAccountHolder?: boolean
+    shintakuContractNum?: boolean
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -9066,6 +9075,7 @@ export namespace Prisma {
     cashManBankAccountType?: boolean
     cashManBankAccount?: boolean
     cashManBankAccountHolder?: boolean
+    shintakuContractNum?: boolean
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -9115,6 +9125,7 @@ export namespace Prisma {
     cashManBankAccountType?: boolean
     cashManBankAccount?: boolean
     cashManBankAccountHolder?: boolean
+    shintakuContractNum?: boolean
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -9133,7 +9144,7 @@ export namespace Prisma {
     updatedBy?: boolean
   }
 
-  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sbimpId" | "name" | "shortName" | "totalUnit" | "totalAmount" | "unitAmount" | "trustTermStart" | "trustTermEnd" | "dividendYield" | "fullOccupancyYield" | "totalKubun" | "residenceKubun" | "settlorGkName" | "settlorGkAddress" | "bankName" | "branchName" | "bankAccountType" | "bankAccount" | "bankAccountHolder" | "cashManBankName" | "cashManBranchName" | "cashManBankAccountType" | "cashManBankAccount" | "cashManBankAccountHolder" | "kamiyachoFlag" | "mlspcFlag" | "leverageFlag" | "unitResidenceFlag" | "completedFlag" | "reportMainId" | "reportAtt2Id" | "reportAtt3Id" | "bunpaiId" | "refId" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["project"]>
+  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sbimpId" | "name" | "shortName" | "totalUnit" | "totalAmount" | "unitAmount" | "trustTermStart" | "trustTermEnd" | "dividendYield" | "fullOccupancyYield" | "totalKubun" | "residenceKubun" | "settlorGkName" | "settlorGkAddress" | "bankName" | "branchName" | "bankAccountType" | "bankAccount" | "bankAccountHolder" | "cashManBankName" | "cashManBranchName" | "cashManBankAccountType" | "cashManBankAccount" | "cashManBankAccountHolder" | "shintakuContractNum" | "kamiyachoFlag" | "mlspcFlag" | "leverageFlag" | "unitResidenceFlag" | "completedFlag" | "reportMainId" | "reportAtt2Id" | "reportAtt3Id" | "bunpaiId" | "refId" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["project"]>
   export type ProjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     ReportMain?: boolean | Project$ReportMainArgs<ExtArgs>
     ReportAtt2?: boolean | Project$ReportAtt2Args<ExtArgs>
@@ -9198,6 +9209,7 @@ export namespace Prisma {
       cashManBankAccountType: string
       cashManBankAccount: string | null
       cashManBankAccountHolder: string | null
+      shintakuContractNum: string | null
       kamiyachoFlag: boolean
       mlspcFlag: boolean
       leverageFlag: boolean
@@ -9670,6 +9682,7 @@ export namespace Prisma {
     readonly cashManBankAccountType: FieldRef<"Project", 'String'>
     readonly cashManBankAccount: FieldRef<"Project", 'String'>
     readonly cashManBankAccountHolder: FieldRef<"Project", 'String'>
+    readonly shintakuContractNum: FieldRef<"Project", 'String'>
     readonly kamiyachoFlag: FieldRef<"Project", 'Boolean'>
     readonly mlspcFlag: FieldRef<"Project", 'Boolean'>
     readonly leverageFlag: FieldRef<"Project", 'Boolean'>
@@ -16459,11 +16472,13 @@ export namespace Prisma {
   export type AssetAvgAggregateOutputType = {
     leaseArea: number | null
     totalKosu: number | null
+    orderBy: number | null
   }
 
   export type AssetSumAggregateOutputType = {
     leaseArea: number | null
     totalKosu: number | null
+    orderBy: number | null
   }
 
   export type AssetMinAggregateOutputType = {
@@ -16483,6 +16498,7 @@ export namespace Prisma {
     landUseZone: string | null
     leaseArea: number | null
     totalKosu: number | null
+    orderBy: number | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -16508,6 +16524,7 @@ export namespace Prisma {
     landUseZone: string | null
     leaseArea: number | null
     totalKosu: number | null
+    orderBy: number | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -16534,6 +16551,7 @@ export namespace Prisma {
     leaseArea: number
     totalKosu: number
     depreciableAssetJson: number
+    orderBy: number
     createdAt: number
     createdId: number
     createdBy: number
@@ -16547,11 +16565,13 @@ export namespace Prisma {
   export type AssetAvgAggregateInputType = {
     leaseArea?: true
     totalKosu?: true
+    orderBy?: true
   }
 
   export type AssetSumAggregateInputType = {
     leaseArea?: true
     totalKosu?: true
+    orderBy?: true
   }
 
   export type AssetMinAggregateInputType = {
@@ -16571,6 +16591,7 @@ export namespace Prisma {
     landUseZone?: true
     leaseArea?: true
     totalKosu?: true
+    orderBy?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -16596,6 +16617,7 @@ export namespace Prisma {
     landUseZone?: true
     leaseArea?: true
     totalKosu?: true
+    orderBy?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -16622,6 +16644,7 @@ export namespace Prisma {
     leaseArea?: true
     totalKosu?: true
     depreciableAssetJson?: true
+    orderBy?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -16735,6 +16758,7 @@ export namespace Prisma {
     leaseArea: number | null
     totalKosu: number | null
     depreciableAssetJson: JsonValue | null
+    orderBy: number | null
     createdAt: Date
     createdId: string
     createdBy: string
@@ -16780,6 +16804,7 @@ export namespace Prisma {
     leaseArea?: boolean
     totalKosu?: boolean
     depreciableAssetJson?: boolean
+    orderBy?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -16809,6 +16834,7 @@ export namespace Prisma {
     leaseArea?: boolean
     totalKosu?: boolean
     depreciableAssetJson?: boolean
+    orderBy?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -16836,6 +16862,7 @@ export namespace Prisma {
     leaseArea?: boolean
     totalKosu?: boolean
     depreciableAssetJson?: boolean
+    orderBy?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -16863,6 +16890,7 @@ export namespace Prisma {
     leaseArea?: boolean
     totalKosu?: boolean
     depreciableAssetJson?: boolean
+    orderBy?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -16871,7 +16899,7 @@ export namespace Prisma {
     updatedBy?: boolean
   }
 
-  export type AssetOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "name" | "address" | "registeredAddress" | "SelfValuationPos" | "LandValuationPos" | "BuildingValuationPos" | "LandEquityValuationPos" | "LandSelfValuationPos" | "UnitResidenceLandValuationStartPos" | "UnitResidenceBuildingValuationStartPos" | "leaseType" | "landUseZone" | "leaseArea" | "totalKosu" | "depreciableAssetJson" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["asset"]>
+  export type AssetOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "name" | "address" | "registeredAddress" | "SelfValuationPos" | "LandValuationPos" | "BuildingValuationPos" | "LandEquityValuationPos" | "LandSelfValuationPos" | "UnitResidenceLandValuationStartPos" | "UnitResidenceBuildingValuationStartPos" | "leaseType" | "landUseZone" | "leaseArea" | "totalKosu" | "depreciableAssetJson" | "orderBy" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["asset"]>
   export type AssetInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Project?: boolean | ProjectDefaultArgs<ExtArgs>
     AssetKis?: boolean | Asset$AssetKisArgs<ExtArgs>
@@ -16908,6 +16936,7 @@ export namespace Prisma {
       leaseArea: number | null
       totalKosu: number | null
       depreciableAssetJson: Prisma.JsonValue | null
+      orderBy: number | null
       createdAt: Date
       createdId: string
       createdBy: string
@@ -17356,6 +17385,7 @@ export namespace Prisma {
     readonly leaseArea: FieldRef<"Asset", 'Float'>
     readonly totalKosu: FieldRef<"Asset", 'Int'>
     readonly depreciableAssetJson: FieldRef<"Asset", 'Json'>
+    readonly orderBy: FieldRef<"Asset", 'Int'>
     readonly createdAt: FieldRef<"Asset", 'DateTime'>
     readonly createdId: FieldRef<"Asset", 'String'>
     readonly createdBy: FieldRef<"Asset", 'String'>
@@ -27117,6 +27147,7 @@ export namespace Prisma {
     cashManBankAccountType: 'cashManBankAccountType',
     cashManBankAccount: 'cashManBankAccount',
     cashManBankAccountHolder: 'cashManBankAccountHolder',
+    shintakuContractNum: 'shintakuContractNum',
     kamiyachoFlag: 'kamiyachoFlag',
     mlspcFlag: 'mlspcFlag',
     leverageFlag: 'leverageFlag',
@@ -27324,6 +27355,7 @@ export namespace Prisma {
     leaseArea: 'leaseArea',
     totalKosu: 'totalKosu',
     depreciableAssetJson: 'depreciableAssetJson',
+    orderBy: 'orderBy',
     createdAt: 'createdAt',
     createdId: 'createdId',
     createdBy: 'createdBy',
@@ -28327,6 +28359,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringFilter<"Project"> | string
     cashManBankAccount?: StringNullableFilter<"Project"> | string | null
     cashManBankAccountHolder?: StringNullableFilter<"Project"> | string | null
+    shintakuContractNum?: StringNullableFilter<"Project"> | string | null
     kamiyachoFlag?: BoolFilter<"Project"> | boolean
     mlspcFlag?: BoolFilter<"Project"> | boolean
     leverageFlag?: BoolFilter<"Project"> | boolean
@@ -28379,6 +28412,7 @@ export namespace Prisma {
     cashManBankAccountType?: SortOrder
     cashManBankAccount?: SortOrderInput | SortOrder
     cashManBankAccountHolder?: SortOrderInput | SortOrder
+    shintakuContractNum?: SortOrderInput | SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
     leverageFlag?: SortOrder
@@ -28434,6 +28468,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringFilter<"Project"> | string
     cashManBankAccount?: StringNullableFilter<"Project"> | string | null
     cashManBankAccountHolder?: StringNullableFilter<"Project"> | string | null
+    shintakuContractNum?: StringNullableFilter<"Project"> | string | null
     kamiyachoFlag?: BoolFilter<"Project"> | boolean
     mlspcFlag?: BoolFilter<"Project"> | boolean
     leverageFlag?: BoolFilter<"Project"> | boolean
@@ -28486,6 +28521,7 @@ export namespace Prisma {
     cashManBankAccountType?: SortOrder
     cashManBankAccount?: SortOrderInput | SortOrder
     cashManBankAccountHolder?: SortOrderInput | SortOrder
+    shintakuContractNum?: SortOrderInput | SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
     leverageFlag?: SortOrder
@@ -28538,6 +28574,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringWithAggregatesFilter<"Project"> | string
     cashManBankAccount?: StringNullableWithAggregatesFilter<"Project"> | string | null
     cashManBankAccountHolder?: StringNullableWithAggregatesFilter<"Project"> | string | null
+    shintakuContractNum?: StringNullableWithAggregatesFilter<"Project"> | string | null
     kamiyachoFlag?: BoolWithAggregatesFilter<"Project"> | boolean
     mlspcFlag?: BoolWithAggregatesFilter<"Project"> | boolean
     leverageFlag?: BoolWithAggregatesFilter<"Project"> | boolean
@@ -29424,6 +29461,7 @@ export namespace Prisma {
     leaseArea?: FloatNullableFilter<"Asset"> | number | null
     totalKosu?: IntNullableFilter<"Asset"> | number | null
     depreciableAssetJson?: JsonNullableFilter<"Asset">
+    orderBy?: IntNullableFilter<"Asset"> | number | null
     createdAt?: DateTimeFilter<"Asset"> | Date | string
     createdId?: StringFilter<"Asset"> | string
     createdBy?: StringFilter<"Asset"> | string
@@ -29452,6 +29490,7 @@ export namespace Prisma {
     leaseArea?: SortOrderInput | SortOrder
     totalKosu?: SortOrderInput | SortOrder
     depreciableAssetJson?: SortOrderInput | SortOrder
+    orderBy?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -29483,6 +29522,7 @@ export namespace Prisma {
     leaseArea?: FloatNullableFilter<"Asset"> | number | null
     totalKosu?: IntNullableFilter<"Asset"> | number | null
     depreciableAssetJson?: JsonNullableFilter<"Asset">
+    orderBy?: IntNullableFilter<"Asset"> | number | null
     createdAt?: DateTimeFilter<"Asset"> | Date | string
     createdId?: StringFilter<"Asset"> | string
     createdBy?: StringFilter<"Asset"> | string
@@ -29511,6 +29551,7 @@ export namespace Prisma {
     leaseArea?: SortOrderInput | SortOrder
     totalKosu?: SortOrderInput | SortOrder
     depreciableAssetJson?: SortOrderInput | SortOrder
+    orderBy?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -29545,6 +29586,7 @@ export namespace Prisma {
     leaseArea?: FloatNullableWithAggregatesFilter<"Asset"> | number | null
     totalKosu?: IntNullableWithAggregatesFilter<"Asset"> | number | null
     depreciableAssetJson?: JsonNullableWithAggregatesFilter<"Asset">
+    orderBy?: IntNullableWithAggregatesFilter<"Asset"> | number | null
     createdAt?: DateTimeWithAggregatesFilter<"Asset"> | Date | string
     createdId?: StringWithAggregatesFilter<"Asset"> | string
     createdBy?: StringWithAggregatesFilter<"Asset"> | string
@@ -31129,6 +31171,7 @@ export namespace Prisma {
     cashManBankAccountType?: string
     cashManBankAccount?: string | null
     cashManBankAccountHolder?: string | null
+    shintakuContractNum?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -31176,6 +31219,7 @@ export namespace Prisma {
     cashManBankAccountType?: string
     cashManBankAccount?: string | null
     cashManBankAccountHolder?: string | null
+    shintakuContractNum?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -31223,6 +31267,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringFieldUpdateOperationsInput | string
     cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    shintakuContractNum?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -31270,6 +31315,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringFieldUpdateOperationsInput | string
     cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    shintakuContractNum?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -31317,6 +31363,7 @@ export namespace Prisma {
     cashManBankAccountType?: string
     cashManBankAccount?: string | null
     cashManBankAccountHolder?: string | null
+    shintakuContractNum?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -31361,6 +31408,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringFieldUpdateOperationsInput | string
     cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    shintakuContractNum?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -31400,6 +31448,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringFieldUpdateOperationsInput | string
     cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    shintakuContractNum?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -32529,6 +32578,7 @@ export namespace Prisma {
     leaseArea?: number | null
     totalKosu?: number | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
+    orderBy?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -32557,6 +32607,7 @@ export namespace Prisma {
     leaseArea?: number | null
     totalKosu?: number | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
+    orderBy?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -32583,6 +32634,7 @@ export namespace Prisma {
     leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
     totalKosu?: NullableIntFieldUpdateOperationsInput | number | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
+    orderBy?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -32611,6 +32663,7 @@ export namespace Prisma {
     leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
     totalKosu?: NullableIntFieldUpdateOperationsInput | number | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
+    orderBy?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -32638,6 +32691,7 @@ export namespace Prisma {
     leaseArea?: number | null
     totalKosu?: number | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
+    orderBy?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -32663,6 +32717,7 @@ export namespace Prisma {
     leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
     totalKosu?: NullableIntFieldUpdateOperationsInput | number | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
+    orderBy?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -32689,6 +32744,7 @@ export namespace Prisma {
     leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
     totalKosu?: NullableIntFieldUpdateOperationsInput | number | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
+    orderBy?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -34426,6 +34482,7 @@ export namespace Prisma {
     cashManBankAccountType?: SortOrder
     cashManBankAccount?: SortOrder
     cashManBankAccountHolder?: SortOrder
+    shintakuContractNum?: SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
     leverageFlag?: SortOrder
@@ -34480,6 +34537,7 @@ export namespace Prisma {
     cashManBankAccountType?: SortOrder
     cashManBankAccount?: SortOrder
     cashManBankAccountHolder?: SortOrder
+    shintakuContractNum?: SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
     leverageFlag?: SortOrder
@@ -34524,6 +34582,7 @@ export namespace Prisma {
     cashManBankAccountType?: SortOrder
     cashManBankAccount?: SortOrder
     cashManBankAccountHolder?: SortOrder
+    shintakuContractNum?: SortOrder
     kamiyachoFlag?: SortOrder
     mlspcFlag?: SortOrder
     leverageFlag?: SortOrder
@@ -35469,6 +35528,7 @@ export namespace Prisma {
     leaseArea?: SortOrder
     totalKosu?: SortOrder
     depreciableAssetJson?: SortOrder
+    orderBy?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -35480,6 +35540,7 @@ export namespace Prisma {
   export type AssetAvgOrderByAggregateInput = {
     leaseArea?: SortOrder
     totalKosu?: SortOrder
+    orderBy?: SortOrder
   }
 
   export type AssetMaxOrderByAggregateInput = {
@@ -35499,6 +35560,7 @@ export namespace Prisma {
     landUseZone?: SortOrder
     leaseArea?: SortOrder
     totalKosu?: SortOrder
+    orderBy?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -35524,6 +35586,7 @@ export namespace Prisma {
     landUseZone?: SortOrder
     leaseArea?: SortOrder
     totalKosu?: SortOrder
+    orderBy?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -35535,6 +35598,7 @@ export namespace Prisma {
   export type AssetSumOrderByAggregateInput = {
     leaseArea?: SortOrder
     totalKosu?: SortOrder
+    orderBy?: SortOrder
   }
   export type JsonNullableWithAggregatesFilter<$PrismaModel = never> =
     | PatchUndefined<
@@ -38730,6 +38794,7 @@ export namespace Prisma {
     leaseArea?: number | null
     totalKosu?: number | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
+    orderBy?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -38756,6 +38821,7 @@ export namespace Prisma {
     leaseArea?: number | null
     totalKosu?: number | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
+    orderBy?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -39195,6 +39261,7 @@ export namespace Prisma {
     leaseArea?: FloatNullableFilter<"Asset"> | number | null
     totalKosu?: IntNullableFilter<"Asset"> | number | null
     depreciableAssetJson?: JsonNullableFilter<"Asset">
+    orderBy?: IntNullableFilter<"Asset"> | number | null
     createdAt?: DateTimeFilter<"Asset"> | Date | string
     createdId?: StringFilter<"Asset"> | string
     createdBy?: StringFilter<"Asset"> | string
@@ -39294,6 +39361,7 @@ export namespace Prisma {
     cashManBankAccountType?: string
     cashManBankAccount?: string | null
     cashManBankAccountHolder?: string | null
+    shintakuContractNum?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -39340,6 +39408,7 @@ export namespace Prisma {
     cashManBankAccountType?: string
     cashManBankAccount?: string | null
     cashManBankAccountHolder?: string | null
+    shintakuContractNum?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -39493,6 +39562,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringFieldUpdateOperationsInput | string
     cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    shintakuContractNum?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39539,6 +39609,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringFieldUpdateOperationsInput | string
     cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    shintakuContractNum?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39667,6 +39738,7 @@ export namespace Prisma {
     cashManBankAccountType?: string
     cashManBankAccount?: string | null
     cashManBankAccountHolder?: string | null
+    shintakuContractNum?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -39713,6 +39785,7 @@ export namespace Prisma {
     cashManBankAccountType?: string
     cashManBankAccount?: string | null
     cashManBankAccountHolder?: string | null
+    shintakuContractNum?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -39861,6 +39934,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringFieldUpdateOperationsInput | string
     cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    shintakuContractNum?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39907,6 +39981,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringFieldUpdateOperationsInput | string
     cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    shintakuContractNum?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -39960,6 +40035,7 @@ export namespace Prisma {
     leaseArea?: number | null
     totalKosu?: number | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
+    orderBy?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -39987,6 +40063,7 @@ export namespace Prisma {
     leaseArea?: number | null
     totalKosu?: number | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
+    orderBy?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -40061,6 +40138,7 @@ export namespace Prisma {
     leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
     totalKosu?: NullableIntFieldUpdateOperationsInput | number | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
+    orderBy?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -40088,6 +40166,7 @@ export namespace Prisma {
     leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
     totalKosu?: NullableIntFieldUpdateOperationsInput | number | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
+    orderBy?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -40161,6 +40240,7 @@ export namespace Prisma {
     cashManBankAccountType?: string
     cashManBankAccount?: string | null
     cashManBankAccountHolder?: string | null
+    shintakuContractNum?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -40207,6 +40287,7 @@ export namespace Prisma {
     cashManBankAccountType?: string
     cashManBankAccount?: string | null
     cashManBankAccountHolder?: string | null
+    shintakuContractNum?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -40327,6 +40408,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringFieldUpdateOperationsInput | string
     cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    shintakuContractNum?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -40373,6 +40455,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringFieldUpdateOperationsInput | string
     cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    shintakuContractNum?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -41225,6 +41308,7 @@ export namespace Prisma {
     cashManBankAccountType?: string
     cashManBankAccount?: string | null
     cashManBankAccountHolder?: string | null
+    shintakuContractNum?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -41271,6 +41355,7 @@ export namespace Prisma {
     cashManBankAccountType?: string
     cashManBankAccount?: string | null
     cashManBankAccountHolder?: string | null
+    shintakuContractNum?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -41327,6 +41412,7 @@ export namespace Prisma {
     cashManBankAccountType?: string
     cashManBankAccount?: string | null
     cashManBankAccountHolder?: string | null
+    shintakuContractNum?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -41373,6 +41459,7 @@ export namespace Prisma {
     cashManBankAccountType?: string
     cashManBankAccount?: string | null
     cashManBankAccountHolder?: string | null
+    shintakuContractNum?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -41429,6 +41516,7 @@ export namespace Prisma {
     cashManBankAccountType?: string
     cashManBankAccount?: string | null
     cashManBankAccountHolder?: string | null
+    shintakuContractNum?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -41475,6 +41563,7 @@ export namespace Prisma {
     cashManBankAccountType?: string
     cashManBankAccount?: string | null
     cashManBankAccountHolder?: string | null
+    shintakuContractNum?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -41531,6 +41620,7 @@ export namespace Prisma {
     cashManBankAccountType?: string
     cashManBankAccount?: string | null
     cashManBankAccountHolder?: string | null
+    shintakuContractNum?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -41577,6 +41667,7 @@ export namespace Prisma {
     cashManBankAccountType?: string
     cashManBankAccount?: string | null
     cashManBankAccountHolder?: string | null
+    shintakuContractNum?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -41633,6 +41724,7 @@ export namespace Prisma {
     cashManBankAccountType?: string
     cashManBankAccount?: string | null
     cashManBankAccountHolder?: string | null
+    shintakuContractNum?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -41679,6 +41771,7 @@ export namespace Prisma {
     cashManBankAccountType?: string
     cashManBankAccount?: string | null
     cashManBankAccountHolder?: string | null
+    shintakuContractNum?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -41754,6 +41847,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringFilter<"Project"> | string
     cashManBankAccount?: StringNullableFilter<"Project"> | string | null
     cashManBankAccountHolder?: StringNullableFilter<"Project"> | string | null
+    shintakuContractNum?: StringNullableFilter<"Project"> | string | null
     kamiyachoFlag?: BoolFilter<"Project"> | boolean
     mlspcFlag?: BoolFilter<"Project"> | boolean
     leverageFlag?: BoolFilter<"Project"> | boolean
@@ -42487,6 +42581,7 @@ export namespace Prisma {
     leaseArea?: number | null
     totalKosu?: number | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
+    orderBy?: number | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -42847,6 +42942,7 @@ export namespace Prisma {
     leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
     totalKosu?: NullableIntFieldUpdateOperationsInput | number | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
+    orderBy?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -42873,6 +42969,7 @@ export namespace Prisma {
     leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
     totalKosu?: NullableIntFieldUpdateOperationsInput | number | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
+    orderBy?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -42899,6 +42996,7 @@ export namespace Prisma {
     leaseArea?: NullableFloatFieldUpdateOperationsInput | number | null
     totalKosu?: NullableIntFieldUpdateOperationsInput | number | null
     depreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
+    orderBy?: NullableIntFieldUpdateOperationsInput | number | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -43504,6 +43602,7 @@ export namespace Prisma {
     cashManBankAccountType?: string
     cashManBankAccount?: string | null
     cashManBankAccountHolder?: string | null
+    shintakuContractNum?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -43547,6 +43646,7 @@ export namespace Prisma {
     cashManBankAccountType?: string
     cashManBankAccount?: string | null
     cashManBankAccountHolder?: string | null
+    shintakuContractNum?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -43590,6 +43690,7 @@ export namespace Prisma {
     cashManBankAccountType?: string
     cashManBankAccount?: string | null
     cashManBankAccountHolder?: string | null
+    shintakuContractNum?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -43633,6 +43734,7 @@ export namespace Prisma {
     cashManBankAccountType?: string
     cashManBankAccount?: string | null
     cashManBankAccountHolder?: string | null
+    shintakuContractNum?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -43676,6 +43778,7 @@ export namespace Prisma {
     cashManBankAccountType?: string
     cashManBankAccount?: string | null
     cashManBankAccountHolder?: string | null
+    shintakuContractNum?: string | null
     kamiyachoFlag?: boolean
     mlspcFlag?: boolean
     leverageFlag?: boolean
@@ -43719,6 +43822,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringFieldUpdateOperationsInput | string
     cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    shintakuContractNum?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -43765,6 +43869,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringFieldUpdateOperationsInput | string
     cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    shintakuContractNum?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -43811,6 +43916,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringFieldUpdateOperationsInput | string
     cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    shintakuContractNum?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -43854,6 +43960,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringFieldUpdateOperationsInput | string
     cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    shintakuContractNum?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -43900,6 +44007,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringFieldUpdateOperationsInput | string
     cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    shintakuContractNum?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -43946,6 +44054,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringFieldUpdateOperationsInput | string
     cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    shintakuContractNum?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -43989,6 +44098,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringFieldUpdateOperationsInput | string
     cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    shintakuContractNum?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -44035,6 +44145,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringFieldUpdateOperationsInput | string
     cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    shintakuContractNum?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -44081,6 +44192,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringFieldUpdateOperationsInput | string
     cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    shintakuContractNum?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -44124,6 +44236,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringFieldUpdateOperationsInput | string
     cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    shintakuContractNum?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -44170,6 +44283,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringFieldUpdateOperationsInput | string
     cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    shintakuContractNum?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -44216,6 +44330,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringFieldUpdateOperationsInput | string
     cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    shintakuContractNum?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -44259,6 +44374,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringFieldUpdateOperationsInput | string
     cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    shintakuContractNum?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -44305,6 +44421,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringFieldUpdateOperationsInput | string
     cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    shintakuContractNum?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
@@ -44351,6 +44468,7 @@ export namespace Prisma {
     cashManBankAccountType?: StringFieldUpdateOperationsInput | string
     cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
     cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    shintakuContractNum?: NullableStringFieldUpdateOperationsInput | string | null
     kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
     mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
