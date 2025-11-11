@@ -156,6 +156,7 @@ export const TemplateType: {
   ReportC: 'ReportC',
   Ref: 'Ref',
   YieldTrend: 'YieldTrend',
+  HiyoKeijo: 'HiyoKeijo',
   BunpaiInstruction: 'BunpaiInstruction',
   CustomerList: 'CustomerList'
 };
@@ -7296,6 +7297,8 @@ export namespace Prisma {
     year: number | null
     month: number | null
     completed: boolean | null
+    hiyoKeijoInstructionDate: Date | null
+    hiyoKeijoActionDate: Date | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -7309,6 +7312,8 @@ export namespace Prisma {
     year: number | null
     month: number | null
     completed: boolean | null
+    hiyoKeijoInstructionDate: Date | null
+    hiyoKeijoActionDate: Date | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -7322,6 +7327,8 @@ export namespace Prisma {
     year: number
     month: number
     completed: number
+    hiyoKeijoInstructionDate: number
+    hiyoKeijoActionDate: number
     createdAt: number
     createdId: number
     createdBy: number
@@ -7347,6 +7354,8 @@ export namespace Prisma {
     year?: true
     month?: true
     completed?: true
+    hiyoKeijoInstructionDate?: true
+    hiyoKeijoActionDate?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -7360,6 +7369,8 @@ export namespace Prisma {
     year?: true
     month?: true
     completed?: true
+    hiyoKeijoInstructionDate?: true
+    hiyoKeijoActionDate?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -7373,6 +7384,8 @@ export namespace Prisma {
     year?: true
     month?: true
     completed?: true
+    hiyoKeijoInstructionDate?: true
+    hiyoKeijoActionDate?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -7473,6 +7486,8 @@ export namespace Prisma {
     year: number
     month: number
     completed: boolean
+    hiyoKeijoInstructionDate: Date | null
+    hiyoKeijoActionDate: Date | null
     createdAt: Date
     createdId: string
     createdBy: string
@@ -7505,6 +7520,8 @@ export namespace Prisma {
     year?: boolean
     month?: boolean
     completed?: boolean
+    hiyoKeijoInstructionDate?: boolean
+    hiyoKeijoActionDate?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -7521,6 +7538,8 @@ export namespace Prisma {
     year?: boolean
     month?: boolean
     completed?: boolean
+    hiyoKeijoInstructionDate?: boolean
+    hiyoKeijoActionDate?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -7534,6 +7553,8 @@ export namespace Prisma {
     year?: boolean
     month?: boolean
     completed?: boolean
+    hiyoKeijoInstructionDate?: boolean
+    hiyoKeijoActionDate?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -7547,6 +7568,8 @@ export namespace Prisma {
     year?: boolean
     month?: boolean
     completed?: boolean
+    hiyoKeijoInstructionDate?: boolean
+    hiyoKeijoActionDate?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -7555,7 +7578,7 @@ export namespace Prisma {
     updatedBy?: boolean
   }
 
-  export type KiOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "year" | "month" | "completed" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["ki"]>
+  export type KiOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "year" | "month" | "completed" | "hiyoKeijoInstructionDate" | "hiyoKeijoActionDate" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["ki"]>
   export type KiInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     ProjectKis?: boolean | Ki$ProjectKisArgs<ExtArgs>
     AssetKis?: boolean | Ki$AssetKisArgs<ExtArgs>
@@ -7575,6 +7598,8 @@ export namespace Prisma {
       year: number
       month: number
       completed: boolean
+      hiyoKeijoInstructionDate: Date | null
+      hiyoKeijoActionDate: Date | null
       createdAt: Date
       createdId: string
       createdBy: string
@@ -8010,6 +8035,8 @@ export namespace Prisma {
     readonly year: FieldRef<"Ki", 'Int'>
     readonly month: FieldRef<"Ki", 'Int'>
     readonly completed: FieldRef<"Ki", 'Boolean'>
+    readonly hiyoKeijoInstructionDate: FieldRef<"Ki", 'DateTime'>
+    readonly hiyoKeijoActionDate: FieldRef<"Ki", 'DateTime'>
     readonly createdAt: FieldRef<"Ki", 'DateTime'>
     readonly createdId: FieldRef<"Ki", 'String'>
     readonly createdBy: FieldRef<"Ki", 'String'>
@@ -27110,6 +27137,8 @@ export namespace Prisma {
     year: 'year',
     month: 'month',
     completed: 'completed',
+    hiyoKeijoInstructionDate: 'hiyoKeijoInstructionDate',
+    hiyoKeijoActionDate: 'hiyoKeijoActionDate',
     createdAt: 'createdAt',
     createdId: 'createdId',
     createdBy: 'createdBy',
@@ -28253,6 +28282,8 @@ export namespace Prisma {
     year?: IntFilter<"Ki"> | number
     month?: IntFilter<"Ki"> | number
     completed?: BoolFilter<"Ki"> | boolean
+    hiyoKeijoInstructionDate?: DateTimeNullableFilter<"Ki"> | Date | string | null
+    hiyoKeijoActionDate?: DateTimeNullableFilter<"Ki"> | Date | string | null
     createdAt?: DateTimeFilter<"Ki"> | Date | string
     createdId?: StringFilter<"Ki"> | string
     createdBy?: StringFilter<"Ki"> | string
@@ -28268,6 +28299,8 @@ export namespace Prisma {
     year?: SortOrder
     month?: SortOrder
     completed?: SortOrder
+    hiyoKeijoInstructionDate?: SortOrderInput | SortOrder
+    hiyoKeijoActionDate?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -28286,6 +28319,8 @@ export namespace Prisma {
     year?: IntFilter<"Ki"> | number
     month?: IntFilter<"Ki"> | number
     completed?: BoolFilter<"Ki"> | boolean
+    hiyoKeijoInstructionDate?: DateTimeNullableFilter<"Ki"> | Date | string | null
+    hiyoKeijoActionDate?: DateTimeNullableFilter<"Ki"> | Date | string | null
     createdAt?: DateTimeFilter<"Ki"> | Date | string
     createdId?: StringFilter<"Ki"> | string
     createdBy?: StringFilter<"Ki"> | string
@@ -28301,6 +28336,8 @@ export namespace Prisma {
     year?: SortOrder
     month?: SortOrder
     completed?: SortOrder
+    hiyoKeijoInstructionDate?: SortOrderInput | SortOrder
+    hiyoKeijoActionDate?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -28322,6 +28359,8 @@ export namespace Prisma {
     year?: IntWithAggregatesFilter<"Ki"> | number
     month?: IntWithAggregatesFilter<"Ki"> | number
     completed?: BoolWithAggregatesFilter<"Ki"> | boolean
+    hiyoKeijoInstructionDate?: DateTimeNullableWithAggregatesFilter<"Ki"> | Date | string | null
+    hiyoKeijoActionDate?: DateTimeNullableWithAggregatesFilter<"Ki"> | Date | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Ki"> | Date | string
     createdId?: StringWithAggregatesFilter<"Ki"> | string
     createdBy?: StringWithAggregatesFilter<"Ki"> | string
@@ -31051,6 +31090,8 @@ export namespace Prisma {
     year: number
     month: number
     completed?: boolean
+    hiyoKeijoInstructionDate?: Date | string | null
+    hiyoKeijoActionDate?: Date | string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -31066,6 +31107,8 @@ export namespace Prisma {
     year: number
     month: number
     completed?: boolean
+    hiyoKeijoInstructionDate?: Date | string | null
+    hiyoKeijoActionDate?: Date | string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -31081,6 +31124,8 @@ export namespace Prisma {
     year?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
     completed?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoInstructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    hiyoKeijoActionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -31096,6 +31141,8 @@ export namespace Prisma {
     year?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
     completed?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoInstructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    hiyoKeijoActionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -31111,6 +31158,8 @@ export namespace Prisma {
     year: number
     month: number
     completed?: boolean
+    hiyoKeijoInstructionDate?: Date | string | null
+    hiyoKeijoActionDate?: Date | string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -31124,6 +31173,8 @@ export namespace Prisma {
     year?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
     completed?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoInstructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    hiyoKeijoActionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -31137,6 +31188,8 @@ export namespace Prisma {
     year?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
     completed?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoInstructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    hiyoKeijoActionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -34324,6 +34377,17 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type ProjectKiListRelationFilter = {
     every?: ProjectKiWhereInput
     some?: ProjectKiWhereInput
@@ -34349,6 +34413,8 @@ export namespace Prisma {
     year?: SortOrder
     month?: SortOrder
     completed?: SortOrder
+    hiyoKeijoInstructionDate?: SortOrder
+    hiyoKeijoActionDate?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -34367,6 +34433,8 @@ export namespace Prisma {
     year?: SortOrder
     month?: SortOrder
     completed?: SortOrder
+    hiyoKeijoInstructionDate?: SortOrder
+    hiyoKeijoActionDate?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -34380,6 +34448,8 @@ export namespace Prisma {
     year?: SortOrder
     month?: SortOrder
     completed?: SortOrder
+    hiyoKeijoInstructionDate?: SortOrder
+    hiyoKeijoActionDate?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -34407,6 +34477,20 @@ export namespace Prisma {
     _sum?: NestedIntFilter<$PrismaModel>
     _min?: NestedIntFilter<$PrismaModel>
     _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type BigIntFilter<$PrismaModel = never> = {
@@ -34652,17 +34736,6 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type DateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
   export type BigIntNullableFilter<$PrismaModel = never> = {
@@ -35180,20 +35253,6 @@ export namespace Prisma {
     _sum?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedIntNullableFilter<$PrismaModel>
     _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
-  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type BigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -36487,6 +36546,10 @@ export namespace Prisma {
     divide?: number
   }
 
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
   export type ProjectKiUpdateManyWithoutKiNestedInput = {
     create?: XOR<ProjectKiCreateWithoutKiInput, ProjectKiUncheckedCreateWithoutKiInput> | ProjectKiCreateWithoutKiInput[] | ProjectKiUncheckedCreateWithoutKiInput[]
     connectOrCreate?: ProjectKiCreateOrConnectWithoutKiInput | ProjectKiCreateOrConnectWithoutKiInput[]
@@ -36797,10 +36860,6 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
-  }
-
-  export type NullableDateTimeFieldUpdateOperationsInput = {
-    set?: Date | string | null
   }
 
   export type NullableBigIntFieldUpdateOperationsInput = {
@@ -37499,6 +37558,17 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -37524,6 +37594,20 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type NestedBigIntFilter<$PrismaModel = never> = {
@@ -37569,17 +37653,6 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
-  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
-  }
-
   export type NestedBigIntNullableFilter<$PrismaModel = never> = {
     equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
     in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
@@ -37616,20 +37689,6 @@ export namespace Prisma {
     _sum?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedIntNullableFilter<$PrismaModel>
     _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
-  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type NestedBigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -39439,6 +39498,8 @@ export namespace Prisma {
     year: number
     month: number
     completed?: boolean
+    hiyoKeijoInstructionDate?: Date | string | null
+    hiyoKeijoActionDate?: Date | string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -39453,6 +39514,8 @@ export namespace Prisma {
     year: number
     month: number
     completed?: boolean
+    hiyoKeijoInstructionDate?: Date | string | null
+    hiyoKeijoActionDate?: Date | string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -39646,6 +39709,8 @@ export namespace Prisma {
     year?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
     completed?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoInstructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    hiyoKeijoActionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -39660,6 +39725,8 @@ export namespace Prisma {
     year?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
     completed?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoInstructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    hiyoKeijoActionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -40082,6 +40149,8 @@ export namespace Prisma {
     year: number
     month: number
     completed?: boolean
+    hiyoKeijoInstructionDate?: Date | string | null
+    hiyoKeijoActionDate?: Date | string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -40096,6 +40165,8 @@ export namespace Prisma {
     year: number
     month: number
     completed?: boolean
+    hiyoKeijoInstructionDate?: Date | string | null
+    hiyoKeijoActionDate?: Date | string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -40191,6 +40262,8 @@ export namespace Prisma {
     year?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
     completed?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoInstructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    hiyoKeijoActionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -40205,6 +40278,8 @@ export namespace Prisma {
     year?: IntFieldUpdateOperationsInput | number
     month?: IntFieldUpdateOperationsInput | number
     completed?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoInstructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    hiyoKeijoActionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
