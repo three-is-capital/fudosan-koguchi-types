@@ -143,6 +143,7 @@ export type InheritanceType = (typeof InheritanceType)[keyof typeof InheritanceT
 
 export const ExtType: {
   Xlsx: 'Xlsx',
+  Xlsm: 'Xlsm',
   Docx: 'Docx'
 };
 
@@ -2565,6 +2566,46 @@ export namespace Prisma {
 
 
   /**
+   * Count Type UserCountOutputType
+   */
+
+  export type UserCountOutputType = {
+    MainUserProjectKis: number
+    SubUserProjectKis: number
+  }
+
+  export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    MainUserProjectKis?: boolean | UserCountOutputTypeCountMainUserProjectKisArgs
+    SubUserProjectKis?: boolean | UserCountOutputTypeCountSubUserProjectKisArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserCountOutputType
+     */
+    select?: UserCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountMainUserProjectKisArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProjectKiWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountSubUserProjectKisArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProjectKiWhereInput
+  }
+
+
+  /**
    * Count Type KiCountOutputType
    */
 
@@ -3068,6 +3109,9 @@ export namespace Prisma {
     updatedAt?: boolean
     updatedId?: boolean
     updatedBy?: boolean
+    MainUserProjectKis?: boolean | User$MainUserProjectKisArgs<ExtArgs>
+    SubUserProjectKis?: boolean | User$SubUserProjectKisArgs<ExtArgs>
+    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -3116,10 +3160,20 @@ export namespace Prisma {
   }
 
   export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "name" | "role" | "userType" | "isDeleted" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["user"]>
+  export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    MainUserProjectKis?: boolean | User$MainUserProjectKisArgs<ExtArgs>
+    SubUserProjectKis?: boolean | User$SubUserProjectKisArgs<ExtArgs>
+    _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type UserIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
-    objects: {}
+    objects: {
+      MainUserProjectKis: Prisma.$ProjectKiPayload<ExtArgs>[]
+      SubUserProjectKis: Prisma.$ProjectKiPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       email: string
@@ -3527,6 +3581,8 @@ export namespace Prisma {
    */
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    MainUserProjectKis<T extends User$MainUserProjectKisArgs<ExtArgs> = {}>(args?: Subset<T, User$MainUserProjectKisArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectKiPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    SubUserProjectKis<T extends User$SubUserProjectKisArgs<ExtArgs> = {}>(args?: Subset<T, User$SubUserProjectKisArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectKiPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3585,6 +3641,10 @@ export namespace Prisma {
      */
     omit?: UserOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
      * Filter, which User to fetch.
      */
     where: UserWhereUniqueInput
@@ -3603,6 +3663,10 @@ export namespace Prisma {
      */
     omit?: UserOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
      * Filter, which User to fetch.
      */
     where: UserWhereUniqueInput
@@ -3620,6 +3684,10 @@ export namespace Prisma {
      * Omit specific fields from the User
      */
     omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
     /**
      * Filter, which User to fetch.
      */
@@ -3669,6 +3737,10 @@ export namespace Prisma {
      */
     omit?: UserOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
      * Filter, which User to fetch.
      */
     where?: UserWhereInput
@@ -3717,6 +3789,10 @@ export namespace Prisma {
      */
     omit?: UserOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
      * Filter, which Users to fetch.
      */
     where?: UserWhereInput
@@ -3759,6 +3835,10 @@ export namespace Prisma {
      * Omit specific fields from the User
      */
     omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
     /**
      * The data needed to create a User.
      */
@@ -3807,6 +3887,10 @@ export namespace Prisma {
      * Omit specific fields from the User
      */
     omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
     /**
      * The data needed to update a User.
      */
@@ -3874,6 +3958,10 @@ export namespace Prisma {
      */
     omit?: UserOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
      * The filter to search for the User to update in case it exists.
      */
     where: UserWhereUniqueInput
@@ -3900,6 +3988,10 @@ export namespace Prisma {
      */
     omit?: UserOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    /**
      * Filter which User to delete.
      */
     where: UserWhereUniqueInput
@@ -3920,6 +4012,54 @@ export namespace Prisma {
   }
 
   /**
+   * User.MainUserProjectKis
+   */
+  export type User$MainUserProjectKisArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKi
+     */
+    select?: ProjectKiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectKi
+     */
+    omit?: ProjectKiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectKiInclude<ExtArgs> | null
+    where?: ProjectKiWhereInput
+    orderBy?: ProjectKiOrderByWithRelationInput | ProjectKiOrderByWithRelationInput[]
+    cursor?: ProjectKiWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProjectKiScalarFieldEnum | ProjectKiScalarFieldEnum[]
+  }
+
+  /**
+   * User.SubUserProjectKis
+   */
+  export type User$SubUserProjectKisArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKi
+     */
+    select?: ProjectKiSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectKi
+     */
+    omit?: ProjectKiOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectKiInclude<ExtArgs> | null
+    where?: ProjectKiWhereInput
+    orderBy?: ProjectKiOrderByWithRelationInput | ProjectKiOrderByWithRelationInput[]
+    cursor?: ProjectKiWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProjectKiScalarFieldEnum | ProjectKiScalarFieldEnum[]
+  }
+
+  /**
    * User without action
    */
   export type UserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3931,6 +4071,10 @@ export namespace Prisma {
      * Omit specific fields from the User
      */
     omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
   }
 
 
@@ -10481,6 +10625,8 @@ export namespace Prisma {
     id: string | null
     projectId: string | null
     kiId: string | null
+    mainUserId: string | null
+    subUserId: string | null
     projectKi: number | null
     startAt: Date | null
     endAt: Date | null
@@ -10578,6 +10724,8 @@ export namespace Prisma {
     id: string | null
     projectId: string | null
     kiId: string | null
+    mainUserId: string | null
+    subUserId: string | null
     projectKi: number | null
     startAt: Date | null
     endAt: Date | null
@@ -10675,6 +10823,8 @@ export namespace Prisma {
     id: number
     projectId: number
     kiId: number
+    mainUserId: number
+    subUserId: number
     projectKi: number
     startAt: number
     endAt: number
@@ -10932,6 +11082,8 @@ export namespace Prisma {
     id?: true
     projectId?: true
     kiId?: true
+    mainUserId?: true
+    subUserId?: true
     projectKi?: true
     startAt?: true
     endAt?: true
@@ -11029,6 +11181,8 @@ export namespace Prisma {
     id?: true
     projectId?: true
     kiId?: true
+    mainUserId?: true
+    subUserId?: true
     projectKi?: true
     startAt?: true
     endAt?: true
@@ -11126,6 +11280,8 @@ export namespace Prisma {
     id?: true
     projectId?: true
     kiId?: true
+    mainUserId?: true
+    subUserId?: true
     projectKi?: true
     startAt?: true
     endAt?: true
@@ -11310,6 +11466,8 @@ export namespace Prisma {
     id: string
     projectId: string
     kiId: string
+    mainUserId: string | null
+    subUserId: string | null
     projectKi: number
     startAt: Date
     endAt: Date
@@ -11426,6 +11584,8 @@ export namespace Prisma {
     id?: boolean
     projectId?: boolean
     kiId?: boolean
+    mainUserId?: boolean
+    subUserId?: boolean
     projectKi?: boolean
     startAt?: boolean
     endAt?: boolean
@@ -11519,6 +11679,8 @@ export namespace Prisma {
     updatedBy?: boolean
     Project?: boolean | ProjectDefaultArgs<ExtArgs>
     Ki?: boolean | KiDefaultArgs<ExtArgs>
+    MainUser?: boolean | ProjectKi$MainUserArgs<ExtArgs>
+    SubUser?: boolean | ProjectKi$SubUserArgs<ExtArgs>
     CustomerFunds?: boolean | ProjectKi$CustomerFundsArgs<ExtArgs>
     _count?: boolean | ProjectKiCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["projectKi"]>
@@ -11527,6 +11689,8 @@ export namespace Prisma {
     id?: boolean
     projectId?: boolean
     kiId?: boolean
+    mainUserId?: boolean
+    subUserId?: boolean
     projectKi?: boolean
     startAt?: boolean
     endAt?: boolean
@@ -11620,12 +11784,16 @@ export namespace Prisma {
     updatedBy?: boolean
     Project?: boolean | ProjectDefaultArgs<ExtArgs>
     Ki?: boolean | KiDefaultArgs<ExtArgs>
+    MainUser?: boolean | ProjectKi$MainUserArgs<ExtArgs>
+    SubUser?: boolean | ProjectKi$SubUserArgs<ExtArgs>
   }, ExtArgs["result"]["projectKi"]>
 
   export type ProjectKiSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     projectId?: boolean
     kiId?: boolean
+    mainUserId?: boolean
+    subUserId?: boolean
     projectKi?: boolean
     startAt?: boolean
     endAt?: boolean
@@ -11719,12 +11887,16 @@ export namespace Prisma {
     updatedBy?: boolean
     Project?: boolean | ProjectDefaultArgs<ExtArgs>
     Ki?: boolean | KiDefaultArgs<ExtArgs>
+    MainUser?: boolean | ProjectKi$MainUserArgs<ExtArgs>
+    SubUser?: boolean | ProjectKi$SubUserArgs<ExtArgs>
   }, ExtArgs["result"]["projectKi"]>
 
   export type ProjectKiSelectScalar = {
     id?: boolean
     projectId?: boolean
     kiId?: boolean
+    mainUserId?: boolean
+    subUserId?: boolean
     projectKi?: boolean
     startAt?: boolean
     endAt?: boolean
@@ -11818,20 +11990,26 @@ export namespace Prisma {
     updatedBy?: boolean
   }
 
-  export type ProjectKiOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "kiId" | "projectKi" | "startAt" | "endAt" | "paymentDate" | "reportDate" | "topic" | "ganponKuriire" | "yayoiUploadVersion" | "yayoiUploadAt" | "customerUploadVersion" | "customerUploadAt" | "calculateVersion" | "calculateAt" | "finalKiFlag" | "mlspcMarginIncludeTax" | "totalUnit" | "totalUnitNonInvoice" | "shintakuShueki" | "shintakuHiyo" | "sashihikiShintakuRieki" | "shintakuRieki" | "bunpaiRieki" | "bunpaiSogaku" | "bunpaiSogakuNonInvoice" | "kichuKoteiShisan" | "kurikoshiRieki" | "capitalGain" | "unitCapitalGain" | "unitShintakuShueki" | "unitShintakuHiyo" | "unitShintakuHiyoForNonInvoice" | "unitSashihikiShintakuRieki" | "unitSashihikiShintakuRiekiForNonInvoice" | "unitGanponKuriire" | "unitBunpai" | "unitBunpaiForNonInvoice" | "unitKichuKoteiShisan" | "shohiyoRyuhokin" | "shuzenTsumitatekin" | "shohiyoRyuhokinTorikuzushi" | "shuzenTsumitatekinTorikuzushi" | "azukarikinHenkanJunbikin" | "zeikinHokenryoJunbiKanjo" | "kyodoUnyuHiyoJunbiKanjo" | "risokuShiharaiJunbiKanjo" | "shihoTekiShishutsuJunbiKanjo" | "cashTrapJunbiKanjo" | "sonotaGenyokin" | "futuYokinTokiZandaka" | "zenkiKurikoshiRieki" | "shuzenTsumitatekinKuriire" | "mibaraiHiyo" | "chokiKariire" | "currentYearBunpaiRatio" | "fullYearBunpaiRatio" | "currentYearBunpaiRatioNonInvoice" | "fullYearBunpaiRatioNonInvoice" | "shintakuShuekiKazeiUriage" | "shintakuShuekiKazeiUriageShohizei" | "shintakuShuekiHikazeiUriage" | "shintakuHiyoKazeiShiire" | "shintakuHiyoKazeiShiireShohizei" | "shintakuHiyoHikazeiShiire" | "unitShintakuShuekiKazeiUriage" | "unitShintakuShuekiKazeiUriageShohizei" | "unitShintakuShuekiHikazeiUriage" | "unitShintakuHiyoKazeiShiire" | "unitShintakuHiyoKazeiShiireShohizei" | "unitShintakuHiyoHikazeiShiire" | "unitShintakuHiyoKazeiShiireForNonInvoice" | "unitShintakuHiyoKazeiShiireShohizeiForNonInvoice" | "kazeiUriageSashihiki08" | "kazeiUriageSashihiki10" | "kazeiUriageHontai08" | "kazeiUriageHontai10" | "kazeiShiire100Kojo" | "kazeiShiire100KojoNoTax" | "kazeiShiire8050Kojo" | "kazeiShiire8050KojoNoTax" | "kazeiShiire100KojoKazeiUriageHontai" | "kazeiShiire8050KojoKazeiUriageHontai" | "kazeiShiire100KojoKyotsuHontai" | "kazeiShiire8050KojoKyotsuHontai" | "koteiShisan80Kojo" | "koteiShisan80KojoNoTax" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["projectKi"]>
+  export type ProjectKiOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "kiId" | "mainUserId" | "subUserId" | "projectKi" | "startAt" | "endAt" | "paymentDate" | "reportDate" | "topic" | "ganponKuriire" | "yayoiUploadVersion" | "yayoiUploadAt" | "customerUploadVersion" | "customerUploadAt" | "calculateVersion" | "calculateAt" | "finalKiFlag" | "mlspcMarginIncludeTax" | "totalUnit" | "totalUnitNonInvoice" | "shintakuShueki" | "shintakuHiyo" | "sashihikiShintakuRieki" | "shintakuRieki" | "bunpaiRieki" | "bunpaiSogaku" | "bunpaiSogakuNonInvoice" | "kichuKoteiShisan" | "kurikoshiRieki" | "capitalGain" | "unitCapitalGain" | "unitShintakuShueki" | "unitShintakuHiyo" | "unitShintakuHiyoForNonInvoice" | "unitSashihikiShintakuRieki" | "unitSashihikiShintakuRiekiForNonInvoice" | "unitGanponKuriire" | "unitBunpai" | "unitBunpaiForNonInvoice" | "unitKichuKoteiShisan" | "shohiyoRyuhokin" | "shuzenTsumitatekin" | "shohiyoRyuhokinTorikuzushi" | "shuzenTsumitatekinTorikuzushi" | "azukarikinHenkanJunbikin" | "zeikinHokenryoJunbiKanjo" | "kyodoUnyuHiyoJunbiKanjo" | "risokuShiharaiJunbiKanjo" | "shihoTekiShishutsuJunbiKanjo" | "cashTrapJunbiKanjo" | "sonotaGenyokin" | "futuYokinTokiZandaka" | "zenkiKurikoshiRieki" | "shuzenTsumitatekinKuriire" | "mibaraiHiyo" | "chokiKariire" | "currentYearBunpaiRatio" | "fullYearBunpaiRatio" | "currentYearBunpaiRatioNonInvoice" | "fullYearBunpaiRatioNonInvoice" | "shintakuShuekiKazeiUriage" | "shintakuShuekiKazeiUriageShohizei" | "shintakuShuekiHikazeiUriage" | "shintakuHiyoKazeiShiire" | "shintakuHiyoKazeiShiireShohizei" | "shintakuHiyoHikazeiShiire" | "unitShintakuShuekiKazeiUriage" | "unitShintakuShuekiKazeiUriageShohizei" | "unitShintakuShuekiHikazeiUriage" | "unitShintakuHiyoKazeiShiire" | "unitShintakuHiyoKazeiShiireShohizei" | "unitShintakuHiyoHikazeiShiire" | "unitShintakuHiyoKazeiShiireForNonInvoice" | "unitShintakuHiyoKazeiShiireShohizeiForNonInvoice" | "kazeiUriageSashihiki08" | "kazeiUriageSashihiki10" | "kazeiUriageHontai08" | "kazeiUriageHontai10" | "kazeiShiire100Kojo" | "kazeiShiire100KojoNoTax" | "kazeiShiire8050Kojo" | "kazeiShiire8050KojoNoTax" | "kazeiShiire100KojoKazeiUriageHontai" | "kazeiShiire8050KojoKazeiUriageHontai" | "kazeiShiire100KojoKyotsuHontai" | "kazeiShiire8050KojoKyotsuHontai" | "koteiShisan80Kojo" | "koteiShisan80KojoNoTax" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["projectKi"]>
   export type ProjectKiInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Project?: boolean | ProjectDefaultArgs<ExtArgs>
     Ki?: boolean | KiDefaultArgs<ExtArgs>
+    MainUser?: boolean | ProjectKi$MainUserArgs<ExtArgs>
+    SubUser?: boolean | ProjectKi$SubUserArgs<ExtArgs>
     CustomerFunds?: boolean | ProjectKi$CustomerFundsArgs<ExtArgs>
     _count?: boolean | ProjectKiCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ProjectKiIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Project?: boolean | ProjectDefaultArgs<ExtArgs>
     Ki?: boolean | KiDefaultArgs<ExtArgs>
+    MainUser?: boolean | ProjectKi$MainUserArgs<ExtArgs>
+    SubUser?: boolean | ProjectKi$SubUserArgs<ExtArgs>
   }
   export type ProjectKiIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Project?: boolean | ProjectDefaultArgs<ExtArgs>
     Ki?: boolean | KiDefaultArgs<ExtArgs>
+    MainUser?: boolean | ProjectKi$MainUserArgs<ExtArgs>
+    SubUser?: boolean | ProjectKi$SubUserArgs<ExtArgs>
   }
 
   export type $ProjectKiPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -11839,12 +12017,16 @@ export namespace Prisma {
     objects: {
       Project: Prisma.$ProjectPayload<ExtArgs>
       Ki: Prisma.$KiPayload<ExtArgs>
+      MainUser: Prisma.$UserPayload<ExtArgs> | null
+      SubUser: Prisma.$UserPayload<ExtArgs> | null
       CustomerFunds: Prisma.$CustomerFundPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       projectId: string
       kiId: string
+      mainUserId: string | null
+      subUserId: string | null
       projectKi: number
       startAt: Date
       endAt: Date
@@ -12332,6 +12514,8 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     Project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     Ki<T extends KiDefaultArgs<ExtArgs> = {}>(args?: Subset<T, KiDefaultArgs<ExtArgs>>): Prisma__KiClient<$Result.GetResult<Prisma.$KiPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    MainUser<T extends ProjectKi$MainUserArgs<ExtArgs> = {}>(args?: Subset<T, ProjectKi$MainUserArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    SubUser<T extends ProjectKi$SubUserArgs<ExtArgs> = {}>(args?: Subset<T, ProjectKi$SubUserArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     CustomerFunds<T extends ProjectKi$CustomerFundsArgs<ExtArgs> = {}>(args?: Subset<T, ProjectKi$CustomerFundsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerFundPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -12365,6 +12549,8 @@ export namespace Prisma {
     readonly id: FieldRef<"ProjectKi", 'String'>
     readonly projectId: FieldRef<"ProjectKi", 'String'>
     readonly kiId: FieldRef<"ProjectKi", 'String'>
+    readonly mainUserId: FieldRef<"ProjectKi", 'String'>
+    readonly subUserId: FieldRef<"ProjectKi", 'String'>
     readonly projectKi: FieldRef<"ProjectKi", 'Int'>
     readonly startAt: FieldRef<"ProjectKi", 'DateTime'>
     readonly endAt: FieldRef<"ProjectKi", 'DateTime'>
@@ -12849,6 +13035,44 @@ export namespace Prisma {
      * Limit how many ProjectKis to delete.
      */
     limit?: number
+  }
+
+  /**
+   * ProjectKi.MainUser
+   */
+  export type ProjectKi$MainUserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+  }
+
+  /**
+   * ProjectKi.SubUser
+   */
+  export type ProjectKi$SubUserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
   }
 
   /**
@@ -27202,6 +27426,8 @@ export namespace Prisma {
     id: 'id',
     projectId: 'projectId',
     kiId: 'kiId',
+    mainUserId: 'mainUserId',
+    subUserId: 'subUserId',
     projectKi: 'projectKi',
     startAt: 'startAt',
     endAt: 'endAt',
@@ -27912,6 +28138,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"User"> | Date | string
     updatedId?: StringFilter<"User"> | string
     updatedBy?: StringFilter<"User"> | string
+    MainUserProjectKis?: ProjectKiListRelationFilter
+    SubUserProjectKis?: ProjectKiListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -27927,6 +28155,8 @@ export namespace Prisma {
     updatedAt?: SortOrder
     updatedId?: SortOrder
     updatedBy?: SortOrder
+    MainUserProjectKis?: ProjectKiOrderByRelationAggregateInput
+    SubUserProjectKis?: ProjectKiOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -27945,6 +28175,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"User"> | Date | string
     updatedId?: StringFilter<"User"> | string
     updatedBy?: StringFilter<"User"> | string
+    MainUserProjectKis?: ProjectKiListRelationFilter
+    SubUserProjectKis?: ProjectKiListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -28639,6 +28871,8 @@ export namespace Prisma {
     id?: StringFilter<"ProjectKi"> | string
     projectId?: StringFilter<"ProjectKi"> | string
     kiId?: StringFilter<"ProjectKi"> | string
+    mainUserId?: StringNullableFilter<"ProjectKi"> | string | null
+    subUserId?: StringNullableFilter<"ProjectKi"> | string | null
     projectKi?: IntFilter<"ProjectKi"> | number
     startAt?: DateTimeFilter<"ProjectKi"> | Date | string
     endAt?: DateTimeFilter<"ProjectKi"> | Date | string
@@ -28732,6 +28966,8 @@ export namespace Prisma {
     updatedBy?: StringFilter<"ProjectKi"> | string
     Project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
     Ki?: XOR<KiScalarRelationFilter, KiWhereInput>
+    MainUser?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+    SubUser?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
     CustomerFunds?: CustomerFundListRelationFilter
   }
 
@@ -28739,6 +28975,8 @@ export namespace Prisma {
     id?: SortOrder
     projectId?: SortOrder
     kiId?: SortOrder
+    mainUserId?: SortOrderInput | SortOrder
+    subUserId?: SortOrderInput | SortOrder
     projectKi?: SortOrder
     startAt?: SortOrder
     endAt?: SortOrder
@@ -28832,6 +29070,8 @@ export namespace Prisma {
     updatedBy?: SortOrder
     Project?: ProjectOrderByWithRelationInput
     Ki?: KiOrderByWithRelationInput
+    MainUser?: UserOrderByWithRelationInput
+    SubUser?: UserOrderByWithRelationInput
     CustomerFunds?: CustomerFundOrderByRelationAggregateInput
   }
 
@@ -28844,6 +29084,8 @@ export namespace Prisma {
     NOT?: ProjectKiWhereInput | ProjectKiWhereInput[]
     projectId?: StringFilter<"ProjectKi"> | string
     kiId?: StringFilter<"ProjectKi"> | string
+    mainUserId?: StringNullableFilter<"ProjectKi"> | string | null
+    subUserId?: StringNullableFilter<"ProjectKi"> | string | null
     projectKi?: IntFilter<"ProjectKi"> | number
     startAt?: DateTimeFilter<"ProjectKi"> | Date | string
     endAt?: DateTimeFilter<"ProjectKi"> | Date | string
@@ -28937,6 +29179,8 @@ export namespace Prisma {
     updatedBy?: StringFilter<"ProjectKi"> | string
     Project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
     Ki?: XOR<KiScalarRelationFilter, KiWhereInput>
+    MainUser?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
+    SubUser?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
     CustomerFunds?: CustomerFundListRelationFilter
   }, "id" | "project_ki_identifier" | "project_prj_ki_identifier">
 
@@ -28944,6 +29188,8 @@ export namespace Prisma {
     id?: SortOrder
     projectId?: SortOrder
     kiId?: SortOrder
+    mainUserId?: SortOrderInput | SortOrder
+    subUserId?: SortOrderInput | SortOrder
     projectKi?: SortOrder
     startAt?: SortOrder
     endAt?: SortOrder
@@ -29049,6 +29295,8 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"ProjectKi"> | string
     projectId?: StringWithAggregatesFilter<"ProjectKi"> | string
     kiId?: StringWithAggregatesFilter<"ProjectKi"> | string
+    mainUserId?: StringNullableWithAggregatesFilter<"ProjectKi"> | string | null
+    subUserId?: StringNullableWithAggregatesFilter<"ProjectKi"> | string | null
     projectKi?: IntWithAggregatesFilter<"ProjectKi"> | number
     startAt?: DateTimeWithAggregatesFilter<"ProjectKi"> | Date | string
     endAt?: DateTimeWithAggregatesFilter<"ProjectKi"> | Date | string
@@ -30636,6 +30884,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: string
     updatedBy: string
+    MainUserProjectKis?: ProjectKiCreateNestedManyWithoutMainUserInput
+    SubUserProjectKis?: ProjectKiCreateNestedManyWithoutSubUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -30651,6 +30901,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: string
     updatedBy: string
+    MainUserProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutMainUserInput
+    SubUserProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutSubUserInput
   }
 
   export type UserUpdateInput = {
@@ -30666,6 +30918,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
+    MainUserProjectKis?: ProjectKiUpdateManyWithoutMainUserNestedInput
+    SubUserProjectKis?: ProjectKiUpdateManyWithoutSubUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -30681,6 +30935,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
+    MainUserProjectKis?: ProjectKiUncheckedUpdateManyWithoutMainUserNestedInput
+    SubUserProjectKis?: ProjectKiUncheckedUpdateManyWithoutSubUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -31615,6 +31871,8 @@ export namespace Prisma {
     updatedBy: string
     Project: ProjectCreateNestedOneWithoutProjectKisInput
     Ki: KiCreateNestedOneWithoutProjectKisInput
+    MainUser?: UserCreateNestedOneWithoutMainUserProjectKisInput
+    SubUser?: UserCreateNestedOneWithoutSubUserProjectKisInput
     CustomerFunds?: CustomerFundCreateNestedManyWithoutProjectKiInput
   }
 
@@ -31622,6 +31880,8 @@ export namespace Prisma {
     id?: string
     projectId: string
     kiId: string
+    mainUserId?: string | null
+    subUserId?: string | null
     projectKi: number
     startAt: Date | string
     endAt: Date | string
@@ -31811,6 +32071,8 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
     Project?: ProjectUpdateOneRequiredWithoutProjectKisNestedInput
     Ki?: KiUpdateOneRequiredWithoutProjectKisNestedInput
+    MainUser?: UserUpdateOneWithoutMainUserProjectKisNestedInput
+    SubUser?: UserUpdateOneWithoutSubUserProjectKisNestedInput
     CustomerFunds?: CustomerFundUpdateManyWithoutProjectKiNestedInput
   }
 
@@ -31818,6 +32080,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
     kiId?: StringFieldUpdateOperationsInput | string
+    mainUserId?: NullableStringFieldUpdateOperationsInput | string | null
+    subUserId?: NullableStringFieldUpdateOperationsInput | string | null
     projectKi?: IntFieldUpdateOperationsInput | number
     startAt?: DateTimeFieldUpdateOperationsInput | Date | string
     endAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -31916,6 +32180,8 @@ export namespace Prisma {
     id?: string
     projectId: string
     kiId: string
+    mainUserId?: string | null
+    subUserId?: string | null
     projectKi: number
     startAt: Date | string
     endAt: Date | string
@@ -32108,6 +32374,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
     kiId?: StringFieldUpdateOperationsInput | string
+    mainUserId?: NullableStringFieldUpdateOperationsInput | string | null
+    subUserId?: NullableStringFieldUpdateOperationsInput | string | null
     projectKi?: IntFieldUpdateOperationsInput | number
     startAt?: DateTimeFieldUpdateOperationsInput | Date | string
     endAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -34085,9 +34353,19 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
+  export type ProjectKiListRelationFilter = {
+    every?: ProjectKiWhereInput
+    some?: ProjectKiWhereInput
+    none?: ProjectKiWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
+  }
+
+  export type ProjectKiOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type UserCountOrderByAggregateInput = {
@@ -34388,20 +34666,10 @@ export namespace Prisma {
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
-  export type ProjectKiListRelationFilter = {
-    every?: ProjectKiWhereInput
-    some?: ProjectKiWhereInput
-    none?: ProjectKiWhereInput
-  }
-
   export type AssetKiListRelationFilter = {
     every?: AssetKiWhereInput
     some?: AssetKiWhereInput
     none?: AssetKiWhereInput
-  }
-
-  export type ProjectKiOrderByRelationAggregateInput = {
-    _count?: SortOrder
   }
 
   export type AssetKiOrderByRelationAggregateInput = {
@@ -34770,6 +35038,11 @@ export namespace Prisma {
     isNot?: KiWhereInput
   }
 
+  export type UserNullableScalarRelationFilter = {
+    is?: UserWhereInput | null
+    isNot?: UserWhereInput | null
+  }
+
   export type CustomerFundListRelationFilter = {
     every?: CustomerFundWhereInput
     some?: CustomerFundWhereInput
@@ -34794,6 +35067,8 @@ export namespace Prisma {
     id?: SortOrder
     projectId?: SortOrder
     kiId?: SortOrder
+    mainUserId?: SortOrder
+    subUserId?: SortOrder
     projectKi?: SortOrder
     startAt?: SortOrder
     endAt?: SortOrder
@@ -34970,6 +35245,8 @@ export namespace Prisma {
     id?: SortOrder
     projectId?: SortOrder
     kiId?: SortOrder
+    mainUserId?: SortOrder
+    subUserId?: SortOrder
     projectKi?: SortOrder
     startAt?: SortOrder
     endAt?: SortOrder
@@ -35067,6 +35344,8 @@ export namespace Prisma {
     id?: SortOrder
     projectId?: SortOrder
     kiId?: SortOrder
+    mainUserId?: SortOrder
+    subUserId?: SortOrder
     projectKi?: SortOrder
     startAt?: SortOrder
     endAt?: SortOrder
@@ -36486,6 +36765,34 @@ export namespace Prisma {
     updatedBy?: SortOrder
   }
 
+  export type ProjectKiCreateNestedManyWithoutMainUserInput = {
+    create?: XOR<ProjectKiCreateWithoutMainUserInput, ProjectKiUncheckedCreateWithoutMainUserInput> | ProjectKiCreateWithoutMainUserInput[] | ProjectKiUncheckedCreateWithoutMainUserInput[]
+    connectOrCreate?: ProjectKiCreateOrConnectWithoutMainUserInput | ProjectKiCreateOrConnectWithoutMainUserInput[]
+    createMany?: ProjectKiCreateManyMainUserInputEnvelope
+    connect?: ProjectKiWhereUniqueInput | ProjectKiWhereUniqueInput[]
+  }
+
+  export type ProjectKiCreateNestedManyWithoutSubUserInput = {
+    create?: XOR<ProjectKiCreateWithoutSubUserInput, ProjectKiUncheckedCreateWithoutSubUserInput> | ProjectKiCreateWithoutSubUserInput[] | ProjectKiUncheckedCreateWithoutSubUserInput[]
+    connectOrCreate?: ProjectKiCreateOrConnectWithoutSubUserInput | ProjectKiCreateOrConnectWithoutSubUserInput[]
+    createMany?: ProjectKiCreateManySubUserInputEnvelope
+    connect?: ProjectKiWhereUniqueInput | ProjectKiWhereUniqueInput[]
+  }
+
+  export type ProjectKiUncheckedCreateNestedManyWithoutMainUserInput = {
+    create?: XOR<ProjectKiCreateWithoutMainUserInput, ProjectKiUncheckedCreateWithoutMainUserInput> | ProjectKiCreateWithoutMainUserInput[] | ProjectKiUncheckedCreateWithoutMainUserInput[]
+    connectOrCreate?: ProjectKiCreateOrConnectWithoutMainUserInput | ProjectKiCreateOrConnectWithoutMainUserInput[]
+    createMany?: ProjectKiCreateManyMainUserInputEnvelope
+    connect?: ProjectKiWhereUniqueInput | ProjectKiWhereUniqueInput[]
+  }
+
+  export type ProjectKiUncheckedCreateNestedManyWithoutSubUserInput = {
+    create?: XOR<ProjectKiCreateWithoutSubUserInput, ProjectKiUncheckedCreateWithoutSubUserInput> | ProjectKiCreateWithoutSubUserInput[] | ProjectKiUncheckedCreateWithoutSubUserInput[]
+    connectOrCreate?: ProjectKiCreateOrConnectWithoutSubUserInput | ProjectKiCreateOrConnectWithoutSubUserInput[]
+    createMany?: ProjectKiCreateManySubUserInputEnvelope
+    connect?: ProjectKiWhereUniqueInput | ProjectKiWhereUniqueInput[]
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -36508,6 +36815,62 @@ export namespace Prisma {
 
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
+  }
+
+  export type ProjectKiUpdateManyWithoutMainUserNestedInput = {
+    create?: XOR<ProjectKiCreateWithoutMainUserInput, ProjectKiUncheckedCreateWithoutMainUserInput> | ProjectKiCreateWithoutMainUserInput[] | ProjectKiUncheckedCreateWithoutMainUserInput[]
+    connectOrCreate?: ProjectKiCreateOrConnectWithoutMainUserInput | ProjectKiCreateOrConnectWithoutMainUserInput[]
+    upsert?: ProjectKiUpsertWithWhereUniqueWithoutMainUserInput | ProjectKiUpsertWithWhereUniqueWithoutMainUserInput[]
+    createMany?: ProjectKiCreateManyMainUserInputEnvelope
+    set?: ProjectKiWhereUniqueInput | ProjectKiWhereUniqueInput[]
+    disconnect?: ProjectKiWhereUniqueInput | ProjectKiWhereUniqueInput[]
+    delete?: ProjectKiWhereUniqueInput | ProjectKiWhereUniqueInput[]
+    connect?: ProjectKiWhereUniqueInput | ProjectKiWhereUniqueInput[]
+    update?: ProjectKiUpdateWithWhereUniqueWithoutMainUserInput | ProjectKiUpdateWithWhereUniqueWithoutMainUserInput[]
+    updateMany?: ProjectKiUpdateManyWithWhereWithoutMainUserInput | ProjectKiUpdateManyWithWhereWithoutMainUserInput[]
+    deleteMany?: ProjectKiScalarWhereInput | ProjectKiScalarWhereInput[]
+  }
+
+  export type ProjectKiUpdateManyWithoutSubUserNestedInput = {
+    create?: XOR<ProjectKiCreateWithoutSubUserInput, ProjectKiUncheckedCreateWithoutSubUserInput> | ProjectKiCreateWithoutSubUserInput[] | ProjectKiUncheckedCreateWithoutSubUserInput[]
+    connectOrCreate?: ProjectKiCreateOrConnectWithoutSubUserInput | ProjectKiCreateOrConnectWithoutSubUserInput[]
+    upsert?: ProjectKiUpsertWithWhereUniqueWithoutSubUserInput | ProjectKiUpsertWithWhereUniqueWithoutSubUserInput[]
+    createMany?: ProjectKiCreateManySubUserInputEnvelope
+    set?: ProjectKiWhereUniqueInput | ProjectKiWhereUniqueInput[]
+    disconnect?: ProjectKiWhereUniqueInput | ProjectKiWhereUniqueInput[]
+    delete?: ProjectKiWhereUniqueInput | ProjectKiWhereUniqueInput[]
+    connect?: ProjectKiWhereUniqueInput | ProjectKiWhereUniqueInput[]
+    update?: ProjectKiUpdateWithWhereUniqueWithoutSubUserInput | ProjectKiUpdateWithWhereUniqueWithoutSubUserInput[]
+    updateMany?: ProjectKiUpdateManyWithWhereWithoutSubUserInput | ProjectKiUpdateManyWithWhereWithoutSubUserInput[]
+    deleteMany?: ProjectKiScalarWhereInput | ProjectKiScalarWhereInput[]
+  }
+
+  export type ProjectKiUncheckedUpdateManyWithoutMainUserNestedInput = {
+    create?: XOR<ProjectKiCreateWithoutMainUserInput, ProjectKiUncheckedCreateWithoutMainUserInput> | ProjectKiCreateWithoutMainUserInput[] | ProjectKiUncheckedCreateWithoutMainUserInput[]
+    connectOrCreate?: ProjectKiCreateOrConnectWithoutMainUserInput | ProjectKiCreateOrConnectWithoutMainUserInput[]
+    upsert?: ProjectKiUpsertWithWhereUniqueWithoutMainUserInput | ProjectKiUpsertWithWhereUniqueWithoutMainUserInput[]
+    createMany?: ProjectKiCreateManyMainUserInputEnvelope
+    set?: ProjectKiWhereUniqueInput | ProjectKiWhereUniqueInput[]
+    disconnect?: ProjectKiWhereUniqueInput | ProjectKiWhereUniqueInput[]
+    delete?: ProjectKiWhereUniqueInput | ProjectKiWhereUniqueInput[]
+    connect?: ProjectKiWhereUniqueInput | ProjectKiWhereUniqueInput[]
+    update?: ProjectKiUpdateWithWhereUniqueWithoutMainUserInput | ProjectKiUpdateWithWhereUniqueWithoutMainUserInput[]
+    updateMany?: ProjectKiUpdateManyWithWhereWithoutMainUserInput | ProjectKiUpdateManyWithWhereWithoutMainUserInput[]
+    deleteMany?: ProjectKiScalarWhereInput | ProjectKiScalarWhereInput[]
+  }
+
+  export type ProjectKiUncheckedUpdateManyWithoutSubUserNestedInput = {
+    create?: XOR<ProjectKiCreateWithoutSubUserInput, ProjectKiUncheckedCreateWithoutSubUserInput> | ProjectKiCreateWithoutSubUserInput[] | ProjectKiUncheckedCreateWithoutSubUserInput[]
+    connectOrCreate?: ProjectKiCreateOrConnectWithoutSubUserInput | ProjectKiCreateOrConnectWithoutSubUserInput[]
+    upsert?: ProjectKiUpsertWithWhereUniqueWithoutSubUserInput | ProjectKiUpsertWithWhereUniqueWithoutSubUserInput[]
+    createMany?: ProjectKiCreateManySubUserInputEnvelope
+    set?: ProjectKiWhereUniqueInput | ProjectKiWhereUniqueInput[]
+    disconnect?: ProjectKiWhereUniqueInput | ProjectKiWhereUniqueInput[]
+    delete?: ProjectKiWhereUniqueInput | ProjectKiWhereUniqueInput[]
+    connect?: ProjectKiWhereUniqueInput | ProjectKiWhereUniqueInput[]
+    update?: ProjectKiUpdateWithWhereUniqueWithoutSubUserInput | ProjectKiUpdateWithWhereUniqueWithoutSubUserInput[]
+    updateMany?: ProjectKiUpdateManyWithWhereWithoutSubUserInput | ProjectKiUpdateManyWithWhereWithoutSubUserInput[]
+    deleteMany?: ProjectKiScalarWhereInput | ProjectKiScalarWhereInput[]
   }
 
   export type ProjectKiCreateNestedManyWithoutKiInput = {
@@ -36840,6 +37203,18 @@ export namespace Prisma {
     connect?: KiWhereUniqueInput
   }
 
+  export type UserCreateNestedOneWithoutMainUserProjectKisInput = {
+    create?: XOR<UserCreateWithoutMainUserProjectKisInput, UserUncheckedCreateWithoutMainUserProjectKisInput>
+    connectOrCreate?: UserCreateOrConnectWithoutMainUserProjectKisInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type UserCreateNestedOneWithoutSubUserProjectKisInput = {
+    create?: XOR<UserCreateWithoutSubUserProjectKisInput, UserUncheckedCreateWithoutSubUserProjectKisInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSubUserProjectKisInput
+    connect?: UserWhereUniqueInput
+  }
+
   export type CustomerFundCreateNestedManyWithoutProjectKiInput = {
     create?: XOR<CustomerFundCreateWithoutProjectKiInput, CustomerFundUncheckedCreateWithoutProjectKiInput> | CustomerFundCreateWithoutProjectKiInput[] | CustomerFundUncheckedCreateWithoutProjectKiInput[]
     connectOrCreate?: CustomerFundCreateOrConnectWithoutProjectKiInput | CustomerFundCreateOrConnectWithoutProjectKiInput[]
@@ -36892,6 +37267,26 @@ export namespace Prisma {
     upsert?: KiUpsertWithoutProjectKisInput
     connect?: KiWhereUniqueInput
     update?: XOR<XOR<KiUpdateToOneWithWhereWithoutProjectKisInput, KiUpdateWithoutProjectKisInput>, KiUncheckedUpdateWithoutProjectKisInput>
+  }
+
+  export type UserUpdateOneWithoutMainUserProjectKisNestedInput = {
+    create?: XOR<UserCreateWithoutMainUserProjectKisInput, UserUncheckedCreateWithoutMainUserProjectKisInput>
+    connectOrCreate?: UserCreateOrConnectWithoutMainUserProjectKisInput
+    upsert?: UserUpsertWithoutMainUserProjectKisInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutMainUserProjectKisInput, UserUpdateWithoutMainUserProjectKisInput>, UserUncheckedUpdateWithoutMainUserProjectKisInput>
+  }
+
+  export type UserUpdateOneWithoutSubUserProjectKisNestedInput = {
+    create?: XOR<UserCreateWithoutSubUserProjectKisInput, UserUncheckedCreateWithoutSubUserProjectKisInput>
+    connectOrCreate?: UserCreateOrConnectWithoutSubUserProjectKisInput
+    upsert?: UserUpsertWithoutSubUserProjectKisInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutSubUserProjectKisInput, UserUpdateWithoutSubUserProjectKisInput>, UserUncheckedUpdateWithoutSubUserProjectKisInput>
   }
 
   export type CustomerFundUpdateManyWithoutProjectKiNestedInput = {
@@ -37933,6 +38328,556 @@ export namespace Prisma {
     _max?: NestedEnumVariableTypeFilter<$PrismaModel>
   }
 
+  export type ProjectKiCreateWithoutMainUserInput = {
+    id?: string
+    projectKi: number
+    startAt: Date | string
+    endAt: Date | string
+    paymentDate: Date | string
+    reportDate: Date | string
+    topic: string
+    ganponKuriire?: number | null
+    yayoiUploadVersion?: number
+    yayoiUploadAt?: Date | string | null
+    customerUploadVersion?: number
+    customerUploadAt?: Date | string | null
+    calculateVersion?: number
+    calculateAt?: Date | string | null
+    finalKiFlag?: boolean
+    mlspcMarginIncludeTax?: number | null
+    totalUnit?: number | null
+    totalUnitNonInvoice?: number | null
+    shintakuShueki?: bigint | number | null
+    shintakuHiyo?: bigint | number | null
+    sashihikiShintakuRieki?: bigint | number | null
+    shintakuRieki?: bigint | number | null
+    bunpaiRieki?: bigint | number | null
+    bunpaiSogaku?: bigint | number | null
+    bunpaiSogakuNonInvoice?: bigint | number | null
+    kichuKoteiShisan?: bigint | number | null
+    kurikoshiRieki?: number | null
+    capitalGain?: bigint | number | null
+    unitCapitalGain?: bigint | number | null
+    unitShintakuShueki?: number | null
+    unitShintakuHiyo?: number | null
+    unitShintakuHiyoForNonInvoice?: number | null
+    unitSashihikiShintakuRieki?: number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: number | null
+    unitGanponKuriire?: number | null
+    unitBunpai?: number | null
+    unitBunpaiForNonInvoice?: number | null
+    unitKichuKoteiShisan?: number | null
+    shohiyoRyuhokin?: bigint | number | null
+    shuzenTsumitatekin?: bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: bigint | number | null
+    azukarikinHenkanJunbikin?: bigint | number | null
+    zeikinHokenryoJunbiKanjo?: bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
+    risokuShiharaiJunbiKanjo?: bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: bigint | number | null
+    cashTrapJunbiKanjo?: bigint | number | null
+    sonotaGenyokin?: bigint | number | null
+    futuYokinTokiZandaka?: bigint | number | null
+    zenkiKurikoshiRieki?: bigint | number | null
+    shuzenTsumitatekinKuriire?: bigint | number | null
+    mibaraiHiyo?: bigint | number | null
+    chokiKariire?: bigint | number | null
+    currentYearBunpaiRatio?: number | null
+    fullYearBunpaiRatio?: number | null
+    currentYearBunpaiRatioNonInvoice?: number | null
+    fullYearBunpaiRatioNonInvoice?: number | null
+    shintakuShuekiKazeiUriage?: bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: bigint | number | null
+    shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuHiyoKazeiShiire?: bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: bigint | number | null
+    shintakuHiyoHikazeiShiire?: bigint | number | null
+    unitShintakuShuekiKazeiUriage?: number | null
+    unitShintakuShuekiKazeiUriageShohizei?: number | null
+    unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuHiyoKazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireShohizei?: number | null
+    unitShintakuHiyoHikazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    kazeiUriageSashihiki08?: bigint | number | null
+    kazeiUriageSashihiki10?: bigint | number | null
+    kazeiUriageHontai08?: bigint | number | null
+    kazeiUriageHontai10?: bigint | number | null
+    kazeiShiire100Kojo?: bigint | number | null
+    kazeiShiire100KojoNoTax?: bigint | number | null
+    kazeiShiire8050Kojo?: bigint | number | null
+    kazeiShiire8050KojoNoTax?: bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: bigint | number | null
+    koteiShisan80Kojo?: bigint | number | null
+    koteiShisan80KojoNoTax?: bigint | number | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    Project: ProjectCreateNestedOneWithoutProjectKisInput
+    Ki: KiCreateNestedOneWithoutProjectKisInput
+    SubUser?: UserCreateNestedOneWithoutSubUserProjectKisInput
+    CustomerFunds?: CustomerFundCreateNestedManyWithoutProjectKiInput
+  }
+
+  export type ProjectKiUncheckedCreateWithoutMainUserInput = {
+    id?: string
+    projectId: string
+    kiId: string
+    subUserId?: string | null
+    projectKi: number
+    startAt: Date | string
+    endAt: Date | string
+    paymentDate: Date | string
+    reportDate: Date | string
+    topic: string
+    ganponKuriire?: number | null
+    yayoiUploadVersion?: number
+    yayoiUploadAt?: Date | string | null
+    customerUploadVersion?: number
+    customerUploadAt?: Date | string | null
+    calculateVersion?: number
+    calculateAt?: Date | string | null
+    finalKiFlag?: boolean
+    mlspcMarginIncludeTax?: number | null
+    totalUnit?: number | null
+    totalUnitNonInvoice?: number | null
+    shintakuShueki?: bigint | number | null
+    shintakuHiyo?: bigint | number | null
+    sashihikiShintakuRieki?: bigint | number | null
+    shintakuRieki?: bigint | number | null
+    bunpaiRieki?: bigint | number | null
+    bunpaiSogaku?: bigint | number | null
+    bunpaiSogakuNonInvoice?: bigint | number | null
+    kichuKoteiShisan?: bigint | number | null
+    kurikoshiRieki?: number | null
+    capitalGain?: bigint | number | null
+    unitCapitalGain?: bigint | number | null
+    unitShintakuShueki?: number | null
+    unitShintakuHiyo?: number | null
+    unitShintakuHiyoForNonInvoice?: number | null
+    unitSashihikiShintakuRieki?: number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: number | null
+    unitGanponKuriire?: number | null
+    unitBunpai?: number | null
+    unitBunpaiForNonInvoice?: number | null
+    unitKichuKoteiShisan?: number | null
+    shohiyoRyuhokin?: bigint | number | null
+    shuzenTsumitatekin?: bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: bigint | number | null
+    azukarikinHenkanJunbikin?: bigint | number | null
+    zeikinHokenryoJunbiKanjo?: bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
+    risokuShiharaiJunbiKanjo?: bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: bigint | number | null
+    cashTrapJunbiKanjo?: bigint | number | null
+    sonotaGenyokin?: bigint | number | null
+    futuYokinTokiZandaka?: bigint | number | null
+    zenkiKurikoshiRieki?: bigint | number | null
+    shuzenTsumitatekinKuriire?: bigint | number | null
+    mibaraiHiyo?: bigint | number | null
+    chokiKariire?: bigint | number | null
+    currentYearBunpaiRatio?: number | null
+    fullYearBunpaiRatio?: number | null
+    currentYearBunpaiRatioNonInvoice?: number | null
+    fullYearBunpaiRatioNonInvoice?: number | null
+    shintakuShuekiKazeiUriage?: bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: bigint | number | null
+    shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuHiyoKazeiShiire?: bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: bigint | number | null
+    shintakuHiyoHikazeiShiire?: bigint | number | null
+    unitShintakuShuekiKazeiUriage?: number | null
+    unitShintakuShuekiKazeiUriageShohizei?: number | null
+    unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuHiyoKazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireShohizei?: number | null
+    unitShintakuHiyoHikazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    kazeiUriageSashihiki08?: bigint | number | null
+    kazeiUriageSashihiki10?: bigint | number | null
+    kazeiUriageHontai08?: bigint | number | null
+    kazeiUriageHontai10?: bigint | number | null
+    kazeiShiire100Kojo?: bigint | number | null
+    kazeiShiire100KojoNoTax?: bigint | number | null
+    kazeiShiire8050Kojo?: bigint | number | null
+    kazeiShiire8050KojoNoTax?: bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: bigint | number | null
+    koteiShisan80Kojo?: bigint | number | null
+    koteiShisan80KojoNoTax?: bigint | number | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    CustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutProjectKiInput
+  }
+
+  export type ProjectKiCreateOrConnectWithoutMainUserInput = {
+    where: ProjectKiWhereUniqueInput
+    create: XOR<ProjectKiCreateWithoutMainUserInput, ProjectKiUncheckedCreateWithoutMainUserInput>
+  }
+
+  export type ProjectKiCreateManyMainUserInputEnvelope = {
+    data: ProjectKiCreateManyMainUserInput | ProjectKiCreateManyMainUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ProjectKiCreateWithoutSubUserInput = {
+    id?: string
+    projectKi: number
+    startAt: Date | string
+    endAt: Date | string
+    paymentDate: Date | string
+    reportDate: Date | string
+    topic: string
+    ganponKuriire?: number | null
+    yayoiUploadVersion?: number
+    yayoiUploadAt?: Date | string | null
+    customerUploadVersion?: number
+    customerUploadAt?: Date | string | null
+    calculateVersion?: number
+    calculateAt?: Date | string | null
+    finalKiFlag?: boolean
+    mlspcMarginIncludeTax?: number | null
+    totalUnit?: number | null
+    totalUnitNonInvoice?: number | null
+    shintakuShueki?: bigint | number | null
+    shintakuHiyo?: bigint | number | null
+    sashihikiShintakuRieki?: bigint | number | null
+    shintakuRieki?: bigint | number | null
+    bunpaiRieki?: bigint | number | null
+    bunpaiSogaku?: bigint | number | null
+    bunpaiSogakuNonInvoice?: bigint | number | null
+    kichuKoteiShisan?: bigint | number | null
+    kurikoshiRieki?: number | null
+    capitalGain?: bigint | number | null
+    unitCapitalGain?: bigint | number | null
+    unitShintakuShueki?: number | null
+    unitShintakuHiyo?: number | null
+    unitShintakuHiyoForNonInvoice?: number | null
+    unitSashihikiShintakuRieki?: number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: number | null
+    unitGanponKuriire?: number | null
+    unitBunpai?: number | null
+    unitBunpaiForNonInvoice?: number | null
+    unitKichuKoteiShisan?: number | null
+    shohiyoRyuhokin?: bigint | number | null
+    shuzenTsumitatekin?: bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: bigint | number | null
+    azukarikinHenkanJunbikin?: bigint | number | null
+    zeikinHokenryoJunbiKanjo?: bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
+    risokuShiharaiJunbiKanjo?: bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: bigint | number | null
+    cashTrapJunbiKanjo?: bigint | number | null
+    sonotaGenyokin?: bigint | number | null
+    futuYokinTokiZandaka?: bigint | number | null
+    zenkiKurikoshiRieki?: bigint | number | null
+    shuzenTsumitatekinKuriire?: bigint | number | null
+    mibaraiHiyo?: bigint | number | null
+    chokiKariire?: bigint | number | null
+    currentYearBunpaiRatio?: number | null
+    fullYearBunpaiRatio?: number | null
+    currentYearBunpaiRatioNonInvoice?: number | null
+    fullYearBunpaiRatioNonInvoice?: number | null
+    shintakuShuekiKazeiUriage?: bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: bigint | number | null
+    shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuHiyoKazeiShiire?: bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: bigint | number | null
+    shintakuHiyoHikazeiShiire?: bigint | number | null
+    unitShintakuShuekiKazeiUriage?: number | null
+    unitShintakuShuekiKazeiUriageShohizei?: number | null
+    unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuHiyoKazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireShohizei?: number | null
+    unitShintakuHiyoHikazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    kazeiUriageSashihiki08?: bigint | number | null
+    kazeiUriageSashihiki10?: bigint | number | null
+    kazeiUriageHontai08?: bigint | number | null
+    kazeiUriageHontai10?: bigint | number | null
+    kazeiShiire100Kojo?: bigint | number | null
+    kazeiShiire100KojoNoTax?: bigint | number | null
+    kazeiShiire8050Kojo?: bigint | number | null
+    kazeiShiire8050KojoNoTax?: bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: bigint | number | null
+    koteiShisan80Kojo?: bigint | number | null
+    koteiShisan80KojoNoTax?: bigint | number | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    Project: ProjectCreateNestedOneWithoutProjectKisInput
+    Ki: KiCreateNestedOneWithoutProjectKisInput
+    MainUser?: UserCreateNestedOneWithoutMainUserProjectKisInput
+    CustomerFunds?: CustomerFundCreateNestedManyWithoutProjectKiInput
+  }
+
+  export type ProjectKiUncheckedCreateWithoutSubUserInput = {
+    id?: string
+    projectId: string
+    kiId: string
+    mainUserId?: string | null
+    projectKi: number
+    startAt: Date | string
+    endAt: Date | string
+    paymentDate: Date | string
+    reportDate: Date | string
+    topic: string
+    ganponKuriire?: number | null
+    yayoiUploadVersion?: number
+    yayoiUploadAt?: Date | string | null
+    customerUploadVersion?: number
+    customerUploadAt?: Date | string | null
+    calculateVersion?: number
+    calculateAt?: Date | string | null
+    finalKiFlag?: boolean
+    mlspcMarginIncludeTax?: number | null
+    totalUnit?: number | null
+    totalUnitNonInvoice?: number | null
+    shintakuShueki?: bigint | number | null
+    shintakuHiyo?: bigint | number | null
+    sashihikiShintakuRieki?: bigint | number | null
+    shintakuRieki?: bigint | number | null
+    bunpaiRieki?: bigint | number | null
+    bunpaiSogaku?: bigint | number | null
+    bunpaiSogakuNonInvoice?: bigint | number | null
+    kichuKoteiShisan?: bigint | number | null
+    kurikoshiRieki?: number | null
+    capitalGain?: bigint | number | null
+    unitCapitalGain?: bigint | number | null
+    unitShintakuShueki?: number | null
+    unitShintakuHiyo?: number | null
+    unitShintakuHiyoForNonInvoice?: number | null
+    unitSashihikiShintakuRieki?: number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: number | null
+    unitGanponKuriire?: number | null
+    unitBunpai?: number | null
+    unitBunpaiForNonInvoice?: number | null
+    unitKichuKoteiShisan?: number | null
+    shohiyoRyuhokin?: bigint | number | null
+    shuzenTsumitatekin?: bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: bigint | number | null
+    azukarikinHenkanJunbikin?: bigint | number | null
+    zeikinHokenryoJunbiKanjo?: bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
+    risokuShiharaiJunbiKanjo?: bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: bigint | number | null
+    cashTrapJunbiKanjo?: bigint | number | null
+    sonotaGenyokin?: bigint | number | null
+    futuYokinTokiZandaka?: bigint | number | null
+    zenkiKurikoshiRieki?: bigint | number | null
+    shuzenTsumitatekinKuriire?: bigint | number | null
+    mibaraiHiyo?: bigint | number | null
+    chokiKariire?: bigint | number | null
+    currentYearBunpaiRatio?: number | null
+    fullYearBunpaiRatio?: number | null
+    currentYearBunpaiRatioNonInvoice?: number | null
+    fullYearBunpaiRatioNonInvoice?: number | null
+    shintakuShuekiKazeiUriage?: bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: bigint | number | null
+    shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuHiyoKazeiShiire?: bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: bigint | number | null
+    shintakuHiyoHikazeiShiire?: bigint | number | null
+    unitShintakuShuekiKazeiUriage?: number | null
+    unitShintakuShuekiKazeiUriageShohizei?: number | null
+    unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuHiyoKazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireShohizei?: number | null
+    unitShintakuHiyoHikazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    kazeiUriageSashihiki08?: bigint | number | null
+    kazeiUriageSashihiki10?: bigint | number | null
+    kazeiUriageHontai08?: bigint | number | null
+    kazeiUriageHontai10?: bigint | number | null
+    kazeiShiire100Kojo?: bigint | number | null
+    kazeiShiire100KojoNoTax?: bigint | number | null
+    kazeiShiire8050Kojo?: bigint | number | null
+    kazeiShiire8050KojoNoTax?: bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: bigint | number | null
+    koteiShisan80Kojo?: bigint | number | null
+    koteiShisan80KojoNoTax?: bigint | number | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    CustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutProjectKiInput
+  }
+
+  export type ProjectKiCreateOrConnectWithoutSubUserInput = {
+    where: ProjectKiWhereUniqueInput
+    create: XOR<ProjectKiCreateWithoutSubUserInput, ProjectKiUncheckedCreateWithoutSubUserInput>
+  }
+
+  export type ProjectKiCreateManySubUserInputEnvelope = {
+    data: ProjectKiCreateManySubUserInput | ProjectKiCreateManySubUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ProjectKiUpsertWithWhereUniqueWithoutMainUserInput = {
+    where: ProjectKiWhereUniqueInput
+    update: XOR<ProjectKiUpdateWithoutMainUserInput, ProjectKiUncheckedUpdateWithoutMainUserInput>
+    create: XOR<ProjectKiCreateWithoutMainUserInput, ProjectKiUncheckedCreateWithoutMainUserInput>
+  }
+
+  export type ProjectKiUpdateWithWhereUniqueWithoutMainUserInput = {
+    where: ProjectKiWhereUniqueInput
+    data: XOR<ProjectKiUpdateWithoutMainUserInput, ProjectKiUncheckedUpdateWithoutMainUserInput>
+  }
+
+  export type ProjectKiUpdateManyWithWhereWithoutMainUserInput = {
+    where: ProjectKiScalarWhereInput
+    data: XOR<ProjectKiUpdateManyMutationInput, ProjectKiUncheckedUpdateManyWithoutMainUserInput>
+  }
+
+  export type ProjectKiScalarWhereInput = {
+    AND?: ProjectKiScalarWhereInput | ProjectKiScalarWhereInput[]
+    OR?: ProjectKiScalarWhereInput[]
+    NOT?: ProjectKiScalarWhereInput | ProjectKiScalarWhereInput[]
+    id?: StringFilter<"ProjectKi"> | string
+    projectId?: StringFilter<"ProjectKi"> | string
+    kiId?: StringFilter<"ProjectKi"> | string
+    mainUserId?: StringNullableFilter<"ProjectKi"> | string | null
+    subUserId?: StringNullableFilter<"ProjectKi"> | string | null
+    projectKi?: IntFilter<"ProjectKi"> | number
+    startAt?: DateTimeFilter<"ProjectKi"> | Date | string
+    endAt?: DateTimeFilter<"ProjectKi"> | Date | string
+    paymentDate?: DateTimeFilter<"ProjectKi"> | Date | string
+    reportDate?: DateTimeFilter<"ProjectKi"> | Date | string
+    topic?: StringFilter<"ProjectKi"> | string
+    ganponKuriire?: IntNullableFilter<"ProjectKi"> | number | null
+    yayoiUploadVersion?: IntFilter<"ProjectKi"> | number
+    yayoiUploadAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
+    customerUploadVersion?: IntFilter<"ProjectKi"> | number
+    customerUploadAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
+    calculateVersion?: IntFilter<"ProjectKi"> | number
+    calculateAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
+    finalKiFlag?: BoolFilter<"ProjectKi"> | boolean
+    mlspcMarginIncludeTax?: IntNullableFilter<"ProjectKi"> | number | null
+    totalUnit?: IntNullableFilter<"ProjectKi"> | number | null
+    totalUnitNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    shintakuShueki?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuHiyo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    sashihikiShintakuRieki?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuRieki?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    bunpaiRieki?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    bunpaiSogaku?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    bunpaiSogakuNonInvoice?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kichuKoteiShisan?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kurikoshiRieki?: IntNullableFilter<"ProjectKi"> | number | null
+    capitalGain?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    unitCapitalGain?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    unitShintakuShueki?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyo?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    unitSashihikiShintakuRieki?: IntNullableFilter<"ProjectKi"> | number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    unitGanponKuriire?: IntNullableFilter<"ProjectKi"> | number | null
+    unitBunpai?: IntNullableFilter<"ProjectKi"> | number | null
+    unitBunpaiForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    unitKichuKoteiShisan?: IntNullableFilter<"ProjectKi"> | number | null
+    shohiyoRyuhokin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shuzenTsumitatekin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    azukarikinHenkanJunbikin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    zeikinHokenryoJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    risokuShiharaiJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    cashTrapJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    sonotaGenyokin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    futuYokinTokiZandaka?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    zenkiKurikoshiRieki?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shuzenTsumitatekinKuriire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    mibaraiHiyo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    chokiKariire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    currentYearBunpaiRatio?: FloatNullableFilter<"ProjectKi"> | number | null
+    fullYearBunpaiRatio?: FloatNullableFilter<"ProjectKi"> | number | null
+    currentYearBunpaiRatioNonInvoice?: FloatNullableFilter<"ProjectKi"> | number | null
+    fullYearBunpaiRatioNonInvoice?: FloatNullableFilter<"ProjectKi"> | number | null
+    shintakuShuekiKazeiUriage?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuShuekiHikazeiUriage?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuHiyoKazeiShiire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuHiyoHikazeiShiire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    unitShintakuShuekiKazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuShuekiKazeiUriageShohizei?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuShuekiHikazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoKazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoKazeiShiireShohizei?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoHikazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    kazeiUriageSashihiki08?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiUriageSashihiki10?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiUriageHontai08?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiUriageHontai10?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire100Kojo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire100KojoNoTax?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire8050Kojo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire8050KojoNoTax?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    koteiShisan80Kojo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    koteiShisan80KojoNoTax?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    createdAt?: DateTimeFilter<"ProjectKi"> | Date | string
+    createdId?: StringFilter<"ProjectKi"> | string
+    createdBy?: StringFilter<"ProjectKi"> | string
+    updatedAt?: DateTimeFilter<"ProjectKi"> | Date | string
+    updatedId?: StringFilter<"ProjectKi"> | string
+    updatedBy?: StringFilter<"ProjectKi"> | string
+  }
+
+  export type ProjectKiUpsertWithWhereUniqueWithoutSubUserInput = {
+    where: ProjectKiWhereUniqueInput
+    update: XOR<ProjectKiUpdateWithoutSubUserInput, ProjectKiUncheckedUpdateWithoutSubUserInput>
+    create: XOR<ProjectKiCreateWithoutSubUserInput, ProjectKiUncheckedCreateWithoutSubUserInput>
+  }
+
+  export type ProjectKiUpdateWithWhereUniqueWithoutSubUserInput = {
+    where: ProjectKiWhereUniqueInput
+    data: XOR<ProjectKiUpdateWithoutSubUserInput, ProjectKiUncheckedUpdateWithoutSubUserInput>
+  }
+
+  export type ProjectKiUpdateManyWithWhereWithoutSubUserInput = {
+    where: ProjectKiScalarWhereInput
+    data: XOR<ProjectKiUpdateManyMutationInput, ProjectKiUncheckedUpdateManyWithoutSubUserInput>
+  }
+
   export type ProjectKiCreateWithoutKiInput = {
     id?: string
     projectKi: number
@@ -38027,12 +38972,16 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     Project: ProjectCreateNestedOneWithoutProjectKisInput
+    MainUser?: UserCreateNestedOneWithoutMainUserProjectKisInput
+    SubUser?: UserCreateNestedOneWithoutSubUserProjectKisInput
     CustomerFunds?: CustomerFundCreateNestedManyWithoutProjectKiInput
   }
 
   export type ProjectKiUncheckedCreateWithoutKiInput = {
     id?: string
     projectId: string
+    mainUserId?: string | null
+    subUserId?: string | null
     projectKi: number
     startAt: Date | string
     endAt: Date | string
@@ -38237,106 +39186,6 @@ export namespace Prisma {
   export type ProjectKiUpdateManyWithWhereWithoutKiInput = {
     where: ProjectKiScalarWhereInput
     data: XOR<ProjectKiUpdateManyMutationInput, ProjectKiUncheckedUpdateManyWithoutKiInput>
-  }
-
-  export type ProjectKiScalarWhereInput = {
-    AND?: ProjectKiScalarWhereInput | ProjectKiScalarWhereInput[]
-    OR?: ProjectKiScalarWhereInput[]
-    NOT?: ProjectKiScalarWhereInput | ProjectKiScalarWhereInput[]
-    id?: StringFilter<"ProjectKi"> | string
-    projectId?: StringFilter<"ProjectKi"> | string
-    kiId?: StringFilter<"ProjectKi"> | string
-    projectKi?: IntFilter<"ProjectKi"> | number
-    startAt?: DateTimeFilter<"ProjectKi"> | Date | string
-    endAt?: DateTimeFilter<"ProjectKi"> | Date | string
-    paymentDate?: DateTimeFilter<"ProjectKi"> | Date | string
-    reportDate?: DateTimeFilter<"ProjectKi"> | Date | string
-    topic?: StringFilter<"ProjectKi"> | string
-    ganponKuriire?: IntNullableFilter<"ProjectKi"> | number | null
-    yayoiUploadVersion?: IntFilter<"ProjectKi"> | number
-    yayoiUploadAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
-    customerUploadVersion?: IntFilter<"ProjectKi"> | number
-    customerUploadAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
-    calculateVersion?: IntFilter<"ProjectKi"> | number
-    calculateAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
-    finalKiFlag?: BoolFilter<"ProjectKi"> | boolean
-    mlspcMarginIncludeTax?: IntNullableFilter<"ProjectKi"> | number | null
-    totalUnit?: IntNullableFilter<"ProjectKi"> | number | null
-    totalUnitNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
-    shintakuShueki?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    shintakuHiyo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    sashihikiShintakuRieki?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    shintakuRieki?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    bunpaiRieki?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    bunpaiSogaku?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    bunpaiSogakuNonInvoice?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    kichuKoteiShisan?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    kurikoshiRieki?: IntNullableFilter<"ProjectKi"> | number | null
-    capitalGain?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    unitCapitalGain?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    unitShintakuShueki?: IntNullableFilter<"ProjectKi"> | number | null
-    unitShintakuHiyo?: IntNullableFilter<"ProjectKi"> | number | null
-    unitShintakuHiyoForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
-    unitSashihikiShintakuRieki?: IntNullableFilter<"ProjectKi"> | number | null
-    unitSashihikiShintakuRiekiForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
-    unitGanponKuriire?: IntNullableFilter<"ProjectKi"> | number | null
-    unitBunpai?: IntNullableFilter<"ProjectKi"> | number | null
-    unitBunpaiForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
-    unitKichuKoteiShisan?: IntNullableFilter<"ProjectKi"> | number | null
-    shohiyoRyuhokin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    shuzenTsumitatekin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    shohiyoRyuhokinTorikuzushi?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    shuzenTsumitatekinTorikuzushi?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    azukarikinHenkanJunbikin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    zeikinHokenryoJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    kyodoUnyuHiyoJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    risokuShiharaiJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    shihoTekiShishutsuJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    cashTrapJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    sonotaGenyokin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    futuYokinTokiZandaka?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    zenkiKurikoshiRieki?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    shuzenTsumitatekinKuriire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    mibaraiHiyo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    chokiKariire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    currentYearBunpaiRatio?: FloatNullableFilter<"ProjectKi"> | number | null
-    fullYearBunpaiRatio?: FloatNullableFilter<"ProjectKi"> | number | null
-    currentYearBunpaiRatioNonInvoice?: FloatNullableFilter<"ProjectKi"> | number | null
-    fullYearBunpaiRatioNonInvoice?: FloatNullableFilter<"ProjectKi"> | number | null
-    shintakuShuekiKazeiUriage?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    shintakuShuekiKazeiUriageShohizei?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    shintakuShuekiHikazeiUriage?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    shintakuHiyoKazeiShiire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    shintakuHiyoKazeiShiireShohizei?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    shintakuHiyoHikazeiShiire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    unitShintakuShuekiKazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
-    unitShintakuShuekiKazeiUriageShohizei?: IntNullableFilter<"ProjectKi"> | number | null
-    unitShintakuShuekiHikazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
-    unitShintakuHiyoKazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
-    unitShintakuHiyoKazeiShiireShohizei?: IntNullableFilter<"ProjectKi"> | number | null
-    unitShintakuHiyoHikazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
-    unitShintakuHiyoKazeiShiireForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
-    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
-    kazeiUriageSashihiki08?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    kazeiUriageSashihiki10?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    kazeiUriageHontai08?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    kazeiUriageHontai10?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    kazeiShiire100Kojo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    kazeiShiire100KojoNoTax?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    kazeiShiire8050Kojo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    kazeiShiire8050KojoNoTax?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    kazeiShiire100KojoKazeiUriageHontai?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    kazeiShiire8050KojoKazeiUriageHontai?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    kazeiShiire100KojoKyotsuHontai?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    kazeiShiire8050KojoKyotsuHontai?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    koteiShisan80Kojo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    koteiShisan80KojoNoTax?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
-    createdAt?: DateTimeFilter<"ProjectKi"> | Date | string
-    createdId?: StringFilter<"ProjectKi"> | string
-    createdBy?: StringFilter<"ProjectKi"> | string
-    updatedAt?: DateTimeFilter<"ProjectKi"> | Date | string
-    updatedId?: StringFilter<"ProjectKi"> | string
-    updatedBy?: StringFilter<"ProjectKi"> | string
   }
 
   export type AssetKiUpsertWithWhereUniqueWithoutKiInput = {
@@ -38726,12 +39575,16 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     Ki: KiCreateNestedOneWithoutProjectKisInput
+    MainUser?: UserCreateNestedOneWithoutMainUserProjectKisInput
+    SubUser?: UserCreateNestedOneWithoutSubUserProjectKisInput
     CustomerFunds?: CustomerFundCreateNestedManyWithoutProjectKiInput
   }
 
   export type ProjectKiUncheckedCreateWithoutProjectInput = {
     id?: string
     kiId: string
+    mainUserId?: string | null
+    subUserId?: string | null
     projectKi: number
     startAt: Date | string
     endAt: Date | string
@@ -39530,6 +40383,80 @@ export namespace Prisma {
     create: XOR<KiCreateWithoutProjectKisInput, KiUncheckedCreateWithoutProjectKisInput>
   }
 
+  export type UserCreateWithoutMainUserProjectKisInput = {
+    id?: string
+    email: string
+    name?: string | null
+    role?: $Enums.UserRole
+    userType?: $Enums.UserType
+    isDeleted?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    SubUserProjectKis?: ProjectKiCreateNestedManyWithoutSubUserInput
+  }
+
+  export type UserUncheckedCreateWithoutMainUserProjectKisInput = {
+    id?: string
+    email: string
+    name?: string | null
+    role?: $Enums.UserRole
+    userType?: $Enums.UserType
+    isDeleted?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    SubUserProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutSubUserInput
+  }
+
+  export type UserCreateOrConnectWithoutMainUserProjectKisInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutMainUserProjectKisInput, UserUncheckedCreateWithoutMainUserProjectKisInput>
+  }
+
+  export type UserCreateWithoutSubUserProjectKisInput = {
+    id?: string
+    email: string
+    name?: string | null
+    role?: $Enums.UserRole
+    userType?: $Enums.UserType
+    isDeleted?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    MainUserProjectKis?: ProjectKiCreateNestedManyWithoutMainUserInput
+  }
+
+  export type UserUncheckedCreateWithoutSubUserProjectKisInput = {
+    id?: string
+    email: string
+    name?: string | null
+    role?: $Enums.UserRole
+    userType?: $Enums.UserType
+    isDeleted?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    MainUserProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutMainUserInput
+  }
+
+  export type UserCreateOrConnectWithoutSubUserProjectKisInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutSubUserProjectKisInput, UserUncheckedCreateWithoutSubUserProjectKisInput>
+  }
+
   export type CustomerFundCreateWithoutProjectKiInput = {
     id?: string
     invoice?: boolean
@@ -39734,6 +40661,92 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     AssetKis?: AssetKiUncheckedUpdateManyWithoutKiNestedInput
+  }
+
+  export type UserUpsertWithoutMainUserProjectKisInput = {
+    update: XOR<UserUpdateWithoutMainUserProjectKisInput, UserUncheckedUpdateWithoutMainUserProjectKisInput>
+    create: XOR<UserCreateWithoutMainUserProjectKisInput, UserUncheckedCreateWithoutMainUserProjectKisInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutMainUserProjectKisInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutMainUserProjectKisInput, UserUncheckedUpdateWithoutMainUserProjectKisInput>
+  }
+
+  export type UserUpdateWithoutMainUserProjectKisInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    SubUserProjectKis?: ProjectKiUpdateManyWithoutSubUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutMainUserProjectKisInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    SubUserProjectKis?: ProjectKiUncheckedUpdateManyWithoutSubUserNestedInput
+  }
+
+  export type UserUpsertWithoutSubUserProjectKisInput = {
+    update: XOR<UserUpdateWithoutSubUserProjectKisInput, UserUncheckedUpdateWithoutSubUserProjectKisInput>
+    create: XOR<UserCreateWithoutSubUserProjectKisInput, UserUncheckedCreateWithoutSubUserProjectKisInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutSubUserProjectKisInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutSubUserProjectKisInput, UserUncheckedUpdateWithoutSubUserProjectKisInput>
+  }
+
+  export type UserUpdateWithoutSubUserProjectKisInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    MainUserProjectKis?: ProjectKiUpdateManyWithoutMainUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutSubUserProjectKisInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    MainUserProjectKis?: ProjectKiUncheckedUpdateManyWithoutMainUserNestedInput
   }
 
   export type CustomerFundUpsertWithWhereUniqueWithoutProjectKiInput = {
@@ -40759,12 +41772,16 @@ export namespace Prisma {
     updatedBy: string
     Project: ProjectCreateNestedOneWithoutProjectKisInput
     Ki: KiCreateNestedOneWithoutProjectKisInput
+    MainUser?: UserCreateNestedOneWithoutMainUserProjectKisInput
+    SubUser?: UserCreateNestedOneWithoutSubUserProjectKisInput
   }
 
   export type ProjectKiUncheckedCreateWithoutCustomerFundsInput = {
     id?: string
     projectId: string
     kiId: string
+    mainUserId?: string | null
+    subUserId?: string | null
     projectKi: number
     startAt: Date | string
     endAt: Date | string
@@ -41183,12 +42200,16 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
     Project?: ProjectUpdateOneRequiredWithoutProjectKisNestedInput
     Ki?: KiUpdateOneRequiredWithoutProjectKisNestedInput
+    MainUser?: UserUpdateOneWithoutMainUserProjectKisNestedInput
+    SubUser?: UserUpdateOneWithoutSubUserProjectKisNestedInput
   }
 
   export type ProjectKiUncheckedUpdateWithoutCustomerFundsInput = {
     id?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
     kiId?: StringFieldUpdateOperationsInput | string
+    mainUserId?: NullableStringFieldUpdateOperationsInput | string | null
+    subUserId?: NullableStringFieldUpdateOperationsInput | string | null
     projectKi?: IntFieldUpdateOperationsInput | number
     startAt?: DateTimeFieldUpdateOperationsInput | Date | string
     endAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -42005,9 +43026,799 @@ export namespace Prisma {
     data: XOR<ProjectUpdateManyMutationInput, ProjectUncheckedUpdateManyWithoutRefInput>
   }
 
+  export type ProjectKiCreateManyMainUserInput = {
+    id?: string
+    projectId: string
+    kiId: string
+    subUserId?: string | null
+    projectKi: number
+    startAt: Date | string
+    endAt: Date | string
+    paymentDate: Date | string
+    reportDate: Date | string
+    topic: string
+    ganponKuriire?: number | null
+    yayoiUploadVersion?: number
+    yayoiUploadAt?: Date | string | null
+    customerUploadVersion?: number
+    customerUploadAt?: Date | string | null
+    calculateVersion?: number
+    calculateAt?: Date | string | null
+    finalKiFlag?: boolean
+    mlspcMarginIncludeTax?: number | null
+    totalUnit?: number | null
+    totalUnitNonInvoice?: number | null
+    shintakuShueki?: bigint | number | null
+    shintakuHiyo?: bigint | number | null
+    sashihikiShintakuRieki?: bigint | number | null
+    shintakuRieki?: bigint | number | null
+    bunpaiRieki?: bigint | number | null
+    bunpaiSogaku?: bigint | number | null
+    bunpaiSogakuNonInvoice?: bigint | number | null
+    kichuKoteiShisan?: bigint | number | null
+    kurikoshiRieki?: number | null
+    capitalGain?: bigint | number | null
+    unitCapitalGain?: bigint | number | null
+    unitShintakuShueki?: number | null
+    unitShintakuHiyo?: number | null
+    unitShintakuHiyoForNonInvoice?: number | null
+    unitSashihikiShintakuRieki?: number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: number | null
+    unitGanponKuriire?: number | null
+    unitBunpai?: number | null
+    unitBunpaiForNonInvoice?: number | null
+    unitKichuKoteiShisan?: number | null
+    shohiyoRyuhokin?: bigint | number | null
+    shuzenTsumitatekin?: bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: bigint | number | null
+    azukarikinHenkanJunbikin?: bigint | number | null
+    zeikinHokenryoJunbiKanjo?: bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
+    risokuShiharaiJunbiKanjo?: bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: bigint | number | null
+    cashTrapJunbiKanjo?: bigint | number | null
+    sonotaGenyokin?: bigint | number | null
+    futuYokinTokiZandaka?: bigint | number | null
+    zenkiKurikoshiRieki?: bigint | number | null
+    shuzenTsumitatekinKuriire?: bigint | number | null
+    mibaraiHiyo?: bigint | number | null
+    chokiKariire?: bigint | number | null
+    currentYearBunpaiRatio?: number | null
+    fullYearBunpaiRatio?: number | null
+    currentYearBunpaiRatioNonInvoice?: number | null
+    fullYearBunpaiRatioNonInvoice?: number | null
+    shintakuShuekiKazeiUriage?: bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: bigint | number | null
+    shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuHiyoKazeiShiire?: bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: bigint | number | null
+    shintakuHiyoHikazeiShiire?: bigint | number | null
+    unitShintakuShuekiKazeiUriage?: number | null
+    unitShintakuShuekiKazeiUriageShohizei?: number | null
+    unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuHiyoKazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireShohizei?: number | null
+    unitShintakuHiyoHikazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    kazeiUriageSashihiki08?: bigint | number | null
+    kazeiUriageSashihiki10?: bigint | number | null
+    kazeiUriageHontai08?: bigint | number | null
+    kazeiUriageHontai10?: bigint | number | null
+    kazeiShiire100Kojo?: bigint | number | null
+    kazeiShiire100KojoNoTax?: bigint | number | null
+    kazeiShiire8050Kojo?: bigint | number | null
+    kazeiShiire8050KojoNoTax?: bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: bigint | number | null
+    koteiShisan80Kojo?: bigint | number | null
+    koteiShisan80KojoNoTax?: bigint | number | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type ProjectKiCreateManySubUserInput = {
+    id?: string
+    projectId: string
+    kiId: string
+    mainUserId?: string | null
+    projectKi: number
+    startAt: Date | string
+    endAt: Date | string
+    paymentDate: Date | string
+    reportDate: Date | string
+    topic: string
+    ganponKuriire?: number | null
+    yayoiUploadVersion?: number
+    yayoiUploadAt?: Date | string | null
+    customerUploadVersion?: number
+    customerUploadAt?: Date | string | null
+    calculateVersion?: number
+    calculateAt?: Date | string | null
+    finalKiFlag?: boolean
+    mlspcMarginIncludeTax?: number | null
+    totalUnit?: number | null
+    totalUnitNonInvoice?: number | null
+    shintakuShueki?: bigint | number | null
+    shintakuHiyo?: bigint | number | null
+    sashihikiShintakuRieki?: bigint | number | null
+    shintakuRieki?: bigint | number | null
+    bunpaiRieki?: bigint | number | null
+    bunpaiSogaku?: bigint | number | null
+    bunpaiSogakuNonInvoice?: bigint | number | null
+    kichuKoteiShisan?: bigint | number | null
+    kurikoshiRieki?: number | null
+    capitalGain?: bigint | number | null
+    unitCapitalGain?: bigint | number | null
+    unitShintakuShueki?: number | null
+    unitShintakuHiyo?: number | null
+    unitShintakuHiyoForNonInvoice?: number | null
+    unitSashihikiShintakuRieki?: number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: number | null
+    unitGanponKuriire?: number | null
+    unitBunpai?: number | null
+    unitBunpaiForNonInvoice?: number | null
+    unitKichuKoteiShisan?: number | null
+    shohiyoRyuhokin?: bigint | number | null
+    shuzenTsumitatekin?: bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: bigint | number | null
+    azukarikinHenkanJunbikin?: bigint | number | null
+    zeikinHokenryoJunbiKanjo?: bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
+    risokuShiharaiJunbiKanjo?: bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: bigint | number | null
+    cashTrapJunbiKanjo?: bigint | number | null
+    sonotaGenyokin?: bigint | number | null
+    futuYokinTokiZandaka?: bigint | number | null
+    zenkiKurikoshiRieki?: bigint | number | null
+    shuzenTsumitatekinKuriire?: bigint | number | null
+    mibaraiHiyo?: bigint | number | null
+    chokiKariire?: bigint | number | null
+    currentYearBunpaiRatio?: number | null
+    fullYearBunpaiRatio?: number | null
+    currentYearBunpaiRatioNonInvoice?: number | null
+    fullYearBunpaiRatioNonInvoice?: number | null
+    shintakuShuekiKazeiUriage?: bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: bigint | number | null
+    shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuHiyoKazeiShiire?: bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: bigint | number | null
+    shintakuHiyoHikazeiShiire?: bigint | number | null
+    unitShintakuShuekiKazeiUriage?: number | null
+    unitShintakuShuekiKazeiUriageShohizei?: number | null
+    unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuHiyoKazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireShohizei?: number | null
+    unitShintakuHiyoHikazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    kazeiUriageSashihiki08?: bigint | number | null
+    kazeiUriageSashihiki10?: bigint | number | null
+    kazeiUriageHontai08?: bigint | number | null
+    kazeiUriageHontai10?: bigint | number | null
+    kazeiShiire100Kojo?: bigint | number | null
+    kazeiShiire100KojoNoTax?: bigint | number | null
+    kazeiShiire8050Kojo?: bigint | number | null
+    kazeiShiire8050KojoNoTax?: bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: bigint | number | null
+    koteiShisan80Kojo?: bigint | number | null
+    koteiShisan80KojoNoTax?: bigint | number | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type ProjectKiUpdateWithoutMainUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectKi?: IntFieldUpdateOperationsInput | number
+    startAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    topic?: StringFieldUpdateOperationsInput | string
+    ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
+    yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerUploadVersion?: IntFieldUpdateOperationsInput | number
+    customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    calculateVersion?: IntFieldUpdateOperationsInput | number
+    calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
+    mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sashihikiShintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kichuKoteiShisan?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    capitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitCapitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitKichuKoteiShisan?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinKuriire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    mibaraiHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    chokiKariire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    Project?: ProjectUpdateOneRequiredWithoutProjectKisNestedInput
+    Ki?: KiUpdateOneRequiredWithoutProjectKisNestedInput
+    SubUser?: UserUpdateOneWithoutSubUserProjectKisNestedInput
+    CustomerFunds?: CustomerFundUpdateManyWithoutProjectKiNestedInput
+  }
+
+  export type ProjectKiUncheckedUpdateWithoutMainUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    subUserId?: NullableStringFieldUpdateOperationsInput | string | null
+    projectKi?: IntFieldUpdateOperationsInput | number
+    startAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    topic?: StringFieldUpdateOperationsInput | string
+    ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
+    yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerUploadVersion?: IntFieldUpdateOperationsInput | number
+    customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    calculateVersion?: IntFieldUpdateOperationsInput | number
+    calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
+    mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sashihikiShintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kichuKoteiShisan?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    capitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitCapitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitKichuKoteiShisan?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinKuriire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    mibaraiHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    chokiKariire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    CustomerFunds?: CustomerFundUncheckedUpdateManyWithoutProjectKiNestedInput
+  }
+
+  export type ProjectKiUncheckedUpdateManyWithoutMainUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    subUserId?: NullableStringFieldUpdateOperationsInput | string | null
+    projectKi?: IntFieldUpdateOperationsInput | number
+    startAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    topic?: StringFieldUpdateOperationsInput | string
+    ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
+    yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerUploadVersion?: IntFieldUpdateOperationsInput | number
+    customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    calculateVersion?: IntFieldUpdateOperationsInput | number
+    calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
+    mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sashihikiShintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kichuKoteiShisan?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    capitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitCapitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitKichuKoteiShisan?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinKuriire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    mibaraiHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    chokiKariire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectKiUpdateWithoutSubUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectKi?: IntFieldUpdateOperationsInput | number
+    startAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    topic?: StringFieldUpdateOperationsInput | string
+    ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
+    yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerUploadVersion?: IntFieldUpdateOperationsInput | number
+    customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    calculateVersion?: IntFieldUpdateOperationsInput | number
+    calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
+    mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sashihikiShintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kichuKoteiShisan?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    capitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitCapitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitKichuKoteiShisan?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinKuriire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    mibaraiHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    chokiKariire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    Project?: ProjectUpdateOneRequiredWithoutProjectKisNestedInput
+    Ki?: KiUpdateOneRequiredWithoutProjectKisNestedInput
+    MainUser?: UserUpdateOneWithoutMainUserProjectKisNestedInput
+    CustomerFunds?: CustomerFundUpdateManyWithoutProjectKiNestedInput
+  }
+
+  export type ProjectKiUncheckedUpdateWithoutSubUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    mainUserId?: NullableStringFieldUpdateOperationsInput | string | null
+    projectKi?: IntFieldUpdateOperationsInput | number
+    startAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    topic?: StringFieldUpdateOperationsInput | string
+    ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
+    yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerUploadVersion?: IntFieldUpdateOperationsInput | number
+    customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    calculateVersion?: IntFieldUpdateOperationsInput | number
+    calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
+    mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sashihikiShintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kichuKoteiShisan?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    capitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitCapitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitKichuKoteiShisan?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinKuriire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    mibaraiHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    chokiKariire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    CustomerFunds?: CustomerFundUncheckedUpdateManyWithoutProjectKiNestedInput
+  }
+
+  export type ProjectKiUncheckedUpdateManyWithoutSubUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    mainUserId?: NullableStringFieldUpdateOperationsInput | string | null
+    projectKi?: IntFieldUpdateOperationsInput | number
+    startAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    topic?: StringFieldUpdateOperationsInput | string
+    ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
+    yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerUploadVersion?: IntFieldUpdateOperationsInput | number
+    customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    calculateVersion?: IntFieldUpdateOperationsInput | number
+    calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
+    mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sashihikiShintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kichuKoteiShisan?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    capitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitCapitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitKichuKoteiShisan?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinKuriire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    mibaraiHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    chokiKariire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
   export type ProjectKiCreateManyKiInput = {
     id?: string
     projectId: string
+    mainUserId?: string | null
+    subUserId?: string | null
     projectKi: number
     startAt: Date | string
     endAt: Date | string
@@ -42233,12 +44044,16 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     Project?: ProjectUpdateOneRequiredWithoutProjectKisNestedInput
+    MainUser?: UserUpdateOneWithoutMainUserProjectKisNestedInput
+    SubUser?: UserUpdateOneWithoutSubUserProjectKisNestedInput
     CustomerFunds?: CustomerFundUpdateManyWithoutProjectKiNestedInput
   }
 
   export type ProjectKiUncheckedUpdateWithoutKiInput = {
     id?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
+    mainUserId?: NullableStringFieldUpdateOperationsInput | string | null
+    subUserId?: NullableStringFieldUpdateOperationsInput | string | null
     projectKi?: IntFieldUpdateOperationsInput | number
     startAt?: DateTimeFieldUpdateOperationsInput | Date | string
     endAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -42336,6 +44151,8 @@ export namespace Prisma {
   export type ProjectKiUncheckedUpdateManyWithoutKiInput = {
     id?: StringFieldUpdateOperationsInput | string
     projectId?: StringFieldUpdateOperationsInput | string
+    mainUserId?: NullableStringFieldUpdateOperationsInput | string | null
+    subUserId?: NullableStringFieldUpdateOperationsInput | string | null
     projectKi?: IntFieldUpdateOperationsInput | number
     startAt?: DateTimeFieldUpdateOperationsInput | Date | string
     endAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -42546,6 +44363,8 @@ export namespace Prisma {
   export type ProjectKiCreateManyProjectInput = {
     id?: string
     kiId: string
+    mainUserId?: string | null
+    subUserId?: string | null
     projectKi: number
     startAt: Date | string
     endAt: Date | string
@@ -42804,12 +44623,16 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     Ki?: KiUpdateOneRequiredWithoutProjectKisNestedInput
+    MainUser?: UserUpdateOneWithoutMainUserProjectKisNestedInput
+    SubUser?: UserUpdateOneWithoutSubUserProjectKisNestedInput
     CustomerFunds?: CustomerFundUpdateManyWithoutProjectKiNestedInput
   }
 
   export type ProjectKiUncheckedUpdateWithoutProjectInput = {
     id?: StringFieldUpdateOperationsInput | string
     kiId?: StringFieldUpdateOperationsInput | string
+    mainUserId?: NullableStringFieldUpdateOperationsInput | string | null
+    subUserId?: NullableStringFieldUpdateOperationsInput | string | null
     projectKi?: IntFieldUpdateOperationsInput | number
     startAt?: DateTimeFieldUpdateOperationsInput | Date | string
     endAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -42907,6 +44730,8 @@ export namespace Prisma {
   export type ProjectKiUncheckedUpdateManyWithoutProjectInput = {
     id?: StringFieldUpdateOperationsInput | string
     kiId?: StringFieldUpdateOperationsInput | string
+    mainUserId?: NullableStringFieldUpdateOperationsInput | string | null
+    subUserId?: NullableStringFieldUpdateOperationsInput | string | null
     projectKi?: IntFieldUpdateOperationsInput | number
     startAt?: DateTimeFieldUpdateOperationsInput | Date | string
     endAt?: DateTimeFieldUpdateOperationsInput | Date | string
