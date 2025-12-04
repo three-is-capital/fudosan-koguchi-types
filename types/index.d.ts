@@ -74,6 +74,16 @@ export type Asset = $Result.DefaultSelection<Prisma.$AssetPayload>
  */
 export type AssetKi = $Result.DefaultSelection<Prisma.$AssetKiPayload>
 /**
+ * Model DeadlineTask
+ * 
+ */
+export type DeadlineTask = $Result.DefaultSelection<Prisma.$DeadlineTaskPayload>
+/**
+ * Model ProjectKiTask
+ * 
+ */
+export type ProjectKiTask = $Result.DefaultSelection<Prisma.$ProjectKiTaskPayload>
+/**
  * Model Customer
  * 
  */
@@ -274,7 +284,7 @@ export const CustomerFundStatus: typeof $Enums.CustomerFundStatus
  */
 export class PrismaClient<
   ClientOptions extends Prisma.PrismaClientOptions = Prisma.PrismaClientOptions,
-  U = 'log' extends keyof ClientOptions ? ClientOptions['log'] extends Array<Prisma.LogLevel | Prisma.LogDefinition> ? Prisma.GetEvents<ClientOptions['log']> : never : never,
+  const U = 'log' extends keyof ClientOptions ? ClientOptions['log'] extends Array<Prisma.LogLevel | Prisma.LogDefinition> ? Prisma.GetEvents<ClientOptions['log']> : never : never,
   ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs
 > {
   [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['other'] }
@@ -306,13 +316,6 @@ export class PrismaClient<
    * Disconnect from the database
    */
   $disconnect(): $Utils.JsPromise<void>;
-
-  /**
-   * Add a middleware
-   * @deprecated since 4.16.0. For new code, prefer client extensions instead.
-   * @see https://pris.ly/d/extensions
-   */
-  $use(cb: Prisma.Middleware): void
 
 /**
    * Executes a prepared raw query and returns the number of affected rows.
@@ -504,6 +507,26 @@ export class PrismaClient<
   get assetKi(): Prisma.AssetKiDelegate<ExtArgs, ClientOptions>;
 
   /**
+   * `prisma.deadlineTask`: Exposes CRUD operations for the **DeadlineTask** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more DeadlineTasks
+    * const deadlineTasks = await prisma.deadlineTask.findMany()
+    * ```
+    */
+  get deadlineTask(): Prisma.DeadlineTaskDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.projectKiTask`: Exposes CRUD operations for the **ProjectKiTask** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ProjectKiTasks
+    * const projectKiTasks = await prisma.projectKiTask.findMany()
+    * ```
+    */
+  get projectKiTask(): Prisma.ProjectKiTaskDelegate<ExtArgs, ClientOptions>;
+
+  /**
    * `prisma.customer`: Exposes CRUD operations for the **Customer** model.
     * Example usage:
     * ```ts
@@ -620,8 +643,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.8.2
-   * Query Engine version: 2060c79ba17c6bb9f5823312b6f6b7f4a845738e
+   * Prisma Client JS version: 6.19.0
+   * Query Engine version: 2ba551f319ab1df4bc874a89965d8b3641056773
    */
   export type PrismaVersion = {
     client: string
@@ -634,6 +657,7 @@ export namespace Prisma {
    */
 
 
+  export import Bytes = runtime.Bytes
   export import JsonObject = runtime.JsonObject
   export import JsonArray = runtime.JsonArray
   export import JsonValue = runtime.JsonValue
@@ -1014,6 +1038,8 @@ export namespace Prisma {
     PLOrderBy: 'PLOrderBy',
     Asset: 'Asset',
     AssetKi: 'AssetKi',
+    DeadlineTask: 'DeadlineTask',
+    ProjectKiTask: 'ProjectKiTask',
     Customer: 'Customer',
     CustomerFund: 'CustomerFund',
     Template: 'Template',
@@ -1038,7 +1064,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "sBIMPUser" | "eAJUser" | "company" | "ki" | "project" | "projectKi" | "projectKiBS" | "projectKiPL" | "pLOrderBy" | "asset" | "assetKi" | "customer" | "customerFund" | "template" | "variableDefinition" | "yayoiCSV" | "yayoiCSVHistory"
+      modelProps: "user" | "sBIMPUser" | "eAJUser" | "company" | "ki" | "project" | "projectKi" | "projectKiBS" | "projectKiPL" | "pLOrderBy" | "asset" | "assetKi" | "deadlineTask" | "projectKiTask" | "customer" | "customerFund" | "template" | "variableDefinition" | "yayoiCSV" | "yayoiCSVHistory"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1930,6 +1956,154 @@ export namespace Prisma {
           }
         }
       }
+      DeadlineTask: {
+        payload: Prisma.$DeadlineTaskPayload<ExtArgs>
+        fields: Prisma.DeadlineTaskFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DeadlineTaskFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeadlineTaskPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DeadlineTaskFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeadlineTaskPayload>
+          }
+          findFirst: {
+            args: Prisma.DeadlineTaskFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeadlineTaskPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DeadlineTaskFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeadlineTaskPayload>
+          }
+          findMany: {
+            args: Prisma.DeadlineTaskFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeadlineTaskPayload>[]
+          }
+          create: {
+            args: Prisma.DeadlineTaskCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeadlineTaskPayload>
+          }
+          createMany: {
+            args: Prisma.DeadlineTaskCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.DeadlineTaskCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeadlineTaskPayload>[]
+          }
+          delete: {
+            args: Prisma.DeadlineTaskDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeadlineTaskPayload>
+          }
+          update: {
+            args: Prisma.DeadlineTaskUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeadlineTaskPayload>
+          }
+          deleteMany: {
+            args: Prisma.DeadlineTaskDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DeadlineTaskUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.DeadlineTaskUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeadlineTaskPayload>[]
+          }
+          upsert: {
+            args: Prisma.DeadlineTaskUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DeadlineTaskPayload>
+          }
+          aggregate: {
+            args: Prisma.DeadlineTaskAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDeadlineTask>
+          }
+          groupBy: {
+            args: Prisma.DeadlineTaskGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DeadlineTaskGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DeadlineTaskCountArgs<ExtArgs>
+            result: $Utils.Optional<DeadlineTaskCountAggregateOutputType> | number
+          }
+        }
+      }
+      ProjectKiTask: {
+        payload: Prisma.$ProjectKiTaskPayload<ExtArgs>
+        fields: Prisma.ProjectKiTaskFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ProjectKiTaskFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiTaskPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ProjectKiTaskFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiTaskPayload>
+          }
+          findFirst: {
+            args: Prisma.ProjectKiTaskFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiTaskPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ProjectKiTaskFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiTaskPayload>
+          }
+          findMany: {
+            args: Prisma.ProjectKiTaskFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiTaskPayload>[]
+          }
+          create: {
+            args: Prisma.ProjectKiTaskCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiTaskPayload>
+          }
+          createMany: {
+            args: Prisma.ProjectKiTaskCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ProjectKiTaskCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiTaskPayload>[]
+          }
+          delete: {
+            args: Prisma.ProjectKiTaskDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiTaskPayload>
+          }
+          update: {
+            args: Prisma.ProjectKiTaskUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiTaskPayload>
+          }
+          deleteMany: {
+            args: Prisma.ProjectKiTaskDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ProjectKiTaskUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ProjectKiTaskUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiTaskPayload>[]
+          }
+          upsert: {
+            args: Prisma.ProjectKiTaskUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProjectKiTaskPayload>
+          }
+          aggregate: {
+            args: Prisma.ProjectKiTaskAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProjectKiTask>
+          }
+          groupBy: {
+            args: Prisma.ProjectKiTaskGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProjectKiTaskGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ProjectKiTaskCountArgs<ExtArgs>
+            result: $Utils.Optional<ProjectKiTaskCountAggregateOutputType> | number
+          }
+        }
+      }
       Customer: {
         payload: Prisma.$CustomerPayload<ExtArgs>
         fields: Prisma.CustomerFieldRefs
@@ -2417,16 +2591,24 @@ export namespace Prisma {
     /**
      * @example
      * ```
-     * // Defaults to stdout
+     * // Shorthand for `emit: 'stdout'`
      * log: ['query', 'info', 'warn', 'error']
      * 
-     * // Emit as events
+     * // Emit as events only
      * log: [
-     *   { emit: 'stdout', level: 'query' },
-     *   { emit: 'stdout', level: 'info' },
-     *   { emit: 'stdout', level: 'warn' }
-     *   { emit: 'stdout', level: 'error' }
+     *   { emit: 'event', level: 'query' },
+     *   { emit: 'event', level: 'info' },
+     *   { emit: 'event', level: 'warn' }
+     *   { emit: 'event', level: 'error' }
      * ]
+     * 
+     * / Emit as events and log to stdout
+     * og: [
+     *  { emit: 'stdout', level: 'query' },
+     *  { emit: 'stdout', level: 'info' },
+     *  { emit: 'stdout', level: 'warn' }
+     *  { emit: 'stdout', level: 'error' }
+     * 
      * ```
      * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/logging#the-log-option).
      */
@@ -2441,6 +2623,10 @@ export namespace Prisma {
       timeout?: number
       isolationLevel?: Prisma.TransactionIsolationLevel
     }
+    /**
+     * Instance of a Driver Adapter, e.g., like one provided by `@prisma/adapter-planetscale`
+     */
+    adapter?: runtime.SqlDriverAdapterFactory | null
     /**
      * Global configuration for omitting model fields by default.
      * 
@@ -2470,6 +2656,8 @@ export namespace Prisma {
     pLOrderBy?: PLOrderByOmit
     asset?: AssetOmit
     assetKi?: AssetKiOmit
+    deadlineTask?: DeadlineTaskOmit
+    projectKiTask?: ProjectKiTaskOmit
     customer?: CustomerOmit
     customerFund?: CustomerFundOmit
     template?: TemplateOmit
@@ -2485,10 +2673,15 @@ export namespace Prisma {
     emit: 'stdout' | 'event'
   }
 
-  export type GetLogType<T extends LogLevel | LogDefinition> = T extends LogDefinition ? T['emit'] extends 'event' ? T['level'] : never : never
-  export type GetEvents<T extends any> = T extends Array<LogLevel | LogDefinition> ?
-    GetLogType<T[0]> | GetLogType<T[1]> | GetLogType<T[2]> | GetLogType<T[3]>
-    : never
+  export type CheckIsLogLevel<T> = T extends LogLevel ? T : never;
+
+  export type GetLogType<T> = CheckIsLogLevel<
+    T extends LogDefinition ? T['level'] : T
+  >;
+
+  export type GetEvents<T extends any[]> = T extends Array<LogLevel | LogDefinition>
+    ? GetLogType<T[number]>
+    : never;
 
   export type QueryEvent = {
     timestamp: Date
@@ -2528,25 +2721,6 @@ export namespace Prisma {
     | 'runCommandRaw'
     | 'findRaw'
     | 'groupBy'
-
-  /**
-   * These options are being passed into the middleware as "params"
-   */
-  export type MiddlewareParams = {
-    model?: ModelName
-    action: PrismaAction
-    args: any
-    dataPath: string[]
-    runInTransaction: boolean
-  }
-
-  /**
-   * The `T` type makes sure, that the `return proceed` is not forgotten in the middleware implementation
-   */
-  export type Middleware<T = any> = (
-    params: MiddlewareParams,
-    next: (params: MiddlewareParams) => $Utils.JsPromise<T>,
-  ) => $Utils.JsPromise<T>
 
   // tested in getLogLevel.test.ts
   export function getLogLevel(log: Array<LogLevel | LogDefinition>): LogLevel | undefined;
@@ -2612,11 +2786,13 @@ export namespace Prisma {
   export type KiCountOutputType = {
     ProjectKis: number
     AssetKis: number
+    DeadlineTasks: number
   }
 
   export type KiCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     ProjectKis?: boolean | KiCountOutputTypeCountProjectKisArgs
     AssetKis?: boolean | KiCountOutputTypeCountAssetKisArgs
+    DeadlineTasks?: boolean | KiCountOutputTypeCountDeadlineTasksArgs
   }
 
   // Custom InputTypes
@@ -2642,6 +2818,13 @@ export namespace Prisma {
    */
   export type KiCountOutputTypeCountAssetKisArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: AssetKiWhereInput
+  }
+
+  /**
+   * KiCountOutputType without action
+   */
+  export type KiCountOutputTypeCountDeadlineTasksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DeadlineTaskWhereInput
   }
 
 
@@ -2700,10 +2883,12 @@ export namespace Prisma {
 
   export type ProjectKiCountOutputType = {
     CustomerFunds: number
+    ProjectKiTasks: number
   }
 
   export type ProjectKiCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     CustomerFunds?: boolean | ProjectKiCountOutputTypeCountCustomerFundsArgs
+    ProjectKiTasks?: boolean | ProjectKiCountOutputTypeCountProjectKiTasksArgs
   }
 
   // Custom InputTypes
@@ -2722,6 +2907,13 @@ export namespace Prisma {
    */
   export type ProjectKiCountOutputTypeCountCustomerFundsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: CustomerFundWhereInput
+  }
+
+  /**
+   * ProjectKiCountOutputType without action
+   */
+  export type ProjectKiCountOutputTypeCountProjectKiTasksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProjectKiTaskWhereInput
   }
 
 
@@ -2753,6 +2945,37 @@ export namespace Prisma {
    */
   export type AssetCountOutputTypeCountAssetKisArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: AssetKiWhereInput
+  }
+
+
+  /**
+   * Count Type DeadlineTaskCountOutputType
+   */
+
+  export type DeadlineTaskCountOutputType = {
+    ProjectKiTasks: number
+  }
+
+  export type DeadlineTaskCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    ProjectKiTasks?: boolean | DeadlineTaskCountOutputTypeCountProjectKiTasksArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * DeadlineTaskCountOutputType without action
+   */
+  export type DeadlineTaskCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeadlineTaskCountOutputType
+     */
+    select?: DeadlineTaskCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * DeadlineTaskCountOutputType without action
+   */
+  export type DeadlineTaskCountOutputTypeCountProjectKiTasksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProjectKiTaskWhereInput
   }
 
 
@@ -7674,6 +7897,7 @@ export namespace Prisma {
     updatedBy?: boolean
     ProjectKis?: boolean | Ki$ProjectKisArgs<ExtArgs>
     AssetKis?: boolean | Ki$AssetKisArgs<ExtArgs>
+    DeadlineTasks?: boolean | Ki$DeadlineTasksArgs<ExtArgs>
     _count?: boolean | KiCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["ki"]>
 
@@ -7726,6 +7950,7 @@ export namespace Prisma {
   export type KiInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     ProjectKis?: boolean | Ki$ProjectKisArgs<ExtArgs>
     AssetKis?: boolean | Ki$AssetKisArgs<ExtArgs>
+    DeadlineTasks?: boolean | Ki$DeadlineTasksArgs<ExtArgs>
     _count?: boolean | KiCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type KiIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -7736,6 +7961,7 @@ export namespace Prisma {
     objects: {
       ProjectKis: Prisma.$ProjectKiPayload<ExtArgs>[]
       AssetKis: Prisma.$AssetKiPayload<ExtArgs>[]
+      DeadlineTasks: Prisma.$DeadlineTaskPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -8146,6 +8372,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     ProjectKis<T extends Ki$ProjectKisArgs<ExtArgs> = {}>(args?: Subset<T, Ki$ProjectKisArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectKiPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     AssetKis<T extends Ki$AssetKisArgs<ExtArgs> = {}>(args?: Subset<T, Ki$AssetKisArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AssetKiPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    DeadlineTasks<T extends Ki$DeadlineTasksArgs<ExtArgs> = {}>(args?: Subset<T, Ki$DeadlineTasksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DeadlineTaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8620,6 +8847,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: AssetKiScalarFieldEnum | AssetKiScalarFieldEnum[]
+  }
+
+  /**
+   * Ki.DeadlineTasks
+   */
+  export type Ki$DeadlineTasksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeadlineTask
+     */
+    select?: DeadlineTaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeadlineTask
+     */
+    omit?: DeadlineTaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeadlineTaskInclude<ExtArgs> | null
+    where?: DeadlineTaskWhereInput
+    orderBy?: DeadlineTaskOrderByWithRelationInput | DeadlineTaskOrderByWithRelationInput[]
+    cursor?: DeadlineTaskWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DeadlineTaskScalarFieldEnum | DeadlineTaskScalarFieldEnum[]
   }
 
   /**
@@ -11682,6 +11933,7 @@ export namespace Prisma {
     MainUser?: boolean | ProjectKi$MainUserArgs<ExtArgs>
     SubUser?: boolean | ProjectKi$SubUserArgs<ExtArgs>
     CustomerFunds?: boolean | ProjectKi$CustomerFundsArgs<ExtArgs>
+    ProjectKiTasks?: boolean | ProjectKi$ProjectKiTasksArgs<ExtArgs>
     _count?: boolean | ProjectKiCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["projectKi"]>
 
@@ -11997,6 +12249,7 @@ export namespace Prisma {
     MainUser?: boolean | ProjectKi$MainUserArgs<ExtArgs>
     SubUser?: boolean | ProjectKi$SubUserArgs<ExtArgs>
     CustomerFunds?: boolean | ProjectKi$CustomerFundsArgs<ExtArgs>
+    ProjectKiTasks?: boolean | ProjectKi$ProjectKiTasksArgs<ExtArgs>
     _count?: boolean | ProjectKiCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ProjectKiIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -12020,6 +12273,7 @@ export namespace Prisma {
       MainUser: Prisma.$UserPayload<ExtArgs> | null
       SubUser: Prisma.$UserPayload<ExtArgs> | null
       CustomerFunds: Prisma.$CustomerFundPayload<ExtArgs>[]
+      ProjectKiTasks: Prisma.$ProjectKiTaskPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -12517,6 +12771,7 @@ export namespace Prisma {
     MainUser<T extends ProjectKi$MainUserArgs<ExtArgs> = {}>(args?: Subset<T, ProjectKi$MainUserArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     SubUser<T extends ProjectKi$SubUserArgs<ExtArgs> = {}>(args?: Subset<T, ProjectKi$SubUserArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     CustomerFunds<T extends ProjectKi$CustomerFundsArgs<ExtArgs> = {}>(args?: Subset<T, ProjectKi$CustomerFundsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerFundPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    ProjectKiTasks<T extends ProjectKi$ProjectKiTasksArgs<ExtArgs> = {}>(args?: Subset<T, ProjectKi$ProjectKiTasksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectKiTaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -13097,6 +13352,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: CustomerFundScalarFieldEnum | CustomerFundScalarFieldEnum[]
+  }
+
+  /**
+   * ProjectKi.ProjectKiTasks
+   */
+  export type ProjectKi$ProjectKiTasksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiTask
+     */
+    select?: ProjectKiTaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectKiTask
+     */
+    omit?: ProjectKiTaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectKiTaskInclude<ExtArgs> | null
+    where?: ProjectKiTaskWhereInput
+    orderBy?: ProjectKiTaskOrderByWithRelationInput | ProjectKiTaskOrderByWithRelationInput[]
+    cursor?: ProjectKiTaskWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProjectKiTaskScalarFieldEnum | ProjectKiTaskScalarFieldEnum[]
   }
 
   /**
@@ -18153,7 +18432,7 @@ export namespace Prisma {
     photo3: string | null
     photo4: string | null
     photoCount: number | null
-    valuationStatementFile: Uint8Array | null
+    valuationStatementFile: Bytes | null
     valuationStatementName: string | null
     valuationStatementSize: number | null
     landEvaluation: bigint | null
@@ -18192,7 +18471,7 @@ export namespace Prisma {
     photo3: string | null
     photo4: string | null
     photoCount: number | null
-    valuationStatementFile: Uint8Array | null
+    valuationStatementFile: Bytes | null
     valuationStatementName: string | null
     valuationStatementSize: number | null
     landEvaluation: bigint | null
@@ -18520,7 +18799,7 @@ export namespace Prisma {
     photo3: string | null
     photo4: string | null
     photoCount: number
-    valuationStatementFile: Uint8Array | null
+    valuationStatementFile: Bytes | null
     valuationStatementName: string | null
     valuationStatementSize: number | null
     landEvaluation: bigint | null
@@ -18760,7 +19039,7 @@ export namespace Prisma {
       photo3: string | null
       photo4: string | null
       photoCount: number
-      valuationStatementFile: Uint8Array | null
+      valuationStatementFile: Prisma.Bytes | null
       valuationStatementName: string | null
       valuationStatementSize: number | null
       landEvaluation: bigint | null
@@ -19653,6 +19932,2350 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: AssetKiInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model DeadlineTask
+   */
+
+  export type AggregateDeadlineTask = {
+    _count: DeadlineTaskCountAggregateOutputType | null
+    _avg: DeadlineTaskAvgAggregateOutputType | null
+    _sum: DeadlineTaskSumAggregateOutputType | null
+    _min: DeadlineTaskMinAggregateOutputType | null
+    _max: DeadlineTaskMaxAggregateOutputType | null
+  }
+
+  export type DeadlineTaskAvgAggregateOutputType = {
+    order: number | null
+  }
+
+  export type DeadlineTaskSumAggregateOutputType = {
+    order: number | null
+  }
+
+  export type DeadlineTaskMinAggregateOutputType = {
+    id: string | null
+    kiId: string | null
+    name: string | null
+    dueDate: Date | null
+    order: number | null
+    memo: string | null
+    createdAt: Date | null
+    createdId: string | null
+    createdBy: string | null
+    updatedAt: Date | null
+    updatedId: string | null
+    updatedBy: string | null
+  }
+
+  export type DeadlineTaskMaxAggregateOutputType = {
+    id: string | null
+    kiId: string | null
+    name: string | null
+    dueDate: Date | null
+    order: number | null
+    memo: string | null
+    createdAt: Date | null
+    createdId: string | null
+    createdBy: string | null
+    updatedAt: Date | null
+    updatedId: string | null
+    updatedBy: string | null
+  }
+
+  export type DeadlineTaskCountAggregateOutputType = {
+    id: number
+    kiId: number
+    name: number
+    dueDate: number
+    order: number
+    memo: number
+    createdAt: number
+    createdId: number
+    createdBy: number
+    updatedAt: number
+    updatedId: number
+    updatedBy: number
+    _all: number
+  }
+
+
+  export type DeadlineTaskAvgAggregateInputType = {
+    order?: true
+  }
+
+  export type DeadlineTaskSumAggregateInputType = {
+    order?: true
+  }
+
+  export type DeadlineTaskMinAggregateInputType = {
+    id?: true
+    kiId?: true
+    name?: true
+    dueDate?: true
+    order?: true
+    memo?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+  }
+
+  export type DeadlineTaskMaxAggregateInputType = {
+    id?: true
+    kiId?: true
+    name?: true
+    dueDate?: true
+    order?: true
+    memo?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+  }
+
+  export type DeadlineTaskCountAggregateInputType = {
+    id?: true
+    kiId?: true
+    name?: true
+    dueDate?: true
+    order?: true
+    memo?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+    _all?: true
+  }
+
+  export type DeadlineTaskAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DeadlineTask to aggregate.
+     */
+    where?: DeadlineTaskWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DeadlineTasks to fetch.
+     */
+    orderBy?: DeadlineTaskOrderByWithRelationInput | DeadlineTaskOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DeadlineTaskWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DeadlineTasks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DeadlineTasks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned DeadlineTasks
+    **/
+    _count?: true | DeadlineTaskCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DeadlineTaskAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DeadlineTaskSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DeadlineTaskMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DeadlineTaskMaxAggregateInputType
+  }
+
+  export type GetDeadlineTaskAggregateType<T extends DeadlineTaskAggregateArgs> = {
+        [P in keyof T & keyof AggregateDeadlineTask]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDeadlineTask[P]>
+      : GetScalarType<T[P], AggregateDeadlineTask[P]>
+  }
+
+
+
+
+  export type DeadlineTaskGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DeadlineTaskWhereInput
+    orderBy?: DeadlineTaskOrderByWithAggregationInput | DeadlineTaskOrderByWithAggregationInput[]
+    by: DeadlineTaskScalarFieldEnum[] | DeadlineTaskScalarFieldEnum
+    having?: DeadlineTaskScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DeadlineTaskCountAggregateInputType | true
+    _avg?: DeadlineTaskAvgAggregateInputType
+    _sum?: DeadlineTaskSumAggregateInputType
+    _min?: DeadlineTaskMinAggregateInputType
+    _max?: DeadlineTaskMaxAggregateInputType
+  }
+
+  export type DeadlineTaskGroupByOutputType = {
+    id: string
+    kiId: string
+    name: string
+    dueDate: Date
+    order: number
+    memo: string | null
+    createdAt: Date
+    createdId: string
+    createdBy: string
+    updatedAt: Date
+    updatedId: string
+    updatedBy: string
+    _count: DeadlineTaskCountAggregateOutputType | null
+    _avg: DeadlineTaskAvgAggregateOutputType | null
+    _sum: DeadlineTaskSumAggregateOutputType | null
+    _min: DeadlineTaskMinAggregateOutputType | null
+    _max: DeadlineTaskMaxAggregateOutputType | null
+  }
+
+  type GetDeadlineTaskGroupByPayload<T extends DeadlineTaskGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DeadlineTaskGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DeadlineTaskGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DeadlineTaskGroupByOutputType[P]>
+            : GetScalarType<T[P], DeadlineTaskGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DeadlineTaskSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    kiId?: boolean
+    name?: boolean
+    dueDate?: boolean
+    order?: boolean
+    memo?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+    Ki?: boolean | KiDefaultArgs<ExtArgs>
+    ProjectKiTasks?: boolean | DeadlineTask$ProjectKiTasksArgs<ExtArgs>
+    _count?: boolean | DeadlineTaskCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["deadlineTask"]>
+
+  export type DeadlineTaskSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    kiId?: boolean
+    name?: boolean
+    dueDate?: boolean
+    order?: boolean
+    memo?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+    Ki?: boolean | KiDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["deadlineTask"]>
+
+  export type DeadlineTaskSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    kiId?: boolean
+    name?: boolean
+    dueDate?: boolean
+    order?: boolean
+    memo?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+    Ki?: boolean | KiDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["deadlineTask"]>
+
+  export type DeadlineTaskSelectScalar = {
+    id?: boolean
+    kiId?: boolean
+    name?: boolean
+    dueDate?: boolean
+    order?: boolean
+    memo?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }
+
+  export type DeadlineTaskOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "kiId" | "name" | "dueDate" | "order" | "memo" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["deadlineTask"]>
+  export type DeadlineTaskInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Ki?: boolean | KiDefaultArgs<ExtArgs>
+    ProjectKiTasks?: boolean | DeadlineTask$ProjectKiTasksArgs<ExtArgs>
+    _count?: boolean | DeadlineTaskCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type DeadlineTaskIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Ki?: boolean | KiDefaultArgs<ExtArgs>
+  }
+  export type DeadlineTaskIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Ki?: boolean | KiDefaultArgs<ExtArgs>
+  }
+
+  export type $DeadlineTaskPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "DeadlineTask"
+    objects: {
+      Ki: Prisma.$KiPayload<ExtArgs>
+      ProjectKiTasks: Prisma.$ProjectKiTaskPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      kiId: string
+      name: string
+      dueDate: Date
+      order: number
+      memo: string | null
+      createdAt: Date
+      createdId: string
+      createdBy: string
+      updatedAt: Date
+      updatedId: string
+      updatedBy: string
+    }, ExtArgs["result"]["deadlineTask"]>
+    composites: {}
+  }
+
+  type DeadlineTaskGetPayload<S extends boolean | null | undefined | DeadlineTaskDefaultArgs> = $Result.GetResult<Prisma.$DeadlineTaskPayload, S>
+
+  type DeadlineTaskCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<DeadlineTaskFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: DeadlineTaskCountAggregateInputType | true
+    }
+
+  export interface DeadlineTaskDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['DeadlineTask'], meta: { name: 'DeadlineTask' } }
+    /**
+     * Find zero or one DeadlineTask that matches the filter.
+     * @param {DeadlineTaskFindUniqueArgs} args - Arguments to find a DeadlineTask
+     * @example
+     * // Get one DeadlineTask
+     * const deadlineTask = await prisma.deadlineTask.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DeadlineTaskFindUniqueArgs>(args: SelectSubset<T, DeadlineTaskFindUniqueArgs<ExtArgs>>): Prisma__DeadlineTaskClient<$Result.GetResult<Prisma.$DeadlineTaskPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one DeadlineTask that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {DeadlineTaskFindUniqueOrThrowArgs} args - Arguments to find a DeadlineTask
+     * @example
+     * // Get one DeadlineTask
+     * const deadlineTask = await prisma.deadlineTask.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DeadlineTaskFindUniqueOrThrowArgs>(args: SelectSubset<T, DeadlineTaskFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DeadlineTaskClient<$Result.GetResult<Prisma.$DeadlineTaskPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first DeadlineTask that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeadlineTaskFindFirstArgs} args - Arguments to find a DeadlineTask
+     * @example
+     * // Get one DeadlineTask
+     * const deadlineTask = await prisma.deadlineTask.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DeadlineTaskFindFirstArgs>(args?: SelectSubset<T, DeadlineTaskFindFirstArgs<ExtArgs>>): Prisma__DeadlineTaskClient<$Result.GetResult<Prisma.$DeadlineTaskPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first DeadlineTask that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeadlineTaskFindFirstOrThrowArgs} args - Arguments to find a DeadlineTask
+     * @example
+     * // Get one DeadlineTask
+     * const deadlineTask = await prisma.deadlineTask.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DeadlineTaskFindFirstOrThrowArgs>(args?: SelectSubset<T, DeadlineTaskFindFirstOrThrowArgs<ExtArgs>>): Prisma__DeadlineTaskClient<$Result.GetResult<Prisma.$DeadlineTaskPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more DeadlineTasks that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeadlineTaskFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all DeadlineTasks
+     * const deadlineTasks = await prisma.deadlineTask.findMany()
+     * 
+     * // Get first 10 DeadlineTasks
+     * const deadlineTasks = await prisma.deadlineTask.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const deadlineTaskWithIdOnly = await prisma.deadlineTask.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends DeadlineTaskFindManyArgs>(args?: SelectSubset<T, DeadlineTaskFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DeadlineTaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a DeadlineTask.
+     * @param {DeadlineTaskCreateArgs} args - Arguments to create a DeadlineTask.
+     * @example
+     * // Create one DeadlineTask
+     * const DeadlineTask = await prisma.deadlineTask.create({
+     *   data: {
+     *     // ... data to create a DeadlineTask
+     *   }
+     * })
+     * 
+     */
+    create<T extends DeadlineTaskCreateArgs>(args: SelectSubset<T, DeadlineTaskCreateArgs<ExtArgs>>): Prisma__DeadlineTaskClient<$Result.GetResult<Prisma.$DeadlineTaskPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many DeadlineTasks.
+     * @param {DeadlineTaskCreateManyArgs} args - Arguments to create many DeadlineTasks.
+     * @example
+     * // Create many DeadlineTasks
+     * const deadlineTask = await prisma.deadlineTask.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends DeadlineTaskCreateManyArgs>(args?: SelectSubset<T, DeadlineTaskCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many DeadlineTasks and returns the data saved in the database.
+     * @param {DeadlineTaskCreateManyAndReturnArgs} args - Arguments to create many DeadlineTasks.
+     * @example
+     * // Create many DeadlineTasks
+     * const deadlineTask = await prisma.deadlineTask.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many DeadlineTasks and only return the `id`
+     * const deadlineTaskWithIdOnly = await prisma.deadlineTask.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends DeadlineTaskCreateManyAndReturnArgs>(args?: SelectSubset<T, DeadlineTaskCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DeadlineTaskPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a DeadlineTask.
+     * @param {DeadlineTaskDeleteArgs} args - Arguments to delete one DeadlineTask.
+     * @example
+     * // Delete one DeadlineTask
+     * const DeadlineTask = await prisma.deadlineTask.delete({
+     *   where: {
+     *     // ... filter to delete one DeadlineTask
+     *   }
+     * })
+     * 
+     */
+    delete<T extends DeadlineTaskDeleteArgs>(args: SelectSubset<T, DeadlineTaskDeleteArgs<ExtArgs>>): Prisma__DeadlineTaskClient<$Result.GetResult<Prisma.$DeadlineTaskPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one DeadlineTask.
+     * @param {DeadlineTaskUpdateArgs} args - Arguments to update one DeadlineTask.
+     * @example
+     * // Update one DeadlineTask
+     * const deadlineTask = await prisma.deadlineTask.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends DeadlineTaskUpdateArgs>(args: SelectSubset<T, DeadlineTaskUpdateArgs<ExtArgs>>): Prisma__DeadlineTaskClient<$Result.GetResult<Prisma.$DeadlineTaskPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more DeadlineTasks.
+     * @param {DeadlineTaskDeleteManyArgs} args - Arguments to filter DeadlineTasks to delete.
+     * @example
+     * // Delete a few DeadlineTasks
+     * const { count } = await prisma.deadlineTask.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends DeadlineTaskDeleteManyArgs>(args?: SelectSubset<T, DeadlineTaskDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more DeadlineTasks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeadlineTaskUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many DeadlineTasks
+     * const deadlineTask = await prisma.deadlineTask.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends DeadlineTaskUpdateManyArgs>(args: SelectSubset<T, DeadlineTaskUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more DeadlineTasks and returns the data updated in the database.
+     * @param {DeadlineTaskUpdateManyAndReturnArgs} args - Arguments to update many DeadlineTasks.
+     * @example
+     * // Update many DeadlineTasks
+     * const deadlineTask = await prisma.deadlineTask.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more DeadlineTasks and only return the `id`
+     * const deadlineTaskWithIdOnly = await prisma.deadlineTask.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends DeadlineTaskUpdateManyAndReturnArgs>(args: SelectSubset<T, DeadlineTaskUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DeadlineTaskPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one DeadlineTask.
+     * @param {DeadlineTaskUpsertArgs} args - Arguments to update or create a DeadlineTask.
+     * @example
+     * // Update or create a DeadlineTask
+     * const deadlineTask = await prisma.deadlineTask.upsert({
+     *   create: {
+     *     // ... data to create a DeadlineTask
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the DeadlineTask we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DeadlineTaskUpsertArgs>(args: SelectSubset<T, DeadlineTaskUpsertArgs<ExtArgs>>): Prisma__DeadlineTaskClient<$Result.GetResult<Prisma.$DeadlineTaskPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of DeadlineTasks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeadlineTaskCountArgs} args - Arguments to filter DeadlineTasks to count.
+     * @example
+     * // Count the number of DeadlineTasks
+     * const count = await prisma.deadlineTask.count({
+     *   where: {
+     *     // ... the filter for the DeadlineTasks we want to count
+     *   }
+     * })
+    **/
+    count<T extends DeadlineTaskCountArgs>(
+      args?: Subset<T, DeadlineTaskCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DeadlineTaskCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a DeadlineTask.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeadlineTaskAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DeadlineTaskAggregateArgs>(args: Subset<T, DeadlineTaskAggregateArgs>): Prisma.PrismaPromise<GetDeadlineTaskAggregateType<T>>
+
+    /**
+     * Group by DeadlineTask.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DeadlineTaskGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DeadlineTaskGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DeadlineTaskGroupByArgs['orderBy'] }
+        : { orderBy?: DeadlineTaskGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DeadlineTaskGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDeadlineTaskGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the DeadlineTask model
+   */
+  readonly fields: DeadlineTaskFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for DeadlineTask.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DeadlineTaskClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    Ki<T extends KiDefaultArgs<ExtArgs> = {}>(args?: Subset<T, KiDefaultArgs<ExtArgs>>): Prisma__KiClient<$Result.GetResult<Prisma.$KiPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    ProjectKiTasks<T extends DeadlineTask$ProjectKiTasksArgs<ExtArgs> = {}>(args?: Subset<T, DeadlineTask$ProjectKiTasksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectKiTaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the DeadlineTask model
+   */
+  interface DeadlineTaskFieldRefs {
+    readonly id: FieldRef<"DeadlineTask", 'String'>
+    readonly kiId: FieldRef<"DeadlineTask", 'String'>
+    readonly name: FieldRef<"DeadlineTask", 'String'>
+    readonly dueDate: FieldRef<"DeadlineTask", 'DateTime'>
+    readonly order: FieldRef<"DeadlineTask", 'Int'>
+    readonly memo: FieldRef<"DeadlineTask", 'String'>
+    readonly createdAt: FieldRef<"DeadlineTask", 'DateTime'>
+    readonly createdId: FieldRef<"DeadlineTask", 'String'>
+    readonly createdBy: FieldRef<"DeadlineTask", 'String'>
+    readonly updatedAt: FieldRef<"DeadlineTask", 'DateTime'>
+    readonly updatedId: FieldRef<"DeadlineTask", 'String'>
+    readonly updatedBy: FieldRef<"DeadlineTask", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * DeadlineTask findUnique
+   */
+  export type DeadlineTaskFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeadlineTask
+     */
+    select?: DeadlineTaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeadlineTask
+     */
+    omit?: DeadlineTaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeadlineTaskInclude<ExtArgs> | null
+    /**
+     * Filter, which DeadlineTask to fetch.
+     */
+    where: DeadlineTaskWhereUniqueInput
+  }
+
+  /**
+   * DeadlineTask findUniqueOrThrow
+   */
+  export type DeadlineTaskFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeadlineTask
+     */
+    select?: DeadlineTaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeadlineTask
+     */
+    omit?: DeadlineTaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeadlineTaskInclude<ExtArgs> | null
+    /**
+     * Filter, which DeadlineTask to fetch.
+     */
+    where: DeadlineTaskWhereUniqueInput
+  }
+
+  /**
+   * DeadlineTask findFirst
+   */
+  export type DeadlineTaskFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeadlineTask
+     */
+    select?: DeadlineTaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeadlineTask
+     */
+    omit?: DeadlineTaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeadlineTaskInclude<ExtArgs> | null
+    /**
+     * Filter, which DeadlineTask to fetch.
+     */
+    where?: DeadlineTaskWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DeadlineTasks to fetch.
+     */
+    orderBy?: DeadlineTaskOrderByWithRelationInput | DeadlineTaskOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DeadlineTasks.
+     */
+    cursor?: DeadlineTaskWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DeadlineTasks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DeadlineTasks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DeadlineTasks.
+     */
+    distinct?: DeadlineTaskScalarFieldEnum | DeadlineTaskScalarFieldEnum[]
+  }
+
+  /**
+   * DeadlineTask findFirstOrThrow
+   */
+  export type DeadlineTaskFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeadlineTask
+     */
+    select?: DeadlineTaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeadlineTask
+     */
+    omit?: DeadlineTaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeadlineTaskInclude<ExtArgs> | null
+    /**
+     * Filter, which DeadlineTask to fetch.
+     */
+    where?: DeadlineTaskWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DeadlineTasks to fetch.
+     */
+    orderBy?: DeadlineTaskOrderByWithRelationInput | DeadlineTaskOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DeadlineTasks.
+     */
+    cursor?: DeadlineTaskWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DeadlineTasks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DeadlineTasks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DeadlineTasks.
+     */
+    distinct?: DeadlineTaskScalarFieldEnum | DeadlineTaskScalarFieldEnum[]
+  }
+
+  /**
+   * DeadlineTask findMany
+   */
+  export type DeadlineTaskFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeadlineTask
+     */
+    select?: DeadlineTaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeadlineTask
+     */
+    omit?: DeadlineTaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeadlineTaskInclude<ExtArgs> | null
+    /**
+     * Filter, which DeadlineTasks to fetch.
+     */
+    where?: DeadlineTaskWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DeadlineTasks to fetch.
+     */
+    orderBy?: DeadlineTaskOrderByWithRelationInput | DeadlineTaskOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing DeadlineTasks.
+     */
+    cursor?: DeadlineTaskWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DeadlineTasks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DeadlineTasks.
+     */
+    skip?: number
+    distinct?: DeadlineTaskScalarFieldEnum | DeadlineTaskScalarFieldEnum[]
+  }
+
+  /**
+   * DeadlineTask create
+   */
+  export type DeadlineTaskCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeadlineTask
+     */
+    select?: DeadlineTaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeadlineTask
+     */
+    omit?: DeadlineTaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeadlineTaskInclude<ExtArgs> | null
+    /**
+     * The data needed to create a DeadlineTask.
+     */
+    data: XOR<DeadlineTaskCreateInput, DeadlineTaskUncheckedCreateInput>
+  }
+
+  /**
+   * DeadlineTask createMany
+   */
+  export type DeadlineTaskCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many DeadlineTasks.
+     */
+    data: DeadlineTaskCreateManyInput | DeadlineTaskCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * DeadlineTask createManyAndReturn
+   */
+  export type DeadlineTaskCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeadlineTask
+     */
+    select?: DeadlineTaskSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeadlineTask
+     */
+    omit?: DeadlineTaskOmit<ExtArgs> | null
+    /**
+     * The data used to create many DeadlineTasks.
+     */
+    data: DeadlineTaskCreateManyInput | DeadlineTaskCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeadlineTaskIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * DeadlineTask update
+   */
+  export type DeadlineTaskUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeadlineTask
+     */
+    select?: DeadlineTaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeadlineTask
+     */
+    omit?: DeadlineTaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeadlineTaskInclude<ExtArgs> | null
+    /**
+     * The data needed to update a DeadlineTask.
+     */
+    data: XOR<DeadlineTaskUpdateInput, DeadlineTaskUncheckedUpdateInput>
+    /**
+     * Choose, which DeadlineTask to update.
+     */
+    where: DeadlineTaskWhereUniqueInput
+  }
+
+  /**
+   * DeadlineTask updateMany
+   */
+  export type DeadlineTaskUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update DeadlineTasks.
+     */
+    data: XOR<DeadlineTaskUpdateManyMutationInput, DeadlineTaskUncheckedUpdateManyInput>
+    /**
+     * Filter which DeadlineTasks to update
+     */
+    where?: DeadlineTaskWhereInput
+    /**
+     * Limit how many DeadlineTasks to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * DeadlineTask updateManyAndReturn
+   */
+  export type DeadlineTaskUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeadlineTask
+     */
+    select?: DeadlineTaskSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeadlineTask
+     */
+    omit?: DeadlineTaskOmit<ExtArgs> | null
+    /**
+     * The data used to update DeadlineTasks.
+     */
+    data: XOR<DeadlineTaskUpdateManyMutationInput, DeadlineTaskUncheckedUpdateManyInput>
+    /**
+     * Filter which DeadlineTasks to update
+     */
+    where?: DeadlineTaskWhereInput
+    /**
+     * Limit how many DeadlineTasks to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeadlineTaskIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * DeadlineTask upsert
+   */
+  export type DeadlineTaskUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeadlineTask
+     */
+    select?: DeadlineTaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeadlineTask
+     */
+    omit?: DeadlineTaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeadlineTaskInclude<ExtArgs> | null
+    /**
+     * The filter to search for the DeadlineTask to update in case it exists.
+     */
+    where: DeadlineTaskWhereUniqueInput
+    /**
+     * In case the DeadlineTask found by the `where` argument doesn't exist, create a new DeadlineTask with this data.
+     */
+    create: XOR<DeadlineTaskCreateInput, DeadlineTaskUncheckedCreateInput>
+    /**
+     * In case the DeadlineTask was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DeadlineTaskUpdateInput, DeadlineTaskUncheckedUpdateInput>
+  }
+
+  /**
+   * DeadlineTask delete
+   */
+  export type DeadlineTaskDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeadlineTask
+     */
+    select?: DeadlineTaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeadlineTask
+     */
+    omit?: DeadlineTaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeadlineTaskInclude<ExtArgs> | null
+    /**
+     * Filter which DeadlineTask to delete.
+     */
+    where: DeadlineTaskWhereUniqueInput
+  }
+
+  /**
+   * DeadlineTask deleteMany
+   */
+  export type DeadlineTaskDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DeadlineTasks to delete
+     */
+    where?: DeadlineTaskWhereInput
+    /**
+     * Limit how many DeadlineTasks to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * DeadlineTask.ProjectKiTasks
+   */
+  export type DeadlineTask$ProjectKiTasksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiTask
+     */
+    select?: ProjectKiTaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectKiTask
+     */
+    omit?: ProjectKiTaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectKiTaskInclude<ExtArgs> | null
+    where?: ProjectKiTaskWhereInput
+    orderBy?: ProjectKiTaskOrderByWithRelationInput | ProjectKiTaskOrderByWithRelationInput[]
+    cursor?: ProjectKiTaskWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProjectKiTaskScalarFieldEnum | ProjectKiTaskScalarFieldEnum[]
+  }
+
+  /**
+   * DeadlineTask without action
+   */
+  export type DeadlineTaskDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DeadlineTask
+     */
+    select?: DeadlineTaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the DeadlineTask
+     */
+    omit?: DeadlineTaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DeadlineTaskInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ProjectKiTask
+   */
+
+  export type AggregateProjectKiTask = {
+    _count: ProjectKiTaskCountAggregateOutputType | null
+    _min: ProjectKiTaskMinAggregateOutputType | null
+    _max: ProjectKiTaskMaxAggregateOutputType | null
+  }
+
+  export type ProjectKiTaskMinAggregateOutputType = {
+    id: string | null
+    deadlineTaskId: string | null
+    projectKiId: string | null
+    isCompleted: boolean | null
+    createdAt: Date | null
+    createdId: string | null
+    createdBy: string | null
+    updatedAt: Date | null
+    updatedId: string | null
+    updatedBy: string | null
+  }
+
+  export type ProjectKiTaskMaxAggregateOutputType = {
+    id: string | null
+    deadlineTaskId: string | null
+    projectKiId: string | null
+    isCompleted: boolean | null
+    createdAt: Date | null
+    createdId: string | null
+    createdBy: string | null
+    updatedAt: Date | null
+    updatedId: string | null
+    updatedBy: string | null
+  }
+
+  export type ProjectKiTaskCountAggregateOutputType = {
+    id: number
+    deadlineTaskId: number
+    projectKiId: number
+    isCompleted: number
+    createdAt: number
+    createdId: number
+    createdBy: number
+    updatedAt: number
+    updatedId: number
+    updatedBy: number
+    _all: number
+  }
+
+
+  export type ProjectKiTaskMinAggregateInputType = {
+    id?: true
+    deadlineTaskId?: true
+    projectKiId?: true
+    isCompleted?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+  }
+
+  export type ProjectKiTaskMaxAggregateInputType = {
+    id?: true
+    deadlineTaskId?: true
+    projectKiId?: true
+    isCompleted?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+  }
+
+  export type ProjectKiTaskCountAggregateInputType = {
+    id?: true
+    deadlineTaskId?: true
+    projectKiId?: true
+    isCompleted?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+    _all?: true
+  }
+
+  export type ProjectKiTaskAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProjectKiTask to aggregate.
+     */
+    where?: ProjectKiTaskWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProjectKiTasks to fetch.
+     */
+    orderBy?: ProjectKiTaskOrderByWithRelationInput | ProjectKiTaskOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProjectKiTaskWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProjectKiTasks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProjectKiTasks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ProjectKiTasks
+    **/
+    _count?: true | ProjectKiTaskCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProjectKiTaskMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProjectKiTaskMaxAggregateInputType
+  }
+
+  export type GetProjectKiTaskAggregateType<T extends ProjectKiTaskAggregateArgs> = {
+        [P in keyof T & keyof AggregateProjectKiTask]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProjectKiTask[P]>
+      : GetScalarType<T[P], AggregateProjectKiTask[P]>
+  }
+
+
+
+
+  export type ProjectKiTaskGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProjectKiTaskWhereInput
+    orderBy?: ProjectKiTaskOrderByWithAggregationInput | ProjectKiTaskOrderByWithAggregationInput[]
+    by: ProjectKiTaskScalarFieldEnum[] | ProjectKiTaskScalarFieldEnum
+    having?: ProjectKiTaskScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProjectKiTaskCountAggregateInputType | true
+    _min?: ProjectKiTaskMinAggregateInputType
+    _max?: ProjectKiTaskMaxAggregateInputType
+  }
+
+  export type ProjectKiTaskGroupByOutputType = {
+    id: string
+    deadlineTaskId: string
+    projectKiId: string
+    isCompleted: boolean
+    createdAt: Date
+    createdId: string
+    createdBy: string
+    updatedAt: Date
+    updatedId: string
+    updatedBy: string
+    _count: ProjectKiTaskCountAggregateOutputType | null
+    _min: ProjectKiTaskMinAggregateOutputType | null
+    _max: ProjectKiTaskMaxAggregateOutputType | null
+  }
+
+  type GetProjectKiTaskGroupByPayload<T extends ProjectKiTaskGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProjectKiTaskGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProjectKiTaskGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProjectKiTaskGroupByOutputType[P]>
+            : GetScalarType<T[P], ProjectKiTaskGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProjectKiTaskSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    deadlineTaskId?: boolean
+    projectKiId?: boolean
+    isCompleted?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+    DeadlineTask?: boolean | DeadlineTaskDefaultArgs<ExtArgs>
+    ProjectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["projectKiTask"]>
+
+  export type ProjectKiTaskSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    deadlineTaskId?: boolean
+    projectKiId?: boolean
+    isCompleted?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+    DeadlineTask?: boolean | DeadlineTaskDefaultArgs<ExtArgs>
+    ProjectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["projectKiTask"]>
+
+  export type ProjectKiTaskSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    deadlineTaskId?: boolean
+    projectKiId?: boolean
+    isCompleted?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+    DeadlineTask?: boolean | DeadlineTaskDefaultArgs<ExtArgs>
+    ProjectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["projectKiTask"]>
+
+  export type ProjectKiTaskSelectScalar = {
+    id?: boolean
+    deadlineTaskId?: boolean
+    projectKiId?: boolean
+    isCompleted?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }
+
+  export type ProjectKiTaskOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "deadlineTaskId" | "projectKiId" | "isCompleted" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["projectKiTask"]>
+  export type ProjectKiTaskInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    DeadlineTask?: boolean | DeadlineTaskDefaultArgs<ExtArgs>
+    ProjectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
+  }
+  export type ProjectKiTaskIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    DeadlineTask?: boolean | DeadlineTaskDefaultArgs<ExtArgs>
+    ProjectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
+  }
+  export type ProjectKiTaskIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    DeadlineTask?: boolean | DeadlineTaskDefaultArgs<ExtArgs>
+    ProjectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
+  }
+
+  export type $ProjectKiTaskPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ProjectKiTask"
+    objects: {
+      DeadlineTask: Prisma.$DeadlineTaskPayload<ExtArgs>
+      ProjectKi: Prisma.$ProjectKiPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      deadlineTaskId: string
+      projectKiId: string
+      isCompleted: boolean
+      createdAt: Date
+      createdId: string
+      createdBy: string
+      updatedAt: Date
+      updatedId: string
+      updatedBy: string
+    }, ExtArgs["result"]["projectKiTask"]>
+    composites: {}
+  }
+
+  type ProjectKiTaskGetPayload<S extends boolean | null | undefined | ProjectKiTaskDefaultArgs> = $Result.GetResult<Prisma.$ProjectKiTaskPayload, S>
+
+  type ProjectKiTaskCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ProjectKiTaskFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ProjectKiTaskCountAggregateInputType | true
+    }
+
+  export interface ProjectKiTaskDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ProjectKiTask'], meta: { name: 'ProjectKiTask' } }
+    /**
+     * Find zero or one ProjectKiTask that matches the filter.
+     * @param {ProjectKiTaskFindUniqueArgs} args - Arguments to find a ProjectKiTask
+     * @example
+     * // Get one ProjectKiTask
+     * const projectKiTask = await prisma.projectKiTask.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProjectKiTaskFindUniqueArgs>(args: SelectSubset<T, ProjectKiTaskFindUniqueArgs<ExtArgs>>): Prisma__ProjectKiTaskClient<$Result.GetResult<Prisma.$ProjectKiTaskPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ProjectKiTask that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ProjectKiTaskFindUniqueOrThrowArgs} args - Arguments to find a ProjectKiTask
+     * @example
+     * // Get one ProjectKiTask
+     * const projectKiTask = await prisma.projectKiTask.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProjectKiTaskFindUniqueOrThrowArgs>(args: SelectSubset<T, ProjectKiTaskFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProjectKiTaskClient<$Result.GetResult<Prisma.$ProjectKiTaskPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ProjectKiTask that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectKiTaskFindFirstArgs} args - Arguments to find a ProjectKiTask
+     * @example
+     * // Get one ProjectKiTask
+     * const projectKiTask = await prisma.projectKiTask.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProjectKiTaskFindFirstArgs>(args?: SelectSubset<T, ProjectKiTaskFindFirstArgs<ExtArgs>>): Prisma__ProjectKiTaskClient<$Result.GetResult<Prisma.$ProjectKiTaskPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ProjectKiTask that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectKiTaskFindFirstOrThrowArgs} args - Arguments to find a ProjectKiTask
+     * @example
+     * // Get one ProjectKiTask
+     * const projectKiTask = await prisma.projectKiTask.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProjectKiTaskFindFirstOrThrowArgs>(args?: SelectSubset<T, ProjectKiTaskFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProjectKiTaskClient<$Result.GetResult<Prisma.$ProjectKiTaskPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ProjectKiTasks that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectKiTaskFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ProjectKiTasks
+     * const projectKiTasks = await prisma.projectKiTask.findMany()
+     * 
+     * // Get first 10 ProjectKiTasks
+     * const projectKiTasks = await prisma.projectKiTask.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const projectKiTaskWithIdOnly = await prisma.projectKiTask.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ProjectKiTaskFindManyArgs>(args?: SelectSubset<T, ProjectKiTaskFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectKiTaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ProjectKiTask.
+     * @param {ProjectKiTaskCreateArgs} args - Arguments to create a ProjectKiTask.
+     * @example
+     * // Create one ProjectKiTask
+     * const ProjectKiTask = await prisma.projectKiTask.create({
+     *   data: {
+     *     // ... data to create a ProjectKiTask
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProjectKiTaskCreateArgs>(args: SelectSubset<T, ProjectKiTaskCreateArgs<ExtArgs>>): Prisma__ProjectKiTaskClient<$Result.GetResult<Prisma.$ProjectKiTaskPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ProjectKiTasks.
+     * @param {ProjectKiTaskCreateManyArgs} args - Arguments to create many ProjectKiTasks.
+     * @example
+     * // Create many ProjectKiTasks
+     * const projectKiTask = await prisma.projectKiTask.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProjectKiTaskCreateManyArgs>(args?: SelectSubset<T, ProjectKiTaskCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ProjectKiTasks and returns the data saved in the database.
+     * @param {ProjectKiTaskCreateManyAndReturnArgs} args - Arguments to create many ProjectKiTasks.
+     * @example
+     * // Create many ProjectKiTasks
+     * const projectKiTask = await prisma.projectKiTask.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ProjectKiTasks and only return the `id`
+     * const projectKiTaskWithIdOnly = await prisma.projectKiTask.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ProjectKiTaskCreateManyAndReturnArgs>(args?: SelectSubset<T, ProjectKiTaskCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectKiTaskPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ProjectKiTask.
+     * @param {ProjectKiTaskDeleteArgs} args - Arguments to delete one ProjectKiTask.
+     * @example
+     * // Delete one ProjectKiTask
+     * const ProjectKiTask = await prisma.projectKiTask.delete({
+     *   where: {
+     *     // ... filter to delete one ProjectKiTask
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProjectKiTaskDeleteArgs>(args: SelectSubset<T, ProjectKiTaskDeleteArgs<ExtArgs>>): Prisma__ProjectKiTaskClient<$Result.GetResult<Prisma.$ProjectKiTaskPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ProjectKiTask.
+     * @param {ProjectKiTaskUpdateArgs} args - Arguments to update one ProjectKiTask.
+     * @example
+     * // Update one ProjectKiTask
+     * const projectKiTask = await prisma.projectKiTask.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProjectKiTaskUpdateArgs>(args: SelectSubset<T, ProjectKiTaskUpdateArgs<ExtArgs>>): Prisma__ProjectKiTaskClient<$Result.GetResult<Prisma.$ProjectKiTaskPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ProjectKiTasks.
+     * @param {ProjectKiTaskDeleteManyArgs} args - Arguments to filter ProjectKiTasks to delete.
+     * @example
+     * // Delete a few ProjectKiTasks
+     * const { count } = await prisma.projectKiTask.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProjectKiTaskDeleteManyArgs>(args?: SelectSubset<T, ProjectKiTaskDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProjectKiTasks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectKiTaskUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ProjectKiTasks
+     * const projectKiTask = await prisma.projectKiTask.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProjectKiTaskUpdateManyArgs>(args: SelectSubset<T, ProjectKiTaskUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProjectKiTasks and returns the data updated in the database.
+     * @param {ProjectKiTaskUpdateManyAndReturnArgs} args - Arguments to update many ProjectKiTasks.
+     * @example
+     * // Update many ProjectKiTasks
+     * const projectKiTask = await prisma.projectKiTask.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ProjectKiTasks and only return the `id`
+     * const projectKiTaskWithIdOnly = await prisma.projectKiTask.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ProjectKiTaskUpdateManyAndReturnArgs>(args: SelectSubset<T, ProjectKiTaskUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectKiTaskPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ProjectKiTask.
+     * @param {ProjectKiTaskUpsertArgs} args - Arguments to update or create a ProjectKiTask.
+     * @example
+     * // Update or create a ProjectKiTask
+     * const projectKiTask = await prisma.projectKiTask.upsert({
+     *   create: {
+     *     // ... data to create a ProjectKiTask
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ProjectKiTask we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProjectKiTaskUpsertArgs>(args: SelectSubset<T, ProjectKiTaskUpsertArgs<ExtArgs>>): Prisma__ProjectKiTaskClient<$Result.GetResult<Prisma.$ProjectKiTaskPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ProjectKiTasks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectKiTaskCountArgs} args - Arguments to filter ProjectKiTasks to count.
+     * @example
+     * // Count the number of ProjectKiTasks
+     * const count = await prisma.projectKiTask.count({
+     *   where: {
+     *     // ... the filter for the ProjectKiTasks we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProjectKiTaskCountArgs>(
+      args?: Subset<T, ProjectKiTaskCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProjectKiTaskCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ProjectKiTask.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectKiTaskAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProjectKiTaskAggregateArgs>(args: Subset<T, ProjectKiTaskAggregateArgs>): Prisma.PrismaPromise<GetProjectKiTaskAggregateType<T>>
+
+    /**
+     * Group by ProjectKiTask.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProjectKiTaskGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProjectKiTaskGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProjectKiTaskGroupByArgs['orderBy'] }
+        : { orderBy?: ProjectKiTaskGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProjectKiTaskGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProjectKiTaskGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ProjectKiTask model
+   */
+  readonly fields: ProjectKiTaskFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ProjectKiTask.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProjectKiTaskClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    DeadlineTask<T extends DeadlineTaskDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DeadlineTaskDefaultArgs<ExtArgs>>): Prisma__DeadlineTaskClient<$Result.GetResult<Prisma.$DeadlineTaskPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    ProjectKi<T extends ProjectKiDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectKiDefaultArgs<ExtArgs>>): Prisma__ProjectKiClient<$Result.GetResult<Prisma.$ProjectKiPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ProjectKiTask model
+   */
+  interface ProjectKiTaskFieldRefs {
+    readonly id: FieldRef<"ProjectKiTask", 'String'>
+    readonly deadlineTaskId: FieldRef<"ProjectKiTask", 'String'>
+    readonly projectKiId: FieldRef<"ProjectKiTask", 'String'>
+    readonly isCompleted: FieldRef<"ProjectKiTask", 'Boolean'>
+    readonly createdAt: FieldRef<"ProjectKiTask", 'DateTime'>
+    readonly createdId: FieldRef<"ProjectKiTask", 'String'>
+    readonly createdBy: FieldRef<"ProjectKiTask", 'String'>
+    readonly updatedAt: FieldRef<"ProjectKiTask", 'DateTime'>
+    readonly updatedId: FieldRef<"ProjectKiTask", 'String'>
+    readonly updatedBy: FieldRef<"ProjectKiTask", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ProjectKiTask findUnique
+   */
+  export type ProjectKiTaskFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiTask
+     */
+    select?: ProjectKiTaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectKiTask
+     */
+    omit?: ProjectKiTaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectKiTaskInclude<ExtArgs> | null
+    /**
+     * Filter, which ProjectKiTask to fetch.
+     */
+    where: ProjectKiTaskWhereUniqueInput
+  }
+
+  /**
+   * ProjectKiTask findUniqueOrThrow
+   */
+  export type ProjectKiTaskFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiTask
+     */
+    select?: ProjectKiTaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectKiTask
+     */
+    omit?: ProjectKiTaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectKiTaskInclude<ExtArgs> | null
+    /**
+     * Filter, which ProjectKiTask to fetch.
+     */
+    where: ProjectKiTaskWhereUniqueInput
+  }
+
+  /**
+   * ProjectKiTask findFirst
+   */
+  export type ProjectKiTaskFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiTask
+     */
+    select?: ProjectKiTaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectKiTask
+     */
+    omit?: ProjectKiTaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectKiTaskInclude<ExtArgs> | null
+    /**
+     * Filter, which ProjectKiTask to fetch.
+     */
+    where?: ProjectKiTaskWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProjectKiTasks to fetch.
+     */
+    orderBy?: ProjectKiTaskOrderByWithRelationInput | ProjectKiTaskOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProjectKiTasks.
+     */
+    cursor?: ProjectKiTaskWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProjectKiTasks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProjectKiTasks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProjectKiTasks.
+     */
+    distinct?: ProjectKiTaskScalarFieldEnum | ProjectKiTaskScalarFieldEnum[]
+  }
+
+  /**
+   * ProjectKiTask findFirstOrThrow
+   */
+  export type ProjectKiTaskFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiTask
+     */
+    select?: ProjectKiTaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectKiTask
+     */
+    omit?: ProjectKiTaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectKiTaskInclude<ExtArgs> | null
+    /**
+     * Filter, which ProjectKiTask to fetch.
+     */
+    where?: ProjectKiTaskWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProjectKiTasks to fetch.
+     */
+    orderBy?: ProjectKiTaskOrderByWithRelationInput | ProjectKiTaskOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProjectKiTasks.
+     */
+    cursor?: ProjectKiTaskWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProjectKiTasks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProjectKiTasks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProjectKiTasks.
+     */
+    distinct?: ProjectKiTaskScalarFieldEnum | ProjectKiTaskScalarFieldEnum[]
+  }
+
+  /**
+   * ProjectKiTask findMany
+   */
+  export type ProjectKiTaskFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiTask
+     */
+    select?: ProjectKiTaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectKiTask
+     */
+    omit?: ProjectKiTaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectKiTaskInclude<ExtArgs> | null
+    /**
+     * Filter, which ProjectKiTasks to fetch.
+     */
+    where?: ProjectKiTaskWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProjectKiTasks to fetch.
+     */
+    orderBy?: ProjectKiTaskOrderByWithRelationInput | ProjectKiTaskOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ProjectKiTasks.
+     */
+    cursor?: ProjectKiTaskWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProjectKiTasks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProjectKiTasks.
+     */
+    skip?: number
+    distinct?: ProjectKiTaskScalarFieldEnum | ProjectKiTaskScalarFieldEnum[]
+  }
+
+  /**
+   * ProjectKiTask create
+   */
+  export type ProjectKiTaskCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiTask
+     */
+    select?: ProjectKiTaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectKiTask
+     */
+    omit?: ProjectKiTaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectKiTaskInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ProjectKiTask.
+     */
+    data: XOR<ProjectKiTaskCreateInput, ProjectKiTaskUncheckedCreateInput>
+  }
+
+  /**
+   * ProjectKiTask createMany
+   */
+  export type ProjectKiTaskCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ProjectKiTasks.
+     */
+    data: ProjectKiTaskCreateManyInput | ProjectKiTaskCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ProjectKiTask createManyAndReturn
+   */
+  export type ProjectKiTaskCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiTask
+     */
+    select?: ProjectKiTaskSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectKiTask
+     */
+    omit?: ProjectKiTaskOmit<ExtArgs> | null
+    /**
+     * The data used to create many ProjectKiTasks.
+     */
+    data: ProjectKiTaskCreateManyInput | ProjectKiTaskCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectKiTaskIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ProjectKiTask update
+   */
+  export type ProjectKiTaskUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiTask
+     */
+    select?: ProjectKiTaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectKiTask
+     */
+    omit?: ProjectKiTaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectKiTaskInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ProjectKiTask.
+     */
+    data: XOR<ProjectKiTaskUpdateInput, ProjectKiTaskUncheckedUpdateInput>
+    /**
+     * Choose, which ProjectKiTask to update.
+     */
+    where: ProjectKiTaskWhereUniqueInput
+  }
+
+  /**
+   * ProjectKiTask updateMany
+   */
+  export type ProjectKiTaskUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ProjectKiTasks.
+     */
+    data: XOR<ProjectKiTaskUpdateManyMutationInput, ProjectKiTaskUncheckedUpdateManyInput>
+    /**
+     * Filter which ProjectKiTasks to update
+     */
+    where?: ProjectKiTaskWhereInput
+    /**
+     * Limit how many ProjectKiTasks to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProjectKiTask updateManyAndReturn
+   */
+  export type ProjectKiTaskUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiTask
+     */
+    select?: ProjectKiTaskSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectKiTask
+     */
+    omit?: ProjectKiTaskOmit<ExtArgs> | null
+    /**
+     * The data used to update ProjectKiTasks.
+     */
+    data: XOR<ProjectKiTaskUpdateManyMutationInput, ProjectKiTaskUncheckedUpdateManyInput>
+    /**
+     * Filter which ProjectKiTasks to update
+     */
+    where?: ProjectKiTaskWhereInput
+    /**
+     * Limit how many ProjectKiTasks to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectKiTaskIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ProjectKiTask upsert
+   */
+  export type ProjectKiTaskUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiTask
+     */
+    select?: ProjectKiTaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectKiTask
+     */
+    omit?: ProjectKiTaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectKiTaskInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ProjectKiTask to update in case it exists.
+     */
+    where: ProjectKiTaskWhereUniqueInput
+    /**
+     * In case the ProjectKiTask found by the `where` argument doesn't exist, create a new ProjectKiTask with this data.
+     */
+    create: XOR<ProjectKiTaskCreateInput, ProjectKiTaskUncheckedCreateInput>
+    /**
+     * In case the ProjectKiTask was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProjectKiTaskUpdateInput, ProjectKiTaskUncheckedUpdateInput>
+  }
+
+  /**
+   * ProjectKiTask delete
+   */
+  export type ProjectKiTaskDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiTask
+     */
+    select?: ProjectKiTaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectKiTask
+     */
+    omit?: ProjectKiTaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectKiTaskInclude<ExtArgs> | null
+    /**
+     * Filter which ProjectKiTask to delete.
+     */
+    where: ProjectKiTaskWhereUniqueInput
+  }
+
+  /**
+   * ProjectKiTask deleteMany
+   */
+  export type ProjectKiTaskDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProjectKiTasks to delete
+     */
+    where?: ProjectKiTaskWhereInput
+    /**
+     * Limit how many ProjectKiTasks to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProjectKiTask without action
+   */
+  export type ProjectKiTaskDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiTask
+     */
+    select?: ProjectKiTaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectKiTask
+     */
+    omit?: ProjectKiTaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectKiTaskInclude<ExtArgs> | null
   }
 
 
@@ -22698,7 +25321,7 @@ export namespace Prisma {
     ext: $Enums.ExtType | null
     size: number | null
     templateType: $Enums.TemplateType | null
-    file: Uint8Array | null
+    file: Bytes | null
     version: number | null
     createdAt: Date | null
     createdId: string | null
@@ -22715,7 +25338,7 @@ export namespace Prisma {
     ext: $Enums.ExtType | null
     size: number | null
     templateType: $Enums.TemplateType | null
-    file: Uint8Array | null
+    file: Bytes | null
     version: number | null
     createdAt: Date | null
     createdId: string | null
@@ -22899,7 +25522,7 @@ export namespace Prisma {
     ext: $Enums.ExtType
     size: number
     templateType: $Enums.TemplateType
-    file: Uint8Array
+    file: Bytes
     version: number
     createdAt: Date
     createdId: string
@@ -23030,7 +25653,7 @@ export namespace Prisma {
       ext: $Enums.ExtType
       size: number
       templateType: $Enums.TemplateType
-      file: Uint8Array
+      file: Prisma.Bytes
       version: number
       createdAt: Date
       createdId: string
@@ -27664,6 +30287,40 @@ export namespace Prisma {
   export type AssetKiScalarFieldEnum = (typeof AssetKiScalarFieldEnum)[keyof typeof AssetKiScalarFieldEnum]
 
 
+  export const DeadlineTaskScalarFieldEnum: {
+    id: 'id',
+    kiId: 'kiId',
+    name: 'name',
+    dueDate: 'dueDate',
+    order: 'order',
+    memo: 'memo',
+    createdAt: 'createdAt',
+    createdId: 'createdId',
+    createdBy: 'createdBy',
+    updatedAt: 'updatedAt',
+    updatedId: 'updatedId',
+    updatedBy: 'updatedBy'
+  };
+
+  export type DeadlineTaskScalarFieldEnum = (typeof DeadlineTaskScalarFieldEnum)[keyof typeof DeadlineTaskScalarFieldEnum]
+
+
+  export const ProjectKiTaskScalarFieldEnum: {
+    id: 'id',
+    deadlineTaskId: 'deadlineTaskId',
+    projectKiId: 'projectKiId',
+    isCompleted: 'isCompleted',
+    createdAt: 'createdAt',
+    createdId: 'createdId',
+    createdBy: 'createdBy',
+    updatedAt: 'updatedAt',
+    updatedId: 'updatedId',
+    updatedBy: 'updatedBy'
+  };
+
+  export type ProjectKiTaskScalarFieldEnum = (typeof ProjectKiTaskScalarFieldEnum)[keyof typeof ProjectKiTaskScalarFieldEnum]
+
+
   export const CustomerScalarFieldEnum: {
     id: 'id',
     fundId: 'fundId',
@@ -28524,6 +31181,7 @@ export namespace Prisma {
     updatedBy?: StringFilter<"Ki"> | string
     ProjectKis?: ProjectKiListRelationFilter
     AssetKis?: AssetKiListRelationFilter
+    DeadlineTasks?: DeadlineTaskListRelationFilter
   }
 
   export type KiOrderByWithRelationInput = {
@@ -28541,6 +31199,7 @@ export namespace Prisma {
     updatedBy?: SortOrder
     ProjectKis?: ProjectKiOrderByRelationAggregateInput
     AssetKis?: AssetKiOrderByRelationAggregateInput
+    DeadlineTasks?: DeadlineTaskOrderByRelationAggregateInput
   }
 
   export type KiWhereUniqueInput = Prisma.AtLeast<{
@@ -28561,6 +31220,7 @@ export namespace Prisma {
     updatedBy?: StringFilter<"Ki"> | string
     ProjectKis?: ProjectKiListRelationFilter
     AssetKis?: AssetKiListRelationFilter
+    DeadlineTasks?: DeadlineTaskListRelationFilter
   }, "id">
 
   export type KiOrderByWithAggregationInput = {
@@ -28969,6 +31629,7 @@ export namespace Prisma {
     MainUser?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
     SubUser?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
     CustomerFunds?: CustomerFundListRelationFilter
+    ProjectKiTasks?: ProjectKiTaskListRelationFilter
   }
 
   export type ProjectKiOrderByWithRelationInput = {
@@ -29073,6 +31734,7 @@ export namespace Prisma {
     MainUser?: UserOrderByWithRelationInput
     SubUser?: UserOrderByWithRelationInput
     CustomerFunds?: CustomerFundOrderByRelationAggregateInput
+    ProjectKiTasks?: ProjectKiTaskOrderByRelationAggregateInput
   }
 
   export type ProjectKiWhereUniqueInput = Prisma.AtLeast<{
@@ -29182,6 +31844,7 @@ export namespace Prisma {
     MainUser?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
     SubUser?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
     CustomerFunds?: CustomerFundListRelationFilter
+    ProjectKiTasks?: ProjectKiTaskListRelationFilter
   }, "id" | "project_ki_identifier" | "project_prj_ki_identifier">
 
   export type ProjectKiOrderByWithAggregationInput = {
@@ -29901,7 +32564,7 @@ export namespace Prisma {
     photo3?: StringNullableFilter<"AssetKi"> | string | null
     photo4?: StringNullableFilter<"AssetKi"> | string | null
     photoCount?: IntFilter<"AssetKi"> | number
-    valuationStatementFile?: BytesNullableFilter<"AssetKi"> | Uint8Array | null
+    valuationStatementFile?: BytesNullableFilter<"AssetKi"> | Bytes | null
     valuationStatementName?: StringNullableFilter<"AssetKi"> | string | null
     valuationStatementSize?: IntNullableFilter<"AssetKi"> | number | null
     landEvaluation?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
@@ -29987,7 +32650,7 @@ export namespace Prisma {
     photo3?: StringNullableFilter<"AssetKi"> | string | null
     photo4?: StringNullableFilter<"AssetKi"> | string | null
     photoCount?: IntFilter<"AssetKi"> | number
-    valuationStatementFile?: BytesNullableFilter<"AssetKi"> | Uint8Array | null
+    valuationStatementFile?: BytesNullableFilter<"AssetKi"> | Bytes | null
     valuationStatementName?: StringNullableFilter<"AssetKi"> | string | null
     valuationStatementSize?: IntNullableFilter<"AssetKi"> | number | null
     landEvaluation?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
@@ -30075,7 +32738,7 @@ export namespace Prisma {
     photo3?: StringNullableWithAggregatesFilter<"AssetKi"> | string | null
     photo4?: StringNullableWithAggregatesFilter<"AssetKi"> | string | null
     photoCount?: IntWithAggregatesFilter<"AssetKi"> | number
-    valuationStatementFile?: BytesNullableWithAggregatesFilter<"AssetKi"> | Uint8Array | null
+    valuationStatementFile?: BytesNullableWithAggregatesFilter<"AssetKi"> | Bytes | null
     valuationStatementName?: StringNullableWithAggregatesFilter<"AssetKi"> | string | null
     valuationStatementSize?: IntNullableWithAggregatesFilter<"AssetKi"> | number | null
     landEvaluation?: BigIntNullableWithAggregatesFilter<"AssetKi"> | bigint | number | null
@@ -30096,6 +32759,185 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"AssetKi"> | Date | string
     updatedId?: StringWithAggregatesFilter<"AssetKi"> | string
     updatedBy?: StringWithAggregatesFilter<"AssetKi"> | string
+  }
+
+  export type DeadlineTaskWhereInput = {
+    AND?: DeadlineTaskWhereInput | DeadlineTaskWhereInput[]
+    OR?: DeadlineTaskWhereInput[]
+    NOT?: DeadlineTaskWhereInput | DeadlineTaskWhereInput[]
+    id?: StringFilter<"DeadlineTask"> | string
+    kiId?: StringFilter<"DeadlineTask"> | string
+    name?: StringFilter<"DeadlineTask"> | string
+    dueDate?: DateTimeFilter<"DeadlineTask"> | Date | string
+    order?: IntFilter<"DeadlineTask"> | number
+    memo?: StringNullableFilter<"DeadlineTask"> | string | null
+    createdAt?: DateTimeFilter<"DeadlineTask"> | Date | string
+    createdId?: StringFilter<"DeadlineTask"> | string
+    createdBy?: StringFilter<"DeadlineTask"> | string
+    updatedAt?: DateTimeFilter<"DeadlineTask"> | Date | string
+    updatedId?: StringFilter<"DeadlineTask"> | string
+    updatedBy?: StringFilter<"DeadlineTask"> | string
+    Ki?: XOR<KiScalarRelationFilter, KiWhereInput>
+    ProjectKiTasks?: ProjectKiTaskListRelationFilter
+  }
+
+  export type DeadlineTaskOrderByWithRelationInput = {
+    id?: SortOrder
+    kiId?: SortOrder
+    name?: SortOrder
+    dueDate?: SortOrder
+    order?: SortOrder
+    memo?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+    Ki?: KiOrderByWithRelationInput
+    ProjectKiTasks?: ProjectKiTaskOrderByRelationAggregateInput
+  }
+
+  export type DeadlineTaskWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: DeadlineTaskWhereInput | DeadlineTaskWhereInput[]
+    OR?: DeadlineTaskWhereInput[]
+    NOT?: DeadlineTaskWhereInput | DeadlineTaskWhereInput[]
+    kiId?: StringFilter<"DeadlineTask"> | string
+    name?: StringFilter<"DeadlineTask"> | string
+    dueDate?: DateTimeFilter<"DeadlineTask"> | Date | string
+    order?: IntFilter<"DeadlineTask"> | number
+    memo?: StringNullableFilter<"DeadlineTask"> | string | null
+    createdAt?: DateTimeFilter<"DeadlineTask"> | Date | string
+    createdId?: StringFilter<"DeadlineTask"> | string
+    createdBy?: StringFilter<"DeadlineTask"> | string
+    updatedAt?: DateTimeFilter<"DeadlineTask"> | Date | string
+    updatedId?: StringFilter<"DeadlineTask"> | string
+    updatedBy?: StringFilter<"DeadlineTask"> | string
+    Ki?: XOR<KiScalarRelationFilter, KiWhereInput>
+    ProjectKiTasks?: ProjectKiTaskListRelationFilter
+  }, "id">
+
+  export type DeadlineTaskOrderByWithAggregationInput = {
+    id?: SortOrder
+    kiId?: SortOrder
+    name?: SortOrder
+    dueDate?: SortOrder
+    order?: SortOrder
+    memo?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+    _count?: DeadlineTaskCountOrderByAggregateInput
+    _avg?: DeadlineTaskAvgOrderByAggregateInput
+    _max?: DeadlineTaskMaxOrderByAggregateInput
+    _min?: DeadlineTaskMinOrderByAggregateInput
+    _sum?: DeadlineTaskSumOrderByAggregateInput
+  }
+
+  export type DeadlineTaskScalarWhereWithAggregatesInput = {
+    AND?: DeadlineTaskScalarWhereWithAggregatesInput | DeadlineTaskScalarWhereWithAggregatesInput[]
+    OR?: DeadlineTaskScalarWhereWithAggregatesInput[]
+    NOT?: DeadlineTaskScalarWhereWithAggregatesInput | DeadlineTaskScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"DeadlineTask"> | string
+    kiId?: StringWithAggregatesFilter<"DeadlineTask"> | string
+    name?: StringWithAggregatesFilter<"DeadlineTask"> | string
+    dueDate?: DateTimeWithAggregatesFilter<"DeadlineTask"> | Date | string
+    order?: IntWithAggregatesFilter<"DeadlineTask"> | number
+    memo?: StringNullableWithAggregatesFilter<"DeadlineTask"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"DeadlineTask"> | Date | string
+    createdId?: StringWithAggregatesFilter<"DeadlineTask"> | string
+    createdBy?: StringWithAggregatesFilter<"DeadlineTask"> | string
+    updatedAt?: DateTimeWithAggregatesFilter<"DeadlineTask"> | Date | string
+    updatedId?: StringWithAggregatesFilter<"DeadlineTask"> | string
+    updatedBy?: StringWithAggregatesFilter<"DeadlineTask"> | string
+  }
+
+  export type ProjectKiTaskWhereInput = {
+    AND?: ProjectKiTaskWhereInput | ProjectKiTaskWhereInput[]
+    OR?: ProjectKiTaskWhereInput[]
+    NOT?: ProjectKiTaskWhereInput | ProjectKiTaskWhereInput[]
+    id?: StringFilter<"ProjectKiTask"> | string
+    deadlineTaskId?: StringFilter<"ProjectKiTask"> | string
+    projectKiId?: StringFilter<"ProjectKiTask"> | string
+    isCompleted?: BoolFilter<"ProjectKiTask"> | boolean
+    createdAt?: DateTimeFilter<"ProjectKiTask"> | Date | string
+    createdId?: StringFilter<"ProjectKiTask"> | string
+    createdBy?: StringFilter<"ProjectKiTask"> | string
+    updatedAt?: DateTimeFilter<"ProjectKiTask"> | Date | string
+    updatedId?: StringFilter<"ProjectKiTask"> | string
+    updatedBy?: StringFilter<"ProjectKiTask"> | string
+    DeadlineTask?: XOR<DeadlineTaskScalarRelationFilter, DeadlineTaskWhereInput>
+    ProjectKi?: XOR<ProjectKiScalarRelationFilter, ProjectKiWhereInput>
+  }
+
+  export type ProjectKiTaskOrderByWithRelationInput = {
+    id?: SortOrder
+    deadlineTaskId?: SortOrder
+    projectKiId?: SortOrder
+    isCompleted?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+    DeadlineTask?: DeadlineTaskOrderByWithRelationInput
+    ProjectKi?: ProjectKiOrderByWithRelationInput
+  }
+
+  export type ProjectKiTaskWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    deadlineTaskId_projectKiId?: ProjectKiTaskDeadlineTaskIdProjectKiIdCompoundUniqueInput
+    AND?: ProjectKiTaskWhereInput | ProjectKiTaskWhereInput[]
+    OR?: ProjectKiTaskWhereInput[]
+    NOT?: ProjectKiTaskWhereInput | ProjectKiTaskWhereInput[]
+    deadlineTaskId?: StringFilter<"ProjectKiTask"> | string
+    projectKiId?: StringFilter<"ProjectKiTask"> | string
+    isCompleted?: BoolFilter<"ProjectKiTask"> | boolean
+    createdAt?: DateTimeFilter<"ProjectKiTask"> | Date | string
+    createdId?: StringFilter<"ProjectKiTask"> | string
+    createdBy?: StringFilter<"ProjectKiTask"> | string
+    updatedAt?: DateTimeFilter<"ProjectKiTask"> | Date | string
+    updatedId?: StringFilter<"ProjectKiTask"> | string
+    updatedBy?: StringFilter<"ProjectKiTask"> | string
+    DeadlineTask?: XOR<DeadlineTaskScalarRelationFilter, DeadlineTaskWhereInput>
+    ProjectKi?: XOR<ProjectKiScalarRelationFilter, ProjectKiWhereInput>
+  }, "id" | "deadlineTaskId_projectKiId">
+
+  export type ProjectKiTaskOrderByWithAggregationInput = {
+    id?: SortOrder
+    deadlineTaskId?: SortOrder
+    projectKiId?: SortOrder
+    isCompleted?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+    _count?: ProjectKiTaskCountOrderByAggregateInput
+    _max?: ProjectKiTaskMaxOrderByAggregateInput
+    _min?: ProjectKiTaskMinOrderByAggregateInput
+  }
+
+  export type ProjectKiTaskScalarWhereWithAggregatesInput = {
+    AND?: ProjectKiTaskScalarWhereWithAggregatesInput | ProjectKiTaskScalarWhereWithAggregatesInput[]
+    OR?: ProjectKiTaskScalarWhereWithAggregatesInput[]
+    NOT?: ProjectKiTaskScalarWhereWithAggregatesInput | ProjectKiTaskScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ProjectKiTask"> | string
+    deadlineTaskId?: StringWithAggregatesFilter<"ProjectKiTask"> | string
+    projectKiId?: StringWithAggregatesFilter<"ProjectKiTask"> | string
+    isCompleted?: BoolWithAggregatesFilter<"ProjectKiTask"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"ProjectKiTask"> | Date | string
+    createdId?: StringWithAggregatesFilter<"ProjectKiTask"> | string
+    createdBy?: StringWithAggregatesFilter<"ProjectKiTask"> | string
+    updatedAt?: DateTimeWithAggregatesFilter<"ProjectKiTask"> | Date | string
+    updatedId?: StringWithAggregatesFilter<"ProjectKiTask"> | string
+    updatedBy?: StringWithAggregatesFilter<"ProjectKiTask"> | string
   }
 
   export type CustomerWhereInput = {
@@ -30505,7 +33347,7 @@ export namespace Prisma {
     ext?: EnumExtTypeFilter<"Template"> | $Enums.ExtType
     size?: IntFilter<"Template"> | number
     templateType?: EnumTemplateTypeFilter<"Template"> | $Enums.TemplateType
-    file?: BytesFilter<"Template"> | Uint8Array
+    file?: BytesFilter<"Template"> | Bytes
     version?: IntFilter<"Template"> | number
     createdAt?: DateTimeFilter<"Template"> | Date | string
     createdId?: StringFilter<"Template"> | string
@@ -30552,7 +33394,7 @@ export namespace Prisma {
     ext?: EnumExtTypeFilter<"Template"> | $Enums.ExtType
     size?: IntFilter<"Template"> | number
     templateType?: EnumTemplateTypeFilter<"Template"> | $Enums.TemplateType
-    file?: BytesFilter<"Template"> | Uint8Array
+    file?: BytesFilter<"Template"> | Bytes
     version?: IntFilter<"Template"> | number
     createdAt?: DateTimeFilter<"Template"> | Date | string
     createdId?: StringFilter<"Template"> | string
@@ -30599,7 +33441,7 @@ export namespace Prisma {
     ext?: EnumExtTypeWithAggregatesFilter<"Template"> | $Enums.ExtType
     size?: IntWithAggregatesFilter<"Template"> | number
     templateType?: EnumTemplateTypeWithAggregatesFilter<"Template"> | $Enums.TemplateType
-    file?: BytesWithAggregatesFilter<"Template"> | Uint8Array
+    file?: BytesWithAggregatesFilter<"Template"> | Bytes
     version?: IntWithAggregatesFilter<"Template"> | number
     createdAt?: DateTimeWithAggregatesFilter<"Template"> | Date | string
     createdId?: StringWithAggregatesFilter<"Template"> | string
@@ -31356,6 +34198,7 @@ export namespace Prisma {
     updatedBy: string
     ProjectKis?: ProjectKiCreateNestedManyWithoutKiInput
     AssetKis?: AssetKiCreateNestedManyWithoutKiInput
+    DeadlineTasks?: DeadlineTaskCreateNestedManyWithoutKiInput
   }
 
   export type KiUncheckedCreateInput = {
@@ -31373,6 +34216,7 @@ export namespace Prisma {
     updatedBy: string
     ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutKiInput
     AssetKis?: AssetKiUncheckedCreateNestedManyWithoutKiInput
+    DeadlineTasks?: DeadlineTaskUncheckedCreateNestedManyWithoutKiInput
   }
 
   export type KiUpdateInput = {
@@ -31390,6 +34234,7 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
     ProjectKis?: ProjectKiUpdateManyWithoutKiNestedInput
     AssetKis?: AssetKiUpdateManyWithoutKiNestedInput
+    DeadlineTasks?: DeadlineTaskUpdateManyWithoutKiNestedInput
   }
 
   export type KiUncheckedUpdateInput = {
@@ -31407,6 +34252,7 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
     ProjectKis?: ProjectKiUncheckedUpdateManyWithoutKiNestedInput
     AssetKis?: AssetKiUncheckedUpdateManyWithoutKiNestedInput
+    DeadlineTasks?: DeadlineTaskUncheckedUpdateManyWithoutKiNestedInput
   }
 
   export type KiCreateManyInput = {
@@ -31874,6 +34720,7 @@ export namespace Prisma {
     MainUser?: UserCreateNestedOneWithoutMainUserProjectKisInput
     SubUser?: UserCreateNestedOneWithoutSubUserProjectKisInput
     CustomerFunds?: CustomerFundCreateNestedManyWithoutProjectKiInput
+    ProjectKiTasks?: ProjectKiTaskCreateNestedManyWithoutProjectKiInput
   }
 
   export type ProjectKiUncheckedCreateInput = {
@@ -31974,6 +34821,7 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     CustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutProjectKiInput
+    ProjectKiTasks?: ProjectKiTaskUncheckedCreateNestedManyWithoutProjectKiInput
   }
 
   export type ProjectKiUpdateInput = {
@@ -32074,6 +34922,7 @@ export namespace Prisma {
     MainUser?: UserUpdateOneWithoutMainUserProjectKisNestedInput
     SubUser?: UserUpdateOneWithoutSubUserProjectKisNestedInput
     CustomerFunds?: CustomerFundUpdateManyWithoutProjectKiNestedInput
+    ProjectKiTasks?: ProjectKiTaskUpdateManyWithoutProjectKiNestedInput
   }
 
   export type ProjectKiUncheckedUpdateInput = {
@@ -32174,6 +35023,7 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     CustomerFunds?: CustomerFundUncheckedUpdateManyWithoutProjectKiNestedInput
+    ProjectKiTasks?: ProjectKiTaskUncheckedUpdateManyWithoutProjectKiNestedInput
   }
 
   export type ProjectKiCreateManyInput = {
@@ -33088,7 +35938,7 @@ export namespace Prisma {
     photo3?: string | null
     photo4?: string | null
     photoCount?: number
-    valuationStatementFile?: Uint8Array | null
+    valuationStatementFile?: Bytes | null
     valuationStatementName?: string | null
     valuationStatementSize?: number | null
     landEvaluation?: bigint | number | null
@@ -33129,7 +35979,7 @@ export namespace Prisma {
     photo3?: string | null
     photo4?: string | null
     photoCount?: number
-    valuationStatementFile?: Uint8Array | null
+    valuationStatementFile?: Bytes | null
     valuationStatementName?: string | null
     valuationStatementSize?: number | null
     landEvaluation?: bigint | number | null
@@ -33166,7 +36016,7 @@ export namespace Prisma {
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
     photoCount?: IntFieldUpdateOperationsInput | number
-    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Bytes | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
     landEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -33207,7 +36057,7 @@ export namespace Prisma {
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
     photoCount?: IntFieldUpdateOperationsInput | number
-    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Bytes | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
     landEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -33246,7 +36096,7 @@ export namespace Prisma {
     photo3?: string | null
     photo4?: string | null
     photoCount?: number
-    valuationStatementFile?: Uint8Array | null
+    valuationStatementFile?: Bytes | null
     valuationStatementName?: string | null
     valuationStatementSize?: number | null
     landEvaluation?: bigint | number | null
@@ -33283,7 +36133,7 @@ export namespace Prisma {
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
     photoCount?: IntFieldUpdateOperationsInput | number
-    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Bytes | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
     landEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -33322,7 +36172,7 @@ export namespace Prisma {
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
     photoCount?: IntFieldUpdateOperationsInput | number
-    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Bytes | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
     landEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -33337,6 +36187,203 @@ export namespace Prisma {
     otherFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     deposit?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     depositNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DeadlineTaskCreateInput = {
+    id?: string
+    name: string
+    dueDate: Date | string
+    order?: number
+    memo?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    Ki: KiCreateNestedOneWithoutDeadlineTasksInput
+    ProjectKiTasks?: ProjectKiTaskCreateNestedManyWithoutDeadlineTaskInput
+  }
+
+  export type DeadlineTaskUncheckedCreateInput = {
+    id?: string
+    kiId: string
+    name: string
+    dueDate: Date | string
+    order?: number
+    memo?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ProjectKiTasks?: ProjectKiTaskUncheckedCreateNestedManyWithoutDeadlineTaskInput
+  }
+
+  export type DeadlineTaskUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    order?: IntFieldUpdateOperationsInput | number
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    Ki?: KiUpdateOneRequiredWithoutDeadlineTasksNestedInput
+    ProjectKiTasks?: ProjectKiTaskUpdateManyWithoutDeadlineTaskNestedInput
+  }
+
+  export type DeadlineTaskUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    order?: IntFieldUpdateOperationsInput | number
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ProjectKiTasks?: ProjectKiTaskUncheckedUpdateManyWithoutDeadlineTaskNestedInput
+  }
+
+  export type DeadlineTaskCreateManyInput = {
+    id?: string
+    kiId: string
+    name: string
+    dueDate: Date | string
+    order?: number
+    memo?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type DeadlineTaskUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    order?: IntFieldUpdateOperationsInput | number
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DeadlineTaskUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    order?: IntFieldUpdateOperationsInput | number
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectKiTaskCreateInput = {
+    id?: string
+    isCompleted?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    DeadlineTask: DeadlineTaskCreateNestedOneWithoutProjectKiTasksInput
+    ProjectKi: ProjectKiCreateNestedOneWithoutProjectKiTasksInput
+  }
+
+  export type ProjectKiTaskUncheckedCreateInput = {
+    id?: string
+    deadlineTaskId: string
+    projectKiId: string
+    isCompleted?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type ProjectKiTaskUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    DeadlineTask?: DeadlineTaskUpdateOneRequiredWithoutProjectKiTasksNestedInput
+    ProjectKi?: ProjectKiUpdateOneRequiredWithoutProjectKiTasksNestedInput
+  }
+
+  export type ProjectKiTaskUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    deadlineTaskId?: StringFieldUpdateOperationsInput | string
+    projectKiId?: StringFieldUpdateOperationsInput | string
+    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectKiTaskCreateManyInput = {
+    id?: string
+    deadlineTaskId: string
+    projectKiId: string
+    isCompleted?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type ProjectKiTaskUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectKiTaskUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    deadlineTaskId?: StringFieldUpdateOperationsInput | string
+    projectKiId?: StringFieldUpdateOperationsInput | string
+    isCompleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -33846,7 +36893,7 @@ export namespace Prisma {
     ext: $Enums.ExtType
     size: number
     templateType: $Enums.TemplateType
-    file: Uint8Array
+    file: Bytes
     version?: number
     createdAt?: Date | string
     createdId: string
@@ -33868,7 +36915,7 @@ export namespace Prisma {
     ext: $Enums.ExtType
     size: number
     templateType: $Enums.TemplateType
-    file: Uint8Array
+    file: Bytes
     version?: number
     createdAt?: Date | string
     createdId: string
@@ -33890,7 +36937,7 @@ export namespace Prisma {
     ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
     size?: IntFieldUpdateOperationsInput | number
     templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
-    file?: BytesFieldUpdateOperationsInput | Uint8Array
+    file?: BytesFieldUpdateOperationsInput | Bytes
     version?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
@@ -33912,7 +36959,7 @@ export namespace Prisma {
     ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
     size?: IntFieldUpdateOperationsInput | number
     templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
-    file?: BytesFieldUpdateOperationsInput | Uint8Array
+    file?: BytesFieldUpdateOperationsInput | Bytes
     version?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
@@ -33934,7 +36981,7 @@ export namespace Prisma {
     ext: $Enums.ExtType
     size: number
     templateType: $Enums.TemplateType
-    file: Uint8Array
+    file: Bytes
     version?: number
     createdAt?: Date | string
     createdId: string
@@ -33951,7 +36998,7 @@ export namespace Prisma {
     ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
     size?: IntFieldUpdateOperationsInput | number
     templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
-    file?: BytesFieldUpdateOperationsInput | Uint8Array
+    file?: BytesFieldUpdateOperationsInput | Bytes
     version?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
@@ -33968,7 +37015,7 @@ export namespace Prisma {
     ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
     size?: IntFieldUpdateOperationsInput | number
     templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
-    file?: BytesFieldUpdateOperationsInput | Uint8Array
+    file?: BytesFieldUpdateOperationsInput | Bytes
     version?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
@@ -34672,7 +37719,17 @@ export namespace Prisma {
     none?: AssetKiWhereInput
   }
 
+  export type DeadlineTaskListRelationFilter = {
+    every?: DeadlineTaskWhereInput
+    some?: DeadlineTaskWhereInput
+    none?: DeadlineTaskWhereInput
+  }
+
   export type AssetKiOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type DeadlineTaskOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -35049,7 +38106,17 @@ export namespace Prisma {
     none?: CustomerFundWhereInput
   }
 
+  export type ProjectKiTaskListRelationFilter = {
+    every?: ProjectKiTaskWhereInput
+    some?: ProjectKiTaskWhereInput
+    none?: ProjectKiTaskWhereInput
+  }
+
   export type CustomerFundOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ProjectKiTaskOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -35966,10 +39033,10 @@ export namespace Prisma {
   }
 
   export type BytesNullableFilter<$PrismaModel = never> = {
-    equals?: Uint8Array | BytesFieldRefInput<$PrismaModel> | null
-    in?: Uint8Array[] | ListBytesFieldRefInput<$PrismaModel> | null
-    notIn?: Uint8Array[] | ListBytesFieldRefInput<$PrismaModel> | null
-    not?: NestedBytesNullableFilter<$PrismaModel> | Uint8Array | null
+    equals?: Bytes | BytesFieldRefInput<$PrismaModel> | null
+    in?: Bytes[] | ListBytesFieldRefInput<$PrismaModel> | null
+    notIn?: Bytes[] | ListBytesFieldRefInput<$PrismaModel> | null
+    not?: NestedBytesNullableFilter<$PrismaModel> | Bytes | null
   }
 
   export type AssetScalarRelationFilter = {
@@ -36144,13 +39211,120 @@ export namespace Prisma {
   }
 
   export type BytesNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Uint8Array | BytesFieldRefInput<$PrismaModel> | null
-    in?: Uint8Array[] | ListBytesFieldRefInput<$PrismaModel> | null
-    notIn?: Uint8Array[] | ListBytesFieldRefInput<$PrismaModel> | null
-    not?: NestedBytesNullableWithAggregatesFilter<$PrismaModel> | Uint8Array | null
+    equals?: Bytes | BytesFieldRefInput<$PrismaModel> | null
+    in?: Bytes[] | ListBytesFieldRefInput<$PrismaModel> | null
+    notIn?: Bytes[] | ListBytesFieldRefInput<$PrismaModel> | null
+    not?: NestedBytesNullableWithAggregatesFilter<$PrismaModel> | Bytes | null
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedBytesNullableFilter<$PrismaModel>
     _max?: NestedBytesNullableFilter<$PrismaModel>
+  }
+
+  export type DeadlineTaskCountOrderByAggregateInput = {
+    id?: SortOrder
+    kiId?: SortOrder
+    name?: SortOrder
+    dueDate?: SortOrder
+    order?: SortOrder
+    memo?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type DeadlineTaskAvgOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type DeadlineTaskMaxOrderByAggregateInput = {
+    id?: SortOrder
+    kiId?: SortOrder
+    name?: SortOrder
+    dueDate?: SortOrder
+    order?: SortOrder
+    memo?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type DeadlineTaskMinOrderByAggregateInput = {
+    id?: SortOrder
+    kiId?: SortOrder
+    name?: SortOrder
+    dueDate?: SortOrder
+    order?: SortOrder
+    memo?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type DeadlineTaskSumOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type DeadlineTaskScalarRelationFilter = {
+    is?: DeadlineTaskWhereInput
+    isNot?: DeadlineTaskWhereInput
+  }
+
+  export type ProjectKiScalarRelationFilter = {
+    is?: ProjectKiWhereInput
+    isNot?: ProjectKiWhereInput
+  }
+
+  export type ProjectKiTaskDeadlineTaskIdProjectKiIdCompoundUniqueInput = {
+    deadlineTaskId: string
+    projectKiId: string
+  }
+
+  export type ProjectKiTaskCountOrderByAggregateInput = {
+    id?: SortOrder
+    deadlineTaskId?: SortOrder
+    projectKiId?: SortOrder
+    isCompleted?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type ProjectKiTaskMaxOrderByAggregateInput = {
+    id?: SortOrder
+    deadlineTaskId?: SortOrder
+    projectKiId?: SortOrder
+    isCompleted?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type ProjectKiTaskMinOrderByAggregateInput = {
+    id?: SortOrder
+    deadlineTaskId?: SortOrder
+    projectKiId?: SortOrder
+    isCompleted?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
   }
 
   export type EnumCustomerTypeFilter<$PrismaModel = never> = {
@@ -36366,11 +39540,6 @@ export namespace Prisma {
     isNot?: CustomerWhereInput
   }
 
-  export type ProjectKiScalarRelationFilter = {
-    is?: ProjectKiWhereInput
-    isNot?: ProjectKiWhereInput
-  }
-
   export type CustomerFundNullableScalarRelationFilter = {
     is?: CustomerFundWhereInput | null
     isNot?: CustomerFundWhereInput | null
@@ -36499,10 +39668,10 @@ export namespace Prisma {
   }
 
   export type BytesFilter<$PrismaModel = never> = {
-    equals?: Uint8Array | BytesFieldRefInput<$PrismaModel>
-    in?: Uint8Array[] | ListBytesFieldRefInput<$PrismaModel>
-    notIn?: Uint8Array[] | ListBytesFieldRefInput<$PrismaModel>
-    not?: NestedBytesFilter<$PrismaModel> | Uint8Array
+    equals?: Bytes | BytesFieldRefInput<$PrismaModel>
+    in?: Bytes[] | ListBytesFieldRefInput<$PrismaModel>
+    notIn?: Bytes[] | ListBytesFieldRefInput<$PrismaModel>
+    not?: NestedBytesFilter<$PrismaModel> | Bytes
   }
 
   export type ProjectListRelationFilter = {
@@ -36597,10 +39766,10 @@ export namespace Prisma {
   }
 
   export type BytesWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Uint8Array | BytesFieldRefInput<$PrismaModel>
-    in?: Uint8Array[] | ListBytesFieldRefInput<$PrismaModel>
-    notIn?: Uint8Array[] | ListBytesFieldRefInput<$PrismaModel>
-    not?: NestedBytesWithAggregatesFilter<$PrismaModel> | Uint8Array
+    equals?: Bytes | BytesFieldRefInput<$PrismaModel>
+    in?: Bytes[] | ListBytesFieldRefInput<$PrismaModel>
+    notIn?: Bytes[] | ListBytesFieldRefInput<$PrismaModel>
+    not?: NestedBytesWithAggregatesFilter<$PrismaModel> | Bytes
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedBytesFilter<$PrismaModel>
     _max?: NestedBytesFilter<$PrismaModel>
@@ -36887,6 +40056,13 @@ export namespace Prisma {
     connect?: AssetKiWhereUniqueInput | AssetKiWhereUniqueInput[]
   }
 
+  export type DeadlineTaskCreateNestedManyWithoutKiInput = {
+    create?: XOR<DeadlineTaskCreateWithoutKiInput, DeadlineTaskUncheckedCreateWithoutKiInput> | DeadlineTaskCreateWithoutKiInput[] | DeadlineTaskUncheckedCreateWithoutKiInput[]
+    connectOrCreate?: DeadlineTaskCreateOrConnectWithoutKiInput | DeadlineTaskCreateOrConnectWithoutKiInput[]
+    createMany?: DeadlineTaskCreateManyKiInputEnvelope
+    connect?: DeadlineTaskWhereUniqueInput | DeadlineTaskWhereUniqueInput[]
+  }
+
   export type ProjectKiUncheckedCreateNestedManyWithoutKiInput = {
     create?: XOR<ProjectKiCreateWithoutKiInput, ProjectKiUncheckedCreateWithoutKiInput> | ProjectKiCreateWithoutKiInput[] | ProjectKiUncheckedCreateWithoutKiInput[]
     connectOrCreate?: ProjectKiCreateOrConnectWithoutKiInput | ProjectKiCreateOrConnectWithoutKiInput[]
@@ -36899,6 +40075,13 @@ export namespace Prisma {
     connectOrCreate?: AssetKiCreateOrConnectWithoutKiInput | AssetKiCreateOrConnectWithoutKiInput[]
     createMany?: AssetKiCreateManyKiInputEnvelope
     connect?: AssetKiWhereUniqueInput | AssetKiWhereUniqueInput[]
+  }
+
+  export type DeadlineTaskUncheckedCreateNestedManyWithoutKiInput = {
+    create?: XOR<DeadlineTaskCreateWithoutKiInput, DeadlineTaskUncheckedCreateWithoutKiInput> | DeadlineTaskCreateWithoutKiInput[] | DeadlineTaskUncheckedCreateWithoutKiInput[]
+    connectOrCreate?: DeadlineTaskCreateOrConnectWithoutKiInput | DeadlineTaskCreateOrConnectWithoutKiInput[]
+    createMany?: DeadlineTaskCreateManyKiInputEnvelope
+    connect?: DeadlineTaskWhereUniqueInput | DeadlineTaskWhereUniqueInput[]
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -36941,6 +40124,20 @@ export namespace Prisma {
     deleteMany?: AssetKiScalarWhereInput | AssetKiScalarWhereInput[]
   }
 
+  export type DeadlineTaskUpdateManyWithoutKiNestedInput = {
+    create?: XOR<DeadlineTaskCreateWithoutKiInput, DeadlineTaskUncheckedCreateWithoutKiInput> | DeadlineTaskCreateWithoutKiInput[] | DeadlineTaskUncheckedCreateWithoutKiInput[]
+    connectOrCreate?: DeadlineTaskCreateOrConnectWithoutKiInput | DeadlineTaskCreateOrConnectWithoutKiInput[]
+    upsert?: DeadlineTaskUpsertWithWhereUniqueWithoutKiInput | DeadlineTaskUpsertWithWhereUniqueWithoutKiInput[]
+    createMany?: DeadlineTaskCreateManyKiInputEnvelope
+    set?: DeadlineTaskWhereUniqueInput | DeadlineTaskWhereUniqueInput[]
+    disconnect?: DeadlineTaskWhereUniqueInput | DeadlineTaskWhereUniqueInput[]
+    delete?: DeadlineTaskWhereUniqueInput | DeadlineTaskWhereUniqueInput[]
+    connect?: DeadlineTaskWhereUniqueInput | DeadlineTaskWhereUniqueInput[]
+    update?: DeadlineTaskUpdateWithWhereUniqueWithoutKiInput | DeadlineTaskUpdateWithWhereUniqueWithoutKiInput[]
+    updateMany?: DeadlineTaskUpdateManyWithWhereWithoutKiInput | DeadlineTaskUpdateManyWithWhereWithoutKiInput[]
+    deleteMany?: DeadlineTaskScalarWhereInput | DeadlineTaskScalarWhereInput[]
+  }
+
   export type ProjectKiUncheckedUpdateManyWithoutKiNestedInput = {
     create?: XOR<ProjectKiCreateWithoutKiInput, ProjectKiUncheckedCreateWithoutKiInput> | ProjectKiCreateWithoutKiInput[] | ProjectKiUncheckedCreateWithoutKiInput[]
     connectOrCreate?: ProjectKiCreateOrConnectWithoutKiInput | ProjectKiCreateOrConnectWithoutKiInput[]
@@ -36967,6 +40164,20 @@ export namespace Prisma {
     update?: AssetKiUpdateWithWhereUniqueWithoutKiInput | AssetKiUpdateWithWhereUniqueWithoutKiInput[]
     updateMany?: AssetKiUpdateManyWithWhereWithoutKiInput | AssetKiUpdateManyWithWhereWithoutKiInput[]
     deleteMany?: AssetKiScalarWhereInput | AssetKiScalarWhereInput[]
+  }
+
+  export type DeadlineTaskUncheckedUpdateManyWithoutKiNestedInput = {
+    create?: XOR<DeadlineTaskCreateWithoutKiInput, DeadlineTaskUncheckedCreateWithoutKiInput> | DeadlineTaskCreateWithoutKiInput[] | DeadlineTaskUncheckedCreateWithoutKiInput[]
+    connectOrCreate?: DeadlineTaskCreateOrConnectWithoutKiInput | DeadlineTaskCreateOrConnectWithoutKiInput[]
+    upsert?: DeadlineTaskUpsertWithWhereUniqueWithoutKiInput | DeadlineTaskUpsertWithWhereUniqueWithoutKiInput[]
+    createMany?: DeadlineTaskCreateManyKiInputEnvelope
+    set?: DeadlineTaskWhereUniqueInput | DeadlineTaskWhereUniqueInput[]
+    disconnect?: DeadlineTaskWhereUniqueInput | DeadlineTaskWhereUniqueInput[]
+    delete?: DeadlineTaskWhereUniqueInput | DeadlineTaskWhereUniqueInput[]
+    connect?: DeadlineTaskWhereUniqueInput | DeadlineTaskWhereUniqueInput[]
+    update?: DeadlineTaskUpdateWithWhereUniqueWithoutKiInput | DeadlineTaskUpdateWithWhereUniqueWithoutKiInput[]
+    updateMany?: DeadlineTaskUpdateManyWithWhereWithoutKiInput | DeadlineTaskUpdateManyWithWhereWithoutKiInput[]
+    deleteMany?: DeadlineTaskScalarWhereInput | DeadlineTaskScalarWhereInput[]
   }
 
   export type TemplateCreateNestedOneWithoutReportMainProjectsInput = {
@@ -37222,11 +40433,25 @@ export namespace Prisma {
     connect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
   }
 
+  export type ProjectKiTaskCreateNestedManyWithoutProjectKiInput = {
+    create?: XOR<ProjectKiTaskCreateWithoutProjectKiInput, ProjectKiTaskUncheckedCreateWithoutProjectKiInput> | ProjectKiTaskCreateWithoutProjectKiInput[] | ProjectKiTaskUncheckedCreateWithoutProjectKiInput[]
+    connectOrCreate?: ProjectKiTaskCreateOrConnectWithoutProjectKiInput | ProjectKiTaskCreateOrConnectWithoutProjectKiInput[]
+    createMany?: ProjectKiTaskCreateManyProjectKiInputEnvelope
+    connect?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
+  }
+
   export type CustomerFundUncheckedCreateNestedManyWithoutProjectKiInput = {
     create?: XOR<CustomerFundCreateWithoutProjectKiInput, CustomerFundUncheckedCreateWithoutProjectKiInput> | CustomerFundCreateWithoutProjectKiInput[] | CustomerFundUncheckedCreateWithoutProjectKiInput[]
     connectOrCreate?: CustomerFundCreateOrConnectWithoutProjectKiInput | CustomerFundCreateOrConnectWithoutProjectKiInput[]
     createMany?: CustomerFundCreateManyProjectKiInputEnvelope
     connect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+  }
+
+  export type ProjectKiTaskUncheckedCreateNestedManyWithoutProjectKiInput = {
+    create?: XOR<ProjectKiTaskCreateWithoutProjectKiInput, ProjectKiTaskUncheckedCreateWithoutProjectKiInput> | ProjectKiTaskCreateWithoutProjectKiInput[] | ProjectKiTaskUncheckedCreateWithoutProjectKiInput[]
+    connectOrCreate?: ProjectKiTaskCreateOrConnectWithoutProjectKiInput | ProjectKiTaskCreateOrConnectWithoutProjectKiInput[]
+    createMany?: ProjectKiTaskCreateManyProjectKiInputEnvelope
+    connect?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
   }
 
   export type NullableIntFieldUpdateOperationsInput = {
@@ -37303,6 +40528,20 @@ export namespace Prisma {
     deleteMany?: CustomerFundScalarWhereInput | CustomerFundScalarWhereInput[]
   }
 
+  export type ProjectKiTaskUpdateManyWithoutProjectKiNestedInput = {
+    create?: XOR<ProjectKiTaskCreateWithoutProjectKiInput, ProjectKiTaskUncheckedCreateWithoutProjectKiInput> | ProjectKiTaskCreateWithoutProjectKiInput[] | ProjectKiTaskUncheckedCreateWithoutProjectKiInput[]
+    connectOrCreate?: ProjectKiTaskCreateOrConnectWithoutProjectKiInput | ProjectKiTaskCreateOrConnectWithoutProjectKiInput[]
+    upsert?: ProjectKiTaskUpsertWithWhereUniqueWithoutProjectKiInput | ProjectKiTaskUpsertWithWhereUniqueWithoutProjectKiInput[]
+    createMany?: ProjectKiTaskCreateManyProjectKiInputEnvelope
+    set?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
+    disconnect?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
+    delete?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
+    connect?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
+    update?: ProjectKiTaskUpdateWithWhereUniqueWithoutProjectKiInput | ProjectKiTaskUpdateWithWhereUniqueWithoutProjectKiInput[]
+    updateMany?: ProjectKiTaskUpdateManyWithWhereWithoutProjectKiInput | ProjectKiTaskUpdateManyWithWhereWithoutProjectKiInput[]
+    deleteMany?: ProjectKiTaskScalarWhereInput | ProjectKiTaskScalarWhereInput[]
+  }
+
   export type CustomerFundUncheckedUpdateManyWithoutProjectKiNestedInput = {
     create?: XOR<CustomerFundCreateWithoutProjectKiInput, CustomerFundUncheckedCreateWithoutProjectKiInput> | CustomerFundCreateWithoutProjectKiInput[] | CustomerFundUncheckedCreateWithoutProjectKiInput[]
     connectOrCreate?: CustomerFundCreateOrConnectWithoutProjectKiInput | CustomerFundCreateOrConnectWithoutProjectKiInput[]
@@ -37315,6 +40554,20 @@ export namespace Prisma {
     update?: CustomerFundUpdateWithWhereUniqueWithoutProjectKiInput | CustomerFundUpdateWithWhereUniqueWithoutProjectKiInput[]
     updateMany?: CustomerFundUpdateManyWithWhereWithoutProjectKiInput | CustomerFundUpdateManyWithWhereWithoutProjectKiInput[]
     deleteMany?: CustomerFundScalarWhereInput | CustomerFundScalarWhereInput[]
+  }
+
+  export type ProjectKiTaskUncheckedUpdateManyWithoutProjectKiNestedInput = {
+    create?: XOR<ProjectKiTaskCreateWithoutProjectKiInput, ProjectKiTaskUncheckedCreateWithoutProjectKiInput> | ProjectKiTaskCreateWithoutProjectKiInput[] | ProjectKiTaskUncheckedCreateWithoutProjectKiInput[]
+    connectOrCreate?: ProjectKiTaskCreateOrConnectWithoutProjectKiInput | ProjectKiTaskCreateOrConnectWithoutProjectKiInput[]
+    upsert?: ProjectKiTaskUpsertWithWhereUniqueWithoutProjectKiInput | ProjectKiTaskUpsertWithWhereUniqueWithoutProjectKiInput[]
+    createMany?: ProjectKiTaskCreateManyProjectKiInputEnvelope
+    set?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
+    disconnect?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
+    delete?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
+    connect?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
+    update?: ProjectKiTaskUpdateWithWhereUniqueWithoutProjectKiInput | ProjectKiTaskUpdateWithWhereUniqueWithoutProjectKiInput[]
+    updateMany?: ProjectKiTaskUpdateManyWithWhereWithoutProjectKiInput | ProjectKiTaskUpdateManyWithWhereWithoutProjectKiInput[]
+    deleteMany?: ProjectKiTaskScalarWhereInput | ProjectKiTaskScalarWhereInput[]
   }
 
   export type EnumBSTypeFieldUpdateOperationsInput = {
@@ -37394,7 +40647,7 @@ export namespace Prisma {
   }
 
   export type NullableBytesFieldUpdateOperationsInput = {
-    set?: Uint8Array | null
+    set?: Bytes | null
   }
 
   export type AssetUpdateOneRequiredWithoutAssetKisNestedInput = {
@@ -37411,6 +40664,90 @@ export namespace Prisma {
     upsert?: KiUpsertWithoutAssetKisInput
     connect?: KiWhereUniqueInput
     update?: XOR<XOR<KiUpdateToOneWithWhereWithoutAssetKisInput, KiUpdateWithoutAssetKisInput>, KiUncheckedUpdateWithoutAssetKisInput>
+  }
+
+  export type KiCreateNestedOneWithoutDeadlineTasksInput = {
+    create?: XOR<KiCreateWithoutDeadlineTasksInput, KiUncheckedCreateWithoutDeadlineTasksInput>
+    connectOrCreate?: KiCreateOrConnectWithoutDeadlineTasksInput
+    connect?: KiWhereUniqueInput
+  }
+
+  export type ProjectKiTaskCreateNestedManyWithoutDeadlineTaskInput = {
+    create?: XOR<ProjectKiTaskCreateWithoutDeadlineTaskInput, ProjectKiTaskUncheckedCreateWithoutDeadlineTaskInput> | ProjectKiTaskCreateWithoutDeadlineTaskInput[] | ProjectKiTaskUncheckedCreateWithoutDeadlineTaskInput[]
+    connectOrCreate?: ProjectKiTaskCreateOrConnectWithoutDeadlineTaskInput | ProjectKiTaskCreateOrConnectWithoutDeadlineTaskInput[]
+    createMany?: ProjectKiTaskCreateManyDeadlineTaskInputEnvelope
+    connect?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
+  }
+
+  export type ProjectKiTaskUncheckedCreateNestedManyWithoutDeadlineTaskInput = {
+    create?: XOR<ProjectKiTaskCreateWithoutDeadlineTaskInput, ProjectKiTaskUncheckedCreateWithoutDeadlineTaskInput> | ProjectKiTaskCreateWithoutDeadlineTaskInput[] | ProjectKiTaskUncheckedCreateWithoutDeadlineTaskInput[]
+    connectOrCreate?: ProjectKiTaskCreateOrConnectWithoutDeadlineTaskInput | ProjectKiTaskCreateOrConnectWithoutDeadlineTaskInput[]
+    createMany?: ProjectKiTaskCreateManyDeadlineTaskInputEnvelope
+    connect?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
+  }
+
+  export type KiUpdateOneRequiredWithoutDeadlineTasksNestedInput = {
+    create?: XOR<KiCreateWithoutDeadlineTasksInput, KiUncheckedCreateWithoutDeadlineTasksInput>
+    connectOrCreate?: KiCreateOrConnectWithoutDeadlineTasksInput
+    upsert?: KiUpsertWithoutDeadlineTasksInput
+    connect?: KiWhereUniqueInput
+    update?: XOR<XOR<KiUpdateToOneWithWhereWithoutDeadlineTasksInput, KiUpdateWithoutDeadlineTasksInput>, KiUncheckedUpdateWithoutDeadlineTasksInput>
+  }
+
+  export type ProjectKiTaskUpdateManyWithoutDeadlineTaskNestedInput = {
+    create?: XOR<ProjectKiTaskCreateWithoutDeadlineTaskInput, ProjectKiTaskUncheckedCreateWithoutDeadlineTaskInput> | ProjectKiTaskCreateWithoutDeadlineTaskInput[] | ProjectKiTaskUncheckedCreateWithoutDeadlineTaskInput[]
+    connectOrCreate?: ProjectKiTaskCreateOrConnectWithoutDeadlineTaskInput | ProjectKiTaskCreateOrConnectWithoutDeadlineTaskInput[]
+    upsert?: ProjectKiTaskUpsertWithWhereUniqueWithoutDeadlineTaskInput | ProjectKiTaskUpsertWithWhereUniqueWithoutDeadlineTaskInput[]
+    createMany?: ProjectKiTaskCreateManyDeadlineTaskInputEnvelope
+    set?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
+    disconnect?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
+    delete?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
+    connect?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
+    update?: ProjectKiTaskUpdateWithWhereUniqueWithoutDeadlineTaskInput | ProjectKiTaskUpdateWithWhereUniqueWithoutDeadlineTaskInput[]
+    updateMany?: ProjectKiTaskUpdateManyWithWhereWithoutDeadlineTaskInput | ProjectKiTaskUpdateManyWithWhereWithoutDeadlineTaskInput[]
+    deleteMany?: ProjectKiTaskScalarWhereInput | ProjectKiTaskScalarWhereInput[]
+  }
+
+  export type ProjectKiTaskUncheckedUpdateManyWithoutDeadlineTaskNestedInput = {
+    create?: XOR<ProjectKiTaskCreateWithoutDeadlineTaskInput, ProjectKiTaskUncheckedCreateWithoutDeadlineTaskInput> | ProjectKiTaskCreateWithoutDeadlineTaskInput[] | ProjectKiTaskUncheckedCreateWithoutDeadlineTaskInput[]
+    connectOrCreate?: ProjectKiTaskCreateOrConnectWithoutDeadlineTaskInput | ProjectKiTaskCreateOrConnectWithoutDeadlineTaskInput[]
+    upsert?: ProjectKiTaskUpsertWithWhereUniqueWithoutDeadlineTaskInput | ProjectKiTaskUpsertWithWhereUniqueWithoutDeadlineTaskInput[]
+    createMany?: ProjectKiTaskCreateManyDeadlineTaskInputEnvelope
+    set?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
+    disconnect?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
+    delete?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
+    connect?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
+    update?: ProjectKiTaskUpdateWithWhereUniqueWithoutDeadlineTaskInput | ProjectKiTaskUpdateWithWhereUniqueWithoutDeadlineTaskInput[]
+    updateMany?: ProjectKiTaskUpdateManyWithWhereWithoutDeadlineTaskInput | ProjectKiTaskUpdateManyWithWhereWithoutDeadlineTaskInput[]
+    deleteMany?: ProjectKiTaskScalarWhereInput | ProjectKiTaskScalarWhereInput[]
+  }
+
+  export type DeadlineTaskCreateNestedOneWithoutProjectKiTasksInput = {
+    create?: XOR<DeadlineTaskCreateWithoutProjectKiTasksInput, DeadlineTaskUncheckedCreateWithoutProjectKiTasksInput>
+    connectOrCreate?: DeadlineTaskCreateOrConnectWithoutProjectKiTasksInput
+    connect?: DeadlineTaskWhereUniqueInput
+  }
+
+  export type ProjectKiCreateNestedOneWithoutProjectKiTasksInput = {
+    create?: XOR<ProjectKiCreateWithoutProjectKiTasksInput, ProjectKiUncheckedCreateWithoutProjectKiTasksInput>
+    connectOrCreate?: ProjectKiCreateOrConnectWithoutProjectKiTasksInput
+    connect?: ProjectKiWhereUniqueInput
+  }
+
+  export type DeadlineTaskUpdateOneRequiredWithoutProjectKiTasksNestedInput = {
+    create?: XOR<DeadlineTaskCreateWithoutProjectKiTasksInput, DeadlineTaskUncheckedCreateWithoutProjectKiTasksInput>
+    connectOrCreate?: DeadlineTaskCreateOrConnectWithoutProjectKiTasksInput
+    upsert?: DeadlineTaskUpsertWithoutProjectKiTasksInput
+    connect?: DeadlineTaskWhereUniqueInput
+    update?: XOR<XOR<DeadlineTaskUpdateToOneWithWhereWithoutProjectKiTasksInput, DeadlineTaskUpdateWithoutProjectKiTasksInput>, DeadlineTaskUncheckedUpdateWithoutProjectKiTasksInput>
+  }
+
+  export type ProjectKiUpdateOneRequiredWithoutProjectKiTasksNestedInput = {
+    create?: XOR<ProjectKiCreateWithoutProjectKiTasksInput, ProjectKiUncheckedCreateWithoutProjectKiTasksInput>
+    connectOrCreate?: ProjectKiCreateOrConnectWithoutProjectKiTasksInput
+    upsert?: ProjectKiUpsertWithoutProjectKiTasksInput
+    connect?: ProjectKiWhereUniqueInput
+    update?: XOR<XOR<ProjectKiUpdateToOneWithWhereWithoutProjectKiTasksInput, ProjectKiUpdateWithoutProjectKiTasksInput>, ProjectKiUncheckedUpdateWithoutProjectKiTasksInput>
   }
 
   export type ProjectCreateNestedOneWithoutCustomersInput = {
@@ -37650,7 +40987,7 @@ export namespace Prisma {
   }
 
   export type BytesFieldUpdateOperationsInput = {
-    set?: Uint8Array
+    set?: Bytes
   }
 
   export type ProjectUpdateManyWithoutReportMainNestedInput = {
@@ -38176,17 +41513,17 @@ export namespace Prisma {
   }
 
   export type NestedBytesNullableFilter<$PrismaModel = never> = {
-    equals?: Uint8Array | BytesFieldRefInput<$PrismaModel> | null
-    in?: Uint8Array[] | ListBytesFieldRefInput<$PrismaModel> | null
-    notIn?: Uint8Array[] | ListBytesFieldRefInput<$PrismaModel> | null
-    not?: NestedBytesNullableFilter<$PrismaModel> | Uint8Array | null
+    equals?: Bytes | BytesFieldRefInput<$PrismaModel> | null
+    in?: Bytes[] | ListBytesFieldRefInput<$PrismaModel> | null
+    notIn?: Bytes[] | ListBytesFieldRefInput<$PrismaModel> | null
+    not?: NestedBytesNullableFilter<$PrismaModel> | Bytes | null
   }
 
   export type NestedBytesNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Uint8Array | BytesFieldRefInput<$PrismaModel> | null
-    in?: Uint8Array[] | ListBytesFieldRefInput<$PrismaModel> | null
-    notIn?: Uint8Array[] | ListBytesFieldRefInput<$PrismaModel> | null
-    not?: NestedBytesNullableWithAggregatesFilter<$PrismaModel> | Uint8Array | null
+    equals?: Bytes | BytesFieldRefInput<$PrismaModel> | null
+    in?: Bytes[] | ListBytesFieldRefInput<$PrismaModel> | null
+    notIn?: Bytes[] | ListBytesFieldRefInput<$PrismaModel> | null
+    not?: NestedBytesNullableWithAggregatesFilter<$PrismaModel> | Bytes | null
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedBytesNullableFilter<$PrismaModel>
     _max?: NestedBytesNullableFilter<$PrismaModel>
@@ -38275,10 +41612,10 @@ export namespace Prisma {
   }
 
   export type NestedBytesFilter<$PrismaModel = never> = {
-    equals?: Uint8Array | BytesFieldRefInput<$PrismaModel>
-    in?: Uint8Array[] | ListBytesFieldRefInput<$PrismaModel>
-    notIn?: Uint8Array[] | ListBytesFieldRefInput<$PrismaModel>
-    not?: NestedBytesFilter<$PrismaModel> | Uint8Array
+    equals?: Bytes | BytesFieldRefInput<$PrismaModel>
+    in?: Bytes[] | ListBytesFieldRefInput<$PrismaModel>
+    notIn?: Bytes[] | ListBytesFieldRefInput<$PrismaModel>
+    not?: NestedBytesFilter<$PrismaModel> | Bytes
   }
 
   export type NestedEnumExtTypeWithAggregatesFilter<$PrismaModel = never> = {
@@ -38302,10 +41639,10 @@ export namespace Prisma {
   }
 
   export type NestedBytesWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Uint8Array | BytesFieldRefInput<$PrismaModel>
-    in?: Uint8Array[] | ListBytesFieldRefInput<$PrismaModel>
-    notIn?: Uint8Array[] | ListBytesFieldRefInput<$PrismaModel>
-    not?: NestedBytesWithAggregatesFilter<$PrismaModel> | Uint8Array
+    equals?: Bytes | BytesFieldRefInput<$PrismaModel>
+    in?: Bytes[] | ListBytesFieldRefInput<$PrismaModel>
+    notIn?: Bytes[] | ListBytesFieldRefInput<$PrismaModel>
+    not?: NestedBytesWithAggregatesFilter<$PrismaModel> | Bytes
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedBytesFilter<$PrismaModel>
     _max?: NestedBytesFilter<$PrismaModel>
@@ -38425,6 +41762,7 @@ export namespace Prisma {
     Ki: KiCreateNestedOneWithoutProjectKisInput
     SubUser?: UserCreateNestedOneWithoutSubUserProjectKisInput
     CustomerFunds?: CustomerFundCreateNestedManyWithoutProjectKiInput
+    ProjectKiTasks?: ProjectKiTaskCreateNestedManyWithoutProjectKiInput
   }
 
   export type ProjectKiUncheckedCreateWithoutMainUserInput = {
@@ -38524,6 +41862,7 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     CustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutProjectKiInput
+    ProjectKiTasks?: ProjectKiTaskUncheckedCreateNestedManyWithoutProjectKiInput
   }
 
   export type ProjectKiCreateOrConnectWithoutMainUserInput = {
@@ -38633,6 +41972,7 @@ export namespace Prisma {
     Ki: KiCreateNestedOneWithoutProjectKisInput
     MainUser?: UserCreateNestedOneWithoutMainUserProjectKisInput
     CustomerFunds?: CustomerFundCreateNestedManyWithoutProjectKiInput
+    ProjectKiTasks?: ProjectKiTaskCreateNestedManyWithoutProjectKiInput
   }
 
   export type ProjectKiUncheckedCreateWithoutSubUserInput = {
@@ -38732,6 +42072,7 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     CustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutProjectKiInput
+    ProjectKiTasks?: ProjectKiTaskUncheckedCreateNestedManyWithoutProjectKiInput
   }
 
   export type ProjectKiCreateOrConnectWithoutSubUserInput = {
@@ -38975,6 +42316,7 @@ export namespace Prisma {
     MainUser?: UserCreateNestedOneWithoutMainUserProjectKisInput
     SubUser?: UserCreateNestedOneWithoutSubUserProjectKisInput
     CustomerFunds?: CustomerFundCreateNestedManyWithoutProjectKiInput
+    ProjectKiTasks?: ProjectKiTaskCreateNestedManyWithoutProjectKiInput
   }
 
   export type ProjectKiUncheckedCreateWithoutKiInput = {
@@ -39074,6 +42416,7 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     CustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutProjectKiInput
+    ProjectKiTasks?: ProjectKiTaskUncheckedCreateNestedManyWithoutProjectKiInput
   }
 
   export type ProjectKiCreateOrConnectWithoutKiInput = {
@@ -39100,7 +42443,7 @@ export namespace Prisma {
     photo3?: string | null
     photo4?: string | null
     photoCount?: number
-    valuationStatementFile?: Uint8Array | null
+    valuationStatementFile?: Bytes | null
     valuationStatementName?: string | null
     valuationStatementSize?: number | null
     landEvaluation?: bigint | number | null
@@ -39139,7 +42482,7 @@ export namespace Prisma {
     photo3?: string | null
     photo4?: string | null
     photoCount?: number
-    valuationStatementFile?: Uint8Array | null
+    valuationStatementFile?: Bytes | null
     valuationStatementName?: string | null
     valuationStatementSize?: number | null
     landEvaluation?: bigint | number | null
@@ -39169,6 +42512,46 @@ export namespace Prisma {
 
   export type AssetKiCreateManyKiInputEnvelope = {
     data: AssetKiCreateManyKiInput | AssetKiCreateManyKiInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type DeadlineTaskCreateWithoutKiInput = {
+    id?: string
+    name: string
+    dueDate: Date | string
+    order?: number
+    memo?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ProjectKiTasks?: ProjectKiTaskCreateNestedManyWithoutDeadlineTaskInput
+  }
+
+  export type DeadlineTaskUncheckedCreateWithoutKiInput = {
+    id?: string
+    name: string
+    dueDate: Date | string
+    order?: number
+    memo?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ProjectKiTasks?: ProjectKiTaskUncheckedCreateNestedManyWithoutDeadlineTaskInput
+  }
+
+  export type DeadlineTaskCreateOrConnectWithoutKiInput = {
+    where: DeadlineTaskWhereUniqueInput
+    create: XOR<DeadlineTaskCreateWithoutKiInput, DeadlineTaskUncheckedCreateWithoutKiInput>
+  }
+
+  export type DeadlineTaskCreateManyKiInputEnvelope = {
+    data: DeadlineTaskCreateManyKiInput | DeadlineTaskCreateManyKiInput[]
     skipDuplicates?: boolean
   }
 
@@ -39223,7 +42606,7 @@ export namespace Prisma {
     photo3?: StringNullableFilter<"AssetKi"> | string | null
     photo4?: StringNullableFilter<"AssetKi"> | string | null
     photoCount?: IntFilter<"AssetKi"> | number
-    valuationStatementFile?: BytesNullableFilter<"AssetKi"> | Uint8Array | null
+    valuationStatementFile?: BytesNullableFilter<"AssetKi"> | Bytes | null
     valuationStatementName?: StringNullableFilter<"AssetKi"> | string | null
     valuationStatementSize?: IntNullableFilter<"AssetKi"> | number | null
     landEvaluation?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
@@ -39246,6 +42629,40 @@ export namespace Prisma {
     updatedBy?: StringFilter<"AssetKi"> | string
   }
 
+  export type DeadlineTaskUpsertWithWhereUniqueWithoutKiInput = {
+    where: DeadlineTaskWhereUniqueInput
+    update: XOR<DeadlineTaskUpdateWithoutKiInput, DeadlineTaskUncheckedUpdateWithoutKiInput>
+    create: XOR<DeadlineTaskCreateWithoutKiInput, DeadlineTaskUncheckedCreateWithoutKiInput>
+  }
+
+  export type DeadlineTaskUpdateWithWhereUniqueWithoutKiInput = {
+    where: DeadlineTaskWhereUniqueInput
+    data: XOR<DeadlineTaskUpdateWithoutKiInput, DeadlineTaskUncheckedUpdateWithoutKiInput>
+  }
+
+  export type DeadlineTaskUpdateManyWithWhereWithoutKiInput = {
+    where: DeadlineTaskScalarWhereInput
+    data: XOR<DeadlineTaskUpdateManyMutationInput, DeadlineTaskUncheckedUpdateManyWithoutKiInput>
+  }
+
+  export type DeadlineTaskScalarWhereInput = {
+    AND?: DeadlineTaskScalarWhereInput | DeadlineTaskScalarWhereInput[]
+    OR?: DeadlineTaskScalarWhereInput[]
+    NOT?: DeadlineTaskScalarWhereInput | DeadlineTaskScalarWhereInput[]
+    id?: StringFilter<"DeadlineTask"> | string
+    kiId?: StringFilter<"DeadlineTask"> | string
+    name?: StringFilter<"DeadlineTask"> | string
+    dueDate?: DateTimeFilter<"DeadlineTask"> | Date | string
+    order?: IntFilter<"DeadlineTask"> | number
+    memo?: StringNullableFilter<"DeadlineTask"> | string | null
+    createdAt?: DateTimeFilter<"DeadlineTask"> | Date | string
+    createdId?: StringFilter<"DeadlineTask"> | string
+    createdBy?: StringFilter<"DeadlineTask"> | string
+    updatedAt?: DateTimeFilter<"DeadlineTask"> | Date | string
+    updatedId?: StringFilter<"DeadlineTask"> | string
+    updatedBy?: StringFilter<"DeadlineTask"> | string
+  }
+
   export type TemplateCreateWithoutReportMainProjectsInput = {
     id?: string
     name: string
@@ -39253,7 +42670,7 @@ export namespace Prisma {
     ext: $Enums.ExtType
     size: number
     templateType: $Enums.TemplateType
-    file: Uint8Array
+    file: Bytes
     version?: number
     createdAt?: Date | string
     createdId: string
@@ -39274,7 +42691,7 @@ export namespace Prisma {
     ext: $Enums.ExtType
     size: number
     templateType: $Enums.TemplateType
-    file: Uint8Array
+    file: Bytes
     version?: number
     createdAt?: Date | string
     createdId: string
@@ -39300,7 +42717,7 @@ export namespace Prisma {
     ext: $Enums.ExtType
     size: number
     templateType: $Enums.TemplateType
-    file: Uint8Array
+    file: Bytes
     version?: number
     createdAt?: Date | string
     createdId: string
@@ -39321,7 +42738,7 @@ export namespace Prisma {
     ext: $Enums.ExtType
     size: number
     templateType: $Enums.TemplateType
-    file: Uint8Array
+    file: Bytes
     version?: number
     createdAt?: Date | string
     createdId: string
@@ -39347,7 +42764,7 @@ export namespace Prisma {
     ext: $Enums.ExtType
     size: number
     templateType: $Enums.TemplateType
-    file: Uint8Array
+    file: Bytes
     version?: number
     createdAt?: Date | string
     createdId: string
@@ -39368,7 +42785,7 @@ export namespace Prisma {
     ext: $Enums.ExtType
     size: number
     templateType: $Enums.TemplateType
-    file: Uint8Array
+    file: Bytes
     version?: number
     createdAt?: Date | string
     createdId: string
@@ -39394,7 +42811,7 @@ export namespace Prisma {
     ext: $Enums.ExtType
     size: number
     templateType: $Enums.TemplateType
-    file: Uint8Array
+    file: Bytes
     version?: number
     createdAt?: Date | string
     createdId: string
@@ -39415,7 +42832,7 @@ export namespace Prisma {
     ext: $Enums.ExtType
     size: number
     templateType: $Enums.TemplateType
-    file: Uint8Array
+    file: Bytes
     version?: number
     createdAt?: Date | string
     createdId: string
@@ -39441,7 +42858,7 @@ export namespace Prisma {
     ext: $Enums.ExtType
     size: number
     templateType: $Enums.TemplateType
-    file: Uint8Array
+    file: Bytes
     version?: number
     createdAt?: Date | string
     createdId: string
@@ -39462,7 +42879,7 @@ export namespace Prisma {
     ext: $Enums.ExtType
     size: number
     templateType: $Enums.TemplateType
-    file: Uint8Array
+    file: Bytes
     version?: number
     createdAt?: Date | string
     createdId: string
@@ -39578,6 +42995,7 @@ export namespace Prisma {
     MainUser?: UserCreateNestedOneWithoutMainUserProjectKisInput
     SubUser?: UserCreateNestedOneWithoutSubUserProjectKisInput
     CustomerFunds?: CustomerFundCreateNestedManyWithoutProjectKiInput
+    ProjectKiTasks?: ProjectKiTaskCreateNestedManyWithoutProjectKiInput
   }
 
   export type ProjectKiUncheckedCreateWithoutProjectInput = {
@@ -39677,6 +43095,7 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     CustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutProjectKiInput
+    ProjectKiTasks?: ProjectKiTaskUncheckedCreateNestedManyWithoutProjectKiInput
   }
 
   export type ProjectKiCreateOrConnectWithoutProjectInput = {
@@ -39873,7 +43292,7 @@ export namespace Prisma {
     ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
     size?: IntFieldUpdateOperationsInput | number
     templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
-    file?: BytesFieldUpdateOperationsInput | Uint8Array
+    file?: BytesFieldUpdateOperationsInput | Bytes
     version?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
@@ -39894,7 +43313,7 @@ export namespace Prisma {
     ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
     size?: IntFieldUpdateOperationsInput | number
     templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
-    file?: BytesFieldUpdateOperationsInput | Uint8Array
+    file?: BytesFieldUpdateOperationsInput | Bytes
     version?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
@@ -39926,7 +43345,7 @@ export namespace Prisma {
     ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
     size?: IntFieldUpdateOperationsInput | number
     templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
-    file?: BytesFieldUpdateOperationsInput | Uint8Array
+    file?: BytesFieldUpdateOperationsInput | Bytes
     version?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
@@ -39947,7 +43366,7 @@ export namespace Prisma {
     ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
     size?: IntFieldUpdateOperationsInput | number
     templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
-    file?: BytesFieldUpdateOperationsInput | Uint8Array
+    file?: BytesFieldUpdateOperationsInput | Bytes
     version?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
@@ -39979,7 +43398,7 @@ export namespace Prisma {
     ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
     size?: IntFieldUpdateOperationsInput | number
     templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
-    file?: BytesFieldUpdateOperationsInput | Uint8Array
+    file?: BytesFieldUpdateOperationsInput | Bytes
     version?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
@@ -40000,7 +43419,7 @@ export namespace Prisma {
     ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
     size?: IntFieldUpdateOperationsInput | number
     templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
-    file?: BytesFieldUpdateOperationsInput | Uint8Array
+    file?: BytesFieldUpdateOperationsInput | Bytes
     version?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
@@ -40032,7 +43451,7 @@ export namespace Prisma {
     ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
     size?: IntFieldUpdateOperationsInput | number
     templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
-    file?: BytesFieldUpdateOperationsInput | Uint8Array
+    file?: BytesFieldUpdateOperationsInput | Bytes
     version?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
@@ -40053,7 +43472,7 @@ export namespace Prisma {
     ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
     size?: IntFieldUpdateOperationsInput | number
     templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
-    file?: BytesFieldUpdateOperationsInput | Uint8Array
+    file?: BytesFieldUpdateOperationsInput | Bytes
     version?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
@@ -40085,7 +43504,7 @@ export namespace Prisma {
     ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
     size?: IntFieldUpdateOperationsInput | number
     templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
-    file?: BytesFieldUpdateOperationsInput | Uint8Array
+    file?: BytesFieldUpdateOperationsInput | Bytes
     version?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
@@ -40106,7 +43525,7 @@ export namespace Prisma {
     ext?: EnumExtTypeFieldUpdateOperationsInput | $Enums.ExtType
     size?: IntFieldUpdateOperationsInput | number
     templateType?: EnumTemplateTypeFieldUpdateOperationsInput | $Enums.TemplateType
-    file?: BytesFieldUpdateOperationsInput | Uint8Array
+    file?: BytesFieldUpdateOperationsInput | Bytes
     version?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
@@ -40360,6 +43779,7 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     AssetKis?: AssetKiCreateNestedManyWithoutKiInput
+    DeadlineTasks?: DeadlineTaskCreateNestedManyWithoutKiInput
   }
 
   export type KiUncheckedCreateWithoutProjectKisInput = {
@@ -40376,6 +43796,7 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     AssetKis?: AssetKiUncheckedCreateNestedManyWithoutKiInput
+    DeadlineTasks?: DeadlineTaskUncheckedCreateNestedManyWithoutKiInput
   }
 
   export type KiCreateOrConnectWithoutProjectKisInput = {
@@ -40515,6 +43936,40 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type ProjectKiTaskCreateWithoutProjectKiInput = {
+    id?: string
+    isCompleted?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    DeadlineTask: DeadlineTaskCreateNestedOneWithoutProjectKiTasksInput
+  }
+
+  export type ProjectKiTaskUncheckedCreateWithoutProjectKiInput = {
+    id?: string
+    deadlineTaskId: string
+    isCompleted?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type ProjectKiTaskCreateOrConnectWithoutProjectKiInput = {
+    where: ProjectKiTaskWhereUniqueInput
+    create: XOR<ProjectKiTaskCreateWithoutProjectKiInput, ProjectKiTaskUncheckedCreateWithoutProjectKiInput>
+  }
+
+  export type ProjectKiTaskCreateManyProjectKiInputEnvelope = {
+    data: ProjectKiTaskCreateManyProjectKiInput | ProjectKiTaskCreateManyProjectKiInput[]
+    skipDuplicates?: boolean
+  }
+
   export type ProjectUpsertWithoutProjectKisInput = {
     update: XOR<ProjectUpdateWithoutProjectKisInput, ProjectUncheckedUpdateWithoutProjectKisInput>
     create: XOR<ProjectCreateWithoutProjectKisInput, ProjectUncheckedCreateWithoutProjectKisInput>
@@ -40645,6 +44100,7 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     AssetKis?: AssetKiUpdateManyWithoutKiNestedInput
+    DeadlineTasks?: DeadlineTaskUpdateManyWithoutKiNestedInput
   }
 
   export type KiUncheckedUpdateWithoutProjectKisInput = {
@@ -40661,6 +44117,7 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     AssetKis?: AssetKiUncheckedUpdateManyWithoutKiNestedInput
+    DeadlineTasks?: DeadlineTaskUncheckedUpdateManyWithoutKiNestedInput
   }
 
   export type UserUpsertWithoutMainUserProjectKisInput = {
@@ -40792,6 +44249,38 @@ export namespace Prisma {
     updatedBy?: StringFilter<"CustomerFund"> | string
   }
 
+  export type ProjectKiTaskUpsertWithWhereUniqueWithoutProjectKiInput = {
+    where: ProjectKiTaskWhereUniqueInput
+    update: XOR<ProjectKiTaskUpdateWithoutProjectKiInput, ProjectKiTaskUncheckedUpdateWithoutProjectKiInput>
+    create: XOR<ProjectKiTaskCreateWithoutProjectKiInput, ProjectKiTaskUncheckedCreateWithoutProjectKiInput>
+  }
+
+  export type ProjectKiTaskUpdateWithWhereUniqueWithoutProjectKiInput = {
+    where: ProjectKiTaskWhereUniqueInput
+    data: XOR<ProjectKiTaskUpdateWithoutProjectKiInput, ProjectKiTaskUncheckedUpdateWithoutProjectKiInput>
+  }
+
+  export type ProjectKiTaskUpdateManyWithWhereWithoutProjectKiInput = {
+    where: ProjectKiTaskScalarWhereInput
+    data: XOR<ProjectKiTaskUpdateManyMutationInput, ProjectKiTaskUncheckedUpdateManyWithoutProjectKiInput>
+  }
+
+  export type ProjectKiTaskScalarWhereInput = {
+    AND?: ProjectKiTaskScalarWhereInput | ProjectKiTaskScalarWhereInput[]
+    OR?: ProjectKiTaskScalarWhereInput[]
+    NOT?: ProjectKiTaskScalarWhereInput | ProjectKiTaskScalarWhereInput[]
+    id?: StringFilter<"ProjectKiTask"> | string
+    deadlineTaskId?: StringFilter<"ProjectKiTask"> | string
+    projectKiId?: StringFilter<"ProjectKiTask"> | string
+    isCompleted?: BoolFilter<"ProjectKiTask"> | boolean
+    createdAt?: DateTimeFilter<"ProjectKiTask"> | Date | string
+    createdId?: StringFilter<"ProjectKiTask"> | string
+    createdBy?: StringFilter<"ProjectKiTask"> | string
+    updatedAt?: DateTimeFilter<"ProjectKiTask"> | Date | string
+    updatedId?: StringFilter<"ProjectKiTask"> | string
+    updatedBy?: StringFilter<"ProjectKiTask"> | string
+  }
+
   export type ProjectCreateWithoutAssetsInput = {
     id: string
     sbimpId: string
@@ -40905,7 +44394,7 @@ export namespace Prisma {
     photo3?: string | null
     photo4?: string | null
     photoCount?: number
-    valuationStatementFile?: Uint8Array | null
+    valuationStatementFile?: Bytes | null
     valuationStatementName?: string | null
     valuationStatementSize?: number | null
     landEvaluation?: bigint | number | null
@@ -40944,7 +44433,7 @@ export namespace Prisma {
     photo3?: string | null
     photo4?: string | null
     photoCount?: number
-    valuationStatementFile?: Uint8Array | null
+    valuationStatementFile?: Bytes | null
     valuationStatementName?: string | null
     valuationStatementSize?: number | null
     landEvaluation?: bigint | number | null
@@ -41171,6 +44660,7 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     ProjectKis?: ProjectKiCreateNestedManyWithoutKiInput
+    DeadlineTasks?: DeadlineTaskCreateNestedManyWithoutKiInput
   }
 
   export type KiUncheckedCreateWithoutAssetKisInput = {
@@ -41187,6 +44677,7 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutKiInput
+    DeadlineTasks?: DeadlineTaskUncheckedCreateNestedManyWithoutKiInput
   }
 
   export type KiCreateOrConnectWithoutAssetKisInput = {
@@ -41284,6 +44775,7 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     ProjectKis?: ProjectKiUpdateManyWithoutKiNestedInput
+    DeadlineTasks?: DeadlineTaskUpdateManyWithoutKiNestedInput
   }
 
   export type KiUncheckedUpdateWithoutAssetKisInput = {
@@ -41300,6 +44792,633 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     ProjectKis?: ProjectKiUncheckedUpdateManyWithoutKiNestedInput
+    DeadlineTasks?: DeadlineTaskUncheckedUpdateManyWithoutKiNestedInput
+  }
+
+  export type KiCreateWithoutDeadlineTasksInput = {
+    id: string
+    year: number
+    month: number
+    completed?: boolean
+    hiyoKeijoInstructionDate?: Date | string | null
+    hiyoKeijoActionDate?: Date | string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ProjectKis?: ProjectKiCreateNestedManyWithoutKiInput
+    AssetKis?: AssetKiCreateNestedManyWithoutKiInput
+  }
+
+  export type KiUncheckedCreateWithoutDeadlineTasksInput = {
+    id: string
+    year: number
+    month: number
+    completed?: boolean
+    hiyoKeijoInstructionDate?: Date | string | null
+    hiyoKeijoActionDate?: Date | string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutKiInput
+    AssetKis?: AssetKiUncheckedCreateNestedManyWithoutKiInput
+  }
+
+  export type KiCreateOrConnectWithoutDeadlineTasksInput = {
+    where: KiWhereUniqueInput
+    create: XOR<KiCreateWithoutDeadlineTasksInput, KiUncheckedCreateWithoutDeadlineTasksInput>
+  }
+
+  export type ProjectKiTaskCreateWithoutDeadlineTaskInput = {
+    id?: string
+    isCompleted?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ProjectKi: ProjectKiCreateNestedOneWithoutProjectKiTasksInput
+  }
+
+  export type ProjectKiTaskUncheckedCreateWithoutDeadlineTaskInput = {
+    id?: string
+    projectKiId: string
+    isCompleted?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type ProjectKiTaskCreateOrConnectWithoutDeadlineTaskInput = {
+    where: ProjectKiTaskWhereUniqueInput
+    create: XOR<ProjectKiTaskCreateWithoutDeadlineTaskInput, ProjectKiTaskUncheckedCreateWithoutDeadlineTaskInput>
+  }
+
+  export type ProjectKiTaskCreateManyDeadlineTaskInputEnvelope = {
+    data: ProjectKiTaskCreateManyDeadlineTaskInput | ProjectKiTaskCreateManyDeadlineTaskInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type KiUpsertWithoutDeadlineTasksInput = {
+    update: XOR<KiUpdateWithoutDeadlineTasksInput, KiUncheckedUpdateWithoutDeadlineTasksInput>
+    create: XOR<KiCreateWithoutDeadlineTasksInput, KiUncheckedCreateWithoutDeadlineTasksInput>
+    where?: KiWhereInput
+  }
+
+  export type KiUpdateToOneWithWhereWithoutDeadlineTasksInput = {
+    where?: KiWhereInput
+    data: XOR<KiUpdateWithoutDeadlineTasksInput, KiUncheckedUpdateWithoutDeadlineTasksInput>
+  }
+
+  export type KiUpdateWithoutDeadlineTasksInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    year?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    completed?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoInstructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    hiyoKeijoActionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ProjectKis?: ProjectKiUpdateManyWithoutKiNestedInput
+    AssetKis?: AssetKiUpdateManyWithoutKiNestedInput
+  }
+
+  export type KiUncheckedUpdateWithoutDeadlineTasksInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    year?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    completed?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoInstructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    hiyoKeijoActionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ProjectKis?: ProjectKiUncheckedUpdateManyWithoutKiNestedInput
+    AssetKis?: AssetKiUncheckedUpdateManyWithoutKiNestedInput
+  }
+
+  export type ProjectKiTaskUpsertWithWhereUniqueWithoutDeadlineTaskInput = {
+    where: ProjectKiTaskWhereUniqueInput
+    update: XOR<ProjectKiTaskUpdateWithoutDeadlineTaskInput, ProjectKiTaskUncheckedUpdateWithoutDeadlineTaskInput>
+    create: XOR<ProjectKiTaskCreateWithoutDeadlineTaskInput, ProjectKiTaskUncheckedCreateWithoutDeadlineTaskInput>
+  }
+
+  export type ProjectKiTaskUpdateWithWhereUniqueWithoutDeadlineTaskInput = {
+    where: ProjectKiTaskWhereUniqueInput
+    data: XOR<ProjectKiTaskUpdateWithoutDeadlineTaskInput, ProjectKiTaskUncheckedUpdateWithoutDeadlineTaskInput>
+  }
+
+  export type ProjectKiTaskUpdateManyWithWhereWithoutDeadlineTaskInput = {
+    where: ProjectKiTaskScalarWhereInput
+    data: XOR<ProjectKiTaskUpdateManyMutationInput, ProjectKiTaskUncheckedUpdateManyWithoutDeadlineTaskInput>
+  }
+
+  export type DeadlineTaskCreateWithoutProjectKiTasksInput = {
+    id?: string
+    name: string
+    dueDate: Date | string
+    order?: number
+    memo?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    Ki: KiCreateNestedOneWithoutDeadlineTasksInput
+  }
+
+  export type DeadlineTaskUncheckedCreateWithoutProjectKiTasksInput = {
+    id?: string
+    kiId: string
+    name: string
+    dueDate: Date | string
+    order?: number
+    memo?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type DeadlineTaskCreateOrConnectWithoutProjectKiTasksInput = {
+    where: DeadlineTaskWhereUniqueInput
+    create: XOR<DeadlineTaskCreateWithoutProjectKiTasksInput, DeadlineTaskUncheckedCreateWithoutProjectKiTasksInput>
+  }
+
+  export type ProjectKiCreateWithoutProjectKiTasksInput = {
+    id?: string
+    projectKi: number
+    startAt: Date | string
+    endAt: Date | string
+    paymentDate: Date | string
+    reportDate: Date | string
+    topic: string
+    ganponKuriire?: number | null
+    yayoiUploadVersion?: number
+    yayoiUploadAt?: Date | string | null
+    customerUploadVersion?: number
+    customerUploadAt?: Date | string | null
+    calculateVersion?: number
+    calculateAt?: Date | string | null
+    finalKiFlag?: boolean
+    mlspcMarginIncludeTax?: number | null
+    totalUnit?: number | null
+    totalUnitNonInvoice?: number | null
+    shintakuShueki?: bigint | number | null
+    shintakuHiyo?: bigint | number | null
+    sashihikiShintakuRieki?: bigint | number | null
+    shintakuRieki?: bigint | number | null
+    bunpaiRieki?: bigint | number | null
+    bunpaiSogaku?: bigint | number | null
+    bunpaiSogakuNonInvoice?: bigint | number | null
+    kichuKoteiShisan?: bigint | number | null
+    kurikoshiRieki?: number | null
+    capitalGain?: bigint | number | null
+    unitCapitalGain?: bigint | number | null
+    unitShintakuShueki?: number | null
+    unitShintakuHiyo?: number | null
+    unitShintakuHiyoForNonInvoice?: number | null
+    unitSashihikiShintakuRieki?: number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: number | null
+    unitGanponKuriire?: number | null
+    unitBunpai?: number | null
+    unitBunpaiForNonInvoice?: number | null
+    unitKichuKoteiShisan?: number | null
+    shohiyoRyuhokin?: bigint | number | null
+    shuzenTsumitatekin?: bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: bigint | number | null
+    azukarikinHenkanJunbikin?: bigint | number | null
+    zeikinHokenryoJunbiKanjo?: bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
+    risokuShiharaiJunbiKanjo?: bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: bigint | number | null
+    cashTrapJunbiKanjo?: bigint | number | null
+    sonotaGenyokin?: bigint | number | null
+    futuYokinTokiZandaka?: bigint | number | null
+    zenkiKurikoshiRieki?: bigint | number | null
+    shuzenTsumitatekinKuriire?: bigint | number | null
+    mibaraiHiyo?: bigint | number | null
+    chokiKariire?: bigint | number | null
+    currentYearBunpaiRatio?: number | null
+    fullYearBunpaiRatio?: number | null
+    currentYearBunpaiRatioNonInvoice?: number | null
+    fullYearBunpaiRatioNonInvoice?: number | null
+    shintakuShuekiKazeiUriage?: bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: bigint | number | null
+    shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuHiyoKazeiShiire?: bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: bigint | number | null
+    shintakuHiyoHikazeiShiire?: bigint | number | null
+    unitShintakuShuekiKazeiUriage?: number | null
+    unitShintakuShuekiKazeiUriageShohizei?: number | null
+    unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuHiyoKazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireShohizei?: number | null
+    unitShintakuHiyoHikazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    kazeiUriageSashihiki08?: bigint | number | null
+    kazeiUriageSashihiki10?: bigint | number | null
+    kazeiUriageHontai08?: bigint | number | null
+    kazeiUriageHontai10?: bigint | number | null
+    kazeiShiire100Kojo?: bigint | number | null
+    kazeiShiire100KojoNoTax?: bigint | number | null
+    kazeiShiire8050Kojo?: bigint | number | null
+    kazeiShiire8050KojoNoTax?: bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: bigint | number | null
+    koteiShisan80Kojo?: bigint | number | null
+    koteiShisan80KojoNoTax?: bigint | number | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    Project: ProjectCreateNestedOneWithoutProjectKisInput
+    Ki: KiCreateNestedOneWithoutProjectKisInput
+    MainUser?: UserCreateNestedOneWithoutMainUserProjectKisInput
+    SubUser?: UserCreateNestedOneWithoutSubUserProjectKisInput
+    CustomerFunds?: CustomerFundCreateNestedManyWithoutProjectKiInput
+  }
+
+  export type ProjectKiUncheckedCreateWithoutProjectKiTasksInput = {
+    id?: string
+    projectId: string
+    kiId: string
+    mainUserId?: string | null
+    subUserId?: string | null
+    projectKi: number
+    startAt: Date | string
+    endAt: Date | string
+    paymentDate: Date | string
+    reportDate: Date | string
+    topic: string
+    ganponKuriire?: number | null
+    yayoiUploadVersion?: number
+    yayoiUploadAt?: Date | string | null
+    customerUploadVersion?: number
+    customerUploadAt?: Date | string | null
+    calculateVersion?: number
+    calculateAt?: Date | string | null
+    finalKiFlag?: boolean
+    mlspcMarginIncludeTax?: number | null
+    totalUnit?: number | null
+    totalUnitNonInvoice?: number | null
+    shintakuShueki?: bigint | number | null
+    shintakuHiyo?: bigint | number | null
+    sashihikiShintakuRieki?: bigint | number | null
+    shintakuRieki?: bigint | number | null
+    bunpaiRieki?: bigint | number | null
+    bunpaiSogaku?: bigint | number | null
+    bunpaiSogakuNonInvoice?: bigint | number | null
+    kichuKoteiShisan?: bigint | number | null
+    kurikoshiRieki?: number | null
+    capitalGain?: bigint | number | null
+    unitCapitalGain?: bigint | number | null
+    unitShintakuShueki?: number | null
+    unitShintakuHiyo?: number | null
+    unitShintakuHiyoForNonInvoice?: number | null
+    unitSashihikiShintakuRieki?: number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: number | null
+    unitGanponKuriire?: number | null
+    unitBunpai?: number | null
+    unitBunpaiForNonInvoice?: number | null
+    unitKichuKoteiShisan?: number | null
+    shohiyoRyuhokin?: bigint | number | null
+    shuzenTsumitatekin?: bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: bigint | number | null
+    azukarikinHenkanJunbikin?: bigint | number | null
+    zeikinHokenryoJunbiKanjo?: bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: bigint | number | null
+    risokuShiharaiJunbiKanjo?: bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: bigint | number | null
+    cashTrapJunbiKanjo?: bigint | number | null
+    sonotaGenyokin?: bigint | number | null
+    futuYokinTokiZandaka?: bigint | number | null
+    zenkiKurikoshiRieki?: bigint | number | null
+    shuzenTsumitatekinKuriire?: bigint | number | null
+    mibaraiHiyo?: bigint | number | null
+    chokiKariire?: bigint | number | null
+    currentYearBunpaiRatio?: number | null
+    fullYearBunpaiRatio?: number | null
+    currentYearBunpaiRatioNonInvoice?: number | null
+    fullYearBunpaiRatioNonInvoice?: number | null
+    shintakuShuekiKazeiUriage?: bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: bigint | number | null
+    shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuHiyoKazeiShiire?: bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: bigint | number | null
+    shintakuHiyoHikazeiShiire?: bigint | number | null
+    unitShintakuShuekiKazeiUriage?: number | null
+    unitShintakuShuekiKazeiUriageShohizei?: number | null
+    unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuHiyoKazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireShohizei?: number | null
+    unitShintakuHiyoHikazeiShiire?: number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    kazeiUriageSashihiki08?: bigint | number | null
+    kazeiUriageSashihiki10?: bigint | number | null
+    kazeiUriageHontai08?: bigint | number | null
+    kazeiUriageHontai10?: bigint | number | null
+    kazeiShiire100Kojo?: bigint | number | null
+    kazeiShiire100KojoNoTax?: bigint | number | null
+    kazeiShiire8050Kojo?: bigint | number | null
+    kazeiShiire8050KojoNoTax?: bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: bigint | number | null
+    koteiShisan80Kojo?: bigint | number | null
+    koteiShisan80KojoNoTax?: bigint | number | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    CustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutProjectKiInput
+  }
+
+  export type ProjectKiCreateOrConnectWithoutProjectKiTasksInput = {
+    where: ProjectKiWhereUniqueInput
+    create: XOR<ProjectKiCreateWithoutProjectKiTasksInput, ProjectKiUncheckedCreateWithoutProjectKiTasksInput>
+  }
+
+  export type DeadlineTaskUpsertWithoutProjectKiTasksInput = {
+    update: XOR<DeadlineTaskUpdateWithoutProjectKiTasksInput, DeadlineTaskUncheckedUpdateWithoutProjectKiTasksInput>
+    create: XOR<DeadlineTaskCreateWithoutProjectKiTasksInput, DeadlineTaskUncheckedCreateWithoutProjectKiTasksInput>
+    where?: DeadlineTaskWhereInput
+  }
+
+  export type DeadlineTaskUpdateToOneWithWhereWithoutProjectKiTasksInput = {
+    where?: DeadlineTaskWhereInput
+    data: XOR<DeadlineTaskUpdateWithoutProjectKiTasksInput, DeadlineTaskUncheckedUpdateWithoutProjectKiTasksInput>
+  }
+
+  export type DeadlineTaskUpdateWithoutProjectKiTasksInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    order?: IntFieldUpdateOperationsInput | number
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    Ki?: KiUpdateOneRequiredWithoutDeadlineTasksNestedInput
+  }
+
+  export type DeadlineTaskUncheckedUpdateWithoutProjectKiTasksInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    order?: IntFieldUpdateOperationsInput | number
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectKiUpsertWithoutProjectKiTasksInput = {
+    update: XOR<ProjectKiUpdateWithoutProjectKiTasksInput, ProjectKiUncheckedUpdateWithoutProjectKiTasksInput>
+    create: XOR<ProjectKiCreateWithoutProjectKiTasksInput, ProjectKiUncheckedCreateWithoutProjectKiTasksInput>
+    where?: ProjectKiWhereInput
+  }
+
+  export type ProjectKiUpdateToOneWithWhereWithoutProjectKiTasksInput = {
+    where?: ProjectKiWhereInput
+    data: XOR<ProjectKiUpdateWithoutProjectKiTasksInput, ProjectKiUncheckedUpdateWithoutProjectKiTasksInput>
+  }
+
+  export type ProjectKiUpdateWithoutProjectKiTasksInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectKi?: IntFieldUpdateOperationsInput | number
+    startAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    topic?: StringFieldUpdateOperationsInput | string
+    ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
+    yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerUploadVersion?: IntFieldUpdateOperationsInput | number
+    customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    calculateVersion?: IntFieldUpdateOperationsInput | number
+    calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
+    mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sashihikiShintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kichuKoteiShisan?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    capitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitCapitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitKichuKoteiShisan?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinKuriire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    mibaraiHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    chokiKariire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    Project?: ProjectUpdateOneRequiredWithoutProjectKisNestedInput
+    Ki?: KiUpdateOneRequiredWithoutProjectKisNestedInput
+    MainUser?: UserUpdateOneWithoutMainUserProjectKisNestedInput
+    SubUser?: UserUpdateOneWithoutSubUserProjectKisNestedInput
+    CustomerFunds?: CustomerFundUpdateManyWithoutProjectKiNestedInput
+  }
+
+  export type ProjectKiUncheckedUpdateWithoutProjectKiTasksInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    mainUserId?: NullableStringFieldUpdateOperationsInput | string | null
+    subUserId?: NullableStringFieldUpdateOperationsInput | string | null
+    projectKi?: IntFieldUpdateOperationsInput | number
+    startAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    endAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    topic?: StringFieldUpdateOperationsInput | string
+    ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
+    yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerUploadVersion?: IntFieldUpdateOperationsInput | number
+    customerUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    calculateVersion?: IntFieldUpdateOperationsInput | number
+    calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
+    mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
+    totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    shintakuShueki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sashihikiShintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogaku?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    bunpaiSogakuNonInvoice?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kichuKoteiShisan?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kurikoshiRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    capitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitCapitalGain?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitShintakuShueki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyo?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRieki?: NullableIntFieldUpdateOperationsInput | number | null
+    unitSashihikiShintakuRiekiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitGanponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpai?: NullableIntFieldUpdateOperationsInput | number | null
+    unitBunpaiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitKichuKoteiShisan?: NullableIntFieldUpdateOperationsInput | number | null
+    shohiyoRyuhokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shohiyoRyuhokinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinTorikuzushi?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    azukarikinHenkanJunbikin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zeikinHokenryoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kyodoUnyuHiyoJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shuzenTsumitatekinKuriire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    mibaraiHiyo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    chokiKariire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    currentYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatio?: NullableFloatFieldUpdateOperationsInput | number | null
+    currentYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    fullYearBunpaiRatioNonInvoice?: NullableFloatFieldUpdateOperationsInput | number | null
+    shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiUriageHontai10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKazeiUriageHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire100KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    kazeiShiire8050KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    CustomerFunds?: CustomerFundUncheckedUpdateManyWithoutProjectKiNestedInput
   }
 
   export type ProjectCreateWithoutCustomersInput = {
@@ -41774,6 +45893,7 @@ export namespace Prisma {
     Ki: KiCreateNestedOneWithoutProjectKisInput
     MainUser?: UserCreateNestedOneWithoutMainUserProjectKisInput
     SubUser?: UserCreateNestedOneWithoutSubUserProjectKisInput
+    ProjectKiTasks?: ProjectKiTaskCreateNestedManyWithoutProjectKiInput
   }
 
   export type ProjectKiUncheckedCreateWithoutCustomerFundsInput = {
@@ -41873,6 +45993,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: string
     updatedBy: string
+    ProjectKiTasks?: ProjectKiTaskUncheckedCreateNestedManyWithoutProjectKiInput
   }
 
   export type ProjectKiCreateOrConnectWithoutCustomerFundsInput = {
@@ -42202,6 +46323,7 @@ export namespace Prisma {
     Ki?: KiUpdateOneRequiredWithoutProjectKisNestedInput
     MainUser?: UserUpdateOneWithoutMainUserProjectKisNestedInput
     SubUser?: UserUpdateOneWithoutSubUserProjectKisNestedInput
+    ProjectKiTasks?: ProjectKiTaskUpdateManyWithoutProjectKiNestedInput
   }
 
   export type ProjectKiUncheckedUpdateWithoutCustomerFundsInput = {
@@ -42301,6 +46423,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
+    ProjectKiTasks?: ProjectKiTaskUncheckedUpdateManyWithoutProjectKiNestedInput
   }
 
   export type CustomerFundUpsertWithoutDestinationCustomerFundsInput = {
@@ -43319,6 +47442,7 @@ export namespace Prisma {
     Ki?: KiUpdateOneRequiredWithoutProjectKisNestedInput
     SubUser?: UserUpdateOneWithoutSubUserProjectKisNestedInput
     CustomerFunds?: CustomerFundUpdateManyWithoutProjectKiNestedInput
+    ProjectKiTasks?: ProjectKiTaskUpdateManyWithoutProjectKiNestedInput
   }
 
   export type ProjectKiUncheckedUpdateWithoutMainUserInput = {
@@ -43418,6 +47542,7 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     CustomerFunds?: CustomerFundUncheckedUpdateManyWithoutProjectKiNestedInput
+    ProjectKiTasks?: ProjectKiTaskUncheckedUpdateManyWithoutProjectKiNestedInput
   }
 
   export type ProjectKiUncheckedUpdateManyWithoutMainUserInput = {
@@ -43615,6 +47740,7 @@ export namespace Prisma {
     Ki?: KiUpdateOneRequiredWithoutProjectKisNestedInput
     MainUser?: UserUpdateOneWithoutMainUserProjectKisNestedInput
     CustomerFunds?: CustomerFundUpdateManyWithoutProjectKiNestedInput
+    ProjectKiTasks?: ProjectKiTaskUpdateManyWithoutProjectKiNestedInput
   }
 
   export type ProjectKiUncheckedUpdateWithoutSubUserInput = {
@@ -43714,6 +47840,7 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     CustomerFunds?: CustomerFundUncheckedUpdateManyWithoutProjectKiNestedInput
+    ProjectKiTasks?: ProjectKiTaskUncheckedUpdateManyWithoutProjectKiNestedInput
   }
 
   export type ProjectKiUncheckedUpdateManyWithoutSubUserInput = {
@@ -43927,7 +48054,7 @@ export namespace Prisma {
     photo3?: string | null
     photo4?: string | null
     photoCount?: number
-    valuationStatementFile?: Uint8Array | null
+    valuationStatementFile?: Bytes | null
     valuationStatementName?: string | null
     valuationStatementSize?: number | null
     landEvaluation?: bigint | number | null
@@ -43942,6 +48069,20 @@ export namespace Prisma {
     otherFeeNoTax?: bigint | number | null
     deposit?: bigint | number | null
     depositNoTax?: bigint | number | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type DeadlineTaskCreateManyKiInput = {
+    id?: string
+    name: string
+    dueDate: Date | string
+    order?: number
+    memo?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -44047,6 +48188,7 @@ export namespace Prisma {
     MainUser?: UserUpdateOneWithoutMainUserProjectKisNestedInput
     SubUser?: UserUpdateOneWithoutSubUserProjectKisNestedInput
     CustomerFunds?: CustomerFundUpdateManyWithoutProjectKiNestedInput
+    ProjectKiTasks?: ProjectKiTaskUpdateManyWithoutProjectKiNestedInput
   }
 
   export type ProjectKiUncheckedUpdateWithoutKiInput = {
@@ -44146,6 +48288,7 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     CustomerFunds?: CustomerFundUncheckedUpdateManyWithoutProjectKiNestedInput
+    ProjectKiTasks?: ProjectKiTaskUncheckedUpdateManyWithoutProjectKiNestedInput
   }
 
   export type ProjectKiUncheckedUpdateManyWithoutKiInput = {
@@ -44260,7 +48403,7 @@ export namespace Prisma {
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
     photoCount?: IntFieldUpdateOperationsInput | number
-    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Bytes | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
     landEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -44299,7 +48442,7 @@ export namespace Prisma {
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
     photoCount?: IntFieldUpdateOperationsInput | number
-    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Bytes | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
     landEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -44337,7 +48480,7 @@ export namespace Prisma {
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
     photoCount?: IntFieldUpdateOperationsInput | number
-    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Bytes | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
     landEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -44352,6 +48495,50 @@ export namespace Prisma {
     otherFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     deposit?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     depositNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DeadlineTaskUpdateWithoutKiInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    order?: IntFieldUpdateOperationsInput | number
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ProjectKiTasks?: ProjectKiTaskUpdateManyWithoutDeadlineTaskNestedInput
+  }
+
+  export type DeadlineTaskUncheckedUpdateWithoutKiInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    order?: IntFieldUpdateOperationsInput | number
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ProjectKiTasks?: ProjectKiTaskUncheckedUpdateManyWithoutDeadlineTaskNestedInput
+  }
+
+  export type DeadlineTaskUncheckedUpdateManyWithoutKiInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    order?: IntFieldUpdateOperationsInput | number
+    memo?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -44626,6 +48813,7 @@ export namespace Prisma {
     MainUser?: UserUpdateOneWithoutMainUserProjectKisNestedInput
     SubUser?: UserUpdateOneWithoutSubUserProjectKisNestedInput
     CustomerFunds?: CustomerFundUpdateManyWithoutProjectKiNestedInput
+    ProjectKiTasks?: ProjectKiTaskUpdateManyWithoutProjectKiNestedInput
   }
 
   export type ProjectKiUncheckedUpdateWithoutProjectInput = {
@@ -44725,6 +48913,7 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     CustomerFunds?: CustomerFundUncheckedUpdateManyWithoutProjectKiNestedInput
+    ProjectKiTasks?: ProjectKiTaskUncheckedUpdateManyWithoutProjectKiNestedInput
   }
 
   export type ProjectKiUncheckedUpdateManyWithoutProjectInput = {
@@ -45065,6 +49254,18 @@ export namespace Prisma {
     updatedBy: string
   }
 
+  export type ProjectKiTaskCreateManyProjectKiInput = {
+    id?: string
+    deadlineTaskId: string
+    isCompleted?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
   export type CustomerFundUpdateWithoutProjectKiInput = {
     id?: StringFieldUpdateOperationsInput | string
     invoice?: BoolFieldUpdateOperationsInput | boolean
@@ -45136,6 +49337,42 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
+  export type ProjectKiTaskUpdateWithoutProjectKiInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    DeadlineTask?: DeadlineTaskUpdateOneRequiredWithoutProjectKiTasksNestedInput
+  }
+
+  export type ProjectKiTaskUncheckedUpdateWithoutProjectKiInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    deadlineTaskId?: StringFieldUpdateOperationsInput | string
+    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectKiTaskUncheckedUpdateManyWithoutProjectKiInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    deadlineTaskId?: StringFieldUpdateOperationsInput | string
+    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
   export type AssetKiCreateManyAssetInput = {
     id?: string
     kiId: string
@@ -45151,7 +49388,7 @@ export namespace Prisma {
     photo3?: string | null
     photo4?: string | null
     photoCount?: number
-    valuationStatementFile?: Uint8Array | null
+    valuationStatementFile?: Bytes | null
     valuationStatementName?: string | null
     valuationStatementSize?: number | null
     landEvaluation?: bigint | number | null
@@ -45188,7 +49425,7 @@ export namespace Prisma {
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
     photoCount?: IntFieldUpdateOperationsInput | number
-    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Bytes | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
     landEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -45227,7 +49464,7 @@ export namespace Prisma {
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
     photoCount?: IntFieldUpdateOperationsInput | number
-    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Bytes | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
     landEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -45265,7 +49502,7 @@ export namespace Prisma {
     photo3?: NullableStringFieldUpdateOperationsInput | string | null
     photo4?: NullableStringFieldUpdateOperationsInput | string | null
     photoCount?: IntFieldUpdateOperationsInput | number
-    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Uint8Array | null
+    valuationStatementFile?: NullableBytesFieldUpdateOperationsInput | Bytes | null
     valuationStatementName?: NullableStringFieldUpdateOperationsInput | string | null
     valuationStatementSize?: NullableIntFieldUpdateOperationsInput | number | null
     landEvaluation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -45280,6 +49517,54 @@ export namespace Prisma {
     otherFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     deposit?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     depositNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectKiTaskCreateManyDeadlineTaskInput = {
+    id?: string
+    projectKiId: string
+    isCompleted?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type ProjectKiTaskUpdateWithoutDeadlineTaskInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ProjectKi?: ProjectKiUpdateOneRequiredWithoutProjectKiTasksNestedInput
+  }
+
+  export type ProjectKiTaskUncheckedUpdateWithoutDeadlineTaskInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectKiId?: StringFieldUpdateOperationsInput | string
+    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectKiTaskUncheckedUpdateManyWithoutDeadlineTaskInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectKiId?: StringFieldUpdateOperationsInput | string
+    isCompleted?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
