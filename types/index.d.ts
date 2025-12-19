@@ -18447,6 +18447,7 @@ export namespace Prisma {
     otherFeeNoTax: bigint | null
     deposit: bigint | null
     depositNoTax: bigint | null
+    hasAdditionalDepreciableAsset: boolean | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -18486,6 +18487,7 @@ export namespace Prisma {
     otherFeeNoTax: bigint | null
     deposit: bigint | null
     depositNoTax: bigint | null
+    hasAdditionalDepreciableAsset: boolean | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -18525,6 +18527,8 @@ export namespace Prisma {
     otherFeeNoTax: number
     deposit: number
     depositNoTax: number
+    hasAdditionalDepreciableAsset: number
+    additionalDepreciableAssetJson: number
     createdAt: number
     createdId: number
     createdBy: number
@@ -18610,6 +18614,7 @@ export namespace Prisma {
     otherFeeNoTax?: true
     deposit?: true
     depositNoTax?: true
+    hasAdditionalDepreciableAsset?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -18649,6 +18654,7 @@ export namespace Prisma {
     otherFeeNoTax?: true
     deposit?: true
     depositNoTax?: true
+    hasAdditionalDepreciableAsset?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -18688,6 +18694,8 @@ export namespace Prisma {
     otherFeeNoTax?: true
     deposit?: true
     depositNoTax?: true
+    hasAdditionalDepreciableAsset?: true
+    additionalDepreciableAssetJson?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -18814,6 +18822,8 @@ export namespace Prisma {
     otherFeeNoTax: bigint | null
     deposit: bigint | null
     depositNoTax: bigint | null
+    hasAdditionalDepreciableAsset: boolean
+    additionalDepreciableAssetJson: JsonValue | null
     createdAt: Date
     createdId: string
     createdBy: string
@@ -18872,6 +18882,8 @@ export namespace Prisma {
     otherFeeNoTax?: boolean
     deposit?: boolean
     depositNoTax?: boolean
+    hasAdditionalDepreciableAsset?: boolean
+    additionalDepreciableAssetJson?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -18913,6 +18925,8 @@ export namespace Prisma {
     otherFeeNoTax?: boolean
     deposit?: boolean
     depositNoTax?: boolean
+    hasAdditionalDepreciableAsset?: boolean
+    additionalDepreciableAssetJson?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -18954,6 +18968,8 @@ export namespace Prisma {
     otherFeeNoTax?: boolean
     deposit?: boolean
     depositNoTax?: boolean
+    hasAdditionalDepreciableAsset?: boolean
+    additionalDepreciableAssetJson?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -18995,6 +19011,8 @@ export namespace Prisma {
     otherFeeNoTax?: boolean
     deposit?: boolean
     depositNoTax?: boolean
+    hasAdditionalDepreciableAsset?: boolean
+    additionalDepreciableAssetJson?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -19003,7 +19021,7 @@ export namespace Prisma {
     updatedBy?: boolean
   }
 
-  export type AssetKiOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "assetId" | "kiId" | "projectKi" | "situation" | "pmPerformanceMoveIn" | "pmPerformanceMoveOut" | "pmPerformanceRate" | "pmPerformanceRatePercent" | "photoDate" | "photo1" | "photo2" | "photo3" | "photo4" | "photoCount" | "valuationStatementFile" | "valuationStatementName" | "valuationStatementSize" | "landEvaluation" | "buildingEvaluation" | "rent" | "rentNoTax" | "keyMoney" | "keyMoneyNoTax" | "renewalFee" | "renewalFeeNoTax" | "otherFee" | "otherFeeNoTax" | "deposit" | "depositNoTax" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["assetKi"]>
+  export type AssetKiOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "assetId" | "kiId" | "projectKi" | "situation" | "pmPerformanceMoveIn" | "pmPerformanceMoveOut" | "pmPerformanceRate" | "pmPerformanceRatePercent" | "photoDate" | "photo1" | "photo2" | "photo3" | "photo4" | "photoCount" | "valuationStatementFile" | "valuationStatementName" | "valuationStatementSize" | "landEvaluation" | "buildingEvaluation" | "rent" | "rentNoTax" | "keyMoney" | "keyMoneyNoTax" | "renewalFee" | "renewalFeeNoTax" | "otherFee" | "otherFeeNoTax" | "deposit" | "depositNoTax" | "hasAdditionalDepreciableAsset" | "additionalDepreciableAssetJson" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["assetKi"]>
   export type AssetKiInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Asset?: boolean | AssetDefaultArgs<ExtArgs>
     Ki?: boolean | KiDefaultArgs<ExtArgs>
@@ -19054,6 +19072,8 @@ export namespace Prisma {
       otherFeeNoTax: bigint | null
       deposit: bigint | null
       depositNoTax: bigint | null
+      hasAdditionalDepreciableAsset: boolean
+      additionalDepreciableAssetJson: Prisma.JsonValue | null
       createdAt: Date
       createdId: string
       createdBy: string
@@ -19515,6 +19535,8 @@ export namespace Prisma {
     readonly otherFeeNoTax: FieldRef<"AssetKi", 'BigInt'>
     readonly deposit: FieldRef<"AssetKi", 'BigInt'>
     readonly depositNoTax: FieldRef<"AssetKi", 'BigInt'>
+    readonly hasAdditionalDepreciableAsset: FieldRef<"AssetKi", 'Boolean'>
+    readonly additionalDepreciableAssetJson: FieldRef<"AssetKi", 'Json'>
     readonly createdAt: FieldRef<"AssetKi", 'DateTime'>
     readonly createdId: FieldRef<"AssetKi", 'String'>
     readonly createdBy: FieldRef<"AssetKi", 'String'>
@@ -30276,6 +30298,8 @@ export namespace Prisma {
     otherFeeNoTax: 'otherFeeNoTax',
     deposit: 'deposit',
     depositNoTax: 'depositNoTax',
+    hasAdditionalDepreciableAsset: 'hasAdditionalDepreciableAsset',
+    additionalDepreciableAssetJson: 'additionalDepreciableAssetJson',
     createdAt: 'createdAt',
     createdId: 'createdId',
     createdBy: 'createdBy',
@@ -32579,6 +32603,8 @@ export namespace Prisma {
     otherFeeNoTax?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
     deposit?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
     depositNoTax?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    hasAdditionalDepreciableAsset?: BoolFilter<"AssetKi"> | boolean
+    additionalDepreciableAssetJson?: JsonNullableFilter<"AssetKi">
     createdAt?: DateTimeFilter<"AssetKi"> | Date | string
     createdId?: StringFilter<"AssetKi"> | string
     createdBy?: StringFilter<"AssetKi"> | string
@@ -32620,6 +32646,8 @@ export namespace Prisma {
     otherFeeNoTax?: SortOrderInput | SortOrder
     deposit?: SortOrderInput | SortOrder
     depositNoTax?: SortOrderInput | SortOrder
+    hasAdditionalDepreciableAsset?: SortOrder
+    additionalDepreciableAssetJson?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -32665,6 +32693,8 @@ export namespace Prisma {
     otherFeeNoTax?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
     deposit?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
     depositNoTax?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    hasAdditionalDepreciableAsset?: BoolFilter<"AssetKi"> | boolean
+    additionalDepreciableAssetJson?: JsonNullableFilter<"AssetKi">
     createdAt?: DateTimeFilter<"AssetKi"> | Date | string
     createdId?: StringFilter<"AssetKi"> | string
     createdBy?: StringFilter<"AssetKi"> | string
@@ -32706,6 +32736,8 @@ export namespace Prisma {
     otherFeeNoTax?: SortOrderInput | SortOrder
     deposit?: SortOrderInput | SortOrder
     depositNoTax?: SortOrderInput | SortOrder
+    hasAdditionalDepreciableAsset?: SortOrder
+    additionalDepreciableAssetJson?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -32753,6 +32785,8 @@ export namespace Prisma {
     otherFeeNoTax?: BigIntNullableWithAggregatesFilter<"AssetKi"> | bigint | number | null
     deposit?: BigIntNullableWithAggregatesFilter<"AssetKi"> | bigint | number | null
     depositNoTax?: BigIntNullableWithAggregatesFilter<"AssetKi"> | bigint | number | null
+    hasAdditionalDepreciableAsset?: BoolWithAggregatesFilter<"AssetKi"> | boolean
+    additionalDepreciableAssetJson?: JsonNullableWithAggregatesFilter<"AssetKi">
     createdAt?: DateTimeWithAggregatesFilter<"AssetKi"> | Date | string
     createdId?: StringWithAggregatesFilter<"AssetKi"> | string
     createdBy?: StringWithAggregatesFilter<"AssetKi"> | string
@@ -35953,6 +35987,8 @@ export namespace Prisma {
     otherFeeNoTax?: bigint | number | null
     deposit?: bigint | number | null
     depositNoTax?: bigint | number | null
+    hasAdditionalDepreciableAsset?: boolean
+    additionalDepreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -35994,6 +36030,8 @@ export namespace Prisma {
     otherFeeNoTax?: bigint | number | null
     deposit?: bigint | number | null
     depositNoTax?: bigint | number | null
+    hasAdditionalDepreciableAsset?: boolean
+    additionalDepreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -36031,6 +36069,8 @@ export namespace Prisma {
     otherFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     deposit?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     depositNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    hasAdditionalDepreciableAsset?: BoolFieldUpdateOperationsInput | boolean
+    additionalDepreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -36072,6 +36112,8 @@ export namespace Prisma {
     otherFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     deposit?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     depositNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    hasAdditionalDepreciableAsset?: BoolFieldUpdateOperationsInput | boolean
+    additionalDepreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -36111,6 +36153,8 @@ export namespace Prisma {
     otherFeeNoTax?: bigint | number | null
     deposit?: bigint | number | null
     depositNoTax?: bigint | number | null
+    hasAdditionalDepreciableAsset?: boolean
+    additionalDepreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -36148,6 +36192,8 @@ export namespace Prisma {
     otherFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     deposit?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     depositNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    hasAdditionalDepreciableAsset?: BoolFieldUpdateOperationsInput | boolean
+    additionalDepreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -36187,6 +36233,8 @@ export namespace Prisma {
     otherFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     deposit?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     depositNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    hasAdditionalDepreciableAsset?: BoolFieldUpdateOperationsInput | boolean
+    additionalDepreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -39080,6 +39128,8 @@ export namespace Prisma {
     otherFeeNoTax?: SortOrder
     deposit?: SortOrder
     depositNoTax?: SortOrder
+    hasAdditionalDepreciableAsset?: SortOrder
+    additionalDepreciableAssetJson?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -39141,6 +39191,7 @@ export namespace Prisma {
     otherFeeNoTax?: SortOrder
     deposit?: SortOrder
     depositNoTax?: SortOrder
+    hasAdditionalDepreciableAsset?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -39180,6 +39231,7 @@ export namespace Prisma {
     otherFeeNoTax?: SortOrder
     deposit?: SortOrder
     depositNoTax?: SortOrder
+    hasAdditionalDepreciableAsset?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -42458,6 +42510,8 @@ export namespace Prisma {
     otherFeeNoTax?: bigint | number | null
     deposit?: bigint | number | null
     depositNoTax?: bigint | number | null
+    hasAdditionalDepreciableAsset?: boolean
+    additionalDepreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -42497,6 +42551,8 @@ export namespace Prisma {
     otherFeeNoTax?: bigint | number | null
     deposit?: bigint | number | null
     depositNoTax?: bigint | number | null
+    hasAdditionalDepreciableAsset?: boolean
+    additionalDepreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -42621,6 +42677,8 @@ export namespace Prisma {
     otherFeeNoTax?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
     deposit?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
     depositNoTax?: BigIntNullableFilter<"AssetKi"> | bigint | number | null
+    hasAdditionalDepreciableAsset?: BoolFilter<"AssetKi"> | boolean
+    additionalDepreciableAssetJson?: JsonNullableFilter<"AssetKi">
     createdAt?: DateTimeFilter<"AssetKi"> | Date | string
     createdId?: StringFilter<"AssetKi"> | string
     createdBy?: StringFilter<"AssetKi"> | string
@@ -44409,6 +44467,8 @@ export namespace Prisma {
     otherFeeNoTax?: bigint | number | null
     deposit?: bigint | number | null
     depositNoTax?: bigint | number | null
+    hasAdditionalDepreciableAsset?: boolean
+    additionalDepreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -44448,6 +44508,8 @@ export namespace Prisma {
     otherFeeNoTax?: bigint | number | null
     deposit?: bigint | number | null
     depositNoTax?: bigint | number | null
+    hasAdditionalDepreciableAsset?: boolean
+    additionalDepreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -48069,6 +48131,8 @@ export namespace Prisma {
     otherFeeNoTax?: bigint | number | null
     deposit?: bigint | number | null
     depositNoTax?: bigint | number | null
+    hasAdditionalDepreciableAsset?: boolean
+    additionalDepreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -48418,6 +48482,8 @@ export namespace Prisma {
     otherFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     deposit?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     depositNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    hasAdditionalDepreciableAsset?: BoolFieldUpdateOperationsInput | boolean
+    additionalDepreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -48457,6 +48523,8 @@ export namespace Prisma {
     otherFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     deposit?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     depositNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    hasAdditionalDepreciableAsset?: BoolFieldUpdateOperationsInput | boolean
+    additionalDepreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -48495,6 +48563,8 @@ export namespace Prisma {
     otherFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     deposit?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     depositNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    hasAdditionalDepreciableAsset?: BoolFieldUpdateOperationsInput | boolean
+    additionalDepreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -49403,6 +49473,8 @@ export namespace Prisma {
     otherFeeNoTax?: bigint | number | null
     deposit?: bigint | number | null
     depositNoTax?: bigint | number | null
+    hasAdditionalDepreciableAsset?: boolean
+    additionalDepreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -49440,6 +49512,8 @@ export namespace Prisma {
     otherFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     deposit?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     depositNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    hasAdditionalDepreciableAsset?: BoolFieldUpdateOperationsInput | boolean
+    additionalDepreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -49479,6 +49553,8 @@ export namespace Prisma {
     otherFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     deposit?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     depositNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    hasAdditionalDepreciableAsset?: BoolFieldUpdateOperationsInput | boolean
+    additionalDepreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -49517,6 +49593,8 @@ export namespace Prisma {
     otherFeeNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     deposit?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     depositNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    hasAdditionalDepreciableAsset?: BoolFieldUpdateOperationsInput | boolean
+    additionalDepreciableAssetJson?: NullableJsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
