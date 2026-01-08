@@ -113,12 +113,27 @@ export type YayoiCSV = $Result.DefaultSelection<Prisma.$YayoiCSVPayload>
  * 
  */
 export type YayoiCSVHistory = $Result.DefaultSelection<Prisma.$YayoiCSVHistoryPayload>
+/**
+ * Model BulkDocDownloadJob
+ * 
+ */
+export type BulkDocDownloadJob = $Result.DefaultSelection<Prisma.$BulkDocDownloadJobPayload>
 
 /**
  * Enums
  */
 export namespace $Enums {
-  export const UserRole: {
+  export const BulkDownloadStatus: {
+  Pending: 'Pending',
+  Processing: 'Processing',
+  Completed: 'Completed',
+  Failed: 'Failed'
+};
+
+export type BulkDownloadStatus = (typeof BulkDownloadStatus)[keyof typeof BulkDownloadStatus]
+
+
+export const UserRole: {
   Normal: 'Normal',
   Admin: 'Admin'
 };
@@ -168,6 +183,8 @@ export const TemplateType: {
   Ref: 'Ref',
   YieldTrend: 'YieldTrend',
   HiyoKeijo: 'HiyoKeijo',
+  SendDocument01: 'SendDocument01',
+  SendDocument02: 'SendDocument02',
   BunpaiInstruction: 'BunpaiInstruction',
   CustomerList: 'CustomerList'
 };
@@ -223,6 +240,10 @@ export const CustomerFundStatus: {
 export type CustomerFundStatus = (typeof CustomerFundStatus)[keyof typeof CustomerFundStatus]
 
 }
+
+export type BulkDownloadStatus = $Enums.BulkDownloadStatus
+
+export const BulkDownloadStatus: typeof $Enums.BulkDownloadStatus
 
 export type UserRole = $Enums.UserRole
 
@@ -585,6 +606,16 @@ export class PrismaClient<
     * ```
     */
   get yayoiCSVHistory(): Prisma.YayoiCSVHistoryDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.bulkDocDownloadJob`: Exposes CRUD operations for the **BulkDocDownloadJob** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more BulkDocDownloadJobs
+    * const bulkDocDownloadJobs = await prisma.bulkDocDownloadJob.findMany()
+    * ```
+    */
+  get bulkDocDownloadJob(): Prisma.BulkDocDownloadJobDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -643,8 +674,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.19.0
-   * Query Engine version: 2ba551f319ab1df4bc874a89965d8b3641056773
+   * Prisma Client JS version: 6.19.1
+   * Query Engine version: c2990dca591cba766e3b7ef5d9e8a84796e47ab7
    */
   export type PrismaVersion = {
     client: string
@@ -1045,7 +1076,8 @@ export namespace Prisma {
     Template: 'Template',
     VariableDefinition: 'VariableDefinition',
     YayoiCSV: 'YayoiCSV',
-    YayoiCSVHistory: 'YayoiCSVHistory'
+    YayoiCSVHistory: 'YayoiCSVHistory',
+    BulkDocDownloadJob: 'BulkDocDownloadJob'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1064,7 +1096,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "sBIMPUser" | "eAJUser" | "company" | "ki" | "project" | "projectKi" | "projectKiBS" | "projectKiPL" | "pLOrderBy" | "asset" | "assetKi" | "deadlineTask" | "projectKiTask" | "customer" | "customerFund" | "template" | "variableDefinition" | "yayoiCSV" | "yayoiCSVHistory"
+      modelProps: "user" | "sBIMPUser" | "eAJUser" | "company" | "ki" | "project" | "projectKi" | "projectKiBS" | "projectKiPL" | "pLOrderBy" | "asset" | "assetKi" | "deadlineTask" | "projectKiTask" | "customer" | "customerFund" | "template" | "variableDefinition" | "yayoiCSV" | "yayoiCSVHistory" | "bulkDocDownloadJob"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2548,6 +2580,80 @@ export namespace Prisma {
           }
         }
       }
+      BulkDocDownloadJob: {
+        payload: Prisma.$BulkDocDownloadJobPayload<ExtArgs>
+        fields: Prisma.BulkDocDownloadJobFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BulkDocDownloadJobFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BulkDocDownloadJobPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BulkDocDownloadJobFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BulkDocDownloadJobPayload>
+          }
+          findFirst: {
+            args: Prisma.BulkDocDownloadJobFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BulkDocDownloadJobPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BulkDocDownloadJobFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BulkDocDownloadJobPayload>
+          }
+          findMany: {
+            args: Prisma.BulkDocDownloadJobFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BulkDocDownloadJobPayload>[]
+          }
+          create: {
+            args: Prisma.BulkDocDownloadJobCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BulkDocDownloadJobPayload>
+          }
+          createMany: {
+            args: Prisma.BulkDocDownloadJobCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BulkDocDownloadJobCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BulkDocDownloadJobPayload>[]
+          }
+          delete: {
+            args: Prisma.BulkDocDownloadJobDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BulkDocDownloadJobPayload>
+          }
+          update: {
+            args: Prisma.BulkDocDownloadJobUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BulkDocDownloadJobPayload>
+          }
+          deleteMany: {
+            args: Prisma.BulkDocDownloadJobDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BulkDocDownloadJobUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BulkDocDownloadJobUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BulkDocDownloadJobPayload>[]
+          }
+          upsert: {
+            args: Prisma.BulkDocDownloadJobUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BulkDocDownloadJobPayload>
+          }
+          aggregate: {
+            args: Prisma.BulkDocDownloadJobAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBulkDocDownloadJob>
+          }
+          groupBy: {
+            args: Prisma.BulkDocDownloadJobGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BulkDocDownloadJobGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BulkDocDownloadJobCountArgs<ExtArgs>
+            result: $Utils.Optional<BulkDocDownloadJobCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -2664,6 +2770,7 @@ export namespace Prisma {
     variableDefinition?: VariableDefinitionOmit
     yayoiCSV?: YayoiCSVOmit
     yayoiCSVHistory?: YayoiCSVHistoryOmit
+    bulkDocDownloadJob?: BulkDocDownloadJobOmit
   }
 
   /* Types for Logging */
@@ -8961,6 +9068,8 @@ export namespace Prisma {
     reportAtt3Id: string | null
     bunpaiId: string | null
     refId: string | null
+    sendDocument01Id: string | null
+    sendDocument02Id: string | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -9006,6 +9115,8 @@ export namespace Prisma {
     reportAtt3Id: string | null
     bunpaiId: string | null
     refId: string | null
+    sendDocument01Id: string | null
+    sendDocument02Id: string | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -9051,6 +9162,8 @@ export namespace Prisma {
     reportAtt3Id: number
     bunpaiId: number
     refId: number
+    sendDocument01Id: number
+    sendDocument02Id: number
     createdAt: number
     createdId: number
     createdBy: number
@@ -9118,6 +9231,8 @@ export namespace Prisma {
     reportAtt3Id?: true
     bunpaiId?: true
     refId?: true
+    sendDocument01Id?: true
+    sendDocument02Id?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -9163,6 +9278,8 @@ export namespace Prisma {
     reportAtt3Id?: true
     bunpaiId?: true
     refId?: true
+    sendDocument01Id?: true
+    sendDocument02Id?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -9208,6 +9325,8 @@ export namespace Prisma {
     reportAtt3Id?: true
     bunpaiId?: true
     refId?: true
+    sendDocument01Id?: true
+    sendDocument02Id?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -9340,6 +9459,8 @@ export namespace Prisma {
     reportAtt3Id: string | null
     bunpaiId: string | null
     refId: string | null
+    sendDocument01Id: string | null
+    sendDocument02Id: string | null
     createdAt: Date
     createdId: string
     createdBy: string
@@ -9404,6 +9525,8 @@ export namespace Prisma {
     reportAtt3Id?: boolean
     bunpaiId?: boolean
     refId?: boolean
+    sendDocument01Id?: boolean
+    sendDocument02Id?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -9458,6 +9581,8 @@ export namespace Prisma {
     reportAtt3Id?: boolean
     bunpaiId?: boolean
     refId?: boolean
+    sendDocument01Id?: boolean
+    sendDocument02Id?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -9508,6 +9633,8 @@ export namespace Prisma {
     reportAtt3Id?: boolean
     bunpaiId?: boolean
     refId?: boolean
+    sendDocument01Id?: boolean
+    sendDocument02Id?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -9558,6 +9685,8 @@ export namespace Prisma {
     reportAtt3Id?: boolean
     bunpaiId?: boolean
     refId?: boolean
+    sendDocument01Id?: boolean
+    sendDocument02Id?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -9566,7 +9695,7 @@ export namespace Prisma {
     updatedBy?: boolean
   }
 
-  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sbimpId" | "name" | "shortName" | "totalUnit" | "totalAmount" | "unitAmount" | "trustTermStart" | "trustTermEnd" | "dividendYield" | "fullOccupancyYield" | "totalKubun" | "residenceKubun" | "settlorGkName" | "settlorGkAddress" | "bankName" | "branchName" | "bankAccountType" | "bankAccount" | "bankAccountHolder" | "cashManBankName" | "cashManBranchName" | "cashManBankAccountType" | "cashManBankAccount" | "cashManBankAccountHolder" | "shintakuContractNum" | "kamiyachoFlag" | "mlspcFlag" | "leverageFlag" | "unitResidenceFlag" | "completedFlag" | "reportMainId" | "reportAtt2Id" | "reportAtt3Id" | "bunpaiId" | "refId" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["project"]>
+  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sbimpId" | "name" | "shortName" | "totalUnit" | "totalAmount" | "unitAmount" | "trustTermStart" | "trustTermEnd" | "dividendYield" | "fullOccupancyYield" | "totalKubun" | "residenceKubun" | "settlorGkName" | "settlorGkAddress" | "bankName" | "branchName" | "bankAccountType" | "bankAccount" | "bankAccountHolder" | "cashManBankName" | "cashManBranchName" | "cashManBankAccountType" | "cashManBankAccount" | "cashManBankAccountHolder" | "shintakuContractNum" | "kamiyachoFlag" | "mlspcFlag" | "leverageFlag" | "unitResidenceFlag" | "completedFlag" | "reportMainId" | "reportAtt2Id" | "reportAtt3Id" | "bunpaiId" | "refId" | "sendDocument01Id" | "sendDocument02Id" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["project"]>
   export type ProjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     ReportMain?: boolean | Project$ReportMainArgs<ExtArgs>
     ReportAtt2?: boolean | Project$ReportAtt2Args<ExtArgs>
@@ -9642,6 +9771,8 @@ export namespace Prisma {
       reportAtt3Id: string | null
       bunpaiId: string | null
       refId: string | null
+      sendDocument01Id: string | null
+      sendDocument02Id: string | null
       createdAt: Date
       createdId: string
       createdBy: string
@@ -10115,6 +10246,8 @@ export namespace Prisma {
     readonly reportAtt3Id: FieldRef<"Project", 'String'>
     readonly bunpaiId: FieldRef<"Project", 'String'>
     readonly refId: FieldRef<"Project", 'String'>
+    readonly sendDocument01Id: FieldRef<"Project", 'String'>
+    readonly sendDocument02Id: FieldRef<"Project", 'String'>
     readonly createdAt: FieldRef<"Project", 'DateTime'>
     readonly createdId: FieldRef<"Project", 'String'>
     readonly createdBy: FieldRef<"Project", 'String'>
@@ -23945,6 +24078,10 @@ export namespace Prisma {
     otherBunpaiThisKi: number | null
     otherBunpaiYear: number | null
     otherBunpaiTotal: number | null
+    totalSeq: number | null
+    projectSeq: number | null
+    sameApplyUnitNum: number | null
+    totalNum: number | null
   }
 
   export type CustomerFundSumAggregateOutputType = {
@@ -23955,6 +24092,10 @@ export namespace Prisma {
     otherBunpaiThisKi: number | null
     otherBunpaiYear: number | null
     otherBunpaiTotal: number | null
+    totalSeq: number | null
+    projectSeq: number | null
+    sameApplyUnitNum: number | null
+    totalNum: number | null
   }
 
   export type CustomerFundMinAggregateOutputType = {
@@ -23969,6 +24110,10 @@ export namespace Prisma {
     otherBunpaiThisKi: number | null
     otherBunpaiYear: number | null
     otherBunpaiTotal: number | null
+    totalSeq: number | null
+    projectSeq: number | null
+    sameApplyUnitNum: number | null
+    totalNum: number | null
     status: $Enums.CustomerFundStatus | null
     paymentDate: Date | null
     holdPayment: boolean | null
@@ -23993,6 +24138,10 @@ export namespace Prisma {
     otherBunpaiThisKi: number | null
     otherBunpaiYear: number | null
     otherBunpaiTotal: number | null
+    totalSeq: number | null
+    projectSeq: number | null
+    sameApplyUnitNum: number | null
+    totalNum: number | null
     status: $Enums.CustomerFundStatus | null
     paymentDate: Date | null
     holdPayment: boolean | null
@@ -24017,6 +24166,10 @@ export namespace Prisma {
     otherBunpaiThisKi: number
     otherBunpaiYear: number
     otherBunpaiTotal: number
+    totalSeq: number
+    projectSeq: number
+    sameApplyUnitNum: number
+    totalNum: number
     status: number
     paymentDate: number
     holdPayment: number
@@ -24039,6 +24192,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: true
     otherBunpaiYear?: true
     otherBunpaiTotal?: true
+    totalSeq?: true
+    projectSeq?: true
+    sameApplyUnitNum?: true
+    totalNum?: true
   }
 
   export type CustomerFundSumAggregateInputType = {
@@ -24049,6 +24206,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: true
     otherBunpaiYear?: true
     otherBunpaiTotal?: true
+    totalSeq?: true
+    projectSeq?: true
+    sameApplyUnitNum?: true
+    totalNum?: true
   }
 
   export type CustomerFundMinAggregateInputType = {
@@ -24063,6 +24224,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: true
     otherBunpaiYear?: true
     otherBunpaiTotal?: true
+    totalSeq?: true
+    projectSeq?: true
+    sameApplyUnitNum?: true
+    totalNum?: true
     status?: true
     paymentDate?: true
     holdPayment?: true
@@ -24087,6 +24252,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: true
     otherBunpaiYear?: true
     otherBunpaiTotal?: true
+    totalSeq?: true
+    projectSeq?: true
+    sameApplyUnitNum?: true
+    totalNum?: true
     status?: true
     paymentDate?: true
     holdPayment?: true
@@ -24111,6 +24280,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: true
     otherBunpaiYear?: true
     otherBunpaiTotal?: true
+    totalSeq?: true
+    projectSeq?: true
+    sameApplyUnitNum?: true
+    totalNum?: true
     status?: true
     paymentDate?: true
     holdPayment?: true
@@ -24222,6 +24395,10 @@ export namespace Prisma {
     otherBunpaiThisKi: number | null
     otherBunpaiYear: number | null
     otherBunpaiTotal: number | null
+    totalSeq: number
+    projectSeq: number
+    sameApplyUnitNum: number
+    totalNum: number
     status: $Enums.CustomerFundStatus
     paymentDate: Date | null
     holdPayment: boolean
@@ -24265,6 +24442,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: boolean
     otherBunpaiYear?: boolean
     otherBunpaiTotal?: boolean
+    totalSeq?: boolean
+    projectSeq?: boolean
+    sameApplyUnitNum?: boolean
+    totalNum?: boolean
     status?: boolean
     paymentDate?: boolean
     holdPayment?: boolean
@@ -24294,6 +24475,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: boolean
     otherBunpaiYear?: boolean
     otherBunpaiTotal?: boolean
+    totalSeq?: boolean
+    projectSeq?: boolean
+    sameApplyUnitNum?: boolean
+    totalNum?: boolean
     status?: boolean
     paymentDate?: boolean
     holdPayment?: boolean
@@ -24321,6 +24506,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: boolean
     otherBunpaiYear?: boolean
     otherBunpaiTotal?: boolean
+    totalSeq?: boolean
+    projectSeq?: boolean
+    sameApplyUnitNum?: boolean
+    totalNum?: boolean
     status?: boolean
     paymentDate?: boolean
     holdPayment?: boolean
@@ -24348,6 +24537,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: boolean
     otherBunpaiYear?: boolean
     otherBunpaiTotal?: boolean
+    totalSeq?: boolean
+    projectSeq?: boolean
+    sameApplyUnitNum?: boolean
+    totalNum?: boolean
     status?: boolean
     paymentDate?: boolean
     holdPayment?: boolean
@@ -24360,7 +24553,7 @@ export namespace Prisma {
     updatedBy?: boolean
   }
 
-  export type CustomerFundOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "customerId" | "projectKiId" | "invoice" | "applyUnit" | "bunpaiThisKi" | "bunpaiYear" | "bunpaiTotal" | "otherBunpaiThisKi" | "otherBunpaiYear" | "otherBunpaiTotal" | "status" | "paymentDate" | "holdPayment" | "sourceCustomerFundId" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["customerFund"]>
+  export type CustomerFundOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "customerId" | "projectKiId" | "invoice" | "applyUnit" | "bunpaiThisKi" | "bunpaiYear" | "bunpaiTotal" | "otherBunpaiThisKi" | "otherBunpaiYear" | "otherBunpaiTotal" | "totalSeq" | "projectSeq" | "sameApplyUnitNum" | "totalNum" | "status" | "paymentDate" | "holdPayment" | "sourceCustomerFundId" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["customerFund"]>
   export type CustomerFundInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Customer?: boolean | CustomerDefaultArgs<ExtArgs>
     ProjectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
@@ -24399,6 +24592,10 @@ export namespace Prisma {
       otherBunpaiThisKi: number | null
       otherBunpaiYear: number | null
       otherBunpaiTotal: number | null
+      totalSeq: number
+      projectSeq: number
+      sameApplyUnitNum: number
+      totalNum: number
       status: $Enums.CustomerFundStatus
       paymentDate: Date | null
       holdPayment: boolean
@@ -24847,6 +25044,10 @@ export namespace Prisma {
     readonly otherBunpaiThisKi: FieldRef<"CustomerFund", 'Int'>
     readonly otherBunpaiYear: FieldRef<"CustomerFund", 'Int'>
     readonly otherBunpaiTotal: FieldRef<"CustomerFund", 'Int'>
+    readonly totalSeq: FieldRef<"CustomerFund", 'Int'>
+    readonly projectSeq: FieldRef<"CustomerFund", 'Int'>
+    readonly sameApplyUnitNum: FieldRef<"CustomerFund", 'Int'>
+    readonly totalNum: FieldRef<"CustomerFund", 'Int'>
     readonly status: FieldRef<"CustomerFund", 'CustomerFundStatus'>
     readonly paymentDate: FieldRef<"CustomerFund", 'DateTime'>
     readonly holdPayment: FieldRef<"CustomerFund", 'Boolean'>
@@ -29910,6 +30111,1118 @@ export namespace Prisma {
 
 
   /**
+   * Model BulkDocDownloadJob
+   */
+
+  export type AggregateBulkDocDownloadJob = {
+    _count: BulkDocDownloadJobCountAggregateOutputType | null
+    _min: BulkDocDownloadJobMinAggregateOutputType | null
+    _max: BulkDocDownloadJobMaxAggregateOutputType | null
+  }
+
+  export type BulkDocDownloadJobMinAggregateOutputType = {
+    id: string | null
+    userMailAddress: string | null
+    projectId: string | null
+    kiId: string | null
+    status: $Enums.BulkDownloadStatus | null
+    storagePath: string | null
+    expiresAt: Date | null
+    errorMessage: string | null
+    createdAt: Date | null
+    createdId: string | null
+    createdBy: string | null
+    updatedAt: Date | null
+    updatedId: string | null
+    updatedBy: string | null
+  }
+
+  export type BulkDocDownloadJobMaxAggregateOutputType = {
+    id: string | null
+    userMailAddress: string | null
+    projectId: string | null
+    kiId: string | null
+    status: $Enums.BulkDownloadStatus | null
+    storagePath: string | null
+    expiresAt: Date | null
+    errorMessage: string | null
+    createdAt: Date | null
+    createdId: string | null
+    createdBy: string | null
+    updatedAt: Date | null
+    updatedId: string | null
+    updatedBy: string | null
+  }
+
+  export type BulkDocDownloadJobCountAggregateOutputType = {
+    id: number
+    userMailAddress: number
+    projectId: number
+    kiId: number
+    status: number
+    storagePath: number
+    expiresAt: number
+    errorMessage: number
+    createdAt: number
+    createdId: number
+    createdBy: number
+    updatedAt: number
+    updatedId: number
+    updatedBy: number
+    _all: number
+  }
+
+
+  export type BulkDocDownloadJobMinAggregateInputType = {
+    id?: true
+    userMailAddress?: true
+    projectId?: true
+    kiId?: true
+    status?: true
+    storagePath?: true
+    expiresAt?: true
+    errorMessage?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+  }
+
+  export type BulkDocDownloadJobMaxAggregateInputType = {
+    id?: true
+    userMailAddress?: true
+    projectId?: true
+    kiId?: true
+    status?: true
+    storagePath?: true
+    expiresAt?: true
+    errorMessage?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+  }
+
+  export type BulkDocDownloadJobCountAggregateInputType = {
+    id?: true
+    userMailAddress?: true
+    projectId?: true
+    kiId?: true
+    status?: true
+    storagePath?: true
+    expiresAt?: true
+    errorMessage?: true
+    createdAt?: true
+    createdId?: true
+    createdBy?: true
+    updatedAt?: true
+    updatedId?: true
+    updatedBy?: true
+    _all?: true
+  }
+
+  export type BulkDocDownloadJobAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BulkDocDownloadJob to aggregate.
+     */
+    where?: BulkDocDownloadJobWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BulkDocDownloadJobs to fetch.
+     */
+    orderBy?: BulkDocDownloadJobOrderByWithRelationInput | BulkDocDownloadJobOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BulkDocDownloadJobWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BulkDocDownloadJobs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BulkDocDownloadJobs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned BulkDocDownloadJobs
+    **/
+    _count?: true | BulkDocDownloadJobCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BulkDocDownloadJobMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BulkDocDownloadJobMaxAggregateInputType
+  }
+
+  export type GetBulkDocDownloadJobAggregateType<T extends BulkDocDownloadJobAggregateArgs> = {
+        [P in keyof T & keyof AggregateBulkDocDownloadJob]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBulkDocDownloadJob[P]>
+      : GetScalarType<T[P], AggregateBulkDocDownloadJob[P]>
+  }
+
+
+
+
+  export type BulkDocDownloadJobGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BulkDocDownloadJobWhereInput
+    orderBy?: BulkDocDownloadJobOrderByWithAggregationInput | BulkDocDownloadJobOrderByWithAggregationInput[]
+    by: BulkDocDownloadJobScalarFieldEnum[] | BulkDocDownloadJobScalarFieldEnum
+    having?: BulkDocDownloadJobScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BulkDocDownloadJobCountAggregateInputType | true
+    _min?: BulkDocDownloadJobMinAggregateInputType
+    _max?: BulkDocDownloadJobMaxAggregateInputType
+  }
+
+  export type BulkDocDownloadJobGroupByOutputType = {
+    id: string
+    userMailAddress: string
+    projectId: string
+    kiId: string
+    status: $Enums.BulkDownloadStatus
+    storagePath: string | null
+    expiresAt: Date | null
+    errorMessage: string | null
+    createdAt: Date
+    createdId: string
+    createdBy: string
+    updatedAt: Date
+    updatedId: string
+    updatedBy: string
+    _count: BulkDocDownloadJobCountAggregateOutputType | null
+    _min: BulkDocDownloadJobMinAggregateOutputType | null
+    _max: BulkDocDownloadJobMaxAggregateOutputType | null
+  }
+
+  type GetBulkDocDownloadJobGroupByPayload<T extends BulkDocDownloadJobGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BulkDocDownloadJobGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BulkDocDownloadJobGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BulkDocDownloadJobGroupByOutputType[P]>
+            : GetScalarType<T[P], BulkDocDownloadJobGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BulkDocDownloadJobSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userMailAddress?: boolean
+    projectId?: boolean
+    kiId?: boolean
+    status?: boolean
+    storagePath?: boolean
+    expiresAt?: boolean
+    errorMessage?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }, ExtArgs["result"]["bulkDocDownloadJob"]>
+
+  export type BulkDocDownloadJobSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userMailAddress?: boolean
+    projectId?: boolean
+    kiId?: boolean
+    status?: boolean
+    storagePath?: boolean
+    expiresAt?: boolean
+    errorMessage?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }, ExtArgs["result"]["bulkDocDownloadJob"]>
+
+  export type BulkDocDownloadJobSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userMailAddress?: boolean
+    projectId?: boolean
+    kiId?: boolean
+    status?: boolean
+    storagePath?: boolean
+    expiresAt?: boolean
+    errorMessage?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }, ExtArgs["result"]["bulkDocDownloadJob"]>
+
+  export type BulkDocDownloadJobSelectScalar = {
+    id?: boolean
+    userMailAddress?: boolean
+    projectId?: boolean
+    kiId?: boolean
+    status?: boolean
+    storagePath?: boolean
+    expiresAt?: boolean
+    errorMessage?: boolean
+    createdAt?: boolean
+    createdId?: boolean
+    createdBy?: boolean
+    updatedAt?: boolean
+    updatedId?: boolean
+    updatedBy?: boolean
+  }
+
+  export type BulkDocDownloadJobOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userMailAddress" | "projectId" | "kiId" | "status" | "storagePath" | "expiresAt" | "errorMessage" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["bulkDocDownloadJob"]>
+
+  export type $BulkDocDownloadJobPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BulkDocDownloadJob"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userMailAddress: string
+      projectId: string
+      kiId: string
+      status: $Enums.BulkDownloadStatus
+      storagePath: string | null
+      expiresAt: Date | null
+      errorMessage: string | null
+      createdAt: Date
+      createdId: string
+      createdBy: string
+      updatedAt: Date
+      updatedId: string
+      updatedBy: string
+    }, ExtArgs["result"]["bulkDocDownloadJob"]>
+    composites: {}
+  }
+
+  type BulkDocDownloadJobGetPayload<S extends boolean | null | undefined | BulkDocDownloadJobDefaultArgs> = $Result.GetResult<Prisma.$BulkDocDownloadJobPayload, S>
+
+  type BulkDocDownloadJobCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BulkDocDownloadJobFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BulkDocDownloadJobCountAggregateInputType | true
+    }
+
+  export interface BulkDocDownloadJobDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BulkDocDownloadJob'], meta: { name: 'BulkDocDownloadJob' } }
+    /**
+     * Find zero or one BulkDocDownloadJob that matches the filter.
+     * @param {BulkDocDownloadJobFindUniqueArgs} args - Arguments to find a BulkDocDownloadJob
+     * @example
+     * // Get one BulkDocDownloadJob
+     * const bulkDocDownloadJob = await prisma.bulkDocDownloadJob.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BulkDocDownloadJobFindUniqueArgs>(args: SelectSubset<T, BulkDocDownloadJobFindUniqueArgs<ExtArgs>>): Prisma__BulkDocDownloadJobClient<$Result.GetResult<Prisma.$BulkDocDownloadJobPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one BulkDocDownloadJob that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BulkDocDownloadJobFindUniqueOrThrowArgs} args - Arguments to find a BulkDocDownloadJob
+     * @example
+     * // Get one BulkDocDownloadJob
+     * const bulkDocDownloadJob = await prisma.bulkDocDownloadJob.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BulkDocDownloadJobFindUniqueOrThrowArgs>(args: SelectSubset<T, BulkDocDownloadJobFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BulkDocDownloadJobClient<$Result.GetResult<Prisma.$BulkDocDownloadJobPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BulkDocDownloadJob that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BulkDocDownloadJobFindFirstArgs} args - Arguments to find a BulkDocDownloadJob
+     * @example
+     * // Get one BulkDocDownloadJob
+     * const bulkDocDownloadJob = await prisma.bulkDocDownloadJob.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BulkDocDownloadJobFindFirstArgs>(args?: SelectSubset<T, BulkDocDownloadJobFindFirstArgs<ExtArgs>>): Prisma__BulkDocDownloadJobClient<$Result.GetResult<Prisma.$BulkDocDownloadJobPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first BulkDocDownloadJob that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BulkDocDownloadJobFindFirstOrThrowArgs} args - Arguments to find a BulkDocDownloadJob
+     * @example
+     * // Get one BulkDocDownloadJob
+     * const bulkDocDownloadJob = await prisma.bulkDocDownloadJob.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BulkDocDownloadJobFindFirstOrThrowArgs>(args?: SelectSubset<T, BulkDocDownloadJobFindFirstOrThrowArgs<ExtArgs>>): Prisma__BulkDocDownloadJobClient<$Result.GetResult<Prisma.$BulkDocDownloadJobPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more BulkDocDownloadJobs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BulkDocDownloadJobFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all BulkDocDownloadJobs
+     * const bulkDocDownloadJobs = await prisma.bulkDocDownloadJob.findMany()
+     * 
+     * // Get first 10 BulkDocDownloadJobs
+     * const bulkDocDownloadJobs = await prisma.bulkDocDownloadJob.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const bulkDocDownloadJobWithIdOnly = await prisma.bulkDocDownloadJob.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends BulkDocDownloadJobFindManyArgs>(args?: SelectSubset<T, BulkDocDownloadJobFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BulkDocDownloadJobPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a BulkDocDownloadJob.
+     * @param {BulkDocDownloadJobCreateArgs} args - Arguments to create a BulkDocDownloadJob.
+     * @example
+     * // Create one BulkDocDownloadJob
+     * const BulkDocDownloadJob = await prisma.bulkDocDownloadJob.create({
+     *   data: {
+     *     // ... data to create a BulkDocDownloadJob
+     *   }
+     * })
+     * 
+     */
+    create<T extends BulkDocDownloadJobCreateArgs>(args: SelectSubset<T, BulkDocDownloadJobCreateArgs<ExtArgs>>): Prisma__BulkDocDownloadJobClient<$Result.GetResult<Prisma.$BulkDocDownloadJobPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many BulkDocDownloadJobs.
+     * @param {BulkDocDownloadJobCreateManyArgs} args - Arguments to create many BulkDocDownloadJobs.
+     * @example
+     * // Create many BulkDocDownloadJobs
+     * const bulkDocDownloadJob = await prisma.bulkDocDownloadJob.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BulkDocDownloadJobCreateManyArgs>(args?: SelectSubset<T, BulkDocDownloadJobCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many BulkDocDownloadJobs and returns the data saved in the database.
+     * @param {BulkDocDownloadJobCreateManyAndReturnArgs} args - Arguments to create many BulkDocDownloadJobs.
+     * @example
+     * // Create many BulkDocDownloadJobs
+     * const bulkDocDownloadJob = await prisma.bulkDocDownloadJob.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many BulkDocDownloadJobs and only return the `id`
+     * const bulkDocDownloadJobWithIdOnly = await prisma.bulkDocDownloadJob.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BulkDocDownloadJobCreateManyAndReturnArgs>(args?: SelectSubset<T, BulkDocDownloadJobCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BulkDocDownloadJobPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a BulkDocDownloadJob.
+     * @param {BulkDocDownloadJobDeleteArgs} args - Arguments to delete one BulkDocDownloadJob.
+     * @example
+     * // Delete one BulkDocDownloadJob
+     * const BulkDocDownloadJob = await prisma.bulkDocDownloadJob.delete({
+     *   where: {
+     *     // ... filter to delete one BulkDocDownloadJob
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BulkDocDownloadJobDeleteArgs>(args: SelectSubset<T, BulkDocDownloadJobDeleteArgs<ExtArgs>>): Prisma__BulkDocDownloadJobClient<$Result.GetResult<Prisma.$BulkDocDownloadJobPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one BulkDocDownloadJob.
+     * @param {BulkDocDownloadJobUpdateArgs} args - Arguments to update one BulkDocDownloadJob.
+     * @example
+     * // Update one BulkDocDownloadJob
+     * const bulkDocDownloadJob = await prisma.bulkDocDownloadJob.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BulkDocDownloadJobUpdateArgs>(args: SelectSubset<T, BulkDocDownloadJobUpdateArgs<ExtArgs>>): Prisma__BulkDocDownloadJobClient<$Result.GetResult<Prisma.$BulkDocDownloadJobPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more BulkDocDownloadJobs.
+     * @param {BulkDocDownloadJobDeleteManyArgs} args - Arguments to filter BulkDocDownloadJobs to delete.
+     * @example
+     * // Delete a few BulkDocDownloadJobs
+     * const { count } = await prisma.bulkDocDownloadJob.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BulkDocDownloadJobDeleteManyArgs>(args?: SelectSubset<T, BulkDocDownloadJobDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BulkDocDownloadJobs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BulkDocDownloadJobUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many BulkDocDownloadJobs
+     * const bulkDocDownloadJob = await prisma.bulkDocDownloadJob.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BulkDocDownloadJobUpdateManyArgs>(args: SelectSubset<T, BulkDocDownloadJobUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more BulkDocDownloadJobs and returns the data updated in the database.
+     * @param {BulkDocDownloadJobUpdateManyAndReturnArgs} args - Arguments to update many BulkDocDownloadJobs.
+     * @example
+     * // Update many BulkDocDownloadJobs
+     * const bulkDocDownloadJob = await prisma.bulkDocDownloadJob.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more BulkDocDownloadJobs and only return the `id`
+     * const bulkDocDownloadJobWithIdOnly = await prisma.bulkDocDownloadJob.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends BulkDocDownloadJobUpdateManyAndReturnArgs>(args: SelectSubset<T, BulkDocDownloadJobUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BulkDocDownloadJobPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one BulkDocDownloadJob.
+     * @param {BulkDocDownloadJobUpsertArgs} args - Arguments to update or create a BulkDocDownloadJob.
+     * @example
+     * // Update or create a BulkDocDownloadJob
+     * const bulkDocDownloadJob = await prisma.bulkDocDownloadJob.upsert({
+     *   create: {
+     *     // ... data to create a BulkDocDownloadJob
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the BulkDocDownloadJob we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BulkDocDownloadJobUpsertArgs>(args: SelectSubset<T, BulkDocDownloadJobUpsertArgs<ExtArgs>>): Prisma__BulkDocDownloadJobClient<$Result.GetResult<Prisma.$BulkDocDownloadJobPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of BulkDocDownloadJobs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BulkDocDownloadJobCountArgs} args - Arguments to filter BulkDocDownloadJobs to count.
+     * @example
+     * // Count the number of BulkDocDownloadJobs
+     * const count = await prisma.bulkDocDownloadJob.count({
+     *   where: {
+     *     // ... the filter for the BulkDocDownloadJobs we want to count
+     *   }
+     * })
+    **/
+    count<T extends BulkDocDownloadJobCountArgs>(
+      args?: Subset<T, BulkDocDownloadJobCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BulkDocDownloadJobCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a BulkDocDownloadJob.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BulkDocDownloadJobAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BulkDocDownloadJobAggregateArgs>(args: Subset<T, BulkDocDownloadJobAggregateArgs>): Prisma.PrismaPromise<GetBulkDocDownloadJobAggregateType<T>>
+
+    /**
+     * Group by BulkDocDownloadJob.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BulkDocDownloadJobGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BulkDocDownloadJobGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BulkDocDownloadJobGroupByArgs['orderBy'] }
+        : { orderBy?: BulkDocDownloadJobGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BulkDocDownloadJobGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBulkDocDownloadJobGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the BulkDocDownloadJob model
+   */
+  readonly fields: BulkDocDownloadJobFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for BulkDocDownloadJob.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BulkDocDownloadJobClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the BulkDocDownloadJob model
+   */
+  interface BulkDocDownloadJobFieldRefs {
+    readonly id: FieldRef<"BulkDocDownloadJob", 'String'>
+    readonly userMailAddress: FieldRef<"BulkDocDownloadJob", 'String'>
+    readonly projectId: FieldRef<"BulkDocDownloadJob", 'String'>
+    readonly kiId: FieldRef<"BulkDocDownloadJob", 'String'>
+    readonly status: FieldRef<"BulkDocDownloadJob", 'BulkDownloadStatus'>
+    readonly storagePath: FieldRef<"BulkDocDownloadJob", 'String'>
+    readonly expiresAt: FieldRef<"BulkDocDownloadJob", 'DateTime'>
+    readonly errorMessage: FieldRef<"BulkDocDownloadJob", 'String'>
+    readonly createdAt: FieldRef<"BulkDocDownloadJob", 'DateTime'>
+    readonly createdId: FieldRef<"BulkDocDownloadJob", 'String'>
+    readonly createdBy: FieldRef<"BulkDocDownloadJob", 'String'>
+    readonly updatedAt: FieldRef<"BulkDocDownloadJob", 'DateTime'>
+    readonly updatedId: FieldRef<"BulkDocDownloadJob", 'String'>
+    readonly updatedBy: FieldRef<"BulkDocDownloadJob", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * BulkDocDownloadJob findUnique
+   */
+  export type BulkDocDownloadJobFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BulkDocDownloadJob
+     */
+    select?: BulkDocDownloadJobSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BulkDocDownloadJob
+     */
+    omit?: BulkDocDownloadJobOmit<ExtArgs> | null
+    /**
+     * Filter, which BulkDocDownloadJob to fetch.
+     */
+    where: BulkDocDownloadJobWhereUniqueInput
+  }
+
+  /**
+   * BulkDocDownloadJob findUniqueOrThrow
+   */
+  export type BulkDocDownloadJobFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BulkDocDownloadJob
+     */
+    select?: BulkDocDownloadJobSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BulkDocDownloadJob
+     */
+    omit?: BulkDocDownloadJobOmit<ExtArgs> | null
+    /**
+     * Filter, which BulkDocDownloadJob to fetch.
+     */
+    where: BulkDocDownloadJobWhereUniqueInput
+  }
+
+  /**
+   * BulkDocDownloadJob findFirst
+   */
+  export type BulkDocDownloadJobFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BulkDocDownloadJob
+     */
+    select?: BulkDocDownloadJobSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BulkDocDownloadJob
+     */
+    omit?: BulkDocDownloadJobOmit<ExtArgs> | null
+    /**
+     * Filter, which BulkDocDownloadJob to fetch.
+     */
+    where?: BulkDocDownloadJobWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BulkDocDownloadJobs to fetch.
+     */
+    orderBy?: BulkDocDownloadJobOrderByWithRelationInput | BulkDocDownloadJobOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BulkDocDownloadJobs.
+     */
+    cursor?: BulkDocDownloadJobWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BulkDocDownloadJobs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BulkDocDownloadJobs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BulkDocDownloadJobs.
+     */
+    distinct?: BulkDocDownloadJobScalarFieldEnum | BulkDocDownloadJobScalarFieldEnum[]
+  }
+
+  /**
+   * BulkDocDownloadJob findFirstOrThrow
+   */
+  export type BulkDocDownloadJobFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BulkDocDownloadJob
+     */
+    select?: BulkDocDownloadJobSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BulkDocDownloadJob
+     */
+    omit?: BulkDocDownloadJobOmit<ExtArgs> | null
+    /**
+     * Filter, which BulkDocDownloadJob to fetch.
+     */
+    where?: BulkDocDownloadJobWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BulkDocDownloadJobs to fetch.
+     */
+    orderBy?: BulkDocDownloadJobOrderByWithRelationInput | BulkDocDownloadJobOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for BulkDocDownloadJobs.
+     */
+    cursor?: BulkDocDownloadJobWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BulkDocDownloadJobs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BulkDocDownloadJobs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of BulkDocDownloadJobs.
+     */
+    distinct?: BulkDocDownloadJobScalarFieldEnum | BulkDocDownloadJobScalarFieldEnum[]
+  }
+
+  /**
+   * BulkDocDownloadJob findMany
+   */
+  export type BulkDocDownloadJobFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BulkDocDownloadJob
+     */
+    select?: BulkDocDownloadJobSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BulkDocDownloadJob
+     */
+    omit?: BulkDocDownloadJobOmit<ExtArgs> | null
+    /**
+     * Filter, which BulkDocDownloadJobs to fetch.
+     */
+    where?: BulkDocDownloadJobWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of BulkDocDownloadJobs to fetch.
+     */
+    orderBy?: BulkDocDownloadJobOrderByWithRelationInput | BulkDocDownloadJobOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing BulkDocDownloadJobs.
+     */
+    cursor?: BulkDocDownloadJobWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` BulkDocDownloadJobs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` BulkDocDownloadJobs.
+     */
+    skip?: number
+    distinct?: BulkDocDownloadJobScalarFieldEnum | BulkDocDownloadJobScalarFieldEnum[]
+  }
+
+  /**
+   * BulkDocDownloadJob create
+   */
+  export type BulkDocDownloadJobCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BulkDocDownloadJob
+     */
+    select?: BulkDocDownloadJobSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BulkDocDownloadJob
+     */
+    omit?: BulkDocDownloadJobOmit<ExtArgs> | null
+    /**
+     * The data needed to create a BulkDocDownloadJob.
+     */
+    data: XOR<BulkDocDownloadJobCreateInput, BulkDocDownloadJobUncheckedCreateInput>
+  }
+
+  /**
+   * BulkDocDownloadJob createMany
+   */
+  export type BulkDocDownloadJobCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many BulkDocDownloadJobs.
+     */
+    data: BulkDocDownloadJobCreateManyInput | BulkDocDownloadJobCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * BulkDocDownloadJob createManyAndReturn
+   */
+  export type BulkDocDownloadJobCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BulkDocDownloadJob
+     */
+    select?: BulkDocDownloadJobSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BulkDocDownloadJob
+     */
+    omit?: BulkDocDownloadJobOmit<ExtArgs> | null
+    /**
+     * The data used to create many BulkDocDownloadJobs.
+     */
+    data: BulkDocDownloadJobCreateManyInput | BulkDocDownloadJobCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * BulkDocDownloadJob update
+   */
+  export type BulkDocDownloadJobUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BulkDocDownloadJob
+     */
+    select?: BulkDocDownloadJobSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BulkDocDownloadJob
+     */
+    omit?: BulkDocDownloadJobOmit<ExtArgs> | null
+    /**
+     * The data needed to update a BulkDocDownloadJob.
+     */
+    data: XOR<BulkDocDownloadJobUpdateInput, BulkDocDownloadJobUncheckedUpdateInput>
+    /**
+     * Choose, which BulkDocDownloadJob to update.
+     */
+    where: BulkDocDownloadJobWhereUniqueInput
+  }
+
+  /**
+   * BulkDocDownloadJob updateMany
+   */
+  export type BulkDocDownloadJobUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update BulkDocDownloadJobs.
+     */
+    data: XOR<BulkDocDownloadJobUpdateManyMutationInput, BulkDocDownloadJobUncheckedUpdateManyInput>
+    /**
+     * Filter which BulkDocDownloadJobs to update
+     */
+    where?: BulkDocDownloadJobWhereInput
+    /**
+     * Limit how many BulkDocDownloadJobs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * BulkDocDownloadJob updateManyAndReturn
+   */
+  export type BulkDocDownloadJobUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BulkDocDownloadJob
+     */
+    select?: BulkDocDownloadJobSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the BulkDocDownloadJob
+     */
+    omit?: BulkDocDownloadJobOmit<ExtArgs> | null
+    /**
+     * The data used to update BulkDocDownloadJobs.
+     */
+    data: XOR<BulkDocDownloadJobUpdateManyMutationInput, BulkDocDownloadJobUncheckedUpdateManyInput>
+    /**
+     * Filter which BulkDocDownloadJobs to update
+     */
+    where?: BulkDocDownloadJobWhereInput
+    /**
+     * Limit how many BulkDocDownloadJobs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * BulkDocDownloadJob upsert
+   */
+  export type BulkDocDownloadJobUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BulkDocDownloadJob
+     */
+    select?: BulkDocDownloadJobSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BulkDocDownloadJob
+     */
+    omit?: BulkDocDownloadJobOmit<ExtArgs> | null
+    /**
+     * The filter to search for the BulkDocDownloadJob to update in case it exists.
+     */
+    where: BulkDocDownloadJobWhereUniqueInput
+    /**
+     * In case the BulkDocDownloadJob found by the `where` argument doesn't exist, create a new BulkDocDownloadJob with this data.
+     */
+    create: XOR<BulkDocDownloadJobCreateInput, BulkDocDownloadJobUncheckedCreateInput>
+    /**
+     * In case the BulkDocDownloadJob was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BulkDocDownloadJobUpdateInput, BulkDocDownloadJobUncheckedUpdateInput>
+  }
+
+  /**
+   * BulkDocDownloadJob delete
+   */
+  export type BulkDocDownloadJobDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BulkDocDownloadJob
+     */
+    select?: BulkDocDownloadJobSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BulkDocDownloadJob
+     */
+    omit?: BulkDocDownloadJobOmit<ExtArgs> | null
+    /**
+     * Filter which BulkDocDownloadJob to delete.
+     */
+    where: BulkDocDownloadJobWhereUniqueInput
+  }
+
+  /**
+   * BulkDocDownloadJob deleteMany
+   */
+  export type BulkDocDownloadJobDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which BulkDocDownloadJobs to delete
+     */
+    where?: BulkDocDownloadJobWhereInput
+    /**
+     * Limit how many BulkDocDownloadJobs to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * BulkDocDownloadJob without action
+   */
+  export type BulkDocDownloadJobDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BulkDocDownloadJob
+     */
+    select?: BulkDocDownloadJobSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the BulkDocDownloadJob
+     */
+    omit?: BulkDocDownloadJobOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -30056,6 +31369,8 @@ export namespace Prisma {
     reportAtt3Id: 'reportAtt3Id',
     bunpaiId: 'bunpaiId',
     refId: 'refId',
+    sendDocument01Id: 'sendDocument01Id',
+    sendDocument02Id: 'sendDocument02Id',
     createdAt: 'createdAt',
     createdId: 'createdId',
     createdBy: 'createdBy',
@@ -30406,6 +31721,10 @@ export namespace Prisma {
     otherBunpaiThisKi: 'otherBunpaiThisKi',
     otherBunpaiYear: 'otherBunpaiYear',
     otherBunpaiTotal: 'otherBunpaiTotal',
+    totalSeq: 'totalSeq',
+    projectSeq: 'projectSeq',
+    sameApplyUnitNum: 'sameApplyUnitNum',
+    totalNum: 'totalNum',
     status: 'status',
     paymentDate: 'paymentDate',
     holdPayment: 'holdPayment',
@@ -30493,6 +31812,26 @@ export namespace Prisma {
   };
 
   export type YayoiCSVHistoryScalarFieldEnum = (typeof YayoiCSVHistoryScalarFieldEnum)[keyof typeof YayoiCSVHistoryScalarFieldEnum]
+
+
+  export const BulkDocDownloadJobScalarFieldEnum: {
+    id: 'id',
+    userMailAddress: 'userMailAddress',
+    projectId: 'projectId',
+    kiId: 'kiId',
+    status: 'status',
+    storagePath: 'storagePath',
+    expiresAt: 'expiresAt',
+    errorMessage: 'errorMessage',
+    createdAt: 'createdAt',
+    createdId: 'createdId',
+    createdBy: 'createdBy',
+    updatedAt: 'updatedAt',
+    updatedId: 'updatedId',
+    updatedBy: 'updatedBy'
+  };
+
+  export type BulkDocDownloadJobScalarFieldEnum = (typeof BulkDocDownloadJobScalarFieldEnum)[keyof typeof BulkDocDownloadJobScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -30797,6 +32136,20 @@ export namespace Prisma {
    * Reference to a field of type 'VariableType[]'
    */
   export type ListEnumVariableTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'VariableType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'BulkDownloadStatus'
+   */
+  export type EnumBulkDownloadStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BulkDownloadStatus'>
+    
+
+
+  /**
+   * Reference to a field of type 'BulkDownloadStatus[]'
+   */
+  export type ListEnumBulkDownloadStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BulkDownloadStatus[]'>
     
   /**
    * Deep Input Types
@@ -31325,6 +32678,8 @@ export namespace Prisma {
     reportAtt3Id?: StringNullableFilter<"Project"> | string | null
     bunpaiId?: StringNullableFilter<"Project"> | string | null
     refId?: StringNullableFilter<"Project"> | string | null
+    sendDocument01Id?: StringNullableFilter<"Project"> | string | null
+    sendDocument02Id?: StringNullableFilter<"Project"> | string | null
     createdAt?: DateTimeFilter<"Project"> | Date | string
     createdId?: StringFilter<"Project"> | string
     createdBy?: StringFilter<"Project"> | string
@@ -31378,6 +32733,8 @@ export namespace Prisma {
     reportAtt3Id?: SortOrderInput | SortOrder
     bunpaiId?: SortOrderInput | SortOrder
     refId?: SortOrderInput | SortOrder
+    sendDocument01Id?: SortOrderInput | SortOrder
+    sendDocument02Id?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -31434,6 +32791,8 @@ export namespace Prisma {
     reportAtt3Id?: StringNullableFilter<"Project"> | string | null
     bunpaiId?: StringNullableFilter<"Project"> | string | null
     refId?: StringNullableFilter<"Project"> | string | null
+    sendDocument01Id?: StringNullableFilter<"Project"> | string | null
+    sendDocument02Id?: StringNullableFilter<"Project"> | string | null
     createdAt?: DateTimeFilter<"Project"> | Date | string
     createdId?: StringFilter<"Project"> | string
     createdBy?: StringFilter<"Project"> | string
@@ -31487,6 +32846,8 @@ export namespace Prisma {
     reportAtt3Id?: SortOrderInput | SortOrder
     bunpaiId?: SortOrderInput | SortOrder
     refId?: SortOrderInput | SortOrder
+    sendDocument01Id?: SortOrderInput | SortOrder
+    sendDocument02Id?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -31540,6 +32901,8 @@ export namespace Prisma {
     reportAtt3Id?: StringNullableWithAggregatesFilter<"Project"> | string | null
     bunpaiId?: StringNullableWithAggregatesFilter<"Project"> | string | null
     refId?: StringNullableWithAggregatesFilter<"Project"> | string | null
+    sendDocument01Id?: StringNullableWithAggregatesFilter<"Project"> | string | null
+    sendDocument02Id?: StringNullableWithAggregatesFilter<"Project"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Project"> | Date | string
     createdId?: StringWithAggregatesFilter<"Project"> | string
     createdBy?: StringWithAggregatesFilter<"Project"> | string
@@ -33239,6 +34602,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: IntNullableFilter<"CustomerFund"> | number | null
     otherBunpaiYear?: IntNullableFilter<"CustomerFund"> | number | null
     otherBunpaiTotal?: IntNullableFilter<"CustomerFund"> | number | null
+    totalSeq?: IntFilter<"CustomerFund"> | number
+    projectSeq?: IntFilter<"CustomerFund"> | number
+    sameApplyUnitNum?: IntFilter<"CustomerFund"> | number
+    totalNum?: IntFilter<"CustomerFund"> | number
     status?: EnumCustomerFundStatusFilter<"CustomerFund"> | $Enums.CustomerFundStatus
     paymentDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
     holdPayment?: BoolFilter<"CustomerFund"> | boolean
@@ -33267,6 +34634,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: SortOrderInput | SortOrder
     otherBunpaiYear?: SortOrderInput | SortOrder
     otherBunpaiTotal?: SortOrderInput | SortOrder
+    totalSeq?: SortOrder
+    projectSeq?: SortOrder
+    sameApplyUnitNum?: SortOrder
+    totalNum?: SortOrder
     status?: SortOrder
     paymentDate?: SortOrderInput | SortOrder
     holdPayment?: SortOrder
@@ -33299,6 +34670,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: IntNullableFilter<"CustomerFund"> | number | null
     otherBunpaiYear?: IntNullableFilter<"CustomerFund"> | number | null
     otherBunpaiTotal?: IntNullableFilter<"CustomerFund"> | number | null
+    totalSeq?: IntFilter<"CustomerFund"> | number
+    projectSeq?: IntFilter<"CustomerFund"> | number
+    sameApplyUnitNum?: IntFilter<"CustomerFund"> | number
+    totalNum?: IntFilter<"CustomerFund"> | number
     status?: EnumCustomerFundStatusFilter<"CustomerFund"> | $Enums.CustomerFundStatus
     paymentDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
     holdPayment?: BoolFilter<"CustomerFund"> | boolean
@@ -33327,6 +34702,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: SortOrderInput | SortOrder
     otherBunpaiYear?: SortOrderInput | SortOrder
     otherBunpaiTotal?: SortOrderInput | SortOrder
+    totalSeq?: SortOrder
+    projectSeq?: SortOrder
+    sameApplyUnitNum?: SortOrder
+    totalNum?: SortOrder
     status?: SortOrder
     paymentDate?: SortOrderInput | SortOrder
     holdPayment?: SortOrder
@@ -33359,6 +34738,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: IntNullableWithAggregatesFilter<"CustomerFund"> | number | null
     otherBunpaiYear?: IntNullableWithAggregatesFilter<"CustomerFund"> | number | null
     otherBunpaiTotal?: IntNullableWithAggregatesFilter<"CustomerFund"> | number | null
+    totalSeq?: IntWithAggregatesFilter<"CustomerFund"> | number
+    projectSeq?: IntWithAggregatesFilter<"CustomerFund"> | number
+    sameApplyUnitNum?: IntWithAggregatesFilter<"CustomerFund"> | number
+    totalNum?: IntWithAggregatesFilter<"CustomerFund"> | number
     status?: EnumCustomerFundStatusWithAggregatesFilter<"CustomerFund"> | $Enums.CustomerFundStatus
     paymentDate?: DateTimeNullableWithAggregatesFilter<"CustomerFund"> | Date | string | null
     holdPayment?: BoolWithAggregatesFilter<"CustomerFund"> | boolean
@@ -33745,6 +35128,103 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"YayoiCSVHistory"> | Date | string
     updatedId?: StringWithAggregatesFilter<"YayoiCSVHistory"> | string
     updatedBy?: StringWithAggregatesFilter<"YayoiCSVHistory"> | string
+  }
+
+  export type BulkDocDownloadJobWhereInput = {
+    AND?: BulkDocDownloadJobWhereInput | BulkDocDownloadJobWhereInput[]
+    OR?: BulkDocDownloadJobWhereInput[]
+    NOT?: BulkDocDownloadJobWhereInput | BulkDocDownloadJobWhereInput[]
+    id?: StringFilter<"BulkDocDownloadJob"> | string
+    userMailAddress?: StringFilter<"BulkDocDownloadJob"> | string
+    projectId?: StringFilter<"BulkDocDownloadJob"> | string
+    kiId?: StringFilter<"BulkDocDownloadJob"> | string
+    status?: EnumBulkDownloadStatusFilter<"BulkDocDownloadJob"> | $Enums.BulkDownloadStatus
+    storagePath?: StringNullableFilter<"BulkDocDownloadJob"> | string | null
+    expiresAt?: DateTimeNullableFilter<"BulkDocDownloadJob"> | Date | string | null
+    errorMessage?: StringNullableFilter<"BulkDocDownloadJob"> | string | null
+    createdAt?: DateTimeFilter<"BulkDocDownloadJob"> | Date | string
+    createdId?: StringFilter<"BulkDocDownloadJob"> | string
+    createdBy?: StringFilter<"BulkDocDownloadJob"> | string
+    updatedAt?: DateTimeFilter<"BulkDocDownloadJob"> | Date | string
+    updatedId?: StringFilter<"BulkDocDownloadJob"> | string
+    updatedBy?: StringFilter<"BulkDocDownloadJob"> | string
+  }
+
+  export type BulkDocDownloadJobOrderByWithRelationInput = {
+    id?: SortOrder
+    userMailAddress?: SortOrder
+    projectId?: SortOrder
+    kiId?: SortOrder
+    status?: SortOrder
+    storagePath?: SortOrderInput | SortOrder
+    expiresAt?: SortOrderInput | SortOrder
+    errorMessage?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type BulkDocDownloadJobWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: BulkDocDownloadJobWhereInput | BulkDocDownloadJobWhereInput[]
+    OR?: BulkDocDownloadJobWhereInput[]
+    NOT?: BulkDocDownloadJobWhereInput | BulkDocDownloadJobWhereInput[]
+    userMailAddress?: StringFilter<"BulkDocDownloadJob"> | string
+    projectId?: StringFilter<"BulkDocDownloadJob"> | string
+    kiId?: StringFilter<"BulkDocDownloadJob"> | string
+    status?: EnumBulkDownloadStatusFilter<"BulkDocDownloadJob"> | $Enums.BulkDownloadStatus
+    storagePath?: StringNullableFilter<"BulkDocDownloadJob"> | string | null
+    expiresAt?: DateTimeNullableFilter<"BulkDocDownloadJob"> | Date | string | null
+    errorMessage?: StringNullableFilter<"BulkDocDownloadJob"> | string | null
+    createdAt?: DateTimeFilter<"BulkDocDownloadJob"> | Date | string
+    createdId?: StringFilter<"BulkDocDownloadJob"> | string
+    createdBy?: StringFilter<"BulkDocDownloadJob"> | string
+    updatedAt?: DateTimeFilter<"BulkDocDownloadJob"> | Date | string
+    updatedId?: StringFilter<"BulkDocDownloadJob"> | string
+    updatedBy?: StringFilter<"BulkDocDownloadJob"> | string
+  }, "id">
+
+  export type BulkDocDownloadJobOrderByWithAggregationInput = {
+    id?: SortOrder
+    userMailAddress?: SortOrder
+    projectId?: SortOrder
+    kiId?: SortOrder
+    status?: SortOrder
+    storagePath?: SortOrderInput | SortOrder
+    expiresAt?: SortOrderInput | SortOrder
+    errorMessage?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+    _count?: BulkDocDownloadJobCountOrderByAggregateInput
+    _max?: BulkDocDownloadJobMaxOrderByAggregateInput
+    _min?: BulkDocDownloadJobMinOrderByAggregateInput
+  }
+
+  export type BulkDocDownloadJobScalarWhereWithAggregatesInput = {
+    AND?: BulkDocDownloadJobScalarWhereWithAggregatesInput | BulkDocDownloadJobScalarWhereWithAggregatesInput[]
+    OR?: BulkDocDownloadJobScalarWhereWithAggregatesInput[]
+    NOT?: BulkDocDownloadJobScalarWhereWithAggregatesInput | BulkDocDownloadJobScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"BulkDocDownloadJob"> | string
+    userMailAddress?: StringWithAggregatesFilter<"BulkDocDownloadJob"> | string
+    projectId?: StringWithAggregatesFilter<"BulkDocDownloadJob"> | string
+    kiId?: StringWithAggregatesFilter<"BulkDocDownloadJob"> | string
+    status?: EnumBulkDownloadStatusWithAggregatesFilter<"BulkDocDownloadJob"> | $Enums.BulkDownloadStatus
+    storagePath?: StringNullableWithAggregatesFilter<"BulkDocDownloadJob"> | string | null
+    expiresAt?: DateTimeNullableWithAggregatesFilter<"BulkDocDownloadJob"> | Date | string | null
+    errorMessage?: StringNullableWithAggregatesFilter<"BulkDocDownloadJob"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"BulkDocDownloadJob"> | Date | string
+    createdId?: StringWithAggregatesFilter<"BulkDocDownloadJob"> | string
+    createdBy?: StringWithAggregatesFilter<"BulkDocDownloadJob"> | string
+    updatedAt?: DateTimeWithAggregatesFilter<"BulkDocDownloadJob"> | Date | string
+    updatedId?: StringWithAggregatesFilter<"BulkDocDownloadJob"> | string
+    updatedBy?: StringWithAggregatesFilter<"BulkDocDownloadJob"> | string
   }
 
   export type UserCreateInput = {
@@ -34366,6 +35846,8 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    sendDocument01Id?: string | null
+    sendDocument02Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -34419,6 +35901,8 @@ export namespace Prisma {
     reportAtt3Id?: string | null
     bunpaiId?: string | null
     refId?: string | null
+    sendDocument01Id?: string | null
+    sendDocument02Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -34462,6 +35946,8 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -34515,6 +36001,8 @@ export namespace Prisma {
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
     refId?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -34563,6 +36051,8 @@ export namespace Prisma {
     reportAtt3Id?: string | null
     bunpaiId?: string | null
     refId?: string | null
+    sendDocument01Id?: string | null
+    sendDocument02Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -34603,6 +36093,8 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -34648,6 +36140,8 @@ export namespace Prisma {
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
     refId?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -36775,6 +38269,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
+    totalSeq?: number
+    projectSeq?: number
+    sameApplyUnitNum?: number
+    totalNum?: number
     status?: $Enums.CustomerFundStatus
     paymentDate?: Date | string | null
     holdPayment?: boolean
@@ -36802,6 +38300,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
+    totalSeq?: number
+    projectSeq?: number
+    sameApplyUnitNum?: number
+    totalNum?: number
     status?: $Enums.CustomerFundStatus
     paymentDate?: Date | string | null
     holdPayment?: boolean
@@ -36825,6 +38327,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    totalSeq?: IntFieldUpdateOperationsInput | number
+    projectSeq?: IntFieldUpdateOperationsInput | number
+    sameApplyUnitNum?: IntFieldUpdateOperationsInput | number
+    totalNum?: IntFieldUpdateOperationsInput | number
     status?: EnumCustomerFundStatusFieldUpdateOperationsInput | $Enums.CustomerFundStatus
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
@@ -36852,6 +38358,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    totalSeq?: IntFieldUpdateOperationsInput | number
+    projectSeq?: IntFieldUpdateOperationsInput | number
+    sameApplyUnitNum?: IntFieldUpdateOperationsInput | number
+    totalNum?: IntFieldUpdateOperationsInput | number
     status?: EnumCustomerFundStatusFieldUpdateOperationsInput | $Enums.CustomerFundStatus
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
@@ -36877,6 +38387,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
+    totalSeq?: number
+    projectSeq?: number
+    sameApplyUnitNum?: number
+    totalNum?: number
     status?: $Enums.CustomerFundStatus
     paymentDate?: Date | string | null
     holdPayment?: boolean
@@ -36899,6 +38413,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    totalSeq?: IntFieldUpdateOperationsInput | number
+    projectSeq?: IntFieldUpdateOperationsInput | number
+    sameApplyUnitNum?: IntFieldUpdateOperationsInput | number
+    totalNum?: IntFieldUpdateOperationsInput | number
     status?: EnumCustomerFundStatusFieldUpdateOperationsInput | $Enums.CustomerFundStatus
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
@@ -36922,6 +38440,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    totalSeq?: IntFieldUpdateOperationsInput | number
+    projectSeq?: IntFieldUpdateOperationsInput | number
+    sameApplyUnitNum?: IntFieldUpdateOperationsInput | number
+    totalNum?: IntFieldUpdateOperationsInput | number
     status?: EnumCustomerFundStatusFieldUpdateOperationsInput | $Enums.CustomerFundStatus
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
@@ -37383,6 +38905,125 @@ export namespace Prisma {
     taxType?: StringFieldUpdateOperationsInput | string
     csv?: StringFieldUpdateOperationsInput | string
     json?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BulkDocDownloadJobCreateInput = {
+    id?: string
+    userMailAddress: string
+    projectId: string
+    kiId: string
+    status?: $Enums.BulkDownloadStatus
+    storagePath?: string | null
+    expiresAt?: Date | string | null
+    errorMessage?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type BulkDocDownloadJobUncheckedCreateInput = {
+    id?: string
+    userMailAddress: string
+    projectId: string
+    kiId: string
+    status?: $Enums.BulkDownloadStatus
+    storagePath?: string | null
+    expiresAt?: Date | string | null
+    errorMessage?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type BulkDocDownloadJobUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userMailAddress?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    status?: EnumBulkDownloadStatusFieldUpdateOperationsInput | $Enums.BulkDownloadStatus
+    storagePath?: NullableStringFieldUpdateOperationsInput | string | null
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    errorMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BulkDocDownloadJobUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userMailAddress?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    status?: EnumBulkDownloadStatusFieldUpdateOperationsInput | $Enums.BulkDownloadStatus
+    storagePath?: NullableStringFieldUpdateOperationsInput | string | null
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    errorMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BulkDocDownloadJobCreateManyInput = {
+    id?: string
+    userMailAddress: string
+    projectId: string
+    kiId: string
+    status?: $Enums.BulkDownloadStatus
+    storagePath?: string | null
+    expiresAt?: Date | string | null
+    errorMessage?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type BulkDocDownloadJobUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userMailAddress?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    status?: EnumBulkDownloadStatusFieldUpdateOperationsInput | $Enums.BulkDownloadStatus
+    storagePath?: NullableStringFieldUpdateOperationsInput | string | null
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    errorMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BulkDocDownloadJobUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userMailAddress?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    status?: EnumBulkDownloadStatusFieldUpdateOperationsInput | $Enums.BulkDownloadStatus
+    storagePath?: NullableStringFieldUpdateOperationsInput | string | null
+    expiresAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    errorMessage?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
@@ -37950,6 +39591,8 @@ export namespace Prisma {
     reportAtt3Id?: SortOrder
     bunpaiId?: SortOrder
     refId?: SortOrder
+    sendDocument01Id?: SortOrder
+    sendDocument02Id?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -38005,6 +39648,8 @@ export namespace Prisma {
     reportAtt3Id?: SortOrder
     bunpaiId?: SortOrder
     refId?: SortOrder
+    sendDocument01Id?: SortOrder
+    sendDocument02Id?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -38050,6 +39695,8 @@ export namespace Prisma {
     reportAtt3Id?: SortOrder
     bunpaiId?: SortOrder
     refId?: SortOrder
+    sendDocument01Id?: SortOrder
+    sendDocument02Id?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -39615,6 +41262,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: SortOrder
     otherBunpaiYear?: SortOrder
     otherBunpaiTotal?: SortOrder
+    totalSeq?: SortOrder
+    projectSeq?: SortOrder
+    sameApplyUnitNum?: SortOrder
+    totalNum?: SortOrder
     status?: SortOrder
     paymentDate?: SortOrder
     holdPayment?: SortOrder
@@ -39635,6 +41286,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: SortOrder
     otherBunpaiYear?: SortOrder
     otherBunpaiTotal?: SortOrder
+    totalSeq?: SortOrder
+    projectSeq?: SortOrder
+    sameApplyUnitNum?: SortOrder
+    totalNum?: SortOrder
   }
 
   export type CustomerFundMaxOrderByAggregateInput = {
@@ -39649,6 +41304,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: SortOrder
     otherBunpaiYear?: SortOrder
     otherBunpaiTotal?: SortOrder
+    totalSeq?: SortOrder
+    projectSeq?: SortOrder
+    sameApplyUnitNum?: SortOrder
+    totalNum?: SortOrder
     status?: SortOrder
     paymentDate?: SortOrder
     holdPayment?: SortOrder
@@ -39673,6 +41332,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: SortOrder
     otherBunpaiYear?: SortOrder
     otherBunpaiTotal?: SortOrder
+    totalSeq?: SortOrder
+    projectSeq?: SortOrder
+    sameApplyUnitNum?: SortOrder
+    totalNum?: SortOrder
     status?: SortOrder
     paymentDate?: SortOrder
     holdPayment?: SortOrder
@@ -39693,6 +41356,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: SortOrder
     otherBunpaiYear?: SortOrder
     otherBunpaiTotal?: SortOrder
+    totalSeq?: SortOrder
+    projectSeq?: SortOrder
+    sameApplyUnitNum?: SortOrder
+    totalNum?: SortOrder
   }
 
   export type EnumCustomerFundStatusWithAggregatesFilter<$PrismaModel = never> = {
@@ -39984,6 +41651,74 @@ export namespace Prisma {
     updatedAt?: SortOrder
     updatedId?: SortOrder
     updatedBy?: SortOrder
+  }
+
+  export type EnumBulkDownloadStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.BulkDownloadStatus | EnumBulkDownloadStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.BulkDownloadStatus[] | ListEnumBulkDownloadStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.BulkDownloadStatus[] | ListEnumBulkDownloadStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumBulkDownloadStatusFilter<$PrismaModel> | $Enums.BulkDownloadStatus
+  }
+
+  export type BulkDocDownloadJobCountOrderByAggregateInput = {
+    id?: SortOrder
+    userMailAddress?: SortOrder
+    projectId?: SortOrder
+    kiId?: SortOrder
+    status?: SortOrder
+    storagePath?: SortOrder
+    expiresAt?: SortOrder
+    errorMessage?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type BulkDocDownloadJobMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userMailAddress?: SortOrder
+    projectId?: SortOrder
+    kiId?: SortOrder
+    status?: SortOrder
+    storagePath?: SortOrder
+    expiresAt?: SortOrder
+    errorMessage?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type BulkDocDownloadJobMinOrderByAggregateInput = {
+    id?: SortOrder
+    userMailAddress?: SortOrder
+    projectId?: SortOrder
+    kiId?: SortOrder
+    status?: SortOrder
+    storagePath?: SortOrder
+    expiresAt?: SortOrder
+    errorMessage?: SortOrder
+    createdAt?: SortOrder
+    createdId?: SortOrder
+    createdBy?: SortOrder
+    updatedAt?: SortOrder
+    updatedId?: SortOrder
+    updatedBy?: SortOrder
+  }
+
+  export type EnumBulkDownloadStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.BulkDownloadStatus | EnumBulkDownloadStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.BulkDownloadStatus[] | ListEnumBulkDownloadStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.BulkDownloadStatus[] | ListEnumBulkDownloadStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumBulkDownloadStatusWithAggregatesFilter<$PrismaModel> | $Enums.BulkDownloadStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumBulkDownloadStatusFilter<$PrismaModel>
+    _max?: NestedEnumBulkDownloadStatusFilter<$PrismaModel>
   }
 
   export type ProjectKiCreateNestedManyWithoutMainUserInput = {
@@ -41186,6 +42921,10 @@ export namespace Prisma {
     set?: $Enums.VariableType
   }
 
+  export type EnumBulkDownloadStatusFieldUpdateOperationsInput = {
+    set?: $Enums.BulkDownloadStatus
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -41715,6 +43454,23 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumVariableTypeFilter<$PrismaModel>
     _max?: NestedEnumVariableTypeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumBulkDownloadStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.BulkDownloadStatus | EnumBulkDownloadStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.BulkDownloadStatus[] | ListEnumBulkDownloadStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.BulkDownloadStatus[] | ListEnumBulkDownloadStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumBulkDownloadStatusFilter<$PrismaModel> | $Enums.BulkDownloadStatus
+  }
+
+  export type NestedEnumBulkDownloadStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.BulkDownloadStatus | EnumBulkDownloadStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.BulkDownloadStatus[] | ListEnumBulkDownloadStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.BulkDownloadStatus[] | ListEnumBulkDownloadStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumBulkDownloadStatusWithAggregatesFilter<$PrismaModel> | $Enums.BulkDownloadStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumBulkDownloadStatusFilter<$PrismaModel>
+    _max?: NestedEnumBulkDownloadStatusFilter<$PrismaModel>
   }
 
   export type ProjectKiCreateWithoutMainUserInput = {
@@ -43756,6 +45512,8 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    sendDocument01Id?: string | null
+    sendDocument02Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -43808,6 +45566,8 @@ export namespace Prisma {
     reportAtt3Id?: string | null
     bunpaiId?: string | null
     refId?: string | null
+    sendDocument01Id?: string | null
+    sendDocument02Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -43946,6 +45706,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
+    totalSeq?: number
+    projectSeq?: number
+    sameApplyUnitNum?: number
+    totalNum?: number
     status?: $Enums.CustomerFundStatus
     paymentDate?: Date | string | null
     holdPayment?: boolean
@@ -43971,6 +45735,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
+    totalSeq?: number
+    projectSeq?: number
+    sameApplyUnitNum?: number
+    totalNum?: number
     status?: $Enums.CustomerFundStatus
     paymentDate?: Date | string | null
     holdPayment?: boolean
@@ -44071,6 +45839,8 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -44123,6 +45893,8 @@ export namespace Prisma {
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
     refId?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -44295,6 +46067,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: IntNullableFilter<"CustomerFund"> | number | null
     otherBunpaiYear?: IntNullableFilter<"CustomerFund"> | number | null
     otherBunpaiTotal?: IntNullableFilter<"CustomerFund"> | number | null
+    totalSeq?: IntFilter<"CustomerFund"> | number
+    projectSeq?: IntFilter<"CustomerFund"> | number
+    sameApplyUnitNum?: IntFilter<"CustomerFund"> | number
+    totalNum?: IntFilter<"CustomerFund"> | number
     status?: EnumCustomerFundStatusFilter<"CustomerFund"> | $Enums.CustomerFundStatus
     paymentDate?: DateTimeNullableFilter<"CustomerFund"> | Date | string | null
     holdPayment?: BoolFilter<"CustomerFund"> | boolean
@@ -44371,6 +46147,8 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    sendDocument01Id?: string | null
+    sendDocument02Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -44423,6 +46201,8 @@ export namespace Prisma {
     reportAtt3Id?: string | null
     bunpaiId?: string | null
     refId?: string | null
+    sendDocument01Id?: string | null
+    sendDocument02Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -44571,6 +46351,8 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -44623,6 +46405,8 @@ export namespace Prisma {
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
     refId?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -45515,6 +47299,8 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    sendDocument01Id?: string | null
+    sendDocument02Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -45567,6 +47353,8 @@ export namespace Prisma {
     reportAtt3Id?: string | null
     bunpaiId?: string | null
     refId?: string | null
+    sendDocument01Id?: string | null
+    sendDocument02Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -45592,6 +47380,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
+    totalSeq?: number
+    projectSeq?: number
+    sameApplyUnitNum?: number
+    totalNum?: number
     status?: $Enums.CustomerFundStatus
     paymentDate?: Date | string | null
     holdPayment?: boolean
@@ -45617,6 +47409,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
+    totalSeq?: number
+    projectSeq?: number
+    sameApplyUnitNum?: number
+    totalNum?: number
     status?: $Enums.CustomerFundStatus
     paymentDate?: Date | string | null
     holdPayment?: boolean
@@ -45683,6 +47479,8 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -45735,6 +47533,8 @@ export namespace Prisma {
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
     refId?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -46073,6 +47873,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
+    totalSeq?: number
+    projectSeq?: number
+    sameApplyUnitNum?: number
+    totalNum?: number
     status?: $Enums.CustomerFundStatus
     paymentDate?: Date | string | null
     holdPayment?: boolean
@@ -46099,6 +47903,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
+    totalSeq?: number
+    projectSeq?: number
+    sameApplyUnitNum?: number
+    totalNum?: number
     status?: $Enums.CustomerFundStatus
     paymentDate?: Date | string | null
     holdPayment?: boolean
@@ -46126,6 +47934,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
+    totalSeq?: number
+    projectSeq?: number
+    sameApplyUnitNum?: number
+    totalNum?: number
     status?: $Enums.CustomerFundStatus
     paymentDate?: Date | string | null
     holdPayment?: boolean
@@ -46152,6 +47964,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
+    totalSeq?: number
+    projectSeq?: number
+    sameApplyUnitNum?: number
+    totalNum?: number
     status?: $Enums.CustomerFundStatus
     paymentDate?: Date | string | null
     holdPayment?: boolean
@@ -46509,6 +48325,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    totalSeq?: IntFieldUpdateOperationsInput | number
+    projectSeq?: IntFieldUpdateOperationsInput | number
+    sameApplyUnitNum?: IntFieldUpdateOperationsInput | number
+    totalNum?: IntFieldUpdateOperationsInput | number
     status?: EnumCustomerFundStatusFieldUpdateOperationsInput | $Enums.CustomerFundStatus
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
@@ -46535,6 +48355,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    totalSeq?: IntFieldUpdateOperationsInput | number
+    projectSeq?: IntFieldUpdateOperationsInput | number
+    sameApplyUnitNum?: IntFieldUpdateOperationsInput | number
+    totalNum?: IntFieldUpdateOperationsInput | number
     status?: EnumCustomerFundStatusFieldUpdateOperationsInput | $Enums.CustomerFundStatus
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
@@ -46595,6 +48419,8 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    sendDocument01Id?: string | null
+    sendDocument02Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -46646,6 +48472,8 @@ export namespace Prisma {
     reportAtt3Id?: string | null
     bunpaiId?: string | null
     refId?: string | null
+    sendDocument01Id?: string | null
+    sendDocument02Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -46699,6 +48527,8 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    sendDocument01Id?: string | null
+    sendDocument02Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -46750,6 +48580,8 @@ export namespace Prisma {
     reportAtt3Id?: string | null
     bunpaiId?: string | null
     refId?: string | null
+    sendDocument01Id?: string | null
+    sendDocument02Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -46803,6 +48635,8 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    sendDocument01Id?: string | null
+    sendDocument02Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -46854,6 +48688,8 @@ export namespace Prisma {
     reportAtt2Id?: string | null
     bunpaiId?: string | null
     refId?: string | null
+    sendDocument01Id?: string | null
+    sendDocument02Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -46907,6 +48743,8 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    sendDocument01Id?: string | null
+    sendDocument02Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -46958,6 +48796,8 @@ export namespace Prisma {
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
     refId?: string | null
+    sendDocument01Id?: string | null
+    sendDocument02Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -47011,6 +48851,8 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    sendDocument01Id?: string | null
+    sendDocument02Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -47062,6 +48904,8 @@ export namespace Prisma {
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
     bunpaiId?: string | null
+    sendDocument01Id?: string | null
+    sendDocument02Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -47139,6 +48983,8 @@ export namespace Prisma {
     reportAtt3Id?: StringNullableFilter<"Project"> | string | null
     bunpaiId?: StringNullableFilter<"Project"> | string | null
     refId?: StringNullableFilter<"Project"> | string | null
+    sendDocument01Id?: StringNullableFilter<"Project"> | string | null
+    sendDocument02Id?: StringNullableFilter<"Project"> | string | null
     createdAt?: DateTimeFilter<"Project"> | Date | string
     createdId?: StringFilter<"Project"> | string
     createdBy?: StringFilter<"Project"> | string
@@ -49312,6 +51158,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
+    totalSeq?: number
+    projectSeq?: number
+    sameApplyUnitNum?: number
+    totalNum?: number
     status?: $Enums.CustomerFundStatus
     paymentDate?: Date | string | null
     holdPayment?: boolean
@@ -49346,6 +51196,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    totalSeq?: IntFieldUpdateOperationsInput | number
+    projectSeq?: IntFieldUpdateOperationsInput | number
+    sameApplyUnitNum?: IntFieldUpdateOperationsInput | number
+    totalNum?: IntFieldUpdateOperationsInput | number
     status?: EnumCustomerFundStatusFieldUpdateOperationsInput | $Enums.CustomerFundStatus
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
@@ -49371,6 +51225,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    totalSeq?: IntFieldUpdateOperationsInput | number
+    projectSeq?: IntFieldUpdateOperationsInput | number
+    sameApplyUnitNum?: IntFieldUpdateOperationsInput | number
+    totalNum?: IntFieldUpdateOperationsInput | number
     status?: EnumCustomerFundStatusFieldUpdateOperationsInput | $Enums.CustomerFundStatus
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
@@ -49395,6 +51253,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    totalSeq?: IntFieldUpdateOperationsInput | number
+    projectSeq?: IntFieldUpdateOperationsInput | number
+    sameApplyUnitNum?: IntFieldUpdateOperationsInput | number
+    totalNum?: IntFieldUpdateOperationsInput | number
     status?: EnumCustomerFundStatusFieldUpdateOperationsInput | $Enums.CustomerFundStatus
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
@@ -49662,6 +51524,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
+    totalSeq?: number
+    projectSeq?: number
+    sameApplyUnitNum?: number
+    totalNum?: number
     status?: $Enums.CustomerFundStatus
     paymentDate?: Date | string | null
     holdPayment?: boolean
@@ -49684,6 +51550,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    totalSeq?: IntFieldUpdateOperationsInput | number
+    projectSeq?: IntFieldUpdateOperationsInput | number
+    sameApplyUnitNum?: IntFieldUpdateOperationsInput | number
+    totalNum?: IntFieldUpdateOperationsInput | number
     status?: EnumCustomerFundStatusFieldUpdateOperationsInput | $Enums.CustomerFundStatus
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
@@ -49709,6 +51579,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    totalSeq?: IntFieldUpdateOperationsInput | number
+    projectSeq?: IntFieldUpdateOperationsInput | number
+    sameApplyUnitNum?: IntFieldUpdateOperationsInput | number
+    totalNum?: IntFieldUpdateOperationsInput | number
     status?: EnumCustomerFundStatusFieldUpdateOperationsInput | $Enums.CustomerFundStatus
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
@@ -49733,6 +51607,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    totalSeq?: IntFieldUpdateOperationsInput | number
+    projectSeq?: IntFieldUpdateOperationsInput | number
+    sameApplyUnitNum?: IntFieldUpdateOperationsInput | number
+    totalNum?: IntFieldUpdateOperationsInput | number
     status?: EnumCustomerFundStatusFieldUpdateOperationsInput | $Enums.CustomerFundStatus
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
@@ -49757,6 +51635,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: number | null
     otherBunpaiYear?: number | null
     otherBunpaiTotal?: number | null
+    totalSeq?: number
+    projectSeq?: number
+    sameApplyUnitNum?: number
+    totalNum?: number
     status?: $Enums.CustomerFundStatus
     paymentDate?: Date | string | null
     holdPayment?: boolean
@@ -49778,6 +51660,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    totalSeq?: IntFieldUpdateOperationsInput | number
+    projectSeq?: IntFieldUpdateOperationsInput | number
+    sameApplyUnitNum?: IntFieldUpdateOperationsInput | number
+    totalNum?: IntFieldUpdateOperationsInput | number
     status?: EnumCustomerFundStatusFieldUpdateOperationsInput | $Enums.CustomerFundStatus
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
@@ -49804,6 +51690,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    totalSeq?: IntFieldUpdateOperationsInput | number
+    projectSeq?: IntFieldUpdateOperationsInput | number
+    sameApplyUnitNum?: IntFieldUpdateOperationsInput | number
+    totalNum?: IntFieldUpdateOperationsInput | number
     status?: EnumCustomerFundStatusFieldUpdateOperationsInput | $Enums.CustomerFundStatus
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
@@ -49828,6 +51718,10 @@ export namespace Prisma {
     otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
     otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    totalSeq?: IntFieldUpdateOperationsInput | number
+    projectSeq?: IntFieldUpdateOperationsInput | number
+    sameApplyUnitNum?: IntFieldUpdateOperationsInput | number
+    totalNum?: IntFieldUpdateOperationsInput | number
     status?: EnumCustomerFundStatusFieldUpdateOperationsInput | $Enums.CustomerFundStatus
     paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     holdPayment?: BoolFieldUpdateOperationsInput | boolean
@@ -49875,6 +51769,8 @@ export namespace Prisma {
     reportAtt3Id?: string | null
     bunpaiId?: string | null
     refId?: string | null
+    sendDocument01Id?: string | null
+    sendDocument02Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -49919,6 +51815,8 @@ export namespace Prisma {
     reportAtt3Id?: string | null
     bunpaiId?: string | null
     refId?: string | null
+    sendDocument01Id?: string | null
+    sendDocument02Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -49963,6 +51861,8 @@ export namespace Prisma {
     reportAtt2Id?: string | null
     bunpaiId?: string | null
     refId?: string | null
+    sendDocument01Id?: string | null
+    sendDocument02Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -50007,6 +51907,8 @@ export namespace Prisma {
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
     refId?: string | null
+    sendDocument01Id?: string | null
+    sendDocument02Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -50051,6 +51953,8 @@ export namespace Prisma {
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
     bunpaiId?: string | null
+    sendDocument01Id?: string | null
+    sendDocument02Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -50091,6 +51995,8 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -50142,6 +52048,8 @@ export namespace Prisma {
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
     refId?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -50189,6 +52097,8 @@ export namespace Prisma {
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
     refId?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -50229,6 +52139,8 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -50280,6 +52192,8 @@ export namespace Prisma {
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
     refId?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -50327,6 +52241,8 @@ export namespace Prisma {
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
     refId?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -50367,6 +52283,8 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -50418,6 +52336,8 @@ export namespace Prisma {
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
     refId?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -50465,6 +52385,8 @@ export namespace Prisma {
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
     refId?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -50505,6 +52427,8 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -50556,6 +52480,8 @@ export namespace Prisma {
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
     refId?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -50603,6 +52529,8 @@ export namespace Prisma {
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
     refId?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -50643,6 +52571,8 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -50694,6 +52624,8 @@ export namespace Prisma {
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -50741,6 +52673,8 @@ export namespace Prisma {
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
