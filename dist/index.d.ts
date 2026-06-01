@@ -94,6 +94,26 @@ export type Customer = $Result.DefaultSelection<Prisma.$CustomerPayload>
  */
 export type CustomerFund = $Result.DefaultSelection<Prisma.$CustomerFundPayload>
 /**
+ * Model CustomerUploadBatch
+ * 
+ */
+export type CustomerUploadBatch = $Result.DefaultSelection<Prisma.$CustomerUploadBatchPayload>
+/**
+ * Model CustomerUploadBatchProject
+ * 
+ */
+export type CustomerUploadBatchProject = $Result.DefaultSelection<Prisma.$CustomerUploadBatchProjectPayload>
+/**
+ * Model CustomerChangeLog
+ * 
+ */
+export type CustomerChangeLog = $Result.DefaultSelection<Prisma.$CustomerChangeLogPayload>
+/**
+ * Model CustomerFundChangeLog
+ * 
+ */
+export type CustomerFundChangeLog = $Result.DefaultSelection<Prisma.$CustomerFundChangeLogPayload>
+/**
  * Model Template
  * 
  */
@@ -160,7 +180,8 @@ export type CustomerType = (typeof CustomerType)[keyof typeof CustomerType]
 
 export const InheritanceType: {
   Gift: 'Gift',
-  Inheritance: 'Inheritance'
+  Inheritance: 'Inheritance',
+  Transfer: 'Transfer'
 };
 
 export type InheritanceType = (typeof InheritanceType)[keyof typeof InheritanceType]
@@ -169,7 +190,8 @@ export type InheritanceType = (typeof InheritanceType)[keyof typeof InheritanceT
 export const ExtType: {
   Xlsx: 'Xlsx',
   Xlsm: 'Xlsm',
-  Docx: 'Docx'
+  Docx: 'Docx',
+  Pdf: 'Pdf'
 };
 
 export type ExtType = (typeof ExtType)[keyof typeof ExtType]
@@ -239,6 +261,67 @@ export const CustomerFundStatus: {
 
 export type CustomerFundStatus = (typeof CustomerFundStatus)[keyof typeof CustomerFundStatus]
 
+
+export const BatchStatus: {
+  Pretreated: 'Pretreated',
+  Committed: 'Committed',
+  Aborted: 'Aborted'
+};
+
+export type BatchStatus = (typeof BatchStatus)[keyof typeof BatchStatus]
+
+
+export const ChangeOperation: {
+  CREATE: 'CREATE',
+  UPDATE: 'UPDATE',
+  DELETE: 'DELETE'
+};
+
+export type ChangeOperation = (typeof ChangeOperation)[keyof typeof ChangeOperation]
+
+
+export const ChangeSource: {
+  ExcelUpload: 'ExcelUpload',
+  HoldPayment: 'HoldPayment'
+};
+
+export type ChangeSource = (typeof ChangeSource)[keyof typeof ChangeSource]
+
+
+export const DeadlineCategory: {
+  GENERAL: 'GENERAL',
+  DOCUMENT_CHECK: 'DOCUMENT_CHECK'
+};
+
+export type DeadlineCategory = (typeof DeadlineCategory)[keyof typeof DeadlineCategory]
+
+
+export const DocumentType: {
+  DISTRIBUTION_CALC: 'DISTRIBUTION_CALC',
+  MANAGEMENT_REPORT: 'MANAGEMENT_REPORT',
+  TAX_REFERENCE: 'TAX_REFERENCE',
+  DISTRIBUTION_ORDER: 'DISTRIBUTION_ORDER'
+};
+
+export type DocumentType = (typeof DocumentType)[keyof typeof DocumentType]
+
+
+export const ReviewStep: {
+  FIRST: 'FIRST',
+  SECOND: 'SECOND'
+};
+
+export type ReviewStep = (typeof ReviewStep)[keyof typeof ReviewStep]
+
+
+export const ProjectKiTaskStatus: {
+  NOT_STARTED: 'NOT_STARTED',
+  NEEDS_FIX: 'NEEDS_FIX',
+  DONE: 'DONE'
+};
+
+export type ProjectKiTaskStatus = (typeof ProjectKiTaskStatus)[keyof typeof ProjectKiTaskStatus]
+
 }
 
 export type BulkDownloadStatus = $Enums.BulkDownloadStatus
@@ -288,6 +371,34 @@ export const PLType: typeof $Enums.PLType
 export type CustomerFundStatus = $Enums.CustomerFundStatus
 
 export const CustomerFundStatus: typeof $Enums.CustomerFundStatus
+
+export type BatchStatus = $Enums.BatchStatus
+
+export const BatchStatus: typeof $Enums.BatchStatus
+
+export type ChangeOperation = $Enums.ChangeOperation
+
+export const ChangeOperation: typeof $Enums.ChangeOperation
+
+export type ChangeSource = $Enums.ChangeSource
+
+export const ChangeSource: typeof $Enums.ChangeSource
+
+export type DeadlineCategory = $Enums.DeadlineCategory
+
+export const DeadlineCategory: typeof $Enums.DeadlineCategory
+
+export type DocumentType = $Enums.DocumentType
+
+export const DocumentType: typeof $Enums.DocumentType
+
+export type ReviewStep = $Enums.ReviewStep
+
+export const ReviewStep: typeof $Enums.ReviewStep
+
+export type ProjectKiTaskStatus = $Enums.ProjectKiTaskStatus
+
+export const ProjectKiTaskStatus: typeof $Enums.ProjectKiTaskStatus
 
 /**
  * ##  Prisma Client ʲˢ
@@ -568,6 +679,46 @@ export class PrismaClient<
   get customerFund(): Prisma.CustomerFundDelegate<ExtArgs, ClientOptions>;
 
   /**
+   * `prisma.customerUploadBatch`: Exposes CRUD operations for the **CustomerUploadBatch** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more CustomerUploadBatches
+    * const customerUploadBatches = await prisma.customerUploadBatch.findMany()
+    * ```
+    */
+  get customerUploadBatch(): Prisma.CustomerUploadBatchDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.customerUploadBatchProject`: Exposes CRUD operations for the **CustomerUploadBatchProject** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more CustomerUploadBatchProjects
+    * const customerUploadBatchProjects = await prisma.customerUploadBatchProject.findMany()
+    * ```
+    */
+  get customerUploadBatchProject(): Prisma.CustomerUploadBatchProjectDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.customerChangeLog`: Exposes CRUD operations for the **CustomerChangeLog** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more CustomerChangeLogs
+    * const customerChangeLogs = await prisma.customerChangeLog.findMany()
+    * ```
+    */
+  get customerChangeLog(): Prisma.CustomerChangeLogDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.customerFundChangeLog`: Exposes CRUD operations for the **CustomerFundChangeLog** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more CustomerFundChangeLogs
+    * const customerFundChangeLogs = await prisma.customerFundChangeLog.findMany()
+    * ```
+    */
+  get customerFundChangeLog(): Prisma.CustomerFundChangeLogDelegate<ExtArgs, ClientOptions>;
+
+  /**
    * `prisma.template`: Exposes CRUD operations for the **Template** model.
     * Example usage:
     * ```ts
@@ -674,7 +825,7 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.19.1
+   * Prisma Client JS version: 6.19.3
    * Query Engine version: c2990dca591cba766e3b7ef5d9e8a84796e47ab7
    */
   export type PrismaVersion = {
@@ -1073,6 +1224,10 @@ export namespace Prisma {
     ProjectKiTask: 'ProjectKiTask',
     Customer: 'Customer',
     CustomerFund: 'CustomerFund',
+    CustomerUploadBatch: 'CustomerUploadBatch',
+    CustomerUploadBatchProject: 'CustomerUploadBatchProject',
+    CustomerChangeLog: 'CustomerChangeLog',
+    CustomerFundChangeLog: 'CustomerFundChangeLog',
     Template: 'Template',
     VariableDefinition: 'VariableDefinition',
     YayoiCSV: 'YayoiCSV',
@@ -1096,7 +1251,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "sBIMPUser" | "eAJUser" | "company" | "ki" | "project" | "projectKi" | "projectKiBS" | "projectKiPL" | "pLOrderBy" | "asset" | "assetKi" | "deadlineTask" | "projectKiTask" | "customer" | "customerFund" | "template" | "variableDefinition" | "yayoiCSV" | "yayoiCSVHistory" | "bulkDocDownloadJob"
+      modelProps: "user" | "sBIMPUser" | "eAJUser" | "company" | "ki" | "project" | "projectKi" | "projectKiBS" | "projectKiPL" | "pLOrderBy" | "asset" | "assetKi" | "deadlineTask" | "projectKiTask" | "customer" | "customerFund" | "customerUploadBatch" | "customerUploadBatchProject" | "customerChangeLog" | "customerFundChangeLog" | "template" | "variableDefinition" | "yayoiCSV" | "yayoiCSVHistory" | "bulkDocDownloadJob"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -2284,6 +2439,302 @@ export namespace Prisma {
           }
         }
       }
+      CustomerUploadBatch: {
+        payload: Prisma.$CustomerUploadBatchPayload<ExtArgs>
+        fields: Prisma.CustomerUploadBatchFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CustomerUploadBatchFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerUploadBatchPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CustomerUploadBatchFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerUploadBatchPayload>
+          }
+          findFirst: {
+            args: Prisma.CustomerUploadBatchFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerUploadBatchPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CustomerUploadBatchFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerUploadBatchPayload>
+          }
+          findMany: {
+            args: Prisma.CustomerUploadBatchFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerUploadBatchPayload>[]
+          }
+          create: {
+            args: Prisma.CustomerUploadBatchCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerUploadBatchPayload>
+          }
+          createMany: {
+            args: Prisma.CustomerUploadBatchCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CustomerUploadBatchCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerUploadBatchPayload>[]
+          }
+          delete: {
+            args: Prisma.CustomerUploadBatchDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerUploadBatchPayload>
+          }
+          update: {
+            args: Prisma.CustomerUploadBatchUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerUploadBatchPayload>
+          }
+          deleteMany: {
+            args: Prisma.CustomerUploadBatchDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CustomerUploadBatchUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CustomerUploadBatchUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerUploadBatchPayload>[]
+          }
+          upsert: {
+            args: Prisma.CustomerUploadBatchUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerUploadBatchPayload>
+          }
+          aggregate: {
+            args: Prisma.CustomerUploadBatchAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCustomerUploadBatch>
+          }
+          groupBy: {
+            args: Prisma.CustomerUploadBatchGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CustomerUploadBatchGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CustomerUploadBatchCountArgs<ExtArgs>
+            result: $Utils.Optional<CustomerUploadBatchCountAggregateOutputType> | number
+          }
+        }
+      }
+      CustomerUploadBatchProject: {
+        payload: Prisma.$CustomerUploadBatchProjectPayload<ExtArgs>
+        fields: Prisma.CustomerUploadBatchProjectFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CustomerUploadBatchProjectFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerUploadBatchProjectPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CustomerUploadBatchProjectFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerUploadBatchProjectPayload>
+          }
+          findFirst: {
+            args: Prisma.CustomerUploadBatchProjectFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerUploadBatchProjectPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CustomerUploadBatchProjectFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerUploadBatchProjectPayload>
+          }
+          findMany: {
+            args: Prisma.CustomerUploadBatchProjectFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerUploadBatchProjectPayload>[]
+          }
+          create: {
+            args: Prisma.CustomerUploadBatchProjectCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerUploadBatchProjectPayload>
+          }
+          createMany: {
+            args: Prisma.CustomerUploadBatchProjectCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CustomerUploadBatchProjectCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerUploadBatchProjectPayload>[]
+          }
+          delete: {
+            args: Prisma.CustomerUploadBatchProjectDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerUploadBatchProjectPayload>
+          }
+          update: {
+            args: Prisma.CustomerUploadBatchProjectUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerUploadBatchProjectPayload>
+          }
+          deleteMany: {
+            args: Prisma.CustomerUploadBatchProjectDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CustomerUploadBatchProjectUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CustomerUploadBatchProjectUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerUploadBatchProjectPayload>[]
+          }
+          upsert: {
+            args: Prisma.CustomerUploadBatchProjectUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerUploadBatchProjectPayload>
+          }
+          aggregate: {
+            args: Prisma.CustomerUploadBatchProjectAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCustomerUploadBatchProject>
+          }
+          groupBy: {
+            args: Prisma.CustomerUploadBatchProjectGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CustomerUploadBatchProjectGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CustomerUploadBatchProjectCountArgs<ExtArgs>
+            result: $Utils.Optional<CustomerUploadBatchProjectCountAggregateOutputType> | number
+          }
+        }
+      }
+      CustomerChangeLog: {
+        payload: Prisma.$CustomerChangeLogPayload<ExtArgs>
+        fields: Prisma.CustomerChangeLogFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CustomerChangeLogFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerChangeLogPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CustomerChangeLogFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerChangeLogPayload>
+          }
+          findFirst: {
+            args: Prisma.CustomerChangeLogFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerChangeLogPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CustomerChangeLogFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerChangeLogPayload>
+          }
+          findMany: {
+            args: Prisma.CustomerChangeLogFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerChangeLogPayload>[]
+          }
+          create: {
+            args: Prisma.CustomerChangeLogCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerChangeLogPayload>
+          }
+          createMany: {
+            args: Prisma.CustomerChangeLogCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CustomerChangeLogCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerChangeLogPayload>[]
+          }
+          delete: {
+            args: Prisma.CustomerChangeLogDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerChangeLogPayload>
+          }
+          update: {
+            args: Prisma.CustomerChangeLogUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerChangeLogPayload>
+          }
+          deleteMany: {
+            args: Prisma.CustomerChangeLogDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CustomerChangeLogUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CustomerChangeLogUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerChangeLogPayload>[]
+          }
+          upsert: {
+            args: Prisma.CustomerChangeLogUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerChangeLogPayload>
+          }
+          aggregate: {
+            args: Prisma.CustomerChangeLogAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCustomerChangeLog>
+          }
+          groupBy: {
+            args: Prisma.CustomerChangeLogGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CustomerChangeLogGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CustomerChangeLogCountArgs<ExtArgs>
+            result: $Utils.Optional<CustomerChangeLogCountAggregateOutputType> | number
+          }
+        }
+      }
+      CustomerFundChangeLog: {
+        payload: Prisma.$CustomerFundChangeLogPayload<ExtArgs>
+        fields: Prisma.CustomerFundChangeLogFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CustomerFundChangeLogFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerFundChangeLogPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CustomerFundChangeLogFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerFundChangeLogPayload>
+          }
+          findFirst: {
+            args: Prisma.CustomerFundChangeLogFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerFundChangeLogPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CustomerFundChangeLogFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerFundChangeLogPayload>
+          }
+          findMany: {
+            args: Prisma.CustomerFundChangeLogFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerFundChangeLogPayload>[]
+          }
+          create: {
+            args: Prisma.CustomerFundChangeLogCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerFundChangeLogPayload>
+          }
+          createMany: {
+            args: Prisma.CustomerFundChangeLogCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CustomerFundChangeLogCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerFundChangeLogPayload>[]
+          }
+          delete: {
+            args: Prisma.CustomerFundChangeLogDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerFundChangeLogPayload>
+          }
+          update: {
+            args: Prisma.CustomerFundChangeLogUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerFundChangeLogPayload>
+          }
+          deleteMany: {
+            args: Prisma.CustomerFundChangeLogDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CustomerFundChangeLogUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CustomerFundChangeLogUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerFundChangeLogPayload>[]
+          }
+          upsert: {
+            args: Prisma.CustomerFundChangeLogUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CustomerFundChangeLogPayload>
+          }
+          aggregate: {
+            args: Prisma.CustomerFundChangeLogAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCustomerFundChangeLog>
+          }
+          groupBy: {
+            args: Prisma.CustomerFundChangeLogGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CustomerFundChangeLogGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CustomerFundChangeLogCountArgs<ExtArgs>
+            result: $Utils.Optional<CustomerFundChangeLogCountAggregateOutputType> | number
+          }
+        }
+      }
       Template: {
         payload: Prisma.$TemplatePayload<ExtArgs>
         fields: Prisma.TemplateFieldRefs
@@ -2766,6 +3217,10 @@ export namespace Prisma {
     projectKiTask?: ProjectKiTaskOmit
     customer?: CustomerOmit
     customerFund?: CustomerFundOmit
+    customerUploadBatch?: CustomerUploadBatchOmit
+    customerUploadBatchProject?: CustomerUploadBatchProjectOmit
+    customerChangeLog?: CustomerChangeLogOmit
+    customerFundChangeLog?: CustomerFundChangeLogOmit
     template?: TemplateOmit
     variableDefinition?: VariableDefinitionOmit
     yayoiCSV?: YayoiCSVOmit
@@ -2853,11 +3308,13 @@ export namespace Prisma {
   export type UserCountOutputType = {
     MainUserProjectKis: number
     SubUserProjectKis: number
+    CheckerProjectKiTasks: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     MainUserProjectKis?: boolean | UserCountOutputTypeCountMainUserProjectKisArgs
     SubUserProjectKis?: boolean | UserCountOutputTypeCountSubUserProjectKisArgs
+    CheckerProjectKiTasks?: boolean | UserCountOutputTypeCountCheckerProjectKiTasksArgs
   }
 
   // Custom InputTypes
@@ -2885,6 +3342,13 @@ export namespace Prisma {
     where?: ProjectKiWhereInput
   }
 
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountCheckerProjectKiTasksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProjectKiTaskWhereInput
+  }
+
 
   /**
    * Count Type KiCountOutputType
@@ -2894,12 +3358,14 @@ export namespace Prisma {
     ProjectKis: number
     AssetKis: number
     DeadlineTasks: number
+    CustomerUploadBatches: number
   }
 
   export type KiCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     ProjectKis?: boolean | KiCountOutputTypeCountProjectKisArgs
     AssetKis?: boolean | KiCountOutputTypeCountAssetKisArgs
     DeadlineTasks?: boolean | KiCountOutputTypeCountDeadlineTasksArgs
+    CustomerUploadBatches?: boolean | KiCountOutputTypeCountCustomerUploadBatchesArgs
   }
 
   // Custom InputTypes
@@ -2934,6 +3400,13 @@ export namespace Prisma {
     where?: DeadlineTaskWhereInput
   }
 
+  /**
+   * KiCountOutputType without action
+   */
+  export type KiCountOutputTypeCountCustomerUploadBatchesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CustomerUploadBatchWhereInput
+  }
+
 
   /**
    * Count Type ProjectCountOutputType
@@ -2943,12 +3416,14 @@ export namespace Prisma {
     ProjectKis: number
     Assets: number
     Customers: number
+    CustomerUploadBatchProjects: number
   }
 
   export type ProjectCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     ProjectKis?: boolean | ProjectCountOutputTypeCountProjectKisArgs
     Assets?: boolean | ProjectCountOutputTypeCountAssetsArgs
     Customers?: boolean | ProjectCountOutputTypeCountCustomersArgs
+    CustomerUploadBatchProjects?: boolean | ProjectCountOutputTypeCountCustomerUploadBatchProjectsArgs
   }
 
   // Custom InputTypes
@@ -2981,6 +3456,13 @@ export namespace Prisma {
    */
   export type ProjectCountOutputTypeCountCustomersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: CustomerWhereInput
+  }
+
+  /**
+   * ProjectCountOutputType without action
+   */
+  export type ProjectCountOutputTypeCountCustomerUploadBatchProjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CustomerUploadBatchProjectWhereInput
   }
 
 
@@ -3092,10 +3574,14 @@ export namespace Prisma {
 
   export type CustomerCountOutputType = {
     CustomerFunds: number
+    ChangeLogs: number
+    FundChangeLogs: number
   }
 
   export type CustomerCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     CustomerFunds?: boolean | CustomerCountOutputTypeCountCustomerFundsArgs
+    ChangeLogs?: boolean | CustomerCountOutputTypeCountChangeLogsArgs
+    FundChangeLogs?: boolean | CustomerCountOutputTypeCountFundChangeLogsArgs
   }
 
   // Custom InputTypes
@@ -3116,6 +3602,20 @@ export namespace Prisma {
     where?: CustomerFundWhereInput
   }
 
+  /**
+   * CustomerCountOutputType without action
+   */
+  export type CustomerCountOutputTypeCountChangeLogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CustomerChangeLogWhereInput
+  }
+
+  /**
+   * CustomerCountOutputType without action
+   */
+  export type CustomerCountOutputTypeCountFundChangeLogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CustomerFundChangeLogWhereInput
+  }
+
 
   /**
    * Count Type CustomerFundCountOutputType
@@ -3123,10 +3623,12 @@ export namespace Prisma {
 
   export type CustomerFundCountOutputType = {
     destinationCustomerFunds: number
+    ChangeLogs: number
   }
 
   export type CustomerFundCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     destinationCustomerFunds?: boolean | CustomerFundCountOutputTypeCountDestinationCustomerFundsArgs
+    ChangeLogs?: boolean | CustomerFundCountOutputTypeCountChangeLogsArgs
   }
 
   // Custom InputTypes
@@ -3145,6 +3647,62 @@ export namespace Prisma {
    */
   export type CustomerFundCountOutputTypeCountDestinationCustomerFundsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: CustomerFundWhereInput
+  }
+
+  /**
+   * CustomerFundCountOutputType without action
+   */
+  export type CustomerFundCountOutputTypeCountChangeLogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CustomerFundChangeLogWhereInput
+  }
+
+
+  /**
+   * Count Type CustomerUploadBatchCountOutputType
+   */
+
+  export type CustomerUploadBatchCountOutputType = {
+    CustomerChangeLogs: number
+    CustomerFundChangeLogs: number
+    CommittedProjects: number
+  }
+
+  export type CustomerUploadBatchCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    CustomerChangeLogs?: boolean | CustomerUploadBatchCountOutputTypeCountCustomerChangeLogsArgs
+    CustomerFundChangeLogs?: boolean | CustomerUploadBatchCountOutputTypeCountCustomerFundChangeLogsArgs
+    CommittedProjects?: boolean | CustomerUploadBatchCountOutputTypeCountCommittedProjectsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * CustomerUploadBatchCountOutputType without action
+   */
+  export type CustomerUploadBatchCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatchCountOutputType
+     */
+    select?: CustomerUploadBatchCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * CustomerUploadBatchCountOutputType without action
+   */
+  export type CustomerUploadBatchCountOutputTypeCountCustomerChangeLogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CustomerChangeLogWhereInput
+  }
+
+  /**
+   * CustomerUploadBatchCountOutputType without action
+   */
+  export type CustomerUploadBatchCountOutputTypeCountCustomerFundChangeLogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CustomerFundChangeLogWhereInput
+  }
+
+  /**
+   * CustomerUploadBatchCountOutputType without action
+   */
+  export type CustomerUploadBatchCountOutputTypeCountCommittedProjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CustomerUploadBatchProjectWhereInput
   }
 
 
@@ -3441,6 +3999,7 @@ export namespace Prisma {
     updatedBy?: boolean
     MainUserProjectKis?: boolean | User$MainUserProjectKisArgs<ExtArgs>
     SubUserProjectKis?: boolean | User$SubUserProjectKisArgs<ExtArgs>
+    CheckerProjectKiTasks?: boolean | User$CheckerProjectKiTasksArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -3493,6 +4052,7 @@ export namespace Prisma {
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     MainUserProjectKis?: boolean | User$MainUserProjectKisArgs<ExtArgs>
     SubUserProjectKis?: boolean | User$SubUserProjectKisArgs<ExtArgs>
+    CheckerProjectKiTasks?: boolean | User$CheckerProjectKiTasksArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -3503,6 +4063,7 @@ export namespace Prisma {
     objects: {
       MainUserProjectKis: Prisma.$ProjectKiPayload<ExtArgs>[]
       SubUserProjectKis: Prisma.$ProjectKiPayload<ExtArgs>[]
+      CheckerProjectKiTasks: Prisma.$ProjectKiTaskPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -3913,6 +4474,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     MainUserProjectKis<T extends User$MainUserProjectKisArgs<ExtArgs> = {}>(args?: Subset<T, User$MainUserProjectKisArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectKiPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     SubUserProjectKis<T extends User$SubUserProjectKisArgs<ExtArgs> = {}>(args?: Subset<T, User$SubUserProjectKisArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectKiPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    CheckerProjectKiTasks<T extends User$CheckerProjectKiTasksArgs<ExtArgs> = {}>(args?: Subset<T, User$CheckerProjectKiTasksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectKiTaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4387,6 +4949,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: ProjectKiScalarFieldEnum | ProjectKiScalarFieldEnum[]
+  }
+
+  /**
+   * User.CheckerProjectKiTasks
+   */
+  export type User$CheckerProjectKiTasksArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProjectKiTask
+     */
+    select?: ProjectKiTaskSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProjectKiTask
+     */
+    omit?: ProjectKiTaskOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProjectKiTaskInclude<ExtArgs> | null
+    where?: ProjectKiTaskWhereInput
+    orderBy?: ProjectKiTaskOrderByWithRelationInput | ProjectKiTaskOrderByWithRelationInput[]
+    cursor?: ProjectKiTaskWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProjectKiTaskScalarFieldEnum | ProjectKiTaskScalarFieldEnum[]
   }
 
   /**
@@ -8005,6 +8591,7 @@ export namespace Prisma {
     ProjectKis?: boolean | Ki$ProjectKisArgs<ExtArgs>
     AssetKis?: boolean | Ki$AssetKisArgs<ExtArgs>
     DeadlineTasks?: boolean | Ki$DeadlineTasksArgs<ExtArgs>
+    CustomerUploadBatches?: boolean | Ki$CustomerUploadBatchesArgs<ExtArgs>
     _count?: boolean | KiCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["ki"]>
 
@@ -8058,6 +8645,7 @@ export namespace Prisma {
     ProjectKis?: boolean | Ki$ProjectKisArgs<ExtArgs>
     AssetKis?: boolean | Ki$AssetKisArgs<ExtArgs>
     DeadlineTasks?: boolean | Ki$DeadlineTasksArgs<ExtArgs>
+    CustomerUploadBatches?: boolean | Ki$CustomerUploadBatchesArgs<ExtArgs>
     _count?: boolean | KiCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type KiIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -8069,6 +8657,7 @@ export namespace Prisma {
       ProjectKis: Prisma.$ProjectKiPayload<ExtArgs>[]
       AssetKis: Prisma.$AssetKiPayload<ExtArgs>[]
       DeadlineTasks: Prisma.$DeadlineTaskPayload<ExtArgs>[]
+      CustomerUploadBatches: Prisma.$CustomerUploadBatchPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -8480,6 +9069,7 @@ export namespace Prisma {
     ProjectKis<T extends Ki$ProjectKisArgs<ExtArgs> = {}>(args?: Subset<T, Ki$ProjectKisArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectKiPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     AssetKis<T extends Ki$AssetKisArgs<ExtArgs> = {}>(args?: Subset<T, Ki$AssetKisArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AssetKiPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     DeadlineTasks<T extends Ki$DeadlineTasksArgs<ExtArgs> = {}>(args?: Subset<T, Ki$DeadlineTasksArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DeadlineTaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    CustomerUploadBatches<T extends Ki$CustomerUploadBatchesArgs<ExtArgs> = {}>(args?: Subset<T, Ki$CustomerUploadBatchesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerUploadBatchPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8981,6 +9571,30 @@ export namespace Prisma {
   }
 
   /**
+   * Ki.CustomerUploadBatches
+   */
+  export type Ki$CustomerUploadBatchesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatch
+     */
+    select?: CustomerUploadBatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatch
+     */
+    omit?: CustomerUploadBatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchInclude<ExtArgs> | null
+    where?: CustomerUploadBatchWhereInput
+    orderBy?: CustomerUploadBatchOrderByWithRelationInput | CustomerUploadBatchOrderByWithRelationInput[]
+    cursor?: CustomerUploadBatchWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CustomerUploadBatchScalarFieldEnum | CustomerUploadBatchScalarFieldEnum[]
+  }
+
+  /**
    * Ki without action
    */
   export type KiDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -9019,6 +9633,11 @@ export namespace Prisma {
     fullOccupancyYield: number | null
     totalKubun: number | null
     residenceKubun: number | null
+    feeRateVariable: number | null
+    feeFixedAnnual: number | null
+    feeRateAgent: number | null
+    feeCashMgmtAnnual: number | null
+    feeRateTrust: number | null
   }
 
   export type ProjectSumAggregateOutputType = {
@@ -9029,6 +9648,11 @@ export namespace Prisma {
     fullOccupancyYield: number | null
     totalKubun: number | null
     residenceKubun: number | null
+    feeRateVariable: number | null
+    feeFixedAnnual: number | null
+    feeRateAgent: number | null
+    feeCashMgmtAnnual: number | null
+    feeRateTrust: number | null
   }
 
   export type ProjectMinAggregateOutputType = {
@@ -9063,6 +9687,11 @@ export namespace Prisma {
     leverageFlag: boolean | null
     unitResidenceFlag: boolean | null
     completedFlag: boolean | null
+    feeRateVariable: number | null
+    feeFixedAnnual: number | null
+    feeRateAgent: number | null
+    feeCashMgmtAnnual: number | null
+    feeRateTrust: number | null
     reportMainId: string | null
     reportAtt2Id: string | null
     reportAtt3Id: string | null
@@ -9110,6 +9739,11 @@ export namespace Prisma {
     leverageFlag: boolean | null
     unitResidenceFlag: boolean | null
     completedFlag: boolean | null
+    feeRateVariable: number | null
+    feeFixedAnnual: number | null
+    feeRateAgent: number | null
+    feeCashMgmtAnnual: number | null
+    feeRateTrust: number | null
     reportMainId: string | null
     reportAtt2Id: string | null
     reportAtt3Id: string | null
@@ -9157,6 +9791,11 @@ export namespace Prisma {
     leverageFlag: number
     unitResidenceFlag: number
     completedFlag: number
+    feeRateVariable: number
+    feeFixedAnnual: number
+    feeRateAgent: number
+    feeCashMgmtAnnual: number
+    feeRateTrust: number
     reportMainId: number
     reportAtt2Id: number
     reportAtt3Id: number
@@ -9182,6 +9821,11 @@ export namespace Prisma {
     fullOccupancyYield?: true
     totalKubun?: true
     residenceKubun?: true
+    feeRateVariable?: true
+    feeFixedAnnual?: true
+    feeRateAgent?: true
+    feeCashMgmtAnnual?: true
+    feeRateTrust?: true
   }
 
   export type ProjectSumAggregateInputType = {
@@ -9192,6 +9836,11 @@ export namespace Prisma {
     fullOccupancyYield?: true
     totalKubun?: true
     residenceKubun?: true
+    feeRateVariable?: true
+    feeFixedAnnual?: true
+    feeRateAgent?: true
+    feeCashMgmtAnnual?: true
+    feeRateTrust?: true
   }
 
   export type ProjectMinAggregateInputType = {
@@ -9226,6 +9875,11 @@ export namespace Prisma {
     leverageFlag?: true
     unitResidenceFlag?: true
     completedFlag?: true
+    feeRateVariable?: true
+    feeFixedAnnual?: true
+    feeRateAgent?: true
+    feeCashMgmtAnnual?: true
+    feeRateTrust?: true
     reportMainId?: true
     reportAtt2Id?: true
     reportAtt3Id?: true
@@ -9273,6 +9927,11 @@ export namespace Prisma {
     leverageFlag?: true
     unitResidenceFlag?: true
     completedFlag?: true
+    feeRateVariable?: true
+    feeFixedAnnual?: true
+    feeRateAgent?: true
+    feeCashMgmtAnnual?: true
+    feeRateTrust?: true
     reportMainId?: true
     reportAtt2Id?: true
     reportAtt3Id?: true
@@ -9320,6 +9979,11 @@ export namespace Prisma {
     leverageFlag?: true
     unitResidenceFlag?: true
     completedFlag?: true
+    feeRateVariable?: true
+    feeFixedAnnual?: true
+    feeRateAgent?: true
+    feeCashMgmtAnnual?: true
+    feeRateTrust?: true
     reportMainId?: true
     reportAtt2Id?: true
     reportAtt3Id?: true
@@ -9454,6 +10118,11 @@ export namespace Prisma {
     leverageFlag: boolean
     unitResidenceFlag: boolean
     completedFlag: boolean
+    feeRateVariable: number | null
+    feeFixedAnnual: number | null
+    feeRateAgent: number | null
+    feeCashMgmtAnnual: number | null
+    feeRateTrust: number | null
     reportMainId: string | null
     reportAtt2Id: string | null
     reportAtt3Id: string | null
@@ -9520,6 +10189,11 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    feeRateVariable?: boolean
+    feeFixedAnnual?: boolean
+    feeRateAgent?: boolean
+    feeCashMgmtAnnual?: boolean
+    feeRateTrust?: boolean
     reportMainId?: boolean
     reportAtt2Id?: boolean
     reportAtt3Id?: boolean
@@ -9541,6 +10215,7 @@ export namespace Prisma {
     ProjectKis?: boolean | Project$ProjectKisArgs<ExtArgs>
     Assets?: boolean | Project$AssetsArgs<ExtArgs>
     Customers?: boolean | Project$CustomersArgs<ExtArgs>
+    CustomerUploadBatchProjects?: boolean | Project$CustomerUploadBatchProjectsArgs<ExtArgs>
     _count?: boolean | ProjectCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["project"]>
 
@@ -9576,6 +10251,11 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    feeRateVariable?: boolean
+    feeFixedAnnual?: boolean
+    feeRateAgent?: boolean
+    feeCashMgmtAnnual?: boolean
+    feeRateTrust?: boolean
     reportMainId?: boolean
     reportAtt2Id?: boolean
     reportAtt3Id?: boolean
@@ -9628,6 +10308,11 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    feeRateVariable?: boolean
+    feeFixedAnnual?: boolean
+    feeRateAgent?: boolean
+    feeCashMgmtAnnual?: boolean
+    feeRateTrust?: boolean
     reportMainId?: boolean
     reportAtt2Id?: boolean
     reportAtt3Id?: boolean
@@ -9680,6 +10365,11 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    feeRateVariable?: boolean
+    feeFixedAnnual?: boolean
+    feeRateAgent?: boolean
+    feeCashMgmtAnnual?: boolean
+    feeRateTrust?: boolean
     reportMainId?: boolean
     reportAtt2Id?: boolean
     reportAtt3Id?: boolean
@@ -9695,7 +10385,7 @@ export namespace Prisma {
     updatedBy?: boolean
   }
 
-  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sbimpId" | "name" | "shortName" | "totalUnit" | "totalAmount" | "unitAmount" | "trustTermStart" | "trustTermEnd" | "dividendYield" | "fullOccupancyYield" | "totalKubun" | "residenceKubun" | "settlorGkName" | "settlorGkAddress" | "bankName" | "branchName" | "bankAccountType" | "bankAccount" | "bankAccountHolder" | "cashManBankName" | "cashManBranchName" | "cashManBankAccountType" | "cashManBankAccount" | "cashManBankAccountHolder" | "shintakuContractNum" | "kamiyachoFlag" | "mlspcFlag" | "leverageFlag" | "unitResidenceFlag" | "completedFlag" | "reportMainId" | "reportAtt2Id" | "reportAtt3Id" | "bunpaiId" | "refId" | "sendDocument01Id" | "sendDocument02Id" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["project"]>
+  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sbimpId" | "name" | "shortName" | "totalUnit" | "totalAmount" | "unitAmount" | "trustTermStart" | "trustTermEnd" | "dividendYield" | "fullOccupancyYield" | "totalKubun" | "residenceKubun" | "settlorGkName" | "settlorGkAddress" | "bankName" | "branchName" | "bankAccountType" | "bankAccount" | "bankAccountHolder" | "cashManBankName" | "cashManBranchName" | "cashManBankAccountType" | "cashManBankAccount" | "cashManBankAccountHolder" | "shintakuContractNum" | "kamiyachoFlag" | "mlspcFlag" | "leverageFlag" | "unitResidenceFlag" | "completedFlag" | "feeRateVariable" | "feeFixedAnnual" | "feeRateAgent" | "feeCashMgmtAnnual" | "feeRateTrust" | "reportMainId" | "reportAtt2Id" | "reportAtt3Id" | "bunpaiId" | "refId" | "sendDocument01Id" | "sendDocument02Id" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["project"]>
   export type ProjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     ReportMain?: boolean | Project$ReportMainArgs<ExtArgs>
     ReportAtt2?: boolean | Project$ReportAtt2Args<ExtArgs>
@@ -9705,6 +10395,7 @@ export namespace Prisma {
     ProjectKis?: boolean | Project$ProjectKisArgs<ExtArgs>
     Assets?: boolean | Project$AssetsArgs<ExtArgs>
     Customers?: boolean | Project$CustomersArgs<ExtArgs>
+    CustomerUploadBatchProjects?: boolean | Project$CustomerUploadBatchProjectsArgs<ExtArgs>
     _count?: boolean | ProjectCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ProjectIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -9733,6 +10424,7 @@ export namespace Prisma {
       ProjectKis: Prisma.$ProjectKiPayload<ExtArgs>[]
       Assets: Prisma.$AssetPayload<ExtArgs>[]
       Customers: Prisma.$CustomerPayload<ExtArgs>[]
+      CustomerUploadBatchProjects: Prisma.$CustomerUploadBatchProjectPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -9766,6 +10458,11 @@ export namespace Prisma {
       leverageFlag: boolean
       unitResidenceFlag: boolean
       completedFlag: boolean
+      feeRateVariable: number | null
+      feeFixedAnnual: number | null
+      feeRateAgent: number | null
+      feeCashMgmtAnnual: number | null
+      feeRateTrust: number | null
       reportMainId: string | null
       reportAtt2Id: string | null
       reportAtt3Id: string | null
@@ -10181,6 +10878,7 @@ export namespace Prisma {
     ProjectKis<T extends Project$ProjectKisArgs<ExtArgs> = {}>(args?: Subset<T, Project$ProjectKisArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectKiPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     Assets<T extends Project$AssetsArgs<ExtArgs> = {}>(args?: Subset<T, Project$AssetsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AssetPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     Customers<T extends Project$CustomersArgs<ExtArgs> = {}>(args?: Subset<T, Project$CustomersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    CustomerUploadBatchProjects<T extends Project$CustomerUploadBatchProjectsArgs<ExtArgs> = {}>(args?: Subset<T, Project$CustomerUploadBatchProjectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerUploadBatchProjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -10241,6 +10939,11 @@ export namespace Prisma {
     readonly leverageFlag: FieldRef<"Project", 'Boolean'>
     readonly unitResidenceFlag: FieldRef<"Project", 'Boolean'>
     readonly completedFlag: FieldRef<"Project", 'Boolean'>
+    readonly feeRateVariable: FieldRef<"Project", 'Float'>
+    readonly feeFixedAnnual: FieldRef<"Project", 'Int'>
+    readonly feeRateAgent: FieldRef<"Project", 'Float'>
+    readonly feeCashMgmtAnnual: FieldRef<"Project", 'Int'>
+    readonly feeRateTrust: FieldRef<"Project", 'Float'>
     readonly reportMainId: FieldRef<"Project", 'String'>
     readonly reportAtt2Id: FieldRef<"Project", 'String'>
     readonly reportAtt3Id: FieldRef<"Project", 'String'>
@@ -10817,6 +11520,30 @@ export namespace Prisma {
   }
 
   /**
+   * Project.CustomerUploadBatchProjects
+   */
+  export type Project$CustomerUploadBatchProjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatchProject
+     */
+    select?: CustomerUploadBatchProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatchProject
+     */
+    omit?: CustomerUploadBatchProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchProjectInclude<ExtArgs> | null
+    where?: CustomerUploadBatchProjectWhereInput
+    orderBy?: CustomerUploadBatchProjectOrderByWithRelationInput | CustomerUploadBatchProjectOrderByWithRelationInput[]
+    cursor?: CustomerUploadBatchProjectWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CustomerUploadBatchProjectScalarFieldEnum | CustomerUploadBatchProjectScalarFieldEnum[]
+  }
+
+  /**
    * Project without action
    */
   export type ProjectDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -10886,6 +11613,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo: number | null
     shihoTekiShishutsuJunbiKanjo: number | null
     cashTrapJunbiKanjo: number | null
+    interestCapContractKanjo: number | null
     sonotaGenyokin: number | null
     futuYokinTokiZandaka: number | null
     zenkiKurikoshiRieki: number | null
@@ -10899,17 +11627,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage: number | null
     shintakuShuekiKazeiUriageShohizei: number | null
     shintakuShuekiHikazeiUriage: number | null
+    shintakuShuekiTaishogaiUriage: number | null
     shintakuHiyoKazeiShiire: number | null
     shintakuHiyoKazeiShiireShohizei: number | null
     shintakuHiyoHikazeiShiire: number | null
+    shintakuHiyoTaishogaiShiire: number | null
     unitShintakuShuekiKazeiUriage: number | null
     unitShintakuShuekiKazeiUriageShohizei: number | null
     unitShintakuShuekiHikazeiUriage: number | null
+    unitShintakuShuekiTaishogaiUriage: number | null
     unitShintakuHiyoKazeiShiire: number | null
     unitShintakuHiyoKazeiShiireShohizei: number | null
     unitShintakuHiyoHikazeiShiire: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice: number | null
+    unitShintakuHiyoTaishogaiShiire: number | null
     kazeiUriageSashihiki08: number | null
     kazeiUriageSashihiki10: number | null
     kazeiUriageHontai08: number | null
@@ -10965,6 +11697,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo: bigint | null
     shihoTekiShishutsuJunbiKanjo: bigint | null
     cashTrapJunbiKanjo: bigint | null
+    interestCapContractKanjo: bigint | null
     sonotaGenyokin: bigint | null
     futuYokinTokiZandaka: bigint | null
     zenkiKurikoshiRieki: bigint | null
@@ -10978,17 +11711,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage: bigint | null
     shintakuShuekiKazeiUriageShohizei: bigint | null
     shintakuShuekiHikazeiUriage: bigint | null
+    shintakuShuekiTaishogaiUriage: bigint | null
     shintakuHiyoKazeiShiire: bigint | null
     shintakuHiyoKazeiShiireShohizei: bigint | null
     shintakuHiyoHikazeiShiire: bigint | null
+    shintakuHiyoTaishogaiShiire: bigint | null
     unitShintakuShuekiKazeiUriage: number | null
     unitShintakuShuekiKazeiUriageShohizei: number | null
     unitShintakuShuekiHikazeiUriage: number | null
+    unitShintakuShuekiTaishogaiUriage: number | null
     unitShintakuHiyoKazeiShiire: number | null
     unitShintakuHiyoKazeiShiireShohizei: number | null
     unitShintakuHiyoHikazeiShiire: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice: number | null
+    unitShintakuHiyoTaishogaiShiire: number | null
     kazeiUriageSashihiki08: bigint | null
     kazeiUriageSashihiki10: bigint | null
     kazeiUriageHontai08: bigint | null
@@ -11058,6 +11795,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo: bigint | null
     shihoTekiShishutsuJunbiKanjo: bigint | null
     cashTrapJunbiKanjo: bigint | null
+    interestCapContractKanjo: bigint | null
     sonotaGenyokin: bigint | null
     futuYokinTokiZandaka: bigint | null
     zenkiKurikoshiRieki: bigint | null
@@ -11071,17 +11809,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage: bigint | null
     shintakuShuekiKazeiUriageShohizei: bigint | null
     shintakuShuekiHikazeiUriage: bigint | null
+    shintakuShuekiTaishogaiUriage: bigint | null
     shintakuHiyoKazeiShiire: bigint | null
     shintakuHiyoKazeiShiireShohizei: bigint | null
     shintakuHiyoHikazeiShiire: bigint | null
+    shintakuHiyoTaishogaiShiire: bigint | null
     unitShintakuShuekiKazeiUriage: number | null
     unitShintakuShuekiKazeiUriageShohizei: number | null
     unitShintakuShuekiHikazeiUriage: number | null
+    unitShintakuShuekiTaishogaiUriage: number | null
     unitShintakuHiyoKazeiShiire: number | null
     unitShintakuHiyoKazeiShiireShohizei: number | null
     unitShintakuHiyoHikazeiShiire: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice: number | null
+    unitShintakuHiyoTaishogaiShiire: number | null
     kazeiUriageSashihiki08: bigint | null
     kazeiUriageSashihiki10: bigint | null
     kazeiUriageHontai08: bigint | null
@@ -11157,6 +11899,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo: bigint | null
     shihoTekiShishutsuJunbiKanjo: bigint | null
     cashTrapJunbiKanjo: bigint | null
+    interestCapContractKanjo: bigint | null
     sonotaGenyokin: bigint | null
     futuYokinTokiZandaka: bigint | null
     zenkiKurikoshiRieki: bigint | null
@@ -11170,17 +11913,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage: bigint | null
     shintakuShuekiKazeiUriageShohizei: bigint | null
     shintakuShuekiHikazeiUriage: bigint | null
+    shintakuShuekiTaishogaiUriage: bigint | null
     shintakuHiyoKazeiShiire: bigint | null
     shintakuHiyoKazeiShiireShohizei: bigint | null
     shintakuHiyoHikazeiShiire: bigint | null
+    shintakuHiyoTaishogaiShiire: bigint | null
     unitShintakuShuekiKazeiUriage: number | null
     unitShintakuShuekiKazeiUriageShohizei: number | null
     unitShintakuShuekiHikazeiUriage: number | null
+    unitShintakuShuekiTaishogaiUriage: number | null
     unitShintakuHiyoKazeiShiire: number | null
     unitShintakuHiyoKazeiShiireShohizei: number | null
     unitShintakuHiyoHikazeiShiire: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice: number | null
+    unitShintakuHiyoTaishogaiShiire: number | null
     kazeiUriageSashihiki08: bigint | null
     kazeiUriageSashihiki10: bigint | null
     kazeiUriageHontai08: bigint | null
@@ -11256,6 +12003,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo: number
     shihoTekiShishutsuJunbiKanjo: number
     cashTrapJunbiKanjo: number
+    interestCapContractKanjo: number
     sonotaGenyokin: number
     futuYokinTokiZandaka: number
     zenkiKurikoshiRieki: number
@@ -11269,17 +12017,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage: number
     shintakuShuekiKazeiUriageShohizei: number
     shintakuShuekiHikazeiUriage: number
+    shintakuShuekiTaishogaiUriage: number
     shintakuHiyoKazeiShiire: number
     shintakuHiyoKazeiShiireShohizei: number
     shintakuHiyoHikazeiShiire: number
+    shintakuHiyoTaishogaiShiire: number
     unitShintakuShuekiKazeiUriage: number
     unitShintakuShuekiKazeiUriageShohizei: number
     unitShintakuShuekiHikazeiUriage: number
+    unitShintakuShuekiTaishogaiUriage: number
     unitShintakuHiyoKazeiShiire: number
     unitShintakuHiyoKazeiShiireShohizei: number
     unitShintakuHiyoHikazeiShiire: number
     unitShintakuHiyoKazeiShiireForNonInvoice: number
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice: number
+    unitShintakuHiyoTaishogaiShiire: number
     kazeiUriageSashihiki08: number
     kazeiUriageSashihiki10: number
     kazeiUriageHontai08: number
@@ -11343,6 +12095,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: true
     shihoTekiShishutsuJunbiKanjo?: true
     cashTrapJunbiKanjo?: true
+    interestCapContractKanjo?: true
     sonotaGenyokin?: true
     futuYokinTokiZandaka?: true
     zenkiKurikoshiRieki?: true
@@ -11356,17 +12109,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: true
     shintakuShuekiKazeiUriageShohizei?: true
     shintakuShuekiHikazeiUriage?: true
+    shintakuShuekiTaishogaiUriage?: true
     shintakuHiyoKazeiShiire?: true
     shintakuHiyoKazeiShiireShohizei?: true
     shintakuHiyoHikazeiShiire?: true
+    shintakuHiyoTaishogaiShiire?: true
     unitShintakuShuekiKazeiUriage?: true
     unitShintakuShuekiKazeiUriageShohizei?: true
     unitShintakuShuekiHikazeiUriage?: true
+    unitShintakuShuekiTaishogaiUriage?: true
     unitShintakuHiyoKazeiShiire?: true
     unitShintakuHiyoKazeiShiireShohizei?: true
     unitShintakuHiyoHikazeiShiire?: true
     unitShintakuHiyoKazeiShiireForNonInvoice?: true
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: true
+    unitShintakuHiyoTaishogaiShiire?: true
     kazeiUriageSashihiki08?: true
     kazeiUriageSashihiki10?: true
     kazeiUriageHontai08?: true
@@ -11422,6 +12179,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: true
     shihoTekiShishutsuJunbiKanjo?: true
     cashTrapJunbiKanjo?: true
+    interestCapContractKanjo?: true
     sonotaGenyokin?: true
     futuYokinTokiZandaka?: true
     zenkiKurikoshiRieki?: true
@@ -11435,17 +12193,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: true
     shintakuShuekiKazeiUriageShohizei?: true
     shintakuShuekiHikazeiUriage?: true
+    shintakuShuekiTaishogaiUriage?: true
     shintakuHiyoKazeiShiire?: true
     shintakuHiyoKazeiShiireShohizei?: true
     shintakuHiyoHikazeiShiire?: true
+    shintakuHiyoTaishogaiShiire?: true
     unitShintakuShuekiKazeiUriage?: true
     unitShintakuShuekiKazeiUriageShohizei?: true
     unitShintakuShuekiHikazeiUriage?: true
+    unitShintakuShuekiTaishogaiUriage?: true
     unitShintakuHiyoKazeiShiire?: true
     unitShintakuHiyoKazeiShiireShohizei?: true
     unitShintakuHiyoHikazeiShiire?: true
     unitShintakuHiyoKazeiShiireForNonInvoice?: true
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: true
+    unitShintakuHiyoTaishogaiShiire?: true
     kazeiUriageSashihiki08?: true
     kazeiUriageSashihiki10?: true
     kazeiUriageHontai08?: true
@@ -11515,6 +12277,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: true
     shihoTekiShishutsuJunbiKanjo?: true
     cashTrapJunbiKanjo?: true
+    interestCapContractKanjo?: true
     sonotaGenyokin?: true
     futuYokinTokiZandaka?: true
     zenkiKurikoshiRieki?: true
@@ -11528,17 +12291,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: true
     shintakuShuekiKazeiUriageShohizei?: true
     shintakuShuekiHikazeiUriage?: true
+    shintakuShuekiTaishogaiUriage?: true
     shintakuHiyoKazeiShiire?: true
     shintakuHiyoKazeiShiireShohizei?: true
     shintakuHiyoHikazeiShiire?: true
+    shintakuHiyoTaishogaiShiire?: true
     unitShintakuShuekiKazeiUriage?: true
     unitShintakuShuekiKazeiUriageShohizei?: true
     unitShintakuShuekiHikazeiUriage?: true
+    unitShintakuShuekiTaishogaiUriage?: true
     unitShintakuHiyoKazeiShiire?: true
     unitShintakuHiyoKazeiShiireShohizei?: true
     unitShintakuHiyoHikazeiShiire?: true
     unitShintakuHiyoKazeiShiireForNonInvoice?: true
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: true
+    unitShintakuHiyoTaishogaiShiire?: true
     kazeiUriageSashihiki08?: true
     kazeiUriageSashihiki10?: true
     kazeiUriageHontai08?: true
@@ -11614,6 +12381,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: true
     shihoTekiShishutsuJunbiKanjo?: true
     cashTrapJunbiKanjo?: true
+    interestCapContractKanjo?: true
     sonotaGenyokin?: true
     futuYokinTokiZandaka?: true
     zenkiKurikoshiRieki?: true
@@ -11627,17 +12395,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: true
     shintakuShuekiKazeiUriageShohizei?: true
     shintakuShuekiHikazeiUriage?: true
+    shintakuShuekiTaishogaiUriage?: true
     shintakuHiyoKazeiShiire?: true
     shintakuHiyoKazeiShiireShohizei?: true
     shintakuHiyoHikazeiShiire?: true
+    shintakuHiyoTaishogaiShiire?: true
     unitShintakuShuekiKazeiUriage?: true
     unitShintakuShuekiKazeiUriageShohizei?: true
     unitShintakuShuekiHikazeiUriage?: true
+    unitShintakuShuekiTaishogaiUriage?: true
     unitShintakuHiyoKazeiShiire?: true
     unitShintakuHiyoKazeiShiireShohizei?: true
     unitShintakuHiyoHikazeiShiire?: true
     unitShintakuHiyoKazeiShiireForNonInvoice?: true
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: true
+    unitShintakuHiyoTaishogaiShiire?: true
     kazeiUriageSashihiki08?: true
     kazeiUriageSashihiki10?: true
     kazeiUriageHontai08?: true
@@ -11713,6 +12485,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: true
     shihoTekiShishutsuJunbiKanjo?: true
     cashTrapJunbiKanjo?: true
+    interestCapContractKanjo?: true
     sonotaGenyokin?: true
     futuYokinTokiZandaka?: true
     zenkiKurikoshiRieki?: true
@@ -11726,17 +12499,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: true
     shintakuShuekiKazeiUriageShohizei?: true
     shintakuShuekiHikazeiUriage?: true
+    shintakuShuekiTaishogaiUriage?: true
     shintakuHiyoKazeiShiire?: true
     shintakuHiyoKazeiShiireShohizei?: true
     shintakuHiyoHikazeiShiire?: true
+    shintakuHiyoTaishogaiShiire?: true
     unitShintakuShuekiKazeiUriage?: true
     unitShintakuShuekiKazeiUriageShohizei?: true
     unitShintakuShuekiHikazeiUriage?: true
+    unitShintakuShuekiTaishogaiUriage?: true
     unitShintakuHiyoKazeiShiire?: true
     unitShintakuHiyoKazeiShiireShohizei?: true
     unitShintakuHiyoHikazeiShiire?: true
     unitShintakuHiyoKazeiShiireForNonInvoice?: true
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: true
+    unitShintakuHiyoTaishogaiShiire?: true
     kazeiUriageSashihiki08?: true
     kazeiUriageSashihiki10?: true
     kazeiUriageHontai08?: true
@@ -11899,6 +12676,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo: bigint | null
     shihoTekiShishutsuJunbiKanjo: bigint | null
     cashTrapJunbiKanjo: bigint | null
+    interestCapContractKanjo: bigint | null
     sonotaGenyokin: bigint | null
     futuYokinTokiZandaka: bigint | null
     zenkiKurikoshiRieki: bigint | null
@@ -11912,17 +12690,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage: bigint | null
     shintakuShuekiKazeiUriageShohizei: bigint | null
     shintakuShuekiHikazeiUriage: bigint | null
+    shintakuShuekiTaishogaiUriage: bigint | null
     shintakuHiyoKazeiShiire: bigint | null
     shintakuHiyoKazeiShiireShohizei: bigint | null
     shintakuHiyoHikazeiShiire: bigint | null
+    shintakuHiyoTaishogaiShiire: bigint | null
     unitShintakuShuekiKazeiUriage: number | null
     unitShintakuShuekiKazeiUriageShohizei: number | null
     unitShintakuShuekiHikazeiUriage: number | null
+    unitShintakuShuekiTaishogaiUriage: number | null
     unitShintakuHiyoKazeiShiire: number | null
     unitShintakuHiyoKazeiShiireShohizei: number | null
     unitShintakuHiyoHikazeiShiire: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice: number | null
+    unitShintakuHiyoTaishogaiShiire: number | null
     kazeiUriageSashihiki08: bigint | null
     kazeiUriageSashihiki10: bigint | null
     kazeiUriageHontai08: bigint | null
@@ -12017,6 +12799,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: boolean
     shihoTekiShishutsuJunbiKanjo?: boolean
     cashTrapJunbiKanjo?: boolean
+    interestCapContractKanjo?: boolean
     sonotaGenyokin?: boolean
     futuYokinTokiZandaka?: boolean
     zenkiKurikoshiRieki?: boolean
@@ -12030,17 +12813,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: boolean
     shintakuShuekiKazeiUriageShohizei?: boolean
     shintakuShuekiHikazeiUriage?: boolean
+    shintakuShuekiTaishogaiUriage?: boolean
     shintakuHiyoKazeiShiire?: boolean
     shintakuHiyoKazeiShiireShohizei?: boolean
     shintakuHiyoHikazeiShiire?: boolean
+    shintakuHiyoTaishogaiShiire?: boolean
     unitShintakuShuekiKazeiUriage?: boolean
     unitShintakuShuekiKazeiUriageShohizei?: boolean
     unitShintakuShuekiHikazeiUriage?: boolean
+    unitShintakuShuekiTaishogaiUriage?: boolean
     unitShintakuHiyoKazeiShiire?: boolean
     unitShintakuHiyoKazeiShiireShohizei?: boolean
     unitShintakuHiyoHikazeiShiire?: boolean
     unitShintakuHiyoKazeiShiireForNonInvoice?: boolean
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: boolean
+    unitShintakuHiyoTaishogaiShiire?: boolean
     kazeiUriageSashihiki08?: boolean
     kazeiUriageSashihiki10?: boolean
     kazeiUriageHontai08?: boolean
@@ -12123,6 +12910,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: boolean
     shihoTekiShishutsuJunbiKanjo?: boolean
     cashTrapJunbiKanjo?: boolean
+    interestCapContractKanjo?: boolean
     sonotaGenyokin?: boolean
     futuYokinTokiZandaka?: boolean
     zenkiKurikoshiRieki?: boolean
@@ -12136,17 +12924,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: boolean
     shintakuShuekiKazeiUriageShohizei?: boolean
     shintakuShuekiHikazeiUriage?: boolean
+    shintakuShuekiTaishogaiUriage?: boolean
     shintakuHiyoKazeiShiire?: boolean
     shintakuHiyoKazeiShiireShohizei?: boolean
     shintakuHiyoHikazeiShiire?: boolean
+    shintakuHiyoTaishogaiShiire?: boolean
     unitShintakuShuekiKazeiUriage?: boolean
     unitShintakuShuekiKazeiUriageShohizei?: boolean
     unitShintakuShuekiHikazeiUriage?: boolean
+    unitShintakuShuekiTaishogaiUriage?: boolean
     unitShintakuHiyoKazeiShiire?: boolean
     unitShintakuHiyoKazeiShiireShohizei?: boolean
     unitShintakuHiyoHikazeiShiire?: boolean
     unitShintakuHiyoKazeiShiireForNonInvoice?: boolean
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: boolean
+    unitShintakuHiyoTaishogaiShiire?: boolean
     kazeiUriageSashihiki08?: boolean
     kazeiUriageSashihiki10?: boolean
     kazeiUriageHontai08?: boolean
@@ -12226,6 +13018,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: boolean
     shihoTekiShishutsuJunbiKanjo?: boolean
     cashTrapJunbiKanjo?: boolean
+    interestCapContractKanjo?: boolean
     sonotaGenyokin?: boolean
     futuYokinTokiZandaka?: boolean
     zenkiKurikoshiRieki?: boolean
@@ -12239,17 +13032,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: boolean
     shintakuShuekiKazeiUriageShohizei?: boolean
     shintakuShuekiHikazeiUriage?: boolean
+    shintakuShuekiTaishogaiUriage?: boolean
     shintakuHiyoKazeiShiire?: boolean
     shintakuHiyoKazeiShiireShohizei?: boolean
     shintakuHiyoHikazeiShiire?: boolean
+    shintakuHiyoTaishogaiShiire?: boolean
     unitShintakuShuekiKazeiUriage?: boolean
     unitShintakuShuekiKazeiUriageShohizei?: boolean
     unitShintakuShuekiHikazeiUriage?: boolean
+    unitShintakuShuekiTaishogaiUriage?: boolean
     unitShintakuHiyoKazeiShiire?: boolean
     unitShintakuHiyoKazeiShiireShohizei?: boolean
     unitShintakuHiyoHikazeiShiire?: boolean
     unitShintakuHiyoKazeiShiireForNonInvoice?: boolean
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: boolean
+    unitShintakuHiyoTaishogaiShiire?: boolean
     kazeiUriageSashihiki08?: boolean
     kazeiUriageSashihiki10?: boolean
     kazeiUriageHontai08?: boolean
@@ -12329,6 +13126,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: boolean
     shihoTekiShishutsuJunbiKanjo?: boolean
     cashTrapJunbiKanjo?: boolean
+    interestCapContractKanjo?: boolean
     sonotaGenyokin?: boolean
     futuYokinTokiZandaka?: boolean
     zenkiKurikoshiRieki?: boolean
@@ -12342,17 +13140,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: boolean
     shintakuShuekiKazeiUriageShohizei?: boolean
     shintakuShuekiHikazeiUriage?: boolean
+    shintakuShuekiTaishogaiUriage?: boolean
     shintakuHiyoKazeiShiire?: boolean
     shintakuHiyoKazeiShiireShohizei?: boolean
     shintakuHiyoHikazeiShiire?: boolean
+    shintakuHiyoTaishogaiShiire?: boolean
     unitShintakuShuekiKazeiUriage?: boolean
     unitShintakuShuekiKazeiUriageShohizei?: boolean
     unitShintakuShuekiHikazeiUriage?: boolean
+    unitShintakuShuekiTaishogaiUriage?: boolean
     unitShintakuHiyoKazeiShiire?: boolean
     unitShintakuHiyoKazeiShiireShohizei?: boolean
     unitShintakuHiyoHikazeiShiire?: boolean
     unitShintakuHiyoKazeiShiireForNonInvoice?: boolean
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: boolean
+    unitShintakuHiyoTaishogaiShiire?: boolean
     kazeiUriageSashihiki08?: boolean
     kazeiUriageSashihiki10?: boolean
     kazeiUriageHontai08?: boolean
@@ -12375,7 +13177,7 @@ export namespace Prisma {
     updatedBy?: boolean
   }
 
-  export type ProjectKiOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "kiId" | "mainUserId" | "subUserId" | "projectKi" | "startAt" | "endAt" | "paymentDate" | "reportDate" | "topic" | "ganponKuriire" | "yayoiUploadVersion" | "yayoiUploadAt" | "customerUploadVersion" | "customerUploadAt" | "calculateVersion" | "calculateAt" | "finalKiFlag" | "mlspcMarginIncludeTax" | "totalUnit" | "totalUnitNonInvoice" | "shintakuShueki" | "shintakuHiyo" | "sashihikiShintakuRieki" | "shintakuRieki" | "bunpaiRieki" | "bunpaiSogaku" | "bunpaiSogakuNonInvoice" | "kichuKoteiShisan" | "kurikoshiRieki" | "capitalGain" | "unitCapitalGain" | "unitShintakuShueki" | "unitShintakuHiyo" | "unitShintakuHiyoForNonInvoice" | "unitSashihikiShintakuRieki" | "unitSashihikiShintakuRiekiForNonInvoice" | "unitGanponKuriire" | "unitBunpai" | "unitBunpaiForNonInvoice" | "unitKichuKoteiShisan" | "shohiyoRyuhokin" | "shuzenTsumitatekin" | "shohiyoRyuhokinTorikuzushi" | "shuzenTsumitatekinTorikuzushi" | "azukarikinHenkanJunbikin" | "zeikinHokenryoJunbiKanjo" | "kyodoUnyuHiyoJunbiKanjo" | "risokuShiharaiJunbiKanjo" | "shihoTekiShishutsuJunbiKanjo" | "cashTrapJunbiKanjo" | "sonotaGenyokin" | "futuYokinTokiZandaka" | "zenkiKurikoshiRieki" | "shuzenTsumitatekinKuriire" | "mibaraiHiyo" | "chokiKariire" | "currentYearBunpaiRatio" | "fullYearBunpaiRatio" | "currentYearBunpaiRatioNonInvoice" | "fullYearBunpaiRatioNonInvoice" | "shintakuShuekiKazeiUriage" | "shintakuShuekiKazeiUriageShohizei" | "shintakuShuekiHikazeiUriage" | "shintakuHiyoKazeiShiire" | "shintakuHiyoKazeiShiireShohizei" | "shintakuHiyoHikazeiShiire" | "unitShintakuShuekiKazeiUriage" | "unitShintakuShuekiKazeiUriageShohizei" | "unitShintakuShuekiHikazeiUriage" | "unitShintakuHiyoKazeiShiire" | "unitShintakuHiyoKazeiShiireShohizei" | "unitShintakuHiyoHikazeiShiire" | "unitShintakuHiyoKazeiShiireForNonInvoice" | "unitShintakuHiyoKazeiShiireShohizeiForNonInvoice" | "kazeiUriageSashihiki08" | "kazeiUriageSashihiki10" | "kazeiUriageHontai08" | "kazeiUriageHontai10" | "kazeiShiire100Kojo" | "kazeiShiire100KojoNoTax" | "kazeiShiire8050Kojo" | "kazeiShiire8050KojoNoTax" | "kazeiShiire100KojoKazeiUriageHontai" | "kazeiShiire8050KojoKazeiUriageHontai" | "kazeiShiire100KojoKyotsuHontai" | "kazeiShiire8050KojoKyotsuHontai" | "koteiShisan80Kojo" | "koteiShisan80KojoNoTax" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["projectKi"]>
+  export type ProjectKiOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "kiId" | "mainUserId" | "subUserId" | "projectKi" | "startAt" | "endAt" | "paymentDate" | "reportDate" | "topic" | "ganponKuriire" | "yayoiUploadVersion" | "yayoiUploadAt" | "customerUploadVersion" | "customerUploadAt" | "calculateVersion" | "calculateAt" | "finalKiFlag" | "mlspcMarginIncludeTax" | "totalUnit" | "totalUnitNonInvoice" | "shintakuShueki" | "shintakuHiyo" | "sashihikiShintakuRieki" | "shintakuRieki" | "bunpaiRieki" | "bunpaiSogaku" | "bunpaiSogakuNonInvoice" | "kichuKoteiShisan" | "kurikoshiRieki" | "capitalGain" | "unitCapitalGain" | "unitShintakuShueki" | "unitShintakuHiyo" | "unitShintakuHiyoForNonInvoice" | "unitSashihikiShintakuRieki" | "unitSashihikiShintakuRiekiForNonInvoice" | "unitGanponKuriire" | "unitBunpai" | "unitBunpaiForNonInvoice" | "unitKichuKoteiShisan" | "shohiyoRyuhokin" | "shuzenTsumitatekin" | "shohiyoRyuhokinTorikuzushi" | "shuzenTsumitatekinTorikuzushi" | "azukarikinHenkanJunbikin" | "zeikinHokenryoJunbiKanjo" | "kyodoUnyuHiyoJunbiKanjo" | "risokuShiharaiJunbiKanjo" | "shihoTekiShishutsuJunbiKanjo" | "cashTrapJunbiKanjo" | "interestCapContractKanjo" | "sonotaGenyokin" | "futuYokinTokiZandaka" | "zenkiKurikoshiRieki" | "shuzenTsumitatekinKuriire" | "mibaraiHiyo" | "chokiKariire" | "currentYearBunpaiRatio" | "fullYearBunpaiRatio" | "currentYearBunpaiRatioNonInvoice" | "fullYearBunpaiRatioNonInvoice" | "shintakuShuekiKazeiUriage" | "shintakuShuekiKazeiUriageShohizei" | "shintakuShuekiHikazeiUriage" | "shintakuShuekiTaishogaiUriage" | "shintakuHiyoKazeiShiire" | "shintakuHiyoKazeiShiireShohizei" | "shintakuHiyoHikazeiShiire" | "shintakuHiyoTaishogaiShiire" | "unitShintakuShuekiKazeiUriage" | "unitShintakuShuekiKazeiUriageShohizei" | "unitShintakuShuekiHikazeiUriage" | "unitShintakuShuekiTaishogaiUriage" | "unitShintakuHiyoKazeiShiire" | "unitShintakuHiyoKazeiShiireShohizei" | "unitShintakuHiyoHikazeiShiire" | "unitShintakuHiyoKazeiShiireForNonInvoice" | "unitShintakuHiyoKazeiShiireShohizeiForNonInvoice" | "unitShintakuHiyoTaishogaiShiire" | "kazeiUriageSashihiki08" | "kazeiUriageSashihiki10" | "kazeiUriageHontai08" | "kazeiUriageHontai10" | "kazeiShiire100Kojo" | "kazeiShiire100KojoNoTax" | "kazeiShiire8050Kojo" | "kazeiShiire8050KojoNoTax" | "kazeiShiire100KojoKazeiUriageHontai" | "kazeiShiire8050KojoKazeiUriageHontai" | "kazeiShiire100KojoKyotsuHontai" | "kazeiShiire8050KojoKyotsuHontai" | "koteiShisan80Kojo" | "koteiShisan80KojoNoTax" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["projectKi"]>
   export type ProjectKiInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Project?: boolean | ProjectDefaultArgs<ExtArgs>
     Ki?: boolean | KiDefaultArgs<ExtArgs>
@@ -12461,6 +13263,7 @@ export namespace Prisma {
       risokuShiharaiJunbiKanjo: bigint | null
       shihoTekiShishutsuJunbiKanjo: bigint | null
       cashTrapJunbiKanjo: bigint | null
+      interestCapContractKanjo: bigint | null
       sonotaGenyokin: bigint | null
       futuYokinTokiZandaka: bigint | null
       zenkiKurikoshiRieki: bigint | null
@@ -12474,17 +13277,21 @@ export namespace Prisma {
       shintakuShuekiKazeiUriage: bigint | null
       shintakuShuekiKazeiUriageShohizei: bigint | null
       shintakuShuekiHikazeiUriage: bigint | null
+      shintakuShuekiTaishogaiUriage: bigint | null
       shintakuHiyoKazeiShiire: bigint | null
       shintakuHiyoKazeiShiireShohizei: bigint | null
       shintakuHiyoHikazeiShiire: bigint | null
+      shintakuHiyoTaishogaiShiire: bigint | null
       unitShintakuShuekiKazeiUriage: number | null
       unitShintakuShuekiKazeiUriageShohizei: number | null
       unitShintakuShuekiHikazeiUriage: number | null
+      unitShintakuShuekiTaishogaiUriage: number | null
       unitShintakuHiyoKazeiShiire: number | null
       unitShintakuHiyoKazeiShiireShohizei: number | null
       unitShintakuHiyoHikazeiShiire: number | null
       unitShintakuHiyoKazeiShiireForNonInvoice: number | null
       unitShintakuHiyoKazeiShiireShohizeiForNonInvoice: number | null
+      unitShintakuHiyoTaishogaiShiire: number | null
       kazeiUriageSashihiki08: bigint | null
       kazeiUriageSashihiki10: bigint | null
       kazeiUriageHontai08: bigint | null
@@ -12986,6 +13793,7 @@ export namespace Prisma {
     readonly risokuShiharaiJunbiKanjo: FieldRef<"ProjectKi", 'BigInt'>
     readonly shihoTekiShishutsuJunbiKanjo: FieldRef<"ProjectKi", 'BigInt'>
     readonly cashTrapJunbiKanjo: FieldRef<"ProjectKi", 'BigInt'>
+    readonly interestCapContractKanjo: FieldRef<"ProjectKi", 'BigInt'>
     readonly sonotaGenyokin: FieldRef<"ProjectKi", 'BigInt'>
     readonly futuYokinTokiZandaka: FieldRef<"ProjectKi", 'BigInt'>
     readonly zenkiKurikoshiRieki: FieldRef<"ProjectKi", 'BigInt'>
@@ -12999,17 +13807,21 @@ export namespace Prisma {
     readonly shintakuShuekiKazeiUriage: FieldRef<"ProjectKi", 'BigInt'>
     readonly shintakuShuekiKazeiUriageShohizei: FieldRef<"ProjectKi", 'BigInt'>
     readonly shintakuShuekiHikazeiUriage: FieldRef<"ProjectKi", 'BigInt'>
+    readonly shintakuShuekiTaishogaiUriage: FieldRef<"ProjectKi", 'BigInt'>
     readonly shintakuHiyoKazeiShiire: FieldRef<"ProjectKi", 'BigInt'>
     readonly shintakuHiyoKazeiShiireShohizei: FieldRef<"ProjectKi", 'BigInt'>
     readonly shintakuHiyoHikazeiShiire: FieldRef<"ProjectKi", 'BigInt'>
+    readonly shintakuHiyoTaishogaiShiire: FieldRef<"ProjectKi", 'BigInt'>
     readonly unitShintakuShuekiKazeiUriage: FieldRef<"ProjectKi", 'Int'>
     readonly unitShintakuShuekiKazeiUriageShohizei: FieldRef<"ProjectKi", 'Int'>
     readonly unitShintakuShuekiHikazeiUriage: FieldRef<"ProjectKi", 'Int'>
+    readonly unitShintakuShuekiTaishogaiUriage: FieldRef<"ProjectKi", 'Int'>
     readonly unitShintakuHiyoKazeiShiire: FieldRef<"ProjectKi", 'Int'>
     readonly unitShintakuHiyoKazeiShiireShohizei: FieldRef<"ProjectKi", 'Int'>
     readonly unitShintakuHiyoHikazeiShiire: FieldRef<"ProjectKi", 'Int'>
     readonly unitShintakuHiyoKazeiShiireForNonInvoice: FieldRef<"ProjectKi", 'Int'>
     readonly unitShintakuHiyoKazeiShiireShohizeiForNonInvoice: FieldRef<"ProjectKi", 'Int'>
+    readonly unitShintakuHiyoTaishogaiShiire: FieldRef<"ProjectKi", 'Int'>
     readonly kazeiUriageSashihiki08: FieldRef<"ProjectKi", 'BigInt'>
     readonly kazeiUriageSashihiki10: FieldRef<"ProjectKi", 'BigInt'>
     readonly kazeiUriageHontai08: FieldRef<"ProjectKi", 'BigInt'>
@@ -20117,6 +20929,9 @@ export namespace Prisma {
     dueDate: Date | null
     order: number | null
     memo: string | null
+    category: $Enums.DeadlineCategory | null
+    documentType: $Enums.DocumentType | null
+    reviewStep: $Enums.ReviewStep | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -20132,6 +20947,9 @@ export namespace Prisma {
     dueDate: Date | null
     order: number | null
     memo: string | null
+    category: $Enums.DeadlineCategory | null
+    documentType: $Enums.DocumentType | null
+    reviewStep: $Enums.ReviewStep | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -20147,6 +20965,9 @@ export namespace Prisma {
     dueDate: number
     order: number
     memo: number
+    category: number
+    documentType: number
+    reviewStep: number
     createdAt: number
     createdId: number
     createdBy: number
@@ -20172,6 +20993,9 @@ export namespace Prisma {
     dueDate?: true
     order?: true
     memo?: true
+    category?: true
+    documentType?: true
+    reviewStep?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -20187,6 +21011,9 @@ export namespace Prisma {
     dueDate?: true
     order?: true
     memo?: true
+    category?: true
+    documentType?: true
+    reviewStep?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -20202,6 +21029,9 @@ export namespace Prisma {
     dueDate?: true
     order?: true
     memo?: true
+    category?: true
+    documentType?: true
+    reviewStep?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -20304,6 +21134,9 @@ export namespace Prisma {
     dueDate: Date
     order: number
     memo: string | null
+    category: $Enums.DeadlineCategory
+    documentType: $Enums.DocumentType | null
+    reviewStep: $Enums.ReviewStep | null
     createdAt: Date
     createdId: string
     createdBy: string
@@ -20338,6 +21171,9 @@ export namespace Prisma {
     dueDate?: boolean
     order?: boolean
     memo?: boolean
+    category?: boolean
+    documentType?: boolean
+    reviewStep?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -20356,6 +21192,9 @@ export namespace Prisma {
     dueDate?: boolean
     order?: boolean
     memo?: boolean
+    category?: boolean
+    documentType?: boolean
+    reviewStep?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -20372,6 +21211,9 @@ export namespace Prisma {
     dueDate?: boolean
     order?: boolean
     memo?: boolean
+    category?: boolean
+    documentType?: boolean
+    reviewStep?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -20388,6 +21230,9 @@ export namespace Prisma {
     dueDate?: boolean
     order?: boolean
     memo?: boolean
+    category?: boolean
+    documentType?: boolean
+    reviewStep?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -20396,7 +21241,7 @@ export namespace Prisma {
     updatedBy?: boolean
   }
 
-  export type DeadlineTaskOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "kiId" | "name" | "dueDate" | "order" | "memo" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["deadlineTask"]>
+  export type DeadlineTaskOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "kiId" | "name" | "dueDate" | "order" | "memo" | "category" | "documentType" | "reviewStep" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["deadlineTask"]>
   export type DeadlineTaskInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Ki?: boolean | KiDefaultArgs<ExtArgs>
     ProjectKiTasks?: boolean | DeadlineTask$ProjectKiTasksArgs<ExtArgs>
@@ -20422,6 +21267,9 @@ export namespace Prisma {
       dueDate: Date
       order: number
       memo: string | null
+      category: $Enums.DeadlineCategory
+      documentType: $Enums.DocumentType | null
+      reviewStep: $Enums.ReviewStep | null
       createdAt: Date
       createdId: string
       createdBy: string
@@ -20859,6 +21707,9 @@ export namespace Prisma {
     readonly dueDate: FieldRef<"DeadlineTask", 'DateTime'>
     readonly order: FieldRef<"DeadlineTask", 'Int'>
     readonly memo: FieldRef<"DeadlineTask", 'String'>
+    readonly category: FieldRef<"DeadlineTask", 'DeadlineCategory'>
+    readonly documentType: FieldRef<"DeadlineTask", 'DocumentType'>
+    readonly reviewStep: FieldRef<"DeadlineTask", 'ReviewStep'>
     readonly createdAt: FieldRef<"DeadlineTask", 'DateTime'>
     readonly createdId: FieldRef<"DeadlineTask", 'String'>
     readonly createdBy: FieldRef<"DeadlineTask", 'String'>
@@ -21317,7 +22168,9 @@ export namespace Prisma {
     id: string | null
     deadlineTaskId: string | null
     projectKiId: string | null
-    isCompleted: boolean | null
+    status: $Enums.ProjectKiTaskStatus | null
+    note: string | null
+    checkerUserId: string | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -21330,7 +22183,9 @@ export namespace Prisma {
     id: string | null
     deadlineTaskId: string | null
     projectKiId: string | null
-    isCompleted: boolean | null
+    status: $Enums.ProjectKiTaskStatus | null
+    note: string | null
+    checkerUserId: string | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -21343,7 +22198,9 @@ export namespace Prisma {
     id: number
     deadlineTaskId: number
     projectKiId: number
-    isCompleted: number
+    status: number
+    note: number
+    checkerUserId: number
     createdAt: number
     createdId: number
     createdBy: number
@@ -21358,7 +22215,9 @@ export namespace Prisma {
     id?: true
     deadlineTaskId?: true
     projectKiId?: true
-    isCompleted?: true
+    status?: true
+    note?: true
+    checkerUserId?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -21371,7 +22230,9 @@ export namespace Prisma {
     id?: true
     deadlineTaskId?: true
     projectKiId?: true
-    isCompleted?: true
+    status?: true
+    note?: true
+    checkerUserId?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -21384,7 +22245,9 @@ export namespace Prisma {
     id?: true
     deadlineTaskId?: true
     projectKiId?: true
-    isCompleted?: true
+    status?: true
+    note?: true
+    checkerUserId?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -21470,7 +22333,9 @@ export namespace Prisma {
     id: string
     deadlineTaskId: string
     projectKiId: string
-    isCompleted: boolean
+    status: $Enums.ProjectKiTaskStatus
+    note: string | null
+    checkerUserId: string | null
     createdAt: Date
     createdId: string
     createdBy: string
@@ -21500,7 +22365,9 @@ export namespace Prisma {
     id?: boolean
     deadlineTaskId?: boolean
     projectKiId?: boolean
-    isCompleted?: boolean
+    status?: boolean
+    note?: boolean
+    checkerUserId?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -21509,13 +22376,16 @@ export namespace Prisma {
     updatedBy?: boolean
     DeadlineTask?: boolean | DeadlineTaskDefaultArgs<ExtArgs>
     ProjectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
+    Checker?: boolean | ProjectKiTask$CheckerArgs<ExtArgs>
   }, ExtArgs["result"]["projectKiTask"]>
 
   export type ProjectKiTaskSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     deadlineTaskId?: boolean
     projectKiId?: boolean
-    isCompleted?: boolean
+    status?: boolean
+    note?: boolean
+    checkerUserId?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -21524,13 +22394,16 @@ export namespace Prisma {
     updatedBy?: boolean
     DeadlineTask?: boolean | DeadlineTaskDefaultArgs<ExtArgs>
     ProjectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
+    Checker?: boolean | ProjectKiTask$CheckerArgs<ExtArgs>
   }, ExtArgs["result"]["projectKiTask"]>
 
   export type ProjectKiTaskSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     deadlineTaskId?: boolean
     projectKiId?: boolean
-    isCompleted?: boolean
+    status?: boolean
+    note?: boolean
+    checkerUserId?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -21539,13 +22412,16 @@ export namespace Prisma {
     updatedBy?: boolean
     DeadlineTask?: boolean | DeadlineTaskDefaultArgs<ExtArgs>
     ProjectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
+    Checker?: boolean | ProjectKiTask$CheckerArgs<ExtArgs>
   }, ExtArgs["result"]["projectKiTask"]>
 
   export type ProjectKiTaskSelectScalar = {
     id?: boolean
     deadlineTaskId?: boolean
     projectKiId?: boolean
-    isCompleted?: boolean
+    status?: boolean
+    note?: boolean
+    checkerUserId?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -21554,18 +22430,21 @@ export namespace Prisma {
     updatedBy?: boolean
   }
 
-  export type ProjectKiTaskOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "deadlineTaskId" | "projectKiId" | "isCompleted" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["projectKiTask"]>
+  export type ProjectKiTaskOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "deadlineTaskId" | "projectKiId" | "status" | "note" | "checkerUserId" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["projectKiTask"]>
   export type ProjectKiTaskInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     DeadlineTask?: boolean | DeadlineTaskDefaultArgs<ExtArgs>
     ProjectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
+    Checker?: boolean | ProjectKiTask$CheckerArgs<ExtArgs>
   }
   export type ProjectKiTaskIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     DeadlineTask?: boolean | DeadlineTaskDefaultArgs<ExtArgs>
     ProjectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
+    Checker?: boolean | ProjectKiTask$CheckerArgs<ExtArgs>
   }
   export type ProjectKiTaskIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     DeadlineTask?: boolean | DeadlineTaskDefaultArgs<ExtArgs>
     ProjectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
+    Checker?: boolean | ProjectKiTask$CheckerArgs<ExtArgs>
   }
 
   export type $ProjectKiTaskPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -21573,12 +22452,15 @@ export namespace Prisma {
     objects: {
       DeadlineTask: Prisma.$DeadlineTaskPayload<ExtArgs>
       ProjectKi: Prisma.$ProjectKiPayload<ExtArgs>
+      Checker: Prisma.$UserPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       deadlineTaskId: string
       projectKiId: string
-      isCompleted: boolean
+      status: $Enums.ProjectKiTaskStatus
+      note: string | null
+      checkerUserId: string | null
       createdAt: Date
       createdId: string
       createdBy: string
@@ -21981,6 +22863,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     DeadlineTask<T extends DeadlineTaskDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DeadlineTaskDefaultArgs<ExtArgs>>): Prisma__DeadlineTaskClient<$Result.GetResult<Prisma.$DeadlineTaskPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     ProjectKi<T extends ProjectKiDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectKiDefaultArgs<ExtArgs>>): Prisma__ProjectKiClient<$Result.GetResult<Prisma.$ProjectKiPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    Checker<T extends ProjectKiTask$CheckerArgs<ExtArgs> = {}>(args?: Subset<T, ProjectKiTask$CheckerArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -22013,7 +22896,9 @@ export namespace Prisma {
     readonly id: FieldRef<"ProjectKiTask", 'String'>
     readonly deadlineTaskId: FieldRef<"ProjectKiTask", 'String'>
     readonly projectKiId: FieldRef<"ProjectKiTask", 'String'>
-    readonly isCompleted: FieldRef<"ProjectKiTask", 'Boolean'>
+    readonly status: FieldRef<"ProjectKiTask", 'ProjectKiTaskStatus'>
+    readonly note: FieldRef<"ProjectKiTask", 'String'>
+    readonly checkerUserId: FieldRef<"ProjectKiTask", 'String'>
     readonly createdAt: FieldRef<"ProjectKiTask", 'DateTime'>
     readonly createdId: FieldRef<"ProjectKiTask", 'String'>
     readonly createdBy: FieldRef<"ProjectKiTask", 'String'>
@@ -22413,6 +23298,25 @@ export namespace Prisma {
      * Limit how many ProjectKiTasks to delete.
      */
     limit?: number
+  }
+
+  /**
+   * ProjectKiTask.Checker
+   */
+  export type ProjectKiTask$CheckerArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
   }
 
   /**
@@ -22946,6 +23850,8 @@ export namespace Prisma {
     updatedBy?: boolean
     Project?: boolean | ProjectDefaultArgs<ExtArgs>
     CustomerFunds?: boolean | Customer$CustomerFundsArgs<ExtArgs>
+    ChangeLogs?: boolean | Customer$ChangeLogsArgs<ExtArgs>
+    FundChangeLogs?: boolean | Customer$FundChangeLogsArgs<ExtArgs>
     _count?: boolean | CustomerCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["customer"]>
 
@@ -23093,6 +23999,8 @@ export namespace Prisma {
   export type CustomerInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Project?: boolean | ProjectDefaultArgs<ExtArgs>
     CustomerFunds?: boolean | Customer$CustomerFundsArgs<ExtArgs>
+    ChangeLogs?: boolean | Customer$ChangeLogsArgs<ExtArgs>
+    FundChangeLogs?: boolean | Customer$FundChangeLogsArgs<ExtArgs>
     _count?: boolean | CustomerCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type CustomerIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -23107,6 +24015,8 @@ export namespace Prisma {
     objects: {
       Project: Prisma.$ProjectPayload<ExtArgs>
       CustomerFunds: Prisma.$CustomerFundPayload<ExtArgs>[]
+      ChangeLogs: Prisma.$CustomerChangeLogPayload<ExtArgs>[]
+      FundChangeLogs: Prisma.$CustomerFundChangeLogPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -23548,6 +24458,8 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     Project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     CustomerFunds<T extends Customer$CustomerFundsArgs<ExtArgs> = {}>(args?: Subset<T, Customer$CustomerFundsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerFundPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    ChangeLogs<T extends Customer$ChangeLogsArgs<ExtArgs> = {}>(args?: Subset<T, Customer$ChangeLogsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerChangeLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    FundChangeLogs<T extends Customer$FundChangeLogsArgs<ExtArgs> = {}>(args?: Subset<T, Customer$FundChangeLogsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerFundChangeLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -24040,6 +24952,54 @@ export namespace Prisma {
   }
 
   /**
+   * Customer.ChangeLogs
+   */
+  export type Customer$ChangeLogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerChangeLog
+     */
+    select?: CustomerChangeLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerChangeLog
+     */
+    omit?: CustomerChangeLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerChangeLogInclude<ExtArgs> | null
+    where?: CustomerChangeLogWhereInput
+    orderBy?: CustomerChangeLogOrderByWithRelationInput | CustomerChangeLogOrderByWithRelationInput[]
+    cursor?: CustomerChangeLogWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CustomerChangeLogScalarFieldEnum | CustomerChangeLogScalarFieldEnum[]
+  }
+
+  /**
+   * Customer.FundChangeLogs
+   */
+  export type Customer$FundChangeLogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFundChangeLog
+     */
+    select?: CustomerFundChangeLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerFundChangeLog
+     */
+    omit?: CustomerFundChangeLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundChangeLogInclude<ExtArgs> | null
+    where?: CustomerFundChangeLogWhereInput
+    orderBy?: CustomerFundChangeLogOrderByWithRelationInput | CustomerFundChangeLogOrderByWithRelationInput[]
+    cursor?: CustomerFundChangeLogWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CustomerFundChangeLogScalarFieldEnum | CustomerFundChangeLogScalarFieldEnum[]
+  }
+
+  /**
    * Customer without action
    */
   export type CustomerDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -24460,6 +25420,7 @@ export namespace Prisma {
     ProjectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
     sourceCustomerFund?: boolean | CustomerFund$sourceCustomerFundArgs<ExtArgs>
     destinationCustomerFunds?: boolean | CustomerFund$destinationCustomerFundsArgs<ExtArgs>
+    ChangeLogs?: boolean | CustomerFund$ChangeLogsArgs<ExtArgs>
     _count?: boolean | CustomerFundCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["customerFund"]>
 
@@ -24559,6 +25520,7 @@ export namespace Prisma {
     ProjectKi?: boolean | ProjectKiDefaultArgs<ExtArgs>
     sourceCustomerFund?: boolean | CustomerFund$sourceCustomerFundArgs<ExtArgs>
     destinationCustomerFunds?: boolean | CustomerFund$destinationCustomerFundsArgs<ExtArgs>
+    ChangeLogs?: boolean | CustomerFund$ChangeLogsArgs<ExtArgs>
     _count?: boolean | CustomerFundCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type CustomerFundIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -24579,6 +25541,7 @@ export namespace Prisma {
       ProjectKi: Prisma.$ProjectKiPayload<ExtArgs>
       sourceCustomerFund: Prisma.$CustomerFundPayload<ExtArgs> | null
       destinationCustomerFunds: Prisma.$CustomerFundPayload<ExtArgs>[]
+      ChangeLogs: Prisma.$CustomerFundChangeLogPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -25004,6 +25967,7 @@ export namespace Prisma {
     ProjectKi<T extends ProjectKiDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectKiDefaultArgs<ExtArgs>>): Prisma__ProjectKiClient<$Result.GetResult<Prisma.$ProjectKiPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     sourceCustomerFund<T extends CustomerFund$sourceCustomerFundArgs<ExtArgs> = {}>(args?: Subset<T, CustomerFund$sourceCustomerFundArgs<ExtArgs>>): Prisma__CustomerFundClient<$Result.GetResult<Prisma.$CustomerFundPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     destinationCustomerFunds<T extends CustomerFund$destinationCustomerFundsArgs<ExtArgs> = {}>(args?: Subset<T, CustomerFund$destinationCustomerFundsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerFundPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    ChangeLogs<T extends CustomerFund$ChangeLogsArgs<ExtArgs> = {}>(args?: Subset<T, CustomerFund$ChangeLogsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerFundChangeLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -25497,6 +26461,30 @@ export namespace Prisma {
   }
 
   /**
+   * CustomerFund.ChangeLogs
+   */
+  export type CustomerFund$ChangeLogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFundChangeLog
+     */
+    select?: CustomerFundChangeLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerFundChangeLog
+     */
+    omit?: CustomerFundChangeLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundChangeLogInclude<ExtArgs> | null
+    where?: CustomerFundChangeLogWhereInput
+    orderBy?: CustomerFundChangeLogOrderByWithRelationInput | CustomerFundChangeLogOrderByWithRelationInput[]
+    cursor?: CustomerFundChangeLogWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CustomerFundChangeLogScalarFieldEnum | CustomerFundChangeLogScalarFieldEnum[]
+  }
+
+  /**
    * CustomerFund without action
    */
   export type CustomerFundDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -25512,6 +26500,4763 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: CustomerFundInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model CustomerUploadBatch
+   */
+
+  export type AggregateCustomerUploadBatch = {
+    _count: CustomerUploadBatchCountAggregateOutputType | null
+    _avg: CustomerUploadBatchAvgAggregateOutputType | null
+    _sum: CustomerUploadBatchSumAggregateOutputType | null
+    _min: CustomerUploadBatchMinAggregateOutputType | null
+    _max: CustomerUploadBatchMaxAggregateOutputType | null
+  }
+
+  export type CustomerUploadBatchAvgAggregateOutputType = {
+    targetProjectCount: number | null
+    committedProjectCount: number | null
+    customerCreatedCount: number | null
+    customerUpdatedCount: number | null
+    customerUnchangedCount: number | null
+    fundCreatedCount: number | null
+    fundUpdatedCount: number | null
+    fundDeletedCount: number | null
+    fundUnchangedCount: number | null
+  }
+
+  export type CustomerUploadBatchSumAggregateOutputType = {
+    targetProjectCount: number | null
+    committedProjectCount: number | null
+    customerCreatedCount: number | null
+    customerUpdatedCount: number | null
+    customerUnchangedCount: number | null
+    fundCreatedCount: number | null
+    fundUpdatedCount: number | null
+    fundDeletedCount: number | null
+    fundUnchangedCount: number | null
+  }
+
+  export type CustomerUploadBatchMinAggregateOutputType = {
+    id: string | null
+    fileName: string | null
+    kiId: string | null
+    uploaderId: string | null
+    uploaderType: $Enums.UserType | null
+    uploaderName: string | null
+    ipAddress: string | null
+    status: $Enums.BatchStatus | null
+    targetProjectCount: number | null
+    committedProjectCount: number | null
+    customerCreatedCount: number | null
+    customerUpdatedCount: number | null
+    customerUnchangedCount: number | null
+    fundCreatedCount: number | null
+    fundUpdatedCount: number | null
+    fundDeletedCount: number | null
+    fundUnchangedCount: number | null
+    pretreatmentAt: Date | null
+    committedAt: Date | null
+    mailSentAt: Date | null
+  }
+
+  export type CustomerUploadBatchMaxAggregateOutputType = {
+    id: string | null
+    fileName: string | null
+    kiId: string | null
+    uploaderId: string | null
+    uploaderType: $Enums.UserType | null
+    uploaderName: string | null
+    ipAddress: string | null
+    status: $Enums.BatchStatus | null
+    targetProjectCount: number | null
+    committedProjectCount: number | null
+    customerCreatedCount: number | null
+    customerUpdatedCount: number | null
+    customerUnchangedCount: number | null
+    fundCreatedCount: number | null
+    fundUpdatedCount: number | null
+    fundDeletedCount: number | null
+    fundUnchangedCount: number | null
+    pretreatmentAt: Date | null
+    committedAt: Date | null
+    mailSentAt: Date | null
+  }
+
+  export type CustomerUploadBatchCountAggregateOutputType = {
+    id: number
+    fileName: number
+    kiId: number
+    uploaderId: number
+    uploaderType: number
+    uploaderName: number
+    ipAddress: number
+    status: number
+    targetProjectCount: number
+    committedProjectCount: number
+    customerCreatedCount: number
+    customerUpdatedCount: number
+    customerUnchangedCount: number
+    fundCreatedCount: number
+    fundUpdatedCount: number
+    fundDeletedCount: number
+    fundUnchangedCount: number
+    pretreatmentAt: number
+    committedAt: number
+    mailSentAt: number
+    _all: number
+  }
+
+
+  export type CustomerUploadBatchAvgAggregateInputType = {
+    targetProjectCount?: true
+    committedProjectCount?: true
+    customerCreatedCount?: true
+    customerUpdatedCount?: true
+    customerUnchangedCount?: true
+    fundCreatedCount?: true
+    fundUpdatedCount?: true
+    fundDeletedCount?: true
+    fundUnchangedCount?: true
+  }
+
+  export type CustomerUploadBatchSumAggregateInputType = {
+    targetProjectCount?: true
+    committedProjectCount?: true
+    customerCreatedCount?: true
+    customerUpdatedCount?: true
+    customerUnchangedCount?: true
+    fundCreatedCount?: true
+    fundUpdatedCount?: true
+    fundDeletedCount?: true
+    fundUnchangedCount?: true
+  }
+
+  export type CustomerUploadBatchMinAggregateInputType = {
+    id?: true
+    fileName?: true
+    kiId?: true
+    uploaderId?: true
+    uploaderType?: true
+    uploaderName?: true
+    ipAddress?: true
+    status?: true
+    targetProjectCount?: true
+    committedProjectCount?: true
+    customerCreatedCount?: true
+    customerUpdatedCount?: true
+    customerUnchangedCount?: true
+    fundCreatedCount?: true
+    fundUpdatedCount?: true
+    fundDeletedCount?: true
+    fundUnchangedCount?: true
+    pretreatmentAt?: true
+    committedAt?: true
+    mailSentAt?: true
+  }
+
+  export type CustomerUploadBatchMaxAggregateInputType = {
+    id?: true
+    fileName?: true
+    kiId?: true
+    uploaderId?: true
+    uploaderType?: true
+    uploaderName?: true
+    ipAddress?: true
+    status?: true
+    targetProjectCount?: true
+    committedProjectCount?: true
+    customerCreatedCount?: true
+    customerUpdatedCount?: true
+    customerUnchangedCount?: true
+    fundCreatedCount?: true
+    fundUpdatedCount?: true
+    fundDeletedCount?: true
+    fundUnchangedCount?: true
+    pretreatmentAt?: true
+    committedAt?: true
+    mailSentAt?: true
+  }
+
+  export type CustomerUploadBatchCountAggregateInputType = {
+    id?: true
+    fileName?: true
+    kiId?: true
+    uploaderId?: true
+    uploaderType?: true
+    uploaderName?: true
+    ipAddress?: true
+    status?: true
+    targetProjectCount?: true
+    committedProjectCount?: true
+    customerCreatedCount?: true
+    customerUpdatedCount?: true
+    customerUnchangedCount?: true
+    fundCreatedCount?: true
+    fundUpdatedCount?: true
+    fundDeletedCount?: true
+    fundUnchangedCount?: true
+    pretreatmentAt?: true
+    committedAt?: true
+    mailSentAt?: true
+    _all?: true
+  }
+
+  export type CustomerUploadBatchAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CustomerUploadBatch to aggregate.
+     */
+    where?: CustomerUploadBatchWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CustomerUploadBatches to fetch.
+     */
+    orderBy?: CustomerUploadBatchOrderByWithRelationInput | CustomerUploadBatchOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CustomerUploadBatchWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CustomerUploadBatches from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CustomerUploadBatches.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned CustomerUploadBatches
+    **/
+    _count?: true | CustomerUploadBatchCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: CustomerUploadBatchAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: CustomerUploadBatchSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CustomerUploadBatchMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CustomerUploadBatchMaxAggregateInputType
+  }
+
+  export type GetCustomerUploadBatchAggregateType<T extends CustomerUploadBatchAggregateArgs> = {
+        [P in keyof T & keyof AggregateCustomerUploadBatch]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCustomerUploadBatch[P]>
+      : GetScalarType<T[P], AggregateCustomerUploadBatch[P]>
+  }
+
+
+
+
+  export type CustomerUploadBatchGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CustomerUploadBatchWhereInput
+    orderBy?: CustomerUploadBatchOrderByWithAggregationInput | CustomerUploadBatchOrderByWithAggregationInput[]
+    by: CustomerUploadBatchScalarFieldEnum[] | CustomerUploadBatchScalarFieldEnum
+    having?: CustomerUploadBatchScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CustomerUploadBatchCountAggregateInputType | true
+    _avg?: CustomerUploadBatchAvgAggregateInputType
+    _sum?: CustomerUploadBatchSumAggregateInputType
+    _min?: CustomerUploadBatchMinAggregateInputType
+    _max?: CustomerUploadBatchMaxAggregateInputType
+  }
+
+  export type CustomerUploadBatchGroupByOutputType = {
+    id: string
+    fileName: string
+    kiId: string
+    uploaderId: string
+    uploaderType: $Enums.UserType
+    uploaderName: string
+    ipAddress: string | null
+    status: $Enums.BatchStatus
+    targetProjectCount: number
+    committedProjectCount: number
+    customerCreatedCount: number
+    customerUpdatedCount: number
+    customerUnchangedCount: number
+    fundCreatedCount: number
+    fundUpdatedCount: number
+    fundDeletedCount: number
+    fundUnchangedCount: number
+    pretreatmentAt: Date
+    committedAt: Date | null
+    mailSentAt: Date | null
+    _count: CustomerUploadBatchCountAggregateOutputType | null
+    _avg: CustomerUploadBatchAvgAggregateOutputType | null
+    _sum: CustomerUploadBatchSumAggregateOutputType | null
+    _min: CustomerUploadBatchMinAggregateOutputType | null
+    _max: CustomerUploadBatchMaxAggregateOutputType | null
+  }
+
+  type GetCustomerUploadBatchGroupByPayload<T extends CustomerUploadBatchGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CustomerUploadBatchGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CustomerUploadBatchGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CustomerUploadBatchGroupByOutputType[P]>
+            : GetScalarType<T[P], CustomerUploadBatchGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CustomerUploadBatchSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    fileName?: boolean
+    kiId?: boolean
+    uploaderId?: boolean
+    uploaderType?: boolean
+    uploaderName?: boolean
+    ipAddress?: boolean
+    status?: boolean
+    targetProjectCount?: boolean
+    committedProjectCount?: boolean
+    customerCreatedCount?: boolean
+    customerUpdatedCount?: boolean
+    customerUnchangedCount?: boolean
+    fundCreatedCount?: boolean
+    fundUpdatedCount?: boolean
+    fundDeletedCount?: boolean
+    fundUnchangedCount?: boolean
+    pretreatmentAt?: boolean
+    committedAt?: boolean
+    mailSentAt?: boolean
+    Ki?: boolean | KiDefaultArgs<ExtArgs>
+    CustomerChangeLogs?: boolean | CustomerUploadBatch$CustomerChangeLogsArgs<ExtArgs>
+    CustomerFundChangeLogs?: boolean | CustomerUploadBatch$CustomerFundChangeLogsArgs<ExtArgs>
+    CommittedProjects?: boolean | CustomerUploadBatch$CommittedProjectsArgs<ExtArgs>
+    _count?: boolean | CustomerUploadBatchCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["customerUploadBatch"]>
+
+  export type CustomerUploadBatchSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    fileName?: boolean
+    kiId?: boolean
+    uploaderId?: boolean
+    uploaderType?: boolean
+    uploaderName?: boolean
+    ipAddress?: boolean
+    status?: boolean
+    targetProjectCount?: boolean
+    committedProjectCount?: boolean
+    customerCreatedCount?: boolean
+    customerUpdatedCount?: boolean
+    customerUnchangedCount?: boolean
+    fundCreatedCount?: boolean
+    fundUpdatedCount?: boolean
+    fundDeletedCount?: boolean
+    fundUnchangedCount?: boolean
+    pretreatmentAt?: boolean
+    committedAt?: boolean
+    mailSentAt?: boolean
+    Ki?: boolean | KiDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["customerUploadBatch"]>
+
+  export type CustomerUploadBatchSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    fileName?: boolean
+    kiId?: boolean
+    uploaderId?: boolean
+    uploaderType?: boolean
+    uploaderName?: boolean
+    ipAddress?: boolean
+    status?: boolean
+    targetProjectCount?: boolean
+    committedProjectCount?: boolean
+    customerCreatedCount?: boolean
+    customerUpdatedCount?: boolean
+    customerUnchangedCount?: boolean
+    fundCreatedCount?: boolean
+    fundUpdatedCount?: boolean
+    fundDeletedCount?: boolean
+    fundUnchangedCount?: boolean
+    pretreatmentAt?: boolean
+    committedAt?: boolean
+    mailSentAt?: boolean
+    Ki?: boolean | KiDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["customerUploadBatch"]>
+
+  export type CustomerUploadBatchSelectScalar = {
+    id?: boolean
+    fileName?: boolean
+    kiId?: boolean
+    uploaderId?: boolean
+    uploaderType?: boolean
+    uploaderName?: boolean
+    ipAddress?: boolean
+    status?: boolean
+    targetProjectCount?: boolean
+    committedProjectCount?: boolean
+    customerCreatedCount?: boolean
+    customerUpdatedCount?: boolean
+    customerUnchangedCount?: boolean
+    fundCreatedCount?: boolean
+    fundUpdatedCount?: boolean
+    fundDeletedCount?: boolean
+    fundUnchangedCount?: boolean
+    pretreatmentAt?: boolean
+    committedAt?: boolean
+    mailSentAt?: boolean
+  }
+
+  export type CustomerUploadBatchOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fileName" | "kiId" | "uploaderId" | "uploaderType" | "uploaderName" | "ipAddress" | "status" | "targetProjectCount" | "committedProjectCount" | "customerCreatedCount" | "customerUpdatedCount" | "customerUnchangedCount" | "fundCreatedCount" | "fundUpdatedCount" | "fundDeletedCount" | "fundUnchangedCount" | "pretreatmentAt" | "committedAt" | "mailSentAt", ExtArgs["result"]["customerUploadBatch"]>
+  export type CustomerUploadBatchInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Ki?: boolean | KiDefaultArgs<ExtArgs>
+    CustomerChangeLogs?: boolean | CustomerUploadBatch$CustomerChangeLogsArgs<ExtArgs>
+    CustomerFundChangeLogs?: boolean | CustomerUploadBatch$CustomerFundChangeLogsArgs<ExtArgs>
+    CommittedProjects?: boolean | CustomerUploadBatch$CommittedProjectsArgs<ExtArgs>
+    _count?: boolean | CustomerUploadBatchCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type CustomerUploadBatchIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Ki?: boolean | KiDefaultArgs<ExtArgs>
+  }
+  export type CustomerUploadBatchIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Ki?: boolean | KiDefaultArgs<ExtArgs>
+  }
+
+  export type $CustomerUploadBatchPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "CustomerUploadBatch"
+    objects: {
+      Ki: Prisma.$KiPayload<ExtArgs>
+      CustomerChangeLogs: Prisma.$CustomerChangeLogPayload<ExtArgs>[]
+      CustomerFundChangeLogs: Prisma.$CustomerFundChangeLogPayload<ExtArgs>[]
+      CommittedProjects: Prisma.$CustomerUploadBatchProjectPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      fileName: string
+      kiId: string
+      uploaderId: string
+      uploaderType: $Enums.UserType
+      uploaderName: string
+      ipAddress: string | null
+      status: $Enums.BatchStatus
+      targetProjectCount: number
+      committedProjectCount: number
+      customerCreatedCount: number
+      customerUpdatedCount: number
+      customerUnchangedCount: number
+      fundCreatedCount: number
+      fundUpdatedCount: number
+      fundDeletedCount: number
+      fundUnchangedCount: number
+      pretreatmentAt: Date
+      committedAt: Date | null
+      mailSentAt: Date | null
+    }, ExtArgs["result"]["customerUploadBatch"]>
+    composites: {}
+  }
+
+  type CustomerUploadBatchGetPayload<S extends boolean | null | undefined | CustomerUploadBatchDefaultArgs> = $Result.GetResult<Prisma.$CustomerUploadBatchPayload, S>
+
+  type CustomerUploadBatchCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CustomerUploadBatchFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CustomerUploadBatchCountAggregateInputType | true
+    }
+
+  export interface CustomerUploadBatchDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CustomerUploadBatch'], meta: { name: 'CustomerUploadBatch' } }
+    /**
+     * Find zero or one CustomerUploadBatch that matches the filter.
+     * @param {CustomerUploadBatchFindUniqueArgs} args - Arguments to find a CustomerUploadBatch
+     * @example
+     * // Get one CustomerUploadBatch
+     * const customerUploadBatch = await prisma.customerUploadBatch.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CustomerUploadBatchFindUniqueArgs>(args: SelectSubset<T, CustomerUploadBatchFindUniqueArgs<ExtArgs>>): Prisma__CustomerUploadBatchClient<$Result.GetResult<Prisma.$CustomerUploadBatchPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one CustomerUploadBatch that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CustomerUploadBatchFindUniqueOrThrowArgs} args - Arguments to find a CustomerUploadBatch
+     * @example
+     * // Get one CustomerUploadBatch
+     * const customerUploadBatch = await prisma.customerUploadBatch.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CustomerUploadBatchFindUniqueOrThrowArgs>(args: SelectSubset<T, CustomerUploadBatchFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CustomerUploadBatchClient<$Result.GetResult<Prisma.$CustomerUploadBatchPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CustomerUploadBatch that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerUploadBatchFindFirstArgs} args - Arguments to find a CustomerUploadBatch
+     * @example
+     * // Get one CustomerUploadBatch
+     * const customerUploadBatch = await prisma.customerUploadBatch.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CustomerUploadBatchFindFirstArgs>(args?: SelectSubset<T, CustomerUploadBatchFindFirstArgs<ExtArgs>>): Prisma__CustomerUploadBatchClient<$Result.GetResult<Prisma.$CustomerUploadBatchPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CustomerUploadBatch that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerUploadBatchFindFirstOrThrowArgs} args - Arguments to find a CustomerUploadBatch
+     * @example
+     * // Get one CustomerUploadBatch
+     * const customerUploadBatch = await prisma.customerUploadBatch.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CustomerUploadBatchFindFirstOrThrowArgs>(args?: SelectSubset<T, CustomerUploadBatchFindFirstOrThrowArgs<ExtArgs>>): Prisma__CustomerUploadBatchClient<$Result.GetResult<Prisma.$CustomerUploadBatchPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more CustomerUploadBatches that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerUploadBatchFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CustomerUploadBatches
+     * const customerUploadBatches = await prisma.customerUploadBatch.findMany()
+     * 
+     * // Get first 10 CustomerUploadBatches
+     * const customerUploadBatches = await prisma.customerUploadBatch.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const customerUploadBatchWithIdOnly = await prisma.customerUploadBatch.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CustomerUploadBatchFindManyArgs>(args?: SelectSubset<T, CustomerUploadBatchFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerUploadBatchPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a CustomerUploadBatch.
+     * @param {CustomerUploadBatchCreateArgs} args - Arguments to create a CustomerUploadBatch.
+     * @example
+     * // Create one CustomerUploadBatch
+     * const CustomerUploadBatch = await prisma.customerUploadBatch.create({
+     *   data: {
+     *     // ... data to create a CustomerUploadBatch
+     *   }
+     * })
+     * 
+     */
+    create<T extends CustomerUploadBatchCreateArgs>(args: SelectSubset<T, CustomerUploadBatchCreateArgs<ExtArgs>>): Prisma__CustomerUploadBatchClient<$Result.GetResult<Prisma.$CustomerUploadBatchPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many CustomerUploadBatches.
+     * @param {CustomerUploadBatchCreateManyArgs} args - Arguments to create many CustomerUploadBatches.
+     * @example
+     * // Create many CustomerUploadBatches
+     * const customerUploadBatch = await prisma.customerUploadBatch.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CustomerUploadBatchCreateManyArgs>(args?: SelectSubset<T, CustomerUploadBatchCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many CustomerUploadBatches and returns the data saved in the database.
+     * @param {CustomerUploadBatchCreateManyAndReturnArgs} args - Arguments to create many CustomerUploadBatches.
+     * @example
+     * // Create many CustomerUploadBatches
+     * const customerUploadBatch = await prisma.customerUploadBatch.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many CustomerUploadBatches and only return the `id`
+     * const customerUploadBatchWithIdOnly = await prisma.customerUploadBatch.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CustomerUploadBatchCreateManyAndReturnArgs>(args?: SelectSubset<T, CustomerUploadBatchCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerUploadBatchPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a CustomerUploadBatch.
+     * @param {CustomerUploadBatchDeleteArgs} args - Arguments to delete one CustomerUploadBatch.
+     * @example
+     * // Delete one CustomerUploadBatch
+     * const CustomerUploadBatch = await prisma.customerUploadBatch.delete({
+     *   where: {
+     *     // ... filter to delete one CustomerUploadBatch
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CustomerUploadBatchDeleteArgs>(args: SelectSubset<T, CustomerUploadBatchDeleteArgs<ExtArgs>>): Prisma__CustomerUploadBatchClient<$Result.GetResult<Prisma.$CustomerUploadBatchPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one CustomerUploadBatch.
+     * @param {CustomerUploadBatchUpdateArgs} args - Arguments to update one CustomerUploadBatch.
+     * @example
+     * // Update one CustomerUploadBatch
+     * const customerUploadBatch = await prisma.customerUploadBatch.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CustomerUploadBatchUpdateArgs>(args: SelectSubset<T, CustomerUploadBatchUpdateArgs<ExtArgs>>): Prisma__CustomerUploadBatchClient<$Result.GetResult<Prisma.$CustomerUploadBatchPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more CustomerUploadBatches.
+     * @param {CustomerUploadBatchDeleteManyArgs} args - Arguments to filter CustomerUploadBatches to delete.
+     * @example
+     * // Delete a few CustomerUploadBatches
+     * const { count } = await prisma.customerUploadBatch.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CustomerUploadBatchDeleteManyArgs>(args?: SelectSubset<T, CustomerUploadBatchDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CustomerUploadBatches.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerUploadBatchUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CustomerUploadBatches
+     * const customerUploadBatch = await prisma.customerUploadBatch.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CustomerUploadBatchUpdateManyArgs>(args: SelectSubset<T, CustomerUploadBatchUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CustomerUploadBatches and returns the data updated in the database.
+     * @param {CustomerUploadBatchUpdateManyAndReturnArgs} args - Arguments to update many CustomerUploadBatches.
+     * @example
+     * // Update many CustomerUploadBatches
+     * const customerUploadBatch = await prisma.customerUploadBatch.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more CustomerUploadBatches and only return the `id`
+     * const customerUploadBatchWithIdOnly = await prisma.customerUploadBatch.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CustomerUploadBatchUpdateManyAndReturnArgs>(args: SelectSubset<T, CustomerUploadBatchUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerUploadBatchPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one CustomerUploadBatch.
+     * @param {CustomerUploadBatchUpsertArgs} args - Arguments to update or create a CustomerUploadBatch.
+     * @example
+     * // Update or create a CustomerUploadBatch
+     * const customerUploadBatch = await prisma.customerUploadBatch.upsert({
+     *   create: {
+     *     // ... data to create a CustomerUploadBatch
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CustomerUploadBatch we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CustomerUploadBatchUpsertArgs>(args: SelectSubset<T, CustomerUploadBatchUpsertArgs<ExtArgs>>): Prisma__CustomerUploadBatchClient<$Result.GetResult<Prisma.$CustomerUploadBatchPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of CustomerUploadBatches.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerUploadBatchCountArgs} args - Arguments to filter CustomerUploadBatches to count.
+     * @example
+     * // Count the number of CustomerUploadBatches
+     * const count = await prisma.customerUploadBatch.count({
+     *   where: {
+     *     // ... the filter for the CustomerUploadBatches we want to count
+     *   }
+     * })
+    **/
+    count<T extends CustomerUploadBatchCountArgs>(
+      args?: Subset<T, CustomerUploadBatchCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CustomerUploadBatchCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a CustomerUploadBatch.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerUploadBatchAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CustomerUploadBatchAggregateArgs>(args: Subset<T, CustomerUploadBatchAggregateArgs>): Prisma.PrismaPromise<GetCustomerUploadBatchAggregateType<T>>
+
+    /**
+     * Group by CustomerUploadBatch.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerUploadBatchGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CustomerUploadBatchGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CustomerUploadBatchGroupByArgs['orderBy'] }
+        : { orderBy?: CustomerUploadBatchGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CustomerUploadBatchGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCustomerUploadBatchGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the CustomerUploadBatch model
+   */
+  readonly fields: CustomerUploadBatchFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for CustomerUploadBatch.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CustomerUploadBatchClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    Ki<T extends KiDefaultArgs<ExtArgs> = {}>(args?: Subset<T, KiDefaultArgs<ExtArgs>>): Prisma__KiClient<$Result.GetResult<Prisma.$KiPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    CustomerChangeLogs<T extends CustomerUploadBatch$CustomerChangeLogsArgs<ExtArgs> = {}>(args?: Subset<T, CustomerUploadBatch$CustomerChangeLogsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerChangeLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    CustomerFundChangeLogs<T extends CustomerUploadBatch$CustomerFundChangeLogsArgs<ExtArgs> = {}>(args?: Subset<T, CustomerUploadBatch$CustomerFundChangeLogsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerFundChangeLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    CommittedProjects<T extends CustomerUploadBatch$CommittedProjectsArgs<ExtArgs> = {}>(args?: Subset<T, CustomerUploadBatch$CommittedProjectsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerUploadBatchProjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the CustomerUploadBatch model
+   */
+  interface CustomerUploadBatchFieldRefs {
+    readonly id: FieldRef<"CustomerUploadBatch", 'String'>
+    readonly fileName: FieldRef<"CustomerUploadBatch", 'String'>
+    readonly kiId: FieldRef<"CustomerUploadBatch", 'String'>
+    readonly uploaderId: FieldRef<"CustomerUploadBatch", 'String'>
+    readonly uploaderType: FieldRef<"CustomerUploadBatch", 'UserType'>
+    readonly uploaderName: FieldRef<"CustomerUploadBatch", 'String'>
+    readonly ipAddress: FieldRef<"CustomerUploadBatch", 'String'>
+    readonly status: FieldRef<"CustomerUploadBatch", 'BatchStatus'>
+    readonly targetProjectCount: FieldRef<"CustomerUploadBatch", 'Int'>
+    readonly committedProjectCount: FieldRef<"CustomerUploadBatch", 'Int'>
+    readonly customerCreatedCount: FieldRef<"CustomerUploadBatch", 'Int'>
+    readonly customerUpdatedCount: FieldRef<"CustomerUploadBatch", 'Int'>
+    readonly customerUnchangedCount: FieldRef<"CustomerUploadBatch", 'Int'>
+    readonly fundCreatedCount: FieldRef<"CustomerUploadBatch", 'Int'>
+    readonly fundUpdatedCount: FieldRef<"CustomerUploadBatch", 'Int'>
+    readonly fundDeletedCount: FieldRef<"CustomerUploadBatch", 'Int'>
+    readonly fundUnchangedCount: FieldRef<"CustomerUploadBatch", 'Int'>
+    readonly pretreatmentAt: FieldRef<"CustomerUploadBatch", 'DateTime'>
+    readonly committedAt: FieldRef<"CustomerUploadBatch", 'DateTime'>
+    readonly mailSentAt: FieldRef<"CustomerUploadBatch", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * CustomerUploadBatch findUnique
+   */
+  export type CustomerUploadBatchFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatch
+     */
+    select?: CustomerUploadBatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatch
+     */
+    omit?: CustomerUploadBatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomerUploadBatch to fetch.
+     */
+    where: CustomerUploadBatchWhereUniqueInput
+  }
+
+  /**
+   * CustomerUploadBatch findUniqueOrThrow
+   */
+  export type CustomerUploadBatchFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatch
+     */
+    select?: CustomerUploadBatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatch
+     */
+    omit?: CustomerUploadBatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomerUploadBatch to fetch.
+     */
+    where: CustomerUploadBatchWhereUniqueInput
+  }
+
+  /**
+   * CustomerUploadBatch findFirst
+   */
+  export type CustomerUploadBatchFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatch
+     */
+    select?: CustomerUploadBatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatch
+     */
+    omit?: CustomerUploadBatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomerUploadBatch to fetch.
+     */
+    where?: CustomerUploadBatchWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CustomerUploadBatches to fetch.
+     */
+    orderBy?: CustomerUploadBatchOrderByWithRelationInput | CustomerUploadBatchOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CustomerUploadBatches.
+     */
+    cursor?: CustomerUploadBatchWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CustomerUploadBatches from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CustomerUploadBatches.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CustomerUploadBatches.
+     */
+    distinct?: CustomerUploadBatchScalarFieldEnum | CustomerUploadBatchScalarFieldEnum[]
+  }
+
+  /**
+   * CustomerUploadBatch findFirstOrThrow
+   */
+  export type CustomerUploadBatchFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatch
+     */
+    select?: CustomerUploadBatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatch
+     */
+    omit?: CustomerUploadBatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomerUploadBatch to fetch.
+     */
+    where?: CustomerUploadBatchWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CustomerUploadBatches to fetch.
+     */
+    orderBy?: CustomerUploadBatchOrderByWithRelationInput | CustomerUploadBatchOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CustomerUploadBatches.
+     */
+    cursor?: CustomerUploadBatchWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CustomerUploadBatches from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CustomerUploadBatches.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CustomerUploadBatches.
+     */
+    distinct?: CustomerUploadBatchScalarFieldEnum | CustomerUploadBatchScalarFieldEnum[]
+  }
+
+  /**
+   * CustomerUploadBatch findMany
+   */
+  export type CustomerUploadBatchFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatch
+     */
+    select?: CustomerUploadBatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatch
+     */
+    omit?: CustomerUploadBatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomerUploadBatches to fetch.
+     */
+    where?: CustomerUploadBatchWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CustomerUploadBatches to fetch.
+     */
+    orderBy?: CustomerUploadBatchOrderByWithRelationInput | CustomerUploadBatchOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing CustomerUploadBatches.
+     */
+    cursor?: CustomerUploadBatchWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CustomerUploadBatches from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CustomerUploadBatches.
+     */
+    skip?: number
+    distinct?: CustomerUploadBatchScalarFieldEnum | CustomerUploadBatchScalarFieldEnum[]
+  }
+
+  /**
+   * CustomerUploadBatch create
+   */
+  export type CustomerUploadBatchCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatch
+     */
+    select?: CustomerUploadBatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatch
+     */
+    omit?: CustomerUploadBatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchInclude<ExtArgs> | null
+    /**
+     * The data needed to create a CustomerUploadBatch.
+     */
+    data: XOR<CustomerUploadBatchCreateInput, CustomerUploadBatchUncheckedCreateInput>
+  }
+
+  /**
+   * CustomerUploadBatch createMany
+   */
+  export type CustomerUploadBatchCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CustomerUploadBatches.
+     */
+    data: CustomerUploadBatchCreateManyInput | CustomerUploadBatchCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CustomerUploadBatch createManyAndReturn
+   */
+  export type CustomerUploadBatchCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatch
+     */
+    select?: CustomerUploadBatchSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatch
+     */
+    omit?: CustomerUploadBatchOmit<ExtArgs> | null
+    /**
+     * The data used to create many CustomerUploadBatches.
+     */
+    data: CustomerUploadBatchCreateManyInput | CustomerUploadBatchCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CustomerUploadBatch update
+   */
+  export type CustomerUploadBatchUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatch
+     */
+    select?: CustomerUploadBatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatch
+     */
+    omit?: CustomerUploadBatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchInclude<ExtArgs> | null
+    /**
+     * The data needed to update a CustomerUploadBatch.
+     */
+    data: XOR<CustomerUploadBatchUpdateInput, CustomerUploadBatchUncheckedUpdateInput>
+    /**
+     * Choose, which CustomerUploadBatch to update.
+     */
+    where: CustomerUploadBatchWhereUniqueInput
+  }
+
+  /**
+   * CustomerUploadBatch updateMany
+   */
+  export type CustomerUploadBatchUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update CustomerUploadBatches.
+     */
+    data: XOR<CustomerUploadBatchUpdateManyMutationInput, CustomerUploadBatchUncheckedUpdateManyInput>
+    /**
+     * Filter which CustomerUploadBatches to update
+     */
+    where?: CustomerUploadBatchWhereInput
+    /**
+     * Limit how many CustomerUploadBatches to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * CustomerUploadBatch updateManyAndReturn
+   */
+  export type CustomerUploadBatchUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatch
+     */
+    select?: CustomerUploadBatchSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatch
+     */
+    omit?: CustomerUploadBatchOmit<ExtArgs> | null
+    /**
+     * The data used to update CustomerUploadBatches.
+     */
+    data: XOR<CustomerUploadBatchUpdateManyMutationInput, CustomerUploadBatchUncheckedUpdateManyInput>
+    /**
+     * Filter which CustomerUploadBatches to update
+     */
+    where?: CustomerUploadBatchWhereInput
+    /**
+     * Limit how many CustomerUploadBatches to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CustomerUploadBatch upsert
+   */
+  export type CustomerUploadBatchUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatch
+     */
+    select?: CustomerUploadBatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatch
+     */
+    omit?: CustomerUploadBatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchInclude<ExtArgs> | null
+    /**
+     * The filter to search for the CustomerUploadBatch to update in case it exists.
+     */
+    where: CustomerUploadBatchWhereUniqueInput
+    /**
+     * In case the CustomerUploadBatch found by the `where` argument doesn't exist, create a new CustomerUploadBatch with this data.
+     */
+    create: XOR<CustomerUploadBatchCreateInput, CustomerUploadBatchUncheckedCreateInput>
+    /**
+     * In case the CustomerUploadBatch was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CustomerUploadBatchUpdateInput, CustomerUploadBatchUncheckedUpdateInput>
+  }
+
+  /**
+   * CustomerUploadBatch delete
+   */
+  export type CustomerUploadBatchDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatch
+     */
+    select?: CustomerUploadBatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatch
+     */
+    omit?: CustomerUploadBatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchInclude<ExtArgs> | null
+    /**
+     * Filter which CustomerUploadBatch to delete.
+     */
+    where: CustomerUploadBatchWhereUniqueInput
+  }
+
+  /**
+   * CustomerUploadBatch deleteMany
+   */
+  export type CustomerUploadBatchDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CustomerUploadBatches to delete
+     */
+    where?: CustomerUploadBatchWhereInput
+    /**
+     * Limit how many CustomerUploadBatches to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * CustomerUploadBatch.CustomerChangeLogs
+   */
+  export type CustomerUploadBatch$CustomerChangeLogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerChangeLog
+     */
+    select?: CustomerChangeLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerChangeLog
+     */
+    omit?: CustomerChangeLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerChangeLogInclude<ExtArgs> | null
+    where?: CustomerChangeLogWhereInput
+    orderBy?: CustomerChangeLogOrderByWithRelationInput | CustomerChangeLogOrderByWithRelationInput[]
+    cursor?: CustomerChangeLogWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CustomerChangeLogScalarFieldEnum | CustomerChangeLogScalarFieldEnum[]
+  }
+
+  /**
+   * CustomerUploadBatch.CustomerFundChangeLogs
+   */
+  export type CustomerUploadBatch$CustomerFundChangeLogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFundChangeLog
+     */
+    select?: CustomerFundChangeLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerFundChangeLog
+     */
+    omit?: CustomerFundChangeLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundChangeLogInclude<ExtArgs> | null
+    where?: CustomerFundChangeLogWhereInput
+    orderBy?: CustomerFundChangeLogOrderByWithRelationInput | CustomerFundChangeLogOrderByWithRelationInput[]
+    cursor?: CustomerFundChangeLogWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CustomerFundChangeLogScalarFieldEnum | CustomerFundChangeLogScalarFieldEnum[]
+  }
+
+  /**
+   * CustomerUploadBatch.CommittedProjects
+   */
+  export type CustomerUploadBatch$CommittedProjectsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatchProject
+     */
+    select?: CustomerUploadBatchProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatchProject
+     */
+    omit?: CustomerUploadBatchProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchProjectInclude<ExtArgs> | null
+    where?: CustomerUploadBatchProjectWhereInput
+    orderBy?: CustomerUploadBatchProjectOrderByWithRelationInput | CustomerUploadBatchProjectOrderByWithRelationInput[]
+    cursor?: CustomerUploadBatchProjectWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CustomerUploadBatchProjectScalarFieldEnum | CustomerUploadBatchProjectScalarFieldEnum[]
+  }
+
+  /**
+   * CustomerUploadBatch without action
+   */
+  export type CustomerUploadBatchDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatch
+     */
+    select?: CustomerUploadBatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatch
+     */
+    omit?: CustomerUploadBatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model CustomerUploadBatchProject
+   */
+
+  export type AggregateCustomerUploadBatchProject = {
+    _count: CustomerUploadBatchProjectCountAggregateOutputType | null
+    _min: CustomerUploadBatchProjectMinAggregateOutputType | null
+    _max: CustomerUploadBatchProjectMaxAggregateOutputType | null
+  }
+
+  export type CustomerUploadBatchProjectMinAggregateOutputType = {
+    id: string | null
+    batchId: string | null
+    projectId: string | null
+    committedAt: Date | null
+  }
+
+  export type CustomerUploadBatchProjectMaxAggregateOutputType = {
+    id: string | null
+    batchId: string | null
+    projectId: string | null
+    committedAt: Date | null
+  }
+
+  export type CustomerUploadBatchProjectCountAggregateOutputType = {
+    id: number
+    batchId: number
+    projectId: number
+    committedAt: number
+    _all: number
+  }
+
+
+  export type CustomerUploadBatchProjectMinAggregateInputType = {
+    id?: true
+    batchId?: true
+    projectId?: true
+    committedAt?: true
+  }
+
+  export type CustomerUploadBatchProjectMaxAggregateInputType = {
+    id?: true
+    batchId?: true
+    projectId?: true
+    committedAt?: true
+  }
+
+  export type CustomerUploadBatchProjectCountAggregateInputType = {
+    id?: true
+    batchId?: true
+    projectId?: true
+    committedAt?: true
+    _all?: true
+  }
+
+  export type CustomerUploadBatchProjectAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CustomerUploadBatchProject to aggregate.
+     */
+    where?: CustomerUploadBatchProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CustomerUploadBatchProjects to fetch.
+     */
+    orderBy?: CustomerUploadBatchProjectOrderByWithRelationInput | CustomerUploadBatchProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CustomerUploadBatchProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CustomerUploadBatchProjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CustomerUploadBatchProjects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned CustomerUploadBatchProjects
+    **/
+    _count?: true | CustomerUploadBatchProjectCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CustomerUploadBatchProjectMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CustomerUploadBatchProjectMaxAggregateInputType
+  }
+
+  export type GetCustomerUploadBatchProjectAggregateType<T extends CustomerUploadBatchProjectAggregateArgs> = {
+        [P in keyof T & keyof AggregateCustomerUploadBatchProject]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCustomerUploadBatchProject[P]>
+      : GetScalarType<T[P], AggregateCustomerUploadBatchProject[P]>
+  }
+
+
+
+
+  export type CustomerUploadBatchProjectGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CustomerUploadBatchProjectWhereInput
+    orderBy?: CustomerUploadBatchProjectOrderByWithAggregationInput | CustomerUploadBatchProjectOrderByWithAggregationInput[]
+    by: CustomerUploadBatchProjectScalarFieldEnum[] | CustomerUploadBatchProjectScalarFieldEnum
+    having?: CustomerUploadBatchProjectScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CustomerUploadBatchProjectCountAggregateInputType | true
+    _min?: CustomerUploadBatchProjectMinAggregateInputType
+    _max?: CustomerUploadBatchProjectMaxAggregateInputType
+  }
+
+  export type CustomerUploadBatchProjectGroupByOutputType = {
+    id: string
+    batchId: string
+    projectId: string
+    committedAt: Date
+    _count: CustomerUploadBatchProjectCountAggregateOutputType | null
+    _min: CustomerUploadBatchProjectMinAggregateOutputType | null
+    _max: CustomerUploadBatchProjectMaxAggregateOutputType | null
+  }
+
+  type GetCustomerUploadBatchProjectGroupByPayload<T extends CustomerUploadBatchProjectGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CustomerUploadBatchProjectGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CustomerUploadBatchProjectGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CustomerUploadBatchProjectGroupByOutputType[P]>
+            : GetScalarType<T[P], CustomerUploadBatchProjectGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CustomerUploadBatchProjectSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    batchId?: boolean
+    projectId?: boolean
+    committedAt?: boolean
+    Batch?: boolean | CustomerUploadBatchDefaultArgs<ExtArgs>
+    Project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["customerUploadBatchProject"]>
+
+  export type CustomerUploadBatchProjectSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    batchId?: boolean
+    projectId?: boolean
+    committedAt?: boolean
+    Batch?: boolean | CustomerUploadBatchDefaultArgs<ExtArgs>
+    Project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["customerUploadBatchProject"]>
+
+  export type CustomerUploadBatchProjectSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    batchId?: boolean
+    projectId?: boolean
+    committedAt?: boolean
+    Batch?: boolean | CustomerUploadBatchDefaultArgs<ExtArgs>
+    Project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["customerUploadBatchProject"]>
+
+  export type CustomerUploadBatchProjectSelectScalar = {
+    id?: boolean
+    batchId?: boolean
+    projectId?: boolean
+    committedAt?: boolean
+  }
+
+  export type CustomerUploadBatchProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "batchId" | "projectId" | "committedAt", ExtArgs["result"]["customerUploadBatchProject"]>
+  export type CustomerUploadBatchProjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Batch?: boolean | CustomerUploadBatchDefaultArgs<ExtArgs>
+    Project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }
+  export type CustomerUploadBatchProjectIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Batch?: boolean | CustomerUploadBatchDefaultArgs<ExtArgs>
+    Project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }
+  export type CustomerUploadBatchProjectIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Batch?: boolean | CustomerUploadBatchDefaultArgs<ExtArgs>
+    Project?: boolean | ProjectDefaultArgs<ExtArgs>
+  }
+
+  export type $CustomerUploadBatchProjectPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "CustomerUploadBatchProject"
+    objects: {
+      Batch: Prisma.$CustomerUploadBatchPayload<ExtArgs>
+      Project: Prisma.$ProjectPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      batchId: string
+      projectId: string
+      committedAt: Date
+    }, ExtArgs["result"]["customerUploadBatchProject"]>
+    composites: {}
+  }
+
+  type CustomerUploadBatchProjectGetPayload<S extends boolean | null | undefined | CustomerUploadBatchProjectDefaultArgs> = $Result.GetResult<Prisma.$CustomerUploadBatchProjectPayload, S>
+
+  type CustomerUploadBatchProjectCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CustomerUploadBatchProjectFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CustomerUploadBatchProjectCountAggregateInputType | true
+    }
+
+  export interface CustomerUploadBatchProjectDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CustomerUploadBatchProject'], meta: { name: 'CustomerUploadBatchProject' } }
+    /**
+     * Find zero or one CustomerUploadBatchProject that matches the filter.
+     * @param {CustomerUploadBatchProjectFindUniqueArgs} args - Arguments to find a CustomerUploadBatchProject
+     * @example
+     * // Get one CustomerUploadBatchProject
+     * const customerUploadBatchProject = await prisma.customerUploadBatchProject.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CustomerUploadBatchProjectFindUniqueArgs>(args: SelectSubset<T, CustomerUploadBatchProjectFindUniqueArgs<ExtArgs>>): Prisma__CustomerUploadBatchProjectClient<$Result.GetResult<Prisma.$CustomerUploadBatchProjectPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one CustomerUploadBatchProject that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CustomerUploadBatchProjectFindUniqueOrThrowArgs} args - Arguments to find a CustomerUploadBatchProject
+     * @example
+     * // Get one CustomerUploadBatchProject
+     * const customerUploadBatchProject = await prisma.customerUploadBatchProject.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CustomerUploadBatchProjectFindUniqueOrThrowArgs>(args: SelectSubset<T, CustomerUploadBatchProjectFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CustomerUploadBatchProjectClient<$Result.GetResult<Prisma.$CustomerUploadBatchProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CustomerUploadBatchProject that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerUploadBatchProjectFindFirstArgs} args - Arguments to find a CustomerUploadBatchProject
+     * @example
+     * // Get one CustomerUploadBatchProject
+     * const customerUploadBatchProject = await prisma.customerUploadBatchProject.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CustomerUploadBatchProjectFindFirstArgs>(args?: SelectSubset<T, CustomerUploadBatchProjectFindFirstArgs<ExtArgs>>): Prisma__CustomerUploadBatchProjectClient<$Result.GetResult<Prisma.$CustomerUploadBatchProjectPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CustomerUploadBatchProject that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerUploadBatchProjectFindFirstOrThrowArgs} args - Arguments to find a CustomerUploadBatchProject
+     * @example
+     * // Get one CustomerUploadBatchProject
+     * const customerUploadBatchProject = await prisma.customerUploadBatchProject.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CustomerUploadBatchProjectFindFirstOrThrowArgs>(args?: SelectSubset<T, CustomerUploadBatchProjectFindFirstOrThrowArgs<ExtArgs>>): Prisma__CustomerUploadBatchProjectClient<$Result.GetResult<Prisma.$CustomerUploadBatchProjectPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more CustomerUploadBatchProjects that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerUploadBatchProjectFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CustomerUploadBatchProjects
+     * const customerUploadBatchProjects = await prisma.customerUploadBatchProject.findMany()
+     * 
+     * // Get first 10 CustomerUploadBatchProjects
+     * const customerUploadBatchProjects = await prisma.customerUploadBatchProject.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const customerUploadBatchProjectWithIdOnly = await prisma.customerUploadBatchProject.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CustomerUploadBatchProjectFindManyArgs>(args?: SelectSubset<T, CustomerUploadBatchProjectFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerUploadBatchProjectPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a CustomerUploadBatchProject.
+     * @param {CustomerUploadBatchProjectCreateArgs} args - Arguments to create a CustomerUploadBatchProject.
+     * @example
+     * // Create one CustomerUploadBatchProject
+     * const CustomerUploadBatchProject = await prisma.customerUploadBatchProject.create({
+     *   data: {
+     *     // ... data to create a CustomerUploadBatchProject
+     *   }
+     * })
+     * 
+     */
+    create<T extends CustomerUploadBatchProjectCreateArgs>(args: SelectSubset<T, CustomerUploadBatchProjectCreateArgs<ExtArgs>>): Prisma__CustomerUploadBatchProjectClient<$Result.GetResult<Prisma.$CustomerUploadBatchProjectPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many CustomerUploadBatchProjects.
+     * @param {CustomerUploadBatchProjectCreateManyArgs} args - Arguments to create many CustomerUploadBatchProjects.
+     * @example
+     * // Create many CustomerUploadBatchProjects
+     * const customerUploadBatchProject = await prisma.customerUploadBatchProject.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CustomerUploadBatchProjectCreateManyArgs>(args?: SelectSubset<T, CustomerUploadBatchProjectCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many CustomerUploadBatchProjects and returns the data saved in the database.
+     * @param {CustomerUploadBatchProjectCreateManyAndReturnArgs} args - Arguments to create many CustomerUploadBatchProjects.
+     * @example
+     * // Create many CustomerUploadBatchProjects
+     * const customerUploadBatchProject = await prisma.customerUploadBatchProject.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many CustomerUploadBatchProjects and only return the `id`
+     * const customerUploadBatchProjectWithIdOnly = await prisma.customerUploadBatchProject.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CustomerUploadBatchProjectCreateManyAndReturnArgs>(args?: SelectSubset<T, CustomerUploadBatchProjectCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerUploadBatchProjectPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a CustomerUploadBatchProject.
+     * @param {CustomerUploadBatchProjectDeleteArgs} args - Arguments to delete one CustomerUploadBatchProject.
+     * @example
+     * // Delete one CustomerUploadBatchProject
+     * const CustomerUploadBatchProject = await prisma.customerUploadBatchProject.delete({
+     *   where: {
+     *     // ... filter to delete one CustomerUploadBatchProject
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CustomerUploadBatchProjectDeleteArgs>(args: SelectSubset<T, CustomerUploadBatchProjectDeleteArgs<ExtArgs>>): Prisma__CustomerUploadBatchProjectClient<$Result.GetResult<Prisma.$CustomerUploadBatchProjectPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one CustomerUploadBatchProject.
+     * @param {CustomerUploadBatchProjectUpdateArgs} args - Arguments to update one CustomerUploadBatchProject.
+     * @example
+     * // Update one CustomerUploadBatchProject
+     * const customerUploadBatchProject = await prisma.customerUploadBatchProject.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CustomerUploadBatchProjectUpdateArgs>(args: SelectSubset<T, CustomerUploadBatchProjectUpdateArgs<ExtArgs>>): Prisma__CustomerUploadBatchProjectClient<$Result.GetResult<Prisma.$CustomerUploadBatchProjectPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more CustomerUploadBatchProjects.
+     * @param {CustomerUploadBatchProjectDeleteManyArgs} args - Arguments to filter CustomerUploadBatchProjects to delete.
+     * @example
+     * // Delete a few CustomerUploadBatchProjects
+     * const { count } = await prisma.customerUploadBatchProject.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CustomerUploadBatchProjectDeleteManyArgs>(args?: SelectSubset<T, CustomerUploadBatchProjectDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CustomerUploadBatchProjects.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerUploadBatchProjectUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CustomerUploadBatchProjects
+     * const customerUploadBatchProject = await prisma.customerUploadBatchProject.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CustomerUploadBatchProjectUpdateManyArgs>(args: SelectSubset<T, CustomerUploadBatchProjectUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CustomerUploadBatchProjects and returns the data updated in the database.
+     * @param {CustomerUploadBatchProjectUpdateManyAndReturnArgs} args - Arguments to update many CustomerUploadBatchProjects.
+     * @example
+     * // Update many CustomerUploadBatchProjects
+     * const customerUploadBatchProject = await prisma.customerUploadBatchProject.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more CustomerUploadBatchProjects and only return the `id`
+     * const customerUploadBatchProjectWithIdOnly = await prisma.customerUploadBatchProject.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CustomerUploadBatchProjectUpdateManyAndReturnArgs>(args: SelectSubset<T, CustomerUploadBatchProjectUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerUploadBatchProjectPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one CustomerUploadBatchProject.
+     * @param {CustomerUploadBatchProjectUpsertArgs} args - Arguments to update or create a CustomerUploadBatchProject.
+     * @example
+     * // Update or create a CustomerUploadBatchProject
+     * const customerUploadBatchProject = await prisma.customerUploadBatchProject.upsert({
+     *   create: {
+     *     // ... data to create a CustomerUploadBatchProject
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CustomerUploadBatchProject we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CustomerUploadBatchProjectUpsertArgs>(args: SelectSubset<T, CustomerUploadBatchProjectUpsertArgs<ExtArgs>>): Prisma__CustomerUploadBatchProjectClient<$Result.GetResult<Prisma.$CustomerUploadBatchProjectPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of CustomerUploadBatchProjects.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerUploadBatchProjectCountArgs} args - Arguments to filter CustomerUploadBatchProjects to count.
+     * @example
+     * // Count the number of CustomerUploadBatchProjects
+     * const count = await prisma.customerUploadBatchProject.count({
+     *   where: {
+     *     // ... the filter for the CustomerUploadBatchProjects we want to count
+     *   }
+     * })
+    **/
+    count<T extends CustomerUploadBatchProjectCountArgs>(
+      args?: Subset<T, CustomerUploadBatchProjectCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CustomerUploadBatchProjectCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a CustomerUploadBatchProject.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerUploadBatchProjectAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CustomerUploadBatchProjectAggregateArgs>(args: Subset<T, CustomerUploadBatchProjectAggregateArgs>): Prisma.PrismaPromise<GetCustomerUploadBatchProjectAggregateType<T>>
+
+    /**
+     * Group by CustomerUploadBatchProject.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerUploadBatchProjectGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CustomerUploadBatchProjectGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CustomerUploadBatchProjectGroupByArgs['orderBy'] }
+        : { orderBy?: CustomerUploadBatchProjectGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CustomerUploadBatchProjectGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCustomerUploadBatchProjectGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the CustomerUploadBatchProject model
+   */
+  readonly fields: CustomerUploadBatchProjectFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for CustomerUploadBatchProject.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CustomerUploadBatchProjectClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    Batch<T extends CustomerUploadBatchDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CustomerUploadBatchDefaultArgs<ExtArgs>>): Prisma__CustomerUploadBatchClient<$Result.GetResult<Prisma.$CustomerUploadBatchPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    Project<T extends ProjectDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProjectDefaultArgs<ExtArgs>>): Prisma__ProjectClient<$Result.GetResult<Prisma.$ProjectPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the CustomerUploadBatchProject model
+   */
+  interface CustomerUploadBatchProjectFieldRefs {
+    readonly id: FieldRef<"CustomerUploadBatchProject", 'String'>
+    readonly batchId: FieldRef<"CustomerUploadBatchProject", 'String'>
+    readonly projectId: FieldRef<"CustomerUploadBatchProject", 'String'>
+    readonly committedAt: FieldRef<"CustomerUploadBatchProject", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * CustomerUploadBatchProject findUnique
+   */
+  export type CustomerUploadBatchProjectFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatchProject
+     */
+    select?: CustomerUploadBatchProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatchProject
+     */
+    omit?: CustomerUploadBatchProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomerUploadBatchProject to fetch.
+     */
+    where: CustomerUploadBatchProjectWhereUniqueInput
+  }
+
+  /**
+   * CustomerUploadBatchProject findUniqueOrThrow
+   */
+  export type CustomerUploadBatchProjectFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatchProject
+     */
+    select?: CustomerUploadBatchProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatchProject
+     */
+    omit?: CustomerUploadBatchProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomerUploadBatchProject to fetch.
+     */
+    where: CustomerUploadBatchProjectWhereUniqueInput
+  }
+
+  /**
+   * CustomerUploadBatchProject findFirst
+   */
+  export type CustomerUploadBatchProjectFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatchProject
+     */
+    select?: CustomerUploadBatchProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatchProject
+     */
+    omit?: CustomerUploadBatchProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomerUploadBatchProject to fetch.
+     */
+    where?: CustomerUploadBatchProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CustomerUploadBatchProjects to fetch.
+     */
+    orderBy?: CustomerUploadBatchProjectOrderByWithRelationInput | CustomerUploadBatchProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CustomerUploadBatchProjects.
+     */
+    cursor?: CustomerUploadBatchProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CustomerUploadBatchProjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CustomerUploadBatchProjects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CustomerUploadBatchProjects.
+     */
+    distinct?: CustomerUploadBatchProjectScalarFieldEnum | CustomerUploadBatchProjectScalarFieldEnum[]
+  }
+
+  /**
+   * CustomerUploadBatchProject findFirstOrThrow
+   */
+  export type CustomerUploadBatchProjectFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatchProject
+     */
+    select?: CustomerUploadBatchProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatchProject
+     */
+    omit?: CustomerUploadBatchProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomerUploadBatchProject to fetch.
+     */
+    where?: CustomerUploadBatchProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CustomerUploadBatchProjects to fetch.
+     */
+    orderBy?: CustomerUploadBatchProjectOrderByWithRelationInput | CustomerUploadBatchProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CustomerUploadBatchProjects.
+     */
+    cursor?: CustomerUploadBatchProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CustomerUploadBatchProjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CustomerUploadBatchProjects.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CustomerUploadBatchProjects.
+     */
+    distinct?: CustomerUploadBatchProjectScalarFieldEnum | CustomerUploadBatchProjectScalarFieldEnum[]
+  }
+
+  /**
+   * CustomerUploadBatchProject findMany
+   */
+  export type CustomerUploadBatchProjectFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatchProject
+     */
+    select?: CustomerUploadBatchProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatchProject
+     */
+    omit?: CustomerUploadBatchProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchProjectInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomerUploadBatchProjects to fetch.
+     */
+    where?: CustomerUploadBatchProjectWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CustomerUploadBatchProjects to fetch.
+     */
+    orderBy?: CustomerUploadBatchProjectOrderByWithRelationInput | CustomerUploadBatchProjectOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing CustomerUploadBatchProjects.
+     */
+    cursor?: CustomerUploadBatchProjectWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CustomerUploadBatchProjects from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CustomerUploadBatchProjects.
+     */
+    skip?: number
+    distinct?: CustomerUploadBatchProjectScalarFieldEnum | CustomerUploadBatchProjectScalarFieldEnum[]
+  }
+
+  /**
+   * CustomerUploadBatchProject create
+   */
+  export type CustomerUploadBatchProjectCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatchProject
+     */
+    select?: CustomerUploadBatchProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatchProject
+     */
+    omit?: CustomerUploadBatchProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchProjectInclude<ExtArgs> | null
+    /**
+     * The data needed to create a CustomerUploadBatchProject.
+     */
+    data: XOR<CustomerUploadBatchProjectCreateInput, CustomerUploadBatchProjectUncheckedCreateInput>
+  }
+
+  /**
+   * CustomerUploadBatchProject createMany
+   */
+  export type CustomerUploadBatchProjectCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CustomerUploadBatchProjects.
+     */
+    data: CustomerUploadBatchProjectCreateManyInput | CustomerUploadBatchProjectCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CustomerUploadBatchProject createManyAndReturn
+   */
+  export type CustomerUploadBatchProjectCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatchProject
+     */
+    select?: CustomerUploadBatchProjectSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatchProject
+     */
+    omit?: CustomerUploadBatchProjectOmit<ExtArgs> | null
+    /**
+     * The data used to create many CustomerUploadBatchProjects.
+     */
+    data: CustomerUploadBatchProjectCreateManyInput | CustomerUploadBatchProjectCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchProjectIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CustomerUploadBatchProject update
+   */
+  export type CustomerUploadBatchProjectUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatchProject
+     */
+    select?: CustomerUploadBatchProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatchProject
+     */
+    omit?: CustomerUploadBatchProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchProjectInclude<ExtArgs> | null
+    /**
+     * The data needed to update a CustomerUploadBatchProject.
+     */
+    data: XOR<CustomerUploadBatchProjectUpdateInput, CustomerUploadBatchProjectUncheckedUpdateInput>
+    /**
+     * Choose, which CustomerUploadBatchProject to update.
+     */
+    where: CustomerUploadBatchProjectWhereUniqueInput
+  }
+
+  /**
+   * CustomerUploadBatchProject updateMany
+   */
+  export type CustomerUploadBatchProjectUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update CustomerUploadBatchProjects.
+     */
+    data: XOR<CustomerUploadBatchProjectUpdateManyMutationInput, CustomerUploadBatchProjectUncheckedUpdateManyInput>
+    /**
+     * Filter which CustomerUploadBatchProjects to update
+     */
+    where?: CustomerUploadBatchProjectWhereInput
+    /**
+     * Limit how many CustomerUploadBatchProjects to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * CustomerUploadBatchProject updateManyAndReturn
+   */
+  export type CustomerUploadBatchProjectUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatchProject
+     */
+    select?: CustomerUploadBatchProjectSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatchProject
+     */
+    omit?: CustomerUploadBatchProjectOmit<ExtArgs> | null
+    /**
+     * The data used to update CustomerUploadBatchProjects.
+     */
+    data: XOR<CustomerUploadBatchProjectUpdateManyMutationInput, CustomerUploadBatchProjectUncheckedUpdateManyInput>
+    /**
+     * Filter which CustomerUploadBatchProjects to update
+     */
+    where?: CustomerUploadBatchProjectWhereInput
+    /**
+     * Limit how many CustomerUploadBatchProjects to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchProjectIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CustomerUploadBatchProject upsert
+   */
+  export type CustomerUploadBatchProjectUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatchProject
+     */
+    select?: CustomerUploadBatchProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatchProject
+     */
+    omit?: CustomerUploadBatchProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchProjectInclude<ExtArgs> | null
+    /**
+     * The filter to search for the CustomerUploadBatchProject to update in case it exists.
+     */
+    where: CustomerUploadBatchProjectWhereUniqueInput
+    /**
+     * In case the CustomerUploadBatchProject found by the `where` argument doesn't exist, create a new CustomerUploadBatchProject with this data.
+     */
+    create: XOR<CustomerUploadBatchProjectCreateInput, CustomerUploadBatchProjectUncheckedCreateInput>
+    /**
+     * In case the CustomerUploadBatchProject was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CustomerUploadBatchProjectUpdateInput, CustomerUploadBatchProjectUncheckedUpdateInput>
+  }
+
+  /**
+   * CustomerUploadBatchProject delete
+   */
+  export type CustomerUploadBatchProjectDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatchProject
+     */
+    select?: CustomerUploadBatchProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatchProject
+     */
+    omit?: CustomerUploadBatchProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchProjectInclude<ExtArgs> | null
+    /**
+     * Filter which CustomerUploadBatchProject to delete.
+     */
+    where: CustomerUploadBatchProjectWhereUniqueInput
+  }
+
+  /**
+   * CustomerUploadBatchProject deleteMany
+   */
+  export type CustomerUploadBatchProjectDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CustomerUploadBatchProjects to delete
+     */
+    where?: CustomerUploadBatchProjectWhereInput
+    /**
+     * Limit how many CustomerUploadBatchProjects to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * CustomerUploadBatchProject without action
+   */
+  export type CustomerUploadBatchProjectDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatchProject
+     */
+    select?: CustomerUploadBatchProjectSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatchProject
+     */
+    omit?: CustomerUploadBatchProjectOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchProjectInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model CustomerChangeLog
+   */
+
+  export type AggregateCustomerChangeLog = {
+    _count: CustomerChangeLogCountAggregateOutputType | null
+    _min: CustomerChangeLogMinAggregateOutputType | null
+    _max: CustomerChangeLogMaxAggregateOutputType | null
+  }
+
+  export type CustomerChangeLogMinAggregateOutputType = {
+    id: string | null
+    source: $Enums.ChangeSource | null
+    batchId: string | null
+    customerId: string | null
+    operation: $Enums.ChangeOperation | null
+    createdAt: Date | null
+  }
+
+  export type CustomerChangeLogMaxAggregateOutputType = {
+    id: string | null
+    source: $Enums.ChangeSource | null
+    batchId: string | null
+    customerId: string | null
+    operation: $Enums.ChangeOperation | null
+    createdAt: Date | null
+  }
+
+  export type CustomerChangeLogCountAggregateOutputType = {
+    id: number
+    source: number
+    batchId: number
+    customerId: number
+    operation: number
+    changedFields: number
+    beforeSnapshot: number
+    afterSnapshot: number
+    rawRow: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type CustomerChangeLogMinAggregateInputType = {
+    id?: true
+    source?: true
+    batchId?: true
+    customerId?: true
+    operation?: true
+    createdAt?: true
+  }
+
+  export type CustomerChangeLogMaxAggregateInputType = {
+    id?: true
+    source?: true
+    batchId?: true
+    customerId?: true
+    operation?: true
+    createdAt?: true
+  }
+
+  export type CustomerChangeLogCountAggregateInputType = {
+    id?: true
+    source?: true
+    batchId?: true
+    customerId?: true
+    operation?: true
+    changedFields?: true
+    beforeSnapshot?: true
+    afterSnapshot?: true
+    rawRow?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type CustomerChangeLogAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CustomerChangeLog to aggregate.
+     */
+    where?: CustomerChangeLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CustomerChangeLogs to fetch.
+     */
+    orderBy?: CustomerChangeLogOrderByWithRelationInput | CustomerChangeLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CustomerChangeLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CustomerChangeLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CustomerChangeLogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned CustomerChangeLogs
+    **/
+    _count?: true | CustomerChangeLogCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CustomerChangeLogMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CustomerChangeLogMaxAggregateInputType
+  }
+
+  export type GetCustomerChangeLogAggregateType<T extends CustomerChangeLogAggregateArgs> = {
+        [P in keyof T & keyof AggregateCustomerChangeLog]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCustomerChangeLog[P]>
+      : GetScalarType<T[P], AggregateCustomerChangeLog[P]>
+  }
+
+
+
+
+  export type CustomerChangeLogGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CustomerChangeLogWhereInput
+    orderBy?: CustomerChangeLogOrderByWithAggregationInput | CustomerChangeLogOrderByWithAggregationInput[]
+    by: CustomerChangeLogScalarFieldEnum[] | CustomerChangeLogScalarFieldEnum
+    having?: CustomerChangeLogScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CustomerChangeLogCountAggregateInputType | true
+    _min?: CustomerChangeLogMinAggregateInputType
+    _max?: CustomerChangeLogMaxAggregateInputType
+  }
+
+  export type CustomerChangeLogGroupByOutputType = {
+    id: string
+    source: $Enums.ChangeSource
+    batchId: string | null
+    customerId: string
+    operation: $Enums.ChangeOperation
+    changedFields: JsonValue | null
+    beforeSnapshot: JsonValue | null
+    afterSnapshot: JsonValue
+    rawRow: JsonValue | null
+    createdAt: Date
+    _count: CustomerChangeLogCountAggregateOutputType | null
+    _min: CustomerChangeLogMinAggregateOutputType | null
+    _max: CustomerChangeLogMaxAggregateOutputType | null
+  }
+
+  type GetCustomerChangeLogGroupByPayload<T extends CustomerChangeLogGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CustomerChangeLogGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CustomerChangeLogGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CustomerChangeLogGroupByOutputType[P]>
+            : GetScalarType<T[P], CustomerChangeLogGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CustomerChangeLogSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    source?: boolean
+    batchId?: boolean
+    customerId?: boolean
+    operation?: boolean
+    changedFields?: boolean
+    beforeSnapshot?: boolean
+    afterSnapshot?: boolean
+    rawRow?: boolean
+    createdAt?: boolean
+    Batch?: boolean | CustomerChangeLog$BatchArgs<ExtArgs>
+    Customer?: boolean | CustomerDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["customerChangeLog"]>
+
+  export type CustomerChangeLogSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    source?: boolean
+    batchId?: boolean
+    customerId?: boolean
+    operation?: boolean
+    changedFields?: boolean
+    beforeSnapshot?: boolean
+    afterSnapshot?: boolean
+    rawRow?: boolean
+    createdAt?: boolean
+    Batch?: boolean | CustomerChangeLog$BatchArgs<ExtArgs>
+    Customer?: boolean | CustomerDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["customerChangeLog"]>
+
+  export type CustomerChangeLogSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    source?: boolean
+    batchId?: boolean
+    customerId?: boolean
+    operation?: boolean
+    changedFields?: boolean
+    beforeSnapshot?: boolean
+    afterSnapshot?: boolean
+    rawRow?: boolean
+    createdAt?: boolean
+    Batch?: boolean | CustomerChangeLog$BatchArgs<ExtArgs>
+    Customer?: boolean | CustomerDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["customerChangeLog"]>
+
+  export type CustomerChangeLogSelectScalar = {
+    id?: boolean
+    source?: boolean
+    batchId?: boolean
+    customerId?: boolean
+    operation?: boolean
+    changedFields?: boolean
+    beforeSnapshot?: boolean
+    afterSnapshot?: boolean
+    rawRow?: boolean
+    createdAt?: boolean
+  }
+
+  export type CustomerChangeLogOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "source" | "batchId" | "customerId" | "operation" | "changedFields" | "beforeSnapshot" | "afterSnapshot" | "rawRow" | "createdAt", ExtArgs["result"]["customerChangeLog"]>
+  export type CustomerChangeLogInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Batch?: boolean | CustomerChangeLog$BatchArgs<ExtArgs>
+    Customer?: boolean | CustomerDefaultArgs<ExtArgs>
+  }
+  export type CustomerChangeLogIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Batch?: boolean | CustomerChangeLog$BatchArgs<ExtArgs>
+    Customer?: boolean | CustomerDefaultArgs<ExtArgs>
+  }
+  export type CustomerChangeLogIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Batch?: boolean | CustomerChangeLog$BatchArgs<ExtArgs>
+    Customer?: boolean | CustomerDefaultArgs<ExtArgs>
+  }
+
+  export type $CustomerChangeLogPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "CustomerChangeLog"
+    objects: {
+      Batch: Prisma.$CustomerUploadBatchPayload<ExtArgs> | null
+      Customer: Prisma.$CustomerPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      source: $Enums.ChangeSource
+      batchId: string | null
+      customerId: string
+      operation: $Enums.ChangeOperation
+      changedFields: Prisma.JsonValue | null
+      beforeSnapshot: Prisma.JsonValue | null
+      afterSnapshot: Prisma.JsonValue
+      rawRow: Prisma.JsonValue | null
+      createdAt: Date
+    }, ExtArgs["result"]["customerChangeLog"]>
+    composites: {}
+  }
+
+  type CustomerChangeLogGetPayload<S extends boolean | null | undefined | CustomerChangeLogDefaultArgs> = $Result.GetResult<Prisma.$CustomerChangeLogPayload, S>
+
+  type CustomerChangeLogCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CustomerChangeLogFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CustomerChangeLogCountAggregateInputType | true
+    }
+
+  export interface CustomerChangeLogDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CustomerChangeLog'], meta: { name: 'CustomerChangeLog' } }
+    /**
+     * Find zero or one CustomerChangeLog that matches the filter.
+     * @param {CustomerChangeLogFindUniqueArgs} args - Arguments to find a CustomerChangeLog
+     * @example
+     * // Get one CustomerChangeLog
+     * const customerChangeLog = await prisma.customerChangeLog.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CustomerChangeLogFindUniqueArgs>(args: SelectSubset<T, CustomerChangeLogFindUniqueArgs<ExtArgs>>): Prisma__CustomerChangeLogClient<$Result.GetResult<Prisma.$CustomerChangeLogPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one CustomerChangeLog that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CustomerChangeLogFindUniqueOrThrowArgs} args - Arguments to find a CustomerChangeLog
+     * @example
+     * // Get one CustomerChangeLog
+     * const customerChangeLog = await prisma.customerChangeLog.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CustomerChangeLogFindUniqueOrThrowArgs>(args: SelectSubset<T, CustomerChangeLogFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CustomerChangeLogClient<$Result.GetResult<Prisma.$CustomerChangeLogPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CustomerChangeLog that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerChangeLogFindFirstArgs} args - Arguments to find a CustomerChangeLog
+     * @example
+     * // Get one CustomerChangeLog
+     * const customerChangeLog = await prisma.customerChangeLog.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CustomerChangeLogFindFirstArgs>(args?: SelectSubset<T, CustomerChangeLogFindFirstArgs<ExtArgs>>): Prisma__CustomerChangeLogClient<$Result.GetResult<Prisma.$CustomerChangeLogPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CustomerChangeLog that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerChangeLogFindFirstOrThrowArgs} args - Arguments to find a CustomerChangeLog
+     * @example
+     * // Get one CustomerChangeLog
+     * const customerChangeLog = await prisma.customerChangeLog.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CustomerChangeLogFindFirstOrThrowArgs>(args?: SelectSubset<T, CustomerChangeLogFindFirstOrThrowArgs<ExtArgs>>): Prisma__CustomerChangeLogClient<$Result.GetResult<Prisma.$CustomerChangeLogPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more CustomerChangeLogs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerChangeLogFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CustomerChangeLogs
+     * const customerChangeLogs = await prisma.customerChangeLog.findMany()
+     * 
+     * // Get first 10 CustomerChangeLogs
+     * const customerChangeLogs = await prisma.customerChangeLog.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const customerChangeLogWithIdOnly = await prisma.customerChangeLog.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CustomerChangeLogFindManyArgs>(args?: SelectSubset<T, CustomerChangeLogFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerChangeLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a CustomerChangeLog.
+     * @param {CustomerChangeLogCreateArgs} args - Arguments to create a CustomerChangeLog.
+     * @example
+     * // Create one CustomerChangeLog
+     * const CustomerChangeLog = await prisma.customerChangeLog.create({
+     *   data: {
+     *     // ... data to create a CustomerChangeLog
+     *   }
+     * })
+     * 
+     */
+    create<T extends CustomerChangeLogCreateArgs>(args: SelectSubset<T, CustomerChangeLogCreateArgs<ExtArgs>>): Prisma__CustomerChangeLogClient<$Result.GetResult<Prisma.$CustomerChangeLogPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many CustomerChangeLogs.
+     * @param {CustomerChangeLogCreateManyArgs} args - Arguments to create many CustomerChangeLogs.
+     * @example
+     * // Create many CustomerChangeLogs
+     * const customerChangeLog = await prisma.customerChangeLog.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CustomerChangeLogCreateManyArgs>(args?: SelectSubset<T, CustomerChangeLogCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many CustomerChangeLogs and returns the data saved in the database.
+     * @param {CustomerChangeLogCreateManyAndReturnArgs} args - Arguments to create many CustomerChangeLogs.
+     * @example
+     * // Create many CustomerChangeLogs
+     * const customerChangeLog = await prisma.customerChangeLog.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many CustomerChangeLogs and only return the `id`
+     * const customerChangeLogWithIdOnly = await prisma.customerChangeLog.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CustomerChangeLogCreateManyAndReturnArgs>(args?: SelectSubset<T, CustomerChangeLogCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerChangeLogPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a CustomerChangeLog.
+     * @param {CustomerChangeLogDeleteArgs} args - Arguments to delete one CustomerChangeLog.
+     * @example
+     * // Delete one CustomerChangeLog
+     * const CustomerChangeLog = await prisma.customerChangeLog.delete({
+     *   where: {
+     *     // ... filter to delete one CustomerChangeLog
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CustomerChangeLogDeleteArgs>(args: SelectSubset<T, CustomerChangeLogDeleteArgs<ExtArgs>>): Prisma__CustomerChangeLogClient<$Result.GetResult<Prisma.$CustomerChangeLogPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one CustomerChangeLog.
+     * @param {CustomerChangeLogUpdateArgs} args - Arguments to update one CustomerChangeLog.
+     * @example
+     * // Update one CustomerChangeLog
+     * const customerChangeLog = await prisma.customerChangeLog.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CustomerChangeLogUpdateArgs>(args: SelectSubset<T, CustomerChangeLogUpdateArgs<ExtArgs>>): Prisma__CustomerChangeLogClient<$Result.GetResult<Prisma.$CustomerChangeLogPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more CustomerChangeLogs.
+     * @param {CustomerChangeLogDeleteManyArgs} args - Arguments to filter CustomerChangeLogs to delete.
+     * @example
+     * // Delete a few CustomerChangeLogs
+     * const { count } = await prisma.customerChangeLog.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CustomerChangeLogDeleteManyArgs>(args?: SelectSubset<T, CustomerChangeLogDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CustomerChangeLogs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerChangeLogUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CustomerChangeLogs
+     * const customerChangeLog = await prisma.customerChangeLog.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CustomerChangeLogUpdateManyArgs>(args: SelectSubset<T, CustomerChangeLogUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CustomerChangeLogs and returns the data updated in the database.
+     * @param {CustomerChangeLogUpdateManyAndReturnArgs} args - Arguments to update many CustomerChangeLogs.
+     * @example
+     * // Update many CustomerChangeLogs
+     * const customerChangeLog = await prisma.customerChangeLog.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more CustomerChangeLogs and only return the `id`
+     * const customerChangeLogWithIdOnly = await prisma.customerChangeLog.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CustomerChangeLogUpdateManyAndReturnArgs>(args: SelectSubset<T, CustomerChangeLogUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerChangeLogPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one CustomerChangeLog.
+     * @param {CustomerChangeLogUpsertArgs} args - Arguments to update or create a CustomerChangeLog.
+     * @example
+     * // Update or create a CustomerChangeLog
+     * const customerChangeLog = await prisma.customerChangeLog.upsert({
+     *   create: {
+     *     // ... data to create a CustomerChangeLog
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CustomerChangeLog we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CustomerChangeLogUpsertArgs>(args: SelectSubset<T, CustomerChangeLogUpsertArgs<ExtArgs>>): Prisma__CustomerChangeLogClient<$Result.GetResult<Prisma.$CustomerChangeLogPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of CustomerChangeLogs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerChangeLogCountArgs} args - Arguments to filter CustomerChangeLogs to count.
+     * @example
+     * // Count the number of CustomerChangeLogs
+     * const count = await prisma.customerChangeLog.count({
+     *   where: {
+     *     // ... the filter for the CustomerChangeLogs we want to count
+     *   }
+     * })
+    **/
+    count<T extends CustomerChangeLogCountArgs>(
+      args?: Subset<T, CustomerChangeLogCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CustomerChangeLogCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a CustomerChangeLog.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerChangeLogAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CustomerChangeLogAggregateArgs>(args: Subset<T, CustomerChangeLogAggregateArgs>): Prisma.PrismaPromise<GetCustomerChangeLogAggregateType<T>>
+
+    /**
+     * Group by CustomerChangeLog.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerChangeLogGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CustomerChangeLogGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CustomerChangeLogGroupByArgs['orderBy'] }
+        : { orderBy?: CustomerChangeLogGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CustomerChangeLogGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCustomerChangeLogGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the CustomerChangeLog model
+   */
+  readonly fields: CustomerChangeLogFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for CustomerChangeLog.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CustomerChangeLogClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    Batch<T extends CustomerChangeLog$BatchArgs<ExtArgs> = {}>(args?: Subset<T, CustomerChangeLog$BatchArgs<ExtArgs>>): Prisma__CustomerUploadBatchClient<$Result.GetResult<Prisma.$CustomerUploadBatchPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    Customer<T extends CustomerDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CustomerDefaultArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the CustomerChangeLog model
+   */
+  interface CustomerChangeLogFieldRefs {
+    readonly id: FieldRef<"CustomerChangeLog", 'String'>
+    readonly source: FieldRef<"CustomerChangeLog", 'ChangeSource'>
+    readonly batchId: FieldRef<"CustomerChangeLog", 'String'>
+    readonly customerId: FieldRef<"CustomerChangeLog", 'String'>
+    readonly operation: FieldRef<"CustomerChangeLog", 'ChangeOperation'>
+    readonly changedFields: FieldRef<"CustomerChangeLog", 'Json'>
+    readonly beforeSnapshot: FieldRef<"CustomerChangeLog", 'Json'>
+    readonly afterSnapshot: FieldRef<"CustomerChangeLog", 'Json'>
+    readonly rawRow: FieldRef<"CustomerChangeLog", 'Json'>
+    readonly createdAt: FieldRef<"CustomerChangeLog", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * CustomerChangeLog findUnique
+   */
+  export type CustomerChangeLogFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerChangeLog
+     */
+    select?: CustomerChangeLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerChangeLog
+     */
+    omit?: CustomerChangeLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerChangeLogInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomerChangeLog to fetch.
+     */
+    where: CustomerChangeLogWhereUniqueInput
+  }
+
+  /**
+   * CustomerChangeLog findUniqueOrThrow
+   */
+  export type CustomerChangeLogFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerChangeLog
+     */
+    select?: CustomerChangeLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerChangeLog
+     */
+    omit?: CustomerChangeLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerChangeLogInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomerChangeLog to fetch.
+     */
+    where: CustomerChangeLogWhereUniqueInput
+  }
+
+  /**
+   * CustomerChangeLog findFirst
+   */
+  export type CustomerChangeLogFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerChangeLog
+     */
+    select?: CustomerChangeLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerChangeLog
+     */
+    omit?: CustomerChangeLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerChangeLogInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomerChangeLog to fetch.
+     */
+    where?: CustomerChangeLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CustomerChangeLogs to fetch.
+     */
+    orderBy?: CustomerChangeLogOrderByWithRelationInput | CustomerChangeLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CustomerChangeLogs.
+     */
+    cursor?: CustomerChangeLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CustomerChangeLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CustomerChangeLogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CustomerChangeLogs.
+     */
+    distinct?: CustomerChangeLogScalarFieldEnum | CustomerChangeLogScalarFieldEnum[]
+  }
+
+  /**
+   * CustomerChangeLog findFirstOrThrow
+   */
+  export type CustomerChangeLogFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerChangeLog
+     */
+    select?: CustomerChangeLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerChangeLog
+     */
+    omit?: CustomerChangeLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerChangeLogInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomerChangeLog to fetch.
+     */
+    where?: CustomerChangeLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CustomerChangeLogs to fetch.
+     */
+    orderBy?: CustomerChangeLogOrderByWithRelationInput | CustomerChangeLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CustomerChangeLogs.
+     */
+    cursor?: CustomerChangeLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CustomerChangeLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CustomerChangeLogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CustomerChangeLogs.
+     */
+    distinct?: CustomerChangeLogScalarFieldEnum | CustomerChangeLogScalarFieldEnum[]
+  }
+
+  /**
+   * CustomerChangeLog findMany
+   */
+  export type CustomerChangeLogFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerChangeLog
+     */
+    select?: CustomerChangeLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerChangeLog
+     */
+    omit?: CustomerChangeLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerChangeLogInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomerChangeLogs to fetch.
+     */
+    where?: CustomerChangeLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CustomerChangeLogs to fetch.
+     */
+    orderBy?: CustomerChangeLogOrderByWithRelationInput | CustomerChangeLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing CustomerChangeLogs.
+     */
+    cursor?: CustomerChangeLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CustomerChangeLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CustomerChangeLogs.
+     */
+    skip?: number
+    distinct?: CustomerChangeLogScalarFieldEnum | CustomerChangeLogScalarFieldEnum[]
+  }
+
+  /**
+   * CustomerChangeLog create
+   */
+  export type CustomerChangeLogCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerChangeLog
+     */
+    select?: CustomerChangeLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerChangeLog
+     */
+    omit?: CustomerChangeLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerChangeLogInclude<ExtArgs> | null
+    /**
+     * The data needed to create a CustomerChangeLog.
+     */
+    data: XOR<CustomerChangeLogCreateInput, CustomerChangeLogUncheckedCreateInput>
+  }
+
+  /**
+   * CustomerChangeLog createMany
+   */
+  export type CustomerChangeLogCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CustomerChangeLogs.
+     */
+    data: CustomerChangeLogCreateManyInput | CustomerChangeLogCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CustomerChangeLog createManyAndReturn
+   */
+  export type CustomerChangeLogCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerChangeLog
+     */
+    select?: CustomerChangeLogSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerChangeLog
+     */
+    omit?: CustomerChangeLogOmit<ExtArgs> | null
+    /**
+     * The data used to create many CustomerChangeLogs.
+     */
+    data: CustomerChangeLogCreateManyInput | CustomerChangeLogCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerChangeLogIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CustomerChangeLog update
+   */
+  export type CustomerChangeLogUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerChangeLog
+     */
+    select?: CustomerChangeLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerChangeLog
+     */
+    omit?: CustomerChangeLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerChangeLogInclude<ExtArgs> | null
+    /**
+     * The data needed to update a CustomerChangeLog.
+     */
+    data: XOR<CustomerChangeLogUpdateInput, CustomerChangeLogUncheckedUpdateInput>
+    /**
+     * Choose, which CustomerChangeLog to update.
+     */
+    where: CustomerChangeLogWhereUniqueInput
+  }
+
+  /**
+   * CustomerChangeLog updateMany
+   */
+  export type CustomerChangeLogUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update CustomerChangeLogs.
+     */
+    data: XOR<CustomerChangeLogUpdateManyMutationInput, CustomerChangeLogUncheckedUpdateManyInput>
+    /**
+     * Filter which CustomerChangeLogs to update
+     */
+    where?: CustomerChangeLogWhereInput
+    /**
+     * Limit how many CustomerChangeLogs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * CustomerChangeLog updateManyAndReturn
+   */
+  export type CustomerChangeLogUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerChangeLog
+     */
+    select?: CustomerChangeLogSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerChangeLog
+     */
+    omit?: CustomerChangeLogOmit<ExtArgs> | null
+    /**
+     * The data used to update CustomerChangeLogs.
+     */
+    data: XOR<CustomerChangeLogUpdateManyMutationInput, CustomerChangeLogUncheckedUpdateManyInput>
+    /**
+     * Filter which CustomerChangeLogs to update
+     */
+    where?: CustomerChangeLogWhereInput
+    /**
+     * Limit how many CustomerChangeLogs to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerChangeLogIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CustomerChangeLog upsert
+   */
+  export type CustomerChangeLogUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerChangeLog
+     */
+    select?: CustomerChangeLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerChangeLog
+     */
+    omit?: CustomerChangeLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerChangeLogInclude<ExtArgs> | null
+    /**
+     * The filter to search for the CustomerChangeLog to update in case it exists.
+     */
+    where: CustomerChangeLogWhereUniqueInput
+    /**
+     * In case the CustomerChangeLog found by the `where` argument doesn't exist, create a new CustomerChangeLog with this data.
+     */
+    create: XOR<CustomerChangeLogCreateInput, CustomerChangeLogUncheckedCreateInput>
+    /**
+     * In case the CustomerChangeLog was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CustomerChangeLogUpdateInput, CustomerChangeLogUncheckedUpdateInput>
+  }
+
+  /**
+   * CustomerChangeLog delete
+   */
+  export type CustomerChangeLogDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerChangeLog
+     */
+    select?: CustomerChangeLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerChangeLog
+     */
+    omit?: CustomerChangeLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerChangeLogInclude<ExtArgs> | null
+    /**
+     * Filter which CustomerChangeLog to delete.
+     */
+    where: CustomerChangeLogWhereUniqueInput
+  }
+
+  /**
+   * CustomerChangeLog deleteMany
+   */
+  export type CustomerChangeLogDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CustomerChangeLogs to delete
+     */
+    where?: CustomerChangeLogWhereInput
+    /**
+     * Limit how many CustomerChangeLogs to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * CustomerChangeLog.Batch
+   */
+  export type CustomerChangeLog$BatchArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatch
+     */
+    select?: CustomerUploadBatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatch
+     */
+    omit?: CustomerUploadBatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchInclude<ExtArgs> | null
+    where?: CustomerUploadBatchWhereInput
+  }
+
+  /**
+   * CustomerChangeLog without action
+   */
+  export type CustomerChangeLogDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerChangeLog
+     */
+    select?: CustomerChangeLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerChangeLog
+     */
+    omit?: CustomerChangeLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerChangeLogInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model CustomerFundChangeLog
+   */
+
+  export type AggregateCustomerFundChangeLog = {
+    _count: CustomerFundChangeLogCountAggregateOutputType | null
+    _min: CustomerFundChangeLogMinAggregateOutputType | null
+    _max: CustomerFundChangeLogMaxAggregateOutputType | null
+  }
+
+  export type CustomerFundChangeLogMinAggregateOutputType = {
+    id: string | null
+    source: $Enums.ChangeSource | null
+    batchId: string | null
+    customerId: string | null
+    customerFundId: string | null
+    operation: $Enums.ChangeOperation | null
+    createdAt: Date | null
+  }
+
+  export type CustomerFundChangeLogMaxAggregateOutputType = {
+    id: string | null
+    source: $Enums.ChangeSource | null
+    batchId: string | null
+    customerId: string | null
+    customerFundId: string | null
+    operation: $Enums.ChangeOperation | null
+    createdAt: Date | null
+  }
+
+  export type CustomerFundChangeLogCountAggregateOutputType = {
+    id: number
+    source: number
+    batchId: number
+    customerId: number
+    customerFundId: number
+    operation: number
+    changedFields: number
+    beforeSnapshot: number
+    afterSnapshot: number
+    createdAt: number
+    _all: number
+  }
+
+
+  export type CustomerFundChangeLogMinAggregateInputType = {
+    id?: true
+    source?: true
+    batchId?: true
+    customerId?: true
+    customerFundId?: true
+    operation?: true
+    createdAt?: true
+  }
+
+  export type CustomerFundChangeLogMaxAggregateInputType = {
+    id?: true
+    source?: true
+    batchId?: true
+    customerId?: true
+    customerFundId?: true
+    operation?: true
+    createdAt?: true
+  }
+
+  export type CustomerFundChangeLogCountAggregateInputType = {
+    id?: true
+    source?: true
+    batchId?: true
+    customerId?: true
+    customerFundId?: true
+    operation?: true
+    changedFields?: true
+    beforeSnapshot?: true
+    afterSnapshot?: true
+    createdAt?: true
+    _all?: true
+  }
+
+  export type CustomerFundChangeLogAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CustomerFundChangeLog to aggregate.
+     */
+    where?: CustomerFundChangeLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CustomerFundChangeLogs to fetch.
+     */
+    orderBy?: CustomerFundChangeLogOrderByWithRelationInput | CustomerFundChangeLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CustomerFundChangeLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CustomerFundChangeLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CustomerFundChangeLogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned CustomerFundChangeLogs
+    **/
+    _count?: true | CustomerFundChangeLogCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CustomerFundChangeLogMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CustomerFundChangeLogMaxAggregateInputType
+  }
+
+  export type GetCustomerFundChangeLogAggregateType<T extends CustomerFundChangeLogAggregateArgs> = {
+        [P in keyof T & keyof AggregateCustomerFundChangeLog]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCustomerFundChangeLog[P]>
+      : GetScalarType<T[P], AggregateCustomerFundChangeLog[P]>
+  }
+
+
+
+
+  export type CustomerFundChangeLogGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CustomerFundChangeLogWhereInput
+    orderBy?: CustomerFundChangeLogOrderByWithAggregationInput | CustomerFundChangeLogOrderByWithAggregationInput[]
+    by: CustomerFundChangeLogScalarFieldEnum[] | CustomerFundChangeLogScalarFieldEnum
+    having?: CustomerFundChangeLogScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CustomerFundChangeLogCountAggregateInputType | true
+    _min?: CustomerFundChangeLogMinAggregateInputType
+    _max?: CustomerFundChangeLogMaxAggregateInputType
+  }
+
+  export type CustomerFundChangeLogGroupByOutputType = {
+    id: string
+    source: $Enums.ChangeSource
+    batchId: string | null
+    customerId: string
+    customerFundId: string | null
+    operation: $Enums.ChangeOperation
+    changedFields: JsonValue | null
+    beforeSnapshot: JsonValue | null
+    afterSnapshot: JsonValue | null
+    createdAt: Date
+    _count: CustomerFundChangeLogCountAggregateOutputType | null
+    _min: CustomerFundChangeLogMinAggregateOutputType | null
+    _max: CustomerFundChangeLogMaxAggregateOutputType | null
+  }
+
+  type GetCustomerFundChangeLogGroupByPayload<T extends CustomerFundChangeLogGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CustomerFundChangeLogGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CustomerFundChangeLogGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CustomerFundChangeLogGroupByOutputType[P]>
+            : GetScalarType<T[P], CustomerFundChangeLogGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CustomerFundChangeLogSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    source?: boolean
+    batchId?: boolean
+    customerId?: boolean
+    customerFundId?: boolean
+    operation?: boolean
+    changedFields?: boolean
+    beforeSnapshot?: boolean
+    afterSnapshot?: boolean
+    createdAt?: boolean
+    Batch?: boolean | CustomerFundChangeLog$BatchArgs<ExtArgs>
+    Customer?: boolean | CustomerDefaultArgs<ExtArgs>
+    CustomerFund?: boolean | CustomerFundChangeLog$CustomerFundArgs<ExtArgs>
+  }, ExtArgs["result"]["customerFundChangeLog"]>
+
+  export type CustomerFundChangeLogSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    source?: boolean
+    batchId?: boolean
+    customerId?: boolean
+    customerFundId?: boolean
+    operation?: boolean
+    changedFields?: boolean
+    beforeSnapshot?: boolean
+    afterSnapshot?: boolean
+    createdAt?: boolean
+    Batch?: boolean | CustomerFundChangeLog$BatchArgs<ExtArgs>
+    Customer?: boolean | CustomerDefaultArgs<ExtArgs>
+    CustomerFund?: boolean | CustomerFundChangeLog$CustomerFundArgs<ExtArgs>
+  }, ExtArgs["result"]["customerFundChangeLog"]>
+
+  export type CustomerFundChangeLogSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    source?: boolean
+    batchId?: boolean
+    customerId?: boolean
+    customerFundId?: boolean
+    operation?: boolean
+    changedFields?: boolean
+    beforeSnapshot?: boolean
+    afterSnapshot?: boolean
+    createdAt?: boolean
+    Batch?: boolean | CustomerFundChangeLog$BatchArgs<ExtArgs>
+    Customer?: boolean | CustomerDefaultArgs<ExtArgs>
+    CustomerFund?: boolean | CustomerFundChangeLog$CustomerFundArgs<ExtArgs>
+  }, ExtArgs["result"]["customerFundChangeLog"]>
+
+  export type CustomerFundChangeLogSelectScalar = {
+    id?: boolean
+    source?: boolean
+    batchId?: boolean
+    customerId?: boolean
+    customerFundId?: boolean
+    operation?: boolean
+    changedFields?: boolean
+    beforeSnapshot?: boolean
+    afterSnapshot?: boolean
+    createdAt?: boolean
+  }
+
+  export type CustomerFundChangeLogOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "source" | "batchId" | "customerId" | "customerFundId" | "operation" | "changedFields" | "beforeSnapshot" | "afterSnapshot" | "createdAt", ExtArgs["result"]["customerFundChangeLog"]>
+  export type CustomerFundChangeLogInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Batch?: boolean | CustomerFundChangeLog$BatchArgs<ExtArgs>
+    Customer?: boolean | CustomerDefaultArgs<ExtArgs>
+    CustomerFund?: boolean | CustomerFundChangeLog$CustomerFundArgs<ExtArgs>
+  }
+  export type CustomerFundChangeLogIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Batch?: boolean | CustomerFundChangeLog$BatchArgs<ExtArgs>
+    Customer?: boolean | CustomerDefaultArgs<ExtArgs>
+    CustomerFund?: boolean | CustomerFundChangeLog$CustomerFundArgs<ExtArgs>
+  }
+  export type CustomerFundChangeLogIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Batch?: boolean | CustomerFundChangeLog$BatchArgs<ExtArgs>
+    Customer?: boolean | CustomerDefaultArgs<ExtArgs>
+    CustomerFund?: boolean | CustomerFundChangeLog$CustomerFundArgs<ExtArgs>
+  }
+
+  export type $CustomerFundChangeLogPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "CustomerFundChangeLog"
+    objects: {
+      Batch: Prisma.$CustomerUploadBatchPayload<ExtArgs> | null
+      Customer: Prisma.$CustomerPayload<ExtArgs>
+      CustomerFund: Prisma.$CustomerFundPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      source: $Enums.ChangeSource
+      batchId: string | null
+      customerId: string
+      customerFundId: string | null
+      operation: $Enums.ChangeOperation
+      changedFields: Prisma.JsonValue | null
+      beforeSnapshot: Prisma.JsonValue | null
+      afterSnapshot: Prisma.JsonValue | null
+      createdAt: Date
+    }, ExtArgs["result"]["customerFundChangeLog"]>
+    composites: {}
+  }
+
+  type CustomerFundChangeLogGetPayload<S extends boolean | null | undefined | CustomerFundChangeLogDefaultArgs> = $Result.GetResult<Prisma.$CustomerFundChangeLogPayload, S>
+
+  type CustomerFundChangeLogCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CustomerFundChangeLogFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CustomerFundChangeLogCountAggregateInputType | true
+    }
+
+  export interface CustomerFundChangeLogDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CustomerFundChangeLog'], meta: { name: 'CustomerFundChangeLog' } }
+    /**
+     * Find zero or one CustomerFundChangeLog that matches the filter.
+     * @param {CustomerFundChangeLogFindUniqueArgs} args - Arguments to find a CustomerFundChangeLog
+     * @example
+     * // Get one CustomerFundChangeLog
+     * const customerFundChangeLog = await prisma.customerFundChangeLog.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CustomerFundChangeLogFindUniqueArgs>(args: SelectSubset<T, CustomerFundChangeLogFindUniqueArgs<ExtArgs>>): Prisma__CustomerFundChangeLogClient<$Result.GetResult<Prisma.$CustomerFundChangeLogPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one CustomerFundChangeLog that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CustomerFundChangeLogFindUniqueOrThrowArgs} args - Arguments to find a CustomerFundChangeLog
+     * @example
+     * // Get one CustomerFundChangeLog
+     * const customerFundChangeLog = await prisma.customerFundChangeLog.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CustomerFundChangeLogFindUniqueOrThrowArgs>(args: SelectSubset<T, CustomerFundChangeLogFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CustomerFundChangeLogClient<$Result.GetResult<Prisma.$CustomerFundChangeLogPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CustomerFundChangeLog that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerFundChangeLogFindFirstArgs} args - Arguments to find a CustomerFundChangeLog
+     * @example
+     * // Get one CustomerFundChangeLog
+     * const customerFundChangeLog = await prisma.customerFundChangeLog.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CustomerFundChangeLogFindFirstArgs>(args?: SelectSubset<T, CustomerFundChangeLogFindFirstArgs<ExtArgs>>): Prisma__CustomerFundChangeLogClient<$Result.GetResult<Prisma.$CustomerFundChangeLogPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CustomerFundChangeLog that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerFundChangeLogFindFirstOrThrowArgs} args - Arguments to find a CustomerFundChangeLog
+     * @example
+     * // Get one CustomerFundChangeLog
+     * const customerFundChangeLog = await prisma.customerFundChangeLog.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CustomerFundChangeLogFindFirstOrThrowArgs>(args?: SelectSubset<T, CustomerFundChangeLogFindFirstOrThrowArgs<ExtArgs>>): Prisma__CustomerFundChangeLogClient<$Result.GetResult<Prisma.$CustomerFundChangeLogPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more CustomerFundChangeLogs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerFundChangeLogFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CustomerFundChangeLogs
+     * const customerFundChangeLogs = await prisma.customerFundChangeLog.findMany()
+     * 
+     * // Get first 10 CustomerFundChangeLogs
+     * const customerFundChangeLogs = await prisma.customerFundChangeLog.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const customerFundChangeLogWithIdOnly = await prisma.customerFundChangeLog.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CustomerFundChangeLogFindManyArgs>(args?: SelectSubset<T, CustomerFundChangeLogFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerFundChangeLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a CustomerFundChangeLog.
+     * @param {CustomerFundChangeLogCreateArgs} args - Arguments to create a CustomerFundChangeLog.
+     * @example
+     * // Create one CustomerFundChangeLog
+     * const CustomerFundChangeLog = await prisma.customerFundChangeLog.create({
+     *   data: {
+     *     // ... data to create a CustomerFundChangeLog
+     *   }
+     * })
+     * 
+     */
+    create<T extends CustomerFundChangeLogCreateArgs>(args: SelectSubset<T, CustomerFundChangeLogCreateArgs<ExtArgs>>): Prisma__CustomerFundChangeLogClient<$Result.GetResult<Prisma.$CustomerFundChangeLogPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many CustomerFundChangeLogs.
+     * @param {CustomerFundChangeLogCreateManyArgs} args - Arguments to create many CustomerFundChangeLogs.
+     * @example
+     * // Create many CustomerFundChangeLogs
+     * const customerFundChangeLog = await prisma.customerFundChangeLog.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CustomerFundChangeLogCreateManyArgs>(args?: SelectSubset<T, CustomerFundChangeLogCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many CustomerFundChangeLogs and returns the data saved in the database.
+     * @param {CustomerFundChangeLogCreateManyAndReturnArgs} args - Arguments to create many CustomerFundChangeLogs.
+     * @example
+     * // Create many CustomerFundChangeLogs
+     * const customerFundChangeLog = await prisma.customerFundChangeLog.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many CustomerFundChangeLogs and only return the `id`
+     * const customerFundChangeLogWithIdOnly = await prisma.customerFundChangeLog.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CustomerFundChangeLogCreateManyAndReturnArgs>(args?: SelectSubset<T, CustomerFundChangeLogCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerFundChangeLogPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a CustomerFundChangeLog.
+     * @param {CustomerFundChangeLogDeleteArgs} args - Arguments to delete one CustomerFundChangeLog.
+     * @example
+     * // Delete one CustomerFundChangeLog
+     * const CustomerFundChangeLog = await prisma.customerFundChangeLog.delete({
+     *   where: {
+     *     // ... filter to delete one CustomerFundChangeLog
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CustomerFundChangeLogDeleteArgs>(args: SelectSubset<T, CustomerFundChangeLogDeleteArgs<ExtArgs>>): Prisma__CustomerFundChangeLogClient<$Result.GetResult<Prisma.$CustomerFundChangeLogPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one CustomerFundChangeLog.
+     * @param {CustomerFundChangeLogUpdateArgs} args - Arguments to update one CustomerFundChangeLog.
+     * @example
+     * // Update one CustomerFundChangeLog
+     * const customerFundChangeLog = await prisma.customerFundChangeLog.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CustomerFundChangeLogUpdateArgs>(args: SelectSubset<T, CustomerFundChangeLogUpdateArgs<ExtArgs>>): Prisma__CustomerFundChangeLogClient<$Result.GetResult<Prisma.$CustomerFundChangeLogPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more CustomerFundChangeLogs.
+     * @param {CustomerFundChangeLogDeleteManyArgs} args - Arguments to filter CustomerFundChangeLogs to delete.
+     * @example
+     * // Delete a few CustomerFundChangeLogs
+     * const { count } = await prisma.customerFundChangeLog.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CustomerFundChangeLogDeleteManyArgs>(args?: SelectSubset<T, CustomerFundChangeLogDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CustomerFundChangeLogs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerFundChangeLogUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CustomerFundChangeLogs
+     * const customerFundChangeLog = await prisma.customerFundChangeLog.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CustomerFundChangeLogUpdateManyArgs>(args: SelectSubset<T, CustomerFundChangeLogUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CustomerFundChangeLogs and returns the data updated in the database.
+     * @param {CustomerFundChangeLogUpdateManyAndReturnArgs} args - Arguments to update many CustomerFundChangeLogs.
+     * @example
+     * // Update many CustomerFundChangeLogs
+     * const customerFundChangeLog = await prisma.customerFundChangeLog.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more CustomerFundChangeLogs and only return the `id`
+     * const customerFundChangeLogWithIdOnly = await prisma.customerFundChangeLog.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CustomerFundChangeLogUpdateManyAndReturnArgs>(args: SelectSubset<T, CustomerFundChangeLogUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CustomerFundChangeLogPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one CustomerFundChangeLog.
+     * @param {CustomerFundChangeLogUpsertArgs} args - Arguments to update or create a CustomerFundChangeLog.
+     * @example
+     * // Update or create a CustomerFundChangeLog
+     * const customerFundChangeLog = await prisma.customerFundChangeLog.upsert({
+     *   create: {
+     *     // ... data to create a CustomerFundChangeLog
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CustomerFundChangeLog we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CustomerFundChangeLogUpsertArgs>(args: SelectSubset<T, CustomerFundChangeLogUpsertArgs<ExtArgs>>): Prisma__CustomerFundChangeLogClient<$Result.GetResult<Prisma.$CustomerFundChangeLogPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of CustomerFundChangeLogs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerFundChangeLogCountArgs} args - Arguments to filter CustomerFundChangeLogs to count.
+     * @example
+     * // Count the number of CustomerFundChangeLogs
+     * const count = await prisma.customerFundChangeLog.count({
+     *   where: {
+     *     // ... the filter for the CustomerFundChangeLogs we want to count
+     *   }
+     * })
+    **/
+    count<T extends CustomerFundChangeLogCountArgs>(
+      args?: Subset<T, CustomerFundChangeLogCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CustomerFundChangeLogCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a CustomerFundChangeLog.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerFundChangeLogAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CustomerFundChangeLogAggregateArgs>(args: Subset<T, CustomerFundChangeLogAggregateArgs>): Prisma.PrismaPromise<GetCustomerFundChangeLogAggregateType<T>>
+
+    /**
+     * Group by CustomerFundChangeLog.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CustomerFundChangeLogGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CustomerFundChangeLogGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CustomerFundChangeLogGroupByArgs['orderBy'] }
+        : { orderBy?: CustomerFundChangeLogGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CustomerFundChangeLogGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCustomerFundChangeLogGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the CustomerFundChangeLog model
+   */
+  readonly fields: CustomerFundChangeLogFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for CustomerFundChangeLog.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CustomerFundChangeLogClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    Batch<T extends CustomerFundChangeLog$BatchArgs<ExtArgs> = {}>(args?: Subset<T, CustomerFundChangeLog$BatchArgs<ExtArgs>>): Prisma__CustomerUploadBatchClient<$Result.GetResult<Prisma.$CustomerUploadBatchPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    Customer<T extends CustomerDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CustomerDefaultArgs<ExtArgs>>): Prisma__CustomerClient<$Result.GetResult<Prisma.$CustomerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    CustomerFund<T extends CustomerFundChangeLog$CustomerFundArgs<ExtArgs> = {}>(args?: Subset<T, CustomerFundChangeLog$CustomerFundArgs<ExtArgs>>): Prisma__CustomerFundClient<$Result.GetResult<Prisma.$CustomerFundPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the CustomerFundChangeLog model
+   */
+  interface CustomerFundChangeLogFieldRefs {
+    readonly id: FieldRef<"CustomerFundChangeLog", 'String'>
+    readonly source: FieldRef<"CustomerFundChangeLog", 'ChangeSource'>
+    readonly batchId: FieldRef<"CustomerFundChangeLog", 'String'>
+    readonly customerId: FieldRef<"CustomerFundChangeLog", 'String'>
+    readonly customerFundId: FieldRef<"CustomerFundChangeLog", 'String'>
+    readonly operation: FieldRef<"CustomerFundChangeLog", 'ChangeOperation'>
+    readonly changedFields: FieldRef<"CustomerFundChangeLog", 'Json'>
+    readonly beforeSnapshot: FieldRef<"CustomerFundChangeLog", 'Json'>
+    readonly afterSnapshot: FieldRef<"CustomerFundChangeLog", 'Json'>
+    readonly createdAt: FieldRef<"CustomerFundChangeLog", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * CustomerFundChangeLog findUnique
+   */
+  export type CustomerFundChangeLogFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFundChangeLog
+     */
+    select?: CustomerFundChangeLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerFundChangeLog
+     */
+    omit?: CustomerFundChangeLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundChangeLogInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomerFundChangeLog to fetch.
+     */
+    where: CustomerFundChangeLogWhereUniqueInput
+  }
+
+  /**
+   * CustomerFundChangeLog findUniqueOrThrow
+   */
+  export type CustomerFundChangeLogFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFundChangeLog
+     */
+    select?: CustomerFundChangeLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerFundChangeLog
+     */
+    omit?: CustomerFundChangeLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundChangeLogInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomerFundChangeLog to fetch.
+     */
+    where: CustomerFundChangeLogWhereUniqueInput
+  }
+
+  /**
+   * CustomerFundChangeLog findFirst
+   */
+  export type CustomerFundChangeLogFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFundChangeLog
+     */
+    select?: CustomerFundChangeLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerFundChangeLog
+     */
+    omit?: CustomerFundChangeLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundChangeLogInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomerFundChangeLog to fetch.
+     */
+    where?: CustomerFundChangeLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CustomerFundChangeLogs to fetch.
+     */
+    orderBy?: CustomerFundChangeLogOrderByWithRelationInput | CustomerFundChangeLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CustomerFundChangeLogs.
+     */
+    cursor?: CustomerFundChangeLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CustomerFundChangeLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CustomerFundChangeLogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CustomerFundChangeLogs.
+     */
+    distinct?: CustomerFundChangeLogScalarFieldEnum | CustomerFundChangeLogScalarFieldEnum[]
+  }
+
+  /**
+   * CustomerFundChangeLog findFirstOrThrow
+   */
+  export type CustomerFundChangeLogFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFundChangeLog
+     */
+    select?: CustomerFundChangeLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerFundChangeLog
+     */
+    omit?: CustomerFundChangeLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundChangeLogInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomerFundChangeLog to fetch.
+     */
+    where?: CustomerFundChangeLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CustomerFundChangeLogs to fetch.
+     */
+    orderBy?: CustomerFundChangeLogOrderByWithRelationInput | CustomerFundChangeLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CustomerFundChangeLogs.
+     */
+    cursor?: CustomerFundChangeLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CustomerFundChangeLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CustomerFundChangeLogs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CustomerFundChangeLogs.
+     */
+    distinct?: CustomerFundChangeLogScalarFieldEnum | CustomerFundChangeLogScalarFieldEnum[]
+  }
+
+  /**
+   * CustomerFundChangeLog findMany
+   */
+  export type CustomerFundChangeLogFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFundChangeLog
+     */
+    select?: CustomerFundChangeLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerFundChangeLog
+     */
+    omit?: CustomerFundChangeLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundChangeLogInclude<ExtArgs> | null
+    /**
+     * Filter, which CustomerFundChangeLogs to fetch.
+     */
+    where?: CustomerFundChangeLogWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CustomerFundChangeLogs to fetch.
+     */
+    orderBy?: CustomerFundChangeLogOrderByWithRelationInput | CustomerFundChangeLogOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing CustomerFundChangeLogs.
+     */
+    cursor?: CustomerFundChangeLogWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CustomerFundChangeLogs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CustomerFundChangeLogs.
+     */
+    skip?: number
+    distinct?: CustomerFundChangeLogScalarFieldEnum | CustomerFundChangeLogScalarFieldEnum[]
+  }
+
+  /**
+   * CustomerFundChangeLog create
+   */
+  export type CustomerFundChangeLogCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFundChangeLog
+     */
+    select?: CustomerFundChangeLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerFundChangeLog
+     */
+    omit?: CustomerFundChangeLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundChangeLogInclude<ExtArgs> | null
+    /**
+     * The data needed to create a CustomerFundChangeLog.
+     */
+    data: XOR<CustomerFundChangeLogCreateInput, CustomerFundChangeLogUncheckedCreateInput>
+  }
+
+  /**
+   * CustomerFundChangeLog createMany
+   */
+  export type CustomerFundChangeLogCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CustomerFundChangeLogs.
+     */
+    data: CustomerFundChangeLogCreateManyInput | CustomerFundChangeLogCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CustomerFundChangeLog createManyAndReturn
+   */
+  export type CustomerFundChangeLogCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFundChangeLog
+     */
+    select?: CustomerFundChangeLogSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerFundChangeLog
+     */
+    omit?: CustomerFundChangeLogOmit<ExtArgs> | null
+    /**
+     * The data used to create many CustomerFundChangeLogs.
+     */
+    data: CustomerFundChangeLogCreateManyInput | CustomerFundChangeLogCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundChangeLogIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CustomerFundChangeLog update
+   */
+  export type CustomerFundChangeLogUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFundChangeLog
+     */
+    select?: CustomerFundChangeLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerFundChangeLog
+     */
+    omit?: CustomerFundChangeLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundChangeLogInclude<ExtArgs> | null
+    /**
+     * The data needed to update a CustomerFundChangeLog.
+     */
+    data: XOR<CustomerFundChangeLogUpdateInput, CustomerFundChangeLogUncheckedUpdateInput>
+    /**
+     * Choose, which CustomerFundChangeLog to update.
+     */
+    where: CustomerFundChangeLogWhereUniqueInput
+  }
+
+  /**
+   * CustomerFundChangeLog updateMany
+   */
+  export type CustomerFundChangeLogUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update CustomerFundChangeLogs.
+     */
+    data: XOR<CustomerFundChangeLogUpdateManyMutationInput, CustomerFundChangeLogUncheckedUpdateManyInput>
+    /**
+     * Filter which CustomerFundChangeLogs to update
+     */
+    where?: CustomerFundChangeLogWhereInput
+    /**
+     * Limit how many CustomerFundChangeLogs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * CustomerFundChangeLog updateManyAndReturn
+   */
+  export type CustomerFundChangeLogUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFundChangeLog
+     */
+    select?: CustomerFundChangeLogSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerFundChangeLog
+     */
+    omit?: CustomerFundChangeLogOmit<ExtArgs> | null
+    /**
+     * The data used to update CustomerFundChangeLogs.
+     */
+    data: XOR<CustomerFundChangeLogUpdateManyMutationInput, CustomerFundChangeLogUncheckedUpdateManyInput>
+    /**
+     * Filter which CustomerFundChangeLogs to update
+     */
+    where?: CustomerFundChangeLogWhereInput
+    /**
+     * Limit how many CustomerFundChangeLogs to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundChangeLogIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CustomerFundChangeLog upsert
+   */
+  export type CustomerFundChangeLogUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFundChangeLog
+     */
+    select?: CustomerFundChangeLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerFundChangeLog
+     */
+    omit?: CustomerFundChangeLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundChangeLogInclude<ExtArgs> | null
+    /**
+     * The filter to search for the CustomerFundChangeLog to update in case it exists.
+     */
+    where: CustomerFundChangeLogWhereUniqueInput
+    /**
+     * In case the CustomerFundChangeLog found by the `where` argument doesn't exist, create a new CustomerFundChangeLog with this data.
+     */
+    create: XOR<CustomerFundChangeLogCreateInput, CustomerFundChangeLogUncheckedCreateInput>
+    /**
+     * In case the CustomerFundChangeLog was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CustomerFundChangeLogUpdateInput, CustomerFundChangeLogUncheckedUpdateInput>
+  }
+
+  /**
+   * CustomerFundChangeLog delete
+   */
+  export type CustomerFundChangeLogDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFundChangeLog
+     */
+    select?: CustomerFundChangeLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerFundChangeLog
+     */
+    omit?: CustomerFundChangeLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundChangeLogInclude<ExtArgs> | null
+    /**
+     * Filter which CustomerFundChangeLog to delete.
+     */
+    where: CustomerFundChangeLogWhereUniqueInput
+  }
+
+  /**
+   * CustomerFundChangeLog deleteMany
+   */
+  export type CustomerFundChangeLogDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CustomerFundChangeLogs to delete
+     */
+    where?: CustomerFundChangeLogWhereInput
+    /**
+     * Limit how many CustomerFundChangeLogs to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * CustomerFundChangeLog.Batch
+   */
+  export type CustomerFundChangeLog$BatchArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerUploadBatch
+     */
+    select?: CustomerUploadBatchSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerUploadBatch
+     */
+    omit?: CustomerUploadBatchOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerUploadBatchInclude<ExtArgs> | null
+    where?: CustomerUploadBatchWhereInput
+  }
+
+  /**
+   * CustomerFundChangeLog.CustomerFund
+   */
+  export type CustomerFundChangeLog$CustomerFundArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFund
+     */
+    select?: CustomerFundSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerFund
+     */
+    omit?: CustomerFundOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundInclude<ExtArgs> | null
+    where?: CustomerFundWhereInput
+  }
+
+  /**
+   * CustomerFundChangeLog without action
+   */
+  export type CustomerFundChangeLogDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CustomerFundChangeLog
+     */
+    select?: CustomerFundChangeLogSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CustomerFundChangeLog
+     */
+    omit?: CustomerFundChangeLogOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CustomerFundChangeLogInclude<ExtArgs> | null
   }
 
 
@@ -31364,6 +37109,11 @@ export namespace Prisma {
     leverageFlag: 'leverageFlag',
     unitResidenceFlag: 'unitResidenceFlag',
     completedFlag: 'completedFlag',
+    feeRateVariable: 'feeRateVariable',
+    feeFixedAnnual: 'feeFixedAnnual',
+    feeRateAgent: 'feeRateAgent',
+    feeCashMgmtAnnual: 'feeCashMgmtAnnual',
+    feeRateTrust: 'feeRateTrust',
     reportMainId: 'reportMainId',
     reportAtt2Id: 'reportAtt2Id',
     reportAtt3Id: 'reportAtt3Id',
@@ -31435,6 +37185,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo: 'risokuShiharaiJunbiKanjo',
     shihoTekiShishutsuJunbiKanjo: 'shihoTekiShishutsuJunbiKanjo',
     cashTrapJunbiKanjo: 'cashTrapJunbiKanjo',
+    interestCapContractKanjo: 'interestCapContractKanjo',
     sonotaGenyokin: 'sonotaGenyokin',
     futuYokinTokiZandaka: 'futuYokinTokiZandaka',
     zenkiKurikoshiRieki: 'zenkiKurikoshiRieki',
@@ -31448,17 +37199,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage: 'shintakuShuekiKazeiUriage',
     shintakuShuekiKazeiUriageShohizei: 'shintakuShuekiKazeiUriageShohizei',
     shintakuShuekiHikazeiUriage: 'shintakuShuekiHikazeiUriage',
+    shintakuShuekiTaishogaiUriage: 'shintakuShuekiTaishogaiUriage',
     shintakuHiyoKazeiShiire: 'shintakuHiyoKazeiShiire',
     shintakuHiyoKazeiShiireShohizei: 'shintakuHiyoKazeiShiireShohizei',
     shintakuHiyoHikazeiShiire: 'shintakuHiyoHikazeiShiire',
+    shintakuHiyoTaishogaiShiire: 'shintakuHiyoTaishogaiShiire',
     unitShintakuShuekiKazeiUriage: 'unitShintakuShuekiKazeiUriage',
     unitShintakuShuekiKazeiUriageShohizei: 'unitShintakuShuekiKazeiUriageShohizei',
     unitShintakuShuekiHikazeiUriage: 'unitShintakuShuekiHikazeiUriage',
+    unitShintakuShuekiTaishogaiUriage: 'unitShintakuShuekiTaishogaiUriage',
     unitShintakuHiyoKazeiShiire: 'unitShintakuHiyoKazeiShiire',
     unitShintakuHiyoKazeiShiireShohizei: 'unitShintakuHiyoKazeiShiireShohizei',
     unitShintakuHiyoHikazeiShiire: 'unitShintakuHiyoHikazeiShiire',
     unitShintakuHiyoKazeiShiireForNonInvoice: 'unitShintakuHiyoKazeiShiireForNonInvoice',
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice: 'unitShintakuHiyoKazeiShiireShohizeiForNonInvoice',
+    unitShintakuHiyoTaishogaiShiire: 'unitShintakuHiyoTaishogaiShiire',
     kazeiUriageSashihiki08: 'kazeiUriageSashihiki08',
     kazeiUriageSashihiki10: 'kazeiUriageSashihiki10',
     kazeiUriageHontai08: 'kazeiUriageHontai08',
@@ -31633,6 +37388,9 @@ export namespace Prisma {
     dueDate: 'dueDate',
     order: 'order',
     memo: 'memo',
+    category: 'category',
+    documentType: 'documentType',
+    reviewStep: 'reviewStep',
     createdAt: 'createdAt',
     createdId: 'createdId',
     createdBy: 'createdBy',
@@ -31648,7 +37406,9 @@ export namespace Prisma {
     id: 'id',
     deadlineTaskId: 'deadlineTaskId',
     projectKiId: 'projectKiId',
-    isCompleted: 'isCompleted',
+    status: 'status',
+    note: 'note',
+    checkerUserId: 'checkerUserId',
     createdAt: 'createdAt',
     createdId: 'createdId',
     createdBy: 'createdBy',
@@ -31738,6 +37498,74 @@ export namespace Prisma {
   };
 
   export type CustomerFundScalarFieldEnum = (typeof CustomerFundScalarFieldEnum)[keyof typeof CustomerFundScalarFieldEnum]
+
+
+  export const CustomerUploadBatchScalarFieldEnum: {
+    id: 'id',
+    fileName: 'fileName',
+    kiId: 'kiId',
+    uploaderId: 'uploaderId',
+    uploaderType: 'uploaderType',
+    uploaderName: 'uploaderName',
+    ipAddress: 'ipAddress',
+    status: 'status',
+    targetProjectCount: 'targetProjectCount',
+    committedProjectCount: 'committedProjectCount',
+    customerCreatedCount: 'customerCreatedCount',
+    customerUpdatedCount: 'customerUpdatedCount',
+    customerUnchangedCount: 'customerUnchangedCount',
+    fundCreatedCount: 'fundCreatedCount',
+    fundUpdatedCount: 'fundUpdatedCount',
+    fundDeletedCount: 'fundDeletedCount',
+    fundUnchangedCount: 'fundUnchangedCount',
+    pretreatmentAt: 'pretreatmentAt',
+    committedAt: 'committedAt',
+    mailSentAt: 'mailSentAt'
+  };
+
+  export type CustomerUploadBatchScalarFieldEnum = (typeof CustomerUploadBatchScalarFieldEnum)[keyof typeof CustomerUploadBatchScalarFieldEnum]
+
+
+  export const CustomerUploadBatchProjectScalarFieldEnum: {
+    id: 'id',
+    batchId: 'batchId',
+    projectId: 'projectId',
+    committedAt: 'committedAt'
+  };
+
+  export type CustomerUploadBatchProjectScalarFieldEnum = (typeof CustomerUploadBatchProjectScalarFieldEnum)[keyof typeof CustomerUploadBatchProjectScalarFieldEnum]
+
+
+  export const CustomerChangeLogScalarFieldEnum: {
+    id: 'id',
+    source: 'source',
+    batchId: 'batchId',
+    customerId: 'customerId',
+    operation: 'operation',
+    changedFields: 'changedFields',
+    beforeSnapshot: 'beforeSnapshot',
+    afterSnapshot: 'afterSnapshot',
+    rawRow: 'rawRow',
+    createdAt: 'createdAt'
+  };
+
+  export type CustomerChangeLogScalarFieldEnum = (typeof CustomerChangeLogScalarFieldEnum)[keyof typeof CustomerChangeLogScalarFieldEnum]
+
+
+  export const CustomerFundChangeLogScalarFieldEnum: {
+    id: 'id',
+    source: 'source',
+    batchId: 'batchId',
+    customerId: 'customerId',
+    customerFundId: 'customerFundId',
+    operation: 'operation',
+    changedFields: 'changedFields',
+    beforeSnapshot: 'beforeSnapshot',
+    afterSnapshot: 'afterSnapshot',
+    createdAt: 'createdAt'
+  };
+
+  export type CustomerFundChangeLogScalarFieldEnum = (typeof CustomerFundChangeLogScalarFieldEnum)[keyof typeof CustomerFundChangeLogScalarFieldEnum]
 
 
   export const TemplateScalarFieldEnum: {
@@ -31848,6 +37676,13 @@ export namespace Prisma {
   };
 
   export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
+
+
+  export const JsonNullValueInput: {
+    JsonNull: typeof JsonNull
+  };
+
+  export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
 
 
   export const QueryMode: {
@@ -32042,6 +37877,62 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'DeadlineCategory'
+   */
+  export type EnumDeadlineCategoryFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DeadlineCategory'>
+    
+
+
+  /**
+   * Reference to a field of type 'DeadlineCategory[]'
+   */
+  export type ListEnumDeadlineCategoryFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DeadlineCategory[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'DocumentType'
+   */
+  export type EnumDocumentTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DocumentType'>
+    
+
+
+  /**
+   * Reference to a field of type 'DocumentType[]'
+   */
+  export type ListEnumDocumentTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DocumentType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'ReviewStep'
+   */
+  export type EnumReviewStepFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ReviewStep'>
+    
+
+
+  /**
+   * Reference to a field of type 'ReviewStep[]'
+   */
+  export type ListEnumReviewStepFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ReviewStep[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'ProjectKiTaskStatus'
+   */
+  export type EnumProjectKiTaskStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProjectKiTaskStatus'>
+    
+
+
+  /**
+   * Reference to a field of type 'ProjectKiTaskStatus[]'
+   */
+  export type ListEnumProjectKiTaskStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ProjectKiTaskStatus[]'>
+    
+
+
+  /**
    * Reference to a field of type 'CustomerType'
    */
   export type EnumCustomerTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CustomerType'>
@@ -32094,6 +37985,48 @@ export namespace Prisma {
    * Reference to a field of type 'CustomerFundStatus[]'
    */
   export type ListEnumCustomerFundStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CustomerFundStatus[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'BatchStatus'
+   */
+  export type EnumBatchStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BatchStatus'>
+    
+
+
+  /**
+   * Reference to a field of type 'BatchStatus[]'
+   */
+  export type ListEnumBatchStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BatchStatus[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'ChangeSource'
+   */
+  export type EnumChangeSourceFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ChangeSource'>
+    
+
+
+  /**
+   * Reference to a field of type 'ChangeSource[]'
+   */
+  export type ListEnumChangeSourceFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ChangeSource[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'ChangeOperation'
+   */
+  export type EnumChangeOperationFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ChangeOperation'>
+    
+
+
+  /**
+   * Reference to a field of type 'ChangeOperation[]'
+   */
+  export type ListEnumChangeOperationFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ChangeOperation[]'>
     
 
 
@@ -32174,6 +38107,7 @@ export namespace Prisma {
     updatedBy?: StringFilter<"User"> | string
     MainUserProjectKis?: ProjectKiListRelationFilter
     SubUserProjectKis?: ProjectKiListRelationFilter
+    CheckerProjectKiTasks?: ProjectKiTaskListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -32191,6 +38125,7 @@ export namespace Prisma {
     updatedBy?: SortOrder
     MainUserProjectKis?: ProjectKiOrderByRelationAggregateInput
     SubUserProjectKis?: ProjectKiOrderByRelationAggregateInput
+    CheckerProjectKiTasks?: ProjectKiTaskOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -32211,6 +38146,7 @@ export namespace Prisma {
     updatedBy?: StringFilter<"User"> | string
     MainUserProjectKis?: ProjectKiListRelationFilter
     SubUserProjectKis?: ProjectKiListRelationFilter
+    CheckerProjectKiTasks?: ProjectKiTaskListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -32559,6 +38495,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiListRelationFilter
     AssetKis?: AssetKiListRelationFilter
     DeadlineTasks?: DeadlineTaskListRelationFilter
+    CustomerUploadBatches?: CustomerUploadBatchListRelationFilter
   }
 
   export type KiOrderByWithRelationInput = {
@@ -32577,6 +38514,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiOrderByRelationAggregateInput
     AssetKis?: AssetKiOrderByRelationAggregateInput
     DeadlineTasks?: DeadlineTaskOrderByRelationAggregateInput
+    CustomerUploadBatches?: CustomerUploadBatchOrderByRelationAggregateInput
   }
 
   export type KiWhereUniqueInput = Prisma.AtLeast<{
@@ -32598,6 +38536,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiListRelationFilter
     AssetKis?: AssetKiListRelationFilter
     DeadlineTasks?: DeadlineTaskListRelationFilter
+    CustomerUploadBatches?: CustomerUploadBatchListRelationFilter
   }, "id">
 
   export type KiOrderByWithAggregationInput = {
@@ -32673,6 +38612,11 @@ export namespace Prisma {
     leverageFlag?: BoolFilter<"Project"> | boolean
     unitResidenceFlag?: BoolFilter<"Project"> | boolean
     completedFlag?: BoolFilter<"Project"> | boolean
+    feeRateVariable?: FloatNullableFilter<"Project"> | number | null
+    feeFixedAnnual?: IntNullableFilter<"Project"> | number | null
+    feeRateAgent?: FloatNullableFilter<"Project"> | number | null
+    feeCashMgmtAnnual?: IntNullableFilter<"Project"> | number | null
+    feeRateTrust?: FloatNullableFilter<"Project"> | number | null
     reportMainId?: StringNullableFilter<"Project"> | string | null
     reportAtt2Id?: StringNullableFilter<"Project"> | string | null
     reportAtt3Id?: StringNullableFilter<"Project"> | string | null
@@ -32694,6 +38638,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiListRelationFilter
     Assets?: AssetListRelationFilter
     Customers?: CustomerListRelationFilter
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectListRelationFilter
   }
 
   export type ProjectOrderByWithRelationInput = {
@@ -32728,6 +38673,11 @@ export namespace Prisma {
     leverageFlag?: SortOrder
     unitResidenceFlag?: SortOrder
     completedFlag?: SortOrder
+    feeRateVariable?: SortOrderInput | SortOrder
+    feeFixedAnnual?: SortOrderInput | SortOrder
+    feeRateAgent?: SortOrderInput | SortOrder
+    feeCashMgmtAnnual?: SortOrderInput | SortOrder
+    feeRateTrust?: SortOrderInput | SortOrder
     reportMainId?: SortOrderInput | SortOrder
     reportAtt2Id?: SortOrderInput | SortOrder
     reportAtt3Id?: SortOrderInput | SortOrder
@@ -32749,6 +38699,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiOrderByRelationAggregateInput
     Assets?: AssetOrderByRelationAggregateInput
     Customers?: CustomerOrderByRelationAggregateInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectOrderByRelationAggregateInput
   }
 
   export type ProjectWhereUniqueInput = Prisma.AtLeast<{
@@ -32786,6 +38737,11 @@ export namespace Prisma {
     leverageFlag?: BoolFilter<"Project"> | boolean
     unitResidenceFlag?: BoolFilter<"Project"> | boolean
     completedFlag?: BoolFilter<"Project"> | boolean
+    feeRateVariable?: FloatNullableFilter<"Project"> | number | null
+    feeFixedAnnual?: IntNullableFilter<"Project"> | number | null
+    feeRateAgent?: FloatNullableFilter<"Project"> | number | null
+    feeCashMgmtAnnual?: IntNullableFilter<"Project"> | number | null
+    feeRateTrust?: FloatNullableFilter<"Project"> | number | null
     reportMainId?: StringNullableFilter<"Project"> | string | null
     reportAtt2Id?: StringNullableFilter<"Project"> | string | null
     reportAtt3Id?: StringNullableFilter<"Project"> | string | null
@@ -32807,6 +38763,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiListRelationFilter
     Assets?: AssetListRelationFilter
     Customers?: CustomerListRelationFilter
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectListRelationFilter
   }, "id" | "sbimpId" | "name" | "shortName">
 
   export type ProjectOrderByWithAggregationInput = {
@@ -32841,6 +38798,11 @@ export namespace Prisma {
     leverageFlag?: SortOrder
     unitResidenceFlag?: SortOrder
     completedFlag?: SortOrder
+    feeRateVariable?: SortOrderInput | SortOrder
+    feeFixedAnnual?: SortOrderInput | SortOrder
+    feeRateAgent?: SortOrderInput | SortOrder
+    feeCashMgmtAnnual?: SortOrderInput | SortOrder
+    feeRateTrust?: SortOrderInput | SortOrder
     reportMainId?: SortOrderInput | SortOrder
     reportAtt2Id?: SortOrderInput | SortOrder
     reportAtt3Id?: SortOrderInput | SortOrder
@@ -32896,6 +38858,11 @@ export namespace Prisma {
     leverageFlag?: BoolWithAggregatesFilter<"Project"> | boolean
     unitResidenceFlag?: BoolWithAggregatesFilter<"Project"> | boolean
     completedFlag?: BoolWithAggregatesFilter<"Project"> | boolean
+    feeRateVariable?: FloatNullableWithAggregatesFilter<"Project"> | number | null
+    feeFixedAnnual?: IntNullableWithAggregatesFilter<"Project"> | number | null
+    feeRateAgent?: FloatNullableWithAggregatesFilter<"Project"> | number | null
+    feeCashMgmtAnnual?: IntNullableWithAggregatesFilter<"Project"> | number | null
+    feeRateTrust?: FloatNullableWithAggregatesFilter<"Project"> | number | null
     reportMainId?: StringNullableWithAggregatesFilter<"Project"> | string | null
     reportAtt2Id?: StringNullableWithAggregatesFilter<"Project"> | string | null
     reportAtt3Id?: StringNullableWithAggregatesFilter<"Project"> | string | null
@@ -32967,6 +38934,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     cashTrapJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    interestCapContractKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     sonotaGenyokin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     futuYokinTokiZandaka?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     zenkiKurikoshiRieki?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
@@ -32980,17 +38948,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     shintakuShuekiHikazeiUriage?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuShuekiTaishogaiUriage?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     shintakuHiyoKazeiShiire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     shintakuHiyoHikazeiShiire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuHiyoTaishogaiShiire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     unitShintakuShuekiKazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuShuekiKazeiUriageShohizei?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuShuekiHikazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuShuekiTaishogaiUriage?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyoKazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyoKazeiShiireShohizei?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyoHikazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoTaishogaiShiire?: IntNullableFilter<"ProjectKi"> | number | null
     kazeiUriageSashihiki08?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     kazeiUriageSashihiki10?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     kazeiUriageHontai08?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
@@ -33072,6 +39044,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: SortOrderInput | SortOrder
     shihoTekiShishutsuJunbiKanjo?: SortOrderInput | SortOrder
     cashTrapJunbiKanjo?: SortOrderInput | SortOrder
+    interestCapContractKanjo?: SortOrderInput | SortOrder
     sonotaGenyokin?: SortOrderInput | SortOrder
     futuYokinTokiZandaka?: SortOrderInput | SortOrder
     zenkiKurikoshiRieki?: SortOrderInput | SortOrder
@@ -33085,17 +39058,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: SortOrderInput | SortOrder
     shintakuShuekiKazeiUriageShohizei?: SortOrderInput | SortOrder
     shintakuShuekiHikazeiUriage?: SortOrderInput | SortOrder
+    shintakuShuekiTaishogaiUriage?: SortOrderInput | SortOrder
     shintakuHiyoKazeiShiire?: SortOrderInput | SortOrder
     shintakuHiyoKazeiShiireShohizei?: SortOrderInput | SortOrder
     shintakuHiyoHikazeiShiire?: SortOrderInput | SortOrder
+    shintakuHiyoTaishogaiShiire?: SortOrderInput | SortOrder
     unitShintakuShuekiKazeiUriage?: SortOrderInput | SortOrder
     unitShintakuShuekiKazeiUriageShohizei?: SortOrderInput | SortOrder
     unitShintakuShuekiHikazeiUriage?: SortOrderInput | SortOrder
+    unitShintakuShuekiTaishogaiUriage?: SortOrderInput | SortOrder
     unitShintakuHiyoKazeiShiire?: SortOrderInput | SortOrder
     unitShintakuHiyoKazeiShiireShohizei?: SortOrderInput | SortOrder
     unitShintakuHiyoHikazeiShiire?: SortOrderInput | SortOrder
     unitShintakuHiyoKazeiShiireForNonInvoice?: SortOrderInput | SortOrder
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: SortOrderInput | SortOrder
+    unitShintakuHiyoTaishogaiShiire?: SortOrderInput | SortOrder
     kazeiUriageSashihiki08?: SortOrderInput | SortOrder
     kazeiUriageSashihiki10?: SortOrderInput | SortOrder
     kazeiUriageHontai08?: SortOrderInput | SortOrder
@@ -33182,6 +39159,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     cashTrapJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    interestCapContractKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     sonotaGenyokin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     futuYokinTokiZandaka?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     zenkiKurikoshiRieki?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
@@ -33195,17 +39173,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     shintakuShuekiHikazeiUriage?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuShuekiTaishogaiUriage?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     shintakuHiyoKazeiShiire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     shintakuHiyoHikazeiShiire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuHiyoTaishogaiShiire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     unitShintakuShuekiKazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuShuekiKazeiUriageShohizei?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuShuekiHikazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuShuekiTaishogaiUriage?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyoKazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyoKazeiShiireShohizei?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyoHikazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoTaishogaiShiire?: IntNullableFilter<"ProjectKi"> | number | null
     kazeiUriageSashihiki08?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     kazeiUriageSashihiki10?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     kazeiUriageHontai08?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
@@ -33287,6 +39269,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: SortOrderInput | SortOrder
     shihoTekiShishutsuJunbiKanjo?: SortOrderInput | SortOrder
     cashTrapJunbiKanjo?: SortOrderInput | SortOrder
+    interestCapContractKanjo?: SortOrderInput | SortOrder
     sonotaGenyokin?: SortOrderInput | SortOrder
     futuYokinTokiZandaka?: SortOrderInput | SortOrder
     zenkiKurikoshiRieki?: SortOrderInput | SortOrder
@@ -33300,17 +39283,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: SortOrderInput | SortOrder
     shintakuShuekiKazeiUriageShohizei?: SortOrderInput | SortOrder
     shintakuShuekiHikazeiUriage?: SortOrderInput | SortOrder
+    shintakuShuekiTaishogaiUriage?: SortOrderInput | SortOrder
     shintakuHiyoKazeiShiire?: SortOrderInput | SortOrder
     shintakuHiyoKazeiShiireShohizei?: SortOrderInput | SortOrder
     shintakuHiyoHikazeiShiire?: SortOrderInput | SortOrder
+    shintakuHiyoTaishogaiShiire?: SortOrderInput | SortOrder
     unitShintakuShuekiKazeiUriage?: SortOrderInput | SortOrder
     unitShintakuShuekiKazeiUriageShohizei?: SortOrderInput | SortOrder
     unitShintakuShuekiHikazeiUriage?: SortOrderInput | SortOrder
+    unitShintakuShuekiTaishogaiUriage?: SortOrderInput | SortOrder
     unitShintakuHiyoKazeiShiire?: SortOrderInput | SortOrder
     unitShintakuHiyoKazeiShiireShohizei?: SortOrderInput | SortOrder
     unitShintakuHiyoHikazeiShiire?: SortOrderInput | SortOrder
     unitShintakuHiyoKazeiShiireForNonInvoice?: SortOrderInput | SortOrder
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: SortOrderInput | SortOrder
+    unitShintakuHiyoTaishogaiShiire?: SortOrderInput | SortOrder
     kazeiUriageSashihiki08?: SortOrderInput | SortOrder
     kazeiUriageSashihiki10?: SortOrderInput | SortOrder
     kazeiUriageHontai08?: SortOrderInput | SortOrder
@@ -33394,6 +39381,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     cashTrapJunbiKanjo?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    interestCapContractKanjo?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     sonotaGenyokin?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     futuYokinTokiZandaka?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     zenkiKurikoshiRieki?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
@@ -33407,17 +39395,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     shintakuShuekiHikazeiUriage?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    shintakuShuekiTaishogaiUriage?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     shintakuHiyoKazeiShiire?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     shintakuHiyoHikazeiShiire?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
+    shintakuHiyoTaishogaiShiire?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     unitShintakuShuekiKazeiUriage?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     unitShintakuShuekiKazeiUriageShohizei?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     unitShintakuShuekiHikazeiUriage?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    unitShintakuShuekiTaishogaiUriage?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     unitShintakuHiyoKazeiShiire?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     unitShintakuHiyoKazeiShiireShohizei?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     unitShintakuHiyoHikazeiShiire?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoTaishogaiShiire?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     kazeiUriageSashihiki08?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     kazeiUriageSashihiki10?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     kazeiUriageHontai08?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
@@ -34168,6 +40160,9 @@ export namespace Prisma {
     dueDate?: DateTimeFilter<"DeadlineTask"> | Date | string
     order?: IntFilter<"DeadlineTask"> | number
     memo?: StringNullableFilter<"DeadlineTask"> | string | null
+    category?: EnumDeadlineCategoryFilter<"DeadlineTask"> | $Enums.DeadlineCategory
+    documentType?: EnumDocumentTypeNullableFilter<"DeadlineTask"> | $Enums.DocumentType | null
+    reviewStep?: EnumReviewStepNullableFilter<"DeadlineTask"> | $Enums.ReviewStep | null
     createdAt?: DateTimeFilter<"DeadlineTask"> | Date | string
     createdId?: StringFilter<"DeadlineTask"> | string
     createdBy?: StringFilter<"DeadlineTask"> | string
@@ -34185,6 +40180,9 @@ export namespace Prisma {
     dueDate?: SortOrder
     order?: SortOrder
     memo?: SortOrderInput | SortOrder
+    category?: SortOrder
+    documentType?: SortOrderInput | SortOrder
+    reviewStep?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -34197,6 +40195,7 @@ export namespace Prisma {
 
   export type DeadlineTaskWhereUniqueInput = Prisma.AtLeast<{
     id?: string
+    kiId_category_documentType_reviewStep?: DeadlineTaskKiIdCategoryDocumentTypeReviewStepCompoundUniqueInput
     AND?: DeadlineTaskWhereInput | DeadlineTaskWhereInput[]
     OR?: DeadlineTaskWhereInput[]
     NOT?: DeadlineTaskWhereInput | DeadlineTaskWhereInput[]
@@ -34205,6 +40204,9 @@ export namespace Prisma {
     dueDate?: DateTimeFilter<"DeadlineTask"> | Date | string
     order?: IntFilter<"DeadlineTask"> | number
     memo?: StringNullableFilter<"DeadlineTask"> | string | null
+    category?: EnumDeadlineCategoryFilter<"DeadlineTask"> | $Enums.DeadlineCategory
+    documentType?: EnumDocumentTypeNullableFilter<"DeadlineTask"> | $Enums.DocumentType | null
+    reviewStep?: EnumReviewStepNullableFilter<"DeadlineTask"> | $Enums.ReviewStep | null
     createdAt?: DateTimeFilter<"DeadlineTask"> | Date | string
     createdId?: StringFilter<"DeadlineTask"> | string
     createdBy?: StringFilter<"DeadlineTask"> | string
@@ -34213,7 +40215,7 @@ export namespace Prisma {
     updatedBy?: StringFilter<"DeadlineTask"> | string
     Ki?: XOR<KiScalarRelationFilter, KiWhereInput>
     ProjectKiTasks?: ProjectKiTaskListRelationFilter
-  }, "id">
+  }, "id" | "kiId_category_documentType_reviewStep">
 
   export type DeadlineTaskOrderByWithAggregationInput = {
     id?: SortOrder
@@ -34222,6 +40224,9 @@ export namespace Prisma {
     dueDate?: SortOrder
     order?: SortOrder
     memo?: SortOrderInput | SortOrder
+    category?: SortOrder
+    documentType?: SortOrderInput | SortOrder
+    reviewStep?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -34245,6 +40250,9 @@ export namespace Prisma {
     dueDate?: DateTimeWithAggregatesFilter<"DeadlineTask"> | Date | string
     order?: IntWithAggregatesFilter<"DeadlineTask"> | number
     memo?: StringNullableWithAggregatesFilter<"DeadlineTask"> | string | null
+    category?: EnumDeadlineCategoryWithAggregatesFilter<"DeadlineTask"> | $Enums.DeadlineCategory
+    documentType?: EnumDocumentTypeNullableWithAggregatesFilter<"DeadlineTask"> | $Enums.DocumentType | null
+    reviewStep?: EnumReviewStepNullableWithAggregatesFilter<"DeadlineTask"> | $Enums.ReviewStep | null
     createdAt?: DateTimeWithAggregatesFilter<"DeadlineTask"> | Date | string
     createdId?: StringWithAggregatesFilter<"DeadlineTask"> | string
     createdBy?: StringWithAggregatesFilter<"DeadlineTask"> | string
@@ -34260,7 +40268,9 @@ export namespace Prisma {
     id?: StringFilter<"ProjectKiTask"> | string
     deadlineTaskId?: StringFilter<"ProjectKiTask"> | string
     projectKiId?: StringFilter<"ProjectKiTask"> | string
-    isCompleted?: BoolFilter<"ProjectKiTask"> | boolean
+    status?: EnumProjectKiTaskStatusFilter<"ProjectKiTask"> | $Enums.ProjectKiTaskStatus
+    note?: StringNullableFilter<"ProjectKiTask"> | string | null
+    checkerUserId?: StringNullableFilter<"ProjectKiTask"> | string | null
     createdAt?: DateTimeFilter<"ProjectKiTask"> | Date | string
     createdId?: StringFilter<"ProjectKiTask"> | string
     createdBy?: StringFilter<"ProjectKiTask"> | string
@@ -34269,13 +40279,16 @@ export namespace Prisma {
     updatedBy?: StringFilter<"ProjectKiTask"> | string
     DeadlineTask?: XOR<DeadlineTaskScalarRelationFilter, DeadlineTaskWhereInput>
     ProjectKi?: XOR<ProjectKiScalarRelationFilter, ProjectKiWhereInput>
+    Checker?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }
 
   export type ProjectKiTaskOrderByWithRelationInput = {
     id?: SortOrder
     deadlineTaskId?: SortOrder
     projectKiId?: SortOrder
-    isCompleted?: SortOrder
+    status?: SortOrder
+    note?: SortOrderInput | SortOrder
+    checkerUserId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -34284,6 +40297,7 @@ export namespace Prisma {
     updatedBy?: SortOrder
     DeadlineTask?: DeadlineTaskOrderByWithRelationInput
     ProjectKi?: ProjectKiOrderByWithRelationInput
+    Checker?: UserOrderByWithRelationInput
   }
 
   export type ProjectKiTaskWhereUniqueInput = Prisma.AtLeast<{
@@ -34294,7 +40308,9 @@ export namespace Prisma {
     NOT?: ProjectKiTaskWhereInput | ProjectKiTaskWhereInput[]
     deadlineTaskId?: StringFilter<"ProjectKiTask"> | string
     projectKiId?: StringFilter<"ProjectKiTask"> | string
-    isCompleted?: BoolFilter<"ProjectKiTask"> | boolean
+    status?: EnumProjectKiTaskStatusFilter<"ProjectKiTask"> | $Enums.ProjectKiTaskStatus
+    note?: StringNullableFilter<"ProjectKiTask"> | string | null
+    checkerUserId?: StringNullableFilter<"ProjectKiTask"> | string | null
     createdAt?: DateTimeFilter<"ProjectKiTask"> | Date | string
     createdId?: StringFilter<"ProjectKiTask"> | string
     createdBy?: StringFilter<"ProjectKiTask"> | string
@@ -34303,13 +40319,16 @@ export namespace Prisma {
     updatedBy?: StringFilter<"ProjectKiTask"> | string
     DeadlineTask?: XOR<DeadlineTaskScalarRelationFilter, DeadlineTaskWhereInput>
     ProjectKi?: XOR<ProjectKiScalarRelationFilter, ProjectKiWhereInput>
+    Checker?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }, "id" | "deadlineTaskId_projectKiId">
 
   export type ProjectKiTaskOrderByWithAggregationInput = {
     id?: SortOrder
     deadlineTaskId?: SortOrder
     projectKiId?: SortOrder
-    isCompleted?: SortOrder
+    status?: SortOrder
+    note?: SortOrderInput | SortOrder
+    checkerUserId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -34328,7 +40347,9 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"ProjectKiTask"> | string
     deadlineTaskId?: StringWithAggregatesFilter<"ProjectKiTask"> | string
     projectKiId?: StringWithAggregatesFilter<"ProjectKiTask"> | string
-    isCompleted?: BoolWithAggregatesFilter<"ProjectKiTask"> | boolean
+    status?: EnumProjectKiTaskStatusWithAggregatesFilter<"ProjectKiTask"> | $Enums.ProjectKiTaskStatus
+    note?: StringNullableWithAggregatesFilter<"ProjectKiTask"> | string | null
+    checkerUserId?: StringNullableWithAggregatesFilter<"ProjectKiTask"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"ProjectKiTask"> | Date | string
     createdId?: StringWithAggregatesFilter<"ProjectKiTask"> | string
     createdBy?: StringWithAggregatesFilter<"ProjectKiTask"> | string
@@ -34386,6 +40407,8 @@ export namespace Prisma {
     updatedBy?: StringFilter<"Customer"> | string
     Project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
     CustomerFunds?: CustomerFundListRelationFilter
+    ChangeLogs?: CustomerChangeLogListRelationFilter
+    FundChangeLogs?: CustomerFundChangeLogListRelationFilter
   }
 
   export type CustomerOrderByWithRelationInput = {
@@ -34434,6 +40457,8 @@ export namespace Prisma {
     updatedBy?: SortOrder
     Project?: ProjectOrderByWithRelationInput
     CustomerFunds?: CustomerFundOrderByRelationAggregateInput
+    ChangeLogs?: CustomerChangeLogOrderByRelationAggregateInput
+    FundChangeLogs?: CustomerFundChangeLogOrderByRelationAggregateInput
   }
 
   export type CustomerWhereUniqueInput = Prisma.AtLeast<{
@@ -34485,6 +40510,8 @@ export namespace Prisma {
     updatedBy?: StringFilter<"Customer"> | string
     Project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
     CustomerFunds?: CustomerFundListRelationFilter
+    ChangeLogs?: CustomerChangeLogListRelationFilter
+    FundChangeLogs?: CustomerFundChangeLogListRelationFilter
   }, "id">
 
   export type CustomerOrderByWithAggregationInput = {
@@ -34620,6 +40647,7 @@ export namespace Prisma {
     ProjectKi?: XOR<ProjectKiScalarRelationFilter, ProjectKiWhereInput>
     sourceCustomerFund?: XOR<CustomerFundNullableScalarRelationFilter, CustomerFundWhereInput> | null
     destinationCustomerFunds?: CustomerFundListRelationFilter
+    ChangeLogs?: CustomerFundChangeLogListRelationFilter
   }
 
   export type CustomerFundOrderByWithRelationInput = {
@@ -34652,6 +40680,7 @@ export namespace Prisma {
     ProjectKi?: ProjectKiOrderByWithRelationInput
     sourceCustomerFund?: CustomerFundOrderByWithRelationInput
     destinationCustomerFunds?: CustomerFundOrderByRelationAggregateInput
+    ChangeLogs?: CustomerFundChangeLogOrderByRelationAggregateInput
   }
 
   export type CustomerFundWhereUniqueInput = Prisma.AtLeast<{
@@ -34688,6 +40717,7 @@ export namespace Prisma {
     ProjectKi?: XOR<ProjectKiScalarRelationFilter, ProjectKiWhereInput>
     sourceCustomerFund?: XOR<CustomerFundNullableScalarRelationFilter, CustomerFundWhereInput> | null
     destinationCustomerFunds?: CustomerFundListRelationFilter
+    ChangeLogs?: CustomerFundChangeLogListRelationFilter
   }, "id" | "customer_projectKi_identifier">
 
   export type CustomerFundOrderByWithAggregationInput = {
@@ -34752,6 +40782,370 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"CustomerFund"> | Date | string
     updatedId?: StringWithAggregatesFilter<"CustomerFund"> | string
     updatedBy?: StringWithAggregatesFilter<"CustomerFund"> | string
+  }
+
+  export type CustomerUploadBatchWhereInput = {
+    AND?: CustomerUploadBatchWhereInput | CustomerUploadBatchWhereInput[]
+    OR?: CustomerUploadBatchWhereInput[]
+    NOT?: CustomerUploadBatchWhereInput | CustomerUploadBatchWhereInput[]
+    id?: StringFilter<"CustomerUploadBatch"> | string
+    fileName?: StringFilter<"CustomerUploadBatch"> | string
+    kiId?: StringFilter<"CustomerUploadBatch"> | string
+    uploaderId?: StringFilter<"CustomerUploadBatch"> | string
+    uploaderType?: EnumUserTypeFilter<"CustomerUploadBatch"> | $Enums.UserType
+    uploaderName?: StringFilter<"CustomerUploadBatch"> | string
+    ipAddress?: StringNullableFilter<"CustomerUploadBatch"> | string | null
+    status?: EnumBatchStatusFilter<"CustomerUploadBatch"> | $Enums.BatchStatus
+    targetProjectCount?: IntFilter<"CustomerUploadBatch"> | number
+    committedProjectCount?: IntFilter<"CustomerUploadBatch"> | number
+    customerCreatedCount?: IntFilter<"CustomerUploadBatch"> | number
+    customerUpdatedCount?: IntFilter<"CustomerUploadBatch"> | number
+    customerUnchangedCount?: IntFilter<"CustomerUploadBatch"> | number
+    fundCreatedCount?: IntFilter<"CustomerUploadBatch"> | number
+    fundUpdatedCount?: IntFilter<"CustomerUploadBatch"> | number
+    fundDeletedCount?: IntFilter<"CustomerUploadBatch"> | number
+    fundUnchangedCount?: IntFilter<"CustomerUploadBatch"> | number
+    pretreatmentAt?: DateTimeFilter<"CustomerUploadBatch"> | Date | string
+    committedAt?: DateTimeNullableFilter<"CustomerUploadBatch"> | Date | string | null
+    mailSentAt?: DateTimeNullableFilter<"CustomerUploadBatch"> | Date | string | null
+    Ki?: XOR<KiScalarRelationFilter, KiWhereInput>
+    CustomerChangeLogs?: CustomerChangeLogListRelationFilter
+    CustomerFundChangeLogs?: CustomerFundChangeLogListRelationFilter
+    CommittedProjects?: CustomerUploadBatchProjectListRelationFilter
+  }
+
+  export type CustomerUploadBatchOrderByWithRelationInput = {
+    id?: SortOrder
+    fileName?: SortOrder
+    kiId?: SortOrder
+    uploaderId?: SortOrder
+    uploaderType?: SortOrder
+    uploaderName?: SortOrder
+    ipAddress?: SortOrderInput | SortOrder
+    status?: SortOrder
+    targetProjectCount?: SortOrder
+    committedProjectCount?: SortOrder
+    customerCreatedCount?: SortOrder
+    customerUpdatedCount?: SortOrder
+    customerUnchangedCount?: SortOrder
+    fundCreatedCount?: SortOrder
+    fundUpdatedCount?: SortOrder
+    fundDeletedCount?: SortOrder
+    fundUnchangedCount?: SortOrder
+    pretreatmentAt?: SortOrder
+    committedAt?: SortOrderInput | SortOrder
+    mailSentAt?: SortOrderInput | SortOrder
+    Ki?: KiOrderByWithRelationInput
+    CustomerChangeLogs?: CustomerChangeLogOrderByRelationAggregateInput
+    CustomerFundChangeLogs?: CustomerFundChangeLogOrderByRelationAggregateInput
+    CommittedProjects?: CustomerUploadBatchProjectOrderByRelationAggregateInput
+  }
+
+  export type CustomerUploadBatchWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: CustomerUploadBatchWhereInput | CustomerUploadBatchWhereInput[]
+    OR?: CustomerUploadBatchWhereInput[]
+    NOT?: CustomerUploadBatchWhereInput | CustomerUploadBatchWhereInput[]
+    fileName?: StringFilter<"CustomerUploadBatch"> | string
+    kiId?: StringFilter<"CustomerUploadBatch"> | string
+    uploaderId?: StringFilter<"CustomerUploadBatch"> | string
+    uploaderType?: EnumUserTypeFilter<"CustomerUploadBatch"> | $Enums.UserType
+    uploaderName?: StringFilter<"CustomerUploadBatch"> | string
+    ipAddress?: StringNullableFilter<"CustomerUploadBatch"> | string | null
+    status?: EnumBatchStatusFilter<"CustomerUploadBatch"> | $Enums.BatchStatus
+    targetProjectCount?: IntFilter<"CustomerUploadBatch"> | number
+    committedProjectCount?: IntFilter<"CustomerUploadBatch"> | number
+    customerCreatedCount?: IntFilter<"CustomerUploadBatch"> | number
+    customerUpdatedCount?: IntFilter<"CustomerUploadBatch"> | number
+    customerUnchangedCount?: IntFilter<"CustomerUploadBatch"> | number
+    fundCreatedCount?: IntFilter<"CustomerUploadBatch"> | number
+    fundUpdatedCount?: IntFilter<"CustomerUploadBatch"> | number
+    fundDeletedCount?: IntFilter<"CustomerUploadBatch"> | number
+    fundUnchangedCount?: IntFilter<"CustomerUploadBatch"> | number
+    pretreatmentAt?: DateTimeFilter<"CustomerUploadBatch"> | Date | string
+    committedAt?: DateTimeNullableFilter<"CustomerUploadBatch"> | Date | string | null
+    mailSentAt?: DateTimeNullableFilter<"CustomerUploadBatch"> | Date | string | null
+    Ki?: XOR<KiScalarRelationFilter, KiWhereInput>
+    CustomerChangeLogs?: CustomerChangeLogListRelationFilter
+    CustomerFundChangeLogs?: CustomerFundChangeLogListRelationFilter
+    CommittedProjects?: CustomerUploadBatchProjectListRelationFilter
+  }, "id">
+
+  export type CustomerUploadBatchOrderByWithAggregationInput = {
+    id?: SortOrder
+    fileName?: SortOrder
+    kiId?: SortOrder
+    uploaderId?: SortOrder
+    uploaderType?: SortOrder
+    uploaderName?: SortOrder
+    ipAddress?: SortOrderInput | SortOrder
+    status?: SortOrder
+    targetProjectCount?: SortOrder
+    committedProjectCount?: SortOrder
+    customerCreatedCount?: SortOrder
+    customerUpdatedCount?: SortOrder
+    customerUnchangedCount?: SortOrder
+    fundCreatedCount?: SortOrder
+    fundUpdatedCount?: SortOrder
+    fundDeletedCount?: SortOrder
+    fundUnchangedCount?: SortOrder
+    pretreatmentAt?: SortOrder
+    committedAt?: SortOrderInput | SortOrder
+    mailSentAt?: SortOrderInput | SortOrder
+    _count?: CustomerUploadBatchCountOrderByAggregateInput
+    _avg?: CustomerUploadBatchAvgOrderByAggregateInput
+    _max?: CustomerUploadBatchMaxOrderByAggregateInput
+    _min?: CustomerUploadBatchMinOrderByAggregateInput
+    _sum?: CustomerUploadBatchSumOrderByAggregateInput
+  }
+
+  export type CustomerUploadBatchScalarWhereWithAggregatesInput = {
+    AND?: CustomerUploadBatchScalarWhereWithAggregatesInput | CustomerUploadBatchScalarWhereWithAggregatesInput[]
+    OR?: CustomerUploadBatchScalarWhereWithAggregatesInput[]
+    NOT?: CustomerUploadBatchScalarWhereWithAggregatesInput | CustomerUploadBatchScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"CustomerUploadBatch"> | string
+    fileName?: StringWithAggregatesFilter<"CustomerUploadBatch"> | string
+    kiId?: StringWithAggregatesFilter<"CustomerUploadBatch"> | string
+    uploaderId?: StringWithAggregatesFilter<"CustomerUploadBatch"> | string
+    uploaderType?: EnumUserTypeWithAggregatesFilter<"CustomerUploadBatch"> | $Enums.UserType
+    uploaderName?: StringWithAggregatesFilter<"CustomerUploadBatch"> | string
+    ipAddress?: StringNullableWithAggregatesFilter<"CustomerUploadBatch"> | string | null
+    status?: EnumBatchStatusWithAggregatesFilter<"CustomerUploadBatch"> | $Enums.BatchStatus
+    targetProjectCount?: IntWithAggregatesFilter<"CustomerUploadBatch"> | number
+    committedProjectCount?: IntWithAggregatesFilter<"CustomerUploadBatch"> | number
+    customerCreatedCount?: IntWithAggregatesFilter<"CustomerUploadBatch"> | number
+    customerUpdatedCount?: IntWithAggregatesFilter<"CustomerUploadBatch"> | number
+    customerUnchangedCount?: IntWithAggregatesFilter<"CustomerUploadBatch"> | number
+    fundCreatedCount?: IntWithAggregatesFilter<"CustomerUploadBatch"> | number
+    fundUpdatedCount?: IntWithAggregatesFilter<"CustomerUploadBatch"> | number
+    fundDeletedCount?: IntWithAggregatesFilter<"CustomerUploadBatch"> | number
+    fundUnchangedCount?: IntWithAggregatesFilter<"CustomerUploadBatch"> | number
+    pretreatmentAt?: DateTimeWithAggregatesFilter<"CustomerUploadBatch"> | Date | string
+    committedAt?: DateTimeNullableWithAggregatesFilter<"CustomerUploadBatch"> | Date | string | null
+    mailSentAt?: DateTimeNullableWithAggregatesFilter<"CustomerUploadBatch"> | Date | string | null
+  }
+
+  export type CustomerUploadBatchProjectWhereInput = {
+    AND?: CustomerUploadBatchProjectWhereInput | CustomerUploadBatchProjectWhereInput[]
+    OR?: CustomerUploadBatchProjectWhereInput[]
+    NOT?: CustomerUploadBatchProjectWhereInput | CustomerUploadBatchProjectWhereInput[]
+    id?: StringFilter<"CustomerUploadBatchProject"> | string
+    batchId?: StringFilter<"CustomerUploadBatchProject"> | string
+    projectId?: StringFilter<"CustomerUploadBatchProject"> | string
+    committedAt?: DateTimeFilter<"CustomerUploadBatchProject"> | Date | string
+    Batch?: XOR<CustomerUploadBatchScalarRelationFilter, CustomerUploadBatchWhereInput>
+    Project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
+  }
+
+  export type CustomerUploadBatchProjectOrderByWithRelationInput = {
+    id?: SortOrder
+    batchId?: SortOrder
+    projectId?: SortOrder
+    committedAt?: SortOrder
+    Batch?: CustomerUploadBatchOrderByWithRelationInput
+    Project?: ProjectOrderByWithRelationInput
+  }
+
+  export type CustomerUploadBatchProjectWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    batchId_projectId?: CustomerUploadBatchProjectBatchIdProjectIdCompoundUniqueInput
+    AND?: CustomerUploadBatchProjectWhereInput | CustomerUploadBatchProjectWhereInput[]
+    OR?: CustomerUploadBatchProjectWhereInput[]
+    NOT?: CustomerUploadBatchProjectWhereInput | CustomerUploadBatchProjectWhereInput[]
+    batchId?: StringFilter<"CustomerUploadBatchProject"> | string
+    projectId?: StringFilter<"CustomerUploadBatchProject"> | string
+    committedAt?: DateTimeFilter<"CustomerUploadBatchProject"> | Date | string
+    Batch?: XOR<CustomerUploadBatchScalarRelationFilter, CustomerUploadBatchWhereInput>
+    Project?: XOR<ProjectScalarRelationFilter, ProjectWhereInput>
+  }, "id" | "batchId_projectId">
+
+  export type CustomerUploadBatchProjectOrderByWithAggregationInput = {
+    id?: SortOrder
+    batchId?: SortOrder
+    projectId?: SortOrder
+    committedAt?: SortOrder
+    _count?: CustomerUploadBatchProjectCountOrderByAggregateInput
+    _max?: CustomerUploadBatchProjectMaxOrderByAggregateInput
+    _min?: CustomerUploadBatchProjectMinOrderByAggregateInput
+  }
+
+  export type CustomerUploadBatchProjectScalarWhereWithAggregatesInput = {
+    AND?: CustomerUploadBatchProjectScalarWhereWithAggregatesInput | CustomerUploadBatchProjectScalarWhereWithAggregatesInput[]
+    OR?: CustomerUploadBatchProjectScalarWhereWithAggregatesInput[]
+    NOT?: CustomerUploadBatchProjectScalarWhereWithAggregatesInput | CustomerUploadBatchProjectScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"CustomerUploadBatchProject"> | string
+    batchId?: StringWithAggregatesFilter<"CustomerUploadBatchProject"> | string
+    projectId?: StringWithAggregatesFilter<"CustomerUploadBatchProject"> | string
+    committedAt?: DateTimeWithAggregatesFilter<"CustomerUploadBatchProject"> | Date | string
+  }
+
+  export type CustomerChangeLogWhereInput = {
+    AND?: CustomerChangeLogWhereInput | CustomerChangeLogWhereInput[]
+    OR?: CustomerChangeLogWhereInput[]
+    NOT?: CustomerChangeLogWhereInput | CustomerChangeLogWhereInput[]
+    id?: StringFilter<"CustomerChangeLog"> | string
+    source?: EnumChangeSourceFilter<"CustomerChangeLog"> | $Enums.ChangeSource
+    batchId?: StringNullableFilter<"CustomerChangeLog"> | string | null
+    customerId?: StringFilter<"CustomerChangeLog"> | string
+    operation?: EnumChangeOperationFilter<"CustomerChangeLog"> | $Enums.ChangeOperation
+    changedFields?: JsonNullableFilter<"CustomerChangeLog">
+    beforeSnapshot?: JsonNullableFilter<"CustomerChangeLog">
+    afterSnapshot?: JsonFilter<"CustomerChangeLog">
+    rawRow?: JsonNullableFilter<"CustomerChangeLog">
+    createdAt?: DateTimeFilter<"CustomerChangeLog"> | Date | string
+    Batch?: XOR<CustomerUploadBatchNullableScalarRelationFilter, CustomerUploadBatchWhereInput> | null
+    Customer?: XOR<CustomerScalarRelationFilter, CustomerWhereInput>
+  }
+
+  export type CustomerChangeLogOrderByWithRelationInput = {
+    id?: SortOrder
+    source?: SortOrder
+    batchId?: SortOrderInput | SortOrder
+    customerId?: SortOrder
+    operation?: SortOrder
+    changedFields?: SortOrderInput | SortOrder
+    beforeSnapshot?: SortOrderInput | SortOrder
+    afterSnapshot?: SortOrder
+    rawRow?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    Batch?: CustomerUploadBatchOrderByWithRelationInput
+    Customer?: CustomerOrderByWithRelationInput
+  }
+
+  export type CustomerChangeLogWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: CustomerChangeLogWhereInput | CustomerChangeLogWhereInput[]
+    OR?: CustomerChangeLogWhereInput[]
+    NOT?: CustomerChangeLogWhereInput | CustomerChangeLogWhereInput[]
+    source?: EnumChangeSourceFilter<"CustomerChangeLog"> | $Enums.ChangeSource
+    batchId?: StringNullableFilter<"CustomerChangeLog"> | string | null
+    customerId?: StringFilter<"CustomerChangeLog"> | string
+    operation?: EnumChangeOperationFilter<"CustomerChangeLog"> | $Enums.ChangeOperation
+    changedFields?: JsonNullableFilter<"CustomerChangeLog">
+    beforeSnapshot?: JsonNullableFilter<"CustomerChangeLog">
+    afterSnapshot?: JsonFilter<"CustomerChangeLog">
+    rawRow?: JsonNullableFilter<"CustomerChangeLog">
+    createdAt?: DateTimeFilter<"CustomerChangeLog"> | Date | string
+    Batch?: XOR<CustomerUploadBatchNullableScalarRelationFilter, CustomerUploadBatchWhereInput> | null
+    Customer?: XOR<CustomerScalarRelationFilter, CustomerWhereInput>
+  }, "id">
+
+  export type CustomerChangeLogOrderByWithAggregationInput = {
+    id?: SortOrder
+    source?: SortOrder
+    batchId?: SortOrderInput | SortOrder
+    customerId?: SortOrder
+    operation?: SortOrder
+    changedFields?: SortOrderInput | SortOrder
+    beforeSnapshot?: SortOrderInput | SortOrder
+    afterSnapshot?: SortOrder
+    rawRow?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    _count?: CustomerChangeLogCountOrderByAggregateInput
+    _max?: CustomerChangeLogMaxOrderByAggregateInput
+    _min?: CustomerChangeLogMinOrderByAggregateInput
+  }
+
+  export type CustomerChangeLogScalarWhereWithAggregatesInput = {
+    AND?: CustomerChangeLogScalarWhereWithAggregatesInput | CustomerChangeLogScalarWhereWithAggregatesInput[]
+    OR?: CustomerChangeLogScalarWhereWithAggregatesInput[]
+    NOT?: CustomerChangeLogScalarWhereWithAggregatesInput | CustomerChangeLogScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"CustomerChangeLog"> | string
+    source?: EnumChangeSourceWithAggregatesFilter<"CustomerChangeLog"> | $Enums.ChangeSource
+    batchId?: StringNullableWithAggregatesFilter<"CustomerChangeLog"> | string | null
+    customerId?: StringWithAggregatesFilter<"CustomerChangeLog"> | string
+    operation?: EnumChangeOperationWithAggregatesFilter<"CustomerChangeLog"> | $Enums.ChangeOperation
+    changedFields?: JsonNullableWithAggregatesFilter<"CustomerChangeLog">
+    beforeSnapshot?: JsonNullableWithAggregatesFilter<"CustomerChangeLog">
+    afterSnapshot?: JsonWithAggregatesFilter<"CustomerChangeLog">
+    rawRow?: JsonNullableWithAggregatesFilter<"CustomerChangeLog">
+    createdAt?: DateTimeWithAggregatesFilter<"CustomerChangeLog"> | Date | string
+  }
+
+  export type CustomerFundChangeLogWhereInput = {
+    AND?: CustomerFundChangeLogWhereInput | CustomerFundChangeLogWhereInput[]
+    OR?: CustomerFundChangeLogWhereInput[]
+    NOT?: CustomerFundChangeLogWhereInput | CustomerFundChangeLogWhereInput[]
+    id?: StringFilter<"CustomerFundChangeLog"> | string
+    source?: EnumChangeSourceFilter<"CustomerFundChangeLog"> | $Enums.ChangeSource
+    batchId?: StringNullableFilter<"CustomerFundChangeLog"> | string | null
+    customerId?: StringFilter<"CustomerFundChangeLog"> | string
+    customerFundId?: StringNullableFilter<"CustomerFundChangeLog"> | string | null
+    operation?: EnumChangeOperationFilter<"CustomerFundChangeLog"> | $Enums.ChangeOperation
+    changedFields?: JsonNullableFilter<"CustomerFundChangeLog">
+    beforeSnapshot?: JsonNullableFilter<"CustomerFundChangeLog">
+    afterSnapshot?: JsonNullableFilter<"CustomerFundChangeLog">
+    createdAt?: DateTimeFilter<"CustomerFundChangeLog"> | Date | string
+    Batch?: XOR<CustomerUploadBatchNullableScalarRelationFilter, CustomerUploadBatchWhereInput> | null
+    Customer?: XOR<CustomerScalarRelationFilter, CustomerWhereInput>
+    CustomerFund?: XOR<CustomerFundNullableScalarRelationFilter, CustomerFundWhereInput> | null
+  }
+
+  export type CustomerFundChangeLogOrderByWithRelationInput = {
+    id?: SortOrder
+    source?: SortOrder
+    batchId?: SortOrderInput | SortOrder
+    customerId?: SortOrder
+    customerFundId?: SortOrderInput | SortOrder
+    operation?: SortOrder
+    changedFields?: SortOrderInput | SortOrder
+    beforeSnapshot?: SortOrderInput | SortOrder
+    afterSnapshot?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    Batch?: CustomerUploadBatchOrderByWithRelationInput
+    Customer?: CustomerOrderByWithRelationInput
+    CustomerFund?: CustomerFundOrderByWithRelationInput
+  }
+
+  export type CustomerFundChangeLogWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: CustomerFundChangeLogWhereInput | CustomerFundChangeLogWhereInput[]
+    OR?: CustomerFundChangeLogWhereInput[]
+    NOT?: CustomerFundChangeLogWhereInput | CustomerFundChangeLogWhereInput[]
+    source?: EnumChangeSourceFilter<"CustomerFundChangeLog"> | $Enums.ChangeSource
+    batchId?: StringNullableFilter<"CustomerFundChangeLog"> | string | null
+    customerId?: StringFilter<"CustomerFundChangeLog"> | string
+    customerFundId?: StringNullableFilter<"CustomerFundChangeLog"> | string | null
+    operation?: EnumChangeOperationFilter<"CustomerFundChangeLog"> | $Enums.ChangeOperation
+    changedFields?: JsonNullableFilter<"CustomerFundChangeLog">
+    beforeSnapshot?: JsonNullableFilter<"CustomerFundChangeLog">
+    afterSnapshot?: JsonNullableFilter<"CustomerFundChangeLog">
+    createdAt?: DateTimeFilter<"CustomerFundChangeLog"> | Date | string
+    Batch?: XOR<CustomerUploadBatchNullableScalarRelationFilter, CustomerUploadBatchWhereInput> | null
+    Customer?: XOR<CustomerScalarRelationFilter, CustomerWhereInput>
+    CustomerFund?: XOR<CustomerFundNullableScalarRelationFilter, CustomerFundWhereInput> | null
+  }, "id">
+
+  export type CustomerFundChangeLogOrderByWithAggregationInput = {
+    id?: SortOrder
+    source?: SortOrder
+    batchId?: SortOrderInput | SortOrder
+    customerId?: SortOrder
+    customerFundId?: SortOrderInput | SortOrder
+    operation?: SortOrder
+    changedFields?: SortOrderInput | SortOrder
+    beforeSnapshot?: SortOrderInput | SortOrder
+    afterSnapshot?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    _count?: CustomerFundChangeLogCountOrderByAggregateInput
+    _max?: CustomerFundChangeLogMaxOrderByAggregateInput
+    _min?: CustomerFundChangeLogMinOrderByAggregateInput
+  }
+
+  export type CustomerFundChangeLogScalarWhereWithAggregatesInput = {
+    AND?: CustomerFundChangeLogScalarWhereWithAggregatesInput | CustomerFundChangeLogScalarWhereWithAggregatesInput[]
+    OR?: CustomerFundChangeLogScalarWhereWithAggregatesInput[]
+    NOT?: CustomerFundChangeLogScalarWhereWithAggregatesInput | CustomerFundChangeLogScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"CustomerFundChangeLog"> | string
+    source?: EnumChangeSourceWithAggregatesFilter<"CustomerFundChangeLog"> | $Enums.ChangeSource
+    batchId?: StringNullableWithAggregatesFilter<"CustomerFundChangeLog"> | string | null
+    customerId?: StringWithAggregatesFilter<"CustomerFundChangeLog"> | string
+    customerFundId?: StringNullableWithAggregatesFilter<"CustomerFundChangeLog"> | string | null
+    operation?: EnumChangeOperationWithAggregatesFilter<"CustomerFundChangeLog"> | $Enums.ChangeOperation
+    changedFields?: JsonNullableWithAggregatesFilter<"CustomerFundChangeLog">
+    beforeSnapshot?: JsonNullableWithAggregatesFilter<"CustomerFundChangeLog">
+    afterSnapshot?: JsonNullableWithAggregatesFilter<"CustomerFundChangeLog">
+    createdAt?: DateTimeWithAggregatesFilter<"CustomerFundChangeLog"> | Date | string
   }
 
   export type TemplateWhereInput = {
@@ -35242,6 +41636,7 @@ export namespace Prisma {
     updatedBy: string
     MainUserProjectKis?: ProjectKiCreateNestedManyWithoutMainUserInput
     SubUserProjectKis?: ProjectKiCreateNestedManyWithoutSubUserInput
+    CheckerProjectKiTasks?: ProjectKiTaskCreateNestedManyWithoutCheckerInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -35259,6 +41654,7 @@ export namespace Prisma {
     updatedBy: string
     MainUserProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutMainUserInput
     SubUserProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutSubUserInput
+    CheckerProjectKiTasks?: ProjectKiTaskUncheckedCreateNestedManyWithoutCheckerInput
   }
 
   export type UserUpdateInput = {
@@ -35276,6 +41672,7 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
     MainUserProjectKis?: ProjectKiUpdateManyWithoutMainUserNestedInput
     SubUserProjectKis?: ProjectKiUpdateManyWithoutSubUserNestedInput
+    CheckerProjectKiTasks?: ProjectKiTaskUpdateManyWithoutCheckerNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -35293,6 +41690,7 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
     MainUserProjectKis?: ProjectKiUncheckedUpdateManyWithoutMainUserNestedInput
     SubUserProjectKis?: ProjectKiUncheckedUpdateManyWithoutSubUserNestedInput
+    CheckerProjectKiTasks?: ProjectKiTaskUncheckedUpdateManyWithoutCheckerNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -35713,6 +42111,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiCreateNestedManyWithoutKiInput
     AssetKis?: AssetKiCreateNestedManyWithoutKiInput
     DeadlineTasks?: DeadlineTaskCreateNestedManyWithoutKiInput
+    CustomerUploadBatches?: CustomerUploadBatchCreateNestedManyWithoutKiInput
   }
 
   export type KiUncheckedCreateInput = {
@@ -35731,6 +42130,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutKiInput
     AssetKis?: AssetKiUncheckedCreateNestedManyWithoutKiInput
     DeadlineTasks?: DeadlineTaskUncheckedCreateNestedManyWithoutKiInput
+    CustomerUploadBatches?: CustomerUploadBatchUncheckedCreateNestedManyWithoutKiInput
   }
 
   export type KiUpdateInput = {
@@ -35749,6 +42149,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiUpdateManyWithoutKiNestedInput
     AssetKis?: AssetKiUpdateManyWithoutKiNestedInput
     DeadlineTasks?: DeadlineTaskUpdateManyWithoutKiNestedInput
+    CustomerUploadBatches?: CustomerUploadBatchUpdateManyWithoutKiNestedInput
   }
 
   export type KiUncheckedUpdateInput = {
@@ -35767,6 +42168,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiUncheckedUpdateManyWithoutKiNestedInput
     AssetKis?: AssetKiUncheckedUpdateManyWithoutKiNestedInput
     DeadlineTasks?: DeadlineTaskUncheckedUpdateManyWithoutKiNestedInput
+    CustomerUploadBatches?: CustomerUploadBatchUncheckedUpdateManyWithoutKiNestedInput
   }
 
   export type KiCreateManyInput = {
@@ -35846,6 +42248,11 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    feeRateVariable?: number | null
+    feeFixedAnnual?: number | null
+    feeRateAgent?: number | null
+    feeCashMgmtAnnual?: number | null
+    feeRateTrust?: number | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
     createdAt?: Date | string
@@ -35862,6 +42269,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiCreateNestedManyWithoutProjectInput
     Assets?: AssetCreateNestedManyWithoutProjectInput
     Customers?: CustomerCreateNestedManyWithoutProjectInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectUncheckedCreateInput = {
@@ -35896,6 +42304,11 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    feeRateVariable?: number | null
+    feeFixedAnnual?: number | null
+    feeRateAgent?: number | null
+    feeCashMgmtAnnual?: number | null
+    feeRateTrust?: number | null
     reportMainId?: string | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
@@ -35912,6 +42325,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutProjectInput
     Assets?: AssetUncheckedCreateNestedManyWithoutProjectInput
     Customers?: CustomerUncheckedCreateNestedManyWithoutProjectInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectUncheckedCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectUpdateInput = {
@@ -35946,6 +42360,11 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    feeRateVariable?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeFixedAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateAgent?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeCashMgmtAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -35962,6 +42381,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiUpdateManyWithoutProjectNestedInput
     Assets?: AssetUpdateManyWithoutProjectNestedInput
     Customers?: CustomerUpdateManyWithoutProjectNestedInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateInput = {
@@ -35996,6 +42416,11 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    feeRateVariable?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeFixedAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateAgent?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeCashMgmtAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -36012,6 +42437,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiUncheckedUpdateManyWithoutProjectNestedInput
     Assets?: AssetUncheckedUpdateManyWithoutProjectNestedInput
     Customers?: CustomerUncheckedUpdateManyWithoutProjectNestedInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectUncheckedUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectCreateManyInput = {
@@ -36046,6 +42472,11 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    feeRateVariable?: number | null
+    feeFixedAnnual?: number | null
+    feeRateAgent?: number | null
+    feeCashMgmtAnnual?: number | null
+    feeRateTrust?: number | null
     reportMainId?: string | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
@@ -36093,6 +42524,11 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    feeRateVariable?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeFixedAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateAgent?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeCashMgmtAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -36135,6 +42571,11 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    feeRateVariable?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeFixedAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateAgent?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeCashMgmtAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -36199,6 +42640,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: bigint | number | null
     cashTrapJunbiKanjo?: bigint | number | null
+    interestCapContractKanjo?: bigint | number | null
     sonotaGenyokin?: bigint | number | null
     futuYokinTokiZandaka?: bigint | number | null
     zenkiKurikoshiRieki?: bigint | number | null
@@ -36212,17 +42654,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: bigint | number | null
     shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuShuekiTaishogaiUriage?: bigint | number | null
     shintakuHiyoKazeiShiire?: bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: bigint | number | null
     shintakuHiyoHikazeiShiire?: bigint | number | null
+    shintakuHiyoTaishogaiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuShuekiTaishogaiUriage?: number | null
     unitShintakuHiyoKazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireShohizei?: number | null
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    unitShintakuHiyoTaishogaiShiire?: number | null
     kazeiUriageSashihiki08?: bigint | number | null
     kazeiUriageSashihiki10?: bigint | number | null
     kazeiUriageHontai08?: bigint | number | null
@@ -36304,6 +42750,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: bigint | number | null
     cashTrapJunbiKanjo?: bigint | number | null
+    interestCapContractKanjo?: bigint | number | null
     sonotaGenyokin?: bigint | number | null
     futuYokinTokiZandaka?: bigint | number | null
     zenkiKurikoshiRieki?: bigint | number | null
@@ -36317,17 +42764,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: bigint | number | null
     shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuShuekiTaishogaiUriage?: bigint | number | null
     shintakuHiyoKazeiShiire?: bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: bigint | number | null
     shintakuHiyoHikazeiShiire?: bigint | number | null
+    shintakuHiyoTaishogaiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuShuekiTaishogaiUriage?: number | null
     unitShintakuHiyoKazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireShohizei?: number | null
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    unitShintakuHiyoTaishogaiShiire?: number | null
     kazeiUriageSashihiki08?: bigint | number | null
     kazeiUriageSashihiki10?: bigint | number | null
     kazeiUriageHontai08?: bigint | number | null
@@ -36401,6 +42852,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    interestCapContractKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -36414,17 +42866,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiTaishogaiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoTaishogaiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiTaishogaiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoTaishogaiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -36506,6 +42962,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    interestCapContractKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -36519,17 +42976,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiTaishogaiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoTaishogaiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiTaishogaiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoTaishogaiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -36607,6 +43068,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: bigint | number | null
     cashTrapJunbiKanjo?: bigint | number | null
+    interestCapContractKanjo?: bigint | number | null
     sonotaGenyokin?: bigint | number | null
     futuYokinTokiZandaka?: bigint | number | null
     zenkiKurikoshiRieki?: bigint | number | null
@@ -36620,17 +43082,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: bigint | number | null
     shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuShuekiTaishogaiUriage?: bigint | number | null
     shintakuHiyoKazeiShiire?: bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: bigint | number | null
     shintakuHiyoHikazeiShiire?: bigint | number | null
+    shintakuHiyoTaishogaiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuShuekiTaishogaiUriage?: number | null
     unitShintakuHiyoKazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireShohizei?: number | null
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    unitShintakuHiyoTaishogaiShiire?: number | null
     kazeiUriageSashihiki08?: bigint | number | null
     kazeiUriageSashihiki10?: bigint | number | null
     kazeiUriageHontai08?: bigint | number | null
@@ -36702,6 +43168,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    interestCapContractKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -36715,17 +43182,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiTaishogaiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoTaishogaiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiTaishogaiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoTaishogaiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -36801,6 +43272,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    interestCapContractKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -36814,17 +43286,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiTaishogaiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoTaishogaiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiTaishogaiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoTaishogaiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -37743,6 +44219,9 @@ export namespace Prisma {
     dueDate: Date | string
     order?: number
     memo?: string | null
+    category?: $Enums.DeadlineCategory
+    documentType?: $Enums.DocumentType | null
+    reviewStep?: $Enums.ReviewStep | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -37760,6 +44239,9 @@ export namespace Prisma {
     dueDate: Date | string
     order?: number
     memo?: string | null
+    category?: $Enums.DeadlineCategory
+    documentType?: $Enums.DocumentType | null
+    reviewStep?: $Enums.ReviewStep | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -37775,6 +44257,9 @@ export namespace Prisma {
     dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
     order?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: EnumDeadlineCategoryFieldUpdateOperationsInput | $Enums.DeadlineCategory
+    documentType?: NullableEnumDocumentTypeFieldUpdateOperationsInput | $Enums.DocumentType | null
+    reviewStep?: NullableEnumReviewStepFieldUpdateOperationsInput | $Enums.ReviewStep | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -37792,6 +44277,9 @@ export namespace Prisma {
     dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
     order?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: EnumDeadlineCategoryFieldUpdateOperationsInput | $Enums.DeadlineCategory
+    documentType?: NullableEnumDocumentTypeFieldUpdateOperationsInput | $Enums.DocumentType | null
+    reviewStep?: NullableEnumReviewStepFieldUpdateOperationsInput | $Enums.ReviewStep | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -37808,6 +44296,9 @@ export namespace Prisma {
     dueDate: Date | string
     order?: number
     memo?: string | null
+    category?: $Enums.DeadlineCategory
+    documentType?: $Enums.DocumentType | null
+    reviewStep?: $Enums.ReviewStep | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -37822,6 +44313,9 @@ export namespace Prisma {
     dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
     order?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: EnumDeadlineCategoryFieldUpdateOperationsInput | $Enums.DeadlineCategory
+    documentType?: NullableEnumDocumentTypeFieldUpdateOperationsInput | $Enums.DocumentType | null
+    reviewStep?: NullableEnumReviewStepFieldUpdateOperationsInput | $Enums.ReviewStep | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -37837,6 +44331,9 @@ export namespace Prisma {
     dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
     order?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: EnumDeadlineCategoryFieldUpdateOperationsInput | $Enums.DeadlineCategory
+    documentType?: NullableEnumDocumentTypeFieldUpdateOperationsInput | $Enums.DocumentType | null
+    reviewStep?: NullableEnumReviewStepFieldUpdateOperationsInput | $Enums.ReviewStep | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -37847,7 +44344,8 @@ export namespace Prisma {
 
   export type ProjectKiTaskCreateInput = {
     id?: string
-    isCompleted?: boolean
+    status?: $Enums.ProjectKiTaskStatus
+    note?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -37856,13 +44354,16 @@ export namespace Prisma {
     updatedBy: string
     DeadlineTask: DeadlineTaskCreateNestedOneWithoutProjectKiTasksInput
     ProjectKi: ProjectKiCreateNestedOneWithoutProjectKiTasksInput
+    Checker?: UserCreateNestedOneWithoutCheckerProjectKiTasksInput
   }
 
   export type ProjectKiTaskUncheckedCreateInput = {
     id?: string
     deadlineTaskId: string
     projectKiId: string
-    isCompleted?: boolean
+    status?: $Enums.ProjectKiTaskStatus
+    note?: string | null
+    checkerUserId?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -37873,7 +44374,8 @@ export namespace Prisma {
 
   export type ProjectKiTaskUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumProjectKiTaskStatusFieldUpdateOperationsInput | $Enums.ProjectKiTaskStatus
+    note?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -37882,13 +44384,16 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
     DeadlineTask?: DeadlineTaskUpdateOneRequiredWithoutProjectKiTasksNestedInput
     ProjectKi?: ProjectKiUpdateOneRequiredWithoutProjectKiTasksNestedInput
+    Checker?: UserUpdateOneWithoutCheckerProjectKiTasksNestedInput
   }
 
   export type ProjectKiTaskUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     deadlineTaskId?: StringFieldUpdateOperationsInput | string
     projectKiId?: StringFieldUpdateOperationsInput | string
-    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumProjectKiTaskStatusFieldUpdateOperationsInput | $Enums.ProjectKiTaskStatus
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    checkerUserId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -37901,7 +44406,9 @@ export namespace Prisma {
     id?: string
     deadlineTaskId: string
     projectKiId: string
-    isCompleted?: boolean
+    status?: $Enums.ProjectKiTaskStatus
+    note?: string | null
+    checkerUserId?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -37912,7 +44419,8 @@ export namespace Prisma {
 
   export type ProjectKiTaskUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumProjectKiTaskStatusFieldUpdateOperationsInput | $Enums.ProjectKiTaskStatus
+    note?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -37925,7 +44433,9 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     deadlineTaskId?: StringFieldUpdateOperationsInput | string
     projectKiId?: StringFieldUpdateOperationsInput | string
-    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumProjectKiTaskStatusFieldUpdateOperationsInput | $Enums.ProjectKiTaskStatus
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    checkerUserId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -37979,6 +44489,8 @@ export namespace Prisma {
     updatedBy: string
     Project: ProjectCreateNestedOneWithoutCustomersInput
     CustomerFunds?: CustomerFundCreateNestedManyWithoutCustomerInput
+    ChangeLogs?: CustomerChangeLogCreateNestedManyWithoutCustomerInput
+    FundChangeLogs?: CustomerFundChangeLogCreateNestedManyWithoutCustomerInput
   }
 
   export type CustomerUncheckedCreateInput = {
@@ -38026,6 +44538,8 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     CustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutCustomerInput
+    ChangeLogs?: CustomerChangeLogUncheckedCreateNestedManyWithoutCustomerInput
+    FundChangeLogs?: CustomerFundChangeLogUncheckedCreateNestedManyWithoutCustomerInput
   }
 
   export type CustomerUpdateInput = {
@@ -38073,6 +44587,8 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
     Project?: ProjectUpdateOneRequiredWithoutCustomersNestedInput
     CustomerFunds?: CustomerFundUpdateManyWithoutCustomerNestedInput
+    ChangeLogs?: CustomerChangeLogUpdateManyWithoutCustomerNestedInput
+    FundChangeLogs?: CustomerFundChangeLogUpdateManyWithoutCustomerNestedInput
   }
 
   export type CustomerUncheckedUpdateInput = {
@@ -38120,6 +44636,8 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     CustomerFunds?: CustomerFundUncheckedUpdateManyWithoutCustomerNestedInput
+    ChangeLogs?: CustomerChangeLogUncheckedUpdateManyWithoutCustomerNestedInput
+    FundChangeLogs?: CustomerFundChangeLogUncheckedUpdateManyWithoutCustomerNestedInput
   }
 
   export type CustomerCreateManyInput = {
@@ -38286,6 +44804,7 @@ export namespace Prisma {
     ProjectKi: ProjectKiCreateNestedOneWithoutCustomerFundsInput
     sourceCustomerFund?: CustomerFundCreateNestedOneWithoutDestinationCustomerFundsInput
     destinationCustomerFunds?: CustomerFundCreateNestedManyWithoutSourceCustomerFundInput
+    ChangeLogs?: CustomerFundChangeLogCreateNestedManyWithoutCustomerFundInput
   }
 
   export type CustomerFundUncheckedCreateInput = {
@@ -38315,6 +44834,7 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     destinationCustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutSourceCustomerFundInput
+    ChangeLogs?: CustomerFundChangeLogUncheckedCreateNestedManyWithoutCustomerFundInput
   }
 
   export type CustomerFundUpdateInput = {
@@ -38344,6 +44864,7 @@ export namespace Prisma {
     ProjectKi?: ProjectKiUpdateOneRequiredWithoutCustomerFundsNestedInput
     sourceCustomerFund?: CustomerFundUpdateOneWithoutDestinationCustomerFundsNestedInput
     destinationCustomerFunds?: CustomerFundUpdateManyWithoutSourceCustomerFundNestedInput
+    ChangeLogs?: CustomerFundChangeLogUpdateManyWithoutCustomerFundNestedInput
   }
 
   export type CustomerFundUncheckedUpdateInput = {
@@ -38373,6 +44894,7 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     destinationCustomerFunds?: CustomerFundUncheckedUpdateManyWithoutSourceCustomerFundNestedInput
+    ChangeLogs?: CustomerFundChangeLogUncheckedUpdateManyWithoutCustomerFundNestedInput
   }
 
   export type CustomerFundCreateManyInput = {
@@ -38454,6 +44976,402 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CustomerUploadBatchCreateInput = {
+    id?: string
+    fileName: string
+    uploaderId: string
+    uploaderType: $Enums.UserType
+    uploaderName: string
+    ipAddress?: string | null
+    status?: $Enums.BatchStatus
+    targetProjectCount?: number
+    committedProjectCount?: number
+    customerCreatedCount?: number
+    customerUpdatedCount?: number
+    customerUnchangedCount?: number
+    fundCreatedCount?: number
+    fundUpdatedCount?: number
+    fundDeletedCount?: number
+    fundUnchangedCount?: number
+    pretreatmentAt?: Date | string
+    committedAt?: Date | string | null
+    mailSentAt?: Date | string | null
+    Ki: KiCreateNestedOneWithoutCustomerUploadBatchesInput
+    CustomerChangeLogs?: CustomerChangeLogCreateNestedManyWithoutBatchInput
+    CustomerFundChangeLogs?: CustomerFundChangeLogCreateNestedManyWithoutBatchInput
+    CommittedProjects?: CustomerUploadBatchProjectCreateNestedManyWithoutBatchInput
+  }
+
+  export type CustomerUploadBatchUncheckedCreateInput = {
+    id?: string
+    fileName: string
+    kiId: string
+    uploaderId: string
+    uploaderType: $Enums.UserType
+    uploaderName: string
+    ipAddress?: string | null
+    status?: $Enums.BatchStatus
+    targetProjectCount?: number
+    committedProjectCount?: number
+    customerCreatedCount?: number
+    customerUpdatedCount?: number
+    customerUnchangedCount?: number
+    fundCreatedCount?: number
+    fundUpdatedCount?: number
+    fundDeletedCount?: number
+    fundUnchangedCount?: number
+    pretreatmentAt?: Date | string
+    committedAt?: Date | string | null
+    mailSentAt?: Date | string | null
+    CustomerChangeLogs?: CustomerChangeLogUncheckedCreateNestedManyWithoutBatchInput
+    CustomerFundChangeLogs?: CustomerFundChangeLogUncheckedCreateNestedManyWithoutBatchInput
+    CommittedProjects?: CustomerUploadBatchProjectUncheckedCreateNestedManyWithoutBatchInput
+  }
+
+  export type CustomerUploadBatchUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    uploaderId?: StringFieldUpdateOperationsInput | string
+    uploaderType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    uploaderName?: StringFieldUpdateOperationsInput | string
+    ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumBatchStatusFieldUpdateOperationsInput | $Enums.BatchStatus
+    targetProjectCount?: IntFieldUpdateOperationsInput | number
+    committedProjectCount?: IntFieldUpdateOperationsInput | number
+    customerCreatedCount?: IntFieldUpdateOperationsInput | number
+    customerUpdatedCount?: IntFieldUpdateOperationsInput | number
+    customerUnchangedCount?: IntFieldUpdateOperationsInput | number
+    fundCreatedCount?: IntFieldUpdateOperationsInput | number
+    fundUpdatedCount?: IntFieldUpdateOperationsInput | number
+    fundDeletedCount?: IntFieldUpdateOperationsInput | number
+    fundUnchangedCount?: IntFieldUpdateOperationsInput | number
+    pretreatmentAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    committedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mailSentAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Ki?: KiUpdateOneRequiredWithoutCustomerUploadBatchesNestedInput
+    CustomerChangeLogs?: CustomerChangeLogUpdateManyWithoutBatchNestedInput
+    CustomerFundChangeLogs?: CustomerFundChangeLogUpdateManyWithoutBatchNestedInput
+    CommittedProjects?: CustomerUploadBatchProjectUpdateManyWithoutBatchNestedInput
+  }
+
+  export type CustomerUploadBatchUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    uploaderId?: StringFieldUpdateOperationsInput | string
+    uploaderType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    uploaderName?: StringFieldUpdateOperationsInput | string
+    ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumBatchStatusFieldUpdateOperationsInput | $Enums.BatchStatus
+    targetProjectCount?: IntFieldUpdateOperationsInput | number
+    committedProjectCount?: IntFieldUpdateOperationsInput | number
+    customerCreatedCount?: IntFieldUpdateOperationsInput | number
+    customerUpdatedCount?: IntFieldUpdateOperationsInput | number
+    customerUnchangedCount?: IntFieldUpdateOperationsInput | number
+    fundCreatedCount?: IntFieldUpdateOperationsInput | number
+    fundUpdatedCount?: IntFieldUpdateOperationsInput | number
+    fundDeletedCount?: IntFieldUpdateOperationsInput | number
+    fundUnchangedCount?: IntFieldUpdateOperationsInput | number
+    pretreatmentAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    committedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mailSentAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    CustomerChangeLogs?: CustomerChangeLogUncheckedUpdateManyWithoutBatchNestedInput
+    CustomerFundChangeLogs?: CustomerFundChangeLogUncheckedUpdateManyWithoutBatchNestedInput
+    CommittedProjects?: CustomerUploadBatchProjectUncheckedUpdateManyWithoutBatchNestedInput
+  }
+
+  export type CustomerUploadBatchCreateManyInput = {
+    id?: string
+    fileName: string
+    kiId: string
+    uploaderId: string
+    uploaderType: $Enums.UserType
+    uploaderName: string
+    ipAddress?: string | null
+    status?: $Enums.BatchStatus
+    targetProjectCount?: number
+    committedProjectCount?: number
+    customerCreatedCount?: number
+    customerUpdatedCount?: number
+    customerUnchangedCount?: number
+    fundCreatedCount?: number
+    fundUpdatedCount?: number
+    fundDeletedCount?: number
+    fundUnchangedCount?: number
+    pretreatmentAt?: Date | string
+    committedAt?: Date | string | null
+    mailSentAt?: Date | string | null
+  }
+
+  export type CustomerUploadBatchUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    uploaderId?: StringFieldUpdateOperationsInput | string
+    uploaderType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    uploaderName?: StringFieldUpdateOperationsInput | string
+    ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumBatchStatusFieldUpdateOperationsInput | $Enums.BatchStatus
+    targetProjectCount?: IntFieldUpdateOperationsInput | number
+    committedProjectCount?: IntFieldUpdateOperationsInput | number
+    customerCreatedCount?: IntFieldUpdateOperationsInput | number
+    customerUpdatedCount?: IntFieldUpdateOperationsInput | number
+    customerUnchangedCount?: IntFieldUpdateOperationsInput | number
+    fundCreatedCount?: IntFieldUpdateOperationsInput | number
+    fundUpdatedCount?: IntFieldUpdateOperationsInput | number
+    fundDeletedCount?: IntFieldUpdateOperationsInput | number
+    fundUnchangedCount?: IntFieldUpdateOperationsInput | number
+    pretreatmentAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    committedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mailSentAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type CustomerUploadBatchUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    uploaderId?: StringFieldUpdateOperationsInput | string
+    uploaderType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    uploaderName?: StringFieldUpdateOperationsInput | string
+    ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumBatchStatusFieldUpdateOperationsInput | $Enums.BatchStatus
+    targetProjectCount?: IntFieldUpdateOperationsInput | number
+    committedProjectCount?: IntFieldUpdateOperationsInput | number
+    customerCreatedCount?: IntFieldUpdateOperationsInput | number
+    customerUpdatedCount?: IntFieldUpdateOperationsInput | number
+    customerUnchangedCount?: IntFieldUpdateOperationsInput | number
+    fundCreatedCount?: IntFieldUpdateOperationsInput | number
+    fundUpdatedCount?: IntFieldUpdateOperationsInput | number
+    fundDeletedCount?: IntFieldUpdateOperationsInput | number
+    fundUnchangedCount?: IntFieldUpdateOperationsInput | number
+    pretreatmentAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    committedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mailSentAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type CustomerUploadBatchProjectCreateInput = {
+    id?: string
+    committedAt?: Date | string
+    Batch: CustomerUploadBatchCreateNestedOneWithoutCommittedProjectsInput
+    Project: ProjectCreateNestedOneWithoutCustomerUploadBatchProjectsInput
+  }
+
+  export type CustomerUploadBatchProjectUncheckedCreateInput = {
+    id?: string
+    batchId: string
+    projectId: string
+    committedAt?: Date | string
+  }
+
+  export type CustomerUploadBatchProjectUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    committedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Batch?: CustomerUploadBatchUpdateOneRequiredWithoutCommittedProjectsNestedInput
+    Project?: ProjectUpdateOneRequiredWithoutCustomerUploadBatchProjectsNestedInput
+  }
+
+  export type CustomerUploadBatchProjectUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    batchId?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    committedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CustomerUploadBatchProjectCreateManyInput = {
+    id?: string
+    batchId: string
+    projectId: string
+    committedAt?: Date | string
+  }
+
+  export type CustomerUploadBatchProjectUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    committedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CustomerUploadBatchProjectUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    batchId?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    committedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CustomerChangeLogCreateInput = {
+    id?: string
+    source: $Enums.ChangeSource
+    operation: $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot: JsonNullValueInput | InputJsonValue
+    rawRow?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    Batch?: CustomerUploadBatchCreateNestedOneWithoutCustomerChangeLogsInput
+    Customer: CustomerCreateNestedOneWithoutChangeLogsInput
+  }
+
+  export type CustomerChangeLogUncheckedCreateInput = {
+    id?: string
+    source: $Enums.ChangeSource
+    batchId?: string | null
+    customerId: string
+    operation: $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot: JsonNullValueInput | InputJsonValue
+    rawRow?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
+  export type CustomerChangeLogUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    source?: EnumChangeSourceFieldUpdateOperationsInput | $Enums.ChangeSource
+    operation?: EnumChangeOperationFieldUpdateOperationsInput | $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: JsonNullValueInput | InputJsonValue
+    rawRow?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Batch?: CustomerUploadBatchUpdateOneWithoutCustomerChangeLogsNestedInput
+    Customer?: CustomerUpdateOneRequiredWithoutChangeLogsNestedInput
+  }
+
+  export type CustomerChangeLogUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    source?: EnumChangeSourceFieldUpdateOperationsInput | $Enums.ChangeSource
+    batchId?: NullableStringFieldUpdateOperationsInput | string | null
+    customerId?: StringFieldUpdateOperationsInput | string
+    operation?: EnumChangeOperationFieldUpdateOperationsInput | $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: JsonNullValueInput | InputJsonValue
+    rawRow?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CustomerChangeLogCreateManyInput = {
+    id?: string
+    source: $Enums.ChangeSource
+    batchId?: string | null
+    customerId: string
+    operation: $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot: JsonNullValueInput | InputJsonValue
+    rawRow?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
+  export type CustomerChangeLogUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    source?: EnumChangeSourceFieldUpdateOperationsInput | $Enums.ChangeSource
+    operation?: EnumChangeOperationFieldUpdateOperationsInput | $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: JsonNullValueInput | InputJsonValue
+    rawRow?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CustomerChangeLogUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    source?: EnumChangeSourceFieldUpdateOperationsInput | $Enums.ChangeSource
+    batchId?: NullableStringFieldUpdateOperationsInput | string | null
+    customerId?: StringFieldUpdateOperationsInput | string
+    operation?: EnumChangeOperationFieldUpdateOperationsInput | $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: JsonNullValueInput | InputJsonValue
+    rawRow?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CustomerFundChangeLogCreateInput = {
+    id?: string
+    source: $Enums.ChangeSource
+    operation: $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    Batch?: CustomerUploadBatchCreateNestedOneWithoutCustomerFundChangeLogsInput
+    Customer: CustomerCreateNestedOneWithoutFundChangeLogsInput
+    CustomerFund?: CustomerFundCreateNestedOneWithoutChangeLogsInput
+  }
+
+  export type CustomerFundChangeLogUncheckedCreateInput = {
+    id?: string
+    source: $Enums.ChangeSource
+    batchId?: string | null
+    customerId: string
+    customerFundId?: string | null
+    operation: $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
+  export type CustomerFundChangeLogUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    source?: EnumChangeSourceFieldUpdateOperationsInput | $Enums.ChangeSource
+    operation?: EnumChangeOperationFieldUpdateOperationsInput | $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Batch?: CustomerUploadBatchUpdateOneWithoutCustomerFundChangeLogsNestedInput
+    Customer?: CustomerUpdateOneRequiredWithoutFundChangeLogsNestedInput
+    CustomerFund?: CustomerFundUpdateOneWithoutChangeLogsNestedInput
+  }
+
+  export type CustomerFundChangeLogUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    source?: EnumChangeSourceFieldUpdateOperationsInput | $Enums.ChangeSource
+    batchId?: NullableStringFieldUpdateOperationsInput | string | null
+    customerId?: StringFieldUpdateOperationsInput | string
+    customerFundId?: NullableStringFieldUpdateOperationsInput | string | null
+    operation?: EnumChangeOperationFieldUpdateOperationsInput | $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CustomerFundChangeLogCreateManyInput = {
+    id?: string
+    source: $Enums.ChangeSource
+    batchId?: string | null
+    customerId: string
+    customerFundId?: string | null
+    operation: $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
+  export type CustomerFundChangeLogUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    source?: EnumChangeSourceFieldUpdateOperationsInput | $Enums.ChangeSource
+    operation?: EnumChangeOperationFieldUpdateOperationsInput | $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CustomerFundChangeLogUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    source?: EnumChangeSourceFieldUpdateOperationsInput | $Enums.ChangeSource
+    batchId?: NullableStringFieldUpdateOperationsInput | string | null
+    customerId?: StringFieldUpdateOperationsInput | string
+    customerFundId?: NullableStringFieldUpdateOperationsInput | string | null
+    operation?: EnumChangeOperationFieldUpdateOperationsInput | $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type TemplateCreateInput = {
@@ -39095,12 +46013,22 @@ export namespace Prisma {
     none?: ProjectKiWhereInput
   }
 
+  export type ProjectKiTaskListRelationFilter = {
+    every?: ProjectKiTaskWhereInput
+    some?: ProjectKiTaskWhereInput
+    none?: ProjectKiTaskWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
   }
 
   export type ProjectKiOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ProjectKiTaskOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -39414,11 +46342,21 @@ export namespace Prisma {
     none?: DeadlineTaskWhereInput
   }
 
+  export type CustomerUploadBatchListRelationFilter = {
+    every?: CustomerUploadBatchWhereInput
+    some?: CustomerUploadBatchWhereInput
+    none?: CustomerUploadBatchWhereInput
+  }
+
   export type AssetKiOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
   export type DeadlineTaskOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CustomerUploadBatchOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -39529,6 +46467,28 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type FloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type TemplateNullableScalarRelationFilter = {
     is?: TemplateWhereInput | null
     isNot?: TemplateWhereInput | null
@@ -39546,11 +46506,21 @@ export namespace Prisma {
     none?: CustomerWhereInput
   }
 
+  export type CustomerUploadBatchProjectListRelationFilter = {
+    every?: CustomerUploadBatchProjectWhereInput
+    some?: CustomerUploadBatchProjectWhereInput
+    none?: CustomerUploadBatchProjectWhereInput
+  }
+
   export type AssetOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
   export type CustomerOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CustomerUploadBatchProjectOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -39586,6 +46556,11 @@ export namespace Prisma {
     leverageFlag?: SortOrder
     unitResidenceFlag?: SortOrder
     completedFlag?: SortOrder
+    feeRateVariable?: SortOrder
+    feeFixedAnnual?: SortOrder
+    feeRateAgent?: SortOrder
+    feeCashMgmtAnnual?: SortOrder
+    feeRateTrust?: SortOrder
     reportMainId?: SortOrder
     reportAtt2Id?: SortOrder
     reportAtt3Id?: SortOrder
@@ -39609,6 +46584,11 @@ export namespace Prisma {
     fullOccupancyYield?: SortOrder
     totalKubun?: SortOrder
     residenceKubun?: SortOrder
+    feeRateVariable?: SortOrder
+    feeFixedAnnual?: SortOrder
+    feeRateAgent?: SortOrder
+    feeCashMgmtAnnual?: SortOrder
+    feeRateTrust?: SortOrder
   }
 
   export type ProjectMaxOrderByAggregateInput = {
@@ -39643,6 +46623,11 @@ export namespace Prisma {
     leverageFlag?: SortOrder
     unitResidenceFlag?: SortOrder
     completedFlag?: SortOrder
+    feeRateVariable?: SortOrder
+    feeFixedAnnual?: SortOrder
+    feeRateAgent?: SortOrder
+    feeCashMgmtAnnual?: SortOrder
+    feeRateTrust?: SortOrder
     reportMainId?: SortOrder
     reportAtt2Id?: SortOrder
     reportAtt3Id?: SortOrder
@@ -39690,6 +46675,11 @@ export namespace Prisma {
     leverageFlag?: SortOrder
     unitResidenceFlag?: SortOrder
     completedFlag?: SortOrder
+    feeRateVariable?: SortOrder
+    feeFixedAnnual?: SortOrder
+    feeRateAgent?: SortOrder
+    feeCashMgmtAnnual?: SortOrder
+    feeRateTrust?: SortOrder
     reportMainId?: SortOrder
     reportAtt2Id?: SortOrder
     reportAtt3Id?: SortOrder
@@ -39713,6 +46703,11 @@ export namespace Prisma {
     fullOccupancyYield?: SortOrder
     totalKubun?: SortOrder
     residenceKubun?: SortOrder
+    feeRateVariable?: SortOrder
+    feeFixedAnnual?: SortOrder
+    feeRateAgent?: SortOrder
+    feeCashMgmtAnnual?: SortOrder
+    feeRateTrust?: SortOrder
   }
 
   export type BigIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -39747,7 +46742,23 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
-  export type IntNullableFilter<$PrismaModel = never> = {
+  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
     notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
@@ -39755,7 +46766,12 @@ export namespace Prisma {
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
   export type BigIntNullableFilter<$PrismaModel = never> = {
@@ -39767,17 +46783,6 @@ export namespace Prisma {
     gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
     gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
     not?: NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
-  }
-
-  export type FloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
   export type ProjectScalarRelationFilter = {
@@ -39801,17 +46806,7 @@ export namespace Prisma {
     none?: CustomerFundWhereInput
   }
 
-  export type ProjectKiTaskListRelationFilter = {
-    every?: ProjectKiTaskWhereInput
-    some?: ProjectKiTaskWhereInput
-    none?: ProjectKiTaskWhereInput
-  }
-
   export type CustomerFundOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type ProjectKiTaskOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -39878,6 +46873,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: SortOrder
     shihoTekiShishutsuJunbiKanjo?: SortOrder
     cashTrapJunbiKanjo?: SortOrder
+    interestCapContractKanjo?: SortOrder
     sonotaGenyokin?: SortOrder
     futuYokinTokiZandaka?: SortOrder
     zenkiKurikoshiRieki?: SortOrder
@@ -39891,17 +46887,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: SortOrder
     shintakuShuekiKazeiUriageShohizei?: SortOrder
     shintakuShuekiHikazeiUriage?: SortOrder
+    shintakuShuekiTaishogaiUriage?: SortOrder
     shintakuHiyoKazeiShiire?: SortOrder
     shintakuHiyoKazeiShiireShohizei?: SortOrder
     shintakuHiyoHikazeiShiire?: SortOrder
+    shintakuHiyoTaishogaiShiire?: SortOrder
     unitShintakuShuekiKazeiUriage?: SortOrder
     unitShintakuShuekiKazeiUriageShohizei?: SortOrder
     unitShintakuShuekiHikazeiUriage?: SortOrder
+    unitShintakuShuekiTaishogaiUriage?: SortOrder
     unitShintakuHiyoKazeiShiire?: SortOrder
     unitShintakuHiyoKazeiShiireShohizei?: SortOrder
     unitShintakuHiyoHikazeiShiire?: SortOrder
     unitShintakuHiyoKazeiShiireForNonInvoice?: SortOrder
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: SortOrder
+    unitShintakuHiyoTaishogaiShiire?: SortOrder
     kazeiUriageSashihiki08?: SortOrder
     kazeiUriageSashihiki10?: SortOrder
     kazeiUriageHontai08?: SortOrder
@@ -39963,6 +46963,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: SortOrder
     shihoTekiShishutsuJunbiKanjo?: SortOrder
     cashTrapJunbiKanjo?: SortOrder
+    interestCapContractKanjo?: SortOrder
     sonotaGenyokin?: SortOrder
     futuYokinTokiZandaka?: SortOrder
     zenkiKurikoshiRieki?: SortOrder
@@ -39976,17 +46977,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: SortOrder
     shintakuShuekiKazeiUriageShohizei?: SortOrder
     shintakuShuekiHikazeiUriage?: SortOrder
+    shintakuShuekiTaishogaiUriage?: SortOrder
     shintakuHiyoKazeiShiire?: SortOrder
     shintakuHiyoKazeiShiireShohizei?: SortOrder
     shintakuHiyoHikazeiShiire?: SortOrder
+    shintakuHiyoTaishogaiShiire?: SortOrder
     unitShintakuShuekiKazeiUriage?: SortOrder
     unitShintakuShuekiKazeiUriageShohizei?: SortOrder
     unitShintakuShuekiHikazeiUriage?: SortOrder
+    unitShintakuShuekiTaishogaiUriage?: SortOrder
     unitShintakuHiyoKazeiShiire?: SortOrder
     unitShintakuHiyoKazeiShiireShohizei?: SortOrder
     unitShintakuHiyoHikazeiShiire?: SortOrder
     unitShintakuHiyoKazeiShiireForNonInvoice?: SortOrder
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: SortOrder
+    unitShintakuHiyoTaishogaiShiire?: SortOrder
     kazeiUriageSashihiki08?: SortOrder
     kazeiUriageSashihiki10?: SortOrder
     kazeiUriageHontai08?: SortOrder
@@ -40056,6 +47061,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: SortOrder
     shihoTekiShishutsuJunbiKanjo?: SortOrder
     cashTrapJunbiKanjo?: SortOrder
+    interestCapContractKanjo?: SortOrder
     sonotaGenyokin?: SortOrder
     futuYokinTokiZandaka?: SortOrder
     zenkiKurikoshiRieki?: SortOrder
@@ -40069,17 +47075,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: SortOrder
     shintakuShuekiKazeiUriageShohizei?: SortOrder
     shintakuShuekiHikazeiUriage?: SortOrder
+    shintakuShuekiTaishogaiUriage?: SortOrder
     shintakuHiyoKazeiShiire?: SortOrder
     shintakuHiyoKazeiShiireShohizei?: SortOrder
     shintakuHiyoHikazeiShiire?: SortOrder
+    shintakuHiyoTaishogaiShiire?: SortOrder
     unitShintakuShuekiKazeiUriage?: SortOrder
     unitShintakuShuekiKazeiUriageShohizei?: SortOrder
     unitShintakuShuekiHikazeiUriage?: SortOrder
+    unitShintakuShuekiTaishogaiUriage?: SortOrder
     unitShintakuHiyoKazeiShiire?: SortOrder
     unitShintakuHiyoKazeiShiireShohizei?: SortOrder
     unitShintakuHiyoHikazeiShiire?: SortOrder
     unitShintakuHiyoKazeiShiireForNonInvoice?: SortOrder
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: SortOrder
+    unitShintakuHiyoTaishogaiShiire?: SortOrder
     kazeiUriageSashihiki08?: SortOrder
     kazeiUriageSashihiki10?: SortOrder
     kazeiUriageHontai08?: SortOrder
@@ -40155,6 +47165,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: SortOrder
     shihoTekiShishutsuJunbiKanjo?: SortOrder
     cashTrapJunbiKanjo?: SortOrder
+    interestCapContractKanjo?: SortOrder
     sonotaGenyokin?: SortOrder
     futuYokinTokiZandaka?: SortOrder
     zenkiKurikoshiRieki?: SortOrder
@@ -40168,17 +47179,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: SortOrder
     shintakuShuekiKazeiUriageShohizei?: SortOrder
     shintakuShuekiHikazeiUriage?: SortOrder
+    shintakuShuekiTaishogaiUriage?: SortOrder
     shintakuHiyoKazeiShiire?: SortOrder
     shintakuHiyoKazeiShiireShohizei?: SortOrder
     shintakuHiyoHikazeiShiire?: SortOrder
+    shintakuHiyoTaishogaiShiire?: SortOrder
     unitShintakuShuekiKazeiUriage?: SortOrder
     unitShintakuShuekiKazeiUriageShohizei?: SortOrder
     unitShintakuShuekiHikazeiUriage?: SortOrder
+    unitShintakuShuekiTaishogaiUriage?: SortOrder
     unitShintakuHiyoKazeiShiire?: SortOrder
     unitShintakuHiyoKazeiShiireShohizei?: SortOrder
     unitShintakuHiyoHikazeiShiire?: SortOrder
     unitShintakuHiyoKazeiShiireForNonInvoice?: SortOrder
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: SortOrder
+    unitShintakuHiyoTaishogaiShiire?: SortOrder
     kazeiUriageSashihiki08?: SortOrder
     kazeiUriageSashihiki10?: SortOrder
     kazeiUriageHontai08?: SortOrder
@@ -40240,6 +47255,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: SortOrder
     shihoTekiShishutsuJunbiKanjo?: SortOrder
     cashTrapJunbiKanjo?: SortOrder
+    interestCapContractKanjo?: SortOrder
     sonotaGenyokin?: SortOrder
     futuYokinTokiZandaka?: SortOrder
     zenkiKurikoshiRieki?: SortOrder
@@ -40253,17 +47269,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: SortOrder
     shintakuShuekiKazeiUriageShohizei?: SortOrder
     shintakuShuekiHikazeiUriage?: SortOrder
+    shintakuShuekiTaishogaiUriage?: SortOrder
     shintakuHiyoKazeiShiire?: SortOrder
     shintakuHiyoKazeiShiireShohizei?: SortOrder
     shintakuHiyoHikazeiShiire?: SortOrder
+    shintakuHiyoTaishogaiShiire?: SortOrder
     unitShintakuShuekiKazeiUriage?: SortOrder
     unitShintakuShuekiKazeiUriageShohizei?: SortOrder
     unitShintakuShuekiHikazeiUriage?: SortOrder
+    unitShintakuShuekiTaishogaiUriage?: SortOrder
     unitShintakuHiyoKazeiShiire?: SortOrder
     unitShintakuHiyoKazeiShiireShohizei?: SortOrder
     unitShintakuHiyoHikazeiShiire?: SortOrder
     unitShintakuHiyoKazeiShiireForNonInvoice?: SortOrder
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: SortOrder
+    unitShintakuHiyoTaishogaiShiire?: SortOrder
     kazeiUriageSashihiki08?: SortOrder
     kazeiUriageSashihiki10?: SortOrder
     kazeiUriageHontai08?: SortOrder
@@ -40280,22 +47300,6 @@ export namespace Prisma {
     koteiShisan80KojoNoTax?: SortOrder
   }
 
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
   export type BigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
     in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
@@ -40310,22 +47314,6 @@ export namespace Prisma {
     _sum?: NestedBigIntNullableFilter<$PrismaModel>
     _min?: NestedBigIntNullableFilter<$PrismaModel>
     _max?: NestedBigIntNullableFilter<$PrismaModel>
-  }
-
-  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedFloatNullableFilter<$PrismaModel>
-    _min?: NestedFloatNullableFilter<$PrismaModel>
-    _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
   export type EnumBSTypeFilter<$PrismaModel = never> = {
@@ -40919,6 +47907,34 @@ export namespace Prisma {
     _max?: NestedBytesNullableFilter<$PrismaModel>
   }
 
+  export type EnumDeadlineCategoryFilter<$PrismaModel = never> = {
+    equals?: $Enums.DeadlineCategory | EnumDeadlineCategoryFieldRefInput<$PrismaModel>
+    in?: $Enums.DeadlineCategory[] | ListEnumDeadlineCategoryFieldRefInput<$PrismaModel>
+    notIn?: $Enums.DeadlineCategory[] | ListEnumDeadlineCategoryFieldRefInput<$PrismaModel>
+    not?: NestedEnumDeadlineCategoryFilter<$PrismaModel> | $Enums.DeadlineCategory
+  }
+
+  export type EnumDocumentTypeNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.DocumentType | EnumDocumentTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.DocumentType[] | ListEnumDocumentTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.DocumentType[] | ListEnumDocumentTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumDocumentTypeNullableFilter<$PrismaModel> | $Enums.DocumentType | null
+  }
+
+  export type EnumReviewStepNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.ReviewStep | EnumReviewStepFieldRefInput<$PrismaModel> | null
+    in?: $Enums.ReviewStep[] | ListEnumReviewStepFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.ReviewStep[] | ListEnumReviewStepFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumReviewStepNullableFilter<$PrismaModel> | $Enums.ReviewStep | null
+  }
+
+  export type DeadlineTaskKiIdCategoryDocumentTypeReviewStepCompoundUniqueInput = {
+    kiId: string
+    category: $Enums.DeadlineCategory
+    documentType: $Enums.DocumentType
+    reviewStep: $Enums.ReviewStep
+  }
+
   export type DeadlineTaskCountOrderByAggregateInput = {
     id?: SortOrder
     kiId?: SortOrder
@@ -40926,6 +47942,9 @@ export namespace Prisma {
     dueDate?: SortOrder
     order?: SortOrder
     memo?: SortOrder
+    category?: SortOrder
+    documentType?: SortOrder
+    reviewStep?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -40945,6 +47964,9 @@ export namespace Prisma {
     dueDate?: SortOrder
     order?: SortOrder
     memo?: SortOrder
+    category?: SortOrder
+    documentType?: SortOrder
+    reviewStep?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -40960,6 +47982,9 @@ export namespace Prisma {
     dueDate?: SortOrder
     order?: SortOrder
     memo?: SortOrder
+    category?: SortOrder
+    documentType?: SortOrder
+    reviewStep?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -40970,6 +47995,43 @@ export namespace Prisma {
 
   export type DeadlineTaskSumOrderByAggregateInput = {
     order?: SortOrder
+  }
+
+  export type EnumDeadlineCategoryWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.DeadlineCategory | EnumDeadlineCategoryFieldRefInput<$PrismaModel>
+    in?: $Enums.DeadlineCategory[] | ListEnumDeadlineCategoryFieldRefInput<$PrismaModel>
+    notIn?: $Enums.DeadlineCategory[] | ListEnumDeadlineCategoryFieldRefInput<$PrismaModel>
+    not?: NestedEnumDeadlineCategoryWithAggregatesFilter<$PrismaModel> | $Enums.DeadlineCategory
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumDeadlineCategoryFilter<$PrismaModel>
+    _max?: NestedEnumDeadlineCategoryFilter<$PrismaModel>
+  }
+
+  export type EnumDocumentTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.DocumentType | EnumDocumentTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.DocumentType[] | ListEnumDocumentTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.DocumentType[] | ListEnumDocumentTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumDocumentTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.DocumentType | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumDocumentTypeNullableFilter<$PrismaModel>
+    _max?: NestedEnumDocumentTypeNullableFilter<$PrismaModel>
+  }
+
+  export type EnumReviewStepNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.ReviewStep | EnumReviewStepFieldRefInput<$PrismaModel> | null
+    in?: $Enums.ReviewStep[] | ListEnumReviewStepFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.ReviewStep[] | ListEnumReviewStepFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumReviewStepNullableWithAggregatesFilter<$PrismaModel> | $Enums.ReviewStep | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumReviewStepNullableFilter<$PrismaModel>
+    _max?: NestedEnumReviewStepNullableFilter<$PrismaModel>
+  }
+
+  export type EnumProjectKiTaskStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.ProjectKiTaskStatus | EnumProjectKiTaskStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.ProjectKiTaskStatus[] | ListEnumProjectKiTaskStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ProjectKiTaskStatus[] | ListEnumProjectKiTaskStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumProjectKiTaskStatusFilter<$PrismaModel> | $Enums.ProjectKiTaskStatus
   }
 
   export type DeadlineTaskScalarRelationFilter = {
@@ -40991,7 +48053,9 @@ export namespace Prisma {
     id?: SortOrder
     deadlineTaskId?: SortOrder
     projectKiId?: SortOrder
-    isCompleted?: SortOrder
+    status?: SortOrder
+    note?: SortOrder
+    checkerUserId?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -41004,7 +48068,9 @@ export namespace Prisma {
     id?: SortOrder
     deadlineTaskId?: SortOrder
     projectKiId?: SortOrder
-    isCompleted?: SortOrder
+    status?: SortOrder
+    note?: SortOrder
+    checkerUserId?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -41017,13 +48083,25 @@ export namespace Prisma {
     id?: SortOrder
     deadlineTaskId?: SortOrder
     projectKiId?: SortOrder
-    isCompleted?: SortOrder
+    status?: SortOrder
+    note?: SortOrder
+    checkerUserId?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
     updatedAt?: SortOrder
     updatedId?: SortOrder
     updatedBy?: SortOrder
+  }
+
+  export type EnumProjectKiTaskStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.ProjectKiTaskStatus | EnumProjectKiTaskStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.ProjectKiTaskStatus[] | ListEnumProjectKiTaskStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ProjectKiTaskStatus[] | ListEnumProjectKiTaskStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumProjectKiTaskStatusWithAggregatesFilter<$PrismaModel> | $Enums.ProjectKiTaskStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumProjectKiTaskStatusFilter<$PrismaModel>
+    _max?: NestedEnumProjectKiTaskStatusFilter<$PrismaModel>
   }
 
   export type EnumCustomerTypeFilter<$PrismaModel = never> = {
@@ -41045,6 +48123,26 @@ export namespace Prisma {
     in?: $Enums.HoryuStatusType[] | ListEnumHoryuStatusTypeFieldRefInput<$PrismaModel> | null
     notIn?: $Enums.HoryuStatusType[] | ListEnumHoryuStatusTypeFieldRefInput<$PrismaModel> | null
     not?: NestedEnumHoryuStatusTypeNullableFilter<$PrismaModel> | $Enums.HoryuStatusType | null
+  }
+
+  export type CustomerChangeLogListRelationFilter = {
+    every?: CustomerChangeLogWhereInput
+    some?: CustomerChangeLogWhereInput
+    none?: CustomerChangeLogWhereInput
+  }
+
+  export type CustomerFundChangeLogListRelationFilter = {
+    every?: CustomerFundChangeLogWhereInput
+    some?: CustomerFundChangeLogWhereInput
+    none?: CustomerFundChangeLogWhereInput
+  }
+
+  export type CustomerChangeLogOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CustomerFundChangeLogOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type CustomerCountOrderByAggregateInput = {
@@ -41370,6 +48468,299 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumCustomerFundStatusFilter<$PrismaModel>
     _max?: NestedEnumCustomerFundStatusFilter<$PrismaModel>
+  }
+
+  export type EnumBatchStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.BatchStatus | EnumBatchStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.BatchStatus[] | ListEnumBatchStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.BatchStatus[] | ListEnumBatchStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumBatchStatusFilter<$PrismaModel> | $Enums.BatchStatus
+  }
+
+  export type CustomerUploadBatchCountOrderByAggregateInput = {
+    id?: SortOrder
+    fileName?: SortOrder
+    kiId?: SortOrder
+    uploaderId?: SortOrder
+    uploaderType?: SortOrder
+    uploaderName?: SortOrder
+    ipAddress?: SortOrder
+    status?: SortOrder
+    targetProjectCount?: SortOrder
+    committedProjectCount?: SortOrder
+    customerCreatedCount?: SortOrder
+    customerUpdatedCount?: SortOrder
+    customerUnchangedCount?: SortOrder
+    fundCreatedCount?: SortOrder
+    fundUpdatedCount?: SortOrder
+    fundDeletedCount?: SortOrder
+    fundUnchangedCount?: SortOrder
+    pretreatmentAt?: SortOrder
+    committedAt?: SortOrder
+    mailSentAt?: SortOrder
+  }
+
+  export type CustomerUploadBatchAvgOrderByAggregateInput = {
+    targetProjectCount?: SortOrder
+    committedProjectCount?: SortOrder
+    customerCreatedCount?: SortOrder
+    customerUpdatedCount?: SortOrder
+    customerUnchangedCount?: SortOrder
+    fundCreatedCount?: SortOrder
+    fundUpdatedCount?: SortOrder
+    fundDeletedCount?: SortOrder
+    fundUnchangedCount?: SortOrder
+  }
+
+  export type CustomerUploadBatchMaxOrderByAggregateInput = {
+    id?: SortOrder
+    fileName?: SortOrder
+    kiId?: SortOrder
+    uploaderId?: SortOrder
+    uploaderType?: SortOrder
+    uploaderName?: SortOrder
+    ipAddress?: SortOrder
+    status?: SortOrder
+    targetProjectCount?: SortOrder
+    committedProjectCount?: SortOrder
+    customerCreatedCount?: SortOrder
+    customerUpdatedCount?: SortOrder
+    customerUnchangedCount?: SortOrder
+    fundCreatedCount?: SortOrder
+    fundUpdatedCount?: SortOrder
+    fundDeletedCount?: SortOrder
+    fundUnchangedCount?: SortOrder
+    pretreatmentAt?: SortOrder
+    committedAt?: SortOrder
+    mailSentAt?: SortOrder
+  }
+
+  export type CustomerUploadBatchMinOrderByAggregateInput = {
+    id?: SortOrder
+    fileName?: SortOrder
+    kiId?: SortOrder
+    uploaderId?: SortOrder
+    uploaderType?: SortOrder
+    uploaderName?: SortOrder
+    ipAddress?: SortOrder
+    status?: SortOrder
+    targetProjectCount?: SortOrder
+    committedProjectCount?: SortOrder
+    customerCreatedCount?: SortOrder
+    customerUpdatedCount?: SortOrder
+    customerUnchangedCount?: SortOrder
+    fundCreatedCount?: SortOrder
+    fundUpdatedCount?: SortOrder
+    fundDeletedCount?: SortOrder
+    fundUnchangedCount?: SortOrder
+    pretreatmentAt?: SortOrder
+    committedAt?: SortOrder
+    mailSentAt?: SortOrder
+  }
+
+  export type CustomerUploadBatchSumOrderByAggregateInput = {
+    targetProjectCount?: SortOrder
+    committedProjectCount?: SortOrder
+    customerCreatedCount?: SortOrder
+    customerUpdatedCount?: SortOrder
+    customerUnchangedCount?: SortOrder
+    fundCreatedCount?: SortOrder
+    fundUpdatedCount?: SortOrder
+    fundDeletedCount?: SortOrder
+    fundUnchangedCount?: SortOrder
+  }
+
+  export type EnumBatchStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.BatchStatus | EnumBatchStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.BatchStatus[] | ListEnumBatchStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.BatchStatus[] | ListEnumBatchStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumBatchStatusWithAggregatesFilter<$PrismaModel> | $Enums.BatchStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumBatchStatusFilter<$PrismaModel>
+    _max?: NestedEnumBatchStatusFilter<$PrismaModel>
+  }
+
+  export type CustomerUploadBatchScalarRelationFilter = {
+    is?: CustomerUploadBatchWhereInput
+    isNot?: CustomerUploadBatchWhereInput
+  }
+
+  export type CustomerUploadBatchProjectBatchIdProjectIdCompoundUniqueInput = {
+    batchId: string
+    projectId: string
+  }
+
+  export type CustomerUploadBatchProjectCountOrderByAggregateInput = {
+    id?: SortOrder
+    batchId?: SortOrder
+    projectId?: SortOrder
+    committedAt?: SortOrder
+  }
+
+  export type CustomerUploadBatchProjectMaxOrderByAggregateInput = {
+    id?: SortOrder
+    batchId?: SortOrder
+    projectId?: SortOrder
+    committedAt?: SortOrder
+  }
+
+  export type CustomerUploadBatchProjectMinOrderByAggregateInput = {
+    id?: SortOrder
+    batchId?: SortOrder
+    projectId?: SortOrder
+    committedAt?: SortOrder
+  }
+
+  export type EnumChangeSourceFilter<$PrismaModel = never> = {
+    equals?: $Enums.ChangeSource | EnumChangeSourceFieldRefInput<$PrismaModel>
+    in?: $Enums.ChangeSource[] | ListEnumChangeSourceFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ChangeSource[] | ListEnumChangeSourceFieldRefInput<$PrismaModel>
+    not?: NestedEnumChangeSourceFilter<$PrismaModel> | $Enums.ChangeSource
+  }
+
+  export type EnumChangeOperationFilter<$PrismaModel = never> = {
+    equals?: $Enums.ChangeOperation | EnumChangeOperationFieldRefInput<$PrismaModel>
+    in?: $Enums.ChangeOperation[] | ListEnumChangeOperationFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ChangeOperation[] | ListEnumChangeOperationFieldRefInput<$PrismaModel>
+    not?: NestedEnumChangeOperationFilter<$PrismaModel> | $Enums.ChangeOperation
+  }
+  export type JsonFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type CustomerUploadBatchNullableScalarRelationFilter = {
+    is?: CustomerUploadBatchWhereInput | null
+    isNot?: CustomerUploadBatchWhereInput | null
+  }
+
+  export type CustomerChangeLogCountOrderByAggregateInput = {
+    id?: SortOrder
+    source?: SortOrder
+    batchId?: SortOrder
+    customerId?: SortOrder
+    operation?: SortOrder
+    changedFields?: SortOrder
+    beforeSnapshot?: SortOrder
+    afterSnapshot?: SortOrder
+    rawRow?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type CustomerChangeLogMaxOrderByAggregateInput = {
+    id?: SortOrder
+    source?: SortOrder
+    batchId?: SortOrder
+    customerId?: SortOrder
+    operation?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type CustomerChangeLogMinOrderByAggregateInput = {
+    id?: SortOrder
+    source?: SortOrder
+    batchId?: SortOrder
+    customerId?: SortOrder
+    operation?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type EnumChangeSourceWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.ChangeSource | EnumChangeSourceFieldRefInput<$PrismaModel>
+    in?: $Enums.ChangeSource[] | ListEnumChangeSourceFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ChangeSource[] | ListEnumChangeSourceFieldRefInput<$PrismaModel>
+    not?: NestedEnumChangeSourceWithAggregatesFilter<$PrismaModel> | $Enums.ChangeSource
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumChangeSourceFilter<$PrismaModel>
+    _max?: NestedEnumChangeSourceFilter<$PrismaModel>
+  }
+
+  export type EnumChangeOperationWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.ChangeOperation | EnumChangeOperationFieldRefInput<$PrismaModel>
+    in?: $Enums.ChangeOperation[] | ListEnumChangeOperationFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ChangeOperation[] | ListEnumChangeOperationFieldRefInput<$PrismaModel>
+    not?: NestedEnumChangeOperationWithAggregatesFilter<$PrismaModel> | $Enums.ChangeOperation
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumChangeOperationFilter<$PrismaModel>
+    _max?: NestedEnumChangeOperationFilter<$PrismaModel>
+  }
+  export type JsonWithAggregatesFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedJsonFilter<$PrismaModel>
+    _max?: NestedJsonFilter<$PrismaModel>
+  }
+
+  export type CustomerFundChangeLogCountOrderByAggregateInput = {
+    id?: SortOrder
+    source?: SortOrder
+    batchId?: SortOrder
+    customerId?: SortOrder
+    customerFundId?: SortOrder
+    operation?: SortOrder
+    changedFields?: SortOrder
+    beforeSnapshot?: SortOrder
+    afterSnapshot?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type CustomerFundChangeLogMaxOrderByAggregateInput = {
+    id?: SortOrder
+    source?: SortOrder
+    batchId?: SortOrder
+    customerId?: SortOrder
+    customerFundId?: SortOrder
+    operation?: SortOrder
+    createdAt?: SortOrder
+  }
+
+  export type CustomerFundChangeLogMinOrderByAggregateInput = {
+    id?: SortOrder
+    source?: SortOrder
+    batchId?: SortOrder
+    customerId?: SortOrder
+    customerFundId?: SortOrder
+    operation?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type EnumExtTypeFilter<$PrismaModel = never> = {
@@ -41735,6 +49126,13 @@ export namespace Prisma {
     connect?: ProjectKiWhereUniqueInput | ProjectKiWhereUniqueInput[]
   }
 
+  export type ProjectKiTaskCreateNestedManyWithoutCheckerInput = {
+    create?: XOR<ProjectKiTaskCreateWithoutCheckerInput, ProjectKiTaskUncheckedCreateWithoutCheckerInput> | ProjectKiTaskCreateWithoutCheckerInput[] | ProjectKiTaskUncheckedCreateWithoutCheckerInput[]
+    connectOrCreate?: ProjectKiTaskCreateOrConnectWithoutCheckerInput | ProjectKiTaskCreateOrConnectWithoutCheckerInput[]
+    createMany?: ProjectKiTaskCreateManyCheckerInputEnvelope
+    connect?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
+  }
+
   export type ProjectKiUncheckedCreateNestedManyWithoutMainUserInput = {
     create?: XOR<ProjectKiCreateWithoutMainUserInput, ProjectKiUncheckedCreateWithoutMainUserInput> | ProjectKiCreateWithoutMainUserInput[] | ProjectKiUncheckedCreateWithoutMainUserInput[]
     connectOrCreate?: ProjectKiCreateOrConnectWithoutMainUserInput | ProjectKiCreateOrConnectWithoutMainUserInput[]
@@ -41747,6 +49145,13 @@ export namespace Prisma {
     connectOrCreate?: ProjectKiCreateOrConnectWithoutSubUserInput | ProjectKiCreateOrConnectWithoutSubUserInput[]
     createMany?: ProjectKiCreateManySubUserInputEnvelope
     connect?: ProjectKiWhereUniqueInput | ProjectKiWhereUniqueInput[]
+  }
+
+  export type ProjectKiTaskUncheckedCreateNestedManyWithoutCheckerInput = {
+    create?: XOR<ProjectKiTaskCreateWithoutCheckerInput, ProjectKiTaskUncheckedCreateWithoutCheckerInput> | ProjectKiTaskCreateWithoutCheckerInput[] | ProjectKiTaskUncheckedCreateWithoutCheckerInput[]
+    connectOrCreate?: ProjectKiTaskCreateOrConnectWithoutCheckerInput | ProjectKiTaskCreateOrConnectWithoutCheckerInput[]
+    createMany?: ProjectKiTaskCreateManyCheckerInputEnvelope
+    connect?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -41801,6 +49206,20 @@ export namespace Prisma {
     deleteMany?: ProjectKiScalarWhereInput | ProjectKiScalarWhereInput[]
   }
 
+  export type ProjectKiTaskUpdateManyWithoutCheckerNestedInput = {
+    create?: XOR<ProjectKiTaskCreateWithoutCheckerInput, ProjectKiTaskUncheckedCreateWithoutCheckerInput> | ProjectKiTaskCreateWithoutCheckerInput[] | ProjectKiTaskUncheckedCreateWithoutCheckerInput[]
+    connectOrCreate?: ProjectKiTaskCreateOrConnectWithoutCheckerInput | ProjectKiTaskCreateOrConnectWithoutCheckerInput[]
+    upsert?: ProjectKiTaskUpsertWithWhereUniqueWithoutCheckerInput | ProjectKiTaskUpsertWithWhereUniqueWithoutCheckerInput[]
+    createMany?: ProjectKiTaskCreateManyCheckerInputEnvelope
+    set?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
+    disconnect?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
+    delete?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
+    connect?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
+    update?: ProjectKiTaskUpdateWithWhereUniqueWithoutCheckerInput | ProjectKiTaskUpdateWithWhereUniqueWithoutCheckerInput[]
+    updateMany?: ProjectKiTaskUpdateManyWithWhereWithoutCheckerInput | ProjectKiTaskUpdateManyWithWhereWithoutCheckerInput[]
+    deleteMany?: ProjectKiTaskScalarWhereInput | ProjectKiTaskScalarWhereInput[]
+  }
+
   export type ProjectKiUncheckedUpdateManyWithoutMainUserNestedInput = {
     create?: XOR<ProjectKiCreateWithoutMainUserInput, ProjectKiUncheckedCreateWithoutMainUserInput> | ProjectKiCreateWithoutMainUserInput[] | ProjectKiUncheckedCreateWithoutMainUserInput[]
     connectOrCreate?: ProjectKiCreateOrConnectWithoutMainUserInput | ProjectKiCreateOrConnectWithoutMainUserInput[]
@@ -41829,6 +49248,20 @@ export namespace Prisma {
     deleteMany?: ProjectKiScalarWhereInput | ProjectKiScalarWhereInput[]
   }
 
+  export type ProjectKiTaskUncheckedUpdateManyWithoutCheckerNestedInput = {
+    create?: XOR<ProjectKiTaskCreateWithoutCheckerInput, ProjectKiTaskUncheckedCreateWithoutCheckerInput> | ProjectKiTaskCreateWithoutCheckerInput[] | ProjectKiTaskUncheckedCreateWithoutCheckerInput[]
+    connectOrCreate?: ProjectKiTaskCreateOrConnectWithoutCheckerInput | ProjectKiTaskCreateOrConnectWithoutCheckerInput[]
+    upsert?: ProjectKiTaskUpsertWithWhereUniqueWithoutCheckerInput | ProjectKiTaskUpsertWithWhereUniqueWithoutCheckerInput[]
+    createMany?: ProjectKiTaskCreateManyCheckerInputEnvelope
+    set?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
+    disconnect?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
+    delete?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
+    connect?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
+    update?: ProjectKiTaskUpdateWithWhereUniqueWithoutCheckerInput | ProjectKiTaskUpdateWithWhereUniqueWithoutCheckerInput[]
+    updateMany?: ProjectKiTaskUpdateManyWithWhereWithoutCheckerInput | ProjectKiTaskUpdateManyWithWhereWithoutCheckerInput[]
+    deleteMany?: ProjectKiTaskScalarWhereInput | ProjectKiTaskScalarWhereInput[]
+  }
+
   export type ProjectKiCreateNestedManyWithoutKiInput = {
     create?: XOR<ProjectKiCreateWithoutKiInput, ProjectKiUncheckedCreateWithoutKiInput> | ProjectKiCreateWithoutKiInput[] | ProjectKiUncheckedCreateWithoutKiInput[]
     connectOrCreate?: ProjectKiCreateOrConnectWithoutKiInput | ProjectKiCreateOrConnectWithoutKiInput[]
@@ -41850,6 +49283,13 @@ export namespace Prisma {
     connect?: DeadlineTaskWhereUniqueInput | DeadlineTaskWhereUniqueInput[]
   }
 
+  export type CustomerUploadBatchCreateNestedManyWithoutKiInput = {
+    create?: XOR<CustomerUploadBatchCreateWithoutKiInput, CustomerUploadBatchUncheckedCreateWithoutKiInput> | CustomerUploadBatchCreateWithoutKiInput[] | CustomerUploadBatchUncheckedCreateWithoutKiInput[]
+    connectOrCreate?: CustomerUploadBatchCreateOrConnectWithoutKiInput | CustomerUploadBatchCreateOrConnectWithoutKiInput[]
+    createMany?: CustomerUploadBatchCreateManyKiInputEnvelope
+    connect?: CustomerUploadBatchWhereUniqueInput | CustomerUploadBatchWhereUniqueInput[]
+  }
+
   export type ProjectKiUncheckedCreateNestedManyWithoutKiInput = {
     create?: XOR<ProjectKiCreateWithoutKiInput, ProjectKiUncheckedCreateWithoutKiInput> | ProjectKiCreateWithoutKiInput[] | ProjectKiUncheckedCreateWithoutKiInput[]
     connectOrCreate?: ProjectKiCreateOrConnectWithoutKiInput | ProjectKiCreateOrConnectWithoutKiInput[]
@@ -41869,6 +49309,13 @@ export namespace Prisma {
     connectOrCreate?: DeadlineTaskCreateOrConnectWithoutKiInput | DeadlineTaskCreateOrConnectWithoutKiInput[]
     createMany?: DeadlineTaskCreateManyKiInputEnvelope
     connect?: DeadlineTaskWhereUniqueInput | DeadlineTaskWhereUniqueInput[]
+  }
+
+  export type CustomerUploadBatchUncheckedCreateNestedManyWithoutKiInput = {
+    create?: XOR<CustomerUploadBatchCreateWithoutKiInput, CustomerUploadBatchUncheckedCreateWithoutKiInput> | CustomerUploadBatchCreateWithoutKiInput[] | CustomerUploadBatchUncheckedCreateWithoutKiInput[]
+    connectOrCreate?: CustomerUploadBatchCreateOrConnectWithoutKiInput | CustomerUploadBatchCreateOrConnectWithoutKiInput[]
+    createMany?: CustomerUploadBatchCreateManyKiInputEnvelope
+    connect?: CustomerUploadBatchWhereUniqueInput | CustomerUploadBatchWhereUniqueInput[]
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -41925,6 +49372,20 @@ export namespace Prisma {
     deleteMany?: DeadlineTaskScalarWhereInput | DeadlineTaskScalarWhereInput[]
   }
 
+  export type CustomerUploadBatchUpdateManyWithoutKiNestedInput = {
+    create?: XOR<CustomerUploadBatchCreateWithoutKiInput, CustomerUploadBatchUncheckedCreateWithoutKiInput> | CustomerUploadBatchCreateWithoutKiInput[] | CustomerUploadBatchUncheckedCreateWithoutKiInput[]
+    connectOrCreate?: CustomerUploadBatchCreateOrConnectWithoutKiInput | CustomerUploadBatchCreateOrConnectWithoutKiInput[]
+    upsert?: CustomerUploadBatchUpsertWithWhereUniqueWithoutKiInput | CustomerUploadBatchUpsertWithWhereUniqueWithoutKiInput[]
+    createMany?: CustomerUploadBatchCreateManyKiInputEnvelope
+    set?: CustomerUploadBatchWhereUniqueInput | CustomerUploadBatchWhereUniqueInput[]
+    disconnect?: CustomerUploadBatchWhereUniqueInput | CustomerUploadBatchWhereUniqueInput[]
+    delete?: CustomerUploadBatchWhereUniqueInput | CustomerUploadBatchWhereUniqueInput[]
+    connect?: CustomerUploadBatchWhereUniqueInput | CustomerUploadBatchWhereUniqueInput[]
+    update?: CustomerUploadBatchUpdateWithWhereUniqueWithoutKiInput | CustomerUploadBatchUpdateWithWhereUniqueWithoutKiInput[]
+    updateMany?: CustomerUploadBatchUpdateManyWithWhereWithoutKiInput | CustomerUploadBatchUpdateManyWithWhereWithoutKiInput[]
+    deleteMany?: CustomerUploadBatchScalarWhereInput | CustomerUploadBatchScalarWhereInput[]
+  }
+
   export type ProjectKiUncheckedUpdateManyWithoutKiNestedInput = {
     create?: XOR<ProjectKiCreateWithoutKiInput, ProjectKiUncheckedCreateWithoutKiInput> | ProjectKiCreateWithoutKiInput[] | ProjectKiUncheckedCreateWithoutKiInput[]
     connectOrCreate?: ProjectKiCreateOrConnectWithoutKiInput | ProjectKiCreateOrConnectWithoutKiInput[]
@@ -41965,6 +49426,20 @@ export namespace Prisma {
     update?: DeadlineTaskUpdateWithWhereUniqueWithoutKiInput | DeadlineTaskUpdateWithWhereUniqueWithoutKiInput[]
     updateMany?: DeadlineTaskUpdateManyWithWhereWithoutKiInput | DeadlineTaskUpdateManyWithWhereWithoutKiInput[]
     deleteMany?: DeadlineTaskScalarWhereInput | DeadlineTaskScalarWhereInput[]
+  }
+
+  export type CustomerUploadBatchUncheckedUpdateManyWithoutKiNestedInput = {
+    create?: XOR<CustomerUploadBatchCreateWithoutKiInput, CustomerUploadBatchUncheckedCreateWithoutKiInput> | CustomerUploadBatchCreateWithoutKiInput[] | CustomerUploadBatchUncheckedCreateWithoutKiInput[]
+    connectOrCreate?: CustomerUploadBatchCreateOrConnectWithoutKiInput | CustomerUploadBatchCreateOrConnectWithoutKiInput[]
+    upsert?: CustomerUploadBatchUpsertWithWhereUniqueWithoutKiInput | CustomerUploadBatchUpsertWithWhereUniqueWithoutKiInput[]
+    createMany?: CustomerUploadBatchCreateManyKiInputEnvelope
+    set?: CustomerUploadBatchWhereUniqueInput | CustomerUploadBatchWhereUniqueInput[]
+    disconnect?: CustomerUploadBatchWhereUniqueInput | CustomerUploadBatchWhereUniqueInput[]
+    delete?: CustomerUploadBatchWhereUniqueInput | CustomerUploadBatchWhereUniqueInput[]
+    connect?: CustomerUploadBatchWhereUniqueInput | CustomerUploadBatchWhereUniqueInput[]
+    update?: CustomerUploadBatchUpdateWithWhereUniqueWithoutKiInput | CustomerUploadBatchUpdateWithWhereUniqueWithoutKiInput[]
+    updateMany?: CustomerUploadBatchUpdateManyWithWhereWithoutKiInput | CustomerUploadBatchUpdateManyWithWhereWithoutKiInput[]
+    deleteMany?: CustomerUploadBatchScalarWhereInput | CustomerUploadBatchScalarWhereInput[]
   }
 
   export type TemplateCreateNestedOneWithoutReportMainProjectsInput = {
@@ -42018,6 +49493,13 @@ export namespace Prisma {
     connect?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
   }
 
+  export type CustomerUploadBatchProjectCreateNestedManyWithoutProjectInput = {
+    create?: XOR<CustomerUploadBatchProjectCreateWithoutProjectInput, CustomerUploadBatchProjectUncheckedCreateWithoutProjectInput> | CustomerUploadBatchProjectCreateWithoutProjectInput[] | CustomerUploadBatchProjectUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: CustomerUploadBatchProjectCreateOrConnectWithoutProjectInput | CustomerUploadBatchProjectCreateOrConnectWithoutProjectInput[]
+    createMany?: CustomerUploadBatchProjectCreateManyProjectInputEnvelope
+    connect?: CustomerUploadBatchProjectWhereUniqueInput | CustomerUploadBatchProjectWhereUniqueInput[]
+  }
+
   export type ProjectKiUncheckedCreateNestedManyWithoutProjectInput = {
     create?: XOR<ProjectKiCreateWithoutProjectInput, ProjectKiUncheckedCreateWithoutProjectInput> | ProjectKiCreateWithoutProjectInput[] | ProjectKiUncheckedCreateWithoutProjectInput[]
     connectOrCreate?: ProjectKiCreateOrConnectWithoutProjectInput | ProjectKiCreateOrConnectWithoutProjectInput[]
@@ -42039,6 +49521,13 @@ export namespace Prisma {
     connect?: CustomerWhereUniqueInput | CustomerWhereUniqueInput[]
   }
 
+  export type CustomerUploadBatchProjectUncheckedCreateNestedManyWithoutProjectInput = {
+    create?: XOR<CustomerUploadBatchProjectCreateWithoutProjectInput, CustomerUploadBatchProjectUncheckedCreateWithoutProjectInput> | CustomerUploadBatchProjectCreateWithoutProjectInput[] | CustomerUploadBatchProjectUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: CustomerUploadBatchProjectCreateOrConnectWithoutProjectInput | CustomerUploadBatchProjectCreateOrConnectWithoutProjectInput[]
+    createMany?: CustomerUploadBatchProjectCreateManyProjectInputEnvelope
+    connect?: CustomerUploadBatchProjectWhereUniqueInput | CustomerUploadBatchProjectWhereUniqueInput[]
+  }
+
   export type BigIntFieldUpdateOperationsInput = {
     set?: bigint | number
     increment?: bigint | number
@@ -42049,6 +49538,22 @@ export namespace Prisma {
 
   export type FloatFieldUpdateOperationsInput = {
     set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type NullableFloatFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
     increment?: number
     decrement?: number
     multiply?: number
@@ -42147,6 +49652,20 @@ export namespace Prisma {
     deleteMany?: CustomerScalarWhereInput | CustomerScalarWhereInput[]
   }
 
+  export type CustomerUploadBatchProjectUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<CustomerUploadBatchProjectCreateWithoutProjectInput, CustomerUploadBatchProjectUncheckedCreateWithoutProjectInput> | CustomerUploadBatchProjectCreateWithoutProjectInput[] | CustomerUploadBatchProjectUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: CustomerUploadBatchProjectCreateOrConnectWithoutProjectInput | CustomerUploadBatchProjectCreateOrConnectWithoutProjectInput[]
+    upsert?: CustomerUploadBatchProjectUpsertWithWhereUniqueWithoutProjectInput | CustomerUploadBatchProjectUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: CustomerUploadBatchProjectCreateManyProjectInputEnvelope
+    set?: CustomerUploadBatchProjectWhereUniqueInput | CustomerUploadBatchProjectWhereUniqueInput[]
+    disconnect?: CustomerUploadBatchProjectWhereUniqueInput | CustomerUploadBatchProjectWhereUniqueInput[]
+    delete?: CustomerUploadBatchProjectWhereUniqueInput | CustomerUploadBatchProjectWhereUniqueInput[]
+    connect?: CustomerUploadBatchProjectWhereUniqueInput | CustomerUploadBatchProjectWhereUniqueInput[]
+    update?: CustomerUploadBatchProjectUpdateWithWhereUniqueWithoutProjectInput | CustomerUploadBatchProjectUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: CustomerUploadBatchProjectUpdateManyWithWhereWithoutProjectInput | CustomerUploadBatchProjectUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: CustomerUploadBatchProjectScalarWhereInput | CustomerUploadBatchProjectScalarWhereInput[]
+  }
+
   export type ProjectKiUncheckedUpdateManyWithoutProjectNestedInput = {
     create?: XOR<ProjectKiCreateWithoutProjectInput, ProjectKiUncheckedCreateWithoutProjectInput> | ProjectKiCreateWithoutProjectInput[] | ProjectKiUncheckedCreateWithoutProjectInput[]
     connectOrCreate?: ProjectKiCreateOrConnectWithoutProjectInput | ProjectKiCreateOrConnectWithoutProjectInput[]
@@ -42187,6 +49706,20 @@ export namespace Prisma {
     update?: CustomerUpdateWithWhereUniqueWithoutProjectInput | CustomerUpdateWithWhereUniqueWithoutProjectInput[]
     updateMany?: CustomerUpdateManyWithWhereWithoutProjectInput | CustomerUpdateManyWithWhereWithoutProjectInput[]
     deleteMany?: CustomerScalarWhereInput | CustomerScalarWhereInput[]
+  }
+
+  export type CustomerUploadBatchProjectUncheckedUpdateManyWithoutProjectNestedInput = {
+    create?: XOR<CustomerUploadBatchProjectCreateWithoutProjectInput, CustomerUploadBatchProjectUncheckedCreateWithoutProjectInput> | CustomerUploadBatchProjectCreateWithoutProjectInput[] | CustomerUploadBatchProjectUncheckedCreateWithoutProjectInput[]
+    connectOrCreate?: CustomerUploadBatchProjectCreateOrConnectWithoutProjectInput | CustomerUploadBatchProjectCreateOrConnectWithoutProjectInput[]
+    upsert?: CustomerUploadBatchProjectUpsertWithWhereUniqueWithoutProjectInput | CustomerUploadBatchProjectUpsertWithWhereUniqueWithoutProjectInput[]
+    createMany?: CustomerUploadBatchProjectCreateManyProjectInputEnvelope
+    set?: CustomerUploadBatchProjectWhereUniqueInput | CustomerUploadBatchProjectWhereUniqueInput[]
+    disconnect?: CustomerUploadBatchProjectWhereUniqueInput | CustomerUploadBatchProjectWhereUniqueInput[]
+    delete?: CustomerUploadBatchProjectWhereUniqueInput | CustomerUploadBatchProjectWhereUniqueInput[]
+    connect?: CustomerUploadBatchProjectWhereUniqueInput | CustomerUploadBatchProjectWhereUniqueInput[]
+    update?: CustomerUploadBatchProjectUpdateWithWhereUniqueWithoutProjectInput | CustomerUploadBatchProjectUpdateWithWhereUniqueWithoutProjectInput[]
+    updateMany?: CustomerUploadBatchProjectUpdateManyWithWhereWithoutProjectInput | CustomerUploadBatchProjectUpdateManyWithWhereWithoutProjectInput[]
+    deleteMany?: CustomerUploadBatchProjectScalarWhereInput | CustomerUploadBatchProjectScalarWhereInput[]
   }
 
   export type ProjectCreateNestedOneWithoutProjectKisInput = {
@@ -42241,28 +49774,12 @@ export namespace Prisma {
     connect?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
   }
 
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
   export type NullableBigIntFieldUpdateOperationsInput = {
     set?: bigint | number | null
     increment?: bigint | number
     decrement?: bigint | number
     multiply?: bigint | number
     divide?: bigint | number
-  }
-
-  export type NullableFloatFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
   }
 
   export type ProjectUpdateOneRequiredWithoutProjectKisNestedInput = {
@@ -42473,6 +49990,18 @@ export namespace Prisma {
     connect?: ProjectKiTaskWhereUniqueInput | ProjectKiTaskWhereUniqueInput[]
   }
 
+  export type EnumDeadlineCategoryFieldUpdateOperationsInput = {
+    set?: $Enums.DeadlineCategory
+  }
+
+  export type NullableEnumDocumentTypeFieldUpdateOperationsInput = {
+    set?: $Enums.DocumentType | null
+  }
+
+  export type NullableEnumReviewStepFieldUpdateOperationsInput = {
+    set?: $Enums.ReviewStep | null
+  }
+
   export type KiUpdateOneRequiredWithoutDeadlineTasksNestedInput = {
     create?: XOR<KiCreateWithoutDeadlineTasksInput, KiUncheckedCreateWithoutDeadlineTasksInput>
     connectOrCreate?: KiCreateOrConnectWithoutDeadlineTasksInput
@@ -42521,6 +50050,16 @@ export namespace Prisma {
     connect?: ProjectKiWhereUniqueInput
   }
 
+  export type UserCreateNestedOneWithoutCheckerProjectKiTasksInput = {
+    create?: XOR<UserCreateWithoutCheckerProjectKiTasksInput, UserUncheckedCreateWithoutCheckerProjectKiTasksInput>
+    connectOrCreate?: UserCreateOrConnectWithoutCheckerProjectKiTasksInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type EnumProjectKiTaskStatusFieldUpdateOperationsInput = {
+    set?: $Enums.ProjectKiTaskStatus
+  }
+
   export type DeadlineTaskUpdateOneRequiredWithoutProjectKiTasksNestedInput = {
     create?: XOR<DeadlineTaskCreateWithoutProjectKiTasksInput, DeadlineTaskUncheckedCreateWithoutProjectKiTasksInput>
     connectOrCreate?: DeadlineTaskCreateOrConnectWithoutProjectKiTasksInput
@@ -42537,6 +50076,16 @@ export namespace Prisma {
     update?: XOR<XOR<ProjectKiUpdateToOneWithWhereWithoutProjectKiTasksInput, ProjectKiUpdateWithoutProjectKiTasksInput>, ProjectKiUncheckedUpdateWithoutProjectKiTasksInput>
   }
 
+  export type UserUpdateOneWithoutCheckerProjectKiTasksNestedInput = {
+    create?: XOR<UserCreateWithoutCheckerProjectKiTasksInput, UserUncheckedCreateWithoutCheckerProjectKiTasksInput>
+    connectOrCreate?: UserCreateOrConnectWithoutCheckerProjectKiTasksInput
+    upsert?: UserUpsertWithoutCheckerProjectKiTasksInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutCheckerProjectKiTasksInput, UserUpdateWithoutCheckerProjectKiTasksInput>, UserUncheckedUpdateWithoutCheckerProjectKiTasksInput>
+  }
+
   export type ProjectCreateNestedOneWithoutCustomersInput = {
     create?: XOR<ProjectCreateWithoutCustomersInput, ProjectUncheckedCreateWithoutCustomersInput>
     connectOrCreate?: ProjectCreateOrConnectWithoutCustomersInput
@@ -42550,11 +50099,39 @@ export namespace Prisma {
     connect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
   }
 
+  export type CustomerChangeLogCreateNestedManyWithoutCustomerInput = {
+    create?: XOR<CustomerChangeLogCreateWithoutCustomerInput, CustomerChangeLogUncheckedCreateWithoutCustomerInput> | CustomerChangeLogCreateWithoutCustomerInput[] | CustomerChangeLogUncheckedCreateWithoutCustomerInput[]
+    connectOrCreate?: CustomerChangeLogCreateOrConnectWithoutCustomerInput | CustomerChangeLogCreateOrConnectWithoutCustomerInput[]
+    createMany?: CustomerChangeLogCreateManyCustomerInputEnvelope
+    connect?: CustomerChangeLogWhereUniqueInput | CustomerChangeLogWhereUniqueInput[]
+  }
+
+  export type CustomerFundChangeLogCreateNestedManyWithoutCustomerInput = {
+    create?: XOR<CustomerFundChangeLogCreateWithoutCustomerInput, CustomerFundChangeLogUncheckedCreateWithoutCustomerInput> | CustomerFundChangeLogCreateWithoutCustomerInput[] | CustomerFundChangeLogUncheckedCreateWithoutCustomerInput[]
+    connectOrCreate?: CustomerFundChangeLogCreateOrConnectWithoutCustomerInput | CustomerFundChangeLogCreateOrConnectWithoutCustomerInput[]
+    createMany?: CustomerFundChangeLogCreateManyCustomerInputEnvelope
+    connect?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
+  }
+
   export type CustomerFundUncheckedCreateNestedManyWithoutCustomerInput = {
     create?: XOR<CustomerFundCreateWithoutCustomerInput, CustomerFundUncheckedCreateWithoutCustomerInput> | CustomerFundCreateWithoutCustomerInput[] | CustomerFundUncheckedCreateWithoutCustomerInput[]
     connectOrCreate?: CustomerFundCreateOrConnectWithoutCustomerInput | CustomerFundCreateOrConnectWithoutCustomerInput[]
     createMany?: CustomerFundCreateManyCustomerInputEnvelope
     connect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+  }
+
+  export type CustomerChangeLogUncheckedCreateNestedManyWithoutCustomerInput = {
+    create?: XOR<CustomerChangeLogCreateWithoutCustomerInput, CustomerChangeLogUncheckedCreateWithoutCustomerInput> | CustomerChangeLogCreateWithoutCustomerInput[] | CustomerChangeLogUncheckedCreateWithoutCustomerInput[]
+    connectOrCreate?: CustomerChangeLogCreateOrConnectWithoutCustomerInput | CustomerChangeLogCreateOrConnectWithoutCustomerInput[]
+    createMany?: CustomerChangeLogCreateManyCustomerInputEnvelope
+    connect?: CustomerChangeLogWhereUniqueInput | CustomerChangeLogWhereUniqueInput[]
+  }
+
+  export type CustomerFundChangeLogUncheckedCreateNestedManyWithoutCustomerInput = {
+    create?: XOR<CustomerFundChangeLogCreateWithoutCustomerInput, CustomerFundChangeLogUncheckedCreateWithoutCustomerInput> | CustomerFundChangeLogCreateWithoutCustomerInput[] | CustomerFundChangeLogUncheckedCreateWithoutCustomerInput[]
+    connectOrCreate?: CustomerFundChangeLogCreateOrConnectWithoutCustomerInput | CustomerFundChangeLogCreateOrConnectWithoutCustomerInput[]
+    createMany?: CustomerFundChangeLogCreateManyCustomerInputEnvelope
+    connect?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
   }
 
   export type EnumCustomerTypeFieldUpdateOperationsInput = {
@@ -42591,6 +50168,34 @@ export namespace Prisma {
     deleteMany?: CustomerFundScalarWhereInput | CustomerFundScalarWhereInput[]
   }
 
+  export type CustomerChangeLogUpdateManyWithoutCustomerNestedInput = {
+    create?: XOR<CustomerChangeLogCreateWithoutCustomerInput, CustomerChangeLogUncheckedCreateWithoutCustomerInput> | CustomerChangeLogCreateWithoutCustomerInput[] | CustomerChangeLogUncheckedCreateWithoutCustomerInput[]
+    connectOrCreate?: CustomerChangeLogCreateOrConnectWithoutCustomerInput | CustomerChangeLogCreateOrConnectWithoutCustomerInput[]
+    upsert?: CustomerChangeLogUpsertWithWhereUniqueWithoutCustomerInput | CustomerChangeLogUpsertWithWhereUniqueWithoutCustomerInput[]
+    createMany?: CustomerChangeLogCreateManyCustomerInputEnvelope
+    set?: CustomerChangeLogWhereUniqueInput | CustomerChangeLogWhereUniqueInput[]
+    disconnect?: CustomerChangeLogWhereUniqueInput | CustomerChangeLogWhereUniqueInput[]
+    delete?: CustomerChangeLogWhereUniqueInput | CustomerChangeLogWhereUniqueInput[]
+    connect?: CustomerChangeLogWhereUniqueInput | CustomerChangeLogWhereUniqueInput[]
+    update?: CustomerChangeLogUpdateWithWhereUniqueWithoutCustomerInput | CustomerChangeLogUpdateWithWhereUniqueWithoutCustomerInput[]
+    updateMany?: CustomerChangeLogUpdateManyWithWhereWithoutCustomerInput | CustomerChangeLogUpdateManyWithWhereWithoutCustomerInput[]
+    deleteMany?: CustomerChangeLogScalarWhereInput | CustomerChangeLogScalarWhereInput[]
+  }
+
+  export type CustomerFundChangeLogUpdateManyWithoutCustomerNestedInput = {
+    create?: XOR<CustomerFundChangeLogCreateWithoutCustomerInput, CustomerFundChangeLogUncheckedCreateWithoutCustomerInput> | CustomerFundChangeLogCreateWithoutCustomerInput[] | CustomerFundChangeLogUncheckedCreateWithoutCustomerInput[]
+    connectOrCreate?: CustomerFundChangeLogCreateOrConnectWithoutCustomerInput | CustomerFundChangeLogCreateOrConnectWithoutCustomerInput[]
+    upsert?: CustomerFundChangeLogUpsertWithWhereUniqueWithoutCustomerInput | CustomerFundChangeLogUpsertWithWhereUniqueWithoutCustomerInput[]
+    createMany?: CustomerFundChangeLogCreateManyCustomerInputEnvelope
+    set?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
+    disconnect?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
+    delete?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
+    connect?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
+    update?: CustomerFundChangeLogUpdateWithWhereUniqueWithoutCustomerInput | CustomerFundChangeLogUpdateWithWhereUniqueWithoutCustomerInput[]
+    updateMany?: CustomerFundChangeLogUpdateManyWithWhereWithoutCustomerInput | CustomerFundChangeLogUpdateManyWithWhereWithoutCustomerInput[]
+    deleteMany?: CustomerFundChangeLogScalarWhereInput | CustomerFundChangeLogScalarWhereInput[]
+  }
+
   export type CustomerFundUncheckedUpdateManyWithoutCustomerNestedInput = {
     create?: XOR<CustomerFundCreateWithoutCustomerInput, CustomerFundUncheckedCreateWithoutCustomerInput> | CustomerFundCreateWithoutCustomerInput[] | CustomerFundUncheckedCreateWithoutCustomerInput[]
     connectOrCreate?: CustomerFundCreateOrConnectWithoutCustomerInput | CustomerFundCreateOrConnectWithoutCustomerInput[]
@@ -42603,6 +50208,34 @@ export namespace Prisma {
     update?: CustomerFundUpdateWithWhereUniqueWithoutCustomerInput | CustomerFundUpdateWithWhereUniqueWithoutCustomerInput[]
     updateMany?: CustomerFundUpdateManyWithWhereWithoutCustomerInput | CustomerFundUpdateManyWithWhereWithoutCustomerInput[]
     deleteMany?: CustomerFundScalarWhereInput | CustomerFundScalarWhereInput[]
+  }
+
+  export type CustomerChangeLogUncheckedUpdateManyWithoutCustomerNestedInput = {
+    create?: XOR<CustomerChangeLogCreateWithoutCustomerInput, CustomerChangeLogUncheckedCreateWithoutCustomerInput> | CustomerChangeLogCreateWithoutCustomerInput[] | CustomerChangeLogUncheckedCreateWithoutCustomerInput[]
+    connectOrCreate?: CustomerChangeLogCreateOrConnectWithoutCustomerInput | CustomerChangeLogCreateOrConnectWithoutCustomerInput[]
+    upsert?: CustomerChangeLogUpsertWithWhereUniqueWithoutCustomerInput | CustomerChangeLogUpsertWithWhereUniqueWithoutCustomerInput[]
+    createMany?: CustomerChangeLogCreateManyCustomerInputEnvelope
+    set?: CustomerChangeLogWhereUniqueInput | CustomerChangeLogWhereUniqueInput[]
+    disconnect?: CustomerChangeLogWhereUniqueInput | CustomerChangeLogWhereUniqueInput[]
+    delete?: CustomerChangeLogWhereUniqueInput | CustomerChangeLogWhereUniqueInput[]
+    connect?: CustomerChangeLogWhereUniqueInput | CustomerChangeLogWhereUniqueInput[]
+    update?: CustomerChangeLogUpdateWithWhereUniqueWithoutCustomerInput | CustomerChangeLogUpdateWithWhereUniqueWithoutCustomerInput[]
+    updateMany?: CustomerChangeLogUpdateManyWithWhereWithoutCustomerInput | CustomerChangeLogUpdateManyWithWhereWithoutCustomerInput[]
+    deleteMany?: CustomerChangeLogScalarWhereInput | CustomerChangeLogScalarWhereInput[]
+  }
+
+  export type CustomerFundChangeLogUncheckedUpdateManyWithoutCustomerNestedInput = {
+    create?: XOR<CustomerFundChangeLogCreateWithoutCustomerInput, CustomerFundChangeLogUncheckedCreateWithoutCustomerInput> | CustomerFundChangeLogCreateWithoutCustomerInput[] | CustomerFundChangeLogUncheckedCreateWithoutCustomerInput[]
+    connectOrCreate?: CustomerFundChangeLogCreateOrConnectWithoutCustomerInput | CustomerFundChangeLogCreateOrConnectWithoutCustomerInput[]
+    upsert?: CustomerFundChangeLogUpsertWithWhereUniqueWithoutCustomerInput | CustomerFundChangeLogUpsertWithWhereUniqueWithoutCustomerInput[]
+    createMany?: CustomerFundChangeLogCreateManyCustomerInputEnvelope
+    set?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
+    disconnect?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
+    delete?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
+    connect?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
+    update?: CustomerFundChangeLogUpdateWithWhereUniqueWithoutCustomerInput | CustomerFundChangeLogUpdateWithWhereUniqueWithoutCustomerInput[]
+    updateMany?: CustomerFundChangeLogUpdateManyWithWhereWithoutCustomerInput | CustomerFundChangeLogUpdateManyWithWhereWithoutCustomerInput[]
+    deleteMany?: CustomerFundChangeLogScalarWhereInput | CustomerFundChangeLogScalarWhereInput[]
   }
 
   export type CustomerCreateNestedOneWithoutCustomerFundsInput = {
@@ -42630,11 +50263,25 @@ export namespace Prisma {
     connect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
   }
 
+  export type CustomerFundChangeLogCreateNestedManyWithoutCustomerFundInput = {
+    create?: XOR<CustomerFundChangeLogCreateWithoutCustomerFundInput, CustomerFundChangeLogUncheckedCreateWithoutCustomerFundInput> | CustomerFundChangeLogCreateWithoutCustomerFundInput[] | CustomerFundChangeLogUncheckedCreateWithoutCustomerFundInput[]
+    connectOrCreate?: CustomerFundChangeLogCreateOrConnectWithoutCustomerFundInput | CustomerFundChangeLogCreateOrConnectWithoutCustomerFundInput[]
+    createMany?: CustomerFundChangeLogCreateManyCustomerFundInputEnvelope
+    connect?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
+  }
+
   export type CustomerFundUncheckedCreateNestedManyWithoutSourceCustomerFundInput = {
     create?: XOR<CustomerFundCreateWithoutSourceCustomerFundInput, CustomerFundUncheckedCreateWithoutSourceCustomerFundInput> | CustomerFundCreateWithoutSourceCustomerFundInput[] | CustomerFundUncheckedCreateWithoutSourceCustomerFundInput[]
     connectOrCreate?: CustomerFundCreateOrConnectWithoutSourceCustomerFundInput | CustomerFundCreateOrConnectWithoutSourceCustomerFundInput[]
     createMany?: CustomerFundCreateManySourceCustomerFundInputEnvelope
     connect?: CustomerFundWhereUniqueInput | CustomerFundWhereUniqueInput[]
+  }
+
+  export type CustomerFundChangeLogUncheckedCreateNestedManyWithoutCustomerFundInput = {
+    create?: XOR<CustomerFundChangeLogCreateWithoutCustomerFundInput, CustomerFundChangeLogUncheckedCreateWithoutCustomerFundInput> | CustomerFundChangeLogCreateWithoutCustomerFundInput[] | CustomerFundChangeLogUncheckedCreateWithoutCustomerFundInput[]
+    connectOrCreate?: CustomerFundChangeLogCreateOrConnectWithoutCustomerFundInput | CustomerFundChangeLogCreateOrConnectWithoutCustomerFundInput[]
+    createMany?: CustomerFundChangeLogCreateManyCustomerFundInputEnvelope
+    connect?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
   }
 
   export type EnumCustomerFundStatusFieldUpdateOperationsInput = {
@@ -42681,6 +50328,20 @@ export namespace Prisma {
     deleteMany?: CustomerFundScalarWhereInput | CustomerFundScalarWhereInput[]
   }
 
+  export type CustomerFundChangeLogUpdateManyWithoutCustomerFundNestedInput = {
+    create?: XOR<CustomerFundChangeLogCreateWithoutCustomerFundInput, CustomerFundChangeLogUncheckedCreateWithoutCustomerFundInput> | CustomerFundChangeLogCreateWithoutCustomerFundInput[] | CustomerFundChangeLogUncheckedCreateWithoutCustomerFundInput[]
+    connectOrCreate?: CustomerFundChangeLogCreateOrConnectWithoutCustomerFundInput | CustomerFundChangeLogCreateOrConnectWithoutCustomerFundInput[]
+    upsert?: CustomerFundChangeLogUpsertWithWhereUniqueWithoutCustomerFundInput | CustomerFundChangeLogUpsertWithWhereUniqueWithoutCustomerFundInput[]
+    createMany?: CustomerFundChangeLogCreateManyCustomerFundInputEnvelope
+    set?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
+    disconnect?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
+    delete?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
+    connect?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
+    update?: CustomerFundChangeLogUpdateWithWhereUniqueWithoutCustomerFundInput | CustomerFundChangeLogUpdateWithWhereUniqueWithoutCustomerFundInput[]
+    updateMany?: CustomerFundChangeLogUpdateManyWithWhereWithoutCustomerFundInput | CustomerFundChangeLogUpdateManyWithWhereWithoutCustomerFundInput[]
+    deleteMany?: CustomerFundChangeLogScalarWhereInput | CustomerFundChangeLogScalarWhereInput[]
+  }
+
   export type CustomerFundUncheckedUpdateManyWithoutSourceCustomerFundNestedInput = {
     create?: XOR<CustomerFundCreateWithoutSourceCustomerFundInput, CustomerFundUncheckedCreateWithoutSourceCustomerFundInput> | CustomerFundCreateWithoutSourceCustomerFundInput[] | CustomerFundUncheckedCreateWithoutSourceCustomerFundInput[]
     connectOrCreate?: CustomerFundCreateOrConnectWithoutSourceCustomerFundInput | CustomerFundCreateOrConnectWithoutSourceCustomerFundInput[]
@@ -42693,6 +50354,276 @@ export namespace Prisma {
     update?: CustomerFundUpdateWithWhereUniqueWithoutSourceCustomerFundInput | CustomerFundUpdateWithWhereUniqueWithoutSourceCustomerFundInput[]
     updateMany?: CustomerFundUpdateManyWithWhereWithoutSourceCustomerFundInput | CustomerFundUpdateManyWithWhereWithoutSourceCustomerFundInput[]
     deleteMany?: CustomerFundScalarWhereInput | CustomerFundScalarWhereInput[]
+  }
+
+  export type CustomerFundChangeLogUncheckedUpdateManyWithoutCustomerFundNestedInput = {
+    create?: XOR<CustomerFundChangeLogCreateWithoutCustomerFundInput, CustomerFundChangeLogUncheckedCreateWithoutCustomerFundInput> | CustomerFundChangeLogCreateWithoutCustomerFundInput[] | CustomerFundChangeLogUncheckedCreateWithoutCustomerFundInput[]
+    connectOrCreate?: CustomerFundChangeLogCreateOrConnectWithoutCustomerFundInput | CustomerFundChangeLogCreateOrConnectWithoutCustomerFundInput[]
+    upsert?: CustomerFundChangeLogUpsertWithWhereUniqueWithoutCustomerFundInput | CustomerFundChangeLogUpsertWithWhereUniqueWithoutCustomerFundInput[]
+    createMany?: CustomerFundChangeLogCreateManyCustomerFundInputEnvelope
+    set?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
+    disconnect?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
+    delete?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
+    connect?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
+    update?: CustomerFundChangeLogUpdateWithWhereUniqueWithoutCustomerFundInput | CustomerFundChangeLogUpdateWithWhereUniqueWithoutCustomerFundInput[]
+    updateMany?: CustomerFundChangeLogUpdateManyWithWhereWithoutCustomerFundInput | CustomerFundChangeLogUpdateManyWithWhereWithoutCustomerFundInput[]
+    deleteMany?: CustomerFundChangeLogScalarWhereInput | CustomerFundChangeLogScalarWhereInput[]
+  }
+
+  export type KiCreateNestedOneWithoutCustomerUploadBatchesInput = {
+    create?: XOR<KiCreateWithoutCustomerUploadBatchesInput, KiUncheckedCreateWithoutCustomerUploadBatchesInput>
+    connectOrCreate?: KiCreateOrConnectWithoutCustomerUploadBatchesInput
+    connect?: KiWhereUniqueInput
+  }
+
+  export type CustomerChangeLogCreateNestedManyWithoutBatchInput = {
+    create?: XOR<CustomerChangeLogCreateWithoutBatchInput, CustomerChangeLogUncheckedCreateWithoutBatchInput> | CustomerChangeLogCreateWithoutBatchInput[] | CustomerChangeLogUncheckedCreateWithoutBatchInput[]
+    connectOrCreate?: CustomerChangeLogCreateOrConnectWithoutBatchInput | CustomerChangeLogCreateOrConnectWithoutBatchInput[]
+    createMany?: CustomerChangeLogCreateManyBatchInputEnvelope
+    connect?: CustomerChangeLogWhereUniqueInput | CustomerChangeLogWhereUniqueInput[]
+  }
+
+  export type CustomerFundChangeLogCreateNestedManyWithoutBatchInput = {
+    create?: XOR<CustomerFundChangeLogCreateWithoutBatchInput, CustomerFundChangeLogUncheckedCreateWithoutBatchInput> | CustomerFundChangeLogCreateWithoutBatchInput[] | CustomerFundChangeLogUncheckedCreateWithoutBatchInput[]
+    connectOrCreate?: CustomerFundChangeLogCreateOrConnectWithoutBatchInput | CustomerFundChangeLogCreateOrConnectWithoutBatchInput[]
+    createMany?: CustomerFundChangeLogCreateManyBatchInputEnvelope
+    connect?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
+  }
+
+  export type CustomerUploadBatchProjectCreateNestedManyWithoutBatchInput = {
+    create?: XOR<CustomerUploadBatchProjectCreateWithoutBatchInput, CustomerUploadBatchProjectUncheckedCreateWithoutBatchInput> | CustomerUploadBatchProjectCreateWithoutBatchInput[] | CustomerUploadBatchProjectUncheckedCreateWithoutBatchInput[]
+    connectOrCreate?: CustomerUploadBatchProjectCreateOrConnectWithoutBatchInput | CustomerUploadBatchProjectCreateOrConnectWithoutBatchInput[]
+    createMany?: CustomerUploadBatchProjectCreateManyBatchInputEnvelope
+    connect?: CustomerUploadBatchProjectWhereUniqueInput | CustomerUploadBatchProjectWhereUniqueInput[]
+  }
+
+  export type CustomerChangeLogUncheckedCreateNestedManyWithoutBatchInput = {
+    create?: XOR<CustomerChangeLogCreateWithoutBatchInput, CustomerChangeLogUncheckedCreateWithoutBatchInput> | CustomerChangeLogCreateWithoutBatchInput[] | CustomerChangeLogUncheckedCreateWithoutBatchInput[]
+    connectOrCreate?: CustomerChangeLogCreateOrConnectWithoutBatchInput | CustomerChangeLogCreateOrConnectWithoutBatchInput[]
+    createMany?: CustomerChangeLogCreateManyBatchInputEnvelope
+    connect?: CustomerChangeLogWhereUniqueInput | CustomerChangeLogWhereUniqueInput[]
+  }
+
+  export type CustomerFundChangeLogUncheckedCreateNestedManyWithoutBatchInput = {
+    create?: XOR<CustomerFundChangeLogCreateWithoutBatchInput, CustomerFundChangeLogUncheckedCreateWithoutBatchInput> | CustomerFundChangeLogCreateWithoutBatchInput[] | CustomerFundChangeLogUncheckedCreateWithoutBatchInput[]
+    connectOrCreate?: CustomerFundChangeLogCreateOrConnectWithoutBatchInput | CustomerFundChangeLogCreateOrConnectWithoutBatchInput[]
+    createMany?: CustomerFundChangeLogCreateManyBatchInputEnvelope
+    connect?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
+  }
+
+  export type CustomerUploadBatchProjectUncheckedCreateNestedManyWithoutBatchInput = {
+    create?: XOR<CustomerUploadBatchProjectCreateWithoutBatchInput, CustomerUploadBatchProjectUncheckedCreateWithoutBatchInput> | CustomerUploadBatchProjectCreateWithoutBatchInput[] | CustomerUploadBatchProjectUncheckedCreateWithoutBatchInput[]
+    connectOrCreate?: CustomerUploadBatchProjectCreateOrConnectWithoutBatchInput | CustomerUploadBatchProjectCreateOrConnectWithoutBatchInput[]
+    createMany?: CustomerUploadBatchProjectCreateManyBatchInputEnvelope
+    connect?: CustomerUploadBatchProjectWhereUniqueInput | CustomerUploadBatchProjectWhereUniqueInput[]
+  }
+
+  export type EnumBatchStatusFieldUpdateOperationsInput = {
+    set?: $Enums.BatchStatus
+  }
+
+  export type KiUpdateOneRequiredWithoutCustomerUploadBatchesNestedInput = {
+    create?: XOR<KiCreateWithoutCustomerUploadBatchesInput, KiUncheckedCreateWithoutCustomerUploadBatchesInput>
+    connectOrCreate?: KiCreateOrConnectWithoutCustomerUploadBatchesInput
+    upsert?: KiUpsertWithoutCustomerUploadBatchesInput
+    connect?: KiWhereUniqueInput
+    update?: XOR<XOR<KiUpdateToOneWithWhereWithoutCustomerUploadBatchesInput, KiUpdateWithoutCustomerUploadBatchesInput>, KiUncheckedUpdateWithoutCustomerUploadBatchesInput>
+  }
+
+  export type CustomerChangeLogUpdateManyWithoutBatchNestedInput = {
+    create?: XOR<CustomerChangeLogCreateWithoutBatchInput, CustomerChangeLogUncheckedCreateWithoutBatchInput> | CustomerChangeLogCreateWithoutBatchInput[] | CustomerChangeLogUncheckedCreateWithoutBatchInput[]
+    connectOrCreate?: CustomerChangeLogCreateOrConnectWithoutBatchInput | CustomerChangeLogCreateOrConnectWithoutBatchInput[]
+    upsert?: CustomerChangeLogUpsertWithWhereUniqueWithoutBatchInput | CustomerChangeLogUpsertWithWhereUniqueWithoutBatchInput[]
+    createMany?: CustomerChangeLogCreateManyBatchInputEnvelope
+    set?: CustomerChangeLogWhereUniqueInput | CustomerChangeLogWhereUniqueInput[]
+    disconnect?: CustomerChangeLogWhereUniqueInput | CustomerChangeLogWhereUniqueInput[]
+    delete?: CustomerChangeLogWhereUniqueInput | CustomerChangeLogWhereUniqueInput[]
+    connect?: CustomerChangeLogWhereUniqueInput | CustomerChangeLogWhereUniqueInput[]
+    update?: CustomerChangeLogUpdateWithWhereUniqueWithoutBatchInput | CustomerChangeLogUpdateWithWhereUniqueWithoutBatchInput[]
+    updateMany?: CustomerChangeLogUpdateManyWithWhereWithoutBatchInput | CustomerChangeLogUpdateManyWithWhereWithoutBatchInput[]
+    deleteMany?: CustomerChangeLogScalarWhereInput | CustomerChangeLogScalarWhereInput[]
+  }
+
+  export type CustomerFundChangeLogUpdateManyWithoutBatchNestedInput = {
+    create?: XOR<CustomerFundChangeLogCreateWithoutBatchInput, CustomerFundChangeLogUncheckedCreateWithoutBatchInput> | CustomerFundChangeLogCreateWithoutBatchInput[] | CustomerFundChangeLogUncheckedCreateWithoutBatchInput[]
+    connectOrCreate?: CustomerFundChangeLogCreateOrConnectWithoutBatchInput | CustomerFundChangeLogCreateOrConnectWithoutBatchInput[]
+    upsert?: CustomerFundChangeLogUpsertWithWhereUniqueWithoutBatchInput | CustomerFundChangeLogUpsertWithWhereUniqueWithoutBatchInput[]
+    createMany?: CustomerFundChangeLogCreateManyBatchInputEnvelope
+    set?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
+    disconnect?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
+    delete?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
+    connect?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
+    update?: CustomerFundChangeLogUpdateWithWhereUniqueWithoutBatchInput | CustomerFundChangeLogUpdateWithWhereUniqueWithoutBatchInput[]
+    updateMany?: CustomerFundChangeLogUpdateManyWithWhereWithoutBatchInput | CustomerFundChangeLogUpdateManyWithWhereWithoutBatchInput[]
+    deleteMany?: CustomerFundChangeLogScalarWhereInput | CustomerFundChangeLogScalarWhereInput[]
+  }
+
+  export type CustomerUploadBatchProjectUpdateManyWithoutBatchNestedInput = {
+    create?: XOR<CustomerUploadBatchProjectCreateWithoutBatchInput, CustomerUploadBatchProjectUncheckedCreateWithoutBatchInput> | CustomerUploadBatchProjectCreateWithoutBatchInput[] | CustomerUploadBatchProjectUncheckedCreateWithoutBatchInput[]
+    connectOrCreate?: CustomerUploadBatchProjectCreateOrConnectWithoutBatchInput | CustomerUploadBatchProjectCreateOrConnectWithoutBatchInput[]
+    upsert?: CustomerUploadBatchProjectUpsertWithWhereUniqueWithoutBatchInput | CustomerUploadBatchProjectUpsertWithWhereUniqueWithoutBatchInput[]
+    createMany?: CustomerUploadBatchProjectCreateManyBatchInputEnvelope
+    set?: CustomerUploadBatchProjectWhereUniqueInput | CustomerUploadBatchProjectWhereUniqueInput[]
+    disconnect?: CustomerUploadBatchProjectWhereUniqueInput | CustomerUploadBatchProjectWhereUniqueInput[]
+    delete?: CustomerUploadBatchProjectWhereUniqueInput | CustomerUploadBatchProjectWhereUniqueInput[]
+    connect?: CustomerUploadBatchProjectWhereUniqueInput | CustomerUploadBatchProjectWhereUniqueInput[]
+    update?: CustomerUploadBatchProjectUpdateWithWhereUniqueWithoutBatchInput | CustomerUploadBatchProjectUpdateWithWhereUniqueWithoutBatchInput[]
+    updateMany?: CustomerUploadBatchProjectUpdateManyWithWhereWithoutBatchInput | CustomerUploadBatchProjectUpdateManyWithWhereWithoutBatchInput[]
+    deleteMany?: CustomerUploadBatchProjectScalarWhereInput | CustomerUploadBatchProjectScalarWhereInput[]
+  }
+
+  export type CustomerChangeLogUncheckedUpdateManyWithoutBatchNestedInput = {
+    create?: XOR<CustomerChangeLogCreateWithoutBatchInput, CustomerChangeLogUncheckedCreateWithoutBatchInput> | CustomerChangeLogCreateWithoutBatchInput[] | CustomerChangeLogUncheckedCreateWithoutBatchInput[]
+    connectOrCreate?: CustomerChangeLogCreateOrConnectWithoutBatchInput | CustomerChangeLogCreateOrConnectWithoutBatchInput[]
+    upsert?: CustomerChangeLogUpsertWithWhereUniqueWithoutBatchInput | CustomerChangeLogUpsertWithWhereUniqueWithoutBatchInput[]
+    createMany?: CustomerChangeLogCreateManyBatchInputEnvelope
+    set?: CustomerChangeLogWhereUniqueInput | CustomerChangeLogWhereUniqueInput[]
+    disconnect?: CustomerChangeLogWhereUniqueInput | CustomerChangeLogWhereUniqueInput[]
+    delete?: CustomerChangeLogWhereUniqueInput | CustomerChangeLogWhereUniqueInput[]
+    connect?: CustomerChangeLogWhereUniqueInput | CustomerChangeLogWhereUniqueInput[]
+    update?: CustomerChangeLogUpdateWithWhereUniqueWithoutBatchInput | CustomerChangeLogUpdateWithWhereUniqueWithoutBatchInput[]
+    updateMany?: CustomerChangeLogUpdateManyWithWhereWithoutBatchInput | CustomerChangeLogUpdateManyWithWhereWithoutBatchInput[]
+    deleteMany?: CustomerChangeLogScalarWhereInput | CustomerChangeLogScalarWhereInput[]
+  }
+
+  export type CustomerFundChangeLogUncheckedUpdateManyWithoutBatchNestedInput = {
+    create?: XOR<CustomerFundChangeLogCreateWithoutBatchInput, CustomerFundChangeLogUncheckedCreateWithoutBatchInput> | CustomerFundChangeLogCreateWithoutBatchInput[] | CustomerFundChangeLogUncheckedCreateWithoutBatchInput[]
+    connectOrCreate?: CustomerFundChangeLogCreateOrConnectWithoutBatchInput | CustomerFundChangeLogCreateOrConnectWithoutBatchInput[]
+    upsert?: CustomerFundChangeLogUpsertWithWhereUniqueWithoutBatchInput | CustomerFundChangeLogUpsertWithWhereUniqueWithoutBatchInput[]
+    createMany?: CustomerFundChangeLogCreateManyBatchInputEnvelope
+    set?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
+    disconnect?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
+    delete?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
+    connect?: CustomerFundChangeLogWhereUniqueInput | CustomerFundChangeLogWhereUniqueInput[]
+    update?: CustomerFundChangeLogUpdateWithWhereUniqueWithoutBatchInput | CustomerFundChangeLogUpdateWithWhereUniqueWithoutBatchInput[]
+    updateMany?: CustomerFundChangeLogUpdateManyWithWhereWithoutBatchInput | CustomerFundChangeLogUpdateManyWithWhereWithoutBatchInput[]
+    deleteMany?: CustomerFundChangeLogScalarWhereInput | CustomerFundChangeLogScalarWhereInput[]
+  }
+
+  export type CustomerUploadBatchProjectUncheckedUpdateManyWithoutBatchNestedInput = {
+    create?: XOR<CustomerUploadBatchProjectCreateWithoutBatchInput, CustomerUploadBatchProjectUncheckedCreateWithoutBatchInput> | CustomerUploadBatchProjectCreateWithoutBatchInput[] | CustomerUploadBatchProjectUncheckedCreateWithoutBatchInput[]
+    connectOrCreate?: CustomerUploadBatchProjectCreateOrConnectWithoutBatchInput | CustomerUploadBatchProjectCreateOrConnectWithoutBatchInput[]
+    upsert?: CustomerUploadBatchProjectUpsertWithWhereUniqueWithoutBatchInput | CustomerUploadBatchProjectUpsertWithWhereUniqueWithoutBatchInput[]
+    createMany?: CustomerUploadBatchProjectCreateManyBatchInputEnvelope
+    set?: CustomerUploadBatchProjectWhereUniqueInput | CustomerUploadBatchProjectWhereUniqueInput[]
+    disconnect?: CustomerUploadBatchProjectWhereUniqueInput | CustomerUploadBatchProjectWhereUniqueInput[]
+    delete?: CustomerUploadBatchProjectWhereUniqueInput | CustomerUploadBatchProjectWhereUniqueInput[]
+    connect?: CustomerUploadBatchProjectWhereUniqueInput | CustomerUploadBatchProjectWhereUniqueInput[]
+    update?: CustomerUploadBatchProjectUpdateWithWhereUniqueWithoutBatchInput | CustomerUploadBatchProjectUpdateWithWhereUniqueWithoutBatchInput[]
+    updateMany?: CustomerUploadBatchProjectUpdateManyWithWhereWithoutBatchInput | CustomerUploadBatchProjectUpdateManyWithWhereWithoutBatchInput[]
+    deleteMany?: CustomerUploadBatchProjectScalarWhereInput | CustomerUploadBatchProjectScalarWhereInput[]
+  }
+
+  export type CustomerUploadBatchCreateNestedOneWithoutCommittedProjectsInput = {
+    create?: XOR<CustomerUploadBatchCreateWithoutCommittedProjectsInput, CustomerUploadBatchUncheckedCreateWithoutCommittedProjectsInput>
+    connectOrCreate?: CustomerUploadBatchCreateOrConnectWithoutCommittedProjectsInput
+    connect?: CustomerUploadBatchWhereUniqueInput
+  }
+
+  export type ProjectCreateNestedOneWithoutCustomerUploadBatchProjectsInput = {
+    create?: XOR<ProjectCreateWithoutCustomerUploadBatchProjectsInput, ProjectUncheckedCreateWithoutCustomerUploadBatchProjectsInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutCustomerUploadBatchProjectsInput
+    connect?: ProjectWhereUniqueInput
+  }
+
+  export type CustomerUploadBatchUpdateOneRequiredWithoutCommittedProjectsNestedInput = {
+    create?: XOR<CustomerUploadBatchCreateWithoutCommittedProjectsInput, CustomerUploadBatchUncheckedCreateWithoutCommittedProjectsInput>
+    connectOrCreate?: CustomerUploadBatchCreateOrConnectWithoutCommittedProjectsInput
+    upsert?: CustomerUploadBatchUpsertWithoutCommittedProjectsInput
+    connect?: CustomerUploadBatchWhereUniqueInput
+    update?: XOR<XOR<CustomerUploadBatchUpdateToOneWithWhereWithoutCommittedProjectsInput, CustomerUploadBatchUpdateWithoutCommittedProjectsInput>, CustomerUploadBatchUncheckedUpdateWithoutCommittedProjectsInput>
+  }
+
+  export type ProjectUpdateOneRequiredWithoutCustomerUploadBatchProjectsNestedInput = {
+    create?: XOR<ProjectCreateWithoutCustomerUploadBatchProjectsInput, ProjectUncheckedCreateWithoutCustomerUploadBatchProjectsInput>
+    connectOrCreate?: ProjectCreateOrConnectWithoutCustomerUploadBatchProjectsInput
+    upsert?: ProjectUpsertWithoutCustomerUploadBatchProjectsInput
+    connect?: ProjectWhereUniqueInput
+    update?: XOR<XOR<ProjectUpdateToOneWithWhereWithoutCustomerUploadBatchProjectsInput, ProjectUpdateWithoutCustomerUploadBatchProjectsInput>, ProjectUncheckedUpdateWithoutCustomerUploadBatchProjectsInput>
+  }
+
+  export type CustomerUploadBatchCreateNestedOneWithoutCustomerChangeLogsInput = {
+    create?: XOR<CustomerUploadBatchCreateWithoutCustomerChangeLogsInput, CustomerUploadBatchUncheckedCreateWithoutCustomerChangeLogsInput>
+    connectOrCreate?: CustomerUploadBatchCreateOrConnectWithoutCustomerChangeLogsInput
+    connect?: CustomerUploadBatchWhereUniqueInput
+  }
+
+  export type CustomerCreateNestedOneWithoutChangeLogsInput = {
+    create?: XOR<CustomerCreateWithoutChangeLogsInput, CustomerUncheckedCreateWithoutChangeLogsInput>
+    connectOrCreate?: CustomerCreateOrConnectWithoutChangeLogsInput
+    connect?: CustomerWhereUniqueInput
+  }
+
+  export type EnumChangeSourceFieldUpdateOperationsInput = {
+    set?: $Enums.ChangeSource
+  }
+
+  export type EnumChangeOperationFieldUpdateOperationsInput = {
+    set?: $Enums.ChangeOperation
+  }
+
+  export type CustomerUploadBatchUpdateOneWithoutCustomerChangeLogsNestedInput = {
+    create?: XOR<CustomerUploadBatchCreateWithoutCustomerChangeLogsInput, CustomerUploadBatchUncheckedCreateWithoutCustomerChangeLogsInput>
+    connectOrCreate?: CustomerUploadBatchCreateOrConnectWithoutCustomerChangeLogsInput
+    upsert?: CustomerUploadBatchUpsertWithoutCustomerChangeLogsInput
+    disconnect?: CustomerUploadBatchWhereInput | boolean
+    delete?: CustomerUploadBatchWhereInput | boolean
+    connect?: CustomerUploadBatchWhereUniqueInput
+    update?: XOR<XOR<CustomerUploadBatchUpdateToOneWithWhereWithoutCustomerChangeLogsInput, CustomerUploadBatchUpdateWithoutCustomerChangeLogsInput>, CustomerUploadBatchUncheckedUpdateWithoutCustomerChangeLogsInput>
+  }
+
+  export type CustomerUpdateOneRequiredWithoutChangeLogsNestedInput = {
+    create?: XOR<CustomerCreateWithoutChangeLogsInput, CustomerUncheckedCreateWithoutChangeLogsInput>
+    connectOrCreate?: CustomerCreateOrConnectWithoutChangeLogsInput
+    upsert?: CustomerUpsertWithoutChangeLogsInput
+    connect?: CustomerWhereUniqueInput
+    update?: XOR<XOR<CustomerUpdateToOneWithWhereWithoutChangeLogsInput, CustomerUpdateWithoutChangeLogsInput>, CustomerUncheckedUpdateWithoutChangeLogsInput>
+  }
+
+  export type CustomerUploadBatchCreateNestedOneWithoutCustomerFundChangeLogsInput = {
+    create?: XOR<CustomerUploadBatchCreateWithoutCustomerFundChangeLogsInput, CustomerUploadBatchUncheckedCreateWithoutCustomerFundChangeLogsInput>
+    connectOrCreate?: CustomerUploadBatchCreateOrConnectWithoutCustomerFundChangeLogsInput
+    connect?: CustomerUploadBatchWhereUniqueInput
+  }
+
+  export type CustomerCreateNestedOneWithoutFundChangeLogsInput = {
+    create?: XOR<CustomerCreateWithoutFundChangeLogsInput, CustomerUncheckedCreateWithoutFundChangeLogsInput>
+    connectOrCreate?: CustomerCreateOrConnectWithoutFundChangeLogsInput
+    connect?: CustomerWhereUniqueInput
+  }
+
+  export type CustomerFundCreateNestedOneWithoutChangeLogsInput = {
+    create?: XOR<CustomerFundCreateWithoutChangeLogsInput, CustomerFundUncheckedCreateWithoutChangeLogsInput>
+    connectOrCreate?: CustomerFundCreateOrConnectWithoutChangeLogsInput
+    connect?: CustomerFundWhereUniqueInput
+  }
+
+  export type CustomerUploadBatchUpdateOneWithoutCustomerFundChangeLogsNestedInput = {
+    create?: XOR<CustomerUploadBatchCreateWithoutCustomerFundChangeLogsInput, CustomerUploadBatchUncheckedCreateWithoutCustomerFundChangeLogsInput>
+    connectOrCreate?: CustomerUploadBatchCreateOrConnectWithoutCustomerFundChangeLogsInput
+    upsert?: CustomerUploadBatchUpsertWithoutCustomerFundChangeLogsInput
+    disconnect?: CustomerUploadBatchWhereInput | boolean
+    delete?: CustomerUploadBatchWhereInput | boolean
+    connect?: CustomerUploadBatchWhereUniqueInput
+    update?: XOR<XOR<CustomerUploadBatchUpdateToOneWithWhereWithoutCustomerFundChangeLogsInput, CustomerUploadBatchUpdateWithoutCustomerFundChangeLogsInput>, CustomerUploadBatchUncheckedUpdateWithoutCustomerFundChangeLogsInput>
+  }
+
+  export type CustomerUpdateOneRequiredWithoutFundChangeLogsNestedInput = {
+    create?: XOR<CustomerCreateWithoutFundChangeLogsInput, CustomerUncheckedCreateWithoutFundChangeLogsInput>
+    connectOrCreate?: CustomerCreateOrConnectWithoutFundChangeLogsInput
+    upsert?: CustomerUpsertWithoutFundChangeLogsInput
+    connect?: CustomerWhereUniqueInput
+    update?: XOR<XOR<CustomerUpdateToOneWithWhereWithoutFundChangeLogsInput, CustomerUpdateWithoutFundChangeLogsInput>, CustomerUncheckedUpdateWithoutFundChangeLogsInput>
+  }
+
+  export type CustomerFundUpdateOneWithoutChangeLogsNestedInput = {
+    create?: XOR<CustomerFundCreateWithoutChangeLogsInput, CustomerFundUncheckedCreateWithoutChangeLogsInput>
+    connectOrCreate?: CustomerFundCreateOrConnectWithoutChangeLogsInput
+    upsert?: CustomerFundUpsertWithoutChangeLogsInput
+    disconnect?: CustomerFundWhereInput | boolean
+    delete?: CustomerFundWhereInput | boolean
+    connect?: CustomerFundWhereUniqueInput
+    update?: XOR<XOR<CustomerFundUpdateToOneWithWhereWithoutChangeLogsInput, CustomerFundUpdateWithoutChangeLogsInput>, CustomerFundUncheckedUpdateWithoutChangeLogsInput>
   }
 
   export type ProjectCreateNestedManyWithoutReportMainInput = {
@@ -43144,6 +51075,17 @@ export namespace Prisma {
     not?: NestedBigIntFilter<$PrismaModel> | bigint | number
   }
 
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type NestedBigIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
     in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
@@ -43176,18 +51118,7 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
-  export type NestedBigIntNullableFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
-  }
-
-  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+  export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel> | null
     in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
     notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
@@ -43195,7 +51126,12 @@ export namespace Prisma {
     lte?: number | FloatFieldRefInput<$PrismaModel>
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
   export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -43214,6 +51150,17 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
+  export type NestedBigIntNullableFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
+  }
+
   export type NestedBigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
     in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
@@ -43228,22 +51175,6 @@ export namespace Prisma {
     _sum?: NestedBigIntNullableFilter<$PrismaModel>
     _min?: NestedBigIntNullableFilter<$PrismaModel>
     _max?: NestedBigIntNullableFilter<$PrismaModel>
-  }
-
-  export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedFloatNullableFilter<$PrismaModel>
-    _min?: NestedFloatNullableFilter<$PrismaModel>
-    _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
   export type NestedEnumBSTypeFilter<$PrismaModel = never> = {
@@ -43320,6 +51251,74 @@ export namespace Prisma {
     _max?: NestedBytesNullableFilter<$PrismaModel>
   }
 
+  export type NestedEnumDeadlineCategoryFilter<$PrismaModel = never> = {
+    equals?: $Enums.DeadlineCategory | EnumDeadlineCategoryFieldRefInput<$PrismaModel>
+    in?: $Enums.DeadlineCategory[] | ListEnumDeadlineCategoryFieldRefInput<$PrismaModel>
+    notIn?: $Enums.DeadlineCategory[] | ListEnumDeadlineCategoryFieldRefInput<$PrismaModel>
+    not?: NestedEnumDeadlineCategoryFilter<$PrismaModel> | $Enums.DeadlineCategory
+  }
+
+  export type NestedEnumDocumentTypeNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.DocumentType | EnumDocumentTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.DocumentType[] | ListEnumDocumentTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.DocumentType[] | ListEnumDocumentTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumDocumentTypeNullableFilter<$PrismaModel> | $Enums.DocumentType | null
+  }
+
+  export type NestedEnumReviewStepNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.ReviewStep | EnumReviewStepFieldRefInput<$PrismaModel> | null
+    in?: $Enums.ReviewStep[] | ListEnumReviewStepFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.ReviewStep[] | ListEnumReviewStepFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumReviewStepNullableFilter<$PrismaModel> | $Enums.ReviewStep | null
+  }
+
+  export type NestedEnumDeadlineCategoryWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.DeadlineCategory | EnumDeadlineCategoryFieldRefInput<$PrismaModel>
+    in?: $Enums.DeadlineCategory[] | ListEnumDeadlineCategoryFieldRefInput<$PrismaModel>
+    notIn?: $Enums.DeadlineCategory[] | ListEnumDeadlineCategoryFieldRefInput<$PrismaModel>
+    not?: NestedEnumDeadlineCategoryWithAggregatesFilter<$PrismaModel> | $Enums.DeadlineCategory
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumDeadlineCategoryFilter<$PrismaModel>
+    _max?: NestedEnumDeadlineCategoryFilter<$PrismaModel>
+  }
+
+  export type NestedEnumDocumentTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.DocumentType | EnumDocumentTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.DocumentType[] | ListEnumDocumentTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.DocumentType[] | ListEnumDocumentTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumDocumentTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.DocumentType | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumDocumentTypeNullableFilter<$PrismaModel>
+    _max?: NestedEnumDocumentTypeNullableFilter<$PrismaModel>
+  }
+
+  export type NestedEnumReviewStepNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.ReviewStep | EnumReviewStepFieldRefInput<$PrismaModel> | null
+    in?: $Enums.ReviewStep[] | ListEnumReviewStepFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.ReviewStep[] | ListEnumReviewStepFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumReviewStepNullableWithAggregatesFilter<$PrismaModel> | $Enums.ReviewStep | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumReviewStepNullableFilter<$PrismaModel>
+    _max?: NestedEnumReviewStepNullableFilter<$PrismaModel>
+  }
+
+  export type NestedEnumProjectKiTaskStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.ProjectKiTaskStatus | EnumProjectKiTaskStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.ProjectKiTaskStatus[] | ListEnumProjectKiTaskStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ProjectKiTaskStatus[] | ListEnumProjectKiTaskStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumProjectKiTaskStatusFilter<$PrismaModel> | $Enums.ProjectKiTaskStatus
+  }
+
+  export type NestedEnumProjectKiTaskStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.ProjectKiTaskStatus | EnumProjectKiTaskStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.ProjectKiTaskStatus[] | ListEnumProjectKiTaskStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ProjectKiTaskStatus[] | ListEnumProjectKiTaskStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumProjectKiTaskStatusWithAggregatesFilter<$PrismaModel> | $Enums.ProjectKiTaskStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumProjectKiTaskStatusFilter<$PrismaModel>
+    _max?: NestedEnumProjectKiTaskStatusFilter<$PrismaModel>
+  }
+
   export type NestedEnumCustomerTypeFilter<$PrismaModel = never> = {
     equals?: $Enums.CustomerType | EnumCustomerTypeFieldRefInput<$PrismaModel>
     in?: $Enums.CustomerType[] | ListEnumCustomerTypeFieldRefInput<$PrismaModel>
@@ -43386,6 +51385,80 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumCustomerFundStatusFilter<$PrismaModel>
     _max?: NestedEnumCustomerFundStatusFilter<$PrismaModel>
+  }
+
+  export type NestedEnumBatchStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.BatchStatus | EnumBatchStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.BatchStatus[] | ListEnumBatchStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.BatchStatus[] | ListEnumBatchStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumBatchStatusFilter<$PrismaModel> | $Enums.BatchStatus
+  }
+
+  export type NestedEnumBatchStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.BatchStatus | EnumBatchStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.BatchStatus[] | ListEnumBatchStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.BatchStatus[] | ListEnumBatchStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumBatchStatusWithAggregatesFilter<$PrismaModel> | $Enums.BatchStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumBatchStatusFilter<$PrismaModel>
+    _max?: NestedEnumBatchStatusFilter<$PrismaModel>
+  }
+
+  export type NestedEnumChangeSourceFilter<$PrismaModel = never> = {
+    equals?: $Enums.ChangeSource | EnumChangeSourceFieldRefInput<$PrismaModel>
+    in?: $Enums.ChangeSource[] | ListEnumChangeSourceFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ChangeSource[] | ListEnumChangeSourceFieldRefInput<$PrismaModel>
+    not?: NestedEnumChangeSourceFilter<$PrismaModel> | $Enums.ChangeSource
+  }
+
+  export type NestedEnumChangeOperationFilter<$PrismaModel = never> = {
+    equals?: $Enums.ChangeOperation | EnumChangeOperationFieldRefInput<$PrismaModel>
+    in?: $Enums.ChangeOperation[] | ListEnumChangeOperationFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ChangeOperation[] | ListEnumChangeOperationFieldRefInput<$PrismaModel>
+    not?: NestedEnumChangeOperationFilter<$PrismaModel> | $Enums.ChangeOperation
+  }
+
+  export type NestedEnumChangeSourceWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.ChangeSource | EnumChangeSourceFieldRefInput<$PrismaModel>
+    in?: $Enums.ChangeSource[] | ListEnumChangeSourceFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ChangeSource[] | ListEnumChangeSourceFieldRefInput<$PrismaModel>
+    not?: NestedEnumChangeSourceWithAggregatesFilter<$PrismaModel> | $Enums.ChangeSource
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumChangeSourceFilter<$PrismaModel>
+    _max?: NestedEnumChangeSourceFilter<$PrismaModel>
+  }
+
+  export type NestedEnumChangeOperationWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.ChangeOperation | EnumChangeOperationFieldRefInput<$PrismaModel>
+    in?: $Enums.ChangeOperation[] | ListEnumChangeOperationFieldRefInput<$PrismaModel>
+    notIn?: $Enums.ChangeOperation[] | ListEnumChangeOperationFieldRefInput<$PrismaModel>
+    not?: NestedEnumChangeOperationWithAggregatesFilter<$PrismaModel> | $Enums.ChangeOperation
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumChangeOperationFilter<$PrismaModel>
+    _max?: NestedEnumChangeOperationFilter<$PrismaModel>
+  }
+  export type NestedJsonFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
   export type NestedEnumExtTypeFilter<$PrismaModel = never> = {
@@ -43522,6 +51595,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: bigint | number | null
     cashTrapJunbiKanjo?: bigint | number | null
+    interestCapContractKanjo?: bigint | number | null
     sonotaGenyokin?: bigint | number | null
     futuYokinTokiZandaka?: bigint | number | null
     zenkiKurikoshiRieki?: bigint | number | null
@@ -43535,17 +51609,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: bigint | number | null
     shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuShuekiTaishogaiUriage?: bigint | number | null
     shintakuHiyoKazeiShiire?: bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: bigint | number | null
     shintakuHiyoHikazeiShiire?: bigint | number | null
+    shintakuHiyoTaishogaiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuShuekiTaishogaiUriage?: number | null
     unitShintakuHiyoKazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireShohizei?: number | null
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    unitShintakuHiyoTaishogaiShiire?: number | null
     kazeiUriageSashihiki08?: bigint | number | null
     kazeiUriageSashihiki10?: bigint | number | null
     kazeiUriageHontai08?: bigint | number | null
@@ -43625,6 +51703,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: bigint | number | null
     cashTrapJunbiKanjo?: bigint | number | null
+    interestCapContractKanjo?: bigint | number | null
     sonotaGenyokin?: bigint | number | null
     futuYokinTokiZandaka?: bigint | number | null
     zenkiKurikoshiRieki?: bigint | number | null
@@ -43638,17 +51717,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: bigint | number | null
     shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuShuekiTaishogaiUriage?: bigint | number | null
     shintakuHiyoKazeiShiire?: bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: bigint | number | null
     shintakuHiyoHikazeiShiire?: bigint | number | null
+    shintakuHiyoTaishogaiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuShuekiTaishogaiUriage?: number | null
     unitShintakuHiyoKazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireShohizei?: number | null
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    unitShintakuHiyoTaishogaiShiire?: number | null
     kazeiUriageSashihiki08?: bigint | number | null
     kazeiUriageSashihiki10?: bigint | number | null
     kazeiUriageHontai08?: bigint | number | null
@@ -43732,6 +51815,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: bigint | number | null
     cashTrapJunbiKanjo?: bigint | number | null
+    interestCapContractKanjo?: bigint | number | null
     sonotaGenyokin?: bigint | number | null
     futuYokinTokiZandaka?: bigint | number | null
     zenkiKurikoshiRieki?: bigint | number | null
@@ -43745,17 +51829,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: bigint | number | null
     shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuShuekiTaishogaiUriage?: bigint | number | null
     shintakuHiyoKazeiShiire?: bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: bigint | number | null
     shintakuHiyoHikazeiShiire?: bigint | number | null
+    shintakuHiyoTaishogaiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuShuekiTaishogaiUriage?: number | null
     unitShintakuHiyoKazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireShohizei?: number | null
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    unitShintakuHiyoTaishogaiShiire?: number | null
     kazeiUriageSashihiki08?: bigint | number | null
     kazeiUriageSashihiki10?: bigint | number | null
     kazeiUriageHontai08?: bigint | number | null
@@ -43835,6 +51923,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: bigint | number | null
     cashTrapJunbiKanjo?: bigint | number | null
+    interestCapContractKanjo?: bigint | number | null
     sonotaGenyokin?: bigint | number | null
     futuYokinTokiZandaka?: bigint | number | null
     zenkiKurikoshiRieki?: bigint | number | null
@@ -43848,17 +51937,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: bigint | number | null
     shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuShuekiTaishogaiUriage?: bigint | number | null
     shintakuHiyoKazeiShiire?: bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: bigint | number | null
     shintakuHiyoHikazeiShiire?: bigint | number | null
+    shintakuHiyoTaishogaiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuShuekiTaishogaiUriage?: number | null
     unitShintakuHiyoKazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireShohizei?: number | null
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    unitShintakuHiyoTaishogaiShiire?: number | null
     kazeiUriageSashihiki08?: bigint | number | null
     kazeiUriageSashihiki10?: bigint | number | null
     kazeiUriageHontai08?: bigint | number | null
@@ -43890,6 +51983,44 @@ export namespace Prisma {
 
   export type ProjectKiCreateManySubUserInputEnvelope = {
     data: ProjectKiCreateManySubUserInput | ProjectKiCreateManySubUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ProjectKiTaskCreateWithoutCheckerInput = {
+    id?: string
+    status?: $Enums.ProjectKiTaskStatus
+    note?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    DeadlineTask: DeadlineTaskCreateNestedOneWithoutProjectKiTasksInput
+    ProjectKi: ProjectKiCreateNestedOneWithoutProjectKiTasksInput
+  }
+
+  export type ProjectKiTaskUncheckedCreateWithoutCheckerInput = {
+    id?: string
+    deadlineTaskId: string
+    projectKiId: string
+    status?: $Enums.ProjectKiTaskStatus
+    note?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type ProjectKiTaskCreateOrConnectWithoutCheckerInput = {
+    where: ProjectKiTaskWhereUniqueInput
+    create: XOR<ProjectKiTaskCreateWithoutCheckerInput, ProjectKiTaskUncheckedCreateWithoutCheckerInput>
+  }
+
+  export type ProjectKiTaskCreateManyCheckerInputEnvelope = {
+    data: ProjectKiTaskCreateManyCheckerInput | ProjectKiTaskCreateManyCheckerInput[]
     skipDuplicates?: boolean
   }
 
@@ -43965,6 +52096,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     cashTrapJunbiKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    interestCapContractKanjo?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     sonotaGenyokin?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     futuYokinTokiZandaka?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     zenkiKurikoshiRieki?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
@@ -43978,17 +52110,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     shintakuShuekiHikazeiUriage?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuShuekiTaishogaiUriage?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     shintakuHiyoKazeiShiire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     shintakuHiyoHikazeiShiire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
+    shintakuHiyoTaishogaiShiire?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     unitShintakuShuekiKazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuShuekiKazeiUriageShohizei?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuShuekiHikazeiUriage?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuShuekiTaishogaiUriage?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyoKazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyoKazeiShiireShohizei?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyoHikazeiShiire?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
+    unitShintakuHiyoTaishogaiShiire?: IntNullableFilter<"ProjectKi"> | number | null
     kazeiUriageSashihiki08?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     kazeiUriageSashihiki10?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     kazeiUriageHontai08?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
@@ -44025,6 +52161,40 @@ export namespace Prisma {
   export type ProjectKiUpdateManyWithWhereWithoutSubUserInput = {
     where: ProjectKiScalarWhereInput
     data: XOR<ProjectKiUpdateManyMutationInput, ProjectKiUncheckedUpdateManyWithoutSubUserInput>
+  }
+
+  export type ProjectKiTaskUpsertWithWhereUniqueWithoutCheckerInput = {
+    where: ProjectKiTaskWhereUniqueInput
+    update: XOR<ProjectKiTaskUpdateWithoutCheckerInput, ProjectKiTaskUncheckedUpdateWithoutCheckerInput>
+    create: XOR<ProjectKiTaskCreateWithoutCheckerInput, ProjectKiTaskUncheckedCreateWithoutCheckerInput>
+  }
+
+  export type ProjectKiTaskUpdateWithWhereUniqueWithoutCheckerInput = {
+    where: ProjectKiTaskWhereUniqueInput
+    data: XOR<ProjectKiTaskUpdateWithoutCheckerInput, ProjectKiTaskUncheckedUpdateWithoutCheckerInput>
+  }
+
+  export type ProjectKiTaskUpdateManyWithWhereWithoutCheckerInput = {
+    where: ProjectKiTaskScalarWhereInput
+    data: XOR<ProjectKiTaskUpdateManyMutationInput, ProjectKiTaskUncheckedUpdateManyWithoutCheckerInput>
+  }
+
+  export type ProjectKiTaskScalarWhereInput = {
+    AND?: ProjectKiTaskScalarWhereInput | ProjectKiTaskScalarWhereInput[]
+    OR?: ProjectKiTaskScalarWhereInput[]
+    NOT?: ProjectKiTaskScalarWhereInput | ProjectKiTaskScalarWhereInput[]
+    id?: StringFilter<"ProjectKiTask"> | string
+    deadlineTaskId?: StringFilter<"ProjectKiTask"> | string
+    projectKiId?: StringFilter<"ProjectKiTask"> | string
+    status?: EnumProjectKiTaskStatusFilter<"ProjectKiTask"> | $Enums.ProjectKiTaskStatus
+    note?: StringNullableFilter<"ProjectKiTask"> | string | null
+    checkerUserId?: StringNullableFilter<"ProjectKiTask"> | string | null
+    createdAt?: DateTimeFilter<"ProjectKiTask"> | Date | string
+    createdId?: StringFilter<"ProjectKiTask"> | string
+    createdBy?: StringFilter<"ProjectKiTask"> | string
+    updatedAt?: DateTimeFilter<"ProjectKiTask"> | Date | string
+    updatedId?: StringFilter<"ProjectKiTask"> | string
+    updatedBy?: StringFilter<"ProjectKiTask"> | string
   }
 
   export type ProjectKiCreateWithoutKiInput = {
@@ -44076,6 +52246,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: bigint | number | null
     cashTrapJunbiKanjo?: bigint | number | null
+    interestCapContractKanjo?: bigint | number | null
     sonotaGenyokin?: bigint | number | null
     futuYokinTokiZandaka?: bigint | number | null
     zenkiKurikoshiRieki?: bigint | number | null
@@ -44089,17 +52260,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: bigint | number | null
     shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuShuekiTaishogaiUriage?: bigint | number | null
     shintakuHiyoKazeiShiire?: bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: bigint | number | null
     shintakuHiyoHikazeiShiire?: bigint | number | null
+    shintakuHiyoTaishogaiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuShuekiTaishogaiUriage?: number | null
     unitShintakuHiyoKazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireShohizei?: number | null
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    unitShintakuHiyoTaishogaiShiire?: number | null
     kazeiUriageSashihiki08?: bigint | number | null
     kazeiUriageSashihiki10?: bigint | number | null
     kazeiUriageHontai08?: bigint | number | null
@@ -44179,6 +52354,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: bigint | number | null
     cashTrapJunbiKanjo?: bigint | number | null
+    interestCapContractKanjo?: bigint | number | null
     sonotaGenyokin?: bigint | number | null
     futuYokinTokiZandaka?: bigint | number | null
     zenkiKurikoshiRieki?: bigint | number | null
@@ -44192,17 +52368,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: bigint | number | null
     shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuShuekiTaishogaiUriage?: bigint | number | null
     shintakuHiyoKazeiShiire?: bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: bigint | number | null
     shintakuHiyoHikazeiShiire?: bigint | number | null
+    shintakuHiyoTaishogaiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuShuekiTaishogaiUriage?: number | null
     unitShintakuHiyoKazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireShohizei?: number | null
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    unitShintakuHiyoTaishogaiShiire?: number | null
     kazeiUriageSashihiki08?: bigint | number | null
     kazeiUriageSashihiki10?: bigint | number | null
     kazeiUriageHontai08?: bigint | number | null
@@ -44333,6 +52513,9 @@ export namespace Prisma {
     dueDate: Date | string
     order?: number
     memo?: string | null
+    category?: $Enums.DeadlineCategory
+    documentType?: $Enums.DocumentType | null
+    reviewStep?: $Enums.ReviewStep | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -44348,6 +52531,9 @@ export namespace Prisma {
     dueDate: Date | string
     order?: number
     memo?: string | null
+    category?: $Enums.DeadlineCategory
+    documentType?: $Enums.DocumentType | null
+    reviewStep?: $Enums.ReviewStep | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -44364,6 +52550,66 @@ export namespace Prisma {
 
   export type DeadlineTaskCreateManyKiInputEnvelope = {
     data: DeadlineTaskCreateManyKiInput | DeadlineTaskCreateManyKiInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CustomerUploadBatchCreateWithoutKiInput = {
+    id?: string
+    fileName: string
+    uploaderId: string
+    uploaderType: $Enums.UserType
+    uploaderName: string
+    ipAddress?: string | null
+    status?: $Enums.BatchStatus
+    targetProjectCount?: number
+    committedProjectCount?: number
+    customerCreatedCount?: number
+    customerUpdatedCount?: number
+    customerUnchangedCount?: number
+    fundCreatedCount?: number
+    fundUpdatedCount?: number
+    fundDeletedCount?: number
+    fundUnchangedCount?: number
+    pretreatmentAt?: Date | string
+    committedAt?: Date | string | null
+    mailSentAt?: Date | string | null
+    CustomerChangeLogs?: CustomerChangeLogCreateNestedManyWithoutBatchInput
+    CustomerFundChangeLogs?: CustomerFundChangeLogCreateNestedManyWithoutBatchInput
+    CommittedProjects?: CustomerUploadBatchProjectCreateNestedManyWithoutBatchInput
+  }
+
+  export type CustomerUploadBatchUncheckedCreateWithoutKiInput = {
+    id?: string
+    fileName: string
+    uploaderId: string
+    uploaderType: $Enums.UserType
+    uploaderName: string
+    ipAddress?: string | null
+    status?: $Enums.BatchStatus
+    targetProjectCount?: number
+    committedProjectCount?: number
+    customerCreatedCount?: number
+    customerUpdatedCount?: number
+    customerUnchangedCount?: number
+    fundCreatedCount?: number
+    fundUpdatedCount?: number
+    fundDeletedCount?: number
+    fundUnchangedCount?: number
+    pretreatmentAt?: Date | string
+    committedAt?: Date | string | null
+    mailSentAt?: Date | string | null
+    CustomerChangeLogs?: CustomerChangeLogUncheckedCreateNestedManyWithoutBatchInput
+    CustomerFundChangeLogs?: CustomerFundChangeLogUncheckedCreateNestedManyWithoutBatchInput
+    CommittedProjects?: CustomerUploadBatchProjectUncheckedCreateNestedManyWithoutBatchInput
+  }
+
+  export type CustomerUploadBatchCreateOrConnectWithoutKiInput = {
+    where: CustomerUploadBatchWhereUniqueInput
+    create: XOR<CustomerUploadBatchCreateWithoutKiInput, CustomerUploadBatchUncheckedCreateWithoutKiInput>
+  }
+
+  export type CustomerUploadBatchCreateManyKiInputEnvelope = {
+    data: CustomerUploadBatchCreateManyKiInput | CustomerUploadBatchCreateManyKiInput[]
     skipDuplicates?: boolean
   }
 
@@ -44469,12 +52715,57 @@ export namespace Prisma {
     dueDate?: DateTimeFilter<"DeadlineTask"> | Date | string
     order?: IntFilter<"DeadlineTask"> | number
     memo?: StringNullableFilter<"DeadlineTask"> | string | null
+    category?: EnumDeadlineCategoryFilter<"DeadlineTask"> | $Enums.DeadlineCategory
+    documentType?: EnumDocumentTypeNullableFilter<"DeadlineTask"> | $Enums.DocumentType | null
+    reviewStep?: EnumReviewStepNullableFilter<"DeadlineTask"> | $Enums.ReviewStep | null
     createdAt?: DateTimeFilter<"DeadlineTask"> | Date | string
     createdId?: StringFilter<"DeadlineTask"> | string
     createdBy?: StringFilter<"DeadlineTask"> | string
     updatedAt?: DateTimeFilter<"DeadlineTask"> | Date | string
     updatedId?: StringFilter<"DeadlineTask"> | string
     updatedBy?: StringFilter<"DeadlineTask"> | string
+  }
+
+  export type CustomerUploadBatchUpsertWithWhereUniqueWithoutKiInput = {
+    where: CustomerUploadBatchWhereUniqueInput
+    update: XOR<CustomerUploadBatchUpdateWithoutKiInput, CustomerUploadBatchUncheckedUpdateWithoutKiInput>
+    create: XOR<CustomerUploadBatchCreateWithoutKiInput, CustomerUploadBatchUncheckedCreateWithoutKiInput>
+  }
+
+  export type CustomerUploadBatchUpdateWithWhereUniqueWithoutKiInput = {
+    where: CustomerUploadBatchWhereUniqueInput
+    data: XOR<CustomerUploadBatchUpdateWithoutKiInput, CustomerUploadBatchUncheckedUpdateWithoutKiInput>
+  }
+
+  export type CustomerUploadBatchUpdateManyWithWhereWithoutKiInput = {
+    where: CustomerUploadBatchScalarWhereInput
+    data: XOR<CustomerUploadBatchUpdateManyMutationInput, CustomerUploadBatchUncheckedUpdateManyWithoutKiInput>
+  }
+
+  export type CustomerUploadBatchScalarWhereInput = {
+    AND?: CustomerUploadBatchScalarWhereInput | CustomerUploadBatchScalarWhereInput[]
+    OR?: CustomerUploadBatchScalarWhereInput[]
+    NOT?: CustomerUploadBatchScalarWhereInput | CustomerUploadBatchScalarWhereInput[]
+    id?: StringFilter<"CustomerUploadBatch"> | string
+    fileName?: StringFilter<"CustomerUploadBatch"> | string
+    kiId?: StringFilter<"CustomerUploadBatch"> | string
+    uploaderId?: StringFilter<"CustomerUploadBatch"> | string
+    uploaderType?: EnumUserTypeFilter<"CustomerUploadBatch"> | $Enums.UserType
+    uploaderName?: StringFilter<"CustomerUploadBatch"> | string
+    ipAddress?: StringNullableFilter<"CustomerUploadBatch"> | string | null
+    status?: EnumBatchStatusFilter<"CustomerUploadBatch"> | $Enums.BatchStatus
+    targetProjectCount?: IntFilter<"CustomerUploadBatch"> | number
+    committedProjectCount?: IntFilter<"CustomerUploadBatch"> | number
+    customerCreatedCount?: IntFilter<"CustomerUploadBatch"> | number
+    customerUpdatedCount?: IntFilter<"CustomerUploadBatch"> | number
+    customerUnchangedCount?: IntFilter<"CustomerUploadBatch"> | number
+    fundCreatedCount?: IntFilter<"CustomerUploadBatch"> | number
+    fundUpdatedCount?: IntFilter<"CustomerUploadBatch"> | number
+    fundDeletedCount?: IntFilter<"CustomerUploadBatch"> | number
+    fundUnchangedCount?: IntFilter<"CustomerUploadBatch"> | number
+    pretreatmentAt?: DateTimeFilter<"CustomerUploadBatch"> | Date | string
+    committedAt?: DateTimeNullableFilter<"CustomerUploadBatch"> | Date | string | null
+    mailSentAt?: DateTimeNullableFilter<"CustomerUploadBatch"> | Date | string | null
   }
 
   export type TemplateCreateWithoutReportMainProjectsInput = {
@@ -44761,6 +53052,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: bigint | number | null
     cashTrapJunbiKanjo?: bigint | number | null
+    interestCapContractKanjo?: bigint | number | null
     sonotaGenyokin?: bigint | number | null
     futuYokinTokiZandaka?: bigint | number | null
     zenkiKurikoshiRieki?: bigint | number | null
@@ -44774,17 +53066,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: bigint | number | null
     shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuShuekiTaishogaiUriage?: bigint | number | null
     shintakuHiyoKazeiShiire?: bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: bigint | number | null
     shintakuHiyoHikazeiShiire?: bigint | number | null
+    shintakuHiyoTaishogaiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuShuekiTaishogaiUriage?: number | null
     unitShintakuHiyoKazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireShohizei?: number | null
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    unitShintakuHiyoTaishogaiShiire?: number | null
     kazeiUriageSashihiki08?: bigint | number | null
     kazeiUriageSashihiki10?: bigint | number | null
     kazeiUriageHontai08?: bigint | number | null
@@ -44864,6 +53160,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: bigint | number | null
     cashTrapJunbiKanjo?: bigint | number | null
+    interestCapContractKanjo?: bigint | number | null
     sonotaGenyokin?: bigint | number | null
     futuYokinTokiZandaka?: bigint | number | null
     zenkiKurikoshiRieki?: bigint | number | null
@@ -44877,17 +53174,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: bigint | number | null
     shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuShuekiTaishogaiUriage?: bigint | number | null
     shintakuHiyoKazeiShiire?: bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: bigint | number | null
     shintakuHiyoHikazeiShiire?: bigint | number | null
+    shintakuHiyoTaishogaiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuShuekiTaishogaiUriage?: number | null
     unitShintakuHiyoKazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireShohizei?: number | null
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    unitShintakuHiyoTaishogaiShiire?: number | null
     kazeiUriageSashihiki08?: bigint | number | null
     kazeiUriageSashihiki10?: bigint | number | null
     kazeiUriageHontai08?: bigint | number | null
@@ -45030,6 +53331,8 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     CustomerFunds?: CustomerFundCreateNestedManyWithoutCustomerInput
+    ChangeLogs?: CustomerChangeLogCreateNestedManyWithoutCustomerInput
+    FundChangeLogs?: CustomerFundChangeLogCreateNestedManyWithoutCustomerInput
   }
 
   export type CustomerUncheckedCreateWithoutProjectInput = {
@@ -45076,6 +53379,8 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     CustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutCustomerInput
+    ChangeLogs?: CustomerChangeLogUncheckedCreateNestedManyWithoutCustomerInput
+    FundChangeLogs?: CustomerFundChangeLogUncheckedCreateNestedManyWithoutCustomerInput
   }
 
   export type CustomerCreateOrConnectWithoutProjectInput = {
@@ -45085,6 +53390,28 @@ export namespace Prisma {
 
   export type CustomerCreateManyProjectInputEnvelope = {
     data: CustomerCreateManyProjectInput | CustomerCreateManyProjectInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CustomerUploadBatchProjectCreateWithoutProjectInput = {
+    id?: string
+    committedAt?: Date | string
+    Batch: CustomerUploadBatchCreateNestedOneWithoutCommittedProjectsInput
+  }
+
+  export type CustomerUploadBatchProjectUncheckedCreateWithoutProjectInput = {
+    id?: string
+    batchId: string
+    committedAt?: Date | string
+  }
+
+  export type CustomerUploadBatchProjectCreateOrConnectWithoutProjectInput = {
+    where: CustomerUploadBatchProjectWhereUniqueInput
+    create: XOR<CustomerUploadBatchProjectCreateWithoutProjectInput, CustomerUploadBatchProjectUncheckedCreateWithoutProjectInput>
+  }
+
+  export type CustomerUploadBatchProjectCreateManyProjectInputEnvelope = {
+    data: CustomerUploadBatchProjectCreateManyProjectInput | CustomerUploadBatchProjectCreateManyProjectInput[]
     skipDuplicates?: boolean
   }
 
@@ -45480,6 +53807,32 @@ export namespace Prisma {
     updatedBy?: StringFilter<"Customer"> | string
   }
 
+  export type CustomerUploadBatchProjectUpsertWithWhereUniqueWithoutProjectInput = {
+    where: CustomerUploadBatchProjectWhereUniqueInput
+    update: XOR<CustomerUploadBatchProjectUpdateWithoutProjectInput, CustomerUploadBatchProjectUncheckedUpdateWithoutProjectInput>
+    create: XOR<CustomerUploadBatchProjectCreateWithoutProjectInput, CustomerUploadBatchProjectUncheckedCreateWithoutProjectInput>
+  }
+
+  export type CustomerUploadBatchProjectUpdateWithWhereUniqueWithoutProjectInput = {
+    where: CustomerUploadBatchProjectWhereUniqueInput
+    data: XOR<CustomerUploadBatchProjectUpdateWithoutProjectInput, CustomerUploadBatchProjectUncheckedUpdateWithoutProjectInput>
+  }
+
+  export type CustomerUploadBatchProjectUpdateManyWithWhereWithoutProjectInput = {
+    where: CustomerUploadBatchProjectScalarWhereInput
+    data: XOR<CustomerUploadBatchProjectUpdateManyMutationInput, CustomerUploadBatchProjectUncheckedUpdateManyWithoutProjectInput>
+  }
+
+  export type CustomerUploadBatchProjectScalarWhereInput = {
+    AND?: CustomerUploadBatchProjectScalarWhereInput | CustomerUploadBatchProjectScalarWhereInput[]
+    OR?: CustomerUploadBatchProjectScalarWhereInput[]
+    NOT?: CustomerUploadBatchProjectScalarWhereInput | CustomerUploadBatchProjectScalarWhereInput[]
+    id?: StringFilter<"CustomerUploadBatchProject"> | string
+    batchId?: StringFilter<"CustomerUploadBatchProject"> | string
+    projectId?: StringFilter<"CustomerUploadBatchProject"> | string
+    committedAt?: DateTimeFilter<"CustomerUploadBatchProject"> | Date | string
+  }
+
   export type ProjectCreateWithoutProjectKisInput = {
     id: string
     sbimpId: string
@@ -45512,6 +53865,11 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    feeRateVariable?: number | null
+    feeFixedAnnual?: number | null
+    feeRateAgent?: number | null
+    feeCashMgmtAnnual?: number | null
+    feeRateTrust?: number | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
     createdAt?: Date | string
@@ -45527,6 +53885,7 @@ export namespace Prisma {
     Ref?: TemplateCreateNestedOneWithoutRefProjectsInput
     Assets?: AssetCreateNestedManyWithoutProjectInput
     Customers?: CustomerCreateNestedManyWithoutProjectInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectUncheckedCreateWithoutProjectKisInput = {
@@ -45561,6 +53920,11 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    feeRateVariable?: number | null
+    feeFixedAnnual?: number | null
+    feeRateAgent?: number | null
+    feeCashMgmtAnnual?: number | null
+    feeRateTrust?: number | null
     reportMainId?: string | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
@@ -45576,6 +53940,7 @@ export namespace Prisma {
     updatedBy: string
     Assets?: AssetUncheckedCreateNestedManyWithoutProjectInput
     Customers?: CustomerUncheckedCreateNestedManyWithoutProjectInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectUncheckedCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectCreateOrConnectWithoutProjectKisInput = {
@@ -45598,6 +53963,7 @@ export namespace Prisma {
     updatedBy: string
     AssetKis?: AssetKiCreateNestedManyWithoutKiInput
     DeadlineTasks?: DeadlineTaskCreateNestedManyWithoutKiInput
+    CustomerUploadBatches?: CustomerUploadBatchCreateNestedManyWithoutKiInput
   }
 
   export type KiUncheckedCreateWithoutProjectKisInput = {
@@ -45615,6 +53981,7 @@ export namespace Prisma {
     updatedBy: string
     AssetKis?: AssetKiUncheckedCreateNestedManyWithoutKiInput
     DeadlineTasks?: DeadlineTaskUncheckedCreateNestedManyWithoutKiInput
+    CustomerUploadBatches?: CustomerUploadBatchUncheckedCreateNestedManyWithoutKiInput
   }
 
   export type KiCreateOrConnectWithoutProjectKisInput = {
@@ -45636,6 +54003,7 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     SubUserProjectKis?: ProjectKiCreateNestedManyWithoutSubUserInput
+    CheckerProjectKiTasks?: ProjectKiTaskCreateNestedManyWithoutCheckerInput
   }
 
   export type UserUncheckedCreateWithoutMainUserProjectKisInput = {
@@ -45652,6 +54020,7 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     SubUserProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutSubUserInput
+    CheckerProjectKiTasks?: ProjectKiTaskUncheckedCreateNestedManyWithoutCheckerInput
   }
 
   export type UserCreateOrConnectWithoutMainUserProjectKisInput = {
@@ -45673,6 +54042,7 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     MainUserProjectKis?: ProjectKiCreateNestedManyWithoutMainUserInput
+    CheckerProjectKiTasks?: ProjectKiTaskCreateNestedManyWithoutCheckerInput
   }
 
   export type UserUncheckedCreateWithoutSubUserProjectKisInput = {
@@ -45689,6 +54059,7 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     MainUserProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutMainUserInput
+    CheckerProjectKiTasks?: ProjectKiTaskUncheckedCreateNestedManyWithoutCheckerInput
   }
 
   export type UserCreateOrConnectWithoutSubUserProjectKisInput = {
@@ -45722,6 +54093,7 @@ export namespace Prisma {
     Customer: CustomerCreateNestedOneWithoutCustomerFundsInput
     sourceCustomerFund?: CustomerFundCreateNestedOneWithoutDestinationCustomerFundsInput
     destinationCustomerFunds?: CustomerFundCreateNestedManyWithoutSourceCustomerFundInput
+    ChangeLogs?: CustomerFundChangeLogCreateNestedManyWithoutCustomerFundInput
   }
 
   export type CustomerFundUncheckedCreateWithoutProjectKiInput = {
@@ -45750,6 +54122,7 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     destinationCustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutSourceCustomerFundInput
+    ChangeLogs?: CustomerFundChangeLogUncheckedCreateNestedManyWithoutCustomerFundInput
   }
 
   export type CustomerFundCreateOrConnectWithoutProjectKiInput = {
@@ -45764,7 +54137,8 @@ export namespace Prisma {
 
   export type ProjectKiTaskCreateWithoutProjectKiInput = {
     id?: string
-    isCompleted?: boolean
+    status?: $Enums.ProjectKiTaskStatus
+    note?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -45772,12 +54146,15 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     DeadlineTask: DeadlineTaskCreateNestedOneWithoutProjectKiTasksInput
+    Checker?: UserCreateNestedOneWithoutCheckerProjectKiTasksInput
   }
 
   export type ProjectKiTaskUncheckedCreateWithoutProjectKiInput = {
     id?: string
     deadlineTaskId: string
-    isCompleted?: boolean
+    status?: $Enums.ProjectKiTaskStatus
+    note?: string | null
+    checkerUserId?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -45839,6 +54216,11 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    feeRateVariable?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeFixedAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateAgent?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeCashMgmtAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -45854,6 +54236,7 @@ export namespace Prisma {
     Ref?: TemplateUpdateOneWithoutRefProjectsNestedInput
     Assets?: AssetUpdateManyWithoutProjectNestedInput
     Customers?: CustomerUpdateManyWithoutProjectNestedInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateWithoutProjectKisInput = {
@@ -45888,6 +54271,11 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    feeRateVariable?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeFixedAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateAgent?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeCashMgmtAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -45903,6 +54291,7 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
     Assets?: AssetUncheckedUpdateManyWithoutProjectNestedInput
     Customers?: CustomerUncheckedUpdateManyWithoutProjectNestedInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectUncheckedUpdateManyWithoutProjectNestedInput
   }
 
   export type KiUpsertWithoutProjectKisInput = {
@@ -45931,6 +54320,7 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
     AssetKis?: AssetKiUpdateManyWithoutKiNestedInput
     DeadlineTasks?: DeadlineTaskUpdateManyWithoutKiNestedInput
+    CustomerUploadBatches?: CustomerUploadBatchUpdateManyWithoutKiNestedInput
   }
 
   export type KiUncheckedUpdateWithoutProjectKisInput = {
@@ -45948,6 +54338,7 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
     AssetKis?: AssetKiUncheckedUpdateManyWithoutKiNestedInput
     DeadlineTasks?: DeadlineTaskUncheckedUpdateManyWithoutKiNestedInput
+    CustomerUploadBatches?: CustomerUploadBatchUncheckedUpdateManyWithoutKiNestedInput
   }
 
   export type UserUpsertWithoutMainUserProjectKisInput = {
@@ -45975,6 +54366,7 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     SubUserProjectKis?: ProjectKiUpdateManyWithoutSubUserNestedInput
+    CheckerProjectKiTasks?: ProjectKiTaskUpdateManyWithoutCheckerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutMainUserProjectKisInput = {
@@ -45991,6 +54383,7 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     SubUserProjectKis?: ProjectKiUncheckedUpdateManyWithoutSubUserNestedInput
+    CheckerProjectKiTasks?: ProjectKiTaskUncheckedUpdateManyWithoutCheckerNestedInput
   }
 
   export type UserUpsertWithoutSubUserProjectKisInput = {
@@ -46018,6 +54411,7 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     MainUserProjectKis?: ProjectKiUpdateManyWithoutMainUserNestedInput
+    CheckerProjectKiTasks?: ProjectKiTaskUpdateManyWithoutCheckerNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSubUserProjectKisInput = {
@@ -46034,6 +54428,7 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     MainUserProjectKis?: ProjectKiUncheckedUpdateManyWithoutMainUserNestedInput
+    CheckerProjectKiTasks?: ProjectKiTaskUncheckedUpdateManyWithoutCheckerNestedInput
   }
 
   export type CustomerFundUpsertWithWhereUniqueWithoutProjectKiInput = {
@@ -46099,22 +54494,6 @@ export namespace Prisma {
     data: XOR<ProjectKiTaskUpdateManyMutationInput, ProjectKiTaskUncheckedUpdateManyWithoutProjectKiInput>
   }
 
-  export type ProjectKiTaskScalarWhereInput = {
-    AND?: ProjectKiTaskScalarWhereInput | ProjectKiTaskScalarWhereInput[]
-    OR?: ProjectKiTaskScalarWhereInput[]
-    NOT?: ProjectKiTaskScalarWhereInput | ProjectKiTaskScalarWhereInput[]
-    id?: StringFilter<"ProjectKiTask"> | string
-    deadlineTaskId?: StringFilter<"ProjectKiTask"> | string
-    projectKiId?: StringFilter<"ProjectKiTask"> | string
-    isCompleted?: BoolFilter<"ProjectKiTask"> | boolean
-    createdAt?: DateTimeFilter<"ProjectKiTask"> | Date | string
-    createdId?: StringFilter<"ProjectKiTask"> | string
-    createdBy?: StringFilter<"ProjectKiTask"> | string
-    updatedAt?: DateTimeFilter<"ProjectKiTask"> | Date | string
-    updatedId?: StringFilter<"ProjectKiTask"> | string
-    updatedBy?: StringFilter<"ProjectKiTask"> | string
-  }
-
   export type ProjectCreateWithoutAssetsInput = {
     id: string
     sbimpId: string
@@ -46147,6 +54526,11 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    feeRateVariable?: number | null
+    feeFixedAnnual?: number | null
+    feeRateAgent?: number | null
+    feeCashMgmtAnnual?: number | null
+    feeRateTrust?: number | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
     createdAt?: Date | string
@@ -46162,6 +54546,7 @@ export namespace Prisma {
     Ref?: TemplateCreateNestedOneWithoutRefProjectsInput
     ProjectKis?: ProjectKiCreateNestedManyWithoutProjectInput
     Customers?: CustomerCreateNestedManyWithoutProjectInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectUncheckedCreateWithoutAssetsInput = {
@@ -46196,6 +54581,11 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    feeRateVariable?: number | null
+    feeFixedAnnual?: number | null
+    feeRateAgent?: number | null
+    feeCashMgmtAnnual?: number | null
+    feeRateTrust?: number | null
     reportMainId?: string | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
@@ -46211,6 +54601,7 @@ export namespace Prisma {
     updatedBy: string
     ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutProjectInput
     Customers?: CustomerUncheckedCreateNestedManyWithoutProjectInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectUncheckedCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectCreateOrConnectWithoutAssetsInput = {
@@ -46351,6 +54742,11 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    feeRateVariable?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeFixedAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateAgent?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeCashMgmtAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -46366,6 +54762,7 @@ export namespace Prisma {
     Ref?: TemplateUpdateOneWithoutRefProjectsNestedInput
     ProjectKis?: ProjectKiUpdateManyWithoutProjectNestedInput
     Customers?: CustomerUpdateManyWithoutProjectNestedInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateWithoutAssetsInput = {
@@ -46400,6 +54797,11 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    feeRateVariable?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeFixedAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateAgent?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeCashMgmtAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -46415,6 +54817,7 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
     ProjectKis?: ProjectKiUncheckedUpdateManyWithoutProjectNestedInput
     Customers?: CustomerUncheckedUpdateManyWithoutProjectNestedInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectUncheckedUpdateManyWithoutProjectNestedInput
   }
 
   export type AssetKiUpsertWithWhereUniqueWithoutAssetInput = {
@@ -46507,6 +54910,7 @@ export namespace Prisma {
     updatedBy: string
     ProjectKis?: ProjectKiCreateNestedManyWithoutKiInput
     DeadlineTasks?: DeadlineTaskCreateNestedManyWithoutKiInput
+    CustomerUploadBatches?: CustomerUploadBatchCreateNestedManyWithoutKiInput
   }
 
   export type KiUncheckedCreateWithoutAssetKisInput = {
@@ -46524,6 +54928,7 @@ export namespace Prisma {
     updatedBy: string
     ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutKiInput
     DeadlineTasks?: DeadlineTaskUncheckedCreateNestedManyWithoutKiInput
+    CustomerUploadBatches?: CustomerUploadBatchUncheckedCreateNestedManyWithoutKiInput
   }
 
   export type KiCreateOrConnectWithoutAssetKisInput = {
@@ -46622,6 +55027,7 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
     ProjectKis?: ProjectKiUpdateManyWithoutKiNestedInput
     DeadlineTasks?: DeadlineTaskUpdateManyWithoutKiNestedInput
+    CustomerUploadBatches?: CustomerUploadBatchUpdateManyWithoutKiNestedInput
   }
 
   export type KiUncheckedUpdateWithoutAssetKisInput = {
@@ -46639,6 +55045,7 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
     ProjectKis?: ProjectKiUncheckedUpdateManyWithoutKiNestedInput
     DeadlineTasks?: DeadlineTaskUncheckedUpdateManyWithoutKiNestedInput
+    CustomerUploadBatches?: CustomerUploadBatchUncheckedUpdateManyWithoutKiNestedInput
   }
 
   export type KiCreateWithoutDeadlineTasksInput = {
@@ -46656,6 +55063,7 @@ export namespace Prisma {
     updatedBy: string
     ProjectKis?: ProjectKiCreateNestedManyWithoutKiInput
     AssetKis?: AssetKiCreateNestedManyWithoutKiInput
+    CustomerUploadBatches?: CustomerUploadBatchCreateNestedManyWithoutKiInput
   }
 
   export type KiUncheckedCreateWithoutDeadlineTasksInput = {
@@ -46673,6 +55081,7 @@ export namespace Prisma {
     updatedBy: string
     ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutKiInput
     AssetKis?: AssetKiUncheckedCreateNestedManyWithoutKiInput
+    CustomerUploadBatches?: CustomerUploadBatchUncheckedCreateNestedManyWithoutKiInput
   }
 
   export type KiCreateOrConnectWithoutDeadlineTasksInput = {
@@ -46682,7 +55091,8 @@ export namespace Prisma {
 
   export type ProjectKiTaskCreateWithoutDeadlineTaskInput = {
     id?: string
-    isCompleted?: boolean
+    status?: $Enums.ProjectKiTaskStatus
+    note?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -46690,12 +55100,15 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     ProjectKi: ProjectKiCreateNestedOneWithoutProjectKiTasksInput
+    Checker?: UserCreateNestedOneWithoutCheckerProjectKiTasksInput
   }
 
   export type ProjectKiTaskUncheckedCreateWithoutDeadlineTaskInput = {
     id?: string
     projectKiId: string
-    isCompleted?: boolean
+    status?: $Enums.ProjectKiTaskStatus
+    note?: string | null
+    checkerUserId?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -46740,6 +55153,7 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
     ProjectKis?: ProjectKiUpdateManyWithoutKiNestedInput
     AssetKis?: AssetKiUpdateManyWithoutKiNestedInput
+    CustomerUploadBatches?: CustomerUploadBatchUpdateManyWithoutKiNestedInput
   }
 
   export type KiUncheckedUpdateWithoutDeadlineTasksInput = {
@@ -46757,6 +55171,7 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
     ProjectKis?: ProjectKiUncheckedUpdateManyWithoutKiNestedInput
     AssetKis?: AssetKiUncheckedUpdateManyWithoutKiNestedInput
+    CustomerUploadBatches?: CustomerUploadBatchUncheckedUpdateManyWithoutKiNestedInput
   }
 
   export type ProjectKiTaskUpsertWithWhereUniqueWithoutDeadlineTaskInput = {
@@ -46781,6 +55196,9 @@ export namespace Prisma {
     dueDate: Date | string
     order?: number
     memo?: string | null
+    category?: $Enums.DeadlineCategory
+    documentType?: $Enums.DocumentType | null
+    reviewStep?: $Enums.ReviewStep | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -46797,6 +55215,9 @@ export namespace Prisma {
     dueDate: Date | string
     order?: number
     memo?: string | null
+    category?: $Enums.DeadlineCategory
+    documentType?: $Enums.DocumentType | null
+    reviewStep?: $Enums.ReviewStep | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -46859,6 +55280,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: bigint | number | null
     cashTrapJunbiKanjo?: bigint | number | null
+    interestCapContractKanjo?: bigint | number | null
     sonotaGenyokin?: bigint | number | null
     futuYokinTokiZandaka?: bigint | number | null
     zenkiKurikoshiRieki?: bigint | number | null
@@ -46872,17 +55294,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: bigint | number | null
     shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuShuekiTaishogaiUriage?: bigint | number | null
     shintakuHiyoKazeiShiire?: bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: bigint | number | null
     shintakuHiyoHikazeiShiire?: bigint | number | null
+    shintakuHiyoTaishogaiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuShuekiTaishogaiUriage?: number | null
     unitShintakuHiyoKazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireShohizei?: number | null
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    unitShintakuHiyoTaishogaiShiire?: number | null
     kazeiUriageSashihiki08?: bigint | number | null
     kazeiUriageSashihiki10?: bigint | number | null
     kazeiUriageHontai08?: bigint | number | null
@@ -46963,6 +55389,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: bigint | number | null
     cashTrapJunbiKanjo?: bigint | number | null
+    interestCapContractKanjo?: bigint | number | null
     sonotaGenyokin?: bigint | number | null
     futuYokinTokiZandaka?: bigint | number | null
     zenkiKurikoshiRieki?: bigint | number | null
@@ -46976,17 +55403,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: bigint | number | null
     shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuShuekiTaishogaiUriage?: bigint | number | null
     shintakuHiyoKazeiShiire?: bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: bigint | number | null
     shintakuHiyoHikazeiShiire?: bigint | number | null
+    shintakuHiyoTaishogaiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuShuekiTaishogaiUriage?: number | null
     unitShintakuHiyoKazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireShohizei?: number | null
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    unitShintakuHiyoTaishogaiShiire?: number | null
     kazeiUriageSashihiki08?: bigint | number | null
     kazeiUriageSashihiki10?: bigint | number | null
     kazeiUriageHontai08?: bigint | number | null
@@ -47015,6 +55446,45 @@ export namespace Prisma {
     create: XOR<ProjectKiCreateWithoutProjectKiTasksInput, ProjectKiUncheckedCreateWithoutProjectKiTasksInput>
   }
 
+  export type UserCreateWithoutCheckerProjectKiTasksInput = {
+    id?: string
+    email: string
+    name?: string | null
+    role?: $Enums.UserRole
+    userType?: $Enums.UserType
+    isDeleted?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    MainUserProjectKis?: ProjectKiCreateNestedManyWithoutMainUserInput
+    SubUserProjectKis?: ProjectKiCreateNestedManyWithoutSubUserInput
+  }
+
+  export type UserUncheckedCreateWithoutCheckerProjectKiTasksInput = {
+    id?: string
+    email: string
+    name?: string | null
+    role?: $Enums.UserRole
+    userType?: $Enums.UserType
+    isDeleted?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    MainUserProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutMainUserInput
+    SubUserProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutSubUserInput
+  }
+
+  export type UserCreateOrConnectWithoutCheckerProjectKiTasksInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutCheckerProjectKiTasksInput, UserUncheckedCreateWithoutCheckerProjectKiTasksInput>
+  }
+
   export type DeadlineTaskUpsertWithoutProjectKiTasksInput = {
     update: XOR<DeadlineTaskUpdateWithoutProjectKiTasksInput, DeadlineTaskUncheckedUpdateWithoutProjectKiTasksInput>
     create: XOR<DeadlineTaskCreateWithoutProjectKiTasksInput, DeadlineTaskUncheckedCreateWithoutProjectKiTasksInput>
@@ -47032,6 +55502,9 @@ export namespace Prisma {
     dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
     order?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: EnumDeadlineCategoryFieldUpdateOperationsInput | $Enums.DeadlineCategory
+    documentType?: NullableEnumDocumentTypeFieldUpdateOperationsInput | $Enums.DocumentType | null
+    reviewStep?: NullableEnumReviewStepFieldUpdateOperationsInput | $Enums.ReviewStep | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -47048,6 +55521,9 @@ export namespace Prisma {
     dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
     order?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: EnumDeadlineCategoryFieldUpdateOperationsInput | $Enums.DeadlineCategory
+    documentType?: NullableEnumDocumentTypeFieldUpdateOperationsInput | $Enums.DocumentType | null
+    reviewStep?: NullableEnumReviewStepFieldUpdateOperationsInput | $Enums.ReviewStep | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -47116,6 +55592,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    interestCapContractKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -47129,17 +55606,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiTaishogaiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoTaishogaiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiTaishogaiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoTaishogaiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -47220,6 +55701,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    interestCapContractKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -47233,17 +55715,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiTaishogaiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoTaishogaiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiTaishogaiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoTaishogaiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -47265,6 +55751,51 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     CustomerFunds?: CustomerFundUncheckedUpdateManyWithoutProjectKiNestedInput
+  }
+
+  export type UserUpsertWithoutCheckerProjectKiTasksInput = {
+    update: XOR<UserUpdateWithoutCheckerProjectKiTasksInput, UserUncheckedUpdateWithoutCheckerProjectKiTasksInput>
+    create: XOR<UserCreateWithoutCheckerProjectKiTasksInput, UserUncheckedCreateWithoutCheckerProjectKiTasksInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutCheckerProjectKiTasksInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutCheckerProjectKiTasksInput, UserUncheckedUpdateWithoutCheckerProjectKiTasksInput>
+  }
+
+  export type UserUpdateWithoutCheckerProjectKiTasksInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    MainUserProjectKis?: ProjectKiUpdateManyWithoutMainUserNestedInput
+    SubUserProjectKis?: ProjectKiUpdateManyWithoutSubUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutCheckerProjectKiTasksInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    name?: NullableStringFieldUpdateOperationsInput | string | null
+    role?: EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+    userType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    MainUserProjectKis?: ProjectKiUncheckedUpdateManyWithoutMainUserNestedInput
+    SubUserProjectKis?: ProjectKiUncheckedUpdateManyWithoutSubUserNestedInput
   }
 
   export type ProjectCreateWithoutCustomersInput = {
@@ -47299,6 +55830,11 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    feeRateVariable?: number | null
+    feeFixedAnnual?: number | null
+    feeRateAgent?: number | null
+    feeCashMgmtAnnual?: number | null
+    feeRateTrust?: number | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
     createdAt?: Date | string
@@ -47314,6 +55850,7 @@ export namespace Prisma {
     Ref?: TemplateCreateNestedOneWithoutRefProjectsInput
     ProjectKis?: ProjectKiCreateNestedManyWithoutProjectInput
     Assets?: AssetCreateNestedManyWithoutProjectInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectUncheckedCreateWithoutCustomersInput = {
@@ -47348,6 +55885,11 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    feeRateVariable?: number | null
+    feeFixedAnnual?: number | null
+    feeRateAgent?: number | null
+    feeCashMgmtAnnual?: number | null
+    feeRateTrust?: number | null
     reportMainId?: string | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
@@ -47363,6 +55905,7 @@ export namespace Prisma {
     updatedBy: string
     ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutProjectInput
     Assets?: AssetUncheckedCreateNestedManyWithoutProjectInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectUncheckedCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectCreateOrConnectWithoutCustomersInput = {
@@ -47396,6 +55939,7 @@ export namespace Prisma {
     ProjectKi: ProjectKiCreateNestedOneWithoutCustomerFundsInput
     sourceCustomerFund?: CustomerFundCreateNestedOneWithoutDestinationCustomerFundsInput
     destinationCustomerFunds?: CustomerFundCreateNestedManyWithoutSourceCustomerFundInput
+    ChangeLogs?: CustomerFundChangeLogCreateNestedManyWithoutCustomerFundInput
   }
 
   export type CustomerFundUncheckedCreateWithoutCustomerInput = {
@@ -47424,6 +55968,7 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     destinationCustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutSourceCustomerFundInput
+    ChangeLogs?: CustomerFundChangeLogUncheckedCreateNestedManyWithoutCustomerFundInput
   }
 
   export type CustomerFundCreateOrConnectWithoutCustomerInput = {
@@ -47433,6 +55978,74 @@ export namespace Prisma {
 
   export type CustomerFundCreateManyCustomerInputEnvelope = {
     data: CustomerFundCreateManyCustomerInput | CustomerFundCreateManyCustomerInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CustomerChangeLogCreateWithoutCustomerInput = {
+    id?: string
+    source: $Enums.ChangeSource
+    operation: $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot: JsonNullValueInput | InputJsonValue
+    rawRow?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    Batch?: CustomerUploadBatchCreateNestedOneWithoutCustomerChangeLogsInput
+  }
+
+  export type CustomerChangeLogUncheckedCreateWithoutCustomerInput = {
+    id?: string
+    source: $Enums.ChangeSource
+    batchId?: string | null
+    operation: $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot: JsonNullValueInput | InputJsonValue
+    rawRow?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
+  export type CustomerChangeLogCreateOrConnectWithoutCustomerInput = {
+    where: CustomerChangeLogWhereUniqueInput
+    create: XOR<CustomerChangeLogCreateWithoutCustomerInput, CustomerChangeLogUncheckedCreateWithoutCustomerInput>
+  }
+
+  export type CustomerChangeLogCreateManyCustomerInputEnvelope = {
+    data: CustomerChangeLogCreateManyCustomerInput | CustomerChangeLogCreateManyCustomerInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CustomerFundChangeLogCreateWithoutCustomerInput = {
+    id?: string
+    source: $Enums.ChangeSource
+    operation: $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    Batch?: CustomerUploadBatchCreateNestedOneWithoutCustomerFundChangeLogsInput
+    CustomerFund?: CustomerFundCreateNestedOneWithoutChangeLogsInput
+  }
+
+  export type CustomerFundChangeLogUncheckedCreateWithoutCustomerInput = {
+    id?: string
+    source: $Enums.ChangeSource
+    batchId?: string | null
+    customerFundId?: string | null
+    operation: $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
+  export type CustomerFundChangeLogCreateOrConnectWithoutCustomerInput = {
+    where: CustomerFundChangeLogWhereUniqueInput
+    create: XOR<CustomerFundChangeLogCreateWithoutCustomerInput, CustomerFundChangeLogUncheckedCreateWithoutCustomerInput>
+  }
+
+  export type CustomerFundChangeLogCreateManyCustomerInputEnvelope = {
+    data: CustomerFundChangeLogCreateManyCustomerInput | CustomerFundChangeLogCreateManyCustomerInput[]
     skipDuplicates?: boolean
   }
 
@@ -47479,6 +56092,11 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    feeRateVariable?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeFixedAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateAgent?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeCashMgmtAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -47494,6 +56112,7 @@ export namespace Prisma {
     Ref?: TemplateUpdateOneWithoutRefProjectsNestedInput
     ProjectKis?: ProjectKiUpdateManyWithoutProjectNestedInput
     Assets?: AssetUpdateManyWithoutProjectNestedInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateWithoutCustomersInput = {
@@ -47528,6 +56147,11 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    feeRateVariable?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeFixedAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateAgent?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeCashMgmtAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -47543,6 +56167,7 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
     ProjectKis?: ProjectKiUncheckedUpdateManyWithoutProjectNestedInput
     Assets?: AssetUncheckedUpdateManyWithoutProjectNestedInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectUncheckedUpdateManyWithoutProjectNestedInput
   }
 
   export type CustomerFundUpsertWithWhereUniqueWithoutCustomerInput = {
@@ -47559,6 +56184,70 @@ export namespace Prisma {
   export type CustomerFundUpdateManyWithWhereWithoutCustomerInput = {
     where: CustomerFundScalarWhereInput
     data: XOR<CustomerFundUpdateManyMutationInput, CustomerFundUncheckedUpdateManyWithoutCustomerInput>
+  }
+
+  export type CustomerChangeLogUpsertWithWhereUniqueWithoutCustomerInput = {
+    where: CustomerChangeLogWhereUniqueInput
+    update: XOR<CustomerChangeLogUpdateWithoutCustomerInput, CustomerChangeLogUncheckedUpdateWithoutCustomerInput>
+    create: XOR<CustomerChangeLogCreateWithoutCustomerInput, CustomerChangeLogUncheckedCreateWithoutCustomerInput>
+  }
+
+  export type CustomerChangeLogUpdateWithWhereUniqueWithoutCustomerInput = {
+    where: CustomerChangeLogWhereUniqueInput
+    data: XOR<CustomerChangeLogUpdateWithoutCustomerInput, CustomerChangeLogUncheckedUpdateWithoutCustomerInput>
+  }
+
+  export type CustomerChangeLogUpdateManyWithWhereWithoutCustomerInput = {
+    where: CustomerChangeLogScalarWhereInput
+    data: XOR<CustomerChangeLogUpdateManyMutationInput, CustomerChangeLogUncheckedUpdateManyWithoutCustomerInput>
+  }
+
+  export type CustomerChangeLogScalarWhereInput = {
+    AND?: CustomerChangeLogScalarWhereInput | CustomerChangeLogScalarWhereInput[]
+    OR?: CustomerChangeLogScalarWhereInput[]
+    NOT?: CustomerChangeLogScalarWhereInput | CustomerChangeLogScalarWhereInput[]
+    id?: StringFilter<"CustomerChangeLog"> | string
+    source?: EnumChangeSourceFilter<"CustomerChangeLog"> | $Enums.ChangeSource
+    batchId?: StringNullableFilter<"CustomerChangeLog"> | string | null
+    customerId?: StringFilter<"CustomerChangeLog"> | string
+    operation?: EnumChangeOperationFilter<"CustomerChangeLog"> | $Enums.ChangeOperation
+    changedFields?: JsonNullableFilter<"CustomerChangeLog">
+    beforeSnapshot?: JsonNullableFilter<"CustomerChangeLog">
+    afterSnapshot?: JsonFilter<"CustomerChangeLog">
+    rawRow?: JsonNullableFilter<"CustomerChangeLog">
+    createdAt?: DateTimeFilter<"CustomerChangeLog"> | Date | string
+  }
+
+  export type CustomerFundChangeLogUpsertWithWhereUniqueWithoutCustomerInput = {
+    where: CustomerFundChangeLogWhereUniqueInput
+    update: XOR<CustomerFundChangeLogUpdateWithoutCustomerInput, CustomerFundChangeLogUncheckedUpdateWithoutCustomerInput>
+    create: XOR<CustomerFundChangeLogCreateWithoutCustomerInput, CustomerFundChangeLogUncheckedCreateWithoutCustomerInput>
+  }
+
+  export type CustomerFundChangeLogUpdateWithWhereUniqueWithoutCustomerInput = {
+    where: CustomerFundChangeLogWhereUniqueInput
+    data: XOR<CustomerFundChangeLogUpdateWithoutCustomerInput, CustomerFundChangeLogUncheckedUpdateWithoutCustomerInput>
+  }
+
+  export type CustomerFundChangeLogUpdateManyWithWhereWithoutCustomerInput = {
+    where: CustomerFundChangeLogScalarWhereInput
+    data: XOR<CustomerFundChangeLogUpdateManyMutationInput, CustomerFundChangeLogUncheckedUpdateManyWithoutCustomerInput>
+  }
+
+  export type CustomerFundChangeLogScalarWhereInput = {
+    AND?: CustomerFundChangeLogScalarWhereInput | CustomerFundChangeLogScalarWhereInput[]
+    OR?: CustomerFundChangeLogScalarWhereInput[]
+    NOT?: CustomerFundChangeLogScalarWhereInput | CustomerFundChangeLogScalarWhereInput[]
+    id?: StringFilter<"CustomerFundChangeLog"> | string
+    source?: EnumChangeSourceFilter<"CustomerFundChangeLog"> | $Enums.ChangeSource
+    batchId?: StringNullableFilter<"CustomerFundChangeLog"> | string | null
+    customerId?: StringFilter<"CustomerFundChangeLog"> | string
+    customerFundId?: StringNullableFilter<"CustomerFundChangeLog"> | string | null
+    operation?: EnumChangeOperationFilter<"CustomerFundChangeLog"> | $Enums.ChangeOperation
+    changedFields?: JsonNullableFilter<"CustomerFundChangeLog">
+    beforeSnapshot?: JsonNullableFilter<"CustomerFundChangeLog">
+    afterSnapshot?: JsonNullableFilter<"CustomerFundChangeLog">
+    createdAt?: DateTimeFilter<"CustomerFundChangeLog"> | Date | string
   }
 
   export type CustomerCreateWithoutCustomerFundsInput = {
@@ -47605,6 +56294,8 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     Project: ProjectCreateNestedOneWithoutCustomersInput
+    ChangeLogs?: CustomerChangeLogCreateNestedManyWithoutCustomerInput
+    FundChangeLogs?: CustomerFundChangeLogCreateNestedManyWithoutCustomerInput
   }
 
   export type CustomerUncheckedCreateWithoutCustomerFundsInput = {
@@ -47651,6 +56342,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: string
     updatedBy: string
+    ChangeLogs?: CustomerChangeLogUncheckedCreateNestedManyWithoutCustomerInput
+    FundChangeLogs?: CustomerFundChangeLogUncheckedCreateNestedManyWithoutCustomerInput
   }
 
   export type CustomerCreateOrConnectWithoutCustomerFundsInput = {
@@ -47707,6 +56400,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: bigint | number | null
     cashTrapJunbiKanjo?: bigint | number | null
+    interestCapContractKanjo?: bigint | number | null
     sonotaGenyokin?: bigint | number | null
     futuYokinTokiZandaka?: bigint | number | null
     zenkiKurikoshiRieki?: bigint | number | null
@@ -47720,17 +56414,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: bigint | number | null
     shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuShuekiTaishogaiUriage?: bigint | number | null
     shintakuHiyoKazeiShiire?: bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: bigint | number | null
     shintakuHiyoHikazeiShiire?: bigint | number | null
+    shintakuHiyoTaishogaiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuShuekiTaishogaiUriage?: number | null
     unitShintakuHiyoKazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireShohizei?: number | null
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    unitShintakuHiyoTaishogaiShiire?: number | null
     kazeiUriageSashihiki08?: bigint | number | null
     kazeiUriageSashihiki10?: bigint | number | null
     kazeiUriageHontai08?: bigint | number | null
@@ -47811,6 +56509,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: bigint | number | null
     cashTrapJunbiKanjo?: bigint | number | null
+    interestCapContractKanjo?: bigint | number | null
     sonotaGenyokin?: bigint | number | null
     futuYokinTokiZandaka?: bigint | number | null
     zenkiKurikoshiRieki?: bigint | number | null
@@ -47824,17 +56523,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: bigint | number | null
     shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuShuekiTaishogaiUriage?: bigint | number | null
     shintakuHiyoKazeiShiire?: bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: bigint | number | null
     shintakuHiyoHikazeiShiire?: bigint | number | null
+    shintakuHiyoTaishogaiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuShuekiTaishogaiUriage?: number | null
     unitShintakuHiyoKazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireShohizei?: number | null
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    unitShintakuHiyoTaishogaiShiire?: number | null
     kazeiUriageSashihiki08?: bigint | number | null
     kazeiUriageSashihiki10?: bigint | number | null
     kazeiUriageHontai08?: bigint | number | null
@@ -47889,6 +56592,7 @@ export namespace Prisma {
     Customer: CustomerCreateNestedOneWithoutCustomerFundsInput
     ProjectKi: ProjectKiCreateNestedOneWithoutCustomerFundsInput
     sourceCustomerFund?: CustomerFundCreateNestedOneWithoutDestinationCustomerFundsInput
+    ChangeLogs?: CustomerFundChangeLogCreateNestedManyWithoutCustomerFundInput
   }
 
   export type CustomerFundUncheckedCreateWithoutDestinationCustomerFundsInput = {
@@ -47917,6 +56621,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: string
     updatedBy: string
+    ChangeLogs?: CustomerFundChangeLogUncheckedCreateNestedManyWithoutCustomerFundInput
   }
 
   export type CustomerFundCreateOrConnectWithoutDestinationCustomerFundsInput = {
@@ -47950,6 +56655,7 @@ export namespace Prisma {
     Customer: CustomerCreateNestedOneWithoutCustomerFundsInput
     ProjectKi: ProjectKiCreateNestedOneWithoutCustomerFundsInput
     destinationCustomerFunds?: CustomerFundCreateNestedManyWithoutSourceCustomerFundInput
+    ChangeLogs?: CustomerFundChangeLogCreateNestedManyWithoutCustomerFundInput
   }
 
   export type CustomerFundUncheckedCreateWithoutSourceCustomerFundInput = {
@@ -47978,6 +56684,7 @@ export namespace Prisma {
     updatedId: string
     updatedBy: string
     destinationCustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutSourceCustomerFundInput
+    ChangeLogs?: CustomerFundChangeLogUncheckedCreateNestedManyWithoutCustomerFundInput
   }
 
   export type CustomerFundCreateOrConnectWithoutSourceCustomerFundInput = {
@@ -47987,6 +56694,40 @@ export namespace Prisma {
 
   export type CustomerFundCreateManySourceCustomerFundInputEnvelope = {
     data: CustomerFundCreateManySourceCustomerFundInput | CustomerFundCreateManySourceCustomerFundInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CustomerFundChangeLogCreateWithoutCustomerFundInput = {
+    id?: string
+    source: $Enums.ChangeSource
+    operation: $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    Batch?: CustomerUploadBatchCreateNestedOneWithoutCustomerFundChangeLogsInput
+    Customer: CustomerCreateNestedOneWithoutFundChangeLogsInput
+  }
+
+  export type CustomerFundChangeLogUncheckedCreateWithoutCustomerFundInput = {
+    id?: string
+    source: $Enums.ChangeSource
+    batchId?: string | null
+    customerId: string
+    operation: $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
+  export type CustomerFundChangeLogCreateOrConnectWithoutCustomerFundInput = {
+    where: CustomerFundChangeLogWhereUniqueInput
+    create: XOR<CustomerFundChangeLogCreateWithoutCustomerFundInput, CustomerFundChangeLogUncheckedCreateWithoutCustomerFundInput>
+  }
+
+  export type CustomerFundChangeLogCreateManyCustomerFundInputEnvelope = {
+    data: CustomerFundChangeLogCreateManyCustomerFundInput | CustomerFundChangeLogCreateManyCustomerFundInput[]
     skipDuplicates?: boolean
   }
 
@@ -48045,6 +56786,8 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     Project?: ProjectUpdateOneRequiredWithoutCustomersNestedInput
+    ChangeLogs?: CustomerChangeLogUpdateManyWithoutCustomerNestedInput
+    FundChangeLogs?: CustomerFundChangeLogUpdateManyWithoutCustomerNestedInput
   }
 
   export type CustomerUncheckedUpdateWithoutCustomerFundsInput = {
@@ -48091,6 +56834,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
+    ChangeLogs?: CustomerChangeLogUncheckedUpdateManyWithoutCustomerNestedInput
+    FundChangeLogs?: CustomerFundChangeLogUncheckedUpdateManyWithoutCustomerNestedInput
   }
 
   export type ProjectKiUpsertWithoutCustomerFundsInput = {
@@ -48153,6 +56898,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    interestCapContractKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -48166,17 +56912,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiTaishogaiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoTaishogaiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiTaishogaiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoTaishogaiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -48257,6 +57007,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    interestCapContractKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -48270,17 +57021,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiTaishogaiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoTaishogaiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiTaishogaiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoTaishogaiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -48341,6 +57096,7 @@ export namespace Prisma {
     Customer?: CustomerUpdateOneRequiredWithoutCustomerFundsNestedInput
     ProjectKi?: ProjectKiUpdateOneRequiredWithoutCustomerFundsNestedInput
     sourceCustomerFund?: CustomerFundUpdateOneWithoutDestinationCustomerFundsNestedInput
+    ChangeLogs?: CustomerFundChangeLogUpdateManyWithoutCustomerFundNestedInput
   }
 
   export type CustomerFundUncheckedUpdateWithoutDestinationCustomerFundsInput = {
@@ -48369,6 +57125,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
+    ChangeLogs?: CustomerFundChangeLogUncheckedUpdateManyWithoutCustomerFundNestedInput
   }
 
   export type CustomerFundUpsertWithWhereUniqueWithoutSourceCustomerFundInput = {
@@ -48385,6 +57142,1380 @@ export namespace Prisma {
   export type CustomerFundUpdateManyWithWhereWithoutSourceCustomerFundInput = {
     where: CustomerFundScalarWhereInput
     data: XOR<CustomerFundUpdateManyMutationInput, CustomerFundUncheckedUpdateManyWithoutSourceCustomerFundInput>
+  }
+
+  export type CustomerFundChangeLogUpsertWithWhereUniqueWithoutCustomerFundInput = {
+    where: CustomerFundChangeLogWhereUniqueInput
+    update: XOR<CustomerFundChangeLogUpdateWithoutCustomerFundInput, CustomerFundChangeLogUncheckedUpdateWithoutCustomerFundInput>
+    create: XOR<CustomerFundChangeLogCreateWithoutCustomerFundInput, CustomerFundChangeLogUncheckedCreateWithoutCustomerFundInput>
+  }
+
+  export type CustomerFundChangeLogUpdateWithWhereUniqueWithoutCustomerFundInput = {
+    where: CustomerFundChangeLogWhereUniqueInput
+    data: XOR<CustomerFundChangeLogUpdateWithoutCustomerFundInput, CustomerFundChangeLogUncheckedUpdateWithoutCustomerFundInput>
+  }
+
+  export type CustomerFundChangeLogUpdateManyWithWhereWithoutCustomerFundInput = {
+    where: CustomerFundChangeLogScalarWhereInput
+    data: XOR<CustomerFundChangeLogUpdateManyMutationInput, CustomerFundChangeLogUncheckedUpdateManyWithoutCustomerFundInput>
+  }
+
+  export type KiCreateWithoutCustomerUploadBatchesInput = {
+    id: string
+    year: number
+    month: number
+    completed?: boolean
+    hiyoKeijoInstructionDate?: Date | string | null
+    hiyoKeijoActionDate?: Date | string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ProjectKis?: ProjectKiCreateNestedManyWithoutKiInput
+    AssetKis?: AssetKiCreateNestedManyWithoutKiInput
+    DeadlineTasks?: DeadlineTaskCreateNestedManyWithoutKiInput
+  }
+
+  export type KiUncheckedCreateWithoutCustomerUploadBatchesInput = {
+    id: string
+    year: number
+    month: number
+    completed?: boolean
+    hiyoKeijoInstructionDate?: Date | string | null
+    hiyoKeijoActionDate?: Date | string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutKiInput
+    AssetKis?: AssetKiUncheckedCreateNestedManyWithoutKiInput
+    DeadlineTasks?: DeadlineTaskUncheckedCreateNestedManyWithoutKiInput
+  }
+
+  export type KiCreateOrConnectWithoutCustomerUploadBatchesInput = {
+    where: KiWhereUniqueInput
+    create: XOR<KiCreateWithoutCustomerUploadBatchesInput, KiUncheckedCreateWithoutCustomerUploadBatchesInput>
+  }
+
+  export type CustomerChangeLogCreateWithoutBatchInput = {
+    id?: string
+    source: $Enums.ChangeSource
+    operation: $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot: JsonNullValueInput | InputJsonValue
+    rawRow?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    Customer: CustomerCreateNestedOneWithoutChangeLogsInput
+  }
+
+  export type CustomerChangeLogUncheckedCreateWithoutBatchInput = {
+    id?: string
+    source: $Enums.ChangeSource
+    customerId: string
+    operation: $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot: JsonNullValueInput | InputJsonValue
+    rawRow?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
+  export type CustomerChangeLogCreateOrConnectWithoutBatchInput = {
+    where: CustomerChangeLogWhereUniqueInput
+    create: XOR<CustomerChangeLogCreateWithoutBatchInput, CustomerChangeLogUncheckedCreateWithoutBatchInput>
+  }
+
+  export type CustomerChangeLogCreateManyBatchInputEnvelope = {
+    data: CustomerChangeLogCreateManyBatchInput | CustomerChangeLogCreateManyBatchInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CustomerFundChangeLogCreateWithoutBatchInput = {
+    id?: string
+    source: $Enums.ChangeSource
+    operation: $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    Customer: CustomerCreateNestedOneWithoutFundChangeLogsInput
+    CustomerFund?: CustomerFundCreateNestedOneWithoutChangeLogsInput
+  }
+
+  export type CustomerFundChangeLogUncheckedCreateWithoutBatchInput = {
+    id?: string
+    source: $Enums.ChangeSource
+    customerId: string
+    customerFundId?: string | null
+    operation: $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
+  export type CustomerFundChangeLogCreateOrConnectWithoutBatchInput = {
+    where: CustomerFundChangeLogWhereUniqueInput
+    create: XOR<CustomerFundChangeLogCreateWithoutBatchInput, CustomerFundChangeLogUncheckedCreateWithoutBatchInput>
+  }
+
+  export type CustomerFundChangeLogCreateManyBatchInputEnvelope = {
+    data: CustomerFundChangeLogCreateManyBatchInput | CustomerFundChangeLogCreateManyBatchInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CustomerUploadBatchProjectCreateWithoutBatchInput = {
+    id?: string
+    committedAt?: Date | string
+    Project: ProjectCreateNestedOneWithoutCustomerUploadBatchProjectsInput
+  }
+
+  export type CustomerUploadBatchProjectUncheckedCreateWithoutBatchInput = {
+    id?: string
+    projectId: string
+    committedAt?: Date | string
+  }
+
+  export type CustomerUploadBatchProjectCreateOrConnectWithoutBatchInput = {
+    where: CustomerUploadBatchProjectWhereUniqueInput
+    create: XOR<CustomerUploadBatchProjectCreateWithoutBatchInput, CustomerUploadBatchProjectUncheckedCreateWithoutBatchInput>
+  }
+
+  export type CustomerUploadBatchProjectCreateManyBatchInputEnvelope = {
+    data: CustomerUploadBatchProjectCreateManyBatchInput | CustomerUploadBatchProjectCreateManyBatchInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type KiUpsertWithoutCustomerUploadBatchesInput = {
+    update: XOR<KiUpdateWithoutCustomerUploadBatchesInput, KiUncheckedUpdateWithoutCustomerUploadBatchesInput>
+    create: XOR<KiCreateWithoutCustomerUploadBatchesInput, KiUncheckedCreateWithoutCustomerUploadBatchesInput>
+    where?: KiWhereInput
+  }
+
+  export type KiUpdateToOneWithWhereWithoutCustomerUploadBatchesInput = {
+    where?: KiWhereInput
+    data: XOR<KiUpdateWithoutCustomerUploadBatchesInput, KiUncheckedUpdateWithoutCustomerUploadBatchesInput>
+  }
+
+  export type KiUpdateWithoutCustomerUploadBatchesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    year?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    completed?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoInstructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    hiyoKeijoActionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ProjectKis?: ProjectKiUpdateManyWithoutKiNestedInput
+    AssetKis?: AssetKiUpdateManyWithoutKiNestedInput
+    DeadlineTasks?: DeadlineTaskUpdateManyWithoutKiNestedInput
+  }
+
+  export type KiUncheckedUpdateWithoutCustomerUploadBatchesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    year?: IntFieldUpdateOperationsInput | number
+    month?: IntFieldUpdateOperationsInput | number
+    completed?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoInstructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    hiyoKeijoActionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ProjectKis?: ProjectKiUncheckedUpdateManyWithoutKiNestedInput
+    AssetKis?: AssetKiUncheckedUpdateManyWithoutKiNestedInput
+    DeadlineTasks?: DeadlineTaskUncheckedUpdateManyWithoutKiNestedInput
+  }
+
+  export type CustomerChangeLogUpsertWithWhereUniqueWithoutBatchInput = {
+    where: CustomerChangeLogWhereUniqueInput
+    update: XOR<CustomerChangeLogUpdateWithoutBatchInput, CustomerChangeLogUncheckedUpdateWithoutBatchInput>
+    create: XOR<CustomerChangeLogCreateWithoutBatchInput, CustomerChangeLogUncheckedCreateWithoutBatchInput>
+  }
+
+  export type CustomerChangeLogUpdateWithWhereUniqueWithoutBatchInput = {
+    where: CustomerChangeLogWhereUniqueInput
+    data: XOR<CustomerChangeLogUpdateWithoutBatchInput, CustomerChangeLogUncheckedUpdateWithoutBatchInput>
+  }
+
+  export type CustomerChangeLogUpdateManyWithWhereWithoutBatchInput = {
+    where: CustomerChangeLogScalarWhereInput
+    data: XOR<CustomerChangeLogUpdateManyMutationInput, CustomerChangeLogUncheckedUpdateManyWithoutBatchInput>
+  }
+
+  export type CustomerFundChangeLogUpsertWithWhereUniqueWithoutBatchInput = {
+    where: CustomerFundChangeLogWhereUniqueInput
+    update: XOR<CustomerFundChangeLogUpdateWithoutBatchInput, CustomerFundChangeLogUncheckedUpdateWithoutBatchInput>
+    create: XOR<CustomerFundChangeLogCreateWithoutBatchInput, CustomerFundChangeLogUncheckedCreateWithoutBatchInput>
+  }
+
+  export type CustomerFundChangeLogUpdateWithWhereUniqueWithoutBatchInput = {
+    where: CustomerFundChangeLogWhereUniqueInput
+    data: XOR<CustomerFundChangeLogUpdateWithoutBatchInput, CustomerFundChangeLogUncheckedUpdateWithoutBatchInput>
+  }
+
+  export type CustomerFundChangeLogUpdateManyWithWhereWithoutBatchInput = {
+    where: CustomerFundChangeLogScalarWhereInput
+    data: XOR<CustomerFundChangeLogUpdateManyMutationInput, CustomerFundChangeLogUncheckedUpdateManyWithoutBatchInput>
+  }
+
+  export type CustomerUploadBatchProjectUpsertWithWhereUniqueWithoutBatchInput = {
+    where: CustomerUploadBatchProjectWhereUniqueInput
+    update: XOR<CustomerUploadBatchProjectUpdateWithoutBatchInput, CustomerUploadBatchProjectUncheckedUpdateWithoutBatchInput>
+    create: XOR<CustomerUploadBatchProjectCreateWithoutBatchInput, CustomerUploadBatchProjectUncheckedCreateWithoutBatchInput>
+  }
+
+  export type CustomerUploadBatchProjectUpdateWithWhereUniqueWithoutBatchInput = {
+    where: CustomerUploadBatchProjectWhereUniqueInput
+    data: XOR<CustomerUploadBatchProjectUpdateWithoutBatchInput, CustomerUploadBatchProjectUncheckedUpdateWithoutBatchInput>
+  }
+
+  export type CustomerUploadBatchProjectUpdateManyWithWhereWithoutBatchInput = {
+    where: CustomerUploadBatchProjectScalarWhereInput
+    data: XOR<CustomerUploadBatchProjectUpdateManyMutationInput, CustomerUploadBatchProjectUncheckedUpdateManyWithoutBatchInput>
+  }
+
+  export type CustomerUploadBatchCreateWithoutCommittedProjectsInput = {
+    id?: string
+    fileName: string
+    uploaderId: string
+    uploaderType: $Enums.UserType
+    uploaderName: string
+    ipAddress?: string | null
+    status?: $Enums.BatchStatus
+    targetProjectCount?: number
+    committedProjectCount?: number
+    customerCreatedCount?: number
+    customerUpdatedCount?: number
+    customerUnchangedCount?: number
+    fundCreatedCount?: number
+    fundUpdatedCount?: number
+    fundDeletedCount?: number
+    fundUnchangedCount?: number
+    pretreatmentAt?: Date | string
+    committedAt?: Date | string | null
+    mailSentAt?: Date | string | null
+    Ki: KiCreateNestedOneWithoutCustomerUploadBatchesInput
+    CustomerChangeLogs?: CustomerChangeLogCreateNestedManyWithoutBatchInput
+    CustomerFundChangeLogs?: CustomerFundChangeLogCreateNestedManyWithoutBatchInput
+  }
+
+  export type CustomerUploadBatchUncheckedCreateWithoutCommittedProjectsInput = {
+    id?: string
+    fileName: string
+    kiId: string
+    uploaderId: string
+    uploaderType: $Enums.UserType
+    uploaderName: string
+    ipAddress?: string | null
+    status?: $Enums.BatchStatus
+    targetProjectCount?: number
+    committedProjectCount?: number
+    customerCreatedCount?: number
+    customerUpdatedCount?: number
+    customerUnchangedCount?: number
+    fundCreatedCount?: number
+    fundUpdatedCount?: number
+    fundDeletedCount?: number
+    fundUnchangedCount?: number
+    pretreatmentAt?: Date | string
+    committedAt?: Date | string | null
+    mailSentAt?: Date | string | null
+    CustomerChangeLogs?: CustomerChangeLogUncheckedCreateNestedManyWithoutBatchInput
+    CustomerFundChangeLogs?: CustomerFundChangeLogUncheckedCreateNestedManyWithoutBatchInput
+  }
+
+  export type CustomerUploadBatchCreateOrConnectWithoutCommittedProjectsInput = {
+    where: CustomerUploadBatchWhereUniqueInput
+    create: XOR<CustomerUploadBatchCreateWithoutCommittedProjectsInput, CustomerUploadBatchUncheckedCreateWithoutCommittedProjectsInput>
+  }
+
+  export type ProjectCreateWithoutCustomerUploadBatchProjectsInput = {
+    id: string
+    sbimpId: string
+    name: string
+    shortName: string
+    totalUnit: number
+    totalAmount: bigint | number
+    unitAmount: number
+    trustTermStart: Date | string
+    trustTermEnd: Date | string
+    dividendYield: number
+    fullOccupancyYield: number
+    totalKubun?: number
+    residenceKubun?: number
+    settlorGkName: string
+    settlorGkAddress: string
+    bankName?: string
+    branchName?: string
+    bankAccountType?: string
+    bankAccount?: string | null
+    bankAccountHolder?: string | null
+    cashManBankName?: string
+    cashManBranchName?: string
+    cashManBankAccountType?: string
+    cashManBankAccount?: string | null
+    cashManBankAccountHolder?: string | null
+    shintakuContractNum?: string | null
+    kamiyachoFlag?: boolean
+    mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
+    completedFlag?: boolean
+    feeRateVariable?: number | null
+    feeFixedAnnual?: number | null
+    feeRateAgent?: number | null
+    feeCashMgmtAnnual?: number | null
+    feeRateTrust?: number | null
+    sendDocument01Id?: string | null
+    sendDocument02Id?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ReportMain?: TemplateCreateNestedOneWithoutReportMainProjectsInput
+    ReportAtt2?: TemplateCreateNestedOneWithoutReportAtt2ProjectsInput
+    ReportAtt3?: TemplateCreateNestedOneWithoutReportAtt3ProjectsInput
+    Bunpai?: TemplateCreateNestedOneWithoutBunpaiProjectsInput
+    Ref?: TemplateCreateNestedOneWithoutRefProjectsInput
+    ProjectKis?: ProjectKiCreateNestedManyWithoutProjectInput
+    Assets?: AssetCreateNestedManyWithoutProjectInput
+    Customers?: CustomerCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectUncheckedCreateWithoutCustomerUploadBatchProjectsInput = {
+    id: string
+    sbimpId: string
+    name: string
+    shortName: string
+    totalUnit: number
+    totalAmount: bigint | number
+    unitAmount: number
+    trustTermStart: Date | string
+    trustTermEnd: Date | string
+    dividendYield: number
+    fullOccupancyYield: number
+    totalKubun?: number
+    residenceKubun?: number
+    settlorGkName: string
+    settlorGkAddress: string
+    bankName?: string
+    branchName?: string
+    bankAccountType?: string
+    bankAccount?: string | null
+    bankAccountHolder?: string | null
+    cashManBankName?: string
+    cashManBranchName?: string
+    cashManBankAccountType?: string
+    cashManBankAccount?: string | null
+    cashManBankAccountHolder?: string | null
+    shintakuContractNum?: string | null
+    kamiyachoFlag?: boolean
+    mlspcFlag?: boolean
+    leverageFlag?: boolean
+    unitResidenceFlag?: boolean
+    completedFlag?: boolean
+    feeRateVariable?: number | null
+    feeFixedAnnual?: number | null
+    feeRateAgent?: number | null
+    feeCashMgmtAnnual?: number | null
+    feeRateTrust?: number | null
+    reportMainId?: string | null
+    reportAtt2Id?: string | null
+    reportAtt3Id?: string | null
+    bunpaiId?: string | null
+    refId?: string | null
+    sendDocument01Id?: string | null
+    sendDocument02Id?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutProjectInput
+    Assets?: AssetUncheckedCreateNestedManyWithoutProjectInput
+    Customers?: CustomerUncheckedCreateNestedManyWithoutProjectInput
+  }
+
+  export type ProjectCreateOrConnectWithoutCustomerUploadBatchProjectsInput = {
+    where: ProjectWhereUniqueInput
+    create: XOR<ProjectCreateWithoutCustomerUploadBatchProjectsInput, ProjectUncheckedCreateWithoutCustomerUploadBatchProjectsInput>
+  }
+
+  export type CustomerUploadBatchUpsertWithoutCommittedProjectsInput = {
+    update: XOR<CustomerUploadBatchUpdateWithoutCommittedProjectsInput, CustomerUploadBatchUncheckedUpdateWithoutCommittedProjectsInput>
+    create: XOR<CustomerUploadBatchCreateWithoutCommittedProjectsInput, CustomerUploadBatchUncheckedCreateWithoutCommittedProjectsInput>
+    where?: CustomerUploadBatchWhereInput
+  }
+
+  export type CustomerUploadBatchUpdateToOneWithWhereWithoutCommittedProjectsInput = {
+    where?: CustomerUploadBatchWhereInput
+    data: XOR<CustomerUploadBatchUpdateWithoutCommittedProjectsInput, CustomerUploadBatchUncheckedUpdateWithoutCommittedProjectsInput>
+  }
+
+  export type CustomerUploadBatchUpdateWithoutCommittedProjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    uploaderId?: StringFieldUpdateOperationsInput | string
+    uploaderType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    uploaderName?: StringFieldUpdateOperationsInput | string
+    ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumBatchStatusFieldUpdateOperationsInput | $Enums.BatchStatus
+    targetProjectCount?: IntFieldUpdateOperationsInput | number
+    committedProjectCount?: IntFieldUpdateOperationsInput | number
+    customerCreatedCount?: IntFieldUpdateOperationsInput | number
+    customerUpdatedCount?: IntFieldUpdateOperationsInput | number
+    customerUnchangedCount?: IntFieldUpdateOperationsInput | number
+    fundCreatedCount?: IntFieldUpdateOperationsInput | number
+    fundUpdatedCount?: IntFieldUpdateOperationsInput | number
+    fundDeletedCount?: IntFieldUpdateOperationsInput | number
+    fundUnchangedCount?: IntFieldUpdateOperationsInput | number
+    pretreatmentAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    committedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mailSentAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Ki?: KiUpdateOneRequiredWithoutCustomerUploadBatchesNestedInput
+    CustomerChangeLogs?: CustomerChangeLogUpdateManyWithoutBatchNestedInput
+    CustomerFundChangeLogs?: CustomerFundChangeLogUpdateManyWithoutBatchNestedInput
+  }
+
+  export type CustomerUploadBatchUncheckedUpdateWithoutCommittedProjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    uploaderId?: StringFieldUpdateOperationsInput | string
+    uploaderType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    uploaderName?: StringFieldUpdateOperationsInput | string
+    ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumBatchStatusFieldUpdateOperationsInput | $Enums.BatchStatus
+    targetProjectCount?: IntFieldUpdateOperationsInput | number
+    committedProjectCount?: IntFieldUpdateOperationsInput | number
+    customerCreatedCount?: IntFieldUpdateOperationsInput | number
+    customerUpdatedCount?: IntFieldUpdateOperationsInput | number
+    customerUnchangedCount?: IntFieldUpdateOperationsInput | number
+    fundCreatedCount?: IntFieldUpdateOperationsInput | number
+    fundUpdatedCount?: IntFieldUpdateOperationsInput | number
+    fundDeletedCount?: IntFieldUpdateOperationsInput | number
+    fundUnchangedCount?: IntFieldUpdateOperationsInput | number
+    pretreatmentAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    committedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mailSentAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    CustomerChangeLogs?: CustomerChangeLogUncheckedUpdateManyWithoutBatchNestedInput
+    CustomerFundChangeLogs?: CustomerFundChangeLogUncheckedUpdateManyWithoutBatchNestedInput
+  }
+
+  export type ProjectUpsertWithoutCustomerUploadBatchProjectsInput = {
+    update: XOR<ProjectUpdateWithoutCustomerUploadBatchProjectsInput, ProjectUncheckedUpdateWithoutCustomerUploadBatchProjectsInput>
+    create: XOR<ProjectCreateWithoutCustomerUploadBatchProjectsInput, ProjectUncheckedCreateWithoutCustomerUploadBatchProjectsInput>
+    where?: ProjectWhereInput
+  }
+
+  export type ProjectUpdateToOneWithWhereWithoutCustomerUploadBatchProjectsInput = {
+    where?: ProjectWhereInput
+    data: XOR<ProjectUpdateWithoutCustomerUploadBatchProjectsInput, ProjectUncheckedUpdateWithoutCustomerUploadBatchProjectsInput>
+  }
+
+  export type ProjectUpdateWithoutCustomerUploadBatchProjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: StringFieldUpdateOperationsInput | string
+    totalUnit?: IntFieldUpdateOperationsInput | number
+    totalAmount?: BigIntFieldUpdateOperationsInput | bigint | number
+    unitAmount?: IntFieldUpdateOperationsInput | number
+    trustTermStart?: DateTimeFieldUpdateOperationsInput | Date | string
+    trustTermEnd?: DateTimeFieldUpdateOperationsInput | Date | string
+    dividendYield?: FloatFieldUpdateOperationsInput | number
+    fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
+    totalKubun?: IntFieldUpdateOperationsInput | number
+    residenceKubun?: IntFieldUpdateOperationsInput | number
+    settlorGkName?: StringFieldUpdateOperationsInput | string
+    settlorGkAddress?: StringFieldUpdateOperationsInput | string
+    bankName?: StringFieldUpdateOperationsInput | string
+    branchName?: StringFieldUpdateOperationsInput | string
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankName?: StringFieldUpdateOperationsInput | string
+    cashManBranchName?: StringFieldUpdateOperationsInput | string
+    cashManBankAccountType?: StringFieldUpdateOperationsInput | string
+    cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    shintakuContractNum?: NullableStringFieldUpdateOperationsInput | string | null
+    kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
+    mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    leverageFlag?: BoolFieldUpdateOperationsInput | boolean
+    unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
+    completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    feeRateVariable?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeFixedAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateAgent?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeCashMgmtAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
+    sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ReportMain?: TemplateUpdateOneWithoutReportMainProjectsNestedInput
+    ReportAtt2?: TemplateUpdateOneWithoutReportAtt2ProjectsNestedInput
+    ReportAtt3?: TemplateUpdateOneWithoutReportAtt3ProjectsNestedInput
+    Bunpai?: TemplateUpdateOneWithoutBunpaiProjectsNestedInput
+    Ref?: TemplateUpdateOneWithoutRefProjectsNestedInput
+    ProjectKis?: ProjectKiUpdateManyWithoutProjectNestedInput
+    Assets?: AssetUpdateManyWithoutProjectNestedInput
+    Customers?: CustomerUpdateManyWithoutProjectNestedInput
+  }
+
+  export type ProjectUncheckedUpdateWithoutCustomerUploadBatchProjectsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    sbimpId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    shortName?: StringFieldUpdateOperationsInput | string
+    totalUnit?: IntFieldUpdateOperationsInput | number
+    totalAmount?: BigIntFieldUpdateOperationsInput | bigint | number
+    unitAmount?: IntFieldUpdateOperationsInput | number
+    trustTermStart?: DateTimeFieldUpdateOperationsInput | Date | string
+    trustTermEnd?: DateTimeFieldUpdateOperationsInput | Date | string
+    dividendYield?: FloatFieldUpdateOperationsInput | number
+    fullOccupancyYield?: FloatFieldUpdateOperationsInput | number
+    totalKubun?: IntFieldUpdateOperationsInput | number
+    residenceKubun?: IntFieldUpdateOperationsInput | number
+    settlorGkName?: StringFieldUpdateOperationsInput | string
+    settlorGkAddress?: StringFieldUpdateOperationsInput | string
+    bankName?: StringFieldUpdateOperationsInput | string
+    branchName?: StringFieldUpdateOperationsInput | string
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    bankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankName?: StringFieldUpdateOperationsInput | string
+    cashManBranchName?: StringFieldUpdateOperationsInput | string
+    cashManBankAccountType?: StringFieldUpdateOperationsInput | string
+    cashManBankAccount?: NullableStringFieldUpdateOperationsInput | string | null
+    cashManBankAccountHolder?: NullableStringFieldUpdateOperationsInput | string | null
+    shintakuContractNum?: NullableStringFieldUpdateOperationsInput | string | null
+    kamiyachoFlag?: BoolFieldUpdateOperationsInput | boolean
+    mlspcFlag?: BoolFieldUpdateOperationsInput | boolean
+    leverageFlag?: BoolFieldUpdateOperationsInput | boolean
+    unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
+    completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    feeRateVariable?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeFixedAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateAgent?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeCashMgmtAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
+    reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
+    reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
+    reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
+    bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
+    refId?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    ProjectKis?: ProjectKiUncheckedUpdateManyWithoutProjectNestedInput
+    Assets?: AssetUncheckedUpdateManyWithoutProjectNestedInput
+    Customers?: CustomerUncheckedUpdateManyWithoutProjectNestedInput
+  }
+
+  export type CustomerUploadBatchCreateWithoutCustomerChangeLogsInput = {
+    id?: string
+    fileName: string
+    uploaderId: string
+    uploaderType: $Enums.UserType
+    uploaderName: string
+    ipAddress?: string | null
+    status?: $Enums.BatchStatus
+    targetProjectCount?: number
+    committedProjectCount?: number
+    customerCreatedCount?: number
+    customerUpdatedCount?: number
+    customerUnchangedCount?: number
+    fundCreatedCount?: number
+    fundUpdatedCount?: number
+    fundDeletedCount?: number
+    fundUnchangedCount?: number
+    pretreatmentAt?: Date | string
+    committedAt?: Date | string | null
+    mailSentAt?: Date | string | null
+    Ki: KiCreateNestedOneWithoutCustomerUploadBatchesInput
+    CustomerFundChangeLogs?: CustomerFundChangeLogCreateNestedManyWithoutBatchInput
+    CommittedProjects?: CustomerUploadBatchProjectCreateNestedManyWithoutBatchInput
+  }
+
+  export type CustomerUploadBatchUncheckedCreateWithoutCustomerChangeLogsInput = {
+    id?: string
+    fileName: string
+    kiId: string
+    uploaderId: string
+    uploaderType: $Enums.UserType
+    uploaderName: string
+    ipAddress?: string | null
+    status?: $Enums.BatchStatus
+    targetProjectCount?: number
+    committedProjectCount?: number
+    customerCreatedCount?: number
+    customerUpdatedCount?: number
+    customerUnchangedCount?: number
+    fundCreatedCount?: number
+    fundUpdatedCount?: number
+    fundDeletedCount?: number
+    fundUnchangedCount?: number
+    pretreatmentAt?: Date | string
+    committedAt?: Date | string | null
+    mailSentAt?: Date | string | null
+    CustomerFundChangeLogs?: CustomerFundChangeLogUncheckedCreateNestedManyWithoutBatchInput
+    CommittedProjects?: CustomerUploadBatchProjectUncheckedCreateNestedManyWithoutBatchInput
+  }
+
+  export type CustomerUploadBatchCreateOrConnectWithoutCustomerChangeLogsInput = {
+    where: CustomerUploadBatchWhereUniqueInput
+    create: XOR<CustomerUploadBatchCreateWithoutCustomerChangeLogsInput, CustomerUploadBatchUncheckedCreateWithoutCustomerChangeLogsInput>
+  }
+
+  export type CustomerCreateWithoutChangeLogsInput = {
+    id?: string
+    fundId?: string
+    sbimpId?: string | null
+    fundStatus: string
+    name: string
+    nameFurigana: string
+    birthday?: Date | string | null
+    customerType?: $Enums.CustomerType
+    invoice?: boolean
+    postName: string
+    zip: string
+    fullAddress: string
+    prefecture: string
+    city: string
+    address: string
+    transferName: string
+    transferNameFurigana: string
+    bankCode: number
+    bankName: string
+    bankBranchCode: number
+    bankBranchName: string
+    bankAccountTypeCode: number
+    bankAccountType: string
+    bankAccount: string
+    inheritanceType?: $Enums.InheritanceType | null
+    inheritanceStatus?: string | null
+    giftContractDate?: Date | string | null
+    trustTransferDate?: Date | string | null
+    oldBunpaiEndDate?: Date | string | null
+    newBunpaiStartDate?: Date | string | null
+    horyuStatus?: $Enums.HoryuStatusType | null
+    instructionDueDate?: Date | string | null
+    instructionDate?: Date | string | null
+    paymentDueDate?: Date | string | null
+    holdMemo?: string | null
+    isDeleted?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    Project: ProjectCreateNestedOneWithoutCustomersInput
+    CustomerFunds?: CustomerFundCreateNestedManyWithoutCustomerInput
+    FundChangeLogs?: CustomerFundChangeLogCreateNestedManyWithoutCustomerInput
+  }
+
+  export type CustomerUncheckedCreateWithoutChangeLogsInput = {
+    id?: string
+    fundId?: string
+    projectId: string
+    sbimpId?: string | null
+    fundStatus: string
+    name: string
+    nameFurigana: string
+    birthday?: Date | string | null
+    customerType?: $Enums.CustomerType
+    invoice?: boolean
+    postName: string
+    zip: string
+    fullAddress: string
+    prefecture: string
+    city: string
+    address: string
+    transferName: string
+    transferNameFurigana: string
+    bankCode: number
+    bankName: string
+    bankBranchCode: number
+    bankBranchName: string
+    bankAccountTypeCode: number
+    bankAccountType: string
+    bankAccount: string
+    inheritanceType?: $Enums.InheritanceType | null
+    inheritanceStatus?: string | null
+    giftContractDate?: Date | string | null
+    trustTransferDate?: Date | string | null
+    oldBunpaiEndDate?: Date | string | null
+    newBunpaiStartDate?: Date | string | null
+    horyuStatus?: $Enums.HoryuStatusType | null
+    instructionDueDate?: Date | string | null
+    instructionDate?: Date | string | null
+    paymentDueDate?: Date | string | null
+    holdMemo?: string | null
+    isDeleted?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    CustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutCustomerInput
+    FundChangeLogs?: CustomerFundChangeLogUncheckedCreateNestedManyWithoutCustomerInput
+  }
+
+  export type CustomerCreateOrConnectWithoutChangeLogsInput = {
+    where: CustomerWhereUniqueInput
+    create: XOR<CustomerCreateWithoutChangeLogsInput, CustomerUncheckedCreateWithoutChangeLogsInput>
+  }
+
+  export type CustomerUploadBatchUpsertWithoutCustomerChangeLogsInput = {
+    update: XOR<CustomerUploadBatchUpdateWithoutCustomerChangeLogsInput, CustomerUploadBatchUncheckedUpdateWithoutCustomerChangeLogsInput>
+    create: XOR<CustomerUploadBatchCreateWithoutCustomerChangeLogsInput, CustomerUploadBatchUncheckedCreateWithoutCustomerChangeLogsInput>
+    where?: CustomerUploadBatchWhereInput
+  }
+
+  export type CustomerUploadBatchUpdateToOneWithWhereWithoutCustomerChangeLogsInput = {
+    where?: CustomerUploadBatchWhereInput
+    data: XOR<CustomerUploadBatchUpdateWithoutCustomerChangeLogsInput, CustomerUploadBatchUncheckedUpdateWithoutCustomerChangeLogsInput>
+  }
+
+  export type CustomerUploadBatchUpdateWithoutCustomerChangeLogsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    uploaderId?: StringFieldUpdateOperationsInput | string
+    uploaderType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    uploaderName?: StringFieldUpdateOperationsInput | string
+    ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumBatchStatusFieldUpdateOperationsInput | $Enums.BatchStatus
+    targetProjectCount?: IntFieldUpdateOperationsInput | number
+    committedProjectCount?: IntFieldUpdateOperationsInput | number
+    customerCreatedCount?: IntFieldUpdateOperationsInput | number
+    customerUpdatedCount?: IntFieldUpdateOperationsInput | number
+    customerUnchangedCount?: IntFieldUpdateOperationsInput | number
+    fundCreatedCount?: IntFieldUpdateOperationsInput | number
+    fundUpdatedCount?: IntFieldUpdateOperationsInput | number
+    fundDeletedCount?: IntFieldUpdateOperationsInput | number
+    fundUnchangedCount?: IntFieldUpdateOperationsInput | number
+    pretreatmentAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    committedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mailSentAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Ki?: KiUpdateOneRequiredWithoutCustomerUploadBatchesNestedInput
+    CustomerFundChangeLogs?: CustomerFundChangeLogUpdateManyWithoutBatchNestedInput
+    CommittedProjects?: CustomerUploadBatchProjectUpdateManyWithoutBatchNestedInput
+  }
+
+  export type CustomerUploadBatchUncheckedUpdateWithoutCustomerChangeLogsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    uploaderId?: StringFieldUpdateOperationsInput | string
+    uploaderType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    uploaderName?: StringFieldUpdateOperationsInput | string
+    ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumBatchStatusFieldUpdateOperationsInput | $Enums.BatchStatus
+    targetProjectCount?: IntFieldUpdateOperationsInput | number
+    committedProjectCount?: IntFieldUpdateOperationsInput | number
+    customerCreatedCount?: IntFieldUpdateOperationsInput | number
+    customerUpdatedCount?: IntFieldUpdateOperationsInput | number
+    customerUnchangedCount?: IntFieldUpdateOperationsInput | number
+    fundCreatedCount?: IntFieldUpdateOperationsInput | number
+    fundUpdatedCount?: IntFieldUpdateOperationsInput | number
+    fundDeletedCount?: IntFieldUpdateOperationsInput | number
+    fundUnchangedCount?: IntFieldUpdateOperationsInput | number
+    pretreatmentAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    committedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mailSentAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    CustomerFundChangeLogs?: CustomerFundChangeLogUncheckedUpdateManyWithoutBatchNestedInput
+    CommittedProjects?: CustomerUploadBatchProjectUncheckedUpdateManyWithoutBatchNestedInput
+  }
+
+  export type CustomerUpsertWithoutChangeLogsInput = {
+    update: XOR<CustomerUpdateWithoutChangeLogsInput, CustomerUncheckedUpdateWithoutChangeLogsInput>
+    create: XOR<CustomerCreateWithoutChangeLogsInput, CustomerUncheckedCreateWithoutChangeLogsInput>
+    where?: CustomerWhereInput
+  }
+
+  export type CustomerUpdateToOneWithWhereWithoutChangeLogsInput = {
+    where?: CustomerWhereInput
+    data: XOR<CustomerUpdateWithoutChangeLogsInput, CustomerUncheckedUpdateWithoutChangeLogsInput>
+  }
+
+  export type CustomerUpdateWithoutChangeLogsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fundId?: StringFieldUpdateOperationsInput | string
+    sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
+    fundStatus?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    nameFurigana?: StringFieldUpdateOperationsInput | string
+    birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
+    invoice?: BoolFieldUpdateOperationsInput | boolean
+    postName?: StringFieldUpdateOperationsInput | string
+    zip?: StringFieldUpdateOperationsInput | string
+    fullAddress?: StringFieldUpdateOperationsInput | string
+    prefecture?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    transferName?: StringFieldUpdateOperationsInput | string
+    transferNameFurigana?: StringFieldUpdateOperationsInput | string
+    bankCode?: IntFieldUpdateOperationsInput | number
+    bankName?: StringFieldUpdateOperationsInput | string
+    bankBranchCode?: IntFieldUpdateOperationsInput | number
+    bankBranchName?: StringFieldUpdateOperationsInput | string
+    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
+    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
+    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    Project?: ProjectUpdateOneRequiredWithoutCustomersNestedInput
+    CustomerFunds?: CustomerFundUpdateManyWithoutCustomerNestedInput
+    FundChangeLogs?: CustomerFundChangeLogUpdateManyWithoutCustomerNestedInput
+  }
+
+  export type CustomerUncheckedUpdateWithoutChangeLogsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fundId?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
+    fundStatus?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    nameFurigana?: StringFieldUpdateOperationsInput | string
+    birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
+    invoice?: BoolFieldUpdateOperationsInput | boolean
+    postName?: StringFieldUpdateOperationsInput | string
+    zip?: StringFieldUpdateOperationsInput | string
+    fullAddress?: StringFieldUpdateOperationsInput | string
+    prefecture?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    transferName?: StringFieldUpdateOperationsInput | string
+    transferNameFurigana?: StringFieldUpdateOperationsInput | string
+    bankCode?: IntFieldUpdateOperationsInput | number
+    bankName?: StringFieldUpdateOperationsInput | string
+    bankBranchCode?: IntFieldUpdateOperationsInput | number
+    bankBranchName?: StringFieldUpdateOperationsInput | string
+    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
+    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
+    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    CustomerFunds?: CustomerFundUncheckedUpdateManyWithoutCustomerNestedInput
+    FundChangeLogs?: CustomerFundChangeLogUncheckedUpdateManyWithoutCustomerNestedInput
+  }
+
+  export type CustomerUploadBatchCreateWithoutCustomerFundChangeLogsInput = {
+    id?: string
+    fileName: string
+    uploaderId: string
+    uploaderType: $Enums.UserType
+    uploaderName: string
+    ipAddress?: string | null
+    status?: $Enums.BatchStatus
+    targetProjectCount?: number
+    committedProjectCount?: number
+    customerCreatedCount?: number
+    customerUpdatedCount?: number
+    customerUnchangedCount?: number
+    fundCreatedCount?: number
+    fundUpdatedCount?: number
+    fundDeletedCount?: number
+    fundUnchangedCount?: number
+    pretreatmentAt?: Date | string
+    committedAt?: Date | string | null
+    mailSentAt?: Date | string | null
+    Ki: KiCreateNestedOneWithoutCustomerUploadBatchesInput
+    CustomerChangeLogs?: CustomerChangeLogCreateNestedManyWithoutBatchInput
+    CommittedProjects?: CustomerUploadBatchProjectCreateNestedManyWithoutBatchInput
+  }
+
+  export type CustomerUploadBatchUncheckedCreateWithoutCustomerFundChangeLogsInput = {
+    id?: string
+    fileName: string
+    kiId: string
+    uploaderId: string
+    uploaderType: $Enums.UserType
+    uploaderName: string
+    ipAddress?: string | null
+    status?: $Enums.BatchStatus
+    targetProjectCount?: number
+    committedProjectCount?: number
+    customerCreatedCount?: number
+    customerUpdatedCount?: number
+    customerUnchangedCount?: number
+    fundCreatedCount?: number
+    fundUpdatedCount?: number
+    fundDeletedCount?: number
+    fundUnchangedCount?: number
+    pretreatmentAt?: Date | string
+    committedAt?: Date | string | null
+    mailSentAt?: Date | string | null
+    CustomerChangeLogs?: CustomerChangeLogUncheckedCreateNestedManyWithoutBatchInput
+    CommittedProjects?: CustomerUploadBatchProjectUncheckedCreateNestedManyWithoutBatchInput
+  }
+
+  export type CustomerUploadBatchCreateOrConnectWithoutCustomerFundChangeLogsInput = {
+    where: CustomerUploadBatchWhereUniqueInput
+    create: XOR<CustomerUploadBatchCreateWithoutCustomerFundChangeLogsInput, CustomerUploadBatchUncheckedCreateWithoutCustomerFundChangeLogsInput>
+  }
+
+  export type CustomerCreateWithoutFundChangeLogsInput = {
+    id?: string
+    fundId?: string
+    sbimpId?: string | null
+    fundStatus: string
+    name: string
+    nameFurigana: string
+    birthday?: Date | string | null
+    customerType?: $Enums.CustomerType
+    invoice?: boolean
+    postName: string
+    zip: string
+    fullAddress: string
+    prefecture: string
+    city: string
+    address: string
+    transferName: string
+    transferNameFurigana: string
+    bankCode: number
+    bankName: string
+    bankBranchCode: number
+    bankBranchName: string
+    bankAccountTypeCode: number
+    bankAccountType: string
+    bankAccount: string
+    inheritanceType?: $Enums.InheritanceType | null
+    inheritanceStatus?: string | null
+    giftContractDate?: Date | string | null
+    trustTransferDate?: Date | string | null
+    oldBunpaiEndDate?: Date | string | null
+    newBunpaiStartDate?: Date | string | null
+    horyuStatus?: $Enums.HoryuStatusType | null
+    instructionDueDate?: Date | string | null
+    instructionDate?: Date | string | null
+    paymentDueDate?: Date | string | null
+    holdMemo?: string | null
+    isDeleted?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    Project: ProjectCreateNestedOneWithoutCustomersInput
+    CustomerFunds?: CustomerFundCreateNestedManyWithoutCustomerInput
+    ChangeLogs?: CustomerChangeLogCreateNestedManyWithoutCustomerInput
+  }
+
+  export type CustomerUncheckedCreateWithoutFundChangeLogsInput = {
+    id?: string
+    fundId?: string
+    projectId: string
+    sbimpId?: string | null
+    fundStatus: string
+    name: string
+    nameFurigana: string
+    birthday?: Date | string | null
+    customerType?: $Enums.CustomerType
+    invoice?: boolean
+    postName: string
+    zip: string
+    fullAddress: string
+    prefecture: string
+    city: string
+    address: string
+    transferName: string
+    transferNameFurigana: string
+    bankCode: number
+    bankName: string
+    bankBranchCode: number
+    bankBranchName: string
+    bankAccountTypeCode: number
+    bankAccountType: string
+    bankAccount: string
+    inheritanceType?: $Enums.InheritanceType | null
+    inheritanceStatus?: string | null
+    giftContractDate?: Date | string | null
+    trustTransferDate?: Date | string | null
+    oldBunpaiEndDate?: Date | string | null
+    newBunpaiStartDate?: Date | string | null
+    horyuStatus?: $Enums.HoryuStatusType | null
+    instructionDueDate?: Date | string | null
+    instructionDate?: Date | string | null
+    paymentDueDate?: Date | string | null
+    holdMemo?: string | null
+    isDeleted?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    CustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutCustomerInput
+    ChangeLogs?: CustomerChangeLogUncheckedCreateNestedManyWithoutCustomerInput
+  }
+
+  export type CustomerCreateOrConnectWithoutFundChangeLogsInput = {
+    where: CustomerWhereUniqueInput
+    create: XOR<CustomerCreateWithoutFundChangeLogsInput, CustomerUncheckedCreateWithoutFundChangeLogsInput>
+  }
+
+  export type CustomerFundCreateWithoutChangeLogsInput = {
+    id?: string
+    invoice?: boolean
+    applyUnit: number
+    bunpaiThisKi?: number | null
+    bunpaiYear?: number | null
+    bunpaiTotal?: number | null
+    otherBunpaiThisKi?: number | null
+    otherBunpaiYear?: number | null
+    otherBunpaiTotal?: number | null
+    totalSeq?: number
+    projectSeq?: number
+    sameApplyUnitNum?: number
+    totalNum?: number
+    status?: $Enums.CustomerFundStatus
+    paymentDate?: Date | string | null
+    holdPayment?: boolean
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    Customer: CustomerCreateNestedOneWithoutCustomerFundsInput
+    ProjectKi: ProjectKiCreateNestedOneWithoutCustomerFundsInput
+    sourceCustomerFund?: CustomerFundCreateNestedOneWithoutDestinationCustomerFundsInput
+    destinationCustomerFunds?: CustomerFundCreateNestedManyWithoutSourceCustomerFundInput
+  }
+
+  export type CustomerFundUncheckedCreateWithoutChangeLogsInput = {
+    id?: string
+    customerId: string
+    projectKiId: string
+    invoice?: boolean
+    applyUnit: number
+    bunpaiThisKi?: number | null
+    bunpaiYear?: number | null
+    bunpaiTotal?: number | null
+    otherBunpaiThisKi?: number | null
+    otherBunpaiYear?: number | null
+    otherBunpaiTotal?: number | null
+    totalSeq?: number
+    projectSeq?: number
+    sameApplyUnitNum?: number
+    totalNum?: number
+    status?: $Enums.CustomerFundStatus
+    paymentDate?: Date | string | null
+    holdPayment?: boolean
+    sourceCustomerFundId?: string | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+    destinationCustomerFunds?: CustomerFundUncheckedCreateNestedManyWithoutSourceCustomerFundInput
+  }
+
+  export type CustomerFundCreateOrConnectWithoutChangeLogsInput = {
+    where: CustomerFundWhereUniqueInput
+    create: XOR<CustomerFundCreateWithoutChangeLogsInput, CustomerFundUncheckedCreateWithoutChangeLogsInput>
+  }
+
+  export type CustomerUploadBatchUpsertWithoutCustomerFundChangeLogsInput = {
+    update: XOR<CustomerUploadBatchUpdateWithoutCustomerFundChangeLogsInput, CustomerUploadBatchUncheckedUpdateWithoutCustomerFundChangeLogsInput>
+    create: XOR<CustomerUploadBatchCreateWithoutCustomerFundChangeLogsInput, CustomerUploadBatchUncheckedCreateWithoutCustomerFundChangeLogsInput>
+    where?: CustomerUploadBatchWhereInput
+  }
+
+  export type CustomerUploadBatchUpdateToOneWithWhereWithoutCustomerFundChangeLogsInput = {
+    where?: CustomerUploadBatchWhereInput
+    data: XOR<CustomerUploadBatchUpdateWithoutCustomerFundChangeLogsInput, CustomerUploadBatchUncheckedUpdateWithoutCustomerFundChangeLogsInput>
+  }
+
+  export type CustomerUploadBatchUpdateWithoutCustomerFundChangeLogsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    uploaderId?: StringFieldUpdateOperationsInput | string
+    uploaderType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    uploaderName?: StringFieldUpdateOperationsInput | string
+    ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumBatchStatusFieldUpdateOperationsInput | $Enums.BatchStatus
+    targetProjectCount?: IntFieldUpdateOperationsInput | number
+    committedProjectCount?: IntFieldUpdateOperationsInput | number
+    customerCreatedCount?: IntFieldUpdateOperationsInput | number
+    customerUpdatedCount?: IntFieldUpdateOperationsInput | number
+    customerUnchangedCount?: IntFieldUpdateOperationsInput | number
+    fundCreatedCount?: IntFieldUpdateOperationsInput | number
+    fundUpdatedCount?: IntFieldUpdateOperationsInput | number
+    fundDeletedCount?: IntFieldUpdateOperationsInput | number
+    fundUnchangedCount?: IntFieldUpdateOperationsInput | number
+    pretreatmentAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    committedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mailSentAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Ki?: KiUpdateOneRequiredWithoutCustomerUploadBatchesNestedInput
+    CustomerChangeLogs?: CustomerChangeLogUpdateManyWithoutBatchNestedInput
+    CommittedProjects?: CustomerUploadBatchProjectUpdateManyWithoutBatchNestedInput
+  }
+
+  export type CustomerUploadBatchUncheckedUpdateWithoutCustomerFundChangeLogsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    kiId?: StringFieldUpdateOperationsInput | string
+    uploaderId?: StringFieldUpdateOperationsInput | string
+    uploaderType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    uploaderName?: StringFieldUpdateOperationsInput | string
+    ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumBatchStatusFieldUpdateOperationsInput | $Enums.BatchStatus
+    targetProjectCount?: IntFieldUpdateOperationsInput | number
+    committedProjectCount?: IntFieldUpdateOperationsInput | number
+    customerCreatedCount?: IntFieldUpdateOperationsInput | number
+    customerUpdatedCount?: IntFieldUpdateOperationsInput | number
+    customerUnchangedCount?: IntFieldUpdateOperationsInput | number
+    fundCreatedCount?: IntFieldUpdateOperationsInput | number
+    fundUpdatedCount?: IntFieldUpdateOperationsInput | number
+    fundDeletedCount?: IntFieldUpdateOperationsInput | number
+    fundUnchangedCount?: IntFieldUpdateOperationsInput | number
+    pretreatmentAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    committedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mailSentAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    CustomerChangeLogs?: CustomerChangeLogUncheckedUpdateManyWithoutBatchNestedInput
+    CommittedProjects?: CustomerUploadBatchProjectUncheckedUpdateManyWithoutBatchNestedInput
+  }
+
+  export type CustomerUpsertWithoutFundChangeLogsInput = {
+    update: XOR<CustomerUpdateWithoutFundChangeLogsInput, CustomerUncheckedUpdateWithoutFundChangeLogsInput>
+    create: XOR<CustomerCreateWithoutFundChangeLogsInput, CustomerUncheckedCreateWithoutFundChangeLogsInput>
+    where?: CustomerWhereInput
+  }
+
+  export type CustomerUpdateToOneWithWhereWithoutFundChangeLogsInput = {
+    where?: CustomerWhereInput
+    data: XOR<CustomerUpdateWithoutFundChangeLogsInput, CustomerUncheckedUpdateWithoutFundChangeLogsInput>
+  }
+
+  export type CustomerUpdateWithoutFundChangeLogsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fundId?: StringFieldUpdateOperationsInput | string
+    sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
+    fundStatus?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    nameFurigana?: StringFieldUpdateOperationsInput | string
+    birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
+    invoice?: BoolFieldUpdateOperationsInput | boolean
+    postName?: StringFieldUpdateOperationsInput | string
+    zip?: StringFieldUpdateOperationsInput | string
+    fullAddress?: StringFieldUpdateOperationsInput | string
+    prefecture?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    transferName?: StringFieldUpdateOperationsInput | string
+    transferNameFurigana?: StringFieldUpdateOperationsInput | string
+    bankCode?: IntFieldUpdateOperationsInput | number
+    bankName?: StringFieldUpdateOperationsInput | string
+    bankBranchCode?: IntFieldUpdateOperationsInput | number
+    bankBranchName?: StringFieldUpdateOperationsInput | string
+    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
+    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
+    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    Project?: ProjectUpdateOneRequiredWithoutCustomersNestedInput
+    CustomerFunds?: CustomerFundUpdateManyWithoutCustomerNestedInput
+    ChangeLogs?: CustomerChangeLogUpdateManyWithoutCustomerNestedInput
+  }
+
+  export type CustomerUncheckedUpdateWithoutFundChangeLogsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fundId?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    sbimpId?: NullableStringFieldUpdateOperationsInput | string | null
+    fundStatus?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    nameFurigana?: StringFieldUpdateOperationsInput | string
+    birthday?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    customerType?: EnumCustomerTypeFieldUpdateOperationsInput | $Enums.CustomerType
+    invoice?: BoolFieldUpdateOperationsInput | boolean
+    postName?: StringFieldUpdateOperationsInput | string
+    zip?: StringFieldUpdateOperationsInput | string
+    fullAddress?: StringFieldUpdateOperationsInput | string
+    prefecture?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    address?: StringFieldUpdateOperationsInput | string
+    transferName?: StringFieldUpdateOperationsInput | string
+    transferNameFurigana?: StringFieldUpdateOperationsInput | string
+    bankCode?: IntFieldUpdateOperationsInput | number
+    bankName?: StringFieldUpdateOperationsInput | string
+    bankBranchCode?: IntFieldUpdateOperationsInput | number
+    bankBranchName?: StringFieldUpdateOperationsInput | string
+    bankAccountTypeCode?: IntFieldUpdateOperationsInput | number
+    bankAccountType?: StringFieldUpdateOperationsInput | string
+    bankAccount?: StringFieldUpdateOperationsInput | string
+    inheritanceType?: NullableEnumInheritanceTypeFieldUpdateOperationsInput | $Enums.InheritanceType | null
+    inheritanceStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    giftContractDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    trustTransferDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    oldBunpaiEndDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    newBunpaiStartDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    horyuStatus?: NullableEnumHoryuStatusTypeFieldUpdateOperationsInput | $Enums.HoryuStatusType | null
+    instructionDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    paymentDueDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdMemo?: NullableStringFieldUpdateOperationsInput | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    CustomerFunds?: CustomerFundUncheckedUpdateManyWithoutCustomerNestedInput
+    ChangeLogs?: CustomerChangeLogUncheckedUpdateManyWithoutCustomerNestedInput
+  }
+
+  export type CustomerFundUpsertWithoutChangeLogsInput = {
+    update: XOR<CustomerFundUpdateWithoutChangeLogsInput, CustomerFundUncheckedUpdateWithoutChangeLogsInput>
+    create: XOR<CustomerFundCreateWithoutChangeLogsInput, CustomerFundUncheckedCreateWithoutChangeLogsInput>
+    where?: CustomerFundWhereInput
+  }
+
+  export type CustomerFundUpdateToOneWithWhereWithoutChangeLogsInput = {
+    where?: CustomerFundWhereInput
+    data: XOR<CustomerFundUpdateWithoutChangeLogsInput, CustomerFundUncheckedUpdateWithoutChangeLogsInput>
+  }
+
+  export type CustomerFundUpdateWithoutChangeLogsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    invoice?: BoolFieldUpdateOperationsInput | boolean
+    applyUnit?: IntFieldUpdateOperationsInput | number
+    bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    totalSeq?: IntFieldUpdateOperationsInput | number
+    projectSeq?: IntFieldUpdateOperationsInput | number
+    sameApplyUnitNum?: IntFieldUpdateOperationsInput | number
+    totalNum?: IntFieldUpdateOperationsInput | number
+    status?: EnumCustomerFundStatusFieldUpdateOperationsInput | $Enums.CustomerFundStatus
+    paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    Customer?: CustomerUpdateOneRequiredWithoutCustomerFundsNestedInput
+    ProjectKi?: ProjectKiUpdateOneRequiredWithoutCustomerFundsNestedInput
+    sourceCustomerFund?: CustomerFundUpdateOneWithoutDestinationCustomerFundsNestedInput
+    destinationCustomerFunds?: CustomerFundUpdateManyWithoutSourceCustomerFundNestedInput
+  }
+
+  export type CustomerFundUncheckedUpdateWithoutChangeLogsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    customerId?: StringFieldUpdateOperationsInput | string
+    projectKiId?: StringFieldUpdateOperationsInput | string
+    invoice?: BoolFieldUpdateOperationsInput | boolean
+    applyUnit?: IntFieldUpdateOperationsInput | number
+    bunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    bunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiThisKi?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiYear?: NullableIntFieldUpdateOperationsInput | number | null
+    otherBunpaiTotal?: NullableIntFieldUpdateOperationsInput | number | null
+    totalSeq?: IntFieldUpdateOperationsInput | number
+    projectSeq?: IntFieldUpdateOperationsInput | number
+    sameApplyUnitNum?: IntFieldUpdateOperationsInput | number
+    totalNum?: IntFieldUpdateOperationsInput | number
+    status?: EnumCustomerFundStatusFieldUpdateOperationsInput | $Enums.CustomerFundStatus
+    paymentDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    holdPayment?: BoolFieldUpdateOperationsInput | boolean
+    sourceCustomerFundId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    destinationCustomerFunds?: CustomerFundUncheckedUpdateManyWithoutSourceCustomerFundNestedInput
   }
 
   export type ProjectCreateWithoutReportMainInput = {
@@ -48419,6 +58550,11 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    feeRateVariable?: number | null
+    feeFixedAnnual?: number | null
+    feeRateAgent?: number | null
+    feeCashMgmtAnnual?: number | null
+    feeRateTrust?: number | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
     createdAt?: Date | string
@@ -48434,6 +58570,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiCreateNestedManyWithoutProjectInput
     Assets?: AssetCreateNestedManyWithoutProjectInput
     Customers?: CustomerCreateNestedManyWithoutProjectInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectUncheckedCreateWithoutReportMainInput = {
@@ -48468,6 +58605,11 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    feeRateVariable?: number | null
+    feeFixedAnnual?: number | null
+    feeRateAgent?: number | null
+    feeCashMgmtAnnual?: number | null
+    feeRateTrust?: number | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
     bunpaiId?: string | null
@@ -48483,6 +58625,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutProjectInput
     Assets?: AssetUncheckedCreateNestedManyWithoutProjectInput
     Customers?: CustomerUncheckedCreateNestedManyWithoutProjectInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectUncheckedCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectCreateOrConnectWithoutReportMainInput = {
@@ -48527,6 +58670,11 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    feeRateVariable?: number | null
+    feeFixedAnnual?: number | null
+    feeRateAgent?: number | null
+    feeCashMgmtAnnual?: number | null
+    feeRateTrust?: number | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
     createdAt?: Date | string
@@ -48542,6 +58690,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiCreateNestedManyWithoutProjectInput
     Assets?: AssetCreateNestedManyWithoutProjectInput
     Customers?: CustomerCreateNestedManyWithoutProjectInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectUncheckedCreateWithoutReportAtt2Input = {
@@ -48576,6 +58725,11 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    feeRateVariable?: number | null
+    feeFixedAnnual?: number | null
+    feeRateAgent?: number | null
+    feeCashMgmtAnnual?: number | null
+    feeRateTrust?: number | null
     reportMainId?: string | null
     reportAtt3Id?: string | null
     bunpaiId?: string | null
@@ -48591,6 +58745,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutProjectInput
     Assets?: AssetUncheckedCreateNestedManyWithoutProjectInput
     Customers?: CustomerUncheckedCreateNestedManyWithoutProjectInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectUncheckedCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectCreateOrConnectWithoutReportAtt2Input = {
@@ -48635,6 +58790,11 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    feeRateVariable?: number | null
+    feeFixedAnnual?: number | null
+    feeRateAgent?: number | null
+    feeCashMgmtAnnual?: number | null
+    feeRateTrust?: number | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
     createdAt?: Date | string
@@ -48650,6 +58810,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiCreateNestedManyWithoutProjectInput
     Assets?: AssetCreateNestedManyWithoutProjectInput
     Customers?: CustomerCreateNestedManyWithoutProjectInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectUncheckedCreateWithoutReportAtt3Input = {
@@ -48684,6 +58845,11 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    feeRateVariable?: number | null
+    feeFixedAnnual?: number | null
+    feeRateAgent?: number | null
+    feeCashMgmtAnnual?: number | null
+    feeRateTrust?: number | null
     reportMainId?: string | null
     reportAtt2Id?: string | null
     bunpaiId?: string | null
@@ -48699,6 +58865,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutProjectInput
     Assets?: AssetUncheckedCreateNestedManyWithoutProjectInput
     Customers?: CustomerUncheckedCreateNestedManyWithoutProjectInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectUncheckedCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectCreateOrConnectWithoutReportAtt3Input = {
@@ -48743,6 +58910,11 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    feeRateVariable?: number | null
+    feeFixedAnnual?: number | null
+    feeRateAgent?: number | null
+    feeCashMgmtAnnual?: number | null
+    feeRateTrust?: number | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
     createdAt?: Date | string
@@ -48758,6 +58930,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiCreateNestedManyWithoutProjectInput
     Assets?: AssetCreateNestedManyWithoutProjectInput
     Customers?: CustomerCreateNestedManyWithoutProjectInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectUncheckedCreateWithoutBunpaiInput = {
@@ -48792,6 +58965,11 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    feeRateVariable?: number | null
+    feeFixedAnnual?: number | null
+    feeRateAgent?: number | null
+    feeCashMgmtAnnual?: number | null
+    feeRateTrust?: number | null
     reportMainId?: string | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
@@ -48807,6 +58985,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutProjectInput
     Assets?: AssetUncheckedCreateNestedManyWithoutProjectInput
     Customers?: CustomerUncheckedCreateNestedManyWithoutProjectInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectUncheckedCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectCreateOrConnectWithoutBunpaiInput = {
@@ -48851,6 +59030,11 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    feeRateVariable?: number | null
+    feeFixedAnnual?: number | null
+    feeRateAgent?: number | null
+    feeCashMgmtAnnual?: number | null
+    feeRateTrust?: number | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
     createdAt?: Date | string
@@ -48866,6 +59050,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiCreateNestedManyWithoutProjectInput
     Assets?: AssetCreateNestedManyWithoutProjectInput
     Customers?: CustomerCreateNestedManyWithoutProjectInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectUncheckedCreateWithoutRefInput = {
@@ -48900,6 +59085,11 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    feeRateVariable?: number | null
+    feeFixedAnnual?: number | null
+    feeRateAgent?: number | null
+    feeCashMgmtAnnual?: number | null
+    feeRateTrust?: number | null
     reportMainId?: string | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
@@ -48915,6 +59105,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiUncheckedCreateNestedManyWithoutProjectInput
     Assets?: AssetUncheckedCreateNestedManyWithoutProjectInput
     Customers?: CustomerUncheckedCreateNestedManyWithoutProjectInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectUncheckedCreateNestedManyWithoutProjectInput
   }
 
   export type ProjectCreateOrConnectWithoutRefInput = {
@@ -48978,6 +59169,11 @@ export namespace Prisma {
     leverageFlag?: BoolFilter<"Project"> | boolean
     unitResidenceFlag?: BoolFilter<"Project"> | boolean
     completedFlag?: BoolFilter<"Project"> | boolean
+    feeRateVariable?: FloatNullableFilter<"Project"> | number | null
+    feeFixedAnnual?: IntNullableFilter<"Project"> | number | null
+    feeRateAgent?: FloatNullableFilter<"Project"> | number | null
+    feeCashMgmtAnnual?: IntNullableFilter<"Project"> | number | null
+    feeRateTrust?: FloatNullableFilter<"Project"> | number | null
     reportMainId?: StringNullableFilter<"Project"> | string | null
     reportAtt2Id?: StringNullableFilter<"Project"> | string | null
     reportAtt3Id?: StringNullableFilter<"Project"> | string | null
@@ -49109,6 +59305,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: bigint | number | null
     cashTrapJunbiKanjo?: bigint | number | null
+    interestCapContractKanjo?: bigint | number | null
     sonotaGenyokin?: bigint | number | null
     futuYokinTokiZandaka?: bigint | number | null
     zenkiKurikoshiRieki?: bigint | number | null
@@ -49122,17 +59319,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: bigint | number | null
     shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuShuekiTaishogaiUriage?: bigint | number | null
     shintakuHiyoKazeiShiire?: bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: bigint | number | null
     shintakuHiyoHikazeiShiire?: bigint | number | null
+    shintakuHiyoTaishogaiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuShuekiTaishogaiUriage?: number | null
     unitShintakuHiyoKazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireShohizei?: number | null
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    unitShintakuHiyoTaishogaiShiire?: number | null
     kazeiUriageSashihiki08?: bigint | number | null
     kazeiUriageSashihiki10?: bigint | number | null
     kazeiUriageHontai08?: bigint | number | null
@@ -49207,6 +59408,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: bigint | number | null
     cashTrapJunbiKanjo?: bigint | number | null
+    interestCapContractKanjo?: bigint | number | null
     sonotaGenyokin?: bigint | number | null
     futuYokinTokiZandaka?: bigint | number | null
     zenkiKurikoshiRieki?: bigint | number | null
@@ -49220,17 +59422,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: bigint | number | null
     shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuShuekiTaishogaiUriage?: bigint | number | null
     shintakuHiyoKazeiShiire?: bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: bigint | number | null
     shintakuHiyoHikazeiShiire?: bigint | number | null
+    shintakuHiyoTaishogaiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuShuekiTaishogaiUriage?: number | null
     unitShintakuHiyoKazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireShohizei?: number | null
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    unitShintakuHiyoTaishogaiShiire?: number | null
     kazeiUriageSashihiki08?: bigint | number | null
     kazeiUriageSashihiki10?: bigint | number | null
     kazeiUriageHontai08?: bigint | number | null
@@ -49245,6 +59451,20 @@ export namespace Prisma {
     kazeiShiire8050KojoKyotsuHontai?: bigint | number | null
     koteiShisan80Kojo?: bigint | number | null
     koteiShisan80KojoNoTax?: bigint | number | null
+    createdAt?: Date | string
+    createdId: string
+    createdBy: string
+    updatedAt?: Date | string
+    updatedId: string
+    updatedBy: string
+  }
+
+  export type ProjectKiTaskCreateManyCheckerInput = {
+    id?: string
+    deadlineTaskId: string
+    projectKiId: string
+    status?: $Enums.ProjectKiTaskStatus
+    note?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -49302,6 +59522,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    interestCapContractKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -49315,17 +59536,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiTaishogaiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoTaishogaiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiTaishogaiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoTaishogaiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -49405,6 +59630,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    interestCapContractKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -49418,17 +59644,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiTaishogaiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoTaishogaiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiTaishogaiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoTaishogaiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -49505,6 +59735,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    interestCapContractKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -49518,17 +59749,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiTaishogaiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoTaishogaiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiTaishogaiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoTaishogaiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -49600,6 +59835,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    interestCapContractKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -49613,17 +59849,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiTaishogaiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoTaishogaiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiTaishogaiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoTaishogaiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -49703,6 +59943,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    interestCapContractKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -49716,17 +59957,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiTaishogaiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoTaishogaiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiTaishogaiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoTaishogaiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -49803,6 +60048,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    interestCapContractKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -49816,17 +60062,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiTaishogaiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoTaishogaiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiTaishogaiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoTaishogaiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -49841,6 +60091,48 @@ export namespace Prisma {
     kazeiShiire8050KojoKyotsuHontai?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     koteiShisan80Kojo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     koteiShisan80KojoNoTax?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectKiTaskUpdateWithoutCheckerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    status?: EnumProjectKiTaskStatusFieldUpdateOperationsInput | $Enums.ProjectKiTaskStatus
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+    DeadlineTask?: DeadlineTaskUpdateOneRequiredWithoutProjectKiTasksNestedInput
+    ProjectKi?: ProjectKiUpdateOneRequiredWithoutProjectKiTasksNestedInput
+  }
+
+  export type ProjectKiTaskUncheckedUpdateWithoutCheckerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    deadlineTaskId?: StringFieldUpdateOperationsInput | string
+    projectKiId?: StringFieldUpdateOperationsInput | string
+    status?: EnumProjectKiTaskStatusFieldUpdateOperationsInput | $Enums.ProjectKiTaskStatus
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdId?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedId?: StringFieldUpdateOperationsInput | string
+    updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ProjectKiTaskUncheckedUpdateManyWithoutCheckerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    deadlineTaskId?: StringFieldUpdateOperationsInput | string
+    projectKiId?: StringFieldUpdateOperationsInput | string
+    status?: EnumProjectKiTaskStatusFieldUpdateOperationsInput | $Enums.ProjectKiTaskStatus
+    note?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -49901,6 +60193,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: bigint | number | null
     cashTrapJunbiKanjo?: bigint | number | null
+    interestCapContractKanjo?: bigint | number | null
     sonotaGenyokin?: bigint | number | null
     futuYokinTokiZandaka?: bigint | number | null
     zenkiKurikoshiRieki?: bigint | number | null
@@ -49914,17 +60207,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: bigint | number | null
     shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuShuekiTaishogaiUriage?: bigint | number | null
     shintakuHiyoKazeiShiire?: bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: bigint | number | null
     shintakuHiyoHikazeiShiire?: bigint | number | null
+    shintakuHiyoTaishogaiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuShuekiTaishogaiUriage?: number | null
     unitShintakuHiyoKazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireShohizei?: number | null
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    unitShintakuHiyoTaishogaiShiire?: number | null
     kazeiUriageSashihiki08?: bigint | number | null
     kazeiUriageSashihiki10?: bigint | number | null
     kazeiUriageHontai08?: bigint | number | null
@@ -49993,12 +60290,37 @@ export namespace Prisma {
     dueDate: Date | string
     order?: number
     memo?: string | null
+    category?: $Enums.DeadlineCategory
+    documentType?: $Enums.DocumentType | null
+    reviewStep?: $Enums.ReviewStep | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
     updatedAt?: Date | string
     updatedId: string
     updatedBy: string
+  }
+
+  export type CustomerUploadBatchCreateManyKiInput = {
+    id?: string
+    fileName: string
+    uploaderId: string
+    uploaderType: $Enums.UserType
+    uploaderName: string
+    ipAddress?: string | null
+    status?: $Enums.BatchStatus
+    targetProjectCount?: number
+    committedProjectCount?: number
+    customerCreatedCount?: number
+    customerUpdatedCount?: number
+    customerUnchangedCount?: number
+    fundCreatedCount?: number
+    fundUpdatedCount?: number
+    fundDeletedCount?: number
+    fundUnchangedCount?: number
+    pretreatmentAt?: Date | string
+    committedAt?: Date | string | null
+    mailSentAt?: Date | string | null
   }
 
   export type ProjectKiUpdateWithoutKiInput = {
@@ -50050,6 +60372,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    interestCapContractKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -50063,17 +60386,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiTaishogaiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoTaishogaiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiTaishogaiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoTaishogaiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -50153,6 +60480,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    interestCapContractKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -50166,17 +60494,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiTaishogaiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoTaishogaiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiTaishogaiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoTaishogaiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -50253,6 +60585,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    interestCapContractKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -50266,17 +60599,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiTaishogaiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoTaishogaiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiTaishogaiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoTaishogaiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -50425,6 +60762,9 @@ export namespace Prisma {
     dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
     order?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: EnumDeadlineCategoryFieldUpdateOperationsInput | $Enums.DeadlineCategory
+    documentType?: NullableEnumDocumentTypeFieldUpdateOperationsInput | $Enums.DocumentType | null
+    reviewStep?: NullableEnumReviewStepFieldUpdateOperationsInput | $Enums.ReviewStep | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -50440,6 +60780,9 @@ export namespace Prisma {
     dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
     order?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: EnumDeadlineCategoryFieldUpdateOperationsInput | $Enums.DeadlineCategory
+    documentType?: NullableEnumDocumentTypeFieldUpdateOperationsInput | $Enums.DocumentType | null
+    reviewStep?: NullableEnumReviewStepFieldUpdateOperationsInput | $Enums.ReviewStep | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -50455,12 +60798,87 @@ export namespace Prisma {
     dueDate?: DateTimeFieldUpdateOperationsInput | Date | string
     order?: IntFieldUpdateOperationsInput | number
     memo?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: EnumDeadlineCategoryFieldUpdateOperationsInput | $Enums.DeadlineCategory
+    documentType?: NullableEnumDocumentTypeFieldUpdateOperationsInput | $Enums.DocumentType | null
+    reviewStep?: NullableEnumReviewStepFieldUpdateOperationsInput | $Enums.ReviewStep | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CustomerUploadBatchUpdateWithoutKiInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    uploaderId?: StringFieldUpdateOperationsInput | string
+    uploaderType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    uploaderName?: StringFieldUpdateOperationsInput | string
+    ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumBatchStatusFieldUpdateOperationsInput | $Enums.BatchStatus
+    targetProjectCount?: IntFieldUpdateOperationsInput | number
+    committedProjectCount?: IntFieldUpdateOperationsInput | number
+    customerCreatedCount?: IntFieldUpdateOperationsInput | number
+    customerUpdatedCount?: IntFieldUpdateOperationsInput | number
+    customerUnchangedCount?: IntFieldUpdateOperationsInput | number
+    fundCreatedCount?: IntFieldUpdateOperationsInput | number
+    fundUpdatedCount?: IntFieldUpdateOperationsInput | number
+    fundDeletedCount?: IntFieldUpdateOperationsInput | number
+    fundUnchangedCount?: IntFieldUpdateOperationsInput | number
+    pretreatmentAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    committedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mailSentAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    CustomerChangeLogs?: CustomerChangeLogUpdateManyWithoutBatchNestedInput
+    CustomerFundChangeLogs?: CustomerFundChangeLogUpdateManyWithoutBatchNestedInput
+    CommittedProjects?: CustomerUploadBatchProjectUpdateManyWithoutBatchNestedInput
+  }
+
+  export type CustomerUploadBatchUncheckedUpdateWithoutKiInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    uploaderId?: StringFieldUpdateOperationsInput | string
+    uploaderType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    uploaderName?: StringFieldUpdateOperationsInput | string
+    ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumBatchStatusFieldUpdateOperationsInput | $Enums.BatchStatus
+    targetProjectCount?: IntFieldUpdateOperationsInput | number
+    committedProjectCount?: IntFieldUpdateOperationsInput | number
+    customerCreatedCount?: IntFieldUpdateOperationsInput | number
+    customerUpdatedCount?: IntFieldUpdateOperationsInput | number
+    customerUnchangedCount?: IntFieldUpdateOperationsInput | number
+    fundCreatedCount?: IntFieldUpdateOperationsInput | number
+    fundUpdatedCount?: IntFieldUpdateOperationsInput | number
+    fundDeletedCount?: IntFieldUpdateOperationsInput | number
+    fundUnchangedCount?: IntFieldUpdateOperationsInput | number
+    pretreatmentAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    committedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mailSentAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    CustomerChangeLogs?: CustomerChangeLogUncheckedUpdateManyWithoutBatchNestedInput
+    CustomerFundChangeLogs?: CustomerFundChangeLogUncheckedUpdateManyWithoutBatchNestedInput
+    CommittedProjects?: CustomerUploadBatchProjectUncheckedUpdateManyWithoutBatchNestedInput
+  }
+
+  export type CustomerUploadBatchUncheckedUpdateManyWithoutKiInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    fileName?: StringFieldUpdateOperationsInput | string
+    uploaderId?: StringFieldUpdateOperationsInput | string
+    uploaderType?: EnumUserTypeFieldUpdateOperationsInput | $Enums.UserType
+    uploaderName?: StringFieldUpdateOperationsInput | string
+    ipAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumBatchStatusFieldUpdateOperationsInput | $Enums.BatchStatus
+    targetProjectCount?: IntFieldUpdateOperationsInput | number
+    committedProjectCount?: IntFieldUpdateOperationsInput | number
+    customerCreatedCount?: IntFieldUpdateOperationsInput | number
+    customerUpdatedCount?: IntFieldUpdateOperationsInput | number
+    customerUnchangedCount?: IntFieldUpdateOperationsInput | number
+    fundCreatedCount?: IntFieldUpdateOperationsInput | number
+    fundUpdatedCount?: IntFieldUpdateOperationsInput | number
+    fundDeletedCount?: IntFieldUpdateOperationsInput | number
+    fundUnchangedCount?: IntFieldUpdateOperationsInput | number
+    pretreatmentAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    committedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    mailSentAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type ProjectKiCreateManyProjectInput = {
@@ -50515,6 +60933,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: bigint | number | null
     cashTrapJunbiKanjo?: bigint | number | null
+    interestCapContractKanjo?: bigint | number | null
     sonotaGenyokin?: bigint | number | null
     futuYokinTokiZandaka?: bigint | number | null
     zenkiKurikoshiRieki?: bigint | number | null
@@ -50528,17 +60947,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: bigint | number | null
     shintakuShuekiHikazeiUriage?: bigint | number | null
+    shintakuShuekiTaishogaiUriage?: bigint | number | null
     shintakuHiyoKazeiShiire?: bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: bigint | number | null
     shintakuHiyoHikazeiShiire?: bigint | number | null
+    shintakuHiyoTaishogaiShiire?: bigint | number | null
     unitShintakuShuekiKazeiUriage?: number | null
     unitShintakuShuekiKazeiUriageShohizei?: number | null
     unitShintakuShuekiHikazeiUriage?: number | null
+    unitShintakuShuekiTaishogaiUriage?: number | null
     unitShintakuHiyoKazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireShohizei?: number | null
     unitShintakuHiyoHikazeiShiire?: number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: number | null
+    unitShintakuHiyoTaishogaiShiire?: number | null
     kazeiUriageSashihiki08?: bigint | number | null
     kazeiUriageSashihiki10?: bigint | number | null
     kazeiUriageHontai08?: bigint | number | null
@@ -50632,6 +61055,12 @@ export namespace Prisma {
     updatedBy: string
   }
 
+  export type CustomerUploadBatchProjectCreateManyProjectInput = {
+    id?: string
+    batchId: string
+    committedAt?: Date | string
+  }
+
   export type ProjectKiUpdateWithoutProjectInput = {
     id?: StringFieldUpdateOperationsInput | string
     projectKi?: IntFieldUpdateOperationsInput | number
@@ -50681,6 +61110,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    interestCapContractKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -50694,17 +61124,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiTaishogaiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoTaishogaiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiTaishogaiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoTaishogaiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -50784,6 +61218,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    interestCapContractKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -50797,17 +61232,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiTaishogaiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoTaishogaiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiTaishogaiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoTaishogaiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -50884,6 +61323,7 @@ export namespace Prisma {
     risokuShiharaiJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shihoTekiShishutsuJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     cashTrapJunbiKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    interestCapContractKanjo?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     sonotaGenyokin?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     futuYokinTokiZandaka?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     zenkiKurikoshiRieki?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -50897,17 +61337,21 @@ export namespace Prisma {
     shintakuShuekiKazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiKazeiUriageShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuShuekiHikazeiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuShuekiTaishogaiUriage?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoKazeiShiireShohizei?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     shintakuHiyoHikazeiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    shintakuHiyoTaishogaiShiire?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     unitShintakuShuekiKazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiKazeiUriageShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuShuekiHikazeiUriage?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuShuekiTaishogaiUriage?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizei?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoHikazeiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
     unitShintakuHiyoKazeiShiireShohizeiForNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
+    unitShintakuHiyoTaishogaiShiire?: NullableIntFieldUpdateOperationsInput | number | null
     kazeiUriageSashihiki08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageSashihiki10?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     kazeiUriageHontai08?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
@@ -51054,6 +61498,8 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     CustomerFunds?: CustomerFundUpdateManyWithoutCustomerNestedInput
+    ChangeLogs?: CustomerChangeLogUpdateManyWithoutCustomerNestedInput
+    FundChangeLogs?: CustomerFundChangeLogUpdateManyWithoutCustomerNestedInput
   }
 
   export type CustomerUncheckedUpdateWithoutProjectInput = {
@@ -51100,6 +61546,8 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     CustomerFunds?: CustomerFundUncheckedUpdateManyWithoutCustomerNestedInput
+    ChangeLogs?: CustomerChangeLogUncheckedUpdateManyWithoutCustomerNestedInput
+    FundChangeLogs?: CustomerFundChangeLogUncheckedUpdateManyWithoutCustomerNestedInput
   }
 
   export type CustomerUncheckedUpdateManyWithoutProjectInput = {
@@ -51147,6 +61595,24 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
+  export type CustomerUploadBatchProjectUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    committedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Batch?: CustomerUploadBatchUpdateOneRequiredWithoutCommittedProjectsNestedInput
+  }
+
+  export type CustomerUploadBatchProjectUncheckedUpdateWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    batchId?: StringFieldUpdateOperationsInput | string
+    committedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CustomerUploadBatchProjectUncheckedUpdateManyWithoutProjectInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    batchId?: StringFieldUpdateOperationsInput | string
+    committedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type CustomerFundCreateManyProjectKiInput = {
     id?: string
     customerId: string
@@ -51177,7 +61643,9 @@ export namespace Prisma {
   export type ProjectKiTaskCreateManyProjectKiInput = {
     id?: string
     deadlineTaskId: string
-    isCompleted?: boolean
+    status?: $Enums.ProjectKiTaskStatus
+    note?: string | null
+    checkerUserId?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -51212,6 +61680,7 @@ export namespace Prisma {
     Customer?: CustomerUpdateOneRequiredWithoutCustomerFundsNestedInput
     sourceCustomerFund?: CustomerFundUpdateOneWithoutDestinationCustomerFundsNestedInput
     destinationCustomerFunds?: CustomerFundUpdateManyWithoutSourceCustomerFundNestedInput
+    ChangeLogs?: CustomerFundChangeLogUpdateManyWithoutCustomerFundNestedInput
   }
 
   export type CustomerFundUncheckedUpdateWithoutProjectKiInput = {
@@ -51240,6 +61709,7 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     destinationCustomerFunds?: CustomerFundUncheckedUpdateManyWithoutSourceCustomerFundNestedInput
+    ChangeLogs?: CustomerFundChangeLogUncheckedUpdateManyWithoutCustomerFundNestedInput
   }
 
   export type CustomerFundUncheckedUpdateManyWithoutProjectKiInput = {
@@ -51271,7 +61741,8 @@ export namespace Prisma {
 
   export type ProjectKiTaskUpdateWithoutProjectKiInput = {
     id?: StringFieldUpdateOperationsInput | string
-    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumProjectKiTaskStatusFieldUpdateOperationsInput | $Enums.ProjectKiTaskStatus
+    note?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -51279,12 +61750,15 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     DeadlineTask?: DeadlineTaskUpdateOneRequiredWithoutProjectKiTasksNestedInput
+    Checker?: UserUpdateOneWithoutCheckerProjectKiTasksNestedInput
   }
 
   export type ProjectKiTaskUncheckedUpdateWithoutProjectKiInput = {
     id?: StringFieldUpdateOperationsInput | string
     deadlineTaskId?: StringFieldUpdateOperationsInput | string
-    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumProjectKiTaskStatusFieldUpdateOperationsInput | $Enums.ProjectKiTaskStatus
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    checkerUserId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -51296,7 +61770,9 @@ export namespace Prisma {
   export type ProjectKiTaskUncheckedUpdateManyWithoutProjectKiInput = {
     id?: StringFieldUpdateOperationsInput | string
     deadlineTaskId?: StringFieldUpdateOperationsInput | string
-    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumProjectKiTaskStatusFieldUpdateOperationsInput | $Enums.ProjectKiTaskStatus
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    checkerUserId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -51468,7 +61944,9 @@ export namespace Prisma {
   export type ProjectKiTaskCreateManyDeadlineTaskInput = {
     id?: string
     projectKiId: string
-    isCompleted?: boolean
+    status?: $Enums.ProjectKiTaskStatus
+    note?: string | null
+    checkerUserId?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -51479,7 +61957,8 @@ export namespace Prisma {
 
   export type ProjectKiTaskUpdateWithoutDeadlineTaskInput = {
     id?: StringFieldUpdateOperationsInput | string
-    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumProjectKiTaskStatusFieldUpdateOperationsInput | $Enums.ProjectKiTaskStatus
+    note?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -51487,12 +61966,15 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     ProjectKi?: ProjectKiUpdateOneRequiredWithoutProjectKiTasksNestedInput
+    Checker?: UserUpdateOneWithoutCheckerProjectKiTasksNestedInput
   }
 
   export type ProjectKiTaskUncheckedUpdateWithoutDeadlineTaskInput = {
     id?: StringFieldUpdateOperationsInput | string
     projectKiId?: StringFieldUpdateOperationsInput | string
-    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumProjectKiTaskStatusFieldUpdateOperationsInput | $Enums.ProjectKiTaskStatus
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    checkerUserId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -51504,7 +61986,9 @@ export namespace Prisma {
   export type ProjectKiTaskUncheckedUpdateManyWithoutDeadlineTaskInput = {
     id?: StringFieldUpdateOperationsInput | string
     projectKiId?: StringFieldUpdateOperationsInput | string
-    isCompleted?: BoolFieldUpdateOperationsInput | boolean
+    status?: EnumProjectKiTaskStatusFieldUpdateOperationsInput | $Enums.ProjectKiTaskStatus
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    checkerUserId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -51540,6 +62024,30 @@ export namespace Prisma {
     updatedBy: string
   }
 
+  export type CustomerChangeLogCreateManyCustomerInput = {
+    id?: string
+    source: $Enums.ChangeSource
+    batchId?: string | null
+    operation: $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot: JsonNullValueInput | InputJsonValue
+    rawRow?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
+  export type CustomerFundChangeLogCreateManyCustomerInput = {
+    id?: string
+    source: $Enums.ChangeSource
+    batchId?: string | null
+    customerFundId?: string | null
+    operation: $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
   export type CustomerFundUpdateWithoutCustomerInput = {
     id?: StringFieldUpdateOperationsInput | string
     invoice?: BoolFieldUpdateOperationsInput | boolean
@@ -51566,6 +62074,7 @@ export namespace Prisma {
     ProjectKi?: ProjectKiUpdateOneRequiredWithoutCustomerFundsNestedInput
     sourceCustomerFund?: CustomerFundUpdateOneWithoutDestinationCustomerFundsNestedInput
     destinationCustomerFunds?: CustomerFundUpdateManyWithoutSourceCustomerFundNestedInput
+    ChangeLogs?: CustomerFundChangeLogUpdateManyWithoutCustomerFundNestedInput
   }
 
   export type CustomerFundUncheckedUpdateWithoutCustomerInput = {
@@ -51594,6 +62103,7 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     destinationCustomerFunds?: CustomerFundUncheckedUpdateManyWithoutSourceCustomerFundNestedInput
+    ChangeLogs?: CustomerFundChangeLogUncheckedUpdateManyWithoutCustomerFundNestedInput
   }
 
   export type CustomerFundUncheckedUpdateManyWithoutCustomerInput = {
@@ -51623,6 +62133,78 @@ export namespace Prisma {
     updatedBy?: StringFieldUpdateOperationsInput | string
   }
 
+  export type CustomerChangeLogUpdateWithoutCustomerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    source?: EnumChangeSourceFieldUpdateOperationsInput | $Enums.ChangeSource
+    operation?: EnumChangeOperationFieldUpdateOperationsInput | $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: JsonNullValueInput | InputJsonValue
+    rawRow?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Batch?: CustomerUploadBatchUpdateOneWithoutCustomerChangeLogsNestedInput
+  }
+
+  export type CustomerChangeLogUncheckedUpdateWithoutCustomerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    source?: EnumChangeSourceFieldUpdateOperationsInput | $Enums.ChangeSource
+    batchId?: NullableStringFieldUpdateOperationsInput | string | null
+    operation?: EnumChangeOperationFieldUpdateOperationsInput | $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: JsonNullValueInput | InputJsonValue
+    rawRow?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CustomerChangeLogUncheckedUpdateManyWithoutCustomerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    source?: EnumChangeSourceFieldUpdateOperationsInput | $Enums.ChangeSource
+    batchId?: NullableStringFieldUpdateOperationsInput | string | null
+    operation?: EnumChangeOperationFieldUpdateOperationsInput | $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: JsonNullValueInput | InputJsonValue
+    rawRow?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CustomerFundChangeLogUpdateWithoutCustomerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    source?: EnumChangeSourceFieldUpdateOperationsInput | $Enums.ChangeSource
+    operation?: EnumChangeOperationFieldUpdateOperationsInput | $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Batch?: CustomerUploadBatchUpdateOneWithoutCustomerFundChangeLogsNestedInput
+    CustomerFund?: CustomerFundUpdateOneWithoutChangeLogsNestedInput
+  }
+
+  export type CustomerFundChangeLogUncheckedUpdateWithoutCustomerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    source?: EnumChangeSourceFieldUpdateOperationsInput | $Enums.ChangeSource
+    batchId?: NullableStringFieldUpdateOperationsInput | string | null
+    customerFundId?: NullableStringFieldUpdateOperationsInput | string | null
+    operation?: EnumChangeOperationFieldUpdateOperationsInput | $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CustomerFundChangeLogUncheckedUpdateManyWithoutCustomerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    source?: EnumChangeSourceFieldUpdateOperationsInput | $Enums.ChangeSource
+    batchId?: NullableStringFieldUpdateOperationsInput | string | null
+    customerFundId?: NullableStringFieldUpdateOperationsInput | string | null
+    operation?: EnumChangeOperationFieldUpdateOperationsInput | $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type CustomerFundCreateManySourceCustomerFundInput = {
     id?: string
     customerId: string
@@ -51648,6 +62230,18 @@ export namespace Prisma {
     updatedAt?: Date | string
     updatedId: string
     updatedBy: string
+  }
+
+  export type CustomerFundChangeLogCreateManyCustomerFundInput = {
+    id?: string
+    source: $Enums.ChangeSource
+    batchId?: string | null
+    customerId: string
+    operation: $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
   }
 
   export type CustomerFundUpdateWithoutSourceCustomerFundInput = {
@@ -51676,6 +62270,7 @@ export namespace Prisma {
     Customer?: CustomerUpdateOneRequiredWithoutCustomerFundsNestedInput
     ProjectKi?: ProjectKiUpdateOneRequiredWithoutCustomerFundsNestedInput
     destinationCustomerFunds?: CustomerFundUpdateManyWithoutSourceCustomerFundNestedInput
+    ChangeLogs?: CustomerFundChangeLogUpdateManyWithoutCustomerFundNestedInput
   }
 
   export type CustomerFundUncheckedUpdateWithoutSourceCustomerFundInput = {
@@ -51704,6 +62299,7 @@ export namespace Prisma {
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
     destinationCustomerFunds?: CustomerFundUncheckedUpdateManyWithoutSourceCustomerFundNestedInput
+    ChangeLogs?: CustomerFundChangeLogUncheckedUpdateManyWithoutCustomerFundNestedInput
   }
 
   export type CustomerFundUncheckedUpdateManyWithoutSourceCustomerFundInput = {
@@ -51731,6 +62327,162 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedId?: StringFieldUpdateOperationsInput | string
     updatedBy?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type CustomerFundChangeLogUpdateWithoutCustomerFundInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    source?: EnumChangeSourceFieldUpdateOperationsInput | $Enums.ChangeSource
+    operation?: EnumChangeOperationFieldUpdateOperationsInput | $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Batch?: CustomerUploadBatchUpdateOneWithoutCustomerFundChangeLogsNestedInput
+    Customer?: CustomerUpdateOneRequiredWithoutFundChangeLogsNestedInput
+  }
+
+  export type CustomerFundChangeLogUncheckedUpdateWithoutCustomerFundInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    source?: EnumChangeSourceFieldUpdateOperationsInput | $Enums.ChangeSource
+    batchId?: NullableStringFieldUpdateOperationsInput | string | null
+    customerId?: StringFieldUpdateOperationsInput | string
+    operation?: EnumChangeOperationFieldUpdateOperationsInput | $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CustomerFundChangeLogUncheckedUpdateManyWithoutCustomerFundInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    source?: EnumChangeSourceFieldUpdateOperationsInput | $Enums.ChangeSource
+    batchId?: NullableStringFieldUpdateOperationsInput | string | null
+    customerId?: StringFieldUpdateOperationsInput | string
+    operation?: EnumChangeOperationFieldUpdateOperationsInput | $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CustomerChangeLogCreateManyBatchInput = {
+    id?: string
+    source: $Enums.ChangeSource
+    customerId: string
+    operation: $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot: JsonNullValueInput | InputJsonValue
+    rawRow?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
+  export type CustomerFundChangeLogCreateManyBatchInput = {
+    id?: string
+    source: $Enums.ChangeSource
+    customerId: string
+    customerFundId?: string | null
+    operation: $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+  }
+
+  export type CustomerUploadBatchProjectCreateManyBatchInput = {
+    id?: string
+    projectId: string
+    committedAt?: Date | string
+  }
+
+  export type CustomerChangeLogUpdateWithoutBatchInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    source?: EnumChangeSourceFieldUpdateOperationsInput | $Enums.ChangeSource
+    operation?: EnumChangeOperationFieldUpdateOperationsInput | $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: JsonNullValueInput | InputJsonValue
+    rawRow?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Customer?: CustomerUpdateOneRequiredWithoutChangeLogsNestedInput
+  }
+
+  export type CustomerChangeLogUncheckedUpdateWithoutBatchInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    source?: EnumChangeSourceFieldUpdateOperationsInput | $Enums.ChangeSource
+    customerId?: StringFieldUpdateOperationsInput | string
+    operation?: EnumChangeOperationFieldUpdateOperationsInput | $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: JsonNullValueInput | InputJsonValue
+    rawRow?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CustomerChangeLogUncheckedUpdateManyWithoutBatchInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    source?: EnumChangeSourceFieldUpdateOperationsInput | $Enums.ChangeSource
+    customerId?: StringFieldUpdateOperationsInput | string
+    operation?: EnumChangeOperationFieldUpdateOperationsInput | $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: JsonNullValueInput | InputJsonValue
+    rawRow?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CustomerFundChangeLogUpdateWithoutBatchInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    source?: EnumChangeSourceFieldUpdateOperationsInput | $Enums.ChangeSource
+    operation?: EnumChangeOperationFieldUpdateOperationsInput | $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Customer?: CustomerUpdateOneRequiredWithoutFundChangeLogsNestedInput
+    CustomerFund?: CustomerFundUpdateOneWithoutChangeLogsNestedInput
+  }
+
+  export type CustomerFundChangeLogUncheckedUpdateWithoutBatchInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    source?: EnumChangeSourceFieldUpdateOperationsInput | $Enums.ChangeSource
+    customerId?: StringFieldUpdateOperationsInput | string
+    customerFundId?: NullableStringFieldUpdateOperationsInput | string | null
+    operation?: EnumChangeOperationFieldUpdateOperationsInput | $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CustomerFundChangeLogUncheckedUpdateManyWithoutBatchInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    source?: EnumChangeSourceFieldUpdateOperationsInput | $Enums.ChangeSource
+    customerId?: StringFieldUpdateOperationsInput | string
+    customerFundId?: NullableStringFieldUpdateOperationsInput | string | null
+    operation?: EnumChangeOperationFieldUpdateOperationsInput | $Enums.ChangeOperation
+    changedFields?: NullableJsonNullValueInput | InputJsonValue
+    beforeSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    afterSnapshot?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CustomerUploadBatchProjectUpdateWithoutBatchInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    committedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Project?: ProjectUpdateOneRequiredWithoutCustomerUploadBatchProjectsNestedInput
+  }
+
+  export type CustomerUploadBatchProjectUncheckedUpdateWithoutBatchInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    committedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CustomerUploadBatchProjectUncheckedUpdateManyWithoutBatchInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    projectId?: StringFieldUpdateOperationsInput | string
+    committedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ProjectCreateManyReportMainInput = {
@@ -51765,6 +62517,11 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    feeRateVariable?: number | null
+    feeFixedAnnual?: number | null
+    feeRateAgent?: number | null
+    feeCashMgmtAnnual?: number | null
+    feeRateTrust?: number | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
     bunpaiId?: string | null
@@ -51811,6 +62568,11 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    feeRateVariable?: number | null
+    feeFixedAnnual?: number | null
+    feeRateAgent?: number | null
+    feeCashMgmtAnnual?: number | null
+    feeRateTrust?: number | null
     reportMainId?: string | null
     reportAtt3Id?: string | null
     bunpaiId?: string | null
@@ -51857,6 +62619,11 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    feeRateVariable?: number | null
+    feeFixedAnnual?: number | null
+    feeRateAgent?: number | null
+    feeCashMgmtAnnual?: number | null
+    feeRateTrust?: number | null
     reportMainId?: string | null
     reportAtt2Id?: string | null
     bunpaiId?: string | null
@@ -51903,6 +62670,11 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    feeRateVariable?: number | null
+    feeFixedAnnual?: number | null
+    feeRateAgent?: number | null
+    feeCashMgmtAnnual?: number | null
+    feeRateTrust?: number | null
     reportMainId?: string | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
@@ -51949,6 +62721,11 @@ export namespace Prisma {
     leverageFlag?: boolean
     unitResidenceFlag?: boolean
     completedFlag?: boolean
+    feeRateVariable?: number | null
+    feeFixedAnnual?: number | null
+    feeRateAgent?: number | null
+    feeCashMgmtAnnual?: number | null
+    feeRateTrust?: number | null
     reportMainId?: string | null
     reportAtt2Id?: string | null
     reportAtt3Id?: string | null
@@ -51995,6 +62772,11 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    feeRateVariable?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeFixedAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateAgent?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeCashMgmtAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -52010,6 +62792,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiUpdateManyWithoutProjectNestedInput
     Assets?: AssetUpdateManyWithoutProjectNestedInput
     Customers?: CustomerUpdateManyWithoutProjectNestedInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateWithoutReportMainInput = {
@@ -52044,6 +62827,11 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    feeRateVariable?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeFixedAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateAgent?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeCashMgmtAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -52059,6 +62847,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiUncheckedUpdateManyWithoutProjectNestedInput
     Assets?: AssetUncheckedUpdateManyWithoutProjectNestedInput
     Customers?: CustomerUncheckedUpdateManyWithoutProjectNestedInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectUncheckedUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateManyWithoutReportMainInput = {
@@ -52093,6 +62882,11 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    feeRateVariable?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeFixedAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateAgent?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeCashMgmtAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -52139,6 +62933,11 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    feeRateVariable?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeFixedAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateAgent?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeCashMgmtAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -52154,6 +62953,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiUpdateManyWithoutProjectNestedInput
     Assets?: AssetUpdateManyWithoutProjectNestedInput
     Customers?: CustomerUpdateManyWithoutProjectNestedInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateWithoutReportAtt2Input = {
@@ -52188,6 +62988,11 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    feeRateVariable?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeFixedAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateAgent?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeCashMgmtAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -52203,6 +63008,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiUncheckedUpdateManyWithoutProjectNestedInput
     Assets?: AssetUncheckedUpdateManyWithoutProjectNestedInput
     Customers?: CustomerUncheckedUpdateManyWithoutProjectNestedInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectUncheckedUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateManyWithoutReportAtt2Input = {
@@ -52237,6 +63043,11 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    feeRateVariable?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeFixedAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateAgent?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeCashMgmtAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -52283,6 +63094,11 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    feeRateVariable?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeFixedAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateAgent?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeCashMgmtAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -52298,6 +63114,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiUpdateManyWithoutProjectNestedInput
     Assets?: AssetUpdateManyWithoutProjectNestedInput
     Customers?: CustomerUpdateManyWithoutProjectNestedInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateWithoutReportAtt3Input = {
@@ -52332,6 +63149,11 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    feeRateVariable?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeFixedAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateAgent?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeCashMgmtAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -52347,6 +63169,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiUncheckedUpdateManyWithoutProjectNestedInput
     Assets?: AssetUncheckedUpdateManyWithoutProjectNestedInput
     Customers?: CustomerUncheckedUpdateManyWithoutProjectNestedInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectUncheckedUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateManyWithoutReportAtt3Input = {
@@ -52381,6 +63204,11 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    feeRateVariable?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeFixedAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateAgent?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeCashMgmtAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -52427,6 +63255,11 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    feeRateVariable?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeFixedAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateAgent?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeCashMgmtAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -52442,6 +63275,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiUpdateManyWithoutProjectNestedInput
     Assets?: AssetUpdateManyWithoutProjectNestedInput
     Customers?: CustomerUpdateManyWithoutProjectNestedInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateWithoutBunpaiInput = {
@@ -52476,6 +63310,11 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    feeRateVariable?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeFixedAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateAgent?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeCashMgmtAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -52491,6 +63330,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiUncheckedUpdateManyWithoutProjectNestedInput
     Assets?: AssetUncheckedUpdateManyWithoutProjectNestedInput
     Customers?: CustomerUncheckedUpdateManyWithoutProjectNestedInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectUncheckedUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateManyWithoutBunpaiInput = {
@@ -52525,6 +63365,11 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    feeRateVariable?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeFixedAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateAgent?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeCashMgmtAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -52571,6 +63416,11 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    feeRateVariable?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeFixedAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateAgent?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeCashMgmtAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -52586,6 +63436,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiUpdateManyWithoutProjectNestedInput
     Assets?: AssetUpdateManyWithoutProjectNestedInput
     Customers?: CustomerUpdateManyWithoutProjectNestedInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateWithoutRefInput = {
@@ -52620,6 +63471,11 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    feeRateVariable?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeFixedAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateAgent?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeCashMgmtAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
@@ -52635,6 +63491,7 @@ export namespace Prisma {
     ProjectKis?: ProjectKiUncheckedUpdateManyWithoutProjectNestedInput
     Assets?: AssetUncheckedUpdateManyWithoutProjectNestedInput
     Customers?: CustomerUncheckedUpdateManyWithoutProjectNestedInput
+    CustomerUploadBatchProjects?: CustomerUploadBatchProjectUncheckedUpdateManyWithoutProjectNestedInput
   }
 
   export type ProjectUncheckedUpdateManyWithoutRefInput = {
@@ -52669,6 +63526,11 @@ export namespace Prisma {
     leverageFlag?: BoolFieldUpdateOperationsInput | boolean
     unitResidenceFlag?: BoolFieldUpdateOperationsInput | boolean
     completedFlag?: BoolFieldUpdateOperationsInput | boolean
+    feeRateVariable?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeFixedAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateAgent?: NullableFloatFieldUpdateOperationsInput | number | null
+    feeCashMgmtAnnual?: NullableIntFieldUpdateOperationsInput | number | null
+    feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     reportMainId?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt2Id?: NullableStringFieldUpdateOperationsInput | string | null
     reportAtt3Id?: NullableStringFieldUpdateOperationsInput | string | null
