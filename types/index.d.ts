@@ -11580,6 +11580,7 @@ export namespace Prisma {
     yayoiUploadVersion: number | null
     customerUploadVersion: number | null
     calculateVersion: number | null
+    hiyoKeijoRent: number | null
     mlspcMarginIncludeTax: number | null
     totalUnit: number | null
     totalUnitNonInvoice: number | null
@@ -11664,6 +11665,7 @@ export namespace Prisma {
     yayoiUploadVersion: number | null
     customerUploadVersion: number | null
     calculateVersion: number | null
+    hiyoKeijoRent: bigint | null
     mlspcMarginIncludeTax: number | null
     totalUnit: number | null
     totalUnitNonInvoice: number | null
@@ -11762,6 +11764,7 @@ export namespace Prisma {
     calculateVersion: number | null
     calculateAt: Date | null
     finalKiFlag: boolean | null
+    hiyoKeijoRent: bigint | null
     mlspcMarginIncludeTax: number | null
     totalUnit: number | null
     totalUnitNonInvoice: number | null
@@ -11866,6 +11869,7 @@ export namespace Prisma {
     calculateVersion: number | null
     calculateAt: Date | null
     finalKiFlag: boolean | null
+    hiyoKeijoRent: bigint | null
     mlspcMarginIncludeTax: number | null
     totalUnit: number | null
     totalUnitNonInvoice: number | null
@@ -11970,6 +11974,7 @@ export namespace Prisma {
     calculateVersion: number
     calculateAt: number
     finalKiFlag: number
+    hiyoKeijoRent: number
     mlspcMarginIncludeTax: number
     totalUnit: number
     totalUnitNonInvoice: number
@@ -12062,6 +12067,7 @@ export namespace Prisma {
     yayoiUploadVersion?: true
     customerUploadVersion?: true
     calculateVersion?: true
+    hiyoKeijoRent?: true
     mlspcMarginIncludeTax?: true
     totalUnit?: true
     totalUnitNonInvoice?: true
@@ -12146,6 +12152,7 @@ export namespace Prisma {
     yayoiUploadVersion?: true
     customerUploadVersion?: true
     calculateVersion?: true
+    hiyoKeijoRent?: true
     mlspcMarginIncludeTax?: true
     totalUnit?: true
     totalUnitNonInvoice?: true
@@ -12244,6 +12251,7 @@ export namespace Prisma {
     calculateVersion?: true
     calculateAt?: true
     finalKiFlag?: true
+    hiyoKeijoRent?: true
     mlspcMarginIncludeTax?: true
     totalUnit?: true
     totalUnitNonInvoice?: true
@@ -12348,6 +12356,7 @@ export namespace Prisma {
     calculateVersion?: true
     calculateAt?: true
     finalKiFlag?: true
+    hiyoKeijoRent?: true
     mlspcMarginIncludeTax?: true
     totalUnit?: true
     totalUnitNonInvoice?: true
@@ -12452,6 +12461,7 @@ export namespace Prisma {
     calculateVersion?: true
     calculateAt?: true
     finalKiFlag?: true
+    hiyoKeijoRent?: true
     mlspcMarginIncludeTax?: true
     totalUnit?: true
     totalUnitNonInvoice?: true
@@ -12643,6 +12653,7 @@ export namespace Prisma {
     calculateVersion: number
     calculateAt: Date | null
     finalKiFlag: boolean
+    hiyoKeijoRent: bigint | null
     mlspcMarginIncludeTax: number | null
     totalUnit: number | null
     totalUnitNonInvoice: number | null
@@ -12766,6 +12777,7 @@ export namespace Prisma {
     calculateVersion?: boolean
     calculateAt?: boolean
     finalKiFlag?: boolean
+    hiyoKeijoRent?: boolean
     mlspcMarginIncludeTax?: boolean
     totalUnit?: boolean
     totalUnitNonInvoice?: boolean
@@ -12877,6 +12889,7 @@ export namespace Prisma {
     calculateVersion?: boolean
     calculateAt?: boolean
     finalKiFlag?: boolean
+    hiyoKeijoRent?: boolean
     mlspcMarginIncludeTax?: boolean
     totalUnit?: boolean
     totalUnitNonInvoice?: boolean
@@ -12985,6 +12998,7 @@ export namespace Prisma {
     calculateVersion?: boolean
     calculateAt?: boolean
     finalKiFlag?: boolean
+    hiyoKeijoRent?: boolean
     mlspcMarginIncludeTax?: boolean
     totalUnit?: boolean
     totalUnitNonInvoice?: boolean
@@ -13093,6 +13107,7 @@ export namespace Prisma {
     calculateVersion?: boolean
     calculateAt?: boolean
     finalKiFlag?: boolean
+    hiyoKeijoRent?: boolean
     mlspcMarginIncludeTax?: boolean
     totalUnit?: boolean
     totalUnitNonInvoice?: boolean
@@ -13177,7 +13192,7 @@ export namespace Prisma {
     updatedBy?: boolean
   }
 
-  export type ProjectKiOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "kiId" | "mainUserId" | "subUserId" | "projectKi" | "startAt" | "endAt" | "paymentDate" | "reportDate" | "topic" | "ganponKuriire" | "yayoiUploadVersion" | "yayoiUploadAt" | "customerUploadVersion" | "customerUploadAt" | "calculateVersion" | "calculateAt" | "finalKiFlag" | "mlspcMarginIncludeTax" | "totalUnit" | "totalUnitNonInvoice" | "shintakuShueki" | "shintakuHiyo" | "sashihikiShintakuRieki" | "shintakuRieki" | "bunpaiRieki" | "bunpaiSogaku" | "bunpaiSogakuNonInvoice" | "kichuKoteiShisan" | "kurikoshiRieki" | "capitalGain" | "unitCapitalGain" | "unitShintakuShueki" | "unitShintakuHiyo" | "unitShintakuHiyoForNonInvoice" | "unitSashihikiShintakuRieki" | "unitSashihikiShintakuRiekiForNonInvoice" | "unitGanponKuriire" | "unitBunpai" | "unitBunpaiForNonInvoice" | "unitKichuKoteiShisan" | "shohiyoRyuhokin" | "shuzenTsumitatekin" | "shohiyoRyuhokinTorikuzushi" | "shuzenTsumitatekinTorikuzushi" | "azukarikinHenkanJunbikin" | "zeikinHokenryoJunbiKanjo" | "kyodoUnyuHiyoJunbiKanjo" | "risokuShiharaiJunbiKanjo" | "shihoTekiShishutsuJunbiKanjo" | "cashTrapJunbiKanjo" | "interestCapContractKanjo" | "sonotaGenyokin" | "futuYokinTokiZandaka" | "zenkiKurikoshiRieki" | "shuzenTsumitatekinKuriire" | "mibaraiHiyo" | "chokiKariire" | "currentYearBunpaiRatio" | "fullYearBunpaiRatio" | "currentYearBunpaiRatioNonInvoice" | "fullYearBunpaiRatioNonInvoice" | "shintakuShuekiKazeiUriage" | "shintakuShuekiKazeiUriageShohizei" | "shintakuShuekiHikazeiUriage" | "shintakuShuekiTaishogaiUriage" | "shintakuHiyoKazeiShiire" | "shintakuHiyoKazeiShiireShohizei" | "shintakuHiyoHikazeiShiire" | "shintakuHiyoTaishogaiShiire" | "unitShintakuShuekiKazeiUriage" | "unitShintakuShuekiKazeiUriageShohizei" | "unitShintakuShuekiHikazeiUriage" | "unitShintakuShuekiTaishogaiUriage" | "unitShintakuHiyoKazeiShiire" | "unitShintakuHiyoKazeiShiireShohizei" | "unitShintakuHiyoHikazeiShiire" | "unitShintakuHiyoKazeiShiireForNonInvoice" | "unitShintakuHiyoKazeiShiireShohizeiForNonInvoice" | "unitShintakuHiyoTaishogaiShiire" | "kazeiUriageSashihiki08" | "kazeiUriageSashihiki10" | "kazeiUriageHontai08" | "kazeiUriageHontai10" | "kazeiShiire100Kojo" | "kazeiShiire100KojoNoTax" | "kazeiShiire8050Kojo" | "kazeiShiire8050KojoNoTax" | "kazeiShiire100KojoKazeiUriageHontai" | "kazeiShiire8050KojoKazeiUriageHontai" | "kazeiShiire100KojoKyotsuHontai" | "kazeiShiire8050KojoKyotsuHontai" | "koteiShisan80Kojo" | "koteiShisan80KojoNoTax" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["projectKi"]>
+  export type ProjectKiOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "kiId" | "mainUserId" | "subUserId" | "projectKi" | "startAt" | "endAt" | "paymentDate" | "reportDate" | "topic" | "ganponKuriire" | "yayoiUploadVersion" | "yayoiUploadAt" | "customerUploadVersion" | "customerUploadAt" | "calculateVersion" | "calculateAt" | "finalKiFlag" | "hiyoKeijoRent" | "mlspcMarginIncludeTax" | "totalUnit" | "totalUnitNonInvoice" | "shintakuShueki" | "shintakuHiyo" | "sashihikiShintakuRieki" | "shintakuRieki" | "bunpaiRieki" | "bunpaiSogaku" | "bunpaiSogakuNonInvoice" | "kichuKoteiShisan" | "kurikoshiRieki" | "capitalGain" | "unitCapitalGain" | "unitShintakuShueki" | "unitShintakuHiyo" | "unitShintakuHiyoForNonInvoice" | "unitSashihikiShintakuRieki" | "unitSashihikiShintakuRiekiForNonInvoice" | "unitGanponKuriire" | "unitBunpai" | "unitBunpaiForNonInvoice" | "unitKichuKoteiShisan" | "shohiyoRyuhokin" | "shuzenTsumitatekin" | "shohiyoRyuhokinTorikuzushi" | "shuzenTsumitatekinTorikuzushi" | "azukarikinHenkanJunbikin" | "zeikinHokenryoJunbiKanjo" | "kyodoUnyuHiyoJunbiKanjo" | "risokuShiharaiJunbiKanjo" | "shihoTekiShishutsuJunbiKanjo" | "cashTrapJunbiKanjo" | "interestCapContractKanjo" | "sonotaGenyokin" | "futuYokinTokiZandaka" | "zenkiKurikoshiRieki" | "shuzenTsumitatekinKuriire" | "mibaraiHiyo" | "chokiKariire" | "currentYearBunpaiRatio" | "fullYearBunpaiRatio" | "currentYearBunpaiRatioNonInvoice" | "fullYearBunpaiRatioNonInvoice" | "shintakuShuekiKazeiUriage" | "shintakuShuekiKazeiUriageShohizei" | "shintakuShuekiHikazeiUriage" | "shintakuShuekiTaishogaiUriage" | "shintakuHiyoKazeiShiire" | "shintakuHiyoKazeiShiireShohizei" | "shintakuHiyoHikazeiShiire" | "shintakuHiyoTaishogaiShiire" | "unitShintakuShuekiKazeiUriage" | "unitShintakuShuekiKazeiUriageShohizei" | "unitShintakuShuekiHikazeiUriage" | "unitShintakuShuekiTaishogaiUriage" | "unitShintakuHiyoKazeiShiire" | "unitShintakuHiyoKazeiShiireShohizei" | "unitShintakuHiyoHikazeiShiire" | "unitShintakuHiyoKazeiShiireForNonInvoice" | "unitShintakuHiyoKazeiShiireShohizeiForNonInvoice" | "unitShintakuHiyoTaishogaiShiire" | "kazeiUriageSashihiki08" | "kazeiUriageSashihiki10" | "kazeiUriageHontai08" | "kazeiUriageHontai10" | "kazeiShiire100Kojo" | "kazeiShiire100KojoNoTax" | "kazeiShiire8050Kojo" | "kazeiShiire8050KojoNoTax" | "kazeiShiire100KojoKazeiUriageHontai" | "kazeiShiire8050KojoKazeiUriageHontai" | "kazeiShiire100KojoKyotsuHontai" | "kazeiShiire8050KojoKyotsuHontai" | "koteiShisan80Kojo" | "koteiShisan80KojoNoTax" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["projectKi"]>
   export type ProjectKiInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Project?: boolean | ProjectDefaultArgs<ExtArgs>
     Ki?: boolean | KiDefaultArgs<ExtArgs>
@@ -13230,6 +13245,7 @@ export namespace Prisma {
       calculateVersion: number
       calculateAt: Date | null
       finalKiFlag: boolean
+      hiyoKeijoRent: bigint | null
       mlspcMarginIncludeTax: number | null
       totalUnit: number | null
       totalUnitNonInvoice: number | null
@@ -13760,6 +13776,7 @@ export namespace Prisma {
     readonly calculateVersion: FieldRef<"ProjectKi", 'Int'>
     readonly calculateAt: FieldRef<"ProjectKi", 'DateTime'>
     readonly finalKiFlag: FieldRef<"ProjectKi", 'Boolean'>
+    readonly hiyoKeijoRent: FieldRef<"ProjectKi", 'BigInt'>
     readonly mlspcMarginIncludeTax: FieldRef<"ProjectKi", 'Int'>
     readonly totalUnit: FieldRef<"ProjectKi", 'Int'>
     readonly totalUnitNonInvoice: FieldRef<"ProjectKi", 'Int'>
@@ -37152,6 +37169,7 @@ export namespace Prisma {
     calculateVersion: 'calculateVersion',
     calculateAt: 'calculateAt',
     finalKiFlag: 'finalKiFlag',
+    hiyoKeijoRent: 'hiyoKeijoRent',
     mlspcMarginIncludeTax: 'mlspcMarginIncludeTax',
     totalUnit: 'totalUnit',
     totalUnitNonInvoice: 'totalUnitNonInvoice',
@@ -38901,6 +38919,7 @@ export namespace Prisma {
     calculateVersion?: IntFilter<"ProjectKi"> | number
     calculateAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
     finalKiFlag?: BoolFilter<"ProjectKi"> | boolean
+    hiyoKeijoRent?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     mlspcMarginIncludeTax?: IntNullableFilter<"ProjectKi"> | number | null
     totalUnit?: IntNullableFilter<"ProjectKi"> | number | null
     totalUnitNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
@@ -39011,6 +39030,7 @@ export namespace Prisma {
     calculateVersion?: SortOrder
     calculateAt?: SortOrderInput | SortOrder
     finalKiFlag?: SortOrder
+    hiyoKeijoRent?: SortOrderInput | SortOrder
     mlspcMarginIncludeTax?: SortOrderInput | SortOrder
     totalUnit?: SortOrderInput | SortOrder
     totalUnitNonInvoice?: SortOrderInput | SortOrder
@@ -39126,6 +39146,7 @@ export namespace Prisma {
     calculateVersion?: IntFilter<"ProjectKi"> | number
     calculateAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
     finalKiFlag?: BoolFilter<"ProjectKi"> | boolean
+    hiyoKeijoRent?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     mlspcMarginIncludeTax?: IntNullableFilter<"ProjectKi"> | number | null
     totalUnit?: IntNullableFilter<"ProjectKi"> | number | null
     totalUnitNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
@@ -39236,6 +39257,7 @@ export namespace Prisma {
     calculateVersion?: SortOrder
     calculateAt?: SortOrderInput | SortOrder
     finalKiFlag?: SortOrder
+    hiyoKeijoRent?: SortOrderInput | SortOrder
     mlspcMarginIncludeTax?: SortOrderInput | SortOrder
     totalUnit?: SortOrderInput | SortOrder
     totalUnitNonInvoice?: SortOrderInput | SortOrder
@@ -39348,6 +39370,7 @@ export namespace Prisma {
     calculateVersion?: IntWithAggregatesFilter<"ProjectKi"> | number
     calculateAt?: DateTimeNullableWithAggregatesFilter<"ProjectKi"> | Date | string | null
     finalKiFlag?: BoolWithAggregatesFilter<"ProjectKi"> | boolean
+    hiyoKeijoRent?: BigIntNullableWithAggregatesFilter<"ProjectKi"> | bigint | number | null
     mlspcMarginIncludeTax?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     totalUnit?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     totalUnitNonInvoice?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
@@ -42607,6 +42630,7 @@ export namespace Prisma {
     calculateVersion?: number
     calculateAt?: Date | string | null
     finalKiFlag?: boolean
+    hiyoKeijoRent?: bigint | number | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -42717,6 +42741,7 @@ export namespace Prisma {
     calculateVersion?: number
     calculateAt?: Date | string | null
     finalKiFlag?: boolean
+    hiyoKeijoRent?: bigint | number | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -42819,6 +42844,7 @@ export namespace Prisma {
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoRent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -42929,6 +42955,7 @@ export namespace Prisma {
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoRent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -43035,6 +43062,7 @@ export namespace Prisma {
     calculateVersion?: number
     calculateAt?: Date | string | null
     finalKiFlag?: boolean
+    hiyoKeijoRent?: bigint | number | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -43135,6 +43163,7 @@ export namespace Prisma {
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoRent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -43239,6 +43268,7 @@ export namespace Prisma {
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoRent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -46840,6 +46870,7 @@ export namespace Prisma {
     calculateVersion?: SortOrder
     calculateAt?: SortOrder
     finalKiFlag?: SortOrder
+    hiyoKeijoRent?: SortOrder
     mlspcMarginIncludeTax?: SortOrder
     totalUnit?: SortOrder
     totalUnitNonInvoice?: SortOrder
@@ -46930,6 +46961,7 @@ export namespace Prisma {
     yayoiUploadVersion?: SortOrder
     customerUploadVersion?: SortOrder
     calculateVersion?: SortOrder
+    hiyoKeijoRent?: SortOrder
     mlspcMarginIncludeTax?: SortOrder
     totalUnit?: SortOrder
     totalUnitNonInvoice?: SortOrder
@@ -47028,6 +47060,7 @@ export namespace Prisma {
     calculateVersion?: SortOrder
     calculateAt?: SortOrder
     finalKiFlag?: SortOrder
+    hiyoKeijoRent?: SortOrder
     mlspcMarginIncludeTax?: SortOrder
     totalUnit?: SortOrder
     totalUnitNonInvoice?: SortOrder
@@ -47132,6 +47165,7 @@ export namespace Prisma {
     calculateVersion?: SortOrder
     calculateAt?: SortOrder
     finalKiFlag?: SortOrder
+    hiyoKeijoRent?: SortOrder
     mlspcMarginIncludeTax?: SortOrder
     totalUnit?: SortOrder
     totalUnitNonInvoice?: SortOrder
@@ -47222,6 +47256,7 @@ export namespace Prisma {
     yayoiUploadVersion?: SortOrder
     customerUploadVersion?: SortOrder
     calculateVersion?: SortOrder
+    hiyoKeijoRent?: SortOrder
     mlspcMarginIncludeTax?: SortOrder
     totalUnit?: SortOrder
     totalUnitNonInvoice?: SortOrder
@@ -51562,6 +51597,7 @@ export namespace Prisma {
     calculateVersion?: number
     calculateAt?: Date | string | null
     finalKiFlag?: boolean
+    hiyoKeijoRent?: bigint | number | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -51670,6 +51706,7 @@ export namespace Prisma {
     calculateVersion?: number
     calculateAt?: Date | string | null
     finalKiFlag?: boolean
+    hiyoKeijoRent?: bigint | number | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -51782,6 +51819,7 @@ export namespace Prisma {
     calculateVersion?: number
     calculateAt?: Date | string | null
     finalKiFlag?: boolean
+    hiyoKeijoRent?: bigint | number | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -51890,6 +51928,7 @@ export namespace Prisma {
     calculateVersion?: number
     calculateAt?: Date | string | null
     finalKiFlag?: boolean
+    hiyoKeijoRent?: bigint | number | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -52063,6 +52102,7 @@ export namespace Prisma {
     calculateVersion?: IntFilter<"ProjectKi"> | number
     calculateAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
     finalKiFlag?: BoolFilter<"ProjectKi"> | boolean
+    hiyoKeijoRent?: BigIntNullableFilter<"ProjectKi"> | bigint | number | null
     mlspcMarginIncludeTax?: IntNullableFilter<"ProjectKi"> | number | null
     totalUnit?: IntNullableFilter<"ProjectKi"> | number | null
     totalUnitNonInvoice?: IntNullableFilter<"ProjectKi"> | number | null
@@ -52213,6 +52253,7 @@ export namespace Prisma {
     calculateVersion?: number
     calculateAt?: Date | string | null
     finalKiFlag?: boolean
+    hiyoKeijoRent?: bigint | number | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -52321,6 +52362,7 @@ export namespace Prisma {
     calculateVersion?: number
     calculateAt?: Date | string | null
     finalKiFlag?: boolean
+    hiyoKeijoRent?: bigint | number | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -53019,6 +53061,7 @@ export namespace Prisma {
     calculateVersion?: number
     calculateAt?: Date | string | null
     finalKiFlag?: boolean
+    hiyoKeijoRent?: bigint | number | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -53127,6 +53170,7 @@ export namespace Prisma {
     calculateVersion?: number
     calculateAt?: Date | string | null
     finalKiFlag?: boolean
+    hiyoKeijoRent?: bigint | number | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -55247,6 +55291,7 @@ export namespace Prisma {
     calculateVersion?: number
     calculateAt?: Date | string | null
     finalKiFlag?: boolean
+    hiyoKeijoRent?: bigint | number | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -55356,6 +55401,7 @@ export namespace Prisma {
     calculateVersion?: number
     calculateAt?: Date | string | null
     finalKiFlag?: boolean
+    hiyoKeijoRent?: bigint | number | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -55559,6 +55605,7 @@ export namespace Prisma {
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoRent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -55668,6 +55715,7 @@ export namespace Prisma {
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoRent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -56367,6 +56415,7 @@ export namespace Prisma {
     calculateVersion?: number
     calculateAt?: Date | string | null
     finalKiFlag?: boolean
+    hiyoKeijoRent?: bigint | number | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -56476,6 +56525,7 @@ export namespace Prisma {
     calculateVersion?: number
     calculateAt?: Date | string | null
     finalKiFlag?: boolean
+    hiyoKeijoRent?: bigint | number | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -56865,6 +56915,7 @@ export namespace Prisma {
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoRent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -56974,6 +57025,7 @@ export namespace Prisma {
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoRent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -59272,6 +59324,7 @@ export namespace Prisma {
     calculateVersion?: number
     calculateAt?: Date | string | null
     finalKiFlag?: boolean
+    hiyoKeijoRent?: bigint | number | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -59375,6 +59428,7 @@ export namespace Prisma {
     calculateVersion?: number
     calculateAt?: Date | string | null
     finalKiFlag?: boolean
+    hiyoKeijoRent?: bigint | number | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -59489,6 +59543,7 @@ export namespace Prisma {
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoRent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -59597,6 +59652,7 @@ export namespace Prisma {
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoRent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -59702,6 +59758,7 @@ export namespace Prisma {
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoRent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -59802,6 +59859,7 @@ export namespace Prisma {
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoRent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -59910,6 +59968,7 @@ export namespace Prisma {
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoRent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -60015,6 +60074,7 @@ export namespace Prisma {
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoRent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -60160,6 +60220,7 @@ export namespace Prisma {
     calculateVersion?: number
     calculateAt?: Date | string | null
     finalKiFlag?: boolean
+    hiyoKeijoRent?: bigint | number | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -60339,6 +60400,7 @@ export namespace Prisma {
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoRent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -60447,6 +60509,7 @@ export namespace Prisma {
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoRent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -60552,6 +60615,7 @@ export namespace Prisma {
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoRent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -60900,6 +60964,7 @@ export namespace Prisma {
     calculateVersion?: number
     calculateAt?: Date | string | null
     finalKiFlag?: boolean
+    hiyoKeijoRent?: bigint | number | null
     mlspcMarginIncludeTax?: number | null
     totalUnit?: number | null
     totalUnitNonInvoice?: number | null
@@ -61077,6 +61142,7 @@ export namespace Prisma {
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoRent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -61185,6 +61251,7 @@ export namespace Prisma {
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoRent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
@@ -61290,6 +61357,7 @@ export namespace Prisma {
     calculateVersion?: IntFieldUpdateOperationsInput | number
     calculateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     finalKiFlag?: BoolFieldUpdateOperationsInput | boolean
+    hiyoKeijoRent?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     mlspcMarginIncludeTax?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnit?: NullableIntFieldUpdateOperationsInput | number | null
     totalUnitNonInvoice?: NullableIntFieldUpdateOperationsInput | number | null
