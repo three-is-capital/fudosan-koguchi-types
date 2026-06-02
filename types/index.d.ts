@@ -11754,6 +11754,7 @@ export namespace Prisma {
     startAt: Date | null
     endAt: Date | null
     paymentDate: Date | null
+    instructionDate: Date | null
     reportDate: Date | null
     topic: string | null
     ganponKuriire: number | null
@@ -11859,6 +11860,7 @@ export namespace Prisma {
     startAt: Date | null
     endAt: Date | null
     paymentDate: Date | null
+    instructionDate: Date | null
     reportDate: Date | null
     topic: string | null
     ganponKuriire: number | null
@@ -11964,6 +11966,7 @@ export namespace Prisma {
     startAt: number
     endAt: number
     paymentDate: number
+    instructionDate: number
     reportDate: number
     topic: number
     ganponKuriire: number
@@ -12241,6 +12244,7 @@ export namespace Prisma {
     startAt?: true
     endAt?: true
     paymentDate?: true
+    instructionDate?: true
     reportDate?: true
     topic?: true
     ganponKuriire?: true
@@ -12346,6 +12350,7 @@ export namespace Prisma {
     startAt?: true
     endAt?: true
     paymentDate?: true
+    instructionDate?: true
     reportDate?: true
     topic?: true
     ganponKuriire?: true
@@ -12451,6 +12456,7 @@ export namespace Prisma {
     startAt?: true
     endAt?: true
     paymentDate?: true
+    instructionDate?: true
     reportDate?: true
     topic?: true
     ganponKuriire?: true
@@ -12643,6 +12649,7 @@ export namespace Prisma {
     startAt: Date
     endAt: Date
     paymentDate: Date
+    instructionDate: Date | null
     reportDate: Date
     topic: string
     ganponKuriire: number | null
@@ -12767,6 +12774,7 @@ export namespace Prisma {
     startAt?: boolean
     endAt?: boolean
     paymentDate?: boolean
+    instructionDate?: boolean
     reportDate?: boolean
     topic?: boolean
     ganponKuriire?: boolean
@@ -12879,6 +12887,7 @@ export namespace Prisma {
     startAt?: boolean
     endAt?: boolean
     paymentDate?: boolean
+    instructionDate?: boolean
     reportDate?: boolean
     topic?: boolean
     ganponKuriire?: boolean
@@ -12988,6 +12997,7 @@ export namespace Prisma {
     startAt?: boolean
     endAt?: boolean
     paymentDate?: boolean
+    instructionDate?: boolean
     reportDate?: boolean
     topic?: boolean
     ganponKuriire?: boolean
@@ -13097,6 +13107,7 @@ export namespace Prisma {
     startAt?: boolean
     endAt?: boolean
     paymentDate?: boolean
+    instructionDate?: boolean
     reportDate?: boolean
     topic?: boolean
     ganponKuriire?: boolean
@@ -13192,7 +13203,7 @@ export namespace Prisma {
     updatedBy?: boolean
   }
 
-  export type ProjectKiOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "kiId" | "mainUserId" | "subUserId" | "projectKi" | "startAt" | "endAt" | "paymentDate" | "reportDate" | "topic" | "ganponKuriire" | "yayoiUploadVersion" | "yayoiUploadAt" | "customerUploadVersion" | "customerUploadAt" | "calculateVersion" | "calculateAt" | "finalKiFlag" | "hiyoKeijoRent" | "mlspcMarginIncludeTax" | "totalUnit" | "totalUnitNonInvoice" | "shintakuShueki" | "shintakuHiyo" | "sashihikiShintakuRieki" | "shintakuRieki" | "bunpaiRieki" | "bunpaiSogaku" | "bunpaiSogakuNonInvoice" | "kichuKoteiShisan" | "kurikoshiRieki" | "capitalGain" | "unitCapitalGain" | "unitShintakuShueki" | "unitShintakuHiyo" | "unitShintakuHiyoForNonInvoice" | "unitSashihikiShintakuRieki" | "unitSashihikiShintakuRiekiForNonInvoice" | "unitGanponKuriire" | "unitBunpai" | "unitBunpaiForNonInvoice" | "unitKichuKoteiShisan" | "shohiyoRyuhokin" | "shuzenTsumitatekin" | "shohiyoRyuhokinTorikuzushi" | "shuzenTsumitatekinTorikuzushi" | "azukarikinHenkanJunbikin" | "zeikinHokenryoJunbiKanjo" | "kyodoUnyuHiyoJunbiKanjo" | "risokuShiharaiJunbiKanjo" | "shihoTekiShishutsuJunbiKanjo" | "cashTrapJunbiKanjo" | "interestCapContractKanjo" | "sonotaGenyokin" | "futuYokinTokiZandaka" | "zenkiKurikoshiRieki" | "shuzenTsumitatekinKuriire" | "mibaraiHiyo" | "chokiKariire" | "currentYearBunpaiRatio" | "fullYearBunpaiRatio" | "currentYearBunpaiRatioNonInvoice" | "fullYearBunpaiRatioNonInvoice" | "shintakuShuekiKazeiUriage" | "shintakuShuekiKazeiUriageShohizei" | "shintakuShuekiHikazeiUriage" | "shintakuShuekiTaishogaiUriage" | "shintakuHiyoKazeiShiire" | "shintakuHiyoKazeiShiireShohizei" | "shintakuHiyoHikazeiShiire" | "shintakuHiyoTaishogaiShiire" | "unitShintakuShuekiKazeiUriage" | "unitShintakuShuekiKazeiUriageShohizei" | "unitShintakuShuekiHikazeiUriage" | "unitShintakuShuekiTaishogaiUriage" | "unitShintakuHiyoKazeiShiire" | "unitShintakuHiyoKazeiShiireShohizei" | "unitShintakuHiyoHikazeiShiire" | "unitShintakuHiyoKazeiShiireForNonInvoice" | "unitShintakuHiyoKazeiShiireShohizeiForNonInvoice" | "unitShintakuHiyoTaishogaiShiire" | "kazeiUriageSashihiki08" | "kazeiUriageSashihiki10" | "kazeiUriageHontai08" | "kazeiUriageHontai10" | "kazeiShiire100Kojo" | "kazeiShiire100KojoNoTax" | "kazeiShiire8050Kojo" | "kazeiShiire8050KojoNoTax" | "kazeiShiire100KojoKazeiUriageHontai" | "kazeiShiire8050KojoKazeiUriageHontai" | "kazeiShiire100KojoKyotsuHontai" | "kazeiShiire8050KojoKyotsuHontai" | "koteiShisan80Kojo" | "koteiShisan80KojoNoTax" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["projectKi"]>
+  export type ProjectKiOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "kiId" | "mainUserId" | "subUserId" | "projectKi" | "startAt" | "endAt" | "paymentDate" | "instructionDate" | "reportDate" | "topic" | "ganponKuriire" | "yayoiUploadVersion" | "yayoiUploadAt" | "customerUploadVersion" | "customerUploadAt" | "calculateVersion" | "calculateAt" | "finalKiFlag" | "hiyoKeijoRent" | "mlspcMarginIncludeTax" | "totalUnit" | "totalUnitNonInvoice" | "shintakuShueki" | "shintakuHiyo" | "sashihikiShintakuRieki" | "shintakuRieki" | "bunpaiRieki" | "bunpaiSogaku" | "bunpaiSogakuNonInvoice" | "kichuKoteiShisan" | "kurikoshiRieki" | "capitalGain" | "unitCapitalGain" | "unitShintakuShueki" | "unitShintakuHiyo" | "unitShintakuHiyoForNonInvoice" | "unitSashihikiShintakuRieki" | "unitSashihikiShintakuRiekiForNonInvoice" | "unitGanponKuriire" | "unitBunpai" | "unitBunpaiForNonInvoice" | "unitKichuKoteiShisan" | "shohiyoRyuhokin" | "shuzenTsumitatekin" | "shohiyoRyuhokinTorikuzushi" | "shuzenTsumitatekinTorikuzushi" | "azukarikinHenkanJunbikin" | "zeikinHokenryoJunbiKanjo" | "kyodoUnyuHiyoJunbiKanjo" | "risokuShiharaiJunbiKanjo" | "shihoTekiShishutsuJunbiKanjo" | "cashTrapJunbiKanjo" | "interestCapContractKanjo" | "sonotaGenyokin" | "futuYokinTokiZandaka" | "zenkiKurikoshiRieki" | "shuzenTsumitatekinKuriire" | "mibaraiHiyo" | "chokiKariire" | "currentYearBunpaiRatio" | "fullYearBunpaiRatio" | "currentYearBunpaiRatioNonInvoice" | "fullYearBunpaiRatioNonInvoice" | "shintakuShuekiKazeiUriage" | "shintakuShuekiKazeiUriageShohizei" | "shintakuShuekiHikazeiUriage" | "shintakuShuekiTaishogaiUriage" | "shintakuHiyoKazeiShiire" | "shintakuHiyoKazeiShiireShohizei" | "shintakuHiyoHikazeiShiire" | "shintakuHiyoTaishogaiShiire" | "unitShintakuShuekiKazeiUriage" | "unitShintakuShuekiKazeiUriageShohizei" | "unitShintakuShuekiHikazeiUriage" | "unitShintakuShuekiTaishogaiUriage" | "unitShintakuHiyoKazeiShiire" | "unitShintakuHiyoKazeiShiireShohizei" | "unitShintakuHiyoHikazeiShiire" | "unitShintakuHiyoKazeiShiireForNonInvoice" | "unitShintakuHiyoKazeiShiireShohizeiForNonInvoice" | "unitShintakuHiyoTaishogaiShiire" | "kazeiUriageSashihiki08" | "kazeiUriageSashihiki10" | "kazeiUriageHontai08" | "kazeiUriageHontai10" | "kazeiShiire100Kojo" | "kazeiShiire100KojoNoTax" | "kazeiShiire8050Kojo" | "kazeiShiire8050KojoNoTax" | "kazeiShiire100KojoKazeiUriageHontai" | "kazeiShiire8050KojoKazeiUriageHontai" | "kazeiShiire100KojoKyotsuHontai" | "kazeiShiire8050KojoKyotsuHontai" | "koteiShisan80Kojo" | "koteiShisan80KojoNoTax" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["projectKi"]>
   export type ProjectKiInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Project?: boolean | ProjectDefaultArgs<ExtArgs>
     Ki?: boolean | KiDefaultArgs<ExtArgs>
@@ -13235,6 +13246,7 @@ export namespace Prisma {
       startAt: Date
       endAt: Date
       paymentDate: Date
+      instructionDate: Date | null
       reportDate: Date
       topic: string
       ganponKuriire: number | null
@@ -13766,6 +13778,7 @@ export namespace Prisma {
     readonly startAt: FieldRef<"ProjectKi", 'DateTime'>
     readonly endAt: FieldRef<"ProjectKi", 'DateTime'>
     readonly paymentDate: FieldRef<"ProjectKi", 'DateTime'>
+    readonly instructionDate: FieldRef<"ProjectKi", 'DateTime'>
     readonly reportDate: FieldRef<"ProjectKi", 'DateTime'>
     readonly topic: FieldRef<"ProjectKi", 'String'>
     readonly ganponKuriire: FieldRef<"ProjectKi", 'Int'>
@@ -37159,6 +37172,7 @@ export namespace Prisma {
     startAt: 'startAt',
     endAt: 'endAt',
     paymentDate: 'paymentDate',
+    instructionDate: 'instructionDate',
     reportDate: 'reportDate',
     topic: 'topic',
     ganponKuriire: 'ganponKuriire',
@@ -38909,6 +38923,7 @@ export namespace Prisma {
     startAt?: DateTimeFilter<"ProjectKi"> | Date | string
     endAt?: DateTimeFilter<"ProjectKi"> | Date | string
     paymentDate?: DateTimeFilter<"ProjectKi"> | Date | string
+    instructionDate?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
     reportDate?: DateTimeFilter<"ProjectKi"> | Date | string
     topic?: StringFilter<"ProjectKi"> | string
     ganponKuriire?: IntNullableFilter<"ProjectKi"> | number | null
@@ -39020,6 +39035,7 @@ export namespace Prisma {
     startAt?: SortOrder
     endAt?: SortOrder
     paymentDate?: SortOrder
+    instructionDate?: SortOrderInput | SortOrder
     reportDate?: SortOrder
     topic?: SortOrder
     ganponKuriire?: SortOrderInput | SortOrder
@@ -39136,6 +39152,7 @@ export namespace Prisma {
     startAt?: DateTimeFilter<"ProjectKi"> | Date | string
     endAt?: DateTimeFilter<"ProjectKi"> | Date | string
     paymentDate?: DateTimeFilter<"ProjectKi"> | Date | string
+    instructionDate?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
     reportDate?: DateTimeFilter<"ProjectKi"> | Date | string
     topic?: StringFilter<"ProjectKi"> | string
     ganponKuriire?: IntNullableFilter<"ProjectKi"> | number | null
@@ -39247,6 +39264,7 @@ export namespace Prisma {
     startAt?: SortOrder
     endAt?: SortOrder
     paymentDate?: SortOrder
+    instructionDate?: SortOrderInput | SortOrder
     reportDate?: SortOrder
     topic?: SortOrder
     ganponKuriire?: SortOrderInput | SortOrder
@@ -39360,6 +39378,7 @@ export namespace Prisma {
     startAt?: DateTimeWithAggregatesFilter<"ProjectKi"> | Date | string
     endAt?: DateTimeWithAggregatesFilter<"ProjectKi"> | Date | string
     paymentDate?: DateTimeWithAggregatesFilter<"ProjectKi"> | Date | string
+    instructionDate?: DateTimeNullableWithAggregatesFilter<"ProjectKi"> | Date | string | null
     reportDate?: DateTimeWithAggregatesFilter<"ProjectKi"> | Date | string
     topic?: StringWithAggregatesFilter<"ProjectKi"> | string
     ganponKuriire?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
@@ -42620,6 +42639,7 @@ export namespace Prisma {
     startAt: Date | string
     endAt: Date | string
     paymentDate: Date | string
+    instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
     ganponKuriire?: number | null
@@ -42731,6 +42751,7 @@ export namespace Prisma {
     startAt: Date | string
     endAt: Date | string
     paymentDate: Date | string
+    instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
     ganponKuriire?: number | null
@@ -42834,6 +42855,7 @@ export namespace Prisma {
     startAt?: DateTimeFieldUpdateOperationsInput | Date | string
     endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
@@ -42945,6 +42967,7 @@ export namespace Prisma {
     startAt?: DateTimeFieldUpdateOperationsInput | Date | string
     endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
@@ -43052,6 +43075,7 @@ export namespace Prisma {
     startAt: Date | string
     endAt: Date | string
     paymentDate: Date | string
+    instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
     ganponKuriire?: number | null
@@ -43153,6 +43177,7 @@ export namespace Prisma {
     startAt?: DateTimeFieldUpdateOperationsInput | Date | string
     endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
@@ -43258,6 +43283,7 @@ export namespace Prisma {
     startAt?: DateTimeFieldUpdateOperationsInput | Date | string
     endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
@@ -46860,6 +46886,7 @@ export namespace Prisma {
     startAt?: SortOrder
     endAt?: SortOrder
     paymentDate?: SortOrder
+    instructionDate?: SortOrder
     reportDate?: SortOrder
     topic?: SortOrder
     ganponKuriire?: SortOrder
@@ -47050,6 +47077,7 @@ export namespace Prisma {
     startAt?: SortOrder
     endAt?: SortOrder
     paymentDate?: SortOrder
+    instructionDate?: SortOrder
     reportDate?: SortOrder
     topic?: SortOrder
     ganponKuriire?: SortOrder
@@ -47155,6 +47183,7 @@ export namespace Prisma {
     startAt?: SortOrder
     endAt?: SortOrder
     paymentDate?: SortOrder
+    instructionDate?: SortOrder
     reportDate?: SortOrder
     topic?: SortOrder
     ganponKuriire?: SortOrder
@@ -51587,6 +51616,7 @@ export namespace Prisma {
     startAt: Date | string
     endAt: Date | string
     paymentDate: Date | string
+    instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
     ganponKuriire?: number | null
@@ -51696,6 +51726,7 @@ export namespace Prisma {
     startAt: Date | string
     endAt: Date | string
     paymentDate: Date | string
+    instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
     ganponKuriire?: number | null
@@ -51809,6 +51840,7 @@ export namespace Prisma {
     startAt: Date | string
     endAt: Date | string
     paymentDate: Date | string
+    instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
     ganponKuriire?: number | null
@@ -51918,6 +51950,7 @@ export namespace Prisma {
     startAt: Date | string
     endAt: Date | string
     paymentDate: Date | string
+    instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
     ganponKuriire?: number | null
@@ -52092,6 +52125,7 @@ export namespace Prisma {
     startAt?: DateTimeFilter<"ProjectKi"> | Date | string
     endAt?: DateTimeFilter<"ProjectKi"> | Date | string
     paymentDate?: DateTimeFilter<"ProjectKi"> | Date | string
+    instructionDate?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
     reportDate?: DateTimeFilter<"ProjectKi"> | Date | string
     topic?: StringFilter<"ProjectKi"> | string
     ganponKuriire?: IntNullableFilter<"ProjectKi"> | number | null
@@ -52243,6 +52277,7 @@ export namespace Prisma {
     startAt: Date | string
     endAt: Date | string
     paymentDate: Date | string
+    instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
     ganponKuriire?: number | null
@@ -52352,6 +52387,7 @@ export namespace Prisma {
     startAt: Date | string
     endAt: Date | string
     paymentDate: Date | string
+    instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
     ganponKuriire?: number | null
@@ -53051,6 +53087,7 @@ export namespace Prisma {
     startAt: Date | string
     endAt: Date | string
     paymentDate: Date | string
+    instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
     ganponKuriire?: number | null
@@ -53160,6 +53197,7 @@ export namespace Prisma {
     startAt: Date | string
     endAt: Date | string
     paymentDate: Date | string
+    instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
     ganponKuriire?: number | null
@@ -55281,6 +55319,7 @@ export namespace Prisma {
     startAt: Date | string
     endAt: Date | string
     paymentDate: Date | string
+    instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
     ganponKuriire?: number | null
@@ -55391,6 +55430,7 @@ export namespace Prisma {
     startAt: Date | string
     endAt: Date | string
     paymentDate: Date | string
+    instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
     ganponKuriire?: number | null
@@ -55595,6 +55635,7 @@ export namespace Prisma {
     startAt?: DateTimeFieldUpdateOperationsInput | Date | string
     endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
@@ -55705,6 +55746,7 @@ export namespace Prisma {
     startAt?: DateTimeFieldUpdateOperationsInput | Date | string
     endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
@@ -56405,6 +56447,7 @@ export namespace Prisma {
     startAt: Date | string
     endAt: Date | string
     paymentDate: Date | string
+    instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
     ganponKuriire?: number | null
@@ -56515,6 +56558,7 @@ export namespace Prisma {
     startAt: Date | string
     endAt: Date | string
     paymentDate: Date | string
+    instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
     ganponKuriire?: number | null
@@ -56905,6 +56949,7 @@ export namespace Prisma {
     startAt?: DateTimeFieldUpdateOperationsInput | Date | string
     endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
@@ -57015,6 +57060,7 @@ export namespace Prisma {
     startAt?: DateTimeFieldUpdateOperationsInput | Date | string
     endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
@@ -59314,6 +59360,7 @@ export namespace Prisma {
     startAt: Date | string
     endAt: Date | string
     paymentDate: Date | string
+    instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
     ganponKuriire?: number | null
@@ -59418,6 +59465,7 @@ export namespace Prisma {
     startAt: Date | string
     endAt: Date | string
     paymentDate: Date | string
+    instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
     ganponKuriire?: number | null
@@ -59533,6 +59581,7 @@ export namespace Prisma {
     startAt?: DateTimeFieldUpdateOperationsInput | Date | string
     endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
@@ -59642,6 +59691,7 @@ export namespace Prisma {
     startAt?: DateTimeFieldUpdateOperationsInput | Date | string
     endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
@@ -59748,6 +59798,7 @@ export namespace Prisma {
     startAt?: DateTimeFieldUpdateOperationsInput | Date | string
     endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
@@ -59849,6 +59900,7 @@ export namespace Prisma {
     startAt?: DateTimeFieldUpdateOperationsInput | Date | string
     endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
@@ -59958,6 +60010,7 @@ export namespace Prisma {
     startAt?: DateTimeFieldUpdateOperationsInput | Date | string
     endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
@@ -60064,6 +60117,7 @@ export namespace Prisma {
     startAt?: DateTimeFieldUpdateOperationsInput | Date | string
     endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
@@ -60210,6 +60264,7 @@ export namespace Prisma {
     startAt: Date | string
     endAt: Date | string
     paymentDate: Date | string
+    instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
     ganponKuriire?: number | null
@@ -60390,6 +60445,7 @@ export namespace Prisma {
     startAt?: DateTimeFieldUpdateOperationsInput | Date | string
     endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
@@ -60499,6 +60555,7 @@ export namespace Prisma {
     startAt?: DateTimeFieldUpdateOperationsInput | Date | string
     endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
@@ -60605,6 +60662,7 @@ export namespace Prisma {
     startAt?: DateTimeFieldUpdateOperationsInput | Date | string
     endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
@@ -60954,6 +61012,7 @@ export namespace Prisma {
     startAt: Date | string
     endAt: Date | string
     paymentDate: Date | string
+    instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
     ganponKuriire?: number | null
@@ -61132,6 +61191,7 @@ export namespace Prisma {
     startAt?: DateTimeFieldUpdateOperationsInput | Date | string
     endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
@@ -61241,6 +61301,7 @@ export namespace Prisma {
     startAt?: DateTimeFieldUpdateOperationsInput | Date | string
     endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
@@ -61347,6 +61408,7 @@ export namespace Prisma {
     startAt?: DateTimeFieldUpdateOperationsInput | Date | string
     endAt?: DateTimeFieldUpdateOperationsInput | Date | string
     paymentDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
