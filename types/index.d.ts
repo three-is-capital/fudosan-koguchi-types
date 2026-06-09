@@ -11757,6 +11757,8 @@ export namespace Prisma {
     instructionDate: Date | null
     reportDate: Date | null
     topic: string | null
+    reportComment: string | null
+    reportNote: string | null
     ganponKuriire: number | null
     yayoiUploadVersion: number | null
     yayoiUploadAt: Date | null
@@ -11863,6 +11865,8 @@ export namespace Prisma {
     instructionDate: Date | null
     reportDate: Date | null
     topic: string | null
+    reportComment: string | null
+    reportNote: string | null
     ganponKuriire: number | null
     yayoiUploadVersion: number | null
     yayoiUploadAt: Date | null
@@ -11969,6 +11973,8 @@ export namespace Prisma {
     instructionDate: number
     reportDate: number
     topic: number
+    reportComment: number
+    reportNote: number
     ganponKuriire: number
     yayoiUploadVersion: number
     yayoiUploadAt: number
@@ -12247,6 +12253,8 @@ export namespace Prisma {
     instructionDate?: true
     reportDate?: true
     topic?: true
+    reportComment?: true
+    reportNote?: true
     ganponKuriire?: true
     yayoiUploadVersion?: true
     yayoiUploadAt?: true
@@ -12353,6 +12361,8 @@ export namespace Prisma {
     instructionDate?: true
     reportDate?: true
     topic?: true
+    reportComment?: true
+    reportNote?: true
     ganponKuriire?: true
     yayoiUploadVersion?: true
     yayoiUploadAt?: true
@@ -12459,6 +12469,8 @@ export namespace Prisma {
     instructionDate?: true
     reportDate?: true
     topic?: true
+    reportComment?: true
+    reportNote?: true
     ganponKuriire?: true
     yayoiUploadVersion?: true
     yayoiUploadAt?: true
@@ -12652,6 +12664,8 @@ export namespace Prisma {
     instructionDate: Date | null
     reportDate: Date
     topic: string
+    reportComment: string | null
+    reportNote: string | null
     ganponKuriire: number | null
     yayoiUploadVersion: number
     yayoiUploadAt: Date | null
@@ -12777,6 +12791,8 @@ export namespace Prisma {
     instructionDate?: boolean
     reportDate?: boolean
     topic?: boolean
+    reportComment?: boolean
+    reportNote?: boolean
     ganponKuriire?: boolean
     yayoiUploadVersion?: boolean
     yayoiUploadAt?: boolean
@@ -12890,6 +12906,8 @@ export namespace Prisma {
     instructionDate?: boolean
     reportDate?: boolean
     topic?: boolean
+    reportComment?: boolean
+    reportNote?: boolean
     ganponKuriire?: boolean
     yayoiUploadVersion?: boolean
     yayoiUploadAt?: boolean
@@ -13000,6 +13018,8 @@ export namespace Prisma {
     instructionDate?: boolean
     reportDate?: boolean
     topic?: boolean
+    reportComment?: boolean
+    reportNote?: boolean
     ganponKuriire?: boolean
     yayoiUploadVersion?: boolean
     yayoiUploadAt?: boolean
@@ -13110,6 +13130,8 @@ export namespace Prisma {
     instructionDate?: boolean
     reportDate?: boolean
     topic?: boolean
+    reportComment?: boolean
+    reportNote?: boolean
     ganponKuriire?: boolean
     yayoiUploadVersion?: boolean
     yayoiUploadAt?: boolean
@@ -13203,7 +13225,7 @@ export namespace Prisma {
     updatedBy?: boolean
   }
 
-  export type ProjectKiOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "kiId" | "mainUserId" | "subUserId" | "projectKi" | "startAt" | "endAt" | "paymentDate" | "instructionDate" | "reportDate" | "topic" | "ganponKuriire" | "yayoiUploadVersion" | "yayoiUploadAt" | "customerUploadVersion" | "customerUploadAt" | "calculateVersion" | "calculateAt" | "finalKiFlag" | "hiyoKeijoRent" | "mlspcMarginIncludeTax" | "totalUnit" | "totalUnitNonInvoice" | "shintakuShueki" | "shintakuHiyo" | "sashihikiShintakuRieki" | "shintakuRieki" | "bunpaiRieki" | "bunpaiSogaku" | "bunpaiSogakuNonInvoice" | "kichuKoteiShisan" | "kurikoshiRieki" | "capitalGain" | "unitCapitalGain" | "unitShintakuShueki" | "unitShintakuHiyo" | "unitShintakuHiyoForNonInvoice" | "unitSashihikiShintakuRieki" | "unitSashihikiShintakuRiekiForNonInvoice" | "unitGanponKuriire" | "unitBunpai" | "unitBunpaiForNonInvoice" | "unitKichuKoteiShisan" | "shohiyoRyuhokin" | "shuzenTsumitatekin" | "shohiyoRyuhokinTorikuzushi" | "shuzenTsumitatekinTorikuzushi" | "azukarikinHenkanJunbikin" | "zeikinHokenryoJunbiKanjo" | "kyodoUnyuHiyoJunbiKanjo" | "risokuShiharaiJunbiKanjo" | "shihoTekiShishutsuJunbiKanjo" | "cashTrapJunbiKanjo" | "interestCapContractKanjo" | "sonotaGenyokin" | "futuYokinTokiZandaka" | "zenkiKurikoshiRieki" | "shuzenTsumitatekinKuriire" | "mibaraiHiyo" | "chokiKariire" | "currentYearBunpaiRatio" | "fullYearBunpaiRatio" | "currentYearBunpaiRatioNonInvoice" | "fullYearBunpaiRatioNonInvoice" | "shintakuShuekiKazeiUriage" | "shintakuShuekiKazeiUriageShohizei" | "shintakuShuekiHikazeiUriage" | "shintakuShuekiTaishogaiUriage" | "shintakuHiyoKazeiShiire" | "shintakuHiyoKazeiShiireShohizei" | "shintakuHiyoHikazeiShiire" | "shintakuHiyoTaishogaiShiire" | "unitShintakuShuekiKazeiUriage" | "unitShintakuShuekiKazeiUriageShohizei" | "unitShintakuShuekiHikazeiUriage" | "unitShintakuShuekiTaishogaiUriage" | "unitShintakuHiyoKazeiShiire" | "unitShintakuHiyoKazeiShiireShohizei" | "unitShintakuHiyoHikazeiShiire" | "unitShintakuHiyoKazeiShiireForNonInvoice" | "unitShintakuHiyoKazeiShiireShohizeiForNonInvoice" | "unitShintakuHiyoTaishogaiShiire" | "kazeiUriageSashihiki08" | "kazeiUriageSashihiki10" | "kazeiUriageHontai08" | "kazeiUriageHontai10" | "kazeiShiire100Kojo" | "kazeiShiire100KojoNoTax" | "kazeiShiire8050Kojo" | "kazeiShiire8050KojoNoTax" | "kazeiShiire100KojoKazeiUriageHontai" | "kazeiShiire8050KojoKazeiUriageHontai" | "kazeiShiire100KojoKyotsuHontai" | "kazeiShiire8050KojoKyotsuHontai" | "koteiShisan80Kojo" | "koteiShisan80KojoNoTax" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["projectKi"]>
+  export type ProjectKiOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "kiId" | "mainUserId" | "subUserId" | "projectKi" | "startAt" | "endAt" | "paymentDate" | "instructionDate" | "reportDate" | "topic" | "reportComment" | "reportNote" | "ganponKuriire" | "yayoiUploadVersion" | "yayoiUploadAt" | "customerUploadVersion" | "customerUploadAt" | "calculateVersion" | "calculateAt" | "finalKiFlag" | "hiyoKeijoRent" | "mlspcMarginIncludeTax" | "totalUnit" | "totalUnitNonInvoice" | "shintakuShueki" | "shintakuHiyo" | "sashihikiShintakuRieki" | "shintakuRieki" | "bunpaiRieki" | "bunpaiSogaku" | "bunpaiSogakuNonInvoice" | "kichuKoteiShisan" | "kurikoshiRieki" | "capitalGain" | "unitCapitalGain" | "unitShintakuShueki" | "unitShintakuHiyo" | "unitShintakuHiyoForNonInvoice" | "unitSashihikiShintakuRieki" | "unitSashihikiShintakuRiekiForNonInvoice" | "unitGanponKuriire" | "unitBunpai" | "unitBunpaiForNonInvoice" | "unitKichuKoteiShisan" | "shohiyoRyuhokin" | "shuzenTsumitatekin" | "shohiyoRyuhokinTorikuzushi" | "shuzenTsumitatekinTorikuzushi" | "azukarikinHenkanJunbikin" | "zeikinHokenryoJunbiKanjo" | "kyodoUnyuHiyoJunbiKanjo" | "risokuShiharaiJunbiKanjo" | "shihoTekiShishutsuJunbiKanjo" | "cashTrapJunbiKanjo" | "interestCapContractKanjo" | "sonotaGenyokin" | "futuYokinTokiZandaka" | "zenkiKurikoshiRieki" | "shuzenTsumitatekinKuriire" | "mibaraiHiyo" | "chokiKariire" | "currentYearBunpaiRatio" | "fullYearBunpaiRatio" | "currentYearBunpaiRatioNonInvoice" | "fullYearBunpaiRatioNonInvoice" | "shintakuShuekiKazeiUriage" | "shintakuShuekiKazeiUriageShohizei" | "shintakuShuekiHikazeiUriage" | "shintakuShuekiTaishogaiUriage" | "shintakuHiyoKazeiShiire" | "shintakuHiyoKazeiShiireShohizei" | "shintakuHiyoHikazeiShiire" | "shintakuHiyoTaishogaiShiire" | "unitShintakuShuekiKazeiUriage" | "unitShintakuShuekiKazeiUriageShohizei" | "unitShintakuShuekiHikazeiUriage" | "unitShintakuShuekiTaishogaiUriage" | "unitShintakuHiyoKazeiShiire" | "unitShintakuHiyoKazeiShiireShohizei" | "unitShintakuHiyoHikazeiShiire" | "unitShintakuHiyoKazeiShiireForNonInvoice" | "unitShintakuHiyoKazeiShiireShohizeiForNonInvoice" | "unitShintakuHiyoTaishogaiShiire" | "kazeiUriageSashihiki08" | "kazeiUriageSashihiki10" | "kazeiUriageHontai08" | "kazeiUriageHontai10" | "kazeiShiire100Kojo" | "kazeiShiire100KojoNoTax" | "kazeiShiire8050Kojo" | "kazeiShiire8050KojoNoTax" | "kazeiShiire100KojoKazeiUriageHontai" | "kazeiShiire8050KojoKazeiUriageHontai" | "kazeiShiire100KojoKyotsuHontai" | "kazeiShiire8050KojoKyotsuHontai" | "koteiShisan80Kojo" | "koteiShisan80KojoNoTax" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["projectKi"]>
   export type ProjectKiInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Project?: boolean | ProjectDefaultArgs<ExtArgs>
     Ki?: boolean | KiDefaultArgs<ExtArgs>
@@ -13249,6 +13271,8 @@ export namespace Prisma {
       instructionDate: Date | null
       reportDate: Date
       topic: string
+      reportComment: string | null
+      reportNote: string | null
       ganponKuriire: number | null
       yayoiUploadVersion: number
       yayoiUploadAt: Date | null
@@ -13781,6 +13805,8 @@ export namespace Prisma {
     readonly instructionDate: FieldRef<"ProjectKi", 'DateTime'>
     readonly reportDate: FieldRef<"ProjectKi", 'DateTime'>
     readonly topic: FieldRef<"ProjectKi", 'String'>
+    readonly reportComment: FieldRef<"ProjectKi", 'String'>
+    readonly reportNote: FieldRef<"ProjectKi", 'String'>
     readonly ganponKuriire: FieldRef<"ProjectKi", 'Int'>
     readonly yayoiUploadVersion: FieldRef<"ProjectKi", 'Int'>
     readonly yayoiUploadAt: FieldRef<"ProjectKi", 'DateTime'>
@@ -37175,6 +37201,8 @@ export namespace Prisma {
     instructionDate: 'instructionDate',
     reportDate: 'reportDate',
     topic: 'topic',
+    reportComment: 'reportComment',
+    reportNote: 'reportNote',
     ganponKuriire: 'ganponKuriire',
     yayoiUploadVersion: 'yayoiUploadVersion',
     yayoiUploadAt: 'yayoiUploadAt',
@@ -38926,6 +38954,8 @@ export namespace Prisma {
     instructionDate?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
     reportDate?: DateTimeFilter<"ProjectKi"> | Date | string
     topic?: StringFilter<"ProjectKi"> | string
+    reportComment?: StringNullableFilter<"ProjectKi"> | string | null
+    reportNote?: StringNullableFilter<"ProjectKi"> | string | null
     ganponKuriire?: IntNullableFilter<"ProjectKi"> | number | null
     yayoiUploadVersion?: IntFilter<"ProjectKi"> | number
     yayoiUploadAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
@@ -39038,6 +39068,8 @@ export namespace Prisma {
     instructionDate?: SortOrderInput | SortOrder
     reportDate?: SortOrder
     topic?: SortOrder
+    reportComment?: SortOrderInput | SortOrder
+    reportNote?: SortOrderInput | SortOrder
     ganponKuriire?: SortOrderInput | SortOrder
     yayoiUploadVersion?: SortOrder
     yayoiUploadAt?: SortOrderInput | SortOrder
@@ -39155,6 +39187,8 @@ export namespace Prisma {
     instructionDate?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
     reportDate?: DateTimeFilter<"ProjectKi"> | Date | string
     topic?: StringFilter<"ProjectKi"> | string
+    reportComment?: StringNullableFilter<"ProjectKi"> | string | null
+    reportNote?: StringNullableFilter<"ProjectKi"> | string | null
     ganponKuriire?: IntNullableFilter<"ProjectKi"> | number | null
     yayoiUploadVersion?: IntFilter<"ProjectKi"> | number
     yayoiUploadAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
@@ -39267,6 +39301,8 @@ export namespace Prisma {
     instructionDate?: SortOrderInput | SortOrder
     reportDate?: SortOrder
     topic?: SortOrder
+    reportComment?: SortOrderInput | SortOrder
+    reportNote?: SortOrderInput | SortOrder
     ganponKuriire?: SortOrderInput | SortOrder
     yayoiUploadVersion?: SortOrder
     yayoiUploadAt?: SortOrderInput | SortOrder
@@ -39381,6 +39417,8 @@ export namespace Prisma {
     instructionDate?: DateTimeNullableWithAggregatesFilter<"ProjectKi"> | Date | string | null
     reportDate?: DateTimeWithAggregatesFilter<"ProjectKi"> | Date | string
     topic?: StringWithAggregatesFilter<"ProjectKi"> | string
+    reportComment?: StringNullableWithAggregatesFilter<"ProjectKi"> | string | null
+    reportNote?: StringNullableWithAggregatesFilter<"ProjectKi"> | string | null
     ganponKuriire?: IntNullableWithAggregatesFilter<"ProjectKi"> | number | null
     yayoiUploadVersion?: IntWithAggregatesFilter<"ProjectKi"> | number
     yayoiUploadAt?: DateTimeNullableWithAggregatesFilter<"ProjectKi"> | Date | string | null
@@ -42642,6 +42680,8 @@ export namespace Prisma {
     instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
+    reportComment?: string | null
+    reportNote?: string | null
     ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
@@ -42754,6 +42794,8 @@ export namespace Prisma {
     instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
+    reportComment?: string | null
+    reportNote?: string | null
     ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
@@ -42858,6 +42900,8 @@ export namespace Prisma {
     instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    reportComment?: NullableStringFieldUpdateOperationsInput | string | null
+    reportNote?: NullableStringFieldUpdateOperationsInput | string | null
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -42970,6 +43014,8 @@ export namespace Prisma {
     instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    reportComment?: NullableStringFieldUpdateOperationsInput | string | null
+    reportNote?: NullableStringFieldUpdateOperationsInput | string | null
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -43078,6 +43124,8 @@ export namespace Prisma {
     instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
+    reportComment?: string | null
+    reportNote?: string | null
     ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
@@ -43180,6 +43228,8 @@ export namespace Prisma {
     instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    reportComment?: NullableStringFieldUpdateOperationsInput | string | null
+    reportNote?: NullableStringFieldUpdateOperationsInput | string | null
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -43286,6 +43336,8 @@ export namespace Prisma {
     instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    reportComment?: NullableStringFieldUpdateOperationsInput | string | null
+    reportNote?: NullableStringFieldUpdateOperationsInput | string | null
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -46889,6 +46941,8 @@ export namespace Prisma {
     instructionDate?: SortOrder
     reportDate?: SortOrder
     topic?: SortOrder
+    reportComment?: SortOrder
+    reportNote?: SortOrder
     ganponKuriire?: SortOrder
     yayoiUploadVersion?: SortOrder
     yayoiUploadAt?: SortOrder
@@ -47080,6 +47134,8 @@ export namespace Prisma {
     instructionDate?: SortOrder
     reportDate?: SortOrder
     topic?: SortOrder
+    reportComment?: SortOrder
+    reportNote?: SortOrder
     ganponKuriire?: SortOrder
     yayoiUploadVersion?: SortOrder
     yayoiUploadAt?: SortOrder
@@ -47186,6 +47242,8 @@ export namespace Prisma {
     instructionDate?: SortOrder
     reportDate?: SortOrder
     topic?: SortOrder
+    reportComment?: SortOrder
+    reportNote?: SortOrder
     ganponKuriire?: SortOrder
     yayoiUploadVersion?: SortOrder
     yayoiUploadAt?: SortOrder
@@ -51619,6 +51677,8 @@ export namespace Prisma {
     instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
+    reportComment?: string | null
+    reportNote?: string | null
     ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
@@ -51729,6 +51789,8 @@ export namespace Prisma {
     instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
+    reportComment?: string | null
+    reportNote?: string | null
     ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
@@ -51843,6 +51905,8 @@ export namespace Prisma {
     instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
+    reportComment?: string | null
+    reportNote?: string | null
     ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
@@ -51953,6 +52017,8 @@ export namespace Prisma {
     instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
+    reportComment?: string | null
+    reportNote?: string | null
     ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
@@ -52128,6 +52194,8 @@ export namespace Prisma {
     instructionDate?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
     reportDate?: DateTimeFilter<"ProjectKi"> | Date | string
     topic?: StringFilter<"ProjectKi"> | string
+    reportComment?: StringNullableFilter<"ProjectKi"> | string | null
+    reportNote?: StringNullableFilter<"ProjectKi"> | string | null
     ganponKuriire?: IntNullableFilter<"ProjectKi"> | number | null
     yayoiUploadVersion?: IntFilter<"ProjectKi"> | number
     yayoiUploadAt?: DateTimeNullableFilter<"ProjectKi"> | Date | string | null
@@ -52280,6 +52348,8 @@ export namespace Prisma {
     instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
+    reportComment?: string | null
+    reportNote?: string | null
     ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
@@ -52390,6 +52460,8 @@ export namespace Prisma {
     instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
+    reportComment?: string | null
+    reportNote?: string | null
     ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
@@ -53090,6 +53162,8 @@ export namespace Prisma {
     instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
+    reportComment?: string | null
+    reportNote?: string | null
     ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
@@ -53200,6 +53274,8 @@ export namespace Prisma {
     instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
+    reportComment?: string | null
+    reportNote?: string | null
     ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
@@ -55322,6 +55398,8 @@ export namespace Prisma {
     instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
+    reportComment?: string | null
+    reportNote?: string | null
     ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
@@ -55433,6 +55511,8 @@ export namespace Prisma {
     instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
+    reportComment?: string | null
+    reportNote?: string | null
     ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
@@ -55638,6 +55718,8 @@ export namespace Prisma {
     instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    reportComment?: NullableStringFieldUpdateOperationsInput | string | null
+    reportNote?: NullableStringFieldUpdateOperationsInput | string | null
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -55749,6 +55831,8 @@ export namespace Prisma {
     instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    reportComment?: NullableStringFieldUpdateOperationsInput | string | null
+    reportNote?: NullableStringFieldUpdateOperationsInput | string | null
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -56450,6 +56534,8 @@ export namespace Prisma {
     instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
+    reportComment?: string | null
+    reportNote?: string | null
     ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
@@ -56561,6 +56647,8 @@ export namespace Prisma {
     instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
+    reportComment?: string | null
+    reportNote?: string | null
     ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
@@ -56952,6 +57040,8 @@ export namespace Prisma {
     instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    reportComment?: NullableStringFieldUpdateOperationsInput | string | null
+    reportNote?: NullableStringFieldUpdateOperationsInput | string | null
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -57063,6 +57153,8 @@ export namespace Prisma {
     instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    reportComment?: NullableStringFieldUpdateOperationsInput | string | null
+    reportNote?: NullableStringFieldUpdateOperationsInput | string | null
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -59363,6 +59455,8 @@ export namespace Prisma {
     instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
+    reportComment?: string | null
+    reportNote?: string | null
     ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
@@ -59468,6 +59562,8 @@ export namespace Prisma {
     instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
+    reportComment?: string | null
+    reportNote?: string | null
     ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
@@ -59584,6 +59680,8 @@ export namespace Prisma {
     instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    reportComment?: NullableStringFieldUpdateOperationsInput | string | null
+    reportNote?: NullableStringFieldUpdateOperationsInput | string | null
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -59694,6 +59792,8 @@ export namespace Prisma {
     instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    reportComment?: NullableStringFieldUpdateOperationsInput | string | null
+    reportNote?: NullableStringFieldUpdateOperationsInput | string | null
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -59801,6 +59901,8 @@ export namespace Prisma {
     instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    reportComment?: NullableStringFieldUpdateOperationsInput | string | null
+    reportNote?: NullableStringFieldUpdateOperationsInput | string | null
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -59903,6 +60005,8 @@ export namespace Prisma {
     instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    reportComment?: NullableStringFieldUpdateOperationsInput | string | null
+    reportNote?: NullableStringFieldUpdateOperationsInput | string | null
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -60013,6 +60117,8 @@ export namespace Prisma {
     instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    reportComment?: NullableStringFieldUpdateOperationsInput | string | null
+    reportNote?: NullableStringFieldUpdateOperationsInput | string | null
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -60120,6 +60226,8 @@ export namespace Prisma {
     instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    reportComment?: NullableStringFieldUpdateOperationsInput | string | null
+    reportNote?: NullableStringFieldUpdateOperationsInput | string | null
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -60267,6 +60375,8 @@ export namespace Prisma {
     instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
+    reportComment?: string | null
+    reportNote?: string | null
     ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
@@ -60448,6 +60558,8 @@ export namespace Prisma {
     instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    reportComment?: NullableStringFieldUpdateOperationsInput | string | null
+    reportNote?: NullableStringFieldUpdateOperationsInput | string | null
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -60558,6 +60670,8 @@ export namespace Prisma {
     instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    reportComment?: NullableStringFieldUpdateOperationsInput | string | null
+    reportNote?: NullableStringFieldUpdateOperationsInput | string | null
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -60665,6 +60779,8 @@ export namespace Prisma {
     instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    reportComment?: NullableStringFieldUpdateOperationsInput | string | null
+    reportNote?: NullableStringFieldUpdateOperationsInput | string | null
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -61015,6 +61131,8 @@ export namespace Prisma {
     instructionDate?: Date | string | null
     reportDate: Date | string
     topic: string
+    reportComment?: string | null
+    reportNote?: string | null
     ganponKuriire?: number | null
     yayoiUploadVersion?: number
     yayoiUploadAt?: Date | string | null
@@ -61194,6 +61312,8 @@ export namespace Prisma {
     instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    reportComment?: NullableStringFieldUpdateOperationsInput | string | null
+    reportNote?: NullableStringFieldUpdateOperationsInput | string | null
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -61304,6 +61424,8 @@ export namespace Prisma {
     instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    reportComment?: NullableStringFieldUpdateOperationsInput | string | null
+    reportNote?: NullableStringFieldUpdateOperationsInput | string | null
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -61411,6 +61533,8 @@ export namespace Prisma {
     instructionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reportDate?: DateTimeFieldUpdateOperationsInput | Date | string
     topic?: StringFieldUpdateOperationsInput | string
+    reportComment?: NullableStringFieldUpdateOperationsInput | string | null
+    reportNote?: NullableStringFieldUpdateOperationsInput | string | null
     ganponKuriire?: NullableIntFieldUpdateOperationsInput | number | null
     yayoiUploadVersion?: IntFieldUpdateOperationsInput | number
     yayoiUploadAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
