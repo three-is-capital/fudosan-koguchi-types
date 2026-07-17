@@ -207,6 +207,7 @@ export const TemplateType: {
   HiyoKeijo: 'HiyoKeijo',
   SendDocument01: 'SendDocument01',
   SendDocument02: 'SendDocument02',
+  SendDocument03: 'SendDocument03',
   BunpaiInstruction: 'BunpaiInstruction',
   CustomerList: 'CustomerList'
 };
@@ -9699,6 +9700,7 @@ export namespace Prisma {
     refId: string | null
     sendDocument01Id: string | null
     sendDocument02Id: string | null
+    sendDocument03Id: string | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -9751,6 +9753,7 @@ export namespace Prisma {
     refId: string | null
     sendDocument01Id: string | null
     sendDocument02Id: string | null
+    sendDocument03Id: string | null
     createdAt: Date | null
     createdId: string | null
     createdBy: string | null
@@ -9803,6 +9806,7 @@ export namespace Prisma {
     refId: number
     sendDocument01Id: number
     sendDocument02Id: number
+    sendDocument03Id: number
     createdAt: number
     createdId: number
     createdBy: number
@@ -9887,6 +9891,7 @@ export namespace Prisma {
     refId?: true
     sendDocument01Id?: true
     sendDocument02Id?: true
+    sendDocument03Id?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -9939,6 +9944,7 @@ export namespace Prisma {
     refId?: true
     sendDocument01Id?: true
     sendDocument02Id?: true
+    sendDocument03Id?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -9991,6 +9997,7 @@ export namespace Prisma {
     refId?: true
     sendDocument01Id?: true
     sendDocument02Id?: true
+    sendDocument03Id?: true
     createdAt?: true
     createdId?: true
     createdBy?: true
@@ -10130,6 +10137,7 @@ export namespace Prisma {
     refId: string | null
     sendDocument01Id: string | null
     sendDocument02Id: string | null
+    sendDocument03Id: string | null
     createdAt: Date
     createdId: string
     createdBy: string
@@ -10201,6 +10209,7 @@ export namespace Prisma {
     refId?: boolean
     sendDocument01Id?: boolean
     sendDocument02Id?: boolean
+    sendDocument03Id?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -10263,6 +10272,7 @@ export namespace Prisma {
     refId?: boolean
     sendDocument01Id?: boolean
     sendDocument02Id?: boolean
+    sendDocument03Id?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -10320,6 +10330,7 @@ export namespace Prisma {
     refId?: boolean
     sendDocument01Id?: boolean
     sendDocument02Id?: boolean
+    sendDocument03Id?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -10377,6 +10388,7 @@ export namespace Prisma {
     refId?: boolean
     sendDocument01Id?: boolean
     sendDocument02Id?: boolean
+    sendDocument03Id?: boolean
     createdAt?: boolean
     createdId?: boolean
     createdBy?: boolean
@@ -10385,7 +10397,7 @@ export namespace Prisma {
     updatedBy?: boolean
   }
 
-  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sbimpId" | "name" | "shortName" | "totalUnit" | "totalAmount" | "unitAmount" | "trustTermStart" | "trustTermEnd" | "dividendYield" | "fullOccupancyYield" | "totalKubun" | "residenceKubun" | "settlorGkName" | "settlorGkAddress" | "bankName" | "branchName" | "bankAccountType" | "bankAccount" | "bankAccountHolder" | "cashManBankName" | "cashManBranchName" | "cashManBankAccountType" | "cashManBankAccount" | "cashManBankAccountHolder" | "shintakuContractNum" | "kamiyachoFlag" | "mlspcFlag" | "leverageFlag" | "unitResidenceFlag" | "completedFlag" | "feeRateVariable" | "feeFixedAnnual" | "feeRateAgent" | "feeCashMgmtAnnual" | "feeRateTrust" | "reportMainId" | "reportAtt2Id" | "reportAtt3Id" | "bunpaiId" | "refId" | "sendDocument01Id" | "sendDocument02Id" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["project"]>
+  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "sbimpId" | "name" | "shortName" | "totalUnit" | "totalAmount" | "unitAmount" | "trustTermStart" | "trustTermEnd" | "dividendYield" | "fullOccupancyYield" | "totalKubun" | "residenceKubun" | "settlorGkName" | "settlorGkAddress" | "bankName" | "branchName" | "bankAccountType" | "bankAccount" | "bankAccountHolder" | "cashManBankName" | "cashManBranchName" | "cashManBankAccountType" | "cashManBankAccount" | "cashManBankAccountHolder" | "shintakuContractNum" | "kamiyachoFlag" | "mlspcFlag" | "leverageFlag" | "unitResidenceFlag" | "completedFlag" | "feeRateVariable" | "feeFixedAnnual" | "feeRateAgent" | "feeCashMgmtAnnual" | "feeRateTrust" | "reportMainId" | "reportAtt2Id" | "reportAtt3Id" | "bunpaiId" | "refId" | "sendDocument01Id" | "sendDocument02Id" | "sendDocument03Id" | "createdAt" | "createdId" | "createdBy" | "updatedAt" | "updatedId" | "updatedBy", ExtArgs["result"]["project"]>
   export type ProjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     ReportMain?: boolean | Project$ReportMainArgs<ExtArgs>
     ReportAtt2?: boolean | Project$ReportAtt2Args<ExtArgs>
@@ -10470,6 +10482,7 @@ export namespace Prisma {
       refId: string | null
       sendDocument01Id: string | null
       sendDocument02Id: string | null
+      sendDocument03Id: string | null
       createdAt: Date
       createdId: string
       createdBy: string
@@ -10951,6 +10964,7 @@ export namespace Prisma {
     readonly refId: FieldRef<"Project", 'String'>
     readonly sendDocument01Id: FieldRef<"Project", 'String'>
     readonly sendDocument02Id: FieldRef<"Project", 'String'>
+    readonly sendDocument03Id: FieldRef<"Project", 'String'>
     readonly createdAt: FieldRef<"Project", 'DateTime'>
     readonly createdId: FieldRef<"Project", 'String'>
     readonly createdBy: FieldRef<"Project", 'String'>
@@ -37177,6 +37191,7 @@ export namespace Prisma {
     refId: 'refId',
     sendDocument01Id: 'sendDocument01Id',
     sendDocument02Id: 'sendDocument02Id',
+    sendDocument03Id: 'sendDocument03Id',
     createdAt: 'createdAt',
     createdId: 'createdId',
     createdBy: 'createdBy',
@@ -38684,6 +38699,7 @@ export namespace Prisma {
     refId?: StringNullableFilter<"Project"> | string | null
     sendDocument01Id?: StringNullableFilter<"Project"> | string | null
     sendDocument02Id?: StringNullableFilter<"Project"> | string | null
+    sendDocument03Id?: StringNullableFilter<"Project"> | string | null
     createdAt?: DateTimeFilter<"Project"> | Date | string
     createdId?: StringFilter<"Project"> | string
     createdBy?: StringFilter<"Project"> | string
@@ -38745,6 +38761,7 @@ export namespace Prisma {
     refId?: SortOrderInput | SortOrder
     sendDocument01Id?: SortOrderInput | SortOrder
     sendDocument02Id?: SortOrderInput | SortOrder
+    sendDocument03Id?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -38809,6 +38826,7 @@ export namespace Prisma {
     refId?: StringNullableFilter<"Project"> | string | null
     sendDocument01Id?: StringNullableFilter<"Project"> | string | null
     sendDocument02Id?: StringNullableFilter<"Project"> | string | null
+    sendDocument03Id?: StringNullableFilter<"Project"> | string | null
     createdAt?: DateTimeFilter<"Project"> | Date | string
     createdId?: StringFilter<"Project"> | string
     createdBy?: StringFilter<"Project"> | string
@@ -38870,6 +38888,7 @@ export namespace Prisma {
     refId?: SortOrderInput | SortOrder
     sendDocument01Id?: SortOrderInput | SortOrder
     sendDocument02Id?: SortOrderInput | SortOrder
+    sendDocument03Id?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -38930,6 +38949,7 @@ export namespace Prisma {
     refId?: StringNullableWithAggregatesFilter<"Project"> | string | null
     sendDocument01Id?: StringNullableWithAggregatesFilter<"Project"> | string | null
     sendDocument02Id?: StringNullableWithAggregatesFilter<"Project"> | string | null
+    sendDocument03Id?: StringNullableWithAggregatesFilter<"Project"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Project"> | Date | string
     createdId?: StringWithAggregatesFilter<"Project"> | string
     createdBy?: StringWithAggregatesFilter<"Project"> | string
@@ -42335,6 +42355,7 @@ export namespace Prisma {
     feeRateTrust?: number | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
+    sendDocument03Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -42396,6 +42417,7 @@ export namespace Prisma {
     refId?: string | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
+    sendDocument03Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -42447,6 +42469,7 @@ export namespace Prisma {
     feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument03Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -42508,6 +42531,7 @@ export namespace Prisma {
     refId?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument03Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -42564,6 +42588,7 @@ export namespace Prisma {
     refId?: string | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
+    sendDocument03Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -42611,6 +42636,7 @@ export namespace Prisma {
     feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument03Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -42663,6 +42689,7 @@ export namespace Prisma {
     refId?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument03Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -46676,6 +46703,7 @@ export namespace Prisma {
     refId?: SortOrder
     sendDocument01Id?: SortOrder
     sendDocument02Id?: SortOrder
+    sendDocument03Id?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -46743,6 +46771,7 @@ export namespace Prisma {
     refId?: SortOrder
     sendDocument01Id?: SortOrder
     sendDocument02Id?: SortOrder
+    sendDocument03Id?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -46795,6 +46824,7 @@ export namespace Prisma {
     refId?: SortOrder
     sendDocument01Id?: SortOrder
     sendDocument02Id?: SortOrder
+    sendDocument03Id?: SortOrder
     createdAt?: SortOrder
     createdId?: SortOrder
     createdBy?: SortOrder
@@ -54030,6 +54060,7 @@ export namespace Prisma {
     feeRateTrust?: number | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
+    sendDocument03Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -54090,6 +54121,7 @@ export namespace Prisma {
     refId?: string | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
+    sendDocument03Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -54381,6 +54413,7 @@ export namespace Prisma {
     feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument03Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -54441,6 +54474,7 @@ export namespace Prisma {
     refId?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument03Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -54691,6 +54725,7 @@ export namespace Prisma {
     feeRateTrust?: number | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
+    sendDocument03Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -54751,6 +54786,7 @@ export namespace Prisma {
     refId?: string | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
+    sendDocument03Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -54907,6 +54943,7 @@ export namespace Prisma {
     feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument03Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -54967,6 +55004,7 @@ export namespace Prisma {
     refId?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument03Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -56011,6 +56049,7 @@ export namespace Prisma {
     feeRateTrust?: number | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
+    sendDocument03Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -56071,6 +56110,7 @@ export namespace Prisma {
     refId?: string | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
+    sendDocument03Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -56273,6 +56313,7 @@ export namespace Prisma {
     feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument03Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -56333,6 +56374,7 @@ export namespace Prisma {
     refId?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument03Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -57670,6 +57712,7 @@ export namespace Prisma {
     feeRateTrust?: number | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
+    sendDocument03Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -57730,6 +57773,7 @@ export namespace Prisma {
     refId?: string | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
+    sendDocument03Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -57857,6 +57901,7 @@ export namespace Prisma {
     feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument03Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -57917,6 +57962,7 @@ export namespace Prisma {
     refId?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument03Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -58747,6 +58793,7 @@ export namespace Prisma {
     feeRateTrust?: number | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
+    sendDocument03Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -58806,6 +58853,7 @@ export namespace Prisma {
     refId?: string | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
+    sendDocument03Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -58867,6 +58915,7 @@ export namespace Prisma {
     feeRateTrust?: number | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
+    sendDocument03Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -58926,6 +58975,7 @@ export namespace Prisma {
     refId?: string | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
+    sendDocument03Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -58987,6 +59037,7 @@ export namespace Prisma {
     feeRateTrust?: number | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
+    sendDocument03Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -59046,6 +59097,7 @@ export namespace Prisma {
     refId?: string | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
+    sendDocument03Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -59107,6 +59159,7 @@ export namespace Prisma {
     feeRateTrust?: number | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
+    sendDocument03Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -59166,6 +59219,7 @@ export namespace Prisma {
     refId?: string | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
+    sendDocument03Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -59227,6 +59281,7 @@ export namespace Prisma {
     feeRateTrust?: number | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
+    sendDocument03Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -59286,6 +59341,7 @@ export namespace Prisma {
     bunpaiId?: string | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
+    sendDocument03Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -59371,6 +59427,7 @@ export namespace Prisma {
     refId?: StringNullableFilter<"Project"> | string | null
     sendDocument01Id?: StringNullableFilter<"Project"> | string | null
     sendDocument02Id?: StringNullableFilter<"Project"> | string | null
+    sendDocument03Id?: StringNullableFilter<"Project"> | string | null
     createdAt?: DateTimeFilter<"Project"> | Date | string
     createdId?: StringFilter<"Project"> | string
     createdBy?: StringFilter<"Project"> | string
@@ -62782,6 +62839,7 @@ export namespace Prisma {
     refId?: string | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
+    sendDocument03Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -62833,6 +62891,7 @@ export namespace Prisma {
     refId?: string | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
+    sendDocument03Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -62884,6 +62943,7 @@ export namespace Prisma {
     refId?: string | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
+    sendDocument03Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -62935,6 +62995,7 @@ export namespace Prisma {
     refId?: string | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
+    sendDocument03Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -62986,6 +63047,7 @@ export namespace Prisma {
     bunpaiId?: string | null
     sendDocument01Id?: string | null
     sendDocument02Id?: string | null
+    sendDocument03Id?: string | null
     createdAt?: Date | string
     createdId: string
     createdBy: string
@@ -63033,6 +63095,7 @@ export namespace Prisma {
     feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument03Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -63092,6 +63155,7 @@ export namespace Prisma {
     refId?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument03Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -63147,6 +63211,7 @@ export namespace Prisma {
     refId?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument03Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -63194,6 +63259,7 @@ export namespace Prisma {
     feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument03Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -63253,6 +63319,7 @@ export namespace Prisma {
     refId?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument03Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -63308,6 +63375,7 @@ export namespace Prisma {
     refId?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument03Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -63355,6 +63423,7 @@ export namespace Prisma {
     feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument03Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -63414,6 +63483,7 @@ export namespace Prisma {
     refId?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument03Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -63469,6 +63539,7 @@ export namespace Prisma {
     refId?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument03Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -63516,6 +63587,7 @@ export namespace Prisma {
     feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument03Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -63575,6 +63647,7 @@ export namespace Prisma {
     refId?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument03Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -63630,6 +63703,7 @@ export namespace Prisma {
     refId?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument03Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -63677,6 +63751,7 @@ export namespace Prisma {
     feeRateTrust?: NullableFloatFieldUpdateOperationsInput | number | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument03Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -63736,6 +63811,7 @@ export namespace Prisma {
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument03Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
@@ -63791,6 +63867,7 @@ export namespace Prisma {
     bunpaiId?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument01Id?: NullableStringFieldUpdateOperationsInput | string | null
     sendDocument02Id?: NullableStringFieldUpdateOperationsInput | string | null
+    sendDocument03Id?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdId?: StringFieldUpdateOperationsInput | string
     createdBy?: StringFieldUpdateOperationsInput | string
